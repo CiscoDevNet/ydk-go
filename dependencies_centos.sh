@@ -10,4 +10,8 @@ yum install devtoolset-4-gcc* -y > /dev/null
 ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
 ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
+echo "Installing Golang version 1.9.2"
+wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
+tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
+
 sudo easy_install pip

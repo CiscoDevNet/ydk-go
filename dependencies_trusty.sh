@@ -8,11 +8,6 @@ sudo apt-get install cmake gcc-5 g++-5 -y > /dev/null
 sudo ln -f -s /usr/bin/g++-5 /usr/bin/c++
 sudo ln -f -s /usr/bin/gcc-5 /usr/bin/cc
 
-sudo apt-get remove golang -y
-echo "Installing Golang version 1.9.2"
-sudo wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
-sudo tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
-
 git clone https://github.com/ciscodevnet/ydk-cpp.git -b 0.7.2
 mkdir ydk-cpp/core/ydk/build
 cd ydk-cpp/core/ydk/build
