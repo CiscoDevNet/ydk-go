@@ -6,7 +6,7 @@ module Cisco-IOS-XR-sdr-invmgr-diag-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-sdr-invmgr-diag-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2018-01-31;
   }
 
   organization
@@ -29,9 +29,13 @@ module Cisco-IOS-XR-sdr-invmgr-diag-oper {
      for the following management objects:
        diag: Diag information
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -87,7 +91,7 @@ module Cisco-IOS-XR-sdr-invmgr-diag-oper {
             }
           }
         }
-        container fan-traies {
+        container fan-trays {
           description
             "Table for rack fan trays";
           list fan-tray {

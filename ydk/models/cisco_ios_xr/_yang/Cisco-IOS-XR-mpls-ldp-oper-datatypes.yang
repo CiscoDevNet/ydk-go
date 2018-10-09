@@ -18,7 +18,7 @@ module Cisco-IOS-XR-mpls-ldp-oper-datatypes {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR mpls-ldp-oper-data package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -37,6 +37,11 @@ module Cisco-IOS-XR-mpls-ldp-oper-datatypes {
         value 2;
         description
           "IPv6";
+      }
+      enum "all" {
+        value 65535;
+        description
+          "All";
       }
     }
     description

@@ -32,7 +32,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR l2vpn package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -236,8 +236,18 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         description
           "virtual network interface";
       }
-      enum "encap-types-max" {
+      enum "vlan-switched-port" {
         value 29;
+        description
+          "vlan switched port";
+      }
+      enum "vlan-switched-port-vlan" {
+        value 30;
+        description
+          "vlan switched port vlan";
+      }
+      enum "encap-types-max" {
+        value 31;
         description
           "encap types max";
       }
@@ -1852,7 +1862,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       "Preferred Type";
   }
 
-  typedef L2vpn-proc-nsr-not-ready-reason {
+  typedef L2vpn-ha-nsr-not-ready-reason {
     type enumeration {
       enum "collab-time-out" {
         description
@@ -1872,7 +1882,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       }
     }
     description
-      "L2vpn proc nsr not ready reason";
+      "L2vpn ha nsr not ready reason";
   }
 
   typedef L2vpn-sync-status {
@@ -1888,45 +1898,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     }
     description
       "L2vpn sync status";
-  }
-
-  typedef L2vpn-proc-role {
-    type enumeration {
-      enum "unknown" {
-        description
-          "Unknown";
-      }
-      enum "v1-active" {
-        description
-          "V1 Active";
-      }
-      enum "v1-standby" {
-        description
-          "V1 Standby";
-      }
-      enum "v2-active" {
-        description
-          "V2 Active";
-      }
-      enum "v2-standby" {
-        description
-          "V2 Standby";
-      }
-      enum "v1-active-post-big-bang" {
-        description
-          "V1 Active post big-bang";
-      }
-      enum "v1-standby-post-big-bang" {
-        description
-          "V1 Standbyi post big-bang";
-      }
-      enum "count" {
-        description
-          "Count";
-      }
-    }
-    description
-      "L2VPN Process Role";
   }
 
   typedef L2vpn-id-mgr-app-bag {
@@ -1998,6 +1969,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       enum "l2vpn-id-mgr-app-bag-type-bp" {
         description
           "BP";
+      }
+      enum "l2vpn-id-mgr-app-bag-type-evpn-tep" {
+        description
+          "EVPN TEP";
       }
       enum "l2vpn-id-mgr-app-bag-type-count" {
         description
@@ -4079,17 +4054,17 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
   grouping L2VPN-BD-MAC {
     description
       "L2VPN Static MAC Address";
-    leaf address {
+    leaf mac {
       type yang:mac-address;
       description
         "MAC address";
     }
-    leaf bmac {
+    leaf pbb-bmac {
       type yang:mac-address;
       description
         "Backbone MAC address";
     }
-    leaf next-hop-ip {
+    leaf nh-addr {
       type inet:ipv4-address;
       description
         "Next Hop IP";
@@ -4791,6 +4766,26 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       type uint32;
       description
         "Number of xconnects";
+    }
+  }
+
+  grouping L2VPN-XC-CE2CE {
+    description
+      "L2VPN XC CE2CE";
+    leaf local-customer-edge-id {
+      type uint16;
+      description
+        "Local CE ID";
+    }
+    leaf remote-customer-edge-id {
+      type uint16;
+      description
+        "Remote CE ID";
+    }
+    leaf ce-added {
+      type boolean;
+      description
+        "CE2CE Advertised";
     }
   }
 
@@ -6409,11 +6404,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       description
         "Internal MSTi";
     }
-    leaf interface-handle {
-      type xr:Interface-name;
-      description
-        "Interface Handler";
-    }
     leaf node-id {
       type xr:Node-id;
       description
@@ -6608,26 +6598,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       description
         "Backup Segment";
       uses L2VPN-SEGMENT;
-    }
-  }
-
-  grouping L2VPN-XC-CE2CE {
-    description
-      "L2VPN XC CE2CE";
-    leaf local-customer-edge-id {
-      type uint16;
-      description
-        "Local CE ID";
-    }
-    leaf remote-customer-edge-id {
-      type uint16;
-      description
-        "Remote CE ID";
-    }
-    leaf ce-added {
-      type boolean;
-      description
-        "CE2CE Advertised";
     }
   }
 
@@ -6916,36 +6886,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
     }
   }
 
-  grouping L2VPN-MGMT-PROC-FSM-EVENT-HISTORY {
-    description
-      "L2VPN Process FSM event history";
-    leaf previous-state {
-      type uint8;
-      description
-        "Previous state";
-    }
-    leaf new-state {
-      type uint8;
-      description
-        "New state";
-    }
-    leaf process-event {
-      type uint16;
-      description
-        "Process event";
-    }
-    leaf process-collaborator {
-      type uint16;
-      description
-        "Process collaborator";
-    }
-    leaf event-timestamp {
-      type uint32;
-      description
-        "Event timestamp";
-    }
-  }
-
   grouping L2VPN-MGMT-PROC-FSM-REPORT-CARD {
     description
       "L2VPN Process FSM report card";
@@ -6975,6 +6915,11 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Was this collaborator skipped for not connecting
          in time";
     }
+    leaf expect-idt {
+      type boolean;
+      description
+        "Does this collaborator expect an IDT";
+    }
   }
 
   grouping L2VPN-IDT-STATUS {
@@ -6986,7 +6931,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Sync status";
     }
     leaf not-ready-reason {
-      type L2vpn-proc-nsr-not-ready-reason;
+      type L2vpn-ha-nsr-not-ready-reason;
       description
         "Not ready reason";
     }
@@ -7029,10 +6974,15 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "Previous IDT status";
       uses L2VPN-IDT-STATUS;
     }
-    leaf role {
-      type L2vpn-proc-role;
+    leaf nsr-role {
+      type uint8;
       description
-        "Process role";
+        "NSR role";
+    }
+    leaf issu-role {
+      type uint8;
+      description
+        "ISSU role";
     }
   }
 
@@ -7089,15 +7039,15 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "L2VPN ISSU Status and timestamp";
       uses L2VPN-NSR-ISSU-STATUS-INFO;
     }
-    leaf process-role {
+    leaf ha-role {
       type uint8;
       description
-        "Current Process Role";
+        "Current HA Role";
     }
-    leaf process-state {
+    leaf issu-role {
       type uint8;
       description
-        "Current Process State";
+        "Current ISSU Role";
     }
     leaf sync-flags {
       type uint32;
@@ -7109,13 +7059,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       description
         "Is s/w install currently in progress?";
     }
-    list state-transition-time {
-      description
-        "Transition time for all states";
-      leaf entry {
-        type uint32;
-      }
-    }
     list xid-info {
       description
         "XID information";
@@ -7126,11 +7069,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
         "L2VPN Collaborator report card";
       uses L2VPN-MGMT-PROC-FSM-REPORT-CARD;
     }
-    list event-history {
-      description
-        "L2VPN Process event history";
-      uses L2VPN-MGMT-PROC-FSM-EVENT-HISTORY;
-    }
   }
 
   grouping L2VPN-BRIDGE-SUMMARY {
@@ -7140,6 +7078,11 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub2 {
       type uint32;
       description
         "Number of groups";
+    }
+    leaf number-vlan-switches {
+      type uint32;
+      description
+        "Number of VLAN Switches";
     }
     leaf number-bridge-domains {
       type uint32;

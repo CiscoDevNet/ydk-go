@@ -6,7 +6,7 @@
 //   rsvp-standby: RSVP operational data for standby role
 //   rsvp: rsvp
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_rsvp_oper
 
@@ -492,9 +492,6 @@ type RsvpStandby struct {
     // Table of brief info about reservation state blocks.
     RsbBriefs RsvpStandby_RsbBriefs
 
-    // OpenConfig info.
-    OpenConfig RsvpStandby_OpenConfig
-
     // Counters.
     Counters RsvpStandby_Counters
 
@@ -573,7 +570,6 @@ func (rsvpStandby *RsvpStandby) GetEntityData() *types.CommonEntityData {
     rsvpStandby.EntityData.Children.Append("hello-instance-briefs", types.YChild{"HelloInstanceBriefs", &rsvpStandby.HelloInstanceBriefs})
     rsvpStandby.EntityData.Children.Append("authentication-details", types.YChild{"AuthenticationDetails", &rsvpStandby.AuthenticationDetails})
     rsvpStandby.EntityData.Children.Append("rsb-briefs", types.YChild{"RsbBriefs", &rsvpStandby.RsbBriefs})
-    rsvpStandby.EntityData.Children.Append("open-config", types.YChild{"OpenConfig", &rsvpStandby.OpenConfig})
     rsvpStandby.EntityData.Children.Append("counters", types.YChild{"Counters", &rsvpStandby.Counters})
     rsvpStandby.EntityData.Children.Append("interface-detaileds", types.YChild{"InterfaceDetaileds", &rsvpStandby.InterfaceDetaileds})
     rsvpStandby.EntityData.Children.Append("controller-briefs", types.YChild{"ControllerBriefs", &rsvpStandby.ControllerBriefs})
@@ -687,7 +683,7 @@ type RsvpStandby_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighbo
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 }
 
@@ -752,7 +748,7 @@ type RsvpStandby_ControllerSummaries_ControllerSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -1012,7 +1008,7 @@ type RsvpStandby_AuthenticationBriefs_AuthenticationBrief struct {
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source address. The type is string with pattern:
@@ -2343,7 +2339,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -3655,7 +3651,7 @@ type RsvpStandby_ControllerDetaileds_ControllerDetailed struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -5073,7 +5069,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -6003,7 +5999,7 @@ type RsvpStandby_InterfaceSummaries_InterfaceSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -6273,7 +6269,7 @@ type RsvpStandby_HelloInstanceBriefs_HelloInstanceBrief struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Total number of times communication got lost. The type is interface{} with
@@ -6360,7 +6356,7 @@ type RsvpStandby_AuthenticationDetails_AuthenticationDetail struct {
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Key status. The type is interface{} with range: 0..4294967295.
@@ -7475,327 +7471,6 @@ func (p2mpIpv4Session *RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4
     return &(p2mpIpv4Session.EntityData)
 }
 
-// RsvpStandby_OpenConfig
-// OpenConfig info
-type RsvpStandby_OpenConfig struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Platform wide RSVP statistics and counters.
-    GlobalCounters RsvpStandby_OpenConfig_GlobalCounters
-
-    // Table of info about RSVP-enabled interface counters for OpenConfig.
-    InterfaceCounters RsvpStandby_OpenConfig_InterfaceCounters
-}
-
-func (openConfig *RsvpStandby_OpenConfig) GetEntityData() *types.CommonEntityData {
-    openConfig.EntityData.YFilter = openConfig.YFilter
-    openConfig.EntityData.YangName = "open-config"
-    openConfig.EntityData.BundleName = "cisco_ios_xr"
-    openConfig.EntityData.ParentYangName = "rsvp-standby"
-    openConfig.EntityData.SegmentPath = "open-config"
-    openConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    openConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    openConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    openConfig.EntityData.Children = types.NewOrderedMap()
-    openConfig.EntityData.Children.Append("global-counters", types.YChild{"GlobalCounters", &openConfig.GlobalCounters})
-    openConfig.EntityData.Children.Append("interface-counters", types.YChild{"InterfaceCounters", &openConfig.InterfaceCounters})
-    openConfig.EntityData.Leafs = types.NewOrderedMap()
-
-    openConfig.EntityData.YListKeys = []string {}
-
-    return &(openConfig.EntityData)
-}
-
-// RsvpStandby_OpenConfig_GlobalCounters
-// Platform wide RSVP statistics and counters
-type RsvpStandby_OpenConfig_GlobalCounters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Global count of Path Timeouts. The type is interface{} with range:
-    // 0..18446744073709551615.
-    PathTimeouts interface{}
-
-    // Global count of reservation timeouts. The type is interface{} with range:
-    // 0..18446744073709551615.
-    ReservationTimeouts interface{}
-
-    // Global count of rate limited messages. The type is interface{} with range:
-    // 0..18446744073709551615.
-    RateLimitedMessages interface{}
-
-    // Global count of path messages received. The type is interface{} with range:
-    // 0..18446744073709551615.
-    InPathMessages interface{}
-
-    // Global count of path error messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathErrorMessages interface{}
-
-    // Global count of path tear messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathTearMessages interface{}
-
-    // Global count of reservation messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InReservationMessages interface{}
-
-    // Global count of reservation error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationErrorMessages interface{}
-
-    // Global count of reservation tear messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InReservationTearMessages interface{}
-
-    // Global count of hello messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InHelloMessages interface{}
-
-    // Global count of srefresh messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InSrefreshMessages interface{}
-
-    // Global count of ack messages received. The type is interface{} with range:
-    // 0..18446744073709551615.
-    InAckMessages interface{}
-
-    // Global count of path messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutPathMessages interface{}
-
-    // Global count of path error messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathErrorMessages interface{}
-
-    // Global count of path tear messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathTearMessages interface{}
-
-    // Global count of reservation messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutReservationMessages interface{}
-
-    // Global count of reservation error messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationErrorMessages interface{}
-
-    // Global count of reservation tear messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationTearMessages interface{}
-
-    // Global count of hello messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutHelloMessages interface{}
-
-    // Global count of srefresh messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutSrefreshMessages interface{}
-
-    // Global count of ack messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutAckMessages interface{}
-}
-
-func (globalCounters *RsvpStandby_OpenConfig_GlobalCounters) GetEntityData() *types.CommonEntityData {
-    globalCounters.EntityData.YFilter = globalCounters.YFilter
-    globalCounters.EntityData.YangName = "global-counters"
-    globalCounters.EntityData.BundleName = "cisco_ios_xr"
-    globalCounters.EntityData.ParentYangName = "open-config"
-    globalCounters.EntityData.SegmentPath = "global-counters"
-    globalCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    globalCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    globalCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    globalCounters.EntityData.Children = types.NewOrderedMap()
-    globalCounters.EntityData.Leafs = types.NewOrderedMap()
-    globalCounters.EntityData.Leafs.Append("path-timeouts", types.YLeaf{"PathTimeouts", globalCounters.PathTimeouts})
-    globalCounters.EntityData.Leafs.Append("reservation-timeouts", types.YLeaf{"ReservationTimeouts", globalCounters.ReservationTimeouts})
-    globalCounters.EntityData.Leafs.Append("rate-limited-messages", types.YLeaf{"RateLimitedMessages", globalCounters.RateLimitedMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", globalCounters.InPathMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", globalCounters.InPathErrorMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", globalCounters.InPathTearMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", globalCounters.InReservationMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", globalCounters.InReservationErrorMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", globalCounters.InReservationTearMessages})
-    globalCounters.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", globalCounters.InHelloMessages})
-    globalCounters.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", globalCounters.InSrefreshMessages})
-    globalCounters.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", globalCounters.InAckMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", globalCounters.OutPathMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", globalCounters.OutPathErrorMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", globalCounters.OutPathTearMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", globalCounters.OutReservationMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", globalCounters.OutReservationErrorMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", globalCounters.OutReservationTearMessages})
-    globalCounters.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", globalCounters.OutHelloMessages})
-    globalCounters.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", globalCounters.OutSrefreshMessages})
-    globalCounters.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", globalCounters.OutAckMessages})
-
-    globalCounters.EntityData.YListKeys = []string {}
-
-    return &(globalCounters.EntityData)
-}
-
-// RsvpStandby_OpenConfig_InterfaceCounters
-// Table of info about RSVP-enabled interface
-// counters for OpenConfig
-type RsvpStandby_OpenConfig_InterfaceCounters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Info about an RSVP-enabled interface counters. The type is slice of
-    // RsvpStandby_OpenConfig_InterfaceCounters_InterfaceCounter.
-    InterfaceCounter []*RsvpStandby_OpenConfig_InterfaceCounters_InterfaceCounter
-}
-
-func (interfaceCounters *RsvpStandby_OpenConfig_InterfaceCounters) GetEntityData() *types.CommonEntityData {
-    interfaceCounters.EntityData.YFilter = interfaceCounters.YFilter
-    interfaceCounters.EntityData.YangName = "interface-counters"
-    interfaceCounters.EntityData.BundleName = "cisco_ios_xr"
-    interfaceCounters.EntityData.ParentYangName = "open-config"
-    interfaceCounters.EntityData.SegmentPath = "interface-counters"
-    interfaceCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceCounters.EntityData.Children = types.NewOrderedMap()
-    interfaceCounters.EntityData.Children.Append("interface-counter", types.YChild{"InterfaceCounter", nil})
-    for i := range interfaceCounters.InterfaceCounter {
-        interfaceCounters.EntityData.Children.Append(types.GetSegmentPath(interfaceCounters.InterfaceCounter[i]), types.YChild{"InterfaceCounter", interfaceCounters.InterfaceCounter[i]})
-    }
-    interfaceCounters.EntityData.Leafs = types.NewOrderedMap()
-
-    interfaceCounters.EntityData.YListKeys = []string {}
-
-    return &(interfaceCounters.EntityData)
-}
-
-// RsvpStandby_OpenConfig_InterfaceCounters_InterfaceCounter
-// Info about an RSVP-enabled interface counters
-type RsvpStandby_OpenConfig_InterfaceCounters_InterfaceCounter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // Interface name. The type is string.
-    InterfaceNameXr interface{}
-
-    // Per interface count of path messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathMessages interface{}
-
-    // Per interface count of path error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InPathErrorMessages interface{}
-
-    // Per interface count of path tear messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InPathTearMessages interface{}
-
-    // Per interface count of reservation messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationMessages interface{}
-
-    // Per interface count of reservation error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationErrorMessages interface{}
-
-    // Per interface count of reservation tear messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationTearMessages interface{}
-
-    // Per interface count of hello messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InHelloMessages interface{}
-
-    // Per interface count of srefresh messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InSrefreshMessages interface{}
-
-    // Per interface count of ack messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InAckMessages interface{}
-
-    // Per interface count of path messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathMessages interface{}
-
-    // Per interface count of path error messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutPathErrorMessages interface{}
-
-    // Per interface count of path tear messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutPathTearMessages interface{}
-
-    // Per interface count of reservation messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationMessages interface{}
-
-    // Per interface count of reservation error messages send. The type is
-    // interface{} with range: 0..18446744073709551615.
-    OutReservationErrorMessages interface{}
-
-    // Per interface count of reservation tear messages send. The type is
-    // interface{} with range: 0..18446744073709551615.
-    OutReservationTearMessages interface{}
-
-    // Per interface count of hello messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutHelloMessages interface{}
-
-    // Per interface count of srefresh messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutSrefreshMessages interface{}
-
-    // Per interface count of ack messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutAckMessages interface{}
-}
-
-func (interfaceCounter *RsvpStandby_OpenConfig_InterfaceCounters_InterfaceCounter) GetEntityData() *types.CommonEntityData {
-    interfaceCounter.EntityData.YFilter = interfaceCounter.YFilter
-    interfaceCounter.EntityData.YangName = "interface-counter"
-    interfaceCounter.EntityData.BundleName = "cisco_ios_xr"
-    interfaceCounter.EntityData.ParentYangName = "interface-counters"
-    interfaceCounter.EntityData.SegmentPath = "interface-counter" + types.AddKeyToken(interfaceCounter.InterfaceName, "interface-name")
-    interfaceCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceCounter.EntityData.Children = types.NewOrderedMap()
-    interfaceCounter.EntityData.Leafs = types.NewOrderedMap()
-    interfaceCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceCounter.InterfaceName})
-    interfaceCounter.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", interfaceCounter.InterfaceNameXr})
-    interfaceCounter.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", interfaceCounter.InPathMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", interfaceCounter.InPathErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", interfaceCounter.InPathTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", interfaceCounter.InReservationMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", interfaceCounter.InReservationErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", interfaceCounter.InReservationTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", interfaceCounter.InHelloMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", interfaceCounter.InSrefreshMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", interfaceCounter.InAckMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", interfaceCounter.OutPathMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", interfaceCounter.OutPathErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", interfaceCounter.OutPathTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", interfaceCounter.OutReservationMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", interfaceCounter.OutReservationErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", interfaceCounter.OutReservationTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", interfaceCounter.OutHelloMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", interfaceCounter.OutSrefreshMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", interfaceCounter.OutAckMessages})
-
-    interfaceCounter.EntityData.YListKeys = []string {"InterfaceName"}
-
-    return &(interfaceCounter.EntityData)
-}
-
 // RsvpStandby_Counters
 // Counters
 type RsvpStandby_Counters struct {
@@ -7898,7 +7573,7 @@ type RsvpStandby_Counters_InterfaceMessages_InterfaceMessage struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Count of messages retransmitted. The type is interface{} with range:
@@ -9888,7 +9563,7 @@ type RsvpStandby_Counters_InterfaceEvents_InterfaceEvent struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -10136,7 +9811,7 @@ type RsvpStandby_Counters_EventSyncs_EventSync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -10215,7 +9890,7 @@ type RsvpStandby_InterfaceDetaileds_InterfaceDetailed struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -10750,7 +10425,7 @@ type RsvpStandby_ControllerBriefs_ControllerBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -11181,7 +10856,7 @@ type RsvpStandby_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 }
 
@@ -11275,7 +10950,7 @@ type RsvpStandby_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail stru
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Source Instance. The type is interface{} with range: 0..4294967295.
@@ -11449,7 +11124,7 @@ type RsvpStandby_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeigh
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Is Neighbor's RR enable. The type is bool.
@@ -13964,7 +13639,7 @@ type RsvpStandby_RequestDetails_RequestDetail_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -14367,7 +14042,7 @@ type RsvpStandby_InterfaceBriefs_InterfaceBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -15034,7 +14709,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     SubGroupId interface{}
 
     // Interface on which inbound message was received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InInterface interface{}
 
     // Label for inbound traffic. The type is interface{} with range:
@@ -16696,14 +16371,14 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     DestinationAddress interface{}
 
     // Interface on which outbound message was sent. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Label for outbound traffic. The type is interface{} with range:
     // 0..4294967295.
     OutLabel interface{}
 
-    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup label. The type is interface{} with range: 0..4294967295.
@@ -17432,7 +17107,7 @@ type RsvpStandby_HelloInstanceDetails_HelloInstanceDetail struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Hello Interval. The type is interface{} with range: 0..4294967295.
@@ -19380,9 +19055,6 @@ type Rsvp struct {
     // Table of brief info about reservation state blocks.
     RsbBriefs Rsvp_RsbBriefs
 
-    // OpenConfig info.
-    OpenConfig Rsvp_OpenConfig
-
     // Counters.
     Counters Rsvp_Counters
 
@@ -19465,7 +19137,6 @@ func (rsvp *Rsvp) GetEntityData() *types.CommonEntityData {
     rsvp.EntityData.Children.Append("hello-instance-briefs", types.YChild{"HelloInstanceBriefs", &rsvp.HelloInstanceBriefs})
     rsvp.EntityData.Children.Append("authentication-details", types.YChild{"AuthenticationDetails", &rsvp.AuthenticationDetails})
     rsvp.EntityData.Children.Append("rsb-briefs", types.YChild{"RsbBriefs", &rsvp.RsbBriefs})
-    rsvp.EntityData.Children.Append("open-config", types.YChild{"OpenConfig", &rsvp.OpenConfig})
     rsvp.EntityData.Children.Append("counters", types.YChild{"Counters", &rsvp.Counters})
     rsvp.EntityData.Children.Append("interface-detaileds", types.YChild{"InterfaceDetaileds", &rsvp.InterfaceDetaileds})
     rsvp.EntityData.Children.Append("controller-briefs", types.YChild{"ControllerBriefs", &rsvp.ControllerBriefs})
@@ -20452,7 +20123,7 @@ type Rsvp_PxsbDetails_PxsbDetail_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -21258,7 +20929,7 @@ type Rsvp_RxsbDetails_RxsbDetail_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -21425,7 +21096,7 @@ type Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighborListCo
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 }
 
@@ -21490,7 +21161,7 @@ type Rsvp_ControllerSummaries_ControllerSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -21750,7 +21421,7 @@ type Rsvp_AuthenticationBriefs_AuthenticationBrief struct {
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source address. The type is string with pattern:
@@ -23081,7 +22752,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -24393,7 +24064,7 @@ type Rsvp_ControllerDetaileds_ControllerDetailed struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -25811,7 +25482,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -26741,7 +26412,7 @@ type Rsvp_InterfaceSummaries_InterfaceSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -27011,7 +26682,7 @@ type Rsvp_HelloInstanceBriefs_HelloInstanceBrief struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Total number of times communication got lost. The type is interface{} with
@@ -27098,7 +26769,7 @@ type Rsvp_AuthenticationDetails_AuthenticationDetail struct {
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Key status. The type is interface{} with range: 0..4294967295.
@@ -28213,327 +27884,6 @@ func (p2mpIpv4Session *Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4Session
     return &(p2mpIpv4Session.EntityData)
 }
 
-// Rsvp_OpenConfig
-// OpenConfig info
-type Rsvp_OpenConfig struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Platform wide RSVP statistics and counters.
-    GlobalCounters Rsvp_OpenConfig_GlobalCounters
-
-    // Table of info about RSVP-enabled interface counters for OpenConfig.
-    InterfaceCounters Rsvp_OpenConfig_InterfaceCounters
-}
-
-func (openConfig *Rsvp_OpenConfig) GetEntityData() *types.CommonEntityData {
-    openConfig.EntityData.YFilter = openConfig.YFilter
-    openConfig.EntityData.YangName = "open-config"
-    openConfig.EntityData.BundleName = "cisco_ios_xr"
-    openConfig.EntityData.ParentYangName = "rsvp"
-    openConfig.EntityData.SegmentPath = "open-config"
-    openConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    openConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    openConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    openConfig.EntityData.Children = types.NewOrderedMap()
-    openConfig.EntityData.Children.Append("global-counters", types.YChild{"GlobalCounters", &openConfig.GlobalCounters})
-    openConfig.EntityData.Children.Append("interface-counters", types.YChild{"InterfaceCounters", &openConfig.InterfaceCounters})
-    openConfig.EntityData.Leafs = types.NewOrderedMap()
-
-    openConfig.EntityData.YListKeys = []string {}
-
-    return &(openConfig.EntityData)
-}
-
-// Rsvp_OpenConfig_GlobalCounters
-// Platform wide RSVP statistics and counters
-type Rsvp_OpenConfig_GlobalCounters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Global count of Path Timeouts. The type is interface{} with range:
-    // 0..18446744073709551615.
-    PathTimeouts interface{}
-
-    // Global count of reservation timeouts. The type is interface{} with range:
-    // 0..18446744073709551615.
-    ReservationTimeouts interface{}
-
-    // Global count of rate limited messages. The type is interface{} with range:
-    // 0..18446744073709551615.
-    RateLimitedMessages interface{}
-
-    // Global count of path messages received. The type is interface{} with range:
-    // 0..18446744073709551615.
-    InPathMessages interface{}
-
-    // Global count of path error messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathErrorMessages interface{}
-
-    // Global count of path tear messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathTearMessages interface{}
-
-    // Global count of reservation messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InReservationMessages interface{}
-
-    // Global count of reservation error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationErrorMessages interface{}
-
-    // Global count of reservation tear messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InReservationTearMessages interface{}
-
-    // Global count of hello messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InHelloMessages interface{}
-
-    // Global count of srefresh messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InSrefreshMessages interface{}
-
-    // Global count of ack messages received. The type is interface{} with range:
-    // 0..18446744073709551615.
-    InAckMessages interface{}
-
-    // Global count of path messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutPathMessages interface{}
-
-    // Global count of path error messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathErrorMessages interface{}
-
-    // Global count of path tear messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathTearMessages interface{}
-
-    // Global count of reservation messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutReservationMessages interface{}
-
-    // Global count of reservation error messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationErrorMessages interface{}
-
-    // Global count of reservation tear messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationTearMessages interface{}
-
-    // Global count of hello messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutHelloMessages interface{}
-
-    // Global count of srefresh messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutSrefreshMessages interface{}
-
-    // Global count of ack messages send. The type is interface{} with range:
-    // 0..18446744073709551615.
-    OutAckMessages interface{}
-}
-
-func (globalCounters *Rsvp_OpenConfig_GlobalCounters) GetEntityData() *types.CommonEntityData {
-    globalCounters.EntityData.YFilter = globalCounters.YFilter
-    globalCounters.EntityData.YangName = "global-counters"
-    globalCounters.EntityData.BundleName = "cisco_ios_xr"
-    globalCounters.EntityData.ParentYangName = "open-config"
-    globalCounters.EntityData.SegmentPath = "global-counters"
-    globalCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    globalCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    globalCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    globalCounters.EntityData.Children = types.NewOrderedMap()
-    globalCounters.EntityData.Leafs = types.NewOrderedMap()
-    globalCounters.EntityData.Leafs.Append("path-timeouts", types.YLeaf{"PathTimeouts", globalCounters.PathTimeouts})
-    globalCounters.EntityData.Leafs.Append("reservation-timeouts", types.YLeaf{"ReservationTimeouts", globalCounters.ReservationTimeouts})
-    globalCounters.EntityData.Leafs.Append("rate-limited-messages", types.YLeaf{"RateLimitedMessages", globalCounters.RateLimitedMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", globalCounters.InPathMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", globalCounters.InPathErrorMessages})
-    globalCounters.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", globalCounters.InPathTearMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", globalCounters.InReservationMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", globalCounters.InReservationErrorMessages})
-    globalCounters.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", globalCounters.InReservationTearMessages})
-    globalCounters.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", globalCounters.InHelloMessages})
-    globalCounters.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", globalCounters.InSrefreshMessages})
-    globalCounters.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", globalCounters.InAckMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", globalCounters.OutPathMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", globalCounters.OutPathErrorMessages})
-    globalCounters.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", globalCounters.OutPathTearMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", globalCounters.OutReservationMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", globalCounters.OutReservationErrorMessages})
-    globalCounters.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", globalCounters.OutReservationTearMessages})
-    globalCounters.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", globalCounters.OutHelloMessages})
-    globalCounters.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", globalCounters.OutSrefreshMessages})
-    globalCounters.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", globalCounters.OutAckMessages})
-
-    globalCounters.EntityData.YListKeys = []string {}
-
-    return &(globalCounters.EntityData)
-}
-
-// Rsvp_OpenConfig_InterfaceCounters
-// Table of info about RSVP-enabled interface
-// counters for OpenConfig
-type Rsvp_OpenConfig_InterfaceCounters struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Info about an RSVP-enabled interface counters. The type is slice of
-    // Rsvp_OpenConfig_InterfaceCounters_InterfaceCounter.
-    InterfaceCounter []*Rsvp_OpenConfig_InterfaceCounters_InterfaceCounter
-}
-
-func (interfaceCounters *Rsvp_OpenConfig_InterfaceCounters) GetEntityData() *types.CommonEntityData {
-    interfaceCounters.EntityData.YFilter = interfaceCounters.YFilter
-    interfaceCounters.EntityData.YangName = "interface-counters"
-    interfaceCounters.EntityData.BundleName = "cisco_ios_xr"
-    interfaceCounters.EntityData.ParentYangName = "open-config"
-    interfaceCounters.EntityData.SegmentPath = "interface-counters"
-    interfaceCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceCounters.EntityData.Children = types.NewOrderedMap()
-    interfaceCounters.EntityData.Children.Append("interface-counter", types.YChild{"InterfaceCounter", nil})
-    for i := range interfaceCounters.InterfaceCounter {
-        interfaceCounters.EntityData.Children.Append(types.GetSegmentPath(interfaceCounters.InterfaceCounter[i]), types.YChild{"InterfaceCounter", interfaceCounters.InterfaceCounter[i]})
-    }
-    interfaceCounters.EntityData.Leafs = types.NewOrderedMap()
-
-    interfaceCounters.EntityData.YListKeys = []string {}
-
-    return &(interfaceCounters.EntityData)
-}
-
-// Rsvp_OpenConfig_InterfaceCounters_InterfaceCounter
-// Info about an RSVP-enabled interface counters
-type Rsvp_OpenConfig_InterfaceCounters_InterfaceCounter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // Interface name. The type is string.
-    InterfaceNameXr interface{}
-
-    // Per interface count of path messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InPathMessages interface{}
-
-    // Per interface count of path error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InPathErrorMessages interface{}
-
-    // Per interface count of path tear messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InPathTearMessages interface{}
-
-    // Per interface count of reservation messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationMessages interface{}
-
-    // Per interface count of reservation error messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationErrorMessages interface{}
-
-    // Per interface count of reservation tear messages received. The type is
-    // interface{} with range: 0..18446744073709551615.
-    InReservationTearMessages interface{}
-
-    // Per interface count of hello messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InHelloMessages interface{}
-
-    // Per interface count of srefresh messages received. The type is interface{}
-    // with range: 0..18446744073709551615.
-    InSrefreshMessages interface{}
-
-    // Per interface count of ack messages received. The type is interface{} with
-    // range: 0..18446744073709551615.
-    InAckMessages interface{}
-
-    // Per interface count of path messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutPathMessages interface{}
-
-    // Per interface count of path error messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutPathErrorMessages interface{}
-
-    // Per interface count of path tear messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutPathTearMessages interface{}
-
-    // Per interface count of reservation messages send. The type is interface{}
-    // with range: 0..18446744073709551615.
-    OutReservationMessages interface{}
-
-    // Per interface count of reservation error messages send. The type is
-    // interface{} with range: 0..18446744073709551615.
-    OutReservationErrorMessages interface{}
-
-    // Per interface count of reservation tear messages send. The type is
-    // interface{} with range: 0..18446744073709551615.
-    OutReservationTearMessages interface{}
-
-    // Per interface count of hello messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutHelloMessages interface{}
-
-    // Per interface count of srefresh messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutSrefreshMessages interface{}
-
-    // Per interface count of ack messages send. The type is interface{} with
-    // range: 0..18446744073709551615.
-    OutAckMessages interface{}
-}
-
-func (interfaceCounter *Rsvp_OpenConfig_InterfaceCounters_InterfaceCounter) GetEntityData() *types.CommonEntityData {
-    interfaceCounter.EntityData.YFilter = interfaceCounter.YFilter
-    interfaceCounter.EntityData.YangName = "interface-counter"
-    interfaceCounter.EntityData.BundleName = "cisco_ios_xr"
-    interfaceCounter.EntityData.ParentYangName = "interface-counters"
-    interfaceCounter.EntityData.SegmentPath = "interface-counter" + types.AddKeyToken(interfaceCounter.InterfaceName, "interface-name")
-    interfaceCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    interfaceCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    interfaceCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    interfaceCounter.EntityData.Children = types.NewOrderedMap()
-    interfaceCounter.EntityData.Leafs = types.NewOrderedMap()
-    interfaceCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceCounter.InterfaceName})
-    interfaceCounter.EntityData.Leafs.Append("interface-name-xr", types.YLeaf{"InterfaceNameXr", interfaceCounter.InterfaceNameXr})
-    interfaceCounter.EntityData.Leafs.Append("in-path-messages", types.YLeaf{"InPathMessages", interfaceCounter.InPathMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-path-error-messages", types.YLeaf{"InPathErrorMessages", interfaceCounter.InPathErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-path-tear-messages", types.YLeaf{"InPathTearMessages", interfaceCounter.InPathTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-messages", types.YLeaf{"InReservationMessages", interfaceCounter.InReservationMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-error-messages", types.YLeaf{"InReservationErrorMessages", interfaceCounter.InReservationErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-reservation-tear-messages", types.YLeaf{"InReservationTearMessages", interfaceCounter.InReservationTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-hello-messages", types.YLeaf{"InHelloMessages", interfaceCounter.InHelloMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-srefresh-messages", types.YLeaf{"InSrefreshMessages", interfaceCounter.InSrefreshMessages})
-    interfaceCounter.EntityData.Leafs.Append("in-ack-messages", types.YLeaf{"InAckMessages", interfaceCounter.InAckMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-messages", types.YLeaf{"OutPathMessages", interfaceCounter.OutPathMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-error-messages", types.YLeaf{"OutPathErrorMessages", interfaceCounter.OutPathErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-path-tear-messages", types.YLeaf{"OutPathTearMessages", interfaceCounter.OutPathTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-messages", types.YLeaf{"OutReservationMessages", interfaceCounter.OutReservationMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-error-messages", types.YLeaf{"OutReservationErrorMessages", interfaceCounter.OutReservationErrorMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-reservation-tear-messages", types.YLeaf{"OutReservationTearMessages", interfaceCounter.OutReservationTearMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-hello-messages", types.YLeaf{"OutHelloMessages", interfaceCounter.OutHelloMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-srefresh-messages", types.YLeaf{"OutSrefreshMessages", interfaceCounter.OutSrefreshMessages})
-    interfaceCounter.EntityData.Leafs.Append("out-ack-messages", types.YLeaf{"OutAckMessages", interfaceCounter.OutAckMessages})
-
-    interfaceCounter.EntityData.YListKeys = []string {"InterfaceName"}
-
-    return &(interfaceCounter.EntityData)
-}
-
 // Rsvp_Counters
 // Counters
 type Rsvp_Counters struct {
@@ -28636,7 +27986,7 @@ type Rsvp_Counters_InterfaceMessages_InterfaceMessage struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Count of messages retransmitted. The type is interface{} with range:
@@ -30626,7 +29976,7 @@ type Rsvp_Counters_InterfaceEvents_InterfaceEvent struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -30874,7 +30224,7 @@ type Rsvp_Counters_EventSyncs_EventSync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -30953,7 +30303,7 @@ type Rsvp_InterfaceDetaileds_InterfaceDetailed struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -31488,7 +30838,7 @@ type Rsvp_ControllerBriefs_ControllerBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -31919,7 +31269,7 @@ type Rsvp_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 }
 
@@ -32012,7 +31362,7 @@ type Rsvp_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Source Instance. The type is interface{} with range: 0..4294967295.
@@ -32186,7 +31536,7 @@ type Rsvp_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeighborList
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Is Neighbor's RR enable. The type is bool.
@@ -34701,7 +34051,7 @@ type Rsvp_RequestDetails_RequestDetail_Hop struct {
     NeighborAddress interface{}
 
     // Neighbor Logical Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborLogicalInterfaceName interface{}
 }
 
@@ -35104,7 +34454,7 @@ type Rsvp_InterfaceBriefs_InterfaceBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -35771,7 +35121,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     SubGroupId interface{}
 
     // Interface on which inbound message was received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InInterface interface{}
 
     // Label for inbound traffic. The type is interface{} with range:
@@ -37433,14 +36783,14 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     DestinationAddress interface{}
 
     // Interface on which outbound message was sent. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Label for outbound traffic. The type is interface{} with range:
     // 0..4294967295.
     OutLabel interface{}
 
-    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup label. The type is interface{} with range: 0..4294967295.
@@ -38169,7 +37519,7 @@ type Rsvp_HelloInstanceDetails_HelloInstanceDetail struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Hello Interval. The type is interface{} with range: 0..4294967295.

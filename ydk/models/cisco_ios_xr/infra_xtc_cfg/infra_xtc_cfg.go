@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pce: PCE configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_xtc_cfg
 
@@ -24,6 +24,28 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-xtc-cfg:pce", reflect.TypeOf(Pce{}))
 }
 
+// PceSegment represents Pce segment
+type PceSegment string
+
+const (
+    // IPv4 Address
+    PceSegment_ipv4_address PceSegment = "ipv4-address"
+
+    // MPLS Label
+    PceSegment_mpls_label PceSegment = "mpls-label"
+)
+
+// PceBindingSid represents Pce binding sid
+type PceBindingSid string
+
+const (
+    // Use specified BSID MPLS label
+    PceBindingSid_mpls_label_specified PceBindingSid = "mpls-label-specified"
+
+    // Allocate BSID MPLS label
+    PceBindingSid_mpls_label_any PceBindingSid = "mpls-label-any"
+)
+
 // PceExplicitPathHop represents Pce explicit path hop
 type PceExplicitPathHop string
 
@@ -39,6 +61,61 @@ const (
 
     // Binding SID
     PceExplicitPathHop_binding_sid PceExplicitPathHop = "binding-sid"
+)
+
+// PcePath represents Pce path
+type PcePath string
+
+const (
+    // Explicit
+    PcePath_explicit PcePath = "explicit"
+
+    // Dynamic
+    PcePath_dynamic PcePath = "dynamic"
+)
+
+// PceEndPoint represents Pce end point
+type PceEndPoint string
+
+const (
+    // IPv4 endpoint address
+    PceEndPoint_end_point_type_ipv4 PceEndPoint = "end-point-type-ipv4"
+
+    // IPv6 endpoint address
+    PceEndPoint_end_point_type_ipv6 PceEndPoint = "end-point-type-ipv6"
+)
+
+// PcerestAuthentication represents Pcerest authentication
+type PcerestAuthentication string
+
+const (
+    // Basic HTTP auth
+    PcerestAuthentication_basic PcerestAuthentication = "basic"
+
+    // MD5-Digest HTTP auth
+    PcerestAuthentication_digest PcerestAuthentication = "digest"
+)
+
+// PcePathHop represents Pce path hop
+type PcePathHop string
+
+const (
+    // Segment-routing MPLS
+    PcePathHop_mpls PcePathHop = "mpls"
+
+    // Segment-routing v6
+    PcePathHop_srv6 PcePathHop = "srv6"
+)
+
+// PceMetric represents Pce metric
+type PceMetric string
+
+const (
+    // IGP metric type
+    PceMetric_igp PceMetric = "igp"
+
+    // TE metric type
+    PceMetric_te PceMetric = "te"
 )
 
 // PceDisjointPath represents Pce disjoint path
@@ -90,6 +167,9 @@ type Pce struct {
     // PCE backoff configuration.
     Backoff Pce_Backoff
 
+    // REST configuration.
+    Rest Pce_Rest
+
     // Standby IPv4 PCE configuration.
     StateSyncs Pce_StateSyncs
 
@@ -124,6 +204,7 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.Children.Append("pcc-addresses", types.YChild{"PccAddresses", &pce.PccAddresses})
     pce.EntityData.Children.Append("logging", types.YChild{"Logging", &pce.Logging})
     pce.EntityData.Children.Append("backoff", types.YChild{"Backoff", &pce.Backoff})
+    pce.EntityData.Children.Append("rest", types.YChild{"Rest", &pce.Rest})
     pce.EntityData.Children.Append("state-syncs", types.YChild{"StateSyncs", &pce.StateSyncs})
     pce.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &pce.SegmentRouting})
     pce.EntityData.Children.Append("timers", types.YChild{"Timers", &pce.Timers})
@@ -558,6 +639,117 @@ func (backoff *Pce_Backoff) GetEntityData() *types.CommonEntityData {
     return &(backoff.EntityData)
 }
 
+// Pce_Rest
+// REST configuration
+// This type is a presence type.
+type Pce_Rest struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // REST authentication type. The type is PcerestAuthentication. This attribute
+    // is mandatory.
+    RestAuthentication interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // REST authorized users configuration.
+    RestUsers Pce_Rest_RestUsers
+}
+
+func (rest *Pce_Rest) GetEntityData() *types.CommonEntityData {
+    rest.EntityData.YFilter = rest.YFilter
+    rest.EntityData.YangName = "rest"
+    rest.EntityData.BundleName = "cisco_ios_xr"
+    rest.EntityData.ParentYangName = "pce"
+    rest.EntityData.SegmentPath = "rest"
+    rest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rest.EntityData.Children = types.NewOrderedMap()
+    rest.EntityData.Children.Append("rest-users", types.YChild{"RestUsers", &rest.RestUsers})
+    rest.EntityData.Leafs = types.NewOrderedMap()
+    rest.EntityData.Leafs.Append("rest-authentication", types.YLeaf{"RestAuthentication", rest.RestAuthentication})
+    rest.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rest.Enable})
+
+    rest.EntityData.YListKeys = []string {}
+
+    return &(rest.EntityData)
+}
+
+// Pce_Rest_RestUsers
+// REST authorized users configuration
+type Pce_Rest_RestUsers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // REST authorized user. The type is slice of Pce_Rest_RestUsers_RestUser.
+    RestUser []*Pce_Rest_RestUsers_RestUser
+}
+
+func (restUsers *Pce_Rest_RestUsers) GetEntityData() *types.CommonEntityData {
+    restUsers.EntityData.YFilter = restUsers.YFilter
+    restUsers.EntityData.YangName = "rest-users"
+    restUsers.EntityData.BundleName = "cisco_ios_xr"
+    restUsers.EntityData.ParentYangName = "rest"
+    restUsers.EntityData.SegmentPath = "rest-users"
+    restUsers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    restUsers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    restUsers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    restUsers.EntityData.Children = types.NewOrderedMap()
+    restUsers.EntityData.Children.Append("rest-user", types.YChild{"RestUser", nil})
+    for i := range restUsers.RestUser {
+        restUsers.EntityData.Children.Append(types.GetSegmentPath(restUsers.RestUser[i]), types.YChild{"RestUser", restUsers.RestUser[i]})
+    }
+    restUsers.EntityData.Leafs = types.NewOrderedMap()
+
+    restUsers.EntityData.YListKeys = []string {}
+
+    return &(restUsers.EntityData)
+}
+
+// Pce_Rest_RestUsers_RestUser
+// REST authorized user
+type Pce_Rest_RestUsers_RestUser struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. User name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Name interface{}
+
+    // REST user password configuration. The type is string with pattern:
+    // (!.+)|([^!].+). This attribute is mandatory.
+    RestUserPassword interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+}
+
+func (restUser *Pce_Rest_RestUsers_RestUser) GetEntityData() *types.CommonEntityData {
+    restUser.EntityData.YFilter = restUser.YFilter
+    restUser.EntityData.YangName = "rest-user"
+    restUser.EntityData.BundleName = "cisco_ios_xr"
+    restUser.EntityData.ParentYangName = "rest-users"
+    restUser.EntityData.SegmentPath = "rest-user" + types.AddKeyToken(restUser.Name, "name")
+    restUser.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    restUser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    restUser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    restUser.EntityData.Children = types.NewOrderedMap()
+    restUser.EntityData.Leafs = types.NewOrderedMap()
+    restUser.EntityData.Leafs.Append("name", types.YLeaf{"Name", restUser.Name})
+    restUser.EntityData.Leafs.Append("rest-user-password", types.YLeaf{"RestUserPassword", restUser.RestUserPassword})
+    restUser.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", restUser.Enable})
+
+    restUser.EntityData.YListKeys = []string {"Name"}
+
+    return &(restUser.EntityData)
+}
+
 // Pce_StateSyncs
 // Standby IPv4 PCE configuration
 type Pce_StateSyncs struct {
@@ -631,6 +823,9 @@ type Pce_SegmentRouting struct {
 
     // Use strict-sid-only configuration. The type is interface{}.
     StrictSidOnly interface{}
+
+    // Traffic Engineering configuration data.
+    TrafficEngineering Pce_SegmentRouting_TrafficEngineering
 }
 
 func (segmentRouting *Pce_SegmentRouting) GetEntityData() *types.CommonEntityData {
@@ -644,6 +839,7 @@ func (segmentRouting *Pce_SegmentRouting) GetEntityData() *types.CommonEntityDat
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Children.Append("traffic-engineering", types.YChild{"TrafficEngineering", &segmentRouting.TrafficEngineering})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("te-latency", types.YLeaf{"TeLatency", segmentRouting.TeLatency})
     segmentRouting.EntityData.Leafs.Append("strict-sid-only", types.YLeaf{"StrictSidOnly", segmentRouting.StrictSidOnly})
@@ -651,6 +847,778 @@ func (segmentRouting *Pce_SegmentRouting) GetEntityData() *types.CommonEntityDat
     segmentRouting.EntityData.YListKeys = []string {}
 
     return &(segmentRouting.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering
+// Traffic Engineering configuration data
+type Pce_SegmentRouting_TrafficEngineering struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Affinity Bit-map.
+    AffinityBits Pce_SegmentRouting_TrafficEngineering_AffinityBits
+
+    // Peer configuration.
+    Peers Pce_SegmentRouting_TrafficEngineering_Peers
+
+    // Segment-lists configuration.
+    Segments Pce_SegmentRouting_TrafficEngineering_Segments
+}
+
+func (trafficEngineering *Pce_SegmentRouting_TrafficEngineering) GetEntityData() *types.CommonEntityData {
+    trafficEngineering.EntityData.YFilter = trafficEngineering.YFilter
+    trafficEngineering.EntityData.YangName = "traffic-engineering"
+    trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
+    trafficEngineering.EntityData.ParentYangName = "segment-routing"
+    trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    trafficEngineering.EntityData.Children = types.NewOrderedMap()
+    trafficEngineering.EntityData.Children.Append("affinity-bits", types.YChild{"AffinityBits", &trafficEngineering.AffinityBits})
+    trafficEngineering.EntityData.Children.Append("peers", types.YChild{"Peers", &trafficEngineering.Peers})
+    trafficEngineering.EntityData.Children.Append("segments", types.YChild{"Segments", &trafficEngineering.Segments})
+    trafficEngineering.EntityData.Leafs = types.NewOrderedMap()
+    trafficEngineering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", trafficEngineering.Enable})
+
+    trafficEngineering.EntityData.YListKeys = []string {}
+
+    return &(trafficEngineering.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_AffinityBits
+// Affinity Bit-map
+type Pce_SegmentRouting_TrafficEngineering_AffinityBits struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Affinity Bit. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit.
+    AffinityBit []*Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit
+}
+
+func (affinityBits *Pce_SegmentRouting_TrafficEngineering_AffinityBits) GetEntityData() *types.CommonEntityData {
+    affinityBits.EntityData.YFilter = affinityBits.YFilter
+    affinityBits.EntityData.YangName = "affinity-bits"
+    affinityBits.EntityData.BundleName = "cisco_ios_xr"
+    affinityBits.EntityData.ParentYangName = "traffic-engineering"
+    affinityBits.EntityData.SegmentPath = "affinity-bits"
+    affinityBits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityBits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityBits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityBits.EntityData.Children = types.NewOrderedMap()
+    affinityBits.EntityData.Children.Append("affinity-bit", types.YChild{"AffinityBit", nil})
+    for i := range affinityBits.AffinityBit {
+        affinityBits.EntityData.Children.Append(types.GetSegmentPath(affinityBits.AffinityBit[i]), types.YChild{"AffinityBit", affinityBits.AffinityBit[i]})
+    }
+    affinityBits.EntityData.Leafs = types.NewOrderedMap()
+
+    affinityBits.EntityData.YListKeys = []string {}
+
+    return &(affinityBits.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit
+// Affinity Bit
+type Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Color Name. The type is string with length: 1..32.
+    ColorName interface{}
+
+    // The bit. The type is interface{} with range: 0..31. This attribute is
+    // mandatory.
+    Bit interface{}
+}
+
+func (affinityBit *Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit) GetEntityData() *types.CommonEntityData {
+    affinityBit.EntityData.YFilter = affinityBit.YFilter
+    affinityBit.EntityData.YangName = "affinity-bit"
+    affinityBit.EntityData.BundleName = "cisco_ios_xr"
+    affinityBit.EntityData.ParentYangName = "affinity-bits"
+    affinityBit.EntityData.SegmentPath = "affinity-bit" + types.AddKeyToken(affinityBit.ColorName, "color-name")
+    affinityBit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityBit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityBit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityBit.EntityData.Children = types.NewOrderedMap()
+    affinityBit.EntityData.Leafs = types.NewOrderedMap()
+    affinityBit.EntityData.Leafs.Append("color-name", types.YLeaf{"ColorName", affinityBit.ColorName})
+    affinityBit.EntityData.Leafs.Append("bit", types.YLeaf{"Bit", affinityBit.Bit})
+
+    affinityBit.EntityData.YListKeys = []string {"ColorName"}
+
+    return &(affinityBit.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers
+// Peer configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Peer configuration. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Peers_Peer.
+    Peer []*Pce_SegmentRouting_TrafficEngineering_Peers_Peer
+}
+
+func (peers *Pce_SegmentRouting_TrafficEngineering_Peers) GetEntityData() *types.CommonEntityData {
+    peers.EntityData.YFilter = peers.YFilter
+    peers.EntityData.YangName = "peers"
+    peers.EntityData.BundleName = "cisco_ios_xr"
+    peers.EntityData.ParentYangName = "traffic-engineering"
+    peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    peers.EntityData.Children = types.NewOrderedMap()
+    peers.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
+    for i := range peers.Peer {
+        peers.EntityData.Children.Append(types.GetSegmentPath(peers.Peer[i]), types.YChild{"Peer", peers.Peer[i]})
+    }
+    peers.EntityData.Leafs = types.NewOrderedMap()
+
+    peers.EntityData.YListKeys = []string {}
+
+    return &(peers.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer
+// Peer configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Peer address. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    PeerAddr interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Policy configuration.
+    Policies Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies
+}
+
+func (peer *Pce_SegmentRouting_TrafficEngineering_Peers_Peer) GetEntityData() *types.CommonEntityData {
+    peer.EntityData.YFilter = peer.YFilter
+    peer.EntityData.YangName = "peer"
+    peer.EntityData.BundleName = "cisco_ios_xr"
+    peer.EntityData.ParentYangName = "peers"
+    peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PeerAddr, "peer-addr")
+    peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    peer.EntityData.Children = types.NewOrderedMap()
+    peer.EntityData.Children.Append("policies", types.YChild{"Policies", &peer.Policies})
+    peer.EntityData.Leafs = types.NewOrderedMap()
+    peer.EntityData.Leafs.Append("peer-addr", types.YLeaf{"PeerAddr", peer.PeerAddr})
+    peer.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", peer.Enable})
+
+    peer.EntityData.YListKeys = []string {"PeerAddr"}
+
+    return &(peer.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies
+// Policy configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy configuration. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy.
+    Policy []*Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy
+}
+
+func (policies *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies) GetEntityData() *types.CommonEntityData {
+    policies.EntityData.YFilter = policies.YFilter
+    policies.EntityData.YangName = "policies"
+    policies.EntityData.BundleName = "cisco_ios_xr"
+    policies.EntityData.ParentYangName = "peer"
+    policies.EntityData.SegmentPath = "policies"
+    policies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policies.EntityData.Children = types.NewOrderedMap()
+    policies.EntityData.Children.Append("policy", types.YChild{"Policy", nil})
+    for i := range policies.Policy {
+        policies.EntityData.Children.Append(types.GetSegmentPath(policies.Policy[i]), types.YChild{"Policy", policies.Policy[i]})
+    }
+    policies.EntityData.Leafs = types.NewOrderedMap()
+
+    policies.EntityData.YListKeys = []string {}
+
+    return &(policies.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy
+// Policy configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Policy name. The type is string with length:
+    // 1..128.
+    PolicyName interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Administratively shutdown policy. The type is interface{}.
+    Shutdown interface{}
+
+    // Binding Segment ID.
+    BindingSid Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_BindingSid
+
+    // Color and Endpoint.
+    ColorEndpoint Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_ColorEndpoint
+
+    // Policy candidate-paths configuration.
+    CandidatePaths Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths
+}
+
+func (policy *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy) GetEntityData() *types.CommonEntityData {
+    policy.EntityData.YFilter = policy.YFilter
+    policy.EntityData.YangName = "policy"
+    policy.EntityData.BundleName = "cisco_ios_xr"
+    policy.EntityData.ParentYangName = "policies"
+    policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.PolicyName, "policy-name")
+    policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("binding-sid", types.YChild{"BindingSid", &policy.BindingSid})
+    policy.EntityData.Children.Append("color-endpoint", types.YChild{"ColorEndpoint", &policy.ColorEndpoint})
+    policy.EntityData.Children.Append("candidate-paths", types.YChild{"CandidatePaths", &policy.CandidatePaths})
+    policy.EntityData.Leafs = types.NewOrderedMap()
+    policy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policy.PolicyName})
+    policy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", policy.Enable})
+    policy.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", policy.Shutdown})
+
+    policy.EntityData.YListKeys = []string {"PolicyName"}
+
+    return &(policy.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_BindingSid
+// Binding Segment ID
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_BindingSid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Binding SID type. The type is PceBindingSid.
+    BindingSidType interface{}
+
+    // MPLS Label. The type is interface{} with range: 16..1048575.
+    MplsLabel interface{}
+}
+
+func (bindingSid *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_BindingSid) GetEntityData() *types.CommonEntityData {
+    bindingSid.EntityData.YFilter = bindingSid.YFilter
+    bindingSid.EntityData.YangName = "binding-sid"
+    bindingSid.EntityData.BundleName = "cisco_ios_xr"
+    bindingSid.EntityData.ParentYangName = "policy"
+    bindingSid.EntityData.SegmentPath = "binding-sid"
+    bindingSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bindingSid.EntityData.Children = types.NewOrderedMap()
+    bindingSid.EntityData.Leafs = types.NewOrderedMap()
+    bindingSid.EntityData.Leafs.Append("binding-sid-type", types.YLeaf{"BindingSidType", bindingSid.BindingSidType})
+    bindingSid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", bindingSid.MplsLabel})
+
+    bindingSid.EntityData.YListKeys = []string {}
+
+    return &(bindingSid.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_ColorEndpoint
+// Color and Endpoint
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_ColorEndpoint struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Color. The type is interface{} with range: 1..4294967295.
+    Color interface{}
+
+    // End point type. The type is PceEndPoint.
+    EndPointType interface{}
+
+    // End point address. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    EndPointAddress interface{}
+}
+
+func (colorEndpoint *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_ColorEndpoint) GetEntityData() *types.CommonEntityData {
+    colorEndpoint.EntityData.YFilter = colorEndpoint.YFilter
+    colorEndpoint.EntityData.YangName = "color-endpoint"
+    colorEndpoint.EntityData.BundleName = "cisco_ios_xr"
+    colorEndpoint.EntityData.ParentYangName = "policy"
+    colorEndpoint.EntityData.SegmentPath = "color-endpoint"
+    colorEndpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    colorEndpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    colorEndpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    colorEndpoint.EntityData.Children = types.NewOrderedMap()
+    colorEndpoint.EntityData.Leafs = types.NewOrderedMap()
+    colorEndpoint.EntityData.Leafs.Append("color", types.YLeaf{"Color", colorEndpoint.Color})
+    colorEndpoint.EntityData.Leafs.Append("end-point-type", types.YLeaf{"EndPointType", colorEndpoint.EndPointType})
+    colorEndpoint.EntityData.Leafs.Append("end-point-address", types.YLeaf{"EndPointAddress", colorEndpoint.EndPointAddress})
+
+    colorEndpoint.EntityData.YListKeys = []string {}
+
+    return &(colorEndpoint.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths
+// Policy candidate-paths configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Affinity rule table.
+    AffinityRules Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules
+
+    // Policy path-option preference table.
+    Preferences Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences
+}
+
+func (candidatePaths *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths) GetEntityData() *types.CommonEntityData {
+    candidatePaths.EntityData.YFilter = candidatePaths.YFilter
+    candidatePaths.EntityData.YangName = "candidate-paths"
+    candidatePaths.EntityData.BundleName = "cisco_ios_xr"
+    candidatePaths.EntityData.ParentYangName = "policy"
+    candidatePaths.EntityData.SegmentPath = "candidate-paths"
+    candidatePaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    candidatePaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    candidatePaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    candidatePaths.EntityData.Children = types.NewOrderedMap()
+    candidatePaths.EntityData.Children.Append("affinity-rules", types.YChild{"AffinityRules", &candidatePaths.AffinityRules})
+    candidatePaths.EntityData.Children.Append("preferences", types.YChild{"Preferences", &candidatePaths.Preferences})
+    candidatePaths.EntityData.Leafs = types.NewOrderedMap()
+    candidatePaths.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", candidatePaths.Enable})
+
+    candidatePaths.EntityData.YListKeys = []string {}
+
+    return &(candidatePaths.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules
+// Affinity rule table
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Affinity rule. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule.
+    AffinityRule []*Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule
+}
+
+func (affinityRules *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules) GetEntityData() *types.CommonEntityData {
+    affinityRules.EntityData.YFilter = affinityRules.YFilter
+    affinityRules.EntityData.YangName = "affinity-rules"
+    affinityRules.EntityData.BundleName = "cisco_ios_xr"
+    affinityRules.EntityData.ParentYangName = "candidate-paths"
+    affinityRules.EntityData.SegmentPath = "affinity-rules"
+    affinityRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityRules.EntityData.Children = types.NewOrderedMap()
+    affinityRules.EntityData.Children.Append("affinity-rule", types.YChild{"AffinityRule", nil})
+    for i := range affinityRules.AffinityRule {
+        affinityRules.EntityData.Children.Append(types.GetSegmentPath(affinityRules.AffinityRule[i]), types.YChild{"AffinityRule", affinityRules.AffinityRule[i]})
+    }
+    affinityRules.EntityData.Leafs = types.NewOrderedMap()
+
+    affinityRules.EntityData.YListKeys = []string {}
+
+    return &(affinityRules.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule
+// Affinity rule
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. affinity rule. The type is interface{} with range:
+    // 0..2.
+    Rule interface{}
+
+    // This attribute is a key. affinity value. The type is string with length:
+    // 1..32.
+    AffValue interface{}
+}
+
+func (affinityRule *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_AffinityRules_AffinityRule) GetEntityData() *types.CommonEntityData {
+    affinityRule.EntityData.YFilter = affinityRule.YFilter
+    affinityRule.EntityData.YangName = "affinity-rule"
+    affinityRule.EntityData.BundleName = "cisco_ios_xr"
+    affinityRule.EntityData.ParentYangName = "affinity-rules"
+    affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule") + types.AddKeyToken(affinityRule.AffValue, "aff-value")
+    affinityRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityRule.EntityData.Children = types.NewOrderedMap()
+    affinityRule.EntityData.Leafs = types.NewOrderedMap()
+    affinityRule.EntityData.Leafs.Append("rule", types.YLeaf{"Rule", affinityRule.Rule})
+    affinityRule.EntityData.Leafs.Append("aff-value", types.YLeaf{"AffValue", affinityRule.AffValue})
+
+    affinityRule.EntityData.YListKeys = []string {"Rule", "AffValue"}
+
+    return &(affinityRule.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences
+// Policy path-option preference table
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy path-option preference entry. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference.
+    Preference []*Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference
+}
+
+func (preferences *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences) GetEntityData() *types.CommonEntityData {
+    preferences.EntityData.YFilter = preferences.YFilter
+    preferences.EntityData.YangName = "preferences"
+    preferences.EntityData.BundleName = "cisco_ios_xr"
+    preferences.EntityData.ParentYangName = "candidate-paths"
+    preferences.EntityData.SegmentPath = "preferences"
+    preferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    preferences.EntityData.Children = types.NewOrderedMap()
+    preferences.EntityData.Children.Append("preference", types.YChild{"Preference", nil})
+    for i := range preferences.Preference {
+        preferences.EntityData.Children.Append(types.GetSegmentPath(preferences.Preference[i]), types.YChild{"Preference", preferences.Preference[i]})
+    }
+    preferences.EntityData.Leafs = types.NewOrderedMap()
+
+    preferences.EntityData.YListKeys = []string {}
+
+    return &(preferences.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference
+// Policy path-option preference entry
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Path-option preference. The type is interface{}
+    // with range: 1..65535.
+    PathIndex interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Policy path-option preference configuration.
+    PathInfos Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos
+}
+
+func (preference *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference) GetEntityData() *types.CommonEntityData {
+    preference.EntityData.YFilter = preference.YFilter
+    preference.EntityData.YangName = "preference"
+    preference.EntityData.BundleName = "cisco_ios_xr"
+    preference.EntityData.ParentYangName = "preferences"
+    preference.EntityData.SegmentPath = "preference" + types.AddKeyToken(preference.PathIndex, "path-index")
+    preference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    preference.EntityData.Children = types.NewOrderedMap()
+    preference.EntityData.Children.Append("path-infos", types.YChild{"PathInfos", &preference.PathInfos})
+    preference.EntityData.Leafs = types.NewOrderedMap()
+    preference.EntityData.Leafs.Append("path-index", types.YLeaf{"PathIndex", preference.PathIndex})
+    preference.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", preference.Enable})
+
+    preference.EntityData.YListKeys = []string {"PathIndex"}
+
+    return &(preference.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos
+// Policy path-option preference
+// configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy configuration. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo.
+    PathInfo []*Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo
+}
+
+func (pathInfos *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos) GetEntityData() *types.CommonEntityData {
+    pathInfos.EntityData.YFilter = pathInfos.YFilter
+    pathInfos.EntityData.YangName = "path-infos"
+    pathInfos.EntityData.BundleName = "cisco_ios_xr"
+    pathInfos.EntityData.ParentYangName = "preference"
+    pathInfos.EntityData.SegmentPath = "path-infos"
+    pathInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pathInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pathInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pathInfos.EntityData.Children = types.NewOrderedMap()
+    pathInfos.EntityData.Children.Append("path-info", types.YChild{"PathInfo", nil})
+    for i := range pathInfos.PathInfo {
+        pathInfos.EntityData.Children.Append(types.GetSegmentPath(pathInfos.PathInfo[i]), types.YChild{"PathInfo", pathInfos.PathInfo[i]})
+    }
+    pathInfos.EntityData.Leafs = types.NewOrderedMap()
+
+    pathInfos.EntityData.YListKeys = []string {}
+
+    return &(pathInfos.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo
+// Policy configuration
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Path-option type. The type is PcePath.
+    Type interface{}
+
+    // This attribute is a key. Type of dynamic path to be computed. The type is
+    // PcePathHop.
+    HopType interface{}
+
+    // This attribute is a key. Segment-list name. The type is string with length:
+    // 1..128.
+    SegmentListName interface{}
+
+    // True only. The type is interface{}.
+    Enable interface{}
+
+    // Metric configuration, valid only for dynamic path-options.
+    Metric Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric
+}
+
+func (pathInfo *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo) GetEntityData() *types.CommonEntityData {
+    pathInfo.EntityData.YFilter = pathInfo.YFilter
+    pathInfo.EntityData.YangName = "path-info"
+    pathInfo.EntityData.BundleName = "cisco_ios_xr"
+    pathInfo.EntityData.ParentYangName = "path-infos"
+    pathInfo.EntityData.SegmentPath = "path-info" + types.AddKeyToken(pathInfo.Type, "type") + types.AddKeyToken(pathInfo.HopType, "hop-type") + types.AddKeyToken(pathInfo.SegmentListName, "segment-list-name")
+    pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pathInfo.EntityData.Children = types.NewOrderedMap()
+    pathInfo.EntityData.Children.Append("metric", types.YChild{"Metric", &pathInfo.Metric})
+    pathInfo.EntityData.Leafs = types.NewOrderedMap()
+    pathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", pathInfo.Type})
+    pathInfo.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", pathInfo.HopType})
+    pathInfo.EntityData.Leafs.Append("segment-list-name", types.YLeaf{"SegmentListName", pathInfo.SegmentListName})
+    pathInfo.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pathInfo.Enable})
+
+    pathInfo.EntityData.YListKeys = []string {"Type", "HopType", "SegmentListName"}
+
+    return &(pathInfo.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric
+// Metric configuration, valid only for
+// dynamic path-options
+// This type is a presence type.
+type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Metric type. The type is PceMetric. This attribute is mandatory.
+    MetricType interface{}
+}
+
+func (metric *Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric) GetEntityData() *types.CommonEntityData {
+    metric.EntityData.YFilter = metric.YFilter
+    metric.EntityData.YangName = "metric"
+    metric.EntityData.BundleName = "cisco_ios_xr"
+    metric.EntityData.ParentYangName = "path-info"
+    metric.EntityData.SegmentPath = "metric"
+    metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    metric.EntityData.Children = types.NewOrderedMap()
+    metric.EntityData.Leafs = types.NewOrderedMap()
+    metric.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", metric.MetricType})
+
+    metric.EntityData.YListKeys = []string {}
+
+    return &(metric.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Segments
+// Segment-lists configuration
+type Pce_SegmentRouting_TrafficEngineering_Segments struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Segment-list configuration. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Segments_Segment.
+    Segment []*Pce_SegmentRouting_TrafficEngineering_Segments_Segment
+}
+
+func (segments *Pce_SegmentRouting_TrafficEngineering_Segments) GetEntityData() *types.CommonEntityData {
+    segments.EntityData.YFilter = segments.YFilter
+    segments.EntityData.YangName = "segments"
+    segments.EntityData.BundleName = "cisco_ios_xr"
+    segments.EntityData.ParentYangName = "traffic-engineering"
+    segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segments.EntityData.Children = types.NewOrderedMap()
+    segments.EntityData.Children.Append("segment", types.YChild{"Segment", nil})
+    for i := range segments.Segment {
+        segments.EntityData.Children.Append(types.GetSegmentPath(segments.Segment[i]), types.YChild{"Segment", segments.Segment[i]})
+    }
+    segments.EntityData.Leafs = types.NewOrderedMap()
+
+    segments.EntityData.YListKeys = []string {}
+
+    return &(segments.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Segments_Segment
+// Segment-list configuration
+type Pce_SegmentRouting_TrafficEngineering_Segments_Segment struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Segment-list name. The type is string with length:
+    // 1..128.
+    PathName interface{}
+
+    // Segments/hops configuration for given Segment-list.
+    Segments Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments
+}
+
+func (segment *Pce_SegmentRouting_TrafficEngineering_Segments_Segment) GetEntityData() *types.CommonEntityData {
+    segment.EntityData.YFilter = segment.YFilter
+    segment.EntityData.YangName = "segment"
+    segment.EntityData.BundleName = "cisco_ios_xr"
+    segment.EntityData.ParentYangName = "segments"
+    segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.PathName, "path-name")
+    segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segment.EntityData.Children = types.NewOrderedMap()
+    segment.EntityData.Children.Append("segments", types.YChild{"Segments", &segment.Segments})
+    segment.EntityData.Leafs = types.NewOrderedMap()
+    segment.EntityData.Leafs.Append("path-name", types.YLeaf{"PathName", segment.PathName})
+
+    segment.EntityData.YListKeys = []string {"PathName"}
+
+    return &(segment.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments
+// Segments/hops configuration for given
+// Segment-list
+type Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Segment/hop at the index. The type is slice of
+    // Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment.
+    Segment []*Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment
+}
+
+func (segments *Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments) GetEntityData() *types.CommonEntityData {
+    segments.EntityData.YFilter = segments.YFilter
+    segments.EntityData.YangName = "segments"
+    segments.EntityData.BundleName = "cisco_ios_xr"
+    segments.EntityData.ParentYangName = "segment"
+    segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segments.EntityData.Children = types.NewOrderedMap()
+    segments.EntityData.Children.Append("segment", types.YChild{"Segment", nil})
+    for i := range segments.Segment {
+        segments.EntityData.Children.Append(types.GetSegmentPath(segments.Segment[i]), types.YChild{"Segment", segments.Segment[i]})
+    }
+    segments.EntityData.Leafs = types.NewOrderedMap()
+
+    segments.EntityData.YListKeys = []string {}
+
+    return &(segments.EntityData)
+}
+
+// Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment
+// Configure Segment/hop at the index
+type Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Segment index. The type is interface{} with range:
+    // 1..65535.
+    SegmentIndex interface{}
+
+    // Segment/hop type. The type is PceSegment.
+    SegmentType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // MPLS Label. The type is interface{} with range: 0..1048575.
+    MplsLabel interface{}
+}
+
+func (segment *Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment) GetEntityData() *types.CommonEntityData {
+    segment.EntityData.YFilter = segment.YFilter
+    segment.EntityData.YangName = "segment"
+    segment.EntityData.BundleName = "cisco_ios_xr"
+    segment.EntityData.ParentYangName = "segments"
+    segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.SegmentIndex, "segment-index")
+    segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segment.EntityData.Children = types.NewOrderedMap()
+    segment.EntityData.Leafs = types.NewOrderedMap()
+    segment.EntityData.Leafs.Append("segment-index", types.YLeaf{"SegmentIndex", segment.SegmentIndex})
+    segment.EntityData.Leafs.Append("segment-type", types.YLeaf{"SegmentType", segment.SegmentType})
+    segment.EntityData.Leafs.Append("address", types.YLeaf{"Address", segment.Address})
+    segment.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", segment.MplsLabel})
+
+    segment.EntityData.YListKeys = []string {"SegmentIndex"}
+
+    return &(segment.EntityData)
 }
 
 // Pce_Timers
@@ -701,6 +1669,9 @@ type Pce_Netconf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // True only. The type is interface{}.
+    Enable interface{}
+
     // NETCONF SSH configuration.
     NetconfSsh Pce_Netconf_NetconfSsh
 }
@@ -718,6 +1689,7 @@ func (netconf *Pce_Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.Children = types.NewOrderedMap()
     netconf.EntityData.Children.Append("netconf-ssh", types.YChild{"NetconfSsh", &netconf.NetconfSsh})
     netconf.EntityData.Leafs = types.NewOrderedMap()
+    netconf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", netconf.Enable})
 
     netconf.EntityData.YListKeys = []string {}
 
@@ -726,18 +1698,15 @@ func (netconf *Pce_Netconf) GetEntityData() *types.CommonEntityData {
 
 // Pce_Netconf_NetconfSsh
 // NETCONF SSH configuration
-// This type is a presence type.
 type Pce_Netconf_NetconfSsh struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Password to use for NETCONF SSH connections. The type is string with
-    // pattern: (!.+)|([^!].+). This attribute is mandatory.
+    // pattern: (!.+)|([^!].+).
     NetconfSshPassword interface{}
 
-    // User name to use for NETCONF SSH connections. The type is string. This
-    // attribute is mandatory.
+    // User name to use for NETCONF SSH connections. The type is string.
     NetconfSshUser interface{}
 }
 

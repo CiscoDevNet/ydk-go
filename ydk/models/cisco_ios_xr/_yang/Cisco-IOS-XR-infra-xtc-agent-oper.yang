@@ -36,7 +36,7 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
        pcc: Path-computation client in XTC
        xtc: xtc
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-11 {
@@ -118,6 +118,11 @@ module Cisco-IOS-XR-infra-xtc-agent-oper {
         }
         uses XTC-POLICY-BAG;
       }
+    }
+    container policy-summary {
+      description
+        "Summary of all policies";
+      uses XTC-POLICY-SUMMARY-BAG;
     }
     container on-demand-colors {
       description

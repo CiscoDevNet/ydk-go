@@ -26,9 +26,13 @@ submodule Cisco-IOS-XR-ipv4-igmp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-igmp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

@@ -29,9 +29,13 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-new-dhcpv6d package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-12-06 {
+    description
+      "Added proxy class and server class oper for class and server profile";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -527,6 +531,50 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       type boolean;
       description
         "SRG P2P Status";
+    }
+  }
+
+  grouping IPV6-DHCPV6D-SERVER-PROFILE-CLASS {
+    description
+      "DHCPv6 server profile class parameters";
+    leaf class-name-xr {
+      type string {
+        length "0..65";
+      }
+      description
+        "Class name";
+    }
+    leaf domain-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "Server domain name";
+    }
+    leaf profile-dns {
+      type uint8;
+      description
+        "DNS address count";
+    }
+    leaf framed-addr-pool-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "Server framed address pool name";
+    }
+    leaf delegated-prefix-pool-name {
+      type string {
+        length "0..65";
+      }
+      description
+        "Server delegated prefix pool name";
+    }
+    leaf-list profile-dns-address {
+      type Ipv6-address;
+      max-elements "8";
+      description
+        "DNS addresses";
     }
   }
 
@@ -1626,6 +1674,30 @@ submodule Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
       max-elements "8";
       description
         "Interface names";
+    }
+  }
+
+  grouping IPV6-DHCPV6D-PROXY-PROFILE-CLASS {
+    description
+      "DHCPv6 proxy profile class parameters";
+    leaf class-name-xr {
+      type string {
+        length "0..65";
+      }
+      description
+        "Class name";
+    }
+    leaf-list profile-helper-address {
+      type Ipv6-address;
+      max-elements "8";
+      description
+        "Helper addresses";
+    }
+    leaf-list vrf-name {
+      type String-vrf;
+      max-elements "8";
+      description
+        "VRF names";
     }
   }
 

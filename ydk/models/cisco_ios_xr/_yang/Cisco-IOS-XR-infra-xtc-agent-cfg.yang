@@ -32,9 +32,17 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
        Cisco-IOS-XR-segment-routing-ms-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-07-07 {
+    description
+      "Modified the allowed range for policy path weight.";
+  }
+  revision 2018-07-03 {
+    description
+      "Added TE-latency algorithm configuration.";
+  }
   revision 2018-01-31 {
     description
       "Added BW configuration option for On Demand Color policy.";
@@ -105,6 +113,28 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
     }
     description
       "Xtc path hop";
+  }
+
+  typedef Xtc-steering-application {
+    type enumeration {
+      enum "bgp" {
+        value 1;
+        description
+          "BGP as steering client";
+      }
+      enum "isis" {
+        value 2;
+        description
+          "ISIS as steering client";
+      }
+      enum "ospf" {
+        value 3;
+        description
+          "OSPF as steering client";
+      }
+    }
+    description
+      "Xtc steering application";
   }
 
   typedef Xtc-affinity-rule {
@@ -285,7 +315,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "Common node of traffic-engineering, policy,
        segment-list, candidate-paths, preference,
        path-info, metric, constraints, srte-interface,
-       auto-route, on-demand-color";
+       auto-route, on-demand-color, pcep";
     leaf enable {
       type empty;
       description
@@ -298,6 +328,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
       "This augment extends the configuration data of
        'Cisco-IOS-XR-segment-routing-ms-cfg'";
     container traffic-engineering {
+      presence "Indicates a traffic-engineering node is configured.";
       description
         "Traffic Engineering configuration data";
       container on-demand-colors {
@@ -308,6 +339,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           description
             "On-demand color configuration";
           container on-demand-color-dyn-mpls {
+            presence "Indicates a on-demand-color-dyn-mpls node is configured.";
             description
               "Dynamic MPLS path properties";
             container on-demand-color-dyn-mpls-metric {
@@ -361,6 +393,14 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                   "Sub ID";
               }
             }
+            leaf on-demand-color-dyn-mpls-flex-algorithm {
+              type uint32 {
+                range "128..255";
+              }
+              mandatory true;
+              description
+                "Prefix-SID algorithm";
+            }
             leaf enable {
               type empty;
               description
@@ -371,7 +411,6 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             type uint32 {
               range "1..4294967295";
             }
-            mandatory true;
             description
               "The value of the bandwidth reserved by this
                policy in kbps";
@@ -478,6 +517,31 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           key "policy-name";
           description
             "Policy configuration";
+          container steering {
+            description
+              "Steering options for the policy";
+            container applications {
+              description
+                "Application table that steering options need
+                 to be applied";
+              list application {
+                key "application";
+                description
+                  "Application that steering options need to
+                   be applied";
+                leaf disable {
+                  type empty;
+                  description
+                    "Disable all steering services";
+                }
+                leaf application {
+                  type Xtc-steering-application;
+                  description
+                    "Steering application";
+                }
+              }
+            }
+          }
           container binding-sid {
             description
               "Binding Segment ID";
@@ -592,6 +656,46 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                   description
                     "SR path computation and verification
                      constraints";
+                  container disjoint-path {
+                    presence "Indicates a disjoint-path node is configured.";
+                    description
+                      "Disjoint path";
+                    leaf group-id {
+                      type uint32 {
+                        range "1..65535";
+                      }
+                      mandatory true;
+                      description
+                        "Group ID";
+                    }
+                    leaf disjointness-type {
+                      type Xtc-disjointness;
+                      mandatory true;
+                      description
+                        "Disjointness Type";
+                    }
+                    leaf sub-id {
+                      type uint32 {
+                        range "1..65535";
+                      }
+                      description
+                        "Sub ID";
+                    }
+                  }
+                  container segment-rules {
+                    presence "Indicates a segment-rules node is configured.";
+                    description
+                      "SR path computation segment specific
+                       rules";
+                    leaf sid-algorithm {
+                      type uint32 {
+                        range "128..255";
+                      }
+                      mandatory true;
+                      description
+                        "Prefix-SID algorithm";
+                    }
+                  }
                   container affinity-rules {
                     description
                       "SR path computation and verification
@@ -608,7 +712,7 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                       }
                       leaf color {
                         type xr:Cisco-ios-xr-string {
-                          length "1..128";
+                          length "1..59";
                         }
                         description
                           "The color";
@@ -677,8 +781,15 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
                       }
                       uses ENABLE;
                     }
+                    container pcep {
+                      description
+                        "Path Computation Element Protocol";
+                      uses ENABLE;
+                    }
                     leaf weight {
-                      type uint32;
+                      type uint32 {
+                        range "1..4294967295";
+                      }
                       description
                         "Path-option weight";
                     }
@@ -721,10 +832,10 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             description
               "Forward class associated with the policy";
           }
-          leaf advertise-bgp {
+          leaf ipv6-disable {
             type empty;
             description
-              "Whether to advertise this policy to BGP";
+              "IPv6 disable";
           }
           leaf shutdown {
             type empty;
@@ -735,14 +846,13 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
             type uint32 {
               range "1..4294967295";
             }
-            mandatory true;
             description
               "The value of the bandwidth reserved by this
                policy in kbps";
           }
           leaf policy-name {
             type xr:Cisco-ios-xr-string {
-              length "1..128";
+              length "1..59";
             }
             description
               "Policy name";
@@ -773,6 +883,13 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
               }
             }
           }
+          leaf interface-metric {
+            type uint32 {
+              range "0..2147483647";
+            }
+            description
+              "Interface TE metric configuration";
+          }
           leaf srte-interface-name {
             type xr:Interface-name;
             description
@@ -782,7 +899,6 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
         }
       }
       container pcc {
-        presence "Indicates a pcc node is configured.";
         description
           "Path Computation Client";
         container pce-peers {
@@ -851,11 +967,17 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           type uint32 {
             range "1..255";
           }
-          mandatory true;
           description
             "Amount of time after which the peer can
              declare this session down, if no PCEP message
              has been received";
+        }
+        leaf pcc-centric {
+          type empty;
+          description
+            "Enable PCC centric model, where PCC only
+             allows the lowest precedence PCE to initiate
+             policies";
         }
         leaf report-all {
           type empty;
@@ -867,10 +989,17 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           type uint32 {
             range "0..255";
           }
-          mandatory true;
           description
             "Maximum time between two consecutive PCEP
              messages sent by this node";
+        }
+        leaf initiated-state-interval {
+          type uint32 {
+            range "15..14400";
+          }
+          description
+            "Amount of time a PCE Initiated policy can
+             remain orphan";
         }
         leaf source-address {
           type inet:ip-address-no-zone;
@@ -891,11 +1020,18 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
           description
             "PCC Enable";
         }
+        leaf initiated-orphan-interval {
+          type uint32 {
+            range "10..180";
+          }
+          description
+            "Amount of time that a policy will be owned by
+             a PCE after that PCE has gone down";
+        }
         leaf delegation-timeout {
           type uint32 {
             range "0..3600";
           }
-          mandatory true;
           description
             "The maximum time delegated SR-TE policies can
              remain up without an active connection to a
@@ -925,6 +1061,19 @@ module Cisco-IOS-XR-infra-xtc-agent-cfg {
               "Affinity-map bit-position";
           }
         }
+      }
+      leaf te-latency {
+        type empty;
+        description
+          "Use TE-latency algorithm";
+      }
+      leaf maximum-sid-depth {
+        type uint32 {
+          range "1..255";
+        }
+        mandatory true;
+        description
+          "Maximum SID Depth Configuration";
       }
       uses ENABLE;
     }

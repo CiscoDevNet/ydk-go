@@ -29,9 +29,13 @@ module Cisco-IOS-XR-aaa-locald-cfg {
        Cisco-IOS-XR-aaa-lib-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-04 {
+    description
+      "Added Yang support for aaa password-policy.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

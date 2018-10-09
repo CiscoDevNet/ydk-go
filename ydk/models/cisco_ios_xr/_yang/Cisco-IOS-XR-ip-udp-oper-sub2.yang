@@ -26,9 +26,13 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-udp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-03-04 {
+    description
+      "PCB_ID argument is passed in string format.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";

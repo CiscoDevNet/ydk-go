@@ -1,10 +1,4 @@
-// This module contains definitions
-// for the Calvados model objects.
-// 
 // This module holds OBFL data.
-// 
-// Copyright (c) 2012-2017 by Cisco Systems, Inc.
-// All rights reserved.
 package sysadmin_obfl
 
 import (

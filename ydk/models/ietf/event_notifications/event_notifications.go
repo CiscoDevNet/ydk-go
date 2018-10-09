@@ -1110,7 +1110,7 @@ type Streams struct {
     // streams are associated with their own identities, each of which carries a
     // special semantics. In case configurable custom streams are supported, as
     // indicated by the custom-stream identity, the configuration of those custom
-    // streams is provided         separately. The type is slice of [u'NETCONF',
+    // streams is provided         separately. The type is slice of ['NETCONF',
     // 'CustomStream', 'YangPush'].
     Stream []interface{}
 }

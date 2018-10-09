@@ -31,6 +31,21 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
      Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-08 {
+    description
+      "6.5.1 revision.
+       Remove the when statement for fragments";
+  }
+  revision 2018-04-03 {
+    description
+      "6.5.1 revision.
+       Correct enum value for Next-hop-type";
+  }
+  revision 2018-03-23 {
+    description
+      "6.5.1 revision.
+       Removing none-next-type.";
+  }
   revision 2018-02-01 {
     description
       "Using YANG bit types for tcp flags.";
@@ -70,15 +85,13 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
 
   typedef Next-hop-type {
     type enumeration {
-      enum "none-next-hop" {
-        description
-          "None next-hop.";
-      }
       enum "regular-next-hop" {
+        value 1;
         description
           "Regular next-hop.";
       }
       enum "default-next-hop" {
+        value 2;
         description
           "Default next-hop.";
       }
@@ -543,11 +556,6 @@ submodule Cisco-IOS-XR-ipv4-ace-cfg {
          will be rejected.";
     }
     leaf fragments {
-      when "../protocol = '1' or ../protocol = 'icmp' or ../protocol = '2' or ../protocol = 'igmp' or ../protocol = '6' or ../protocol = 'tcp' or ../protocol = '17' or ../protocol = 'udp' or ../protocol = '132' or ../protocol = 'sctp'" {
-        description
-          "Applicable only to TCP, SCTP, UDP, IGMP and
-           ICMP.";
-      }
       type empty;
       description
         "Check non-initial fragments. Item is mutually 

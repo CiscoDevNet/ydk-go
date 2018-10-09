@@ -6,7 +6,7 @@
 //   mpls-ea: MPLS IO EA operational data
 //   mpls-ma: mpls ma
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_io_oper
 
@@ -164,7 +164,7 @@ type MplsEa_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MTU for fragmentation. The type is interface{} with range: 0..4294967295.
@@ -340,7 +340,7 @@ type MplsMa_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MTU for fragmentation. The type is interface{} with range: 0..4294967295.

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pfilter-ma: Root class of PfilterMa Oper schema
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_pfilter_oper
 
@@ -252,7 +252,7 @@ type PfilterMa_Nodes_Node_Process_Ipv6_AclInfoTable_InterfaceInfos_InterfaceInfo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // acl information. The type is string.
@@ -377,7 +377,7 @@ type PfilterMa_Nodes_Node_Process_Ipv4_AclInfoTable_InterfaceInfos_InterfaceInfo
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // acl information. The type is string.

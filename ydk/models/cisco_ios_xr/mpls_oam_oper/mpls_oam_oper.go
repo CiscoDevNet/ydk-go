@@ -5,7 +5,7 @@
 // for the following management objects:
 //   mpls-oam: MPLS OAM operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_oam_oper
 
@@ -193,10 +193,10 @@ type MplsOam_Interface_Briefs_Brief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is LspvBagInterfaceState.
@@ -286,7 +286,7 @@ type MplsOam_Interface_Details_Detail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface brief.
@@ -323,7 +323,7 @@ type MplsOam_Interface_Details_Detail_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is LspvBagInterfaceState.

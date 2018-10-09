@@ -5,7 +5,7 @@
 // for the following management objects:
 //   memory-summary: Memory summary information
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package nto_misc_oper
 
@@ -269,6 +269,9 @@ type MemorySummary_Nodes_Node_Detail struct {
     // 0..18446744073709551615.
     ProgramStack interface{}
 
+    // Total Used. The type is interface{} with range: 0..18446744073709551615.
+    TotalUsed interface{}
+
     // Available Shared windows. The type is slice of
     // MemorySummary_Nodes_Node_Detail_SharedWindow.
     SharedWindow []*MemorySummary_Nodes_Node_Detail_SharedWindow
@@ -306,6 +309,7 @@ func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEnti
     detail.EntityData.Leafs.Append("program-text", types.YLeaf{"ProgramText", detail.ProgramText})
     detail.EntityData.Leafs.Append("program-data", types.YLeaf{"ProgramData", detail.ProgramData})
     detail.EntityData.Leafs.Append("program-stack", types.YLeaf{"ProgramStack", detail.ProgramStack})
+    detail.EntityData.Leafs.Append("total-used", types.YLeaf{"TotalUsed", detail.TotalUsed})
 
     detail.EntityData.YListKeys = []string {}
 

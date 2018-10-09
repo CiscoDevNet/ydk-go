@@ -5,7 +5,7 @@
 // for the following management objects:
 //   vpdn: VPDN operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tunnel_vpdn_oper
 
@@ -331,7 +331,7 @@ type Vpdn_Sessions_Session struct {
     // 0..4294967295.
     SetupTime interface{}
 
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Session data.
@@ -381,7 +381,7 @@ type Vpdn_Sessions_Session_Session struct {
     // Elapsed time since last change in hh:mm:ss format. The type is string.
     LastChange interface{}
 
-    // Session interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Session interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Authentication username. The type is string.

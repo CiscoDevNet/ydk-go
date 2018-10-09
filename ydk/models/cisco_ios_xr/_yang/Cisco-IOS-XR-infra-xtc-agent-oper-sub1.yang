@@ -26,7 +26,7 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-xtc-agent package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-11 {
@@ -187,6 +187,10 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         description
           "BSID not valid within SRLB range";
       }
+      enum "internal-error" {
+        description
+          "Internal error";
+      }
     }
     description
       "Xtc bsid error";
@@ -263,6 +267,16 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       "Xtc af id";
   }
 
+  grouping XTC-PFX-ENTRY {
+    description
+      "XTC prefix etnry";
+    container ip-address {
+      description
+        "Prefix IP address";
+      uses XTC-IP-ADDR-TYPE;
+    }
+  }
+
   grouping XTC-PFX-BAG {
     description
       "XTC Prefix Information";
@@ -279,7 +293,7 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     list address {
       description
         "Prefix address";
-      uses XTC-IP-ADDR-TYPE;
+      uses XTC-PFX-ENTRY;
     }
   }
 
@@ -807,6 +821,38 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Color";
     }
+    leaf maximum-sid-depth {
+      type uint32;
+      description
+        "Maximum SID Depth";
+    }
+  }
+
+  grouping XTC-POLICY-SUMMARY-BAG {
+    description
+      "Policy summary information";
+    container ipv4-source-address {
+      description
+        "IPv4 address used for IPv4 policies";
+      uses XTC-IP-ADDR-TYPE;
+    }
+    leaf configured-total-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies";
+    }
+    leaf configured-up-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies that are
+         operationally up";
+    }
+    leaf configured-down-policy-count {
+      type uint32;
+      description
+        "Total number of configured policies that are
+         operationally down";
+    }
   }
 
   grouping XTC-POLICY-AUTO-BAG {
@@ -827,10 +873,15 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Preference of the policy";
     }
-    leaf ipv6-caps-enabled {
-      type boolean;
+  }
+
+  grouping XTC-SEGMENTS-BAG {
+    description
+      "XTC SEGMENTS BAG";
+    leaf segment-algorithm {
+      type uint8;
       description
-        "Whether IPv6 caps was requested to be enabled";
+        "Segment Algorithm";
     }
   }
 
@@ -907,6 +958,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
         "Path metrics";
       uses XTC-PATH-METRICS-BAG;
     }
+    container segments {
+      description
+        "Segments constraints";
+      uses XTC-SEGMENTS-BAG;
+    }
     list affinity-constraint {
       description
         "Affinity constraints list";
@@ -936,6 +992,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type Xtc-sr-sid;
       description
         "SID type";
+    }
+    leaf algorithm {
+      type uint8;
+      description
+        "Algorithim";
     }
   }
 
@@ -1184,6 +1245,11 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "LSP ID";
     }
+    leaf steering-bgp-disabled {
+      type boolean;
+      description
+        "Whether steering to BGP client is disabled";
+    }
     leaf interface-handle {
       type uint32;
       description
@@ -1203,6 +1269,16 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Local label";
+    }
+    leaf profile-id {
+      type uint16;
+      description
+        "Profile ID";
+    }
+    leaf ipv6-caps-enabled {
+      type boolean;
+      description
+        "IPv6 caps enabled";
     }
     list paths {
       description

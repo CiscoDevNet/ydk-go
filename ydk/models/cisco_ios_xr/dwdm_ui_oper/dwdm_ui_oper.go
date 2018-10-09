@@ -6,7 +6,7 @@
 //   dwdm: DWDM operational data
 //   vtxp: vtxp
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dwdm_ui_oper
 
@@ -384,7 +384,7 @@ type Dwdm_Ports_Port struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // DWDM Port PRBS related data.
@@ -3884,7 +3884,7 @@ type Vtxp_DwdmVtxp_PortVtxps_PortVtxp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // DWDM port operational data.

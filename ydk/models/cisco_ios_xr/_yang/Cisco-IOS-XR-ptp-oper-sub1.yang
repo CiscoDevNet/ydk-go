@@ -26,7 +26,7 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ptp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-02-02 {
@@ -95,6 +95,12 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       "Telecom Clock";
   }
 
+  typedef Ptp-bag-optional-string {
+    type string;
+    description
+      "Ptp bag optional string";
+  }
+
   typedef Ptp-bag-profile {
     type enumeration {
       enum "default" {
@@ -120,12 +126,6 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
     }
     description
       "Profile";
-  }
-
-  typedef Ptp-bag-optional-string {
-    type string;
-    description
-      "Ptp bag optional string";
   }
 
   typedef Ptp-bag-restrict-port-state {
@@ -658,6 +658,54 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Leap seconds configuration contains an invalid
          UTC offset change";
     }
+    leaf physical-layer-frequency {
+      type boolean;
+      description
+        "Physical Layer Frequency configuration is not
+         compatible with G.8265.1 profile";
+    }
+    leaf profile-virtual-port {
+      type boolean;
+      description
+        "Virtual Port configuration is not compatible
+         with default profile";
+    }
+    leaf virtual-port-priority1-config {
+      type boolean;
+      description
+        "Virtual Port priority1 configuration is not
+         compatible with configured profile";
+    }
+    leaf virtual-port-priority2-value {
+      type boolean;
+      description
+        "Virtual Port priority2 value is not compatible
+         with configured profile";
+    }
+    leaf virtual-port-profile-clock-class {
+      type boolean;
+      description
+        "Virtual port clock class is not compatible with
+         configured profile";
+    }
+    leaf virtual-port-clock-accuracy {
+      type boolean;
+      description
+        "Virtual port clock accuracy is not compatible
+         with configured profile";
+    }
+    leaf virtual-port-oslv {
+      type boolean;
+      description
+        "Virtual port OSLV is not compatible with
+         configured profile";
+    }
+    leaf virtual-port-local-priority {
+      type boolean;
+      description
+        "Virtual port local priority configuration is not
+         compatible with configured profile";
+    }
   }
 
   grouping PTP-GL-CONFIG-ERRORS-INFO {
@@ -692,6 +740,28 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       type Ptp-clock-priority;
       description
         "The configured priority2 value";
+    }
+    leaf virtual-port-priority2 {
+      type Ptp-clock-priority;
+      description
+        "The configured priority2 value of the virtual
+         port";
+    }
+    leaf virtual-port-clock-class {
+      type Ptp-clock-class;
+      description
+        "The configured clock class of the virtual port";
+    }
+    leaf virtual-port-clock-accuracy {
+      type Ptp-clock-accuracy;
+      description
+        "The configured clock accuracy of the virtual
+         port";
+    }
+    leaf virtual-port-oslv {
+      type Ptp-clock-oslv;
+      description
+        "The configured oslv of the virtual port";
     }
   }
 
@@ -1036,6 +1106,51 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
     }
   }
 
+  grouping PTP-BAG-VIRTUAL-PORT {
+    description
+      "PTP Virtual Port";
+    leaf configured {
+      type boolean;
+      description
+        "Configured";
+    }
+    leaf connected {
+      type boolean;
+      description
+        "Connected";
+    }
+    leaf priority1 {
+      type Ptp-clock-priority;
+      description
+        "Priority 1";
+    }
+    leaf priority2 {
+      type Ptp-clock-priority;
+      description
+        "Priority 2";
+    }
+    leaf class {
+      type Ptp-clock-class;
+      description
+        "Class";
+    }
+    leaf accuracy {
+      type Ptp-clock-accuracy;
+      description
+        "Accuracy";
+    }
+    leaf offset-log-variance {
+      type Ptp-clock-oslv;
+      description
+        "Offset log variance";
+    }
+    leaf local-priority {
+      type Ptp-clock-priority;
+      description
+        "The local priority";
+    }
+  }
+
   grouping PTP-LOCAL-CLOCK-INFO {
     description
       "Local clock information";
@@ -1044,10 +1159,130 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Local clock";
       uses PTP-BAG-CLOCK;
     }
+    container virtual-port {
+      description
+        "Virtual port";
+      uses PTP-BAG-VIRTUAL-PORT;
+    }
     leaf domain {
       type Ptp-domain-num;
       description
         "The PTP domain of the local clock";
+    }
+    leaf holdover {
+      type boolean;
+      description
+        "Is the local clock in holdover?";
+    }
+    leaf holdover-clock-class {
+      type Ptp-clock-class;
+      description
+        "The holdover clock class (if it is valid)";
+    }
+  }
+
+  grouping PTP-BAG-PROFILE-INTEROP {
+    description
+      "PTP Profile Interop Status";
+    leaf from-priority1 {
+      type Ptp-clock-priority;
+      description
+        "From Priority 1";
+    }
+    leaf to-priority1 {
+      type Ptp-clock-priority;
+      description
+        "To Priority 1";
+    }
+    leaf from-priority2 {
+      type Ptp-clock-priority;
+      description
+        "From Priority 2";
+    }
+    leaf to-priority2 {
+      type Ptp-clock-priority;
+      description
+        "To Priority 2";
+    }
+    leaf from-accuracy {
+      type Ptp-clock-accuracy;
+      description
+        "From Accuracy";
+    }
+    leaf to-accuracy {
+      type Ptp-clock-accuracy;
+      description
+        "To Accuracy";
+    }
+    leaf from-clock-class {
+      type Ptp-clock-class;
+      description
+        "From Clock Class";
+    }
+    leaf to-clock-class {
+      type Ptp-clock-class;
+      description
+        "To Clock Class";
+    }
+    leaf from-offset-log-variance {
+      type Ptp-clock-oslv;
+      description
+        "From Offset log variance";
+    }
+    leaf to-offset-log-variance {
+      type Ptp-clock-oslv;
+      description
+        "To Offset log variance";
+    }
+  }
+
+  grouping PTP-BAG-PROFILE-INTEROP-PEER {
+    description
+      "PTP Profile Interop Peer Status";
+    container address {
+      description
+        "Peer address";
+      uses PTP-BAG-ADDRESS;
+    }
+    container interop {
+      description
+        "Interop information";
+      uses PTP-BAG-PROFILE-INTEROP;
+    }
+  }
+
+  grouping PTP-IF-INTEROP-INFO {
+    description
+      "PTP interface interop information";
+    container egress-interop {
+      description
+        "Egress interop information";
+      uses PTP-BAG-PROFILE-INTEROP;
+    }
+    leaf local-domain {
+      type Ptp-domain-num;
+      description
+        "The PTP domain configured for this interface";
+    }
+    leaf interop-domain {
+      type Ptp-domain-num;
+      description
+        "The PTP domain that is being interoperated with";
+    }
+    leaf local-profile {
+      type Ptp-bag-profile;
+      description
+        "The PTP Profile configured for this interface";
+    }
+    leaf interop-profile {
+      type Ptp-bag-profile;
+      description
+        "The PTP profile that is being interoperated with";
+    }
+    list ingress-interop {
+      description
+        "Per-peer ingress interop information";
+      uses PTP-BAG-PROFILE-INTEROP-PEER;
     }
   }
 
@@ -1157,6 +1392,18 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Ethernet multicast target-address is configured,
          but transport is IPv6";
     }
+    leaf ipv4ttl {
+      type boolean;
+      description
+        "IPv4 TTL value configured but transport is not
+         IPv4";
+    }
+    leaf ipv6-hop-limit {
+      type boolean;
+      description
+        "IPv6 hop limit value configured but transport is
+         not IPv6";
+    }
     leaf profile-port-state {
       type boolean;
       description
@@ -1197,6 +1444,66 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
         "Reducing invalid unicast grants is not
          compatible with configured profile";
     }
+    leaf invalid-interop-domain {
+      type boolean;
+      description
+        "Domain is not compatible with configured profile
+         interop";
+    }
+    leaf invalid-interop-ingress-clock-class-default {
+      type boolean;
+      description
+        "Ingress conversion clock class default is not
+         compatible with configured profile interop";
+    }
+    leaf invalid-interop-ingress-priority1 {
+      type boolean;
+      description
+        "Ingress conversion priority1 is not compatible
+         with configured profile interop";
+    }
+    leaf invalid-interop-ingress-clock-accuracy {
+      type boolean;
+      description
+        "Ingress conversion clock-accuracy is not
+         compatible with configured profile interop";
+    }
+    leaf invalid-interop-ingress-oslv {
+      type boolean;
+      description
+        "Ingress conversion OSLV not compatible with
+         configured profile interop";
+    }
+    leaf invalid-interop-egress-clock-class-default {
+      type boolean;
+      description
+        "Egress conversion clock class default is not
+         compatible with configured profile interop";
+    }
+    leaf invalid-interop-egress-priority1 {
+      type boolean;
+      description
+        "Egress conversion priority1 is not compatible
+         with configured profile interop";
+    }
+    leaf invalid-interop-egress-priority2 {
+      type boolean;
+      description
+        "Egress conversion priority2 is not compatible
+         with configured profile interop";
+    }
+    leaf invalid-interop-egress-clock-accuracy {
+      type boolean;
+      description
+        "Egress conversion clock-accuracy is not
+         compatible with configured profile interop";
+    }
+    leaf invalid-interop-egress-oslv {
+      type boolean;
+      description
+        "Egress conversion OSLV not compatible with
+         configured profile interop";
+    }
     leaf invalid-master-config {
       type boolean;
       description
@@ -1208,6 +1515,34 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "Slave configuration is not compatible with
          configured clock-type";
+    }
+    leaf-list invalid-interop-ingress-clock-class-map-from-val {
+      type Ptp-clock-class;
+      description
+        "List of ingress conversion clock class mapping
+         'from values' that are not compatible with the
+         configure profile interop";
+    }
+    leaf-list invalid-interop-ingress-clock-class-map-to-val {
+      type Ptp-clock-class;
+      description
+        "List of ingress conversion clock class mapping
+         'to values' that are not compatible with the
+         configure profile interop";
+    }
+    leaf-list invalid-interop-egress-clock-class-map-from-val {
+      type Ptp-clock-class;
+      description
+        "List of egress conversion clock class mapping
+         'from values' that are not compatible with the
+         configure profile interop";
+    }
+    leaf-list invalid-interop-egress-clock-class-map-to-val {
+      type Ptp-clock-class;
+      description
+        "List of egress conversion clock class mapping
+         'to values' that are not compatible with the
+         configure profile interop";
     }
   }
 
@@ -1239,6 +1574,12 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       type Ptp-bag-restrict-port-state;
       description
         "Restriction on the port state";
+    }
+    leaf interop-profile {
+      type Ptp-bag-profile;
+      description
+        "The clock profile to interoperate with, if
+         interoperation is configured";
     }
   }
 
@@ -1355,6 +1696,11 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       description
         "Clock class below minimum";
     }
+    leaf g8265-1-incompatible {
+      type uint32;
+      description
+        "Packet not compatible with G.8265.1 profile";
+    }
     leaf g8275-1-incompatible {
       type uint32;
       description
@@ -1364,6 +1710,11 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       type uint32;
       description
         "Packet not compatible with G.8275.2 profile";
+    }
+    leaf incorrect-address {
+      type uint32;
+      description
+        "Packet sent to incorrect address";
     }
   }
 
@@ -1616,6 +1967,56 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
     }
   }
 
+  grouping PTP-BAG-CLOCK-CLASS-MAPPING {
+    description
+      "PTP Clock Class Mapping";
+    leaf from-clock-class {
+      type Ptp-clock-class;
+      description
+        "From clock class";
+    }
+    leaf to-clock-class {
+      type Ptp-clock-class;
+      description
+        "To clock class";
+    }
+  }
+
+  grouping PTP-BAG-PROFILE-INTEROP-CFG {
+    description
+      "PTP Profile Interop Configuration";
+    leaf priority1 {
+      type Ptp-clock-priority;
+      description
+        "Priority 1";
+    }
+    leaf priority2 {
+      type Ptp-clock-priority;
+      description
+        "Priority 2";
+    }
+    leaf accuracy {
+      type Ptp-clock-accuracy;
+      description
+        "Accuracy";
+    }
+    leaf class-default {
+      type Ptp-clock-class;
+      description
+        "Class Default";
+    }
+    leaf offset-log-variance {
+      type Ptp-clock-oslv;
+      description
+        "Offset log variance";
+    }
+    list class-mapping {
+      description
+        "Class Mapping";
+      uses PTP-BAG-CLOCK-CLASS-MAPPING;
+    }
+  }
+
   grouping PTP-BAG-MASTER-TABLE-ENTRY {
     description
       "PTP Master Table Entry";
@@ -1671,14 +2072,59 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
     }
   }
 
+  grouping PTP-BAG-IPV4-ADDR-LIST {
+    description
+      "List of IPv4 addresses";
+    leaf-list addr {
+      type inet:ipv4-address;
+      description
+        "List of IPv4 addresses";
+    }
+  }
+
+  grouping PTP-BAG-IPV6-ADDR-LIST {
+    description
+      "List of IPv6 addresses";
+    leaf-list addr {
+      type Bag-in6-addr;
+      description
+        "List of IPv6 addresses";
+    }
+  }
+
   grouping PTP-IF-INFO {
     description
       "PTP interface information";
+    container ipv6-address-array {
+      description
+        "List of Ipv6 addresses, if IPv6 encapsulation is
+         being used. If a source address is configured,
+         this is the only item in the list";
+      uses PTP-BAG-IPV6-ADDR-LIST;
+    }
+    container ipv4-address-array {
+      description
+        "List of IPv4 addresses, if IPv4 encapsulation is
+         being used. The first address is the primary
+         address. If a source address is configured, this
+         is the only item in the list.";
+      uses PTP-BAG-IPV4-ADDR-LIST;
+    }
     container mac-address {
       description
         "MAC address, if Ethernet encapsulation is being
          used";
       uses PTP-BAG-MAC-ADDR-TYPE;
+    }
+    container ingress-conversion {
+      description
+        "Details of any ingress conversion";
+      uses PTP-BAG-PROFILE-INTEROP-CFG;
+    }
+    container egress-conversion {
+      description
+        "Details of any egress conversion";
+      uses PTP-BAG-PROFILE-INTEROP-CFG;
     }
     leaf port-state {
       type Ptp-bag-port-state;
@@ -1843,6 +2289,21 @@ submodule Cisco-IOS-XR-ptp-oper-sub1 {
       type boolean;
       description
         "Signal fail status of the interface";
+    }
+    leaf profile-interop {
+      type boolean;
+      description
+        "Indicate whether profile interop is in use";
+    }
+    leaf interop-domain {
+      type Ptp-domain-num;
+      description
+        "The PTP domain that is being interoperated with";
+    }
+    leaf interop-profile {
+      type Ptp-bag-profile;
+      description
+        "Profile that is being interoperated with";
     }
     list master-table {
       description

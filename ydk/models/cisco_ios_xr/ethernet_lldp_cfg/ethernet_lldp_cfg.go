@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_lldp_cfg
 
@@ -46,6 +46,10 @@ type Lldp struct {
     // bool. The default value is false.
     EnableSubintf interface{}
 
+    // Enable or disable LLDP on Mgmt interfaces as well globally. The type is
+    // bool. The default value is false.
+    EnableMgmtintf interface{}
+
     // Specify the rate at which LLDP packets are sent (in sec). The type is
     // interface{} with range: 5..65534. The default value is 30.
     Timer interface{}
@@ -78,6 +82,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.Leafs.Append("holdtime", types.YLeaf{"Holdtime", lldp.Holdtime})
     lldp.EntityData.Leafs.Append("extended-show-width", types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth})
     lldp.EntityData.Leafs.Append("enable-subintf", types.YLeaf{"EnableSubintf", lldp.EnableSubintf})
+    lldp.EntityData.Leafs.Append("enable-mgmtintf", types.YLeaf{"EnableMgmtintf", lldp.EnableMgmtintf})
     lldp.EntityData.Leafs.Append("timer", types.YLeaf{"Timer", lldp.Timer})
     lldp.EntityData.Leafs.Append("reinit", types.YLeaf{"Reinit", lldp.Reinit})
     lldp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", lldp.Enable})

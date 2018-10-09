@@ -23,9 +23,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR clns-isis package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-07 {
+    description
+      "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";
+  }
+  revision 2018-01-24 {
+    description
+      "Added SRLG TILFA operation CLI.";
+  }
+  revision 2017-12-06 {
+    description
+      "Add segment-routing srv6";
+  }
   revision 2017-08-08 {
     description
       "Add openconfig network instance model isis telemetry EDM function support.";
@@ -511,6 +523,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "Openconfig isis types adaptive timer type enum";
   }
 
+  typedef Openconfig-segment-routing-label-options-enum {
+    type enumeration {
+      enum "no-php" {
+        value 0;
+        description
+          "When this value is specified, the penultimate
+           hop must not pop the Prefix-SID label before
+           forwarding it to the local system.";
+      }
+      enum "explicit-null" {
+        value 1;
+        description
+          "When set, the penultimate hop must swap the
+           prefix SID for the relevant explicit null label
+           before forwarding the packet.";
+      }
+    }
+    description
+      "Openconfig segment routing label options enum";
+  }
+
   typedef Openconfig-isis-adjacency-state-nlpid-enum {
     type enumeration {
       enum "ipv4" {
@@ -656,10 +689,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of network instance. The value of this
-         leaf indicates the type of forwarding entries
-         that should be supported by this network
-         instance";
+        "The type of network instance";
     }
     leaf enabled {
       type boolean;
@@ -683,39 +713,38 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-MT-IPV6-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses MT-IPV6-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
-      "State parameters for a prefix.";
+      "State parameters for a prefix";
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
   }
 
@@ -725,21 +754,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag32 {
       type uint32;
       description
-        "List of 32-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 32-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-TAG {
     description
-      "This container defines sub-TLV 1.";
+      "This container defines sub-TLV 1";
     container state {
       description
-        "State parameters of sub-TLV 1.";
+        "State parameters of sub-TLV 1";
       uses PREFIX-SUBTLVS-SUBTLV-TAG-STATE;
     }
   }
@@ -750,33 +774,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv6-source-router-id {
       type Yang2bag-string;
       description
-        "IPv6 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv6 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses PREFIX-SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -787,21 +799,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag64 {
       type uint64;
       description
-        "List of 64-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 64-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-TAG64 {
     description
-      "This container defines sub-TLV 2.";
+      "This container defines sub-TLV 2";
     container state {
       description
-        "State parameters of sub-TLV 2.";
+        "State parameters of sub-TLV 2";
       uses PREFIX-SUBTLVS-SUBTLV-TAG64-STATE;
     }
   }
@@ -812,33 +819,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv4-source-router-id {
       type Yang2bag-string;
       description
-        "IPv4 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv4 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 11.";
+      "This container defines sub-TLV 11";
     container state {
       description
-        "State parameters of sub-TLV 11.";
+        "State parameters of sub-TLV 11";
       uses PREFIX-SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -849,22 +844,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-flags-state-flags-enum;
       description
-        "Additional prefix reachability flags.";
+        "Additional prefix reachability flags";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-FLAGS {
     description
-      "This container defines sub-TLV 4.";
+      "This container defines sub-TLV 4";
     container state {
       description
-        "State parameters of sub-TLV 4.";
+        "State parameters of sub-TLV 4";
       uses PREFIX-SUBTLVS-SUBTLV-FLAGS-STATE;
     }
   }
@@ -875,30 +869,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "IGP Prefix-SID value.";
+        "IGP Prefix-SID value";
     }
     leaf algorithm {
       type uint8;
       description
         "Prefix-SID algorithm to be used for path
-         computation.";
+         computation";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-prefix-sid-state-flags-enum;
       description
-        "Flags associated with Prefix Segment-ID.";
+        "Flags associated with Prefix Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-PREFIX-SIDS-PREFIX-SID {
     description
-      "Prefix Segment-ID list. IGP-Prefix Segment is an
-       IGP segment attached to an IGP prefix. An
-       IGP-Prefix Segment is global (unless explicitly
-       advertised otherwise) within the SR/IGP domain.";
+      "Prefix Segment-ID list";
     container state {
       description
-        "State parameters for Prefix-SID.";
+        "State parameters for Prefix-SID";
       uses SUBTLVS-SUBTLV-PREFIX-SIDS-PREFIX-SID-STATE;
     }
   }
@@ -910,41 +901,28 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf xbit {
       type boolean;
       description
-        "The external bit. Set when the prefix was
-         distributed into IS-IS from another routing
-         protocol.";
+        "The external bit";
     }
     leaf sbit {
       type boolean;
       description
-        "The sub-tlv present bit. If UNSET, the octets of
-         Sub-TLVs are not present. Otherwise, the bit is
-         set and the octet following the prefix will
-         contain the length of the Sub-TLV portion of the
-         structure.";
+        "The sub-tlv present bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
         "IPv6 prefix contained within extended
-         reachability TLVs.";
+         reachability TLVs";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value.";
+        "ISIS metric value";
     }
     leaf mt-id {
       type uint16;
@@ -959,17 +937,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS error metric value. This metric measures
-         the residual error probability of the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a non-zero
-         value. Higher values indicate a larger
-         probability of undetected errors on the circuit.";
+        "ISIS error metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "IS-IS error metric flags.";
+        "IS-IS error metric flags";
     }
   }
 
@@ -978,7 +951,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES PREFIXES ERROR METRIC";
     container state {
       description
-        "State parameters of error-metric.";
+        "State parameters of error-metric";
       uses PREFIXES-PREFIXES-ERROR-METRIC-STATE;
     }
   }
@@ -989,17 +962,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS expense metric value. This metric measures
-         the monetary cost of utilising the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a positive
-         integral value1). Higher values indicate a
-         larger monetary expense.";
+        "ISIS expense metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Expense Metric Flags.";
+        "ISIS Expense Metric Flags";
     }
   }
 
@@ -1008,7 +976,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES PREFIXES EXPENSE METRIC";
     container state {
       description
-        "State parameters of expense-metric.";
+        "State parameters of expense-metric";
       uses PREFIXES-PREFIXES-EXPENSE-METRIC-STATE;
     }
   }
@@ -1019,16 +987,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS delay metric value. This metric measures
-         the transit delay of the associated circuit. It
-         is an optional metric, which if assigned to a
-         circuit shall have a positive integral value.
-         Higher values indicate a longer transit delay.";
+        "ISIS delay metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Delay Metric Flags.";
+        "ISIS Delay Metric Flags";
     }
   }
 
@@ -1037,7 +1001,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES PREFIXES DELAY METRIC";
     container state {
       description
-        "State parameters of delay-metric.";
+        "State parameters of delay-metric";
       uses PREFIXES-PREFIXES-DELAY-METRIC-STATE;
     }
   }
@@ -1048,21 +1012,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf flags {
       type Openconfig-isis-lsp-default-metric-state-flags-enum;
       description
-        "ISIS Default-Metric Flags.";
+        "ISIS Default-Metric Flags";
     }
     leaf default-metric {
       type uint8;
       description
-        "ISIS default metric value. This is a metric
-         understood by every Intermediate system in the
-         domain. Each circuit shall have a positive 
-         integral value assigned for this metric. The
-         value may be associated with any  objective
-         function of the circuit, but by convention is
-         intended to measure the capacity of the circuit
-         for handling traffic, for example, its
-         throughput in  bits-per-second. Higher values
-         indicate a lower capacity.";
+        "ISIS default metric value";
     }
   }
 
@@ -1071,7 +1026,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES PREFIXES DEFAULT METRIC";
     container state {
       description
-        "State parameters for default-metric.";
+        "State parameters for default-metric";
       uses PREFIXES-PREFIXES-DEFAULT-METRIC-STATE;
     }
   }
@@ -1082,49 +1037,42 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
-        "IPv4 prefix contained within reachability TLVs.";
+        "IPv4 prefix contained within reachability TLVs";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIXES {
     description
       "IPv4 external prefixes and reachability
-       attributes.";
+       attributes";
     container state {
       description
-        "State parameters of IPv4 standard prefix.";
+        "State parameters of IPv4 standard prefix";
       uses PREFIXES-PREFIXES-STATE;
     }
     container default-metric {
       description
-        "This container defines ISIS Default Metric.";
+        "This container defines ISIS Default Metric";
       uses PREFIXES-PREFIXES-DEFAULT-METRIC;
     }
     container delay-metric {
       description
-        "This container defines the ISIS delay metric.";
+        "This container defines the ISIS delay metric";
       uses PREFIXES-PREFIXES-DELAY-METRIC;
     }
     container expense-metric {
       description
-        "This container defines the ISIS expense metric.";
+        "This container defines the ISIS expense metric";
       uses PREFIXES-PREFIXES-EXPENSE-METRIC;
     }
     container error-metric {
       description
-        "This container defines the ISIS error metric.";
+        "This container defines the ISIS error metric";
       uses PREFIXES-PREFIXES-ERROR-METRIC;
     }
   }
@@ -1135,22 +1083,22 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf mt-id {
       type uint16;
       description
-        "Multi-topology ID.";
+        "Multi-topology ID";
     }
     leaf attributes {
       type Openconfig-isis-lsp-attributes-enum;
       description
         "Attributes of the LSP for the associated
-         topology.";
+         topology";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TOPOLOGY {
     description
-      "This list describes a topology.";
+      "This list describes a topology";
     container state {
       description
-        "State parameters of IS multi-topology TLV 229.";
+        "State parameters of IS multi-topology TLV 229";
       uses TOPOLOGY-STATE;
     }
   }
@@ -1161,27 +1109,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
@@ -1192,30 +1140,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "IGP Prefix-SID value.";
+        "IGP Prefix-SID value";
     }
     leaf algorithm {
       type uint8;
       description
         "Prefix-SID algorithm to be used for path
-         computation.";
+         computation";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-prefix-sid-state-flags-enum;
       description
-        "Flags associated with Prefix Segment-ID.";
+        "Flags associated with Prefix Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SID {
     description
-      "Prefix Segment-ID list. IGP-Prefix Segment is an
-       IGP segment attached to an IGP prefix. An
-       IGP-Prefix Segment is global (unless explicitly
-       advertised otherwise) within the SR/IGP domain.";
+      "Prefix Segment-ID list";
     container state {
       description
-        "State parameters for Prefix-SID.";
+        "State parameters for Prefix-SID";
       uses PREFIX-SID-STATE;
     }
   }
@@ -1226,21 +1171,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag64 {
       type uint64;
       description
-        "List of 64-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 64-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TAG64 {
     description
-      "This container defines sub-TLV 2.";
+      "This container defines sub-TLV 2";
     container state {
       description
-        "State parameters of sub-TLV 2.";
+        "State parameters of sub-TLV 2";
       uses TAG64-STATE;
     }
   }
@@ -1251,34 +1191,32 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-flags-state-flags-enum;
       description
-        "Additional prefix reachability flags.";
+        "Additional prefix reachability flags";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-FLAGS {
     description
-      "This container defines sub-TLV 4.";
+      "This container defines sub-TLV 4";
     container state {
       description
-        "State parameters of sub-TLV 4.";
+        "State parameters of sub-TLV 4";
       uses FLAGS-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE {
     description
-      "State parameters for a prefix.";
+      "State parameters for a prefix";
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
   }
 
@@ -1288,33 +1226,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv6-source-router-id {
       type Yang2bag-string;
       description
-        "IPv6 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv6 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses IPV6-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -1325,33 +1251,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv4-source-router-id {
       type Yang2bag-string;
       description
-        "IPv4 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv4 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV4-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 11.";
+      "This container defines sub-TLV 11";
     container state {
       description
-        "State parameters of sub-TLV 11.";
+        "State parameters of sub-TLV 11";
       uses IPV4-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -1362,59 +1276,43 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag32 {
       type uint32;
       description
-        "List of 32-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 32-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TAG {
     description
-      "This container defines sub-TLV 1.";
+      "This container defines sub-TLV 1";
     container state {
       description
-        "State parameters of sub-TLV 1.";
+        "State parameters of sub-TLV 1";
       uses TAG-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-STATE {
     description
-      "State parameters of an IPv4 extended prefix.";
+      "State parameters of an IPv4 extended prefix";
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf sbit {
       type boolean;
       description
-        "The Sub-TLV present bit. If UNSET, the octets of
-         Sub-TLVs are not present. Otherwise, the bit is
-         set and the octet following the prefix will
-         contain the length of the Sub-TLV portion of the
-         structure.";
+        "The Sub-TLV present bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
         "IPv4 prefix contained within extended
-         reachability TLVs.";
+         reachability TLVs";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value.";
+        "ISIS metric value";
     }
   }
 
@@ -1424,17 +1322,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list nlpid {
       type Openconfig-isis-lsp-nlpid-enum;
       description
-        "Protocol supported. IPv4 is defined as (0xcc)
-         and IPv6 - (0x8e)";
+        "Protocol supported";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-NLPID {
     description
-      "This container defines TLV 129.";
+      "This container defines TLV 129";
     container state {
       description
-        "State parameters of ISIS TLV 129.";
+        "State parameters of ISIS TLV 129";
       uses NLPID-STATE;
     }
   }
@@ -1445,21 +1342,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list router-id {
       type Yang2bag-string;
       description
-        "IPv4 Traffic Engineering router ID of the node.
-         For traffic engineering, it guarantees that we
-         have a single stable address that can always be
-         referenced in a path that will be reachable from
-         multiple hops away, regardless of the state of
-         the node's interfaces.";
+        "IPv4 Traffic Engineering router ID of the node";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV4-TE-ROUTER-ID {
     description
-      "This container defines TLV 134.";
+      "This container defines TLV 134";
     container state {
       description
-        "State parameters of ISIS TLV 134.";
+        "State parameters of ISIS TLV 134";
       uses IPV4-TE-ROUTER-ID-STATE;
     }
   }
@@ -1470,17 +1362,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS error metric value. This metric measures
-         the residual error probability of the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a non-zero
-         value. Higher values indicate a larger
-         probability of undetected errors on the circuit.";
+        "ISIS error metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "IS-IS error metric flags.";
+        "IS-IS error metric flags";
     }
   }
 
@@ -1489,7 +1376,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "ERROR METRIC";
     container state {
       description
-        "State parameters of error-metric.";
+        "State parameters of error-metric";
       uses ERROR-METRIC-STATE;
     }
   }
@@ -1500,17 +1387,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS expense metric value. This metric measures
-         the monetary cost of utilising the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a positive
-         integral value1). Higher values indicate a
-         larger monetary expense.";
+        "ISIS expense metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Expense Metric Flags.";
+        "ISIS Expense Metric Flags";
     }
   }
 
@@ -1519,7 +1401,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "EXPENSE METRIC";
     container state {
       description
-        "State parameters of expense-metric.";
+        "State parameters of expense-metric";
       uses EXPENSE-METRIC-STATE;
     }
   }
@@ -1530,16 +1412,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS delay metric value. This metric measures
-         the transit delay of the associated circuit. It
-         is an optional metric, which if assigned to a
-         circuit shall have a positive integral value.
-         Higher values indicate a longer transit delay.";
+        "ISIS delay metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Delay Metric Flags.";
+        "ISIS Delay Metric Flags";
     }
   }
 
@@ -1548,7 +1426,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "DELAY METRIC";
     container state {
       description
-        "State parameters of delay-metric.";
+        "State parameters of delay-metric";
       uses DELAY-METRIC-STATE;
     }
   }
@@ -1559,21 +1437,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf flags {
       type Openconfig-isis-lsp-default-metric-state-flags-enum;
       description
-        "ISIS Default-Metric Flags.";
+        "ISIS Default-Metric Flags";
     }
     leaf default-metric {
       type uint8;
       description
-        "ISIS default metric value. This is a metric
-         understood by every Intermediate system in the
-         domain. Each circuit shall have a positive 
-         integral value assigned for this metric. The
-         value may be associated with any  objective
-         function of the circuit, but by convention is
-         intended to measure the capacity of the circuit
-         for handling traffic, for example, its
-         throughput in  bits-per-second. Higher values
-         indicate a lower capacity.";
+        "ISIS default metric value";
     }
   }
 
@@ -1582,7 +1451,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "DEFAULT METRIC";
     container state {
       description
-        "State parameters for default-metric.";
+        "State parameters for default-metric";
       uses DEFAULT-METRIC-STATE;
     }
   }
@@ -1593,36 +1462,36 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf system-id {
       type Yang2bag-string;
       description
-        "System-ID of IS neighbor.";
+        "System-ID of IS neighbor";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-NEIGHBORS {
     description
-      "IS reachability neighbor attributes.";
+      "IS reachability neighbor attributes";
     container state {
       description
-        "State parameters of IS standard neighbor.";
+        "State parameters of IS standard neighbor";
       uses NEIGHBORS-STATE;
     }
     container default-metric {
       description
-        "This container defines ISIS Default Metric.";
+        "This container defines ISIS Default Metric";
       uses DEFAULT-METRIC;
     }
     container delay-metric {
       description
-        "This container defines the ISIS delay metric.";
+        "This container defines the ISIS delay metric";
       uses DELAY-METRIC;
     }
     container expense-metric {
       description
-        "This container defines the ISIS expense metric.";
+        "This container defines the ISIS expense metric";
       uses EXPENSE-METRIC;
     }
     container error-metric {
       description
-        "This container defines the ISIS error metric.";
+        "This container defines the ISIS error metric";
       uses ERROR-METRIC;
     }
   }
@@ -1634,42 +1503,38 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "An arbitrary unsigned 32-bit integer used to
-         disambiguate the instance of TLV 138. The
-         instance identifier is synthesised by the system
-         and may be renumbered for the same SRLG
-         definition in subsequent advertised LSPs if (and
-         only if) the entire list of SRLGs is replaced.";
+         disambiguate the instance of TLV 138";
     }
     leaf system-id {
       type Yang2bag-string;
       description
-        "Neighbor system ID.";
+        "Neighbor system ID";
     }
     leaf psn-number {
       type uint8;
       description
         "Pseudonode number if the neighbor is on a LAN
-         interface.";
+         interface";
     }
     leaf ipv4-interface-address {
       type Yang2bag-string;
       description
-        "IPv4 interface address.";
+        "IPv4 interface address";
     }
     leaf ipv4-neighbor-address {
       type Yang2bag-string;
       description
-        "IPv4 neighbor address.";
+        "IPv4 neighbor address";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-state-flags-enum;
       description
-        "SRLG flags.";
+        "SRLG flags";
     }
     leaf-list srlg-value {
       type uint32;
       description
-        "List of SRLG values.";
+        "List of SRLG values";
     }
   }
 
@@ -1678,7 +1543,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "Instance of the IPv4 SRLG TLV";
     container state {
       description
-        "State parameters of TLV 138.";
+        "State parameters of TLV 138";
       uses IPV4-SRLG-STATE;
     }
   }
@@ -1690,33 +1555,22 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint16;
       description
         "An Instance Identifier (IID) to uniquely
-         identify an IS-IS instance. When the IID = 0,
-         the list of supported ITIDs MUST NOT be present.
-         An IID-TLV with IID = 0 MUST NOT appear in an
-         SNP or LSP. When the TLV appears (with a
-         non-zero IID) in an SNP or LSP, exactly one ITID
-         . MUST be present indicating the topology with
-         which the PDU is associated. If no ITIDs or
-         multiple ITIDs are present or the IID is zero,
-         then the PDU MUST be ignored.";
+         identify an IS-IS instance";
     }
     leaf-list topology-id {
       type uint16;
       description
-        "Instance-Specific Topology Identifiers (ITIDs).";
+        "Instance-Specific Topology Identifiers (ITIDs)";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-INSTANCE-ID {
     description
       "A list of instance IDs received within TLV 7
-       within an IS-IS LSP. In the case that more than
-       one instance of TLV 7 is included in the LSP, the
-       instance IDs specified within the instances are
-       concatenated within this list.";
+       within an IS-IS LSP";
     container state {
       description
-        "State parameters of ISIS TLV 7.";
+        "State parameters of ISIS TLV 7";
       uses INSTANCE-ID-STATE;
     }
   }
@@ -1727,12 +1581,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf system-id {
       type Yang2bag-string;
       description
-        "System-id of the neighbor.";
+        "System-id of the neighbor";
     }
     leaf metric {
       type uint32;
       description
-        "Metric value.";
+        "Metric value";
     }
   }
 
@@ -1742,27 +1596,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
@@ -1770,13 +1624,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-BANDWIDTH-CONSTRAINT-STATE {
     description
       "State parameters of IS Extended Reachability
-       sub-TLV 22.";
+       sub-TLV 22";
     leaf model-id {
       type uint8;
       description
         "Identifier for the Bandwidth Constraints  Model
          currently in use by the LSR initiating the IGP
-         advertisement.";
+         advertisement";
     }
   }
 
@@ -1787,9 +1641,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "Unique reference for the bandwidth constraint
-         level. BC0 is indicated by this leaf being set
-         to zero, with BCN represented by this leaf being
-         set to N.";
+         level";
     }
     leaf bandwidth {
       type Yang2bag-string;
@@ -1797,16 +1649,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The bandwidth constraint, expressed as a 32-bit
          IEEE floating point number expressed in bytes
-         per second.";
+         per second";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-CONSTRAINT {
     description
       "List of the constraints within the Bandwidth
-       Constraints sub-TLV. The BC0 level is indicated
-       by the constraint-id leaf being set to 0, with
-       BCN being indicated by constraint-id N.";
+       Constraints sub-TLV";
     container state {
       description
         "Operational state parameters of the BCN level";
@@ -1821,17 +1671,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Yang2bag-string;
       description
         "A single IPv4 address for a neighboring router
-         on this link. This sub-TLV can occur multiple
-         times.";
+         on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV4-NEIGHBOR-ADDRESS {
     description
-      "This container defines sub-TLV 8.";
+      "This container defines sub-TLV 8";
     container state {
       description
-        "State parameters of sub-TLV 8.";
+        "State parameters of sub-TLV 8";
       uses IPV4-NEIGHBOR-ADDRESS-STATE;
     }
   }
@@ -1843,17 +1692,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Yang2bag-string;
       description
         "A 4-octet IPv4 address for the interface
-         described by the (main) TLV. This sub-TLV can
-         occur multiple times.";
+         described by the (main) TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV4-INTERFACE-ADDRESS {
     description
-      "This container defines sub-TLV 6.";
+      "This container defines sub-TLV 6";
     container state {
       description
-        "State parameters of sub-TLV 6.";
+        "State parameters of sub-TLV 6";
       uses IPV4-INTERFACE-ADDRESS-STATE;
     }
   }
@@ -1865,35 +1713,24 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint8;
       description
         "Setup priority level of 0 through 7 to be used
-         by Unreserved Bandwidth sub-TLV 11.";
+         by Unreserved Bandwidth sub-TLV 11";
     }
     leaf unreserved-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The amount of bandwidth reservable in this
-         direction on this link. Note that for
-         oversubscription purposes, this can be greater
-         than the bandwidth of the link. It contains
-         eight 32-bit IEEE floating point numbers(one for
-         each priority). The units are bytes (not bits!)
-         per second. The values correspond to the
-         bandwidth that can be reserved with a setup
-         priority of 0 through 7, arranged in increasing
-         order with priority 0 occurring at the start of
-         the sub-TLV, and priority 7 at the end of the
-         sub-TLV.";
+         direction on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SETUP-PRIORITY {
     description
       "Setup priority (0 through 7) for unreserved
-       bandwidth.";
+       bandwidth";
     container state {
       description
         "State parameters of IS Extended Reachability
-         sub-TLV 11.";
+         sub-TLV 11";
       uses SETUP-PRIORITY-STATE;
     }
   }
@@ -1907,16 +1744,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "The extended-admin-group sub-TLV is used in
          addition to the Administrative Groups when it is
          desirable to make more than 32 colors available
-         for advertisement in a network.";
+         for advertisement in a network";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-EXTENDED-ADMIN-GROUP {
     description
-      "This container defines sub-TLV 14.";
+      "This container defines sub-TLV 14";
     container state {
       description
-        "State parameters of sub-TLV 14.";
+        "State parameters of sub-TLV 14";
       uses EXTENDED-ADMIN-GROUP-STATE;
     }
   }
@@ -1926,24 +1763,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "MAX RESERVABLE LINK BANDWIDTH STATE";
     leaf max-reservable-link-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The maximum amount of bandwidth that can be
-         reserved in this direction on this link.  Note
-         that for oversubscription purposes,  this can be
-         greater than the bandwidth of the link. It is
-         encoded  in 32 bits in IEEE floating point
-         format.  The units are bytes (not bits!) per
-         second.";
+         reserved in this direction on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-MAX-RESERVABLE-LINK-BANDWIDTH {
     description
-      "This container defines sub-TLV 10.";
+      "This container defines sub-TLV 10";
     container state {
       description
-        "State parameters of sub-TLV 10.";
+        "State parameters of sub-TLV 10";
       uses MAX-RESERVABLE-LINK-BANDWIDTH-STATE;
     }
   }
@@ -1956,20 +1787,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The administrative group sub-TLV contains a
          4-octet bit mask assigned by the network
-         administrator.  Each set bit corresponds to one
-         administrative group assigned to the interface.
-         By convention, the least significant bit is
-         referred to as group 0, and the most significant
-         bit is referred to as group 31.";
+         administrator";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-ADMIN-GROUP {
     description
-      "This container defines sub-TLV 3.";
+      "This container defines sub-TLV 3";
     container state {
       description
-        "State parameters of sub-TLV 3.";
+        "State parameters of sub-TLV 3";
       uses ADMIN-GROUP-STATE;
     }
   }
@@ -1982,21 +1809,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "This metric is administratively assigned and can
          be used to present a differently weighted
-         topology to traffic engineering SPF calculations
-         . To preclude overflow within a traffic
-         engineering SPF implementation, all metrics
-         greater than or equal to MAX_PATH_METRIC SHALL
-         be considered to have a metric of
-         MAX_PATH_METRIC.";
+         topology to traffic engineering SPF calculations";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TE-DEFAULT-METRIC {
     description
-      "This container defines sub-TLV 18.";
+      "This container defines sub-TLV 18";
     container state {
       description
-        "State parameters of sub-TLV 18.";
+        "State parameters of sub-TLV 18";
       uses TE-DEFAULT-METRIC-STATE;
     }
   }
@@ -2007,32 +1829,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "Adjacency-SID value.";
+        "Adjacency-SID value";
     }
     leaf weight {
       type uint8;
       description
         "Value that represents the weight of the Adj-SID
-         for the purpose of load balancing.";
+         for the purpose of load balancing";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-adjacency-sid-state-flags-enum;
       description
-        "Flags associated with Adj-Segment-ID.";
+        "Flags associated with Adj-Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-ADJACENCY-SID {
     description
-      "Adjacency Segment-IDs List. An IGP-Adjacency
-       Segment is an IGP segment attached to a
-       unidirectional adjacency or a set of
-       unidirectional adjacencies. By default, an IGP-
-       Adjacency Segment is local to the node which
-       advertises it.";
+      "Adjacency Segment-IDs List";
     container state {
       description
-        "State parameters of Adjacency-SID.";
+        "State parameters of Adjacency-SID";
       uses ADJACENCY-SID-STATE;
     }
   }
@@ -2043,38 +1860,33 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "LAN Adjacency-SID value.";
+        "LAN Adjacency-SID value";
     }
     leaf weight {
       type uint8;
       description
         "Value that represents the weight of the Adj-SID
-         for the purpose of load balancing.";
+         for the purpose of load balancing";
     }
     leaf neighbor-id {
       type Yang2bag-string;
       description
         "System ID of the neighbor associated with the
-         LAN- Adj-Segment-ID value.";
+         LAN- Adj-Segment-ID value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-lan-adjacency-sid-state-flags-enum;
       description
-        "Flags associated with LAN-Adj-Segment-ID.";
+        "Flags associated with LAN-Adj-Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-LAN-ADJACENCY-SID {
     description
-      "Adjacency Segment-IDs List. An IGP-Adjacency
-       Segment is an IGP segment attached to a
-       unidirectional adjacency or a set of
-       unidirectional adjacencies. By default, an IGP-
-       Adjacency Segment is local to the node which
-       advertises it.";
+      "Adjacency Segment-IDs List";
     container state {
       description
-        "State parameters of LAN Adjacency-SID.";
+        "State parameters of LAN Adjacency-SID";
       uses LAN-ADJACENCY-SID-STATE;
     }
   }
@@ -2087,17 +1899,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Contains a 16-octet IPv6 address for the
          interface described by the containing  Extended
-         IS Reachability TLV. This sub-TLV can occur
-         multiple times.";
+         IS Reachability TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-INTERFACE-ADDRESS {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses IPV6-INTERFACE-ADDRESS-STATE;
     }
   }
@@ -2110,17 +1921,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Contains a 16-octet IPv6 address for a
          neighboring router on the link described by the
-         (main) TLV. This sub-TLV can occur multiple
-         times.";
+         (main) TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-NEIGHBOR-ADDRESS {
     description
-      "This container defines sub-TLV 13.";
+      "This container defines sub-TLV 13";
     container state {
       description
-        "State parameters of sub-TLV 13.";
+        "State parameters of sub-TLV 13";
       uses IPV6-NEIGHBOR-ADDRESS-STATE;
     }
   }
@@ -2130,22 +1940,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "MAX LINK BANDWIDTH STATE";
     leaf max-link-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The maximum bandwidth that can be used on this
          link in this direction (from the system
-         originating the LSP to its neighbors).  It is
-         encoded in 32 bits in IEEE floating point format
-         .  The units are bytes (not bits!) per second.";
+         originating the LSP to its neighbors)";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-MAX-LINK-BANDWIDTH {
     description
-      "This container defines sub-TLV 9.";
+      "This container defines sub-TLV 9";
     container state {
       description
-        "State parameters of sub-TLV 9.";
+        "State parameters of sub-TLV 9";
       uses MAX-LINK-BANDWIDTH-STATE;
     }
   }
@@ -2156,18 +1963,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list ipv6-interface-address {
       type Yang2bag-string;
       description
-        "IPv6 interface addresses of the node.  MUST
-         contain only the non-link-local IPv6 addresses
-         assigned to the IS.";
+        "IPv6 interface addresses of the node";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-INTERFACE-ADDRESSES {
     description
-      "This container defines TLV 232.";
+      "This container defines TLV 232";
     container state {
       description
-        "State parameters of ISIS TLV 232.";
+        "State parameters of ISIS TLV 232";
       uses IPV6-INTERFACE-ADDRESSES-STATE;
     }
   }
@@ -2178,17 +1983,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS error metric value. This metric measures
-         the residual error probability of the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a non-zero
-         value. Higher values indicate a larger
-         probability of undetected errors on the circuit.";
+        "ISIS error metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "IS-IS error metric flags.";
+        "IS-IS error metric flags";
     }
   }
 
@@ -2197,7 +1997,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES ERROR METRIC";
     container state {
       description
-        "State parameters of error-metric.";
+        "State parameters of error-metric";
       uses PREFIXES-ERROR-METRIC-STATE;
     }
   }
@@ -2208,17 +2008,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS expense metric value. This metric measures
-         the monetary cost of utilising the associated
-         circuit. It is an optional metric, which if
-         assigned to a circuit shall have a positive
-         integral value1). Higher values indicate a
-         larger monetary expense.";
+        "ISIS expense metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Expense Metric Flags.";
+        "ISIS Expense Metric Flags";
     }
   }
 
@@ -2227,7 +2022,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES EXPENSE METRIC";
     container state {
       description
-        "State parameters of expense-metric.";
+        "State parameters of expense-metric";
       uses PREFIXES-EXPENSE-METRIC-STATE;
     }
   }
@@ -2238,16 +2033,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf metric {
       type uint8;
       description
-        "ISIS delay metric value. This metric measures
-         the transit delay of the associated circuit. It
-         is an optional metric, which if assigned to a
-         circuit shall have a positive integral value.
-         Higher values indicate a longer transit delay.";
+        "ISIS delay metric value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-isis-metric-flags-enum;
       description
-        "ISIS Delay Metric Flags.";
+        "ISIS Delay Metric Flags";
     }
   }
 
@@ -2256,7 +2047,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES DELAY METRIC";
     container state {
       description
-        "State parameters of delay-metric.";
+        "State parameters of delay-metric";
       uses PREFIXES-DELAY-METRIC-STATE;
     }
   }
@@ -2267,21 +2058,12 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf flags {
       type Openconfig-isis-lsp-default-metric-state-flags-enum;
       description
-        "ISIS Default-Metric Flags.";
+        "ISIS Default-Metric Flags";
     }
     leaf default-metric {
       type uint8;
       description
-        "ISIS default metric value. This is a metric
-         understood by every Intermediate system in the
-         domain. Each circuit shall have a positive 
-         integral value assigned for this metric. The
-         value may be associated with any  objective
-         function of the circuit, but by convention is
-         intended to measure the capacity of the circuit
-         for handling traffic, for example, its
-         throughput in  bits-per-second. Higher values
-         indicate a lower capacity.";
+        "ISIS default metric value";
     }
   }
 
@@ -2290,7 +2072,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PREFIXES DEFAULT METRIC";
     container state {
       description
-        "State parameters for default-metric.";
+        "State parameters for default-metric";
       uses PREFIXES-DEFAULT-METRIC-STATE;
     }
   }
@@ -2301,49 +2083,42 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
-        "IPv4 prefix contained within reachability TLVs.";
+        "IPv4 prefix contained within reachability TLVs";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES {
     description
       "IPv4 prefixes and internal reachability
-       attributes.";
+       attributes";
     container state {
       description
-        "State parameters of IPv4 standard prefix.";
+        "State parameters of IPv4 standard prefix";
       uses PREFIXES-STATE;
     }
     container default-metric {
       description
-        "This container defines ISIS Default Metric.";
+        "This container defines ISIS Default Metric";
       uses PREFIXES-DEFAULT-METRIC;
     }
     container delay-metric {
       description
-        "This container defines the ISIS delay metric.";
+        "This container defines the ISIS delay metric";
       uses PREFIXES-DELAY-METRIC;
     }
     container expense-metric {
       description
-        "This container defines the ISIS expense metric.";
+        "This container defines the ISIS expense metric";
       uses PREFIXES-EXPENSE-METRIC;
     }
     container error-metric {
       description
-        "This container defines the ISIS error metric.";
+        "This container defines the ISIS error metric";
       uses PREFIXES-ERROR-METRIC;
     }
   }
@@ -2354,21 +2129,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list router-id {
       type Yang2bag-string;
       description
-        "IPv6 Traffic Engineering router ID of the node.
-         For traffic engineering, it guarantees that we
-         have a single stable address that can always be
-         referenced in a path that will be reachable from
-         multiple hops away, regardless of the state of
-         the node's interfaces.";
+        "IPv6 Traffic Engineering router ID of the node";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-TE-ROUTER-ID {
     description
-      "This container defines TLV 140.";
+      "This container defines TLV 140";
     container state {
       description
-        "State parameters of ISIS TLV 140.";
+        "State parameters of ISIS TLV 140";
       uses IPV6-TE-ROUTER-ID-STATE;
     }
   }
@@ -2379,27 +2149,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
@@ -2410,22 +2180,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-flags-state-flags-enum;
       description
-        "Additional prefix reachability flags.";
+        "Additional prefix reachability flags";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-FLAGS {
     description
-      "This container defines sub-TLV 4.";
+      "This container defines sub-TLV 4";
     container state {
       description
-        "State parameters of sub-TLV 4.";
+        "State parameters of sub-TLV 4";
       uses SUBTLV-FLAGS-STATE;
     }
   }
@@ -2436,45 +2205,32 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv6-source-router-id {
       type Yang2bag-string;
       description
-        "IPv6 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv6 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV6-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses SUBTLV-IPV6-SOURCE-ROUTER-ID-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-SUBTLVS-SUBTLV-STATE {
     description
-      "State parameters for a prefix.";
+      "State parameters for a prefix";
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
   }
 
@@ -2484,33 +2240,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv4-source-router-id {
       type Yang2bag-string;
       description
-        "IPv4 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv4 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV4-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 11.";
+      "This container defines sub-TLV 11";
     container state {
       description
-        "State parameters of sub-TLV 11.";
+        "State parameters of sub-TLV 11";
       uses SUBTLV-IPV4-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -2521,30 +2265,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "IGP Prefix-SID value.";
+        "IGP Prefix-SID value";
     }
     leaf algorithm {
       type uint8;
       description
         "Prefix-SID algorithm to be used for path
-         computation.";
+         computation";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-prefix-sid-state-flags-enum;
       description
-        "Flags associated with Prefix Segment-ID.";
+        "Flags associated with Prefix Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SIDS-PREFIX-SID {
     description
-      "Prefix Segment-ID list. IGP-Prefix Segment is an
-       IGP segment attached to an IGP prefix. An
-       IGP-Prefix Segment is global (unless explicitly
-       advertised otherwise) within the SR/IGP domain.";
+      "Prefix Segment-ID list";
     container state {
       description
-        "State parameters for Prefix-SID.";
+        "State parameters for Prefix-SID";
       uses PREFIX-SIDS-PREFIX-SID-STATE;
     }
   }
@@ -2555,21 +2296,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag64 {
       type uint64;
       description
-        "List of 64-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 64-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-TAG64 {
     description
-      "This container defines sub-TLV 2.";
+      "This container defines sub-TLV 2";
     container state {
       description
-        "State parameters of sub-TLV 2.";
+        "State parameters of sub-TLV 2";
       uses SUBTLV-TAG64-STATE;
     }
   }
@@ -2580,21 +2316,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag32 {
       type uint32;
       description
-        "List of 32-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 32-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-TAG {
     description
-      "This container defines sub-TLV 1.";
+      "This container defines sub-TLV 1";
     container state {
       description
-        "State parameters of sub-TLV 1.";
+        "State parameters of sub-TLV 1";
       uses SUBTLV-TAG-STATE;
     }
   }
@@ -2605,34 +2336,23 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf sbit {
       type boolean;
       description
-        "The Sub-TLV present bit. If UNSET, the octets of
-         Sub-TLVs are not present. Otherwise, the bit is
-         set and the octet following the prefix will
-         contain the length of the Sub-TLV portion of the
-         structure.";
+        "The Sub-TLV present bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
         "IPv4 prefix contained within extended
-         reachability TLVs.";
+         reachability TLVs";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value.";
+        "ISIS metric value";
     }
   }
 
@@ -2642,16 +2362,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list host-name {
       type Yang2bag-string;
       description
-        "Name of the node.";
+        "Name of the node";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-HOSTNAME {
     description
-      "This container defines TLV 137.";
+      "This container defines TLV 137";
     container state {
       description
-        "State parameters of ISIS TLV 137.";
+        "State parameters of ISIS TLV 137";
       uses HOST-NAME-STATE;
     }
   }
@@ -2662,28 +2382,28 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf system-id-count {
       type uint8;
       description
-        "Number of system IDs carried in this TLV.";
+        "Number of system IDs carried in this TLV";
     }
     leaf source-system-id {
       type Yang2bag-string;
       description
         "System ID of the Intermediate System that
-         inserted this TLV.";
+         inserted this TLV";
     }
     leaf received-system-id {
       type Yang2bag-string;
       description
         "System ID of the Intermediate System from which
-         the purge was received.";
+         the purge was received";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PURGE-OI {
     description
-      "This container defines ISIS purge TLV.";
+      "This container defines ISIS purge TLV";
     container state {
       description
-        "State parameters of TLV 13.";
+        "State parameters of TLV 13";
       uses PURGE-OI-STATE;
     }
   }
@@ -2695,8 +2415,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of TLV being described. The type of TLV
-         is expressed as a canonical name.";
+        "The type of TLV being described";
     }
   }
 
@@ -2707,51 +2426,47 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "An arbitrary unsigned 32-bit integer used to
-         disambiguate the instance of TLV 138. The
-         instance identifier is synthesised by the system
-         and may be renumbered for the same SRLG
-         definition in subsequent advertised LSPs if (and
-         only if) the entire list of SRLGs is replaced.";
+         disambiguate the instance of TLV 138";
     }
     leaf system-id {
       type Yang2bag-string;
       description
-        "Neighbor system ID.";
+        "Neighbor system ID";
     }
     leaf psn-number {
       type uint8;
       description
         "Pseudonode number if the neighbor is on a LAN
-         interface.";
+         interface";
     }
     leaf ipv6-interface-address {
       type Yang2bag-string;
       description
-        "IPv6 interface address or Link Local Identifier.";
+        "IPv6 interface address or Link Local Identifier";
     }
     leaf ipv6-neighbor-address {
       type Yang2bag-string;
       description
-        "IPv6 neighbor address or Link Remote Identifier.";
+        "IPv6 neighbor address or Link Remote Identifier";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-ipv6-srlg-state-flags-enum;
       description
-        "IPv6 SRLG flags.";
+        "IPv6 SRLG flags";
     }
     leaf-list srlg-value {
       type uint32;
       description
-        "SRLG values.";
+        "SRLG values";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV6-SRLG {
     description
-      "Instance of the IPv6 SRLG TLV.";
+      "Instance of the IPv6 SRLG TLV";
     container state {
       description
-        "State parameters of TLV 139.";
+        "State parameters of TLV 139";
       uses IPV6-SRLG-STATE;
     }
   }
@@ -2762,48 +2477,48 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-NEIGHBOR-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses NEIGHBOR-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-NEIGHBOR-STATE {
     description
-      "State parameters of MT neighbor.";
+      "State parameters of MT neighbor";
     leaf mt-id {
       type uint16;
       description
-        "Identifier of a topology being announced.";
+        "Identifier of a topology being announced";
     }
     leaf system-id {
       type Yang2bag-string;
       description
-        "System-id of the IS neighbor.";
+        "System-id of the IS neighbor";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value.";
+        "ISIS metric value";
     }
   }
 
@@ -2816,16 +2531,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "The extended-admin-group sub-TLV is used in
          addition to the Administrative Groups when it is
          desirable to make more than 32 colors available
-         for advertisement in a network.";
+         for advertisement in a network";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-EXTENDED-ADMIN-GROUP {
     description
-      "This container defines sub-TLV 14.";
+      "This container defines sub-TLV 14";
     container state {
       description
-        "State parameters of sub-TLV 14.";
+        "State parameters of sub-TLV 14";
       uses SUBTLV-EXTENDED-ADMIN-GROUP-STATE;
     }
   }
@@ -2836,38 +2551,33 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "LAN Adjacency-SID value.";
+        "LAN Adjacency-SID value";
     }
     leaf weight {
       type uint8;
       description
         "Value that represents the weight of the Adj-SID
-         for the purpose of load balancing.";
+         for the purpose of load balancing";
     }
     leaf neighbor-id {
       type Yang2bag-string;
       description
         "System ID of the neighbor associated with the
-         LAN- Adj-Segment-ID value.";
+         LAN- Adj-Segment-ID value";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-lan-adjacency-sid-state-flags-enum;
       description
-        "Flags associated with LAN-Adj-Segment-ID.";
+        "Flags associated with LAN-Adj-Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-LAN-ADJACENCY-SIDS-LAN-ADJACENCY-SID {
     description
-      "Adjacency Segment-IDs List. An IGP-Adjacency
-       Segment is an IGP segment attached to a
-       unidirectional adjacency or a set of
-       unidirectional adjacencies. By default, an IGP-
-       Adjacency Segment is local to the node which
-       advertises it.";
+      "Adjacency Segment-IDs List";
     container state {
       description
-        "State parameters of LAN Adjacency-SID.";
+        "State parameters of LAN Adjacency-SID";
       uses LAN-ADJACENCY-SIDS-LAN-ADJACENCY-SID-STATE;
     }
   }
@@ -2880,20 +2590,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The administrative group sub-TLV contains a
          4-octet bit mask assigned by the network
-         administrator.  Each set bit corresponds to one
-         administrative group assigned to the interface.
-         By convention, the least significant bit is
-         referred to as group 0, and the most significant
-         bit is referred to as group 31.";
+         administrator";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-ADMIN-GROUP {
     description
-      "This container defines sub-TLV 3.";
+      "This container defines sub-TLV 3";
     container state {
       description
-        "State parameters of sub-TLV 3.";
+        "State parameters of sub-TLV 3";
       uses SUBTLV-ADMIN-GROUP-STATE;
     }
   }
@@ -2906,17 +2612,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Contains a 16-octet IPv6 address for the
          interface described by the containing  Extended
-         IS Reachability TLV. This sub-TLV can occur
-         multiple times.";
+         IS Reachability TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV6-INTERFACE-ADDRESS {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses SUBTLV-IPV6-INTERFACE-ADDRESS-STATE;
     }
   }
@@ -2929,21 +2634,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "This metric is administratively assigned and can
          be used to present a differently weighted
-         topology to traffic engineering SPF calculations
-         . To preclude overflow within a traffic
-         engineering SPF implementation, all metrics
-         greater than or equal to MAX_PATH_METRIC SHALL
-         be considered to have a metric of
-         MAX_PATH_METRIC.";
+         topology to traffic engineering SPF calculations";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-TE-DEFAULT-METRIC {
     description
-      "This container defines sub-TLV 18.";
+      "This container defines sub-TLV 18";
     container state {
       description
-        "State parameters of sub-TLV 18.";
+        "State parameters of sub-TLV 18";
       uses SUBTLV-TE-DEFAULT-METRIC-STATE;
     }
   }
@@ -2955,17 +2655,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Yang2bag-string;
       description
         "A single IPv4 address for a neighboring router
-         on this link. This sub-TLV can occur multiple
-         times.";
+         on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV4-NEIGHBOR-ADDRESS {
     description
-      "This container defines sub-TLV 8.";
+      "This container defines sub-TLV 8";
     container state {
       description
-        "State parameters of sub-TLV 8.";
+        "State parameters of sub-TLV 8";
       uses SUBTLV-IPV4-NEIGHBOR-ADDRESS-STATE;
     }
   }
@@ -2977,35 +2676,24 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint8;
       description
         "Setup priority level of 0 through 7 to be used
-         by Unreserved Bandwidth sub-TLV 11.";
+         by Unreserved Bandwidth sub-TLV 11";
     }
     leaf unreserved-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The amount of bandwidth reservable in this
-         direction on this link. Note that for
-         oversubscription purposes, this can be greater
-         than the bandwidth of the link. It contains
-         eight 32-bit IEEE floating point numbers(one for
-         each priority). The units are bytes (not bits!)
-         per second. The values correspond to the
-         bandwidth that can be reserved with a setup
-         priority of 0 through 7, arranged in increasing
-         order with priority 0 occurring at the start of
-         the sub-TLV, and priority 7 at the end of the
-         sub-TLV.";
+         direction on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-UNRESERVED-BANDWIDTH-SETUP-PRIORITY {
     description
       "Setup priority (0 through 7) for unreserved
-       bandwidth.";
+       bandwidth";
     container state {
       description
         "State parameters of IS Extended Reachability
-         sub-TLV 11.";
+         sub-TLV 11";
       uses UNRESERVED-BANDWIDTH-SETUP-PRIORITY-STATE;
     }
   }
@@ -3013,13 +2701,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-BANDWIDTH-CONSTRAINTS-BANDWIDTH-CONSTRAINT-STATE {
     description
       "State parameters of IS Extended Reachability
-       sub-TLV 22.";
+       sub-TLV 22";
     leaf model-id {
       type uint8;
       description
         "Identifier for the Bandwidth Constraints  Model
          currently in use by the LSR initiating the IGP
-         advertisement.";
+         advertisement";
     }
   }
 
@@ -3030,9 +2718,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "Unique reference for the bandwidth constraint
-         level. BC0 is indicated by this leaf being set
-         to zero, with BCN represented by this leaf being
-         set to N.";
+         level";
     }
     leaf bandwidth {
       type Yang2bag-string;
@@ -3040,16 +2726,14 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The bandwidth constraint, expressed as a 32-bit
          IEEE floating point number expressed in bytes
-         per second.";
+         per second";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-CONSTRAINTS-CONSTRAINT {
     description
       "List of the constraints within the Bandwidth
-       Constraints sub-TLV. The BC0 level is indicated
-       by the constraint-id leaf being set to 0, with
-       BCN being indicated by constraint-id N.";
+       Constraints sub-TLV";
     container state {
       description
         "Operational state parameters of the BCN level";
@@ -3063,32 +2747,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "Adjacency-SID value.";
+        "Adjacency-SID value";
     }
     leaf weight {
       type uint8;
       description
         "Value that represents the weight of the Adj-SID
-         for the purpose of load balancing.";
+         for the purpose of load balancing";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-adjacency-sid-state-flags-enum;
       description
-        "Flags associated with Adj-Segment-ID.";
+        "Flags associated with Adj-Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-ADJACENCY-SIDS-ADJACENCY-SID {
     description
-      "Adjacency Segment-IDs List. An IGP-Adjacency
-       Segment is an IGP segment attached to a
-       unidirectional adjacency or a set of
-       unidirectional adjacencies. By default, an IGP-
-       Adjacency Segment is local to the node which
-       advertises it.";
+      "Adjacency Segment-IDs List";
     container state {
       description
-        "State parameters of Adjacency-SID.";
+        "State parameters of Adjacency-SID";
       uses ADJACENCY-SIDS-ADJACENCY-SID-STATE;
     }
   }
@@ -3098,22 +2777,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "SUBTLV MAX LINK BANDWIDTH STATE";
     leaf max-link-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The maximum bandwidth that can be used on this
          link in this direction (from the system
-         originating the LSP to its neighbors).  It is
-         encoded in 32 bits in IEEE floating point format
-         .  The units are bytes (not bits!) per second.";
+         originating the LSP to its neighbors)";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-MAX-LINK-BANDWIDTH {
     description
-      "This container defines sub-TLV 9.";
+      "This container defines sub-TLV 9";
     container state {
       description
-        "State parameters of sub-TLV 9.";
+        "State parameters of sub-TLV 9";
       uses SUBTLV-MAX-LINK-BANDWIDTH-STATE;
     }
   }
@@ -3123,24 +2799,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "SUBTLV MAX RESERVABLE LINK BANDWIDTH STATE";
     leaf max-reservable-link-bandwidth {
       type Yang2bag-string;
-      units "byte";
       description
         "The maximum amount of bandwidth that can be
-         reserved in this direction on this link.  Note
-         that for oversubscription purposes,  this can be
-         greater than the bandwidth of the link. It is
-         encoded  in 32 bits in IEEE floating point
-         format.  The units are bytes (not bits!) per
-         second.";
+         reserved in this direction on this link";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-MAX-RESERVABLE-LINK-BANDWIDTH {
     description
-      "This container defines sub-TLV 10.";
+      "This container defines sub-TLV 10";
     container state {
       description
-        "State parameters of sub-TLV 10.";
+        "State parameters of sub-TLV 10";
       uses SUBTLV-MAX-RESERVABLE-LINK-BANDWIDTH-STATE;
     }
   }
@@ -3152,17 +2822,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Yang2bag-string;
       description
         "A 4-octet IPv4 address for the interface
-         described by the (main) TLV. This sub-TLV can
-         occur multiple times.";
+         described by the (main) TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV4-INTERFACE-ADDRESS {
     description
-      "This container defines sub-TLV 6.";
+      "This container defines sub-TLV 6";
     container state {
       description
-        "State parameters of sub-TLV 6.";
+        "State parameters of sub-TLV 6";
       uses SUBTLV-IPV4-INTERFACE-ADDRESS-STATE;
     }
   }
@@ -3175,17 +2844,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Contains a 16-octet IPv6 address for a
          neighboring router on the link described by the
-         (main) TLV. This sub-TLV can occur multiple
-         times.";
+         (main) TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-IPV6-NEIGHBOR-ADDRESS {
     description
-      "This container defines sub-TLV 13.";
+      "This container defines sub-TLV 13";
     container state {
       description
-        "State parameters of sub-TLV 13.";
+        "State parameters of sub-TLV 13";
       uses SUBTLV-IPV6-NEIGHBOR-ADDRESS-STATE;
     }
   }
@@ -3196,22 +2864,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-flags-state-flags-enum;
       description
-        "Additional prefix reachability flags.";
+        "Additional prefix reachability flags";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-FLAGS {
     description
-      "This container defines sub-TLV 4.";
+      "This container defines sub-TLV 4";
     container state {
       description
-        "State parameters of sub-TLV 4.";
+        "State parameters of sub-TLV 4";
       uses SUBTLVS-SUBTLV-FLAGS-STATE;
     }
   }
@@ -3222,30 +2889,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf value {
       type uint32;
       description
-        "IGP Prefix-SID value.";
+        "IGP Prefix-SID value";
     }
     leaf algorithm {
       type uint8;
       description
         "Prefix-SID algorithm to be used for path
-         computation.";
+         computation";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-prefix-sid-state-flags-enum;
       description
-        "Flags associated with Prefix Segment-ID.";
+        "Flags associated with Prefix Segment-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLV-PREFIX-SIDS-PREFIX-SID {
     description
-      "Prefix Segment-ID list. IGP-Prefix Segment is an
-       IGP segment attached to an IGP prefix. An
-       IGP-Prefix Segment is global (unless explicitly
-       advertised otherwise) within the SR/IGP domain.";
+      "Prefix Segment-ID list";
     container state {
       description
-        "State parameters for Prefix-SID.";
+        "State parameters for Prefix-SID";
       uses SUBTLV-PREFIX-SIDS-PREFIX-SID-STATE;
     }
   }
@@ -3256,33 +2920,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv6-source-router-id {
       type Yang2bag-string;
       description
-        "IPv6 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv6 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 12.";
+      "This container defines sub-TLV 12";
     container state {
       description
-        "State parameters of sub-TLV 12.";
+        "State parameters of sub-TLV 12";
       uses SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID-STATE;
     }
   }
@@ -3293,45 +2945,32 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
     leaf ipv4-source-router-id {
       type Yang2bag-string;
       description
-        "IPv4 Source router ID address. In cases where
-         the advertisement is an identifier for the
-         advertising router (e.g., with the N-flag set in
-         the Prefix Attribute Flags sub-TLV), it may be
-         useful for other routers to know the source of
-         the advertisement. When reachability
-         advertisement is leaked from one level to
-         another, Router ID advertised is always the
-         Router ID of the IS-IS instance that originated
-         the advertisement. This would be true even if
-         the prefix had been learned from another
-         protocol.";
+        "IPv4 Source router ID address";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID {
     description
-      "This container defines sub-TLV 11.";
+      "This container defines sub-TLV 11";
     container state {
       description
-        "State parameters of sub-TLV 11.";
+        "State parameters of sub-TLV 11";
       uses SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE {
     description
-      "State parameters for a prefix.";
+      "State parameters for a prefix";
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
   }
 
@@ -3341,21 +2980,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag32 {
       type uint32;
       description
-        "List of 32-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 32-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-TAG {
     description
-      "This container defines sub-TLV 1.";
+      "This container defines sub-TLV 1";
     container state {
       description
-        "State parameters of sub-TLV 1.";
+        "State parameters of sub-TLV 1";
       uses SUBTLVS-SUBTLV-TAG-STATE;
     }
   }
@@ -3366,21 +3000,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list tag64 {
       type uint64;
       description
-        "List of 64-bit tags associated with the prefix.
-         Example uses of these tags include carrying BGP
-         standard (or extended) communities and
-         controlling redistribution between levels and
-         areas, different routing protocols, or multiple
-         instances of IS-IS running on the same router.";
+        "List of 64-bit tags associated with the prefix";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-TAG64 {
     description
-      "This container defines sub-TLV 2.";
+      "This container defines sub-TLV 2";
     container state {
       description
-        "State parameters of sub-TLV 2.";
+        "State parameters of sub-TLV 2";
       uses SUBTLVS-SUBTLV-TAG64-STATE;
     }
   }
@@ -3392,65 +3021,54 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE {
     description
-      "State parameters of an IPv4 extended prefix.";
+      "State parameters of an IPv4 extended prefix";
     leaf up-down {
       type boolean;
       description
-        "The up/down bit. Set if a prefix is advertised
-         from a higher level to a lower level (e.g.,
-         level 2 to level 1), indicating that the prefix
-         has traveled down the hierarchy. Prefixes that
-         have the up/down bit set may only be advertised
-         down the hierarchy, i.e., to lower levels. When
-         a prefix is first injected into IS-IS, the bit
-         is UNSET.";
+        "The up/down bit";
     }
     leaf sbit {
       type boolean;
       description
-        "The Sub-TLV present bit. If UNSET, the octets of
-         Sub-TLVs are not present. Otherwise, the bit is
-         set and the octet following the prefix will
-         contain the length of the Sub-TLV portion of the
-         structure.";
+        "The Sub-TLV present bit";
     }
     leaf prefix {
       type Yang2bag-string;
       description
         "IPv4 prefix contained within extended
-         reachability TLVs.";
+         reachability TLVs";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value.";
+        "ISIS metric value";
     }
     leaf mt-id {
       type uint16;
@@ -3465,14 +3083,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf range {
       type uint32;
       description
-        "Number of SRGB elements. The range value MUST be
-         greater than 0.";
+        "Number of SRGB elements";
     }
     leaf label {
       type Yang2bag-string;
       description
         "The first value of the SRGB when expressed as an
-         MPLS label.";
+         MPLS label";
     }
   }
 
@@ -3502,13 +3119,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list flags {
       type Openconfig-isis-lsp-segment-routing-capability-state-flags-enum;
       description
-        "Segment Routing Capability Flags.";
+        "Segment Routing Capability Flags";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY {
     description
-      "This container defines SR Capability sub-TLV 2.";
+      "This container defines SR Capability sub-TLV 2";
     container state {
       description
         "State parameters of IS SR Router Capability";
@@ -3529,18 +3146,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Openconfig-isis-lsp-algorithm-enum;
       description
         "The Segment Routing algorithm that is described
-         by the TLV.";
+         by the TLV";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHM {
     description
       "List of the segment routing algorithsm advertised
-       within the TLV.";
+       within the TLV";
     container state {
       description
         "State parameters of sub-TLV 19 - Segment Routing
-         Algorithm.";
+         Algorithm";
       uses SEGMENT-ROUTING-ALGORITHM-STATE;
     }
   }
@@ -3551,8 +3168,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type Yang2bag-string;
       description
-        "The type of subTLV being described. The type of
-         subTLV is expressed as a canonical name.";
+        "The type of subTLV being described";
     }
   }
 
@@ -3562,53 +3178,49 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-UNDEFINED-SUBTLV {
     description
       "Sub-TLVs that are not defined in the model or not
-       recognised by system.";
+       recognised by system";
     container state {
       description
-        "State parameters of the undefined sub-TLV.";
+        "State parameters of the undefined sub-TLV";
       uses UNDEFINED-SUBTLV-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-ROUTER-CAPABILITY-STATE {
     description
-      "State parameters of TLV 242.";
+      "State parameters of TLV 242";
     leaf instance-number {
       type uint32;
       description
         "A unique instance number for the instance of the
-         router capabilities TLV. The instance number
-         should be autogenerated by the producer of the
-         data and may be renumbered if the entire LSP
-         contents are replaced in subsequent
-         advertisements.";
+         router capabilities TLV";
     }
     leaf router-id {
       type Yang2bag-string;
       description
-        "IPv4 router-id.";
+        "IPv4 router-id";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-router-capability-state-flags-enum;
       description
-        "Router capability flags.";
+        "Router capability flags";
     }
   }
 
@@ -3620,16 +3232,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "IPv4 address(es) of the interface corresponding
          to the SNPA over which this PDU is to be
-         transmitted.";
+         transmitted";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-IPV4-INTERFACE-ADDRESSES {
     description
-      "This container defines TLV 132.";
+      "This container defines TLV 132";
     container state {
       description
-        "State parameters of ISIS TLV 132.";
+        "State parameters of ISIS TLV 132";
       uses IPV4-INTERFACE-ADDRESSES-STATE;
     }
   }
@@ -3640,22 +3252,22 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf crypto-type {
       type Openconfig-isis-lsp-crypto-type-enum;
       description
-        "Authentication type to be used.";
+        "Authentication type to be used";
     }
     leaf authentication-key {
       type Yang2bag-string;
       description
-        "Authentication key to be used.";
+        "Authentication key to be used";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-AUTHENTICATION {
     description
       "This container defines authentication information
-       of the node.";
+       of the node";
     container state {
       description
-        "State parameters of TLV 10.";
+        "State parameters of TLV 10";
       uses AUTHENTICATION-STATE;
     }
   }
@@ -3666,90 +3278,86 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf-list area-address {
       type Yang2bag-string;
       description
-        "Area adress(es) of the IS. Set of manual area
-         addresses of this IS.";
+        "Area adress(es) of the IS";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-AREA-ADDRESS {
     description
-      "This container defines TLV 1.";
+      "This container defines TLV 1";
     container state {
       description
-        "State parameters of ISIS TLV 1.";
+        "State parameters of ISIS TLV 1";
       uses AREA-ADDRESS-STATE;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-LSP-STATE {
     description
-      "State parameters of Link State PDU.";
+      "State parameters of Link State PDU";
     leaf lsp-id {
       type Yang2bag-string;
       description
-        "LSP ID of the LSP.";
+        "LSP ID of the LSP";
     }
     leaf maximum-area-addresses {
       type uint8;
       description
         "Number of area addresses permitted for this ISs
-         area. 0 indicates the IS only supports three
-         area addresses (by default). Any number
-         inclusive of 1 and 254 indicates the number of
-         areas allowed.";
+         area";
     }
     leaf version {
       type uint8;
       description
-        "PDU version. This is set to 1.";
+        "PDU version";
     }
     leaf version2 {
       type uint8;
       description
-        "PDU version2. This is set to 1";
+        "PDU version2";
     }
     leaf id-length {
       type uint8;
       description
         "Length of the ID field of NSAP addresses and
-         NETs used in this routing domain.";
+         NETs used in this routing domain";
     }
     leaf pdu-type {
       type Openconfig-isis-lsp-pdu-type-enum;
       description
-        "Link State PDU type.";
+        "Link State PDU type";
     }
     leaf remaining-lifetime {
       type uint16;
       units "second";
       description
         "Remaining lifetime in seconds before the LSP
-         expiration.";
+         expiration";
     }
     leaf sequence-number {
       type uint32;
       description
-        "Sequence number of the LSP.";
+        "Sequence number of the LSP";
     }
     leaf checksum {
       type uint16;
       description
-        "Checksum of the LSP.";
+        "Checksum of the LSP";
     }
     leaf pdu-length {
       type uint16;
       description
-        "Total length of the LSP.";
+        "Total length of the LSP";
     }
     leaf is-type {
       type uint8;
       description
-        "Type of neighboring system.";
+        "Type of neighboring system";
     }
     leaf-list flags {
       type Openconfig-isis-lsp-flags-enum;
       description
-        "LSP Type-Block flags.";
+        "LSP Type-Block flags";
     }
   }
 
@@ -3759,27 +3367,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf type {
       type uint8;
       description
-        "TLV Type.";
+        "TLV Type";
     }
     leaf length {
       type uint8;
       description
-        "TLV length.";
+        "TLV length";
     }
     leaf value {
       type Yang2bag-string;
       description
-        "TLV value.";
+        "TLV value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-UNDEFINED-TLV {
     description
       "List of TLVs that are not defined within the
-       model, or are not recognised by the system.";
+       model, or are not recognised by the system";
     container state {
       description
-        "State parameters of the undefined TLV.";
+        "State parameters of the undefined TLV";
       uses UNDEFINED-TLV-STATE;
     }
   }
@@ -3790,76 +3398,97 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf corrupted-lsps {
       type uint32;
       description
-        "Number of corrupted in-memory LSPs detected.
-         LSPs received from the wire with a bad checksum
-         are silently dropped and not counted. LSPs
-         received from the wire with parse errors are
-         counted by lsp-errors. MIB Entry: SysCorrLSPs.";
+        "Number of corrupted in-memory LSPs detected";
     }
     leaf database-overloads {
       type uint32;
       description
         "Number of times the database has become
-         overloaded. MIB entry: SysLSPL(Level)DbaseOloads
-         .";
+         overloaded";
     }
     leaf exceed-max-seq-nums {
       type uint32;
       description
         "The number of times the system has attempted to
-         exceed the maximum sequence number. MIB Entry:
-         SysAttmptToExMaxSeqNums.";
+         exceed the maximum sequence number";
     }
     leaf seq-num-skips {
       type uint32;
       description
         "Number of times a sequence number skip has
-         occurred. MIB Entry: SysSeqNumSkips.";
+         occurred";
     }
     leaf own-lsp-purges {
       type uint32;
       description
         "Number of times a zero-aged copy of the system's
-         own LSP is received from some other node. MIB
-         Entry: isisSysOwnLSPPurges.";
+         own LSP is received from some other node";
     }
     leaf id-len-mismatch {
       type uint32;
       description
         "Number of times a PDU is received with a
          different value for ID field length from that of
-         the receiving system. MIB Entry:
-         isisSysIDFieldLenMismatches.";
+         the receiving system";
     }
     leaf max-area-address-mismatches {
       type uint32;
       description
         "Number of times a PDU is received with a
          different value for MaximumAreaAddresses from
-         that of the receiving system. MIB Entry:
-         SysMaxAreaAddrMismatches.";
+         that of the receiving system";
     }
     leaf spf-runs {
       type uint32;
       description
-        "The number of times SPF was ran at this level.";
+        "The number of times SPF was ran at this level";
     }
     leaf lsp-errors {
       type uint32;
       description
-        "The number of received LSPs with errors.";
+        "The number of received LSPs with errors";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-SYSTEM-LEVEL-COUNTERS {
     description
-      "This container defines ISIS system level counters
-       .";
+      "This container defines ISIS system level counters";
     container state {
       description
         "The container defines a list of system counters
-         for the IS.";
+         for the IS";
       uses SYSTEM-LEVEL-COUNTERS-STATE;
+    }
+  }
+
+  grouping KEY-STATE {
+    description
+      "KEY STATE";
+    leaf auth-password {
+      type Yang2bag-string;
+      description
+        "Authentication key string";
+    }
+  }
+
+  grouping KEY {
+    description
+      "KEY";
+    container state {
+      description
+        "This container defines ISIS authentication key
+         state";
+      uses KEY-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-LEVEL-AUTHENTICATION {
+    description
+      "This container defines ISIS authentication";
+    container key {
+      description
+        "This container defines ISIS authentication key";
+      uses KEY;
     }
   }
 
@@ -3871,27 +3500,26 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
     leaf ipv4-router-id {
       type Yang2bag-ipv4-addr;
       description
-        "IPv4 MPLS Traffic Engineering Router-ID.";
+        "IPv4 MPLS Traffic Engineering Router-ID";
     }
     leaf ipv6-router-id {
       type Yang2bag-ipv6-addr;
       description
-        "IPv6 MPLS Traffic Engineering Router-ID.";
+        "IPv6 MPLS Traffic Engineering Router-ID";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TRAFFIC-ENGINEERING {
     description
-      "This container defines ISIS TE.";
+      "This container defines ISIS TE";
     container state {
       description
-        "This container defines ISIS TE state information
-         .";
+        "This container defines ISIS TE state information";
       uses TRAFFIC-ENGINEERING-STATE;
     }
   }
@@ -3899,16 +3527,54 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-LEVEL-STATE {
     description
       "This container defines ISIS level state
-       information.";
+       information";
     leaf level-number {
       type uint8;
       description
-        "ISIS level number (level-1, level-2).";
+        "ISIS level number (level-1, level-2)";
     }
     leaf metric-style {
       type Openconfig-isis-types-metric-style-enum;
       description
-        "ISIS metric style types(narrow, wide).";
+        "ISIS metric style types(narrow, wide)";
+    }
+    leaf authentication-check {
+      type boolean;
+      description
+        "When set to true, reject all ISIS protocol PDUs
+         that either have a mismatch in
+         authentication-type or authentication-key";
+    }
+  }
+
+  grouping ROUTE-PREFERENCE-STATE {
+    description
+      "ROUTE PREFERENCE STATE";
+    leaf external-route-preference {
+      type uint8;
+      description
+        "Administrative Distance(preference) for external
+         ISIS routes";
+    }
+    leaf internal-route-preference {
+      type uint8;
+      description
+        "Administrative Distance(preference) for internal
+         ISIS routes";
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-ROUTE-PREFERENCE {
+    description
+      "This container defines Administrative Distance
+       (or preference) assigned to ISIS routes (level1
+       internal, level2 internal, level1 external,
+       level2 external)";
+    container state {
+      description
+        "This container defines ISIS route preference
+         state information";
+      uses ROUTE-PREFERENCE-STATE;
     }
   }
 
@@ -3920,17 +3586,17 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       units "byte";
       description
         "The maximum size in bytes of an IS-IS Link state
-         PDU.";
+         PDU";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TRANSPORT {
     description
-      "This container defines ISIS transport.";
+      "This container defines ISIS transport";
     container state {
       description
         "This container defines state information for
-         ISIS transport parameters.";
+         ISIS transport parameters";
       uses TRANSPORT-STATE;
     }
   }
@@ -3944,26 +3610,26 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Time interval in milliseconds that specifies max
          interval between two consecutive occurrences of
-         an LSP being generated.";
+         an LSP being generated";
     }
     leaf lsp-first-wait-interval {
       type uint64;
       units "millisecond";
       description
         "Time interval in milliseconds that specifies the
-         first LSP generation delay.";
+         first LSP generation delay";
     }
     leaf lsp-second-wait-interval {
       type uint64;
       units "millisecond";
       description
         "Time interval in milliseconds that specifies the
-         millisecond LSP generation delay.";
+         millisecond LSP generation delay";
     }
     leaf adaptive-timer {
       type Openconfig-isis-types-adaptive-timer-type-enum;
       description
-        "ISIS adaptive timer types (linear, exponential).";
+        "ISIS adaptive timer types (linear, exponential)";
     }
   }
 
@@ -3973,7 +3639,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     container state {
       description
         "This container defines state information for
-         ISIS LSP Generation timers.";
+         ISIS LSP Generation timers";
       uses LSP-GENERATION-STATE;
     }
   }
@@ -3985,7 +3651,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint64;
       units "millisecond";
       description
-        "SPF Hold Down time interval in milliseconds.";
+        "SPF Hold Down time interval in milliseconds";
     }
     leaf spf-first-interval {
       type uint64;
@@ -3993,19 +3659,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Time interval in milliseconds between the
          detection of topology change and when the SPF
-         algorithm runs.";
+         algorithm runs";
     }
     leaf spf-second-interval {
       type uint64;
       units "millisecond";
       description
         "Time interval in milliseconds between the first
-         and second SPF calculation.";
+         and second SPF calculation";
     }
     leaf adaptive-timer {
       type Openconfig-isis-types-adaptive-timer-type-enum;
       description
-        "ISIS adaptive timer types (linear, exponential).";
+        "ISIS adaptive timer types (linear, exponential)";
     }
   }
 
@@ -4015,7 +3681,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     container state {
       description
         "This container defines state information for
-         ISIS SPF timers.";
+         ISIS SPF timers";
       uses SPF-STATE;
     }
   }
@@ -4028,7 +3694,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       units "second";
       description
         "Time interval in seconds that specifies how long
-         an LSP remains in LSDB without being refreshed.";
+         an LSP remains in LSDB without being refreshed";
     }
     leaf lsp-refresh-interval {
       type uint16;
@@ -4036,27 +3702,27 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "Time interval in seconds that specifies how
          often route topology that a device originates is
-         transmitted in LSPs.";
+         transmitted in LSPs";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-TIMERS {
     description
-      "This container defines ISIS timers.";
+      "This container defines ISIS timers";
     container state {
       description
         "This container defines state information for
-         ISIS global timers.";
+         ISIS global timers";
       uses TIMERS-STATE;
     }
     container spf {
       description
-        "This container defines ISIS SPF timer settings.";
+        "This container defines ISIS SPF timer settings";
       uses SPF;
     }
     container lsp-generation {
       description
-        "This container defines ISIS LSP Generation.";
+        "This container defines ISIS LSP Generation";
       uses LSP-GENERATION;
     }
   }
@@ -4067,19 +3733,19 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf afi-name {
       type Yang2bag-string;
       description
-        "Address-family type.";
+        "Address-family type";
     }
     leaf safi-name {
       type Yang2bag-string;
       description
-        "Subsequent address-family type.";
+        "Subsequent address-family type";
     }
     leaf enabled {
       type boolean;
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
   }
 
@@ -4100,23 +3766,30 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf afi-name {
       type Yang2bag-string;
       description
-        "Address-family type.";
+        "Address-family type";
     }
     leaf safi-name {
       type Yang2bag-string;
       description
-        "Subsequent address-family type.";
+        "Subsequent address-family type";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value(default=10).";
+        "ISIS metric value(default=10)";
+    }
+    leaf enabled {
+      type boolean;
+      description
+        "When set to true, the functionality within which
+         this leaf is defined is enabled, when set to
+         false it is explicitly disabled";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-AF {
     description
-      "Address-family/Subsequent Address-family list.";
+      "Address-family/Subsequent Address-family list";
     container state {
       description
         "This container defines AFI-SAFI State
@@ -4127,45 +3800,120 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "This container defines multi-topology
          address-family configuration and state
-         information. ISIS TLV 235, 237.";
+         information";
       uses MULTI-TOPOLOGY;
+    }
+  }
+
+  grouping LEVEL2-TO-LEVEL1-STATE {
+    description
+      "LEVEL2 TO LEVEL1 STATE";
+    leaf-list import-policy {
+      type Yang2bag-string;
+      description
+        "list of policy names in sequence to be applied
+         on receiving a routing update in the current
+         context, e";
+    }
+  }
+
+  grouping LEVEL2-TO-LEVEL1 {
+    description
+      "LEVEL2 TO LEVEL1";
+    container state {
+      description
+        "Operational state parameters relating to the
+         propagation of prefixes from IS-IS Level 2 to
+         Level 1";
+      uses LEVEL2-TO-LEVEL1-STATE;
+    }
+  }
+
+  grouping LEVEL1-TO-LEVEL2-STATE {
+    description
+      "LEVEL1 TO LEVEL2 STATE";
+    leaf-list import-policy {
+      type Yang2bag-string;
+      description
+        "list of policy names in sequence to be applied
+         on receiving a routing update in the current
+         context, e";
+    }
+  }
+
+  grouping LEVEL1-TO-LEVEL2 {
+    description
+      "LEVEL1 TO LEVEL2";
+    container state {
+      description
+        "Operational state parameters relating to the
+         propagation of prefixes from IS-IS Level 1 to
+         Level 2";
+      uses LEVEL1-TO-LEVEL2-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-INTER-LEVEL-PROPAGATION-POLICIES {
+    description
+      "Policies to propagate prefixes between IS-IS
+       levels";
+    container level1-to-level2 {
+      description
+        "Policies relating to prefixes to be propagated
+         from Level 1 to Level 2";
+      uses LEVEL1-TO-LEVEL2;
+    }
+    container level2-to-level1 {
+      description
+        "Policies relating to prefixes to be propagated
+         from Level2 to Level 1";
+      uses LEVEL2-TO-LEVEL1;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-GLOBAL-STATE {
     description
       "This container defines state for ISIS global
-       router.";
+       router";
+    leaf authentication-check {
+      type boolean;
+      description
+        "When set to true, reject all ISIS protocol PDUs
+         that either have a mismatch in
+         authentication-type or authentication-key";
+    }
     leaf instance {
       type Yang2bag-string;
       description
-        "ISIS Instance.";
+        "ISIS Instance";
     }
     leaf level-capability {
       type Openconfig-isis-types-level-type-enum;
       description
         "ISIS level capability(level-1, level-2
-         ,vlevel-1-2).";
+         ,vlevel-1-2)";
     }
     leaf max-ecmp-paths {
       type uint8;
       description
-        "ISIS max-paths count.";
+        "ISIS max-paths count";
+    }
+    leaf iid-tlv {
+      type boolean;
+      description
+        "ISIS Instance Identifier TLV";
     }
     leaf fast-flooding {
       type boolean;
       description
         "When set to true, IS will always flood the LSP
          that triggered an SPF before the router actually
-         runs the SPF computation.";
+         runs the SPF computation";
     }
     leaf-list net {
       type Yang2bag-string;
       description
-        "ISIS network entity title (NET). The first 8
-         bits are usually 49 (private AFI), next 16 bits
-         represent area, next 48 bits represent system id
-         and final 8 bits are set to 0.";
+        "ISIS network entity title (NET)";
     }
   }
 
@@ -4177,17 +3925,17 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-GRACEFUL-RESTART {
     description
-      "This container defines ISIS Graceful Restart.";
+      "This container defines ISIS Graceful Restart";
     container state {
       description
         "This container defines state information for
-         ISIS graceful-restart.";
+         ISIS graceful-restart";
       uses GRACEFUL-RESTART-STATE;
     }
   }
@@ -4200,18 +3948,48 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-NSR {
     description
-      "This container defines ISIS Non-Stop Routing.";
+      "This container defines ISIS Non-Stop Routing";
     container state {
       description
         "This container defines state for
          Non-Stop-Routing";
       uses NSR-STATE;
+    }
+  }
+
+  grouping ATTACHED-BIT-STATE {
+    description
+      "ATTACHED BIT STATE";
+    leaf ignore-bit {
+      type boolean;
+      description
+        "When set to true, if the attached bit is set on
+         an incoming Level 1 IS-IS, the local system
+         ignores it";
+    }
+    leaf suppress-bit {
+      type boolean;
+      description
+        "When set to true, if the local IS acts as a L1L2
+         router, then the attached bit is not advertised
+         in locally generated PDUs";
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-ATTACHED-BIT {
+    description
+      "This container defines Attached Bit";
+    container state {
+      description
+        "This container defines state for Link State PDU
+         Bit";
+      uses ATTACHED-BIT-STATE;
     }
   }
 
@@ -4222,9 +4000,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type Yang2bag-string;
       description
         "In the case that the system sets the overload
-         bit on start, the system should reset the bit (i
-         .e., clear the overload bit) upon the specified
-         trigger.";
+         bit on start, the system should reset the bit (i";
     }
     leaf delay {
       type uint16;
@@ -4233,18 +4009,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "If a reset trigger is specified, the system
          should delay resetting the overload bit for the
          specified number of seconds after the trigger
-         occurs.";
+         occurs";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-RESET-TRIGGER {
     description
       "This list describes ISIS Overload reset trigger
-       reasons.";
+       reasons";
     container state {
       description
         "This container defines state for ISIS Overload
-         Bit reset triggers.";
+         Bit reset triggers";
       uses RESET-TRIGGER-STATE;
     }
   }
@@ -4252,28 +4028,47 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-OVERLOAD-BIT-STATE {
     description
       "This container defines state for ISIS Overload
-       Bit.";
+       Bit";
     leaf set-bit {
       type boolean;
       description
-        "When set to true, IS-IS overload bit is set.";
+        "When set to true, IS-IS overload bit is set";
     }
     leaf set-bit-on-boot {
       type boolean;
       description
         "When set to true, the IS-IS overload bit is set
-         on system boot.";
+         on system boot";
     }
     leaf advertise-high-metric {
       type boolean;
       description
         "When set to true, the local IS advertises links
          with the highest available metric regardless of
-         their configured metric. The metric value is
-         based on the metric style - if wide metrics are
-         utilised the metric is advertised as 16777214,
-         otherwise they are advertised with a value of 63
-         .";
+         their configured metric";
+    }
+  }
+
+  grouping SEGMENT-ROUTING-STATE {
+    description
+      "SEGMENT ROUTING STATE";
+    leaf enabled {
+      type boolean;
+      description
+        "When this leaf is set to true, the segment
+         routing extensions are utilised within the IGP";
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING {
+    description
+      "Configuration and operational state relating to
+       segment routing";
+    container state {
+      description
+        "Operational state parameters relating to segment
+         routing for the IGP instance";
+      uses SEGMENT-ROUTING-STATE;
     }
   }
 
@@ -4286,7 +4081,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The interval, specified in seconds, at which
          periodic CSNP packets should be transmitted by
-         the local IS.";
+         the local IS";
     }
     leaf lsp-pacing-interval {
       type uint64;
@@ -4294,7 +4089,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       description
         "The interval interval in milliseconds between
          the detection of topology change and when the
-         SPF algorithm runs.";
+         SPF algorithm runs";
     }
   }
 
@@ -4305,8 +4100,39 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     container state {
       description
         "This container defines state information for
-         ISIS interface timers.";
+         ISIS interface timers";
       uses INTERFACE-TIMERS-STATE;
+    }
+  }
+
+  grouping AUTHENTICATION-KEY-STATE {
+    description
+      "AUTHENTICATION KEY STATE";
+    leaf auth-password {
+      type Yang2bag-string;
+      description
+        "Authentication key string";
+    }
+  }
+
+  grouping AUTHENTICATION-KEY {
+    description
+      "AUTHENTICATION KEY";
+    container state {
+      description
+        "This container defines ISIS authentication key
+         state";
+      uses AUTHENTICATION-KEY-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-INTERFACE-AUTHENTICATION {
+    description
+      "This container defines ISIS authentication";
+    container key {
+      description
+        "This container defines ISIS authentication key";
+      uses AUTHENTICATION-KEY;
     }
   }
 
@@ -4317,89 +4143,107 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "Number of times an adjacency state change has
-         occurred on this circuit. MIB Entry:
-         CircAdjChanges.";
+         occurred on this circuit";
     }
     leaf rejected-adj {
       type uint32;
       description
         "Number of times an adjacency has been rejected
-         on this circuit. MIB Entry: CircRejAdjs.";
+         on this circuit";
     }
     leaf id-field-len-mismatches {
       type uint32;
       description
         "Number of times an IS-IS control PDU with an ID
          field length different from that for this system
-         has been received. MIB Entry:
-         CircIDFieldLenMismatches.";
+         has been received";
     }
     leaf max-area-address-mismatches {
       type uint32;
       description
         "Number of times an IS-IS control PDU with a max
          area address field different from that for this
-         system has been received. MIB Entry:
-         CircMaxAreaAddrMismatches.";
+         system has been received";
     }
     leaf auth-fails {
       type uint32;
       description
         "Number of times an IS-IS control PDU with the
          correct auth type has failed to pass
-         authentication validation. MIB Entry:
-         CircAuthFails.";
+         authentication validation";
     }
     leaf lan-dis-changes {
       type uint32;
       description
         "Number of times the Designated IS has changed on
-         this circuit at this level. If the circuit is
-         point to point, this count is zero. MIB Entry:
-         CircLANDesISChanges.";
+         this circuit at this level";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-CIRCUIT-COUNTERS {
     description
       "This container defines state information for ISIS
-       circuit counters.";
+       circuit counters";
     container state {
       description
         "The container defines a list of counters for IS
-         circuit.";
+         circuit";
       uses CIRCUIT-COUNTERS-STATE;
     }
   }
 
-  grouping LEVEL-AFI-SAFI-AF-STATE {
+  grouping SEGMENT-ROUTING-PREFIX-SIDS-PREFIX-SID-STATE {
     description
-      "LEVEL AFI SAFI AF STATE";
+      "SEGMENT ROUTING PREFIX SIDS PREFIX SID STATE";
+    leaf prefix {
+      type Yang2bag-string;
+      description
+        "The IP prefix for which the IGP prefix SID
+         should be advertised";
+    }
+    leaf sid-id {
+      type Yang2bag-string;
+      description
+        "The Segment Identifier to be used when
+         advertising the IGP Prefix SID";
+    }
+    leaf label-options {
+      type Openconfig-segment-routing-label-options-enum;
+      description
+        "The options associated with the IGP prefix SID
+         for MPLS";
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-PREFIX-SIDS-PREFIX-SID {
+    description
+      "An IGP prefix that should have a segment routing
+       IGP-Prefix SID allocated to it";
+    container state {
+      description
+        "Operational state parameters for the IGP-Prefix
+         SID";
+      uses SEGMENT-ROUTING-PREFIX-SIDS-PREFIX-SID-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-AF-STATE {
+    description
+      "This container defines AFI-SAFI State information";
     leaf afi-name {
       type Yang2bag-string;
       description
-        "Address-family type.";
+        "Address-family type";
     }
     leaf safi-name {
       type Yang2bag-string;
       description
-        "Subsequent address-family type.";
+        "Subsequent address-family type";
     }
     leaf metric {
       type uint32;
       description
-        "ISIS metric value(default=10).";
-    }
-  }
-
-  grouping OVERLAY-OCNI-ISIS-LEVEL-AFI-SAFI-AF {
-    description
-      "Address-family/Subsequent Address-family list.";
-    container state {
-      description
-        "This container defines AFI-SAFI State
-         information";
-      uses LEVEL-AFI-SAFI-AF-STATE;
+        "ISIS metric value(default=10)";
     }
   }
 
@@ -4409,22 +4253,22 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf hello-interval {
       type uint32;
       description
-        "ISIS hello-interval value.";
+        "ISIS hello-interval value";
     }
     leaf hello-multiplier {
       type uint8;
       description
-        "ISIS hello-multiplier value.";
+        "ISIS hello-multiplier value";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-LEVEL-TIMERS {
     description
-      "This container defines ISIS timers.";
+      "This container defines ISIS timers";
     container state {
       description
         "This container defines ISIS interface
-         hello-timers state.";
+         hello-timers state";
       uses LEVEL-TIMERS-STATE;
     }
   }
@@ -4435,119 +4279,109 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf system-id {
       type Yang2bag-string;
       description
-        "ISIS neighbor system-id.";
+        "ISIS neighbor system-id";
     }
     leaf neighbor-ipv4-address {
       type Yang2bag-ipv4-addr;
       description
-        "ISIS Neighbor IPv4 address.";
+        "ISIS Neighbor IPv4 address";
     }
     leaf neighbor-ipv6-address {
       type Yang2bag-ipv6-addr;
       description
-        "ISIS Neighbor IPv6 address.";
+        "ISIS Neighbor IPv6 address";
     }
     leaf neighbor-snpa {
       type Yang2bag-string;
       description
-        "ISIS neighbor SNPA.";
+        "ISIS neighbor SNPA";
     }
     leaf local-extended-circuit-id {
       type uint32;
       description
-        "Local extended circuit ID.";
+        "Local extended circuit ID";
     }
     leaf neighbor-extended-circuit-id {
       type uint32;
       description
-        "ISIS neighbor extended circuit ID.";
+        "ISIS neighbor extended circuit ID";
     }
     leaf priority {
       type uint8;
       description
-        "Priority of the neighboring IS(LAN Hello only).";
+        "Priority of the neighboring IS(LAN Hello only)";
     }
     leaf dis-system-id {
       type Yang2bag-string;
       description
-        "DIS System ID(LAN hello only).";
+        "DIS System ID(LAN hello only)";
     }
     leaf neighbor-circuit-type {
       type Openconfig-isis-types-level-type-enum;
       description
         "Received ISIS circuit type (level-1, level-2,
-         level-1-2).";
+         level-1-2)";
     }
     leaf adjacency-type {
       type Openconfig-isis-types-level-type-enum;
       description
         "Formed ISIS adjacency type(level-1, level-2,
-         level-1-2).";
+         level-1-2)";
     }
     leaf adjacency-state {
       type Openconfig-isis-types-isis-interface-adj-state-enum;
       description
         "P2P 3-way ISIS adjacency state(up, down, init,
-         failed).";
+         failed)";
     }
     leaf remaining-hold-time {
       type uint16;
       units "second";
       description
-        "Holding time in seconds for adjacency. This
-         value is based on received hello PDUs and the
-         elapsed time since receipt.";
+        "Holding time in seconds for adjacency";
     }
     leaf up-time {
       type uint32;
       description
-        "Adjacency up time.";
+        "Adjacency up time";
     }
     leaf restart-support {
       type boolean;
       description
         "When set to true, Graceful-restart signaling is
-         supported.";
+         supported";
     }
     leaf restart-suppress {
       type boolean;
       description
-        "When set to true, adjacency is not advertised.
-         The SA bit is used by a starting router to 
-         request that its neighbor suppress advertisement
-         of the adjacency  to the starting router in the
-         neighbor's LSPs.";
+        "When set to true, adjacency is not advertised";
     }
     leaf restart-status {
       type boolean;
       description
-        "When set to true, neighbor is being helped. The
-         RR bit is used by a (re)starting router to
-         signal to its neighbors that a (re)start is in
-         progress.";
+        "When set to true, neighbor is being helped";
     }
     leaf-list topology {
       type Yang2bag-string;
       description
         "ISIS topology type support(ipv4-unicast,
-         ipv6-unicast, ipv4-multicast, ipv6-multicast).";
+         ipv6-unicast, ipv4-multicast, ipv6-multicast)";
     }
     leaf-list area-address {
       type Yang2bag-string;
       description
-        "List of ISIS area-address(es).";
+        "List of ISIS area-address(es)";
     }
     leaf-list nlpid {
       type Openconfig-isis-adjacency-state-nlpid-enum;
       description
-        "Supported Protocol. IPv4 is defined as (0xcc)
-         and IPv6 - (0x8e). ISIS reference is TLV 129.";
+        "Supported Protocol";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-ADJACENCY {
     description
-      "List of the local system's IS-IS adjacencies.";
+      "List of the local system's IS-IS adjacencies";
     container state {
       description
         "Operational state relating to the IS-IS
@@ -4563,21 +4397,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "The number of the specified type of PDU received
-         on the interface.";
+         on the interface";
     }
     leaf processed {
       type uint32;
       description
         "The number of the specified type of PDU received
          on the interface that have been processed by the
-         local system.";
+         local system";
     }
     leaf sent {
       type uint32;
       description
         "The number of the specified type of PDU that
          have been sent by the local system on the
-         interface.";
+         interface";
     }
   }
 
@@ -4586,7 +4420,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "CNSP";
     container state {
       description
-        "Packet counters relating to CNSPs.";
+        "Packet counters relating to CNSPs";
       uses CNSP-STATE;
     }
   }
@@ -4598,21 +4432,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "The number of the specified type of PDU received
-         on the interface.";
+         on the interface";
     }
     leaf processed {
       type uint32;
       description
         "The number of the specified type of PDU received
          on the interface that have been processed by the
-         local system.";
+         local system";
     }
     leaf sent {
       type uint32;
       description
         "The number of the specified type of PDU that
          have been sent by the local system on the
-         interface.";
+         interface";
     }
   }
 
@@ -4621,7 +4455,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PSNP";
     container state {
       description
-        "Packet counters relating to PSNPs.";
+        "Packet counters relating to PSNPs";
       uses PSNP-STATE;
     }
   }
@@ -4633,21 +4467,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "The number of the specified type of PDU received
-         on the interface.";
+         on the interface";
     }
     leaf processed {
       type uint32;
       description
         "The number of the specified type of PDU received
          on the interface that have been processed by the
-         local system.";
+         local system";
     }
     leaf sent {
       type uint32;
       description
         "The number of the specified type of PDU that
          have been sent by the local system on the
-         interface.";
+         interface";
     }
   }
 
@@ -4668,21 +4502,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       type uint32;
       description
         "The number of the specified type of PDU received
-         on the interface.";
+         on the interface";
     }
     leaf processed {
       type uint32;
       description
         "The number of the specified type of PDU received
          on the interface that have been processed by the
-         local system.";
+         local system";
     }
     leaf sent {
       type uint32;
       description
         "The number of the specified type of PDU that
          have been sent by the local system on the
-         interface.";
+         interface";
     }
   }
 
@@ -4691,7 +4525,7 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
       "PACKET COUNTERS LSP";
     container state {
       description
-        "This container defines LSP PDU counters.";
+        "This container defines LSP PDU counters";
       uses LSP-STATE;
     }
   }
@@ -4699,25 +4533,25 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-PACKET-COUNTERS {
     description
       "This container defines ISIS interface packet
-       counters.";
+       counters";
     container lsp {
       description
-        "This container defines LSP packet counters.";
+        "This container defines LSP packet counters";
       uses PACKET-COUNTERS-LSP;
     }
     container iih {
       description
-        "This container defines IIH packet counters.";
+        "This container defines IIH packet counters";
       uses IIH;
     }
     container psnp {
       description
-        "This container defines PSNP packet counters.";
+        "This container defines PSNP packet counters";
       uses PSNP;
     }
     container cnsp {
       description
-        "Operational state parameters relating to CNSPs.";
+        "Operational state parameters relating to CNSPs";
       uses CNSP;
     }
   }
@@ -4725,35 +4559,66 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
   grouping OVERLAY-OCNI-ISIS-LEVELS-LEVEL-STATE {
     description
       "This container defines interface ISIS level state
-       information.";
+       information";
     leaf level-number {
       type uint8;
       description
-        "ISIS level number(level-1, level-2).";
+        "ISIS level number(level-1, level-2)";
     }
     leaf priority {
       type uint8;
       description
-        "ISIS neighbor priority(LAN hello PDU only).";
+        "ISIS neighbor priority(LAN hello PDU only)";
+    }
+  }
+
+  grouping HELLO-AUTHENTICATION-KEY-STATE {
+    description
+      "HELLO AUTHENTICATION KEY STATE";
+    leaf auth-password {
+      type Yang2bag-string;
+      description
+        "Authentication key string";
+    }
+  }
+
+  grouping HELLO-AUTHENTICATION-KEY {
+    description
+      "HELLO AUTHENTICATION KEY";
+    container state {
+      description
+        "This container defines ISIS authentication key
+         state";
+      uses HELLO-AUTHENTICATION-KEY-STATE;
+    }
+  }
+
+  grouping OVERLAY-OCNI-ISIS-HELLO-AUTHENTICATION {
+    description
+      "This container defines ISIS authentication";
+    container key {
+      description
+        "This container defines ISIS authentication key";
+      uses HELLO-AUTHENTICATION-KEY;
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-INTERFACE-STATE {
     description
       "This container defines state information for ISIS
-       interfaces.";
+       interfaces";
     leaf enabled {
       type boolean;
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
     leaf interface-id {
       type Yang2bag-string;
       description
         "Interface for which ISIS configuration is to be
-         applied.";
+         applied";
     }
     leaf passive {
       type boolean;
@@ -4761,18 +4626,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
         "When set to true, the referenced interface is a
          passive interface such that it is not eligible
          to establish adjacencies with other systems, but
-         is advertised into the IS-IS topology.";
+         is advertised into the IS-IS topology";
     }
     leaf hello-padding {
       type Openconfig-isis-types-hello-padding-type-enum;
       description
         "This leaf controls padding type for IS-IS Hello
-         PDUs.";
+         PDUs";
     }
     leaf circuit-type {
       type Openconfig-isis-types-circuit-type-enum;
       description
-        "ISIS circuit type (p2p, broadcast).";
+        "ISIS circuit type (p2p, broadcast)";
     }
   }
 
@@ -4782,25 +4647,25 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
     leaf afi-name {
       type Yang2bag-string;
       description
-        "Address-family type.";
+        "Address-family type";
     }
     leaf safi-name {
       type Yang2bag-string;
       description
-        "Subsequent address-family type.";
+        "Subsequent address-family type";
     }
     leaf enabled {
       type boolean;
       description
         "When set to true, the functionality within which
          this leaf is defined is enabled, when set to
-         false it is explicitly disabled.";
+         false it is explicitly disabled";
     }
   }
 
   grouping OVERLAY-OCNI-ISIS-AFI-SAFI-AF {
     description
-      "Address-family/Subsequent Address-family list.";
+      "Address-family/Subsequent Address-family list";
     container state {
       description
         "This container defines AFI-SAFI State

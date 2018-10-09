@@ -14,7 +14,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_rsi_cfg
 
@@ -149,7 +149,7 @@ type Vrfs_Vrf struct {
     // VRF address family configuration.
     Afs Vrfs_Vrf_Afs
 
-    // BGP related VRF GBL config.
+    // BGP related VRF Global config.
     BgpGlobal Vrfs_Vrf_BgpGlobal
 
     // Multicast host stack configuration.
@@ -273,11 +273,11 @@ type Vrfs_Vrf_Afs_Af struct {
     // VRF configuration for a particular address family. The type is interface{}.
     Create interface{}
 
-    // BGP AF VRF config.
-    Bgp Vrfs_Vrf_Afs_Af_Bgp
-
     // Set maximum prefix limits.
     MaximumPrefix Vrfs_Vrf_Afs_Af_MaximumPrefix
+
+    // BGP AF VRF config.
+    Bgp Vrfs_Vrf_Afs_Af_Bgp
 }
 
 func (af *Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
@@ -291,8 +291,8 @@ func (af *Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     af.EntityData.Children = types.NewOrderedMap()
-    af.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &af.Bgp})
     af.EntityData.Children.Append("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", types.YChild{"MaximumPrefix", &af.MaximumPrefix})
+    af.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &af.Bgp})
     af.EntityData.Leafs = types.NewOrderedMap()
     af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
     af.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", af.SafName})
@@ -302,6 +302,42 @@ func (af *Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YListKeys = []string {"AfName", "SafName", "TopologyName"}
 
     return &(af.EntityData)
+}
+
+// Vrfs_Vrf_Afs_Af_MaximumPrefix
+// Set maximum prefix limits
+// This type is a presence type.
+type Vrfs_Vrf_Afs_Af_MaximumPrefix struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Set table's maximum prefix limit. The type is interface{} with range:
+    // 32..10000000. This attribute is mandatory.
+    PrefixLimit interface{}
+
+    // Mid-threshold (% of maximum). The type is interface{} with range: 1..100.
+    MidThreshold interface{}
+}
+
+func (maximumPrefix *Vrfs_Vrf_Afs_Af_MaximumPrefix) GetEntityData() *types.CommonEntityData {
+    maximumPrefix.EntityData.YFilter = maximumPrefix.YFilter
+    maximumPrefix.EntityData.YangName = "maximum-prefix"
+    maximumPrefix.EntityData.BundleName = "cisco_ios_xr"
+    maximumPrefix.EntityData.ParentYangName = "af"
+    maximumPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+    maximumPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    maximumPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    maximumPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    maximumPrefix.EntityData.Children = types.NewOrderedMap()
+    maximumPrefix.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefix.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefix.PrefixLimit})
+    maximumPrefix.EntityData.Leafs.Append("mid-threshold", types.YLeaf{"MidThreshold", maximumPrefix.MidThreshold})
+
+    maximumPrefix.EntityData.YListKeys = []string {}
+
+    return &(maximumPrefix.EntityData)
 }
 
 // Vrfs_Vrf_Afs_Af_Bgp
@@ -856,49 +892,13 @@ func (globalToVrfImportRoutePolicy *Vrfs_Vrf_Afs_Af_Bgp_GlobalToVrfImportRoutePo
     return &(globalToVrfImportRoutePolicy.EntityData)
 }
 
-// Vrfs_Vrf_Afs_Af_MaximumPrefix
-// Set maximum prefix limits
-// This type is a presence type.
-type Vrfs_Vrf_Afs_Af_MaximumPrefix struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Set table's maximum prefix limit. The type is interface{} with range:
-    // 32..10000000. This attribute is mandatory.
-    PrefixLimit interface{}
-
-    // Mid-threshold (% of maximum). The type is interface{} with range: 1..100.
-    MidThreshold interface{}
-}
-
-func (maximumPrefix *Vrfs_Vrf_Afs_Af_MaximumPrefix) GetEntityData() *types.CommonEntityData {
-    maximumPrefix.EntityData.YFilter = maximumPrefix.YFilter
-    maximumPrefix.EntityData.YangName = "maximum-prefix"
-    maximumPrefix.EntityData.BundleName = "cisco_ios_xr"
-    maximumPrefix.EntityData.ParentYangName = "af"
-    maximumPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-    maximumPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    maximumPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    maximumPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    maximumPrefix.EntityData.Children = types.NewOrderedMap()
-    maximumPrefix.EntityData.Leafs = types.NewOrderedMap()
-    maximumPrefix.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefix.PrefixLimit})
-    maximumPrefix.EntityData.Leafs.Append("mid-threshold", types.YLeaf{"MidThreshold", maximumPrefix.MidThreshold})
-
-    maximumPrefix.EntityData.YListKeys = []string {}
-
-    return &(maximumPrefix.EntityData)
-}
-
 // Vrfs_Vrf_BgpGlobal
-// BGP related VRF GBL config
+// BGP related VRF Global config
 type Vrfs_Vrf_BgpGlobal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Global Route distinguisher.
+    // Route distinguisher.
     RouteDistinguisher Vrfs_Vrf_BgpGlobal_RouteDistinguisher
 }
 
@@ -922,7 +922,7 @@ func (bgpGlobal *Vrfs_Vrf_BgpGlobal) GetEntityData() *types.CommonEntityData {
 }
 
 // Vrfs_Vrf_BgpGlobal_RouteDistinguisher
-// Global Route distinguisher
+// Route distinguisher
 type Vrfs_Vrf_BgpGlobal_RouteDistinguisher struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1011,7 +1011,7 @@ type Vrfs_Vrf_MulticastHost_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -1041,7 +1041,7 @@ type Vrfs_Vrf_MulticastHost_Ipv6 struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -1145,11 +1145,11 @@ type GlobalAf_Afs_Af struct {
     // VRF configuration for a particular address family. The type is interface{}.
     Create interface{}
 
-    // BGP AF VRF config.
-    Bgp GlobalAf_Afs_Af_Bgp
-
     // Set maximum prefix limits.
     MaximumPrefix GlobalAf_Afs_Af_MaximumPrefix
+
+    // BGP AF VRF config.
+    Bgp GlobalAf_Afs_Af_Bgp
 }
 
 func (af *GlobalAf_Afs_Af) GetEntityData() *types.CommonEntityData {
@@ -1163,8 +1163,8 @@ func (af *GlobalAf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     af.EntityData.Children = types.NewOrderedMap()
-    af.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &af.Bgp})
     af.EntityData.Children.Append("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", types.YChild{"MaximumPrefix", &af.MaximumPrefix})
+    af.EntityData.Children.Append("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", types.YChild{"Bgp", &af.Bgp})
     af.EntityData.Leafs = types.NewOrderedMap()
     af.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", af.AfName})
     af.EntityData.Leafs.Append("saf-name", types.YLeaf{"SafName", af.SafName})
@@ -1174,6 +1174,42 @@ func (af *GlobalAf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YListKeys = []string {"AfName", "SafName", "TopologyName"}
 
     return &(af.EntityData)
+}
+
+// GlobalAf_Afs_Af_MaximumPrefix
+// Set maximum prefix limits
+// This type is a presence type.
+type GlobalAf_Afs_Af_MaximumPrefix struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Set table's maximum prefix limit. The type is interface{} with range:
+    // 32..10000000. This attribute is mandatory.
+    PrefixLimit interface{}
+
+    // Mid-threshold (% of maximum). The type is interface{} with range: 1..100.
+    MidThreshold interface{}
+}
+
+func (maximumPrefix *GlobalAf_Afs_Af_MaximumPrefix) GetEntityData() *types.CommonEntityData {
+    maximumPrefix.EntityData.YFilter = maximumPrefix.YFilter
+    maximumPrefix.EntityData.YangName = "maximum-prefix"
+    maximumPrefix.EntityData.BundleName = "cisco_ios_xr"
+    maximumPrefix.EntityData.ParentYangName = "af"
+    maximumPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+    maximumPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    maximumPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    maximumPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    maximumPrefix.EntityData.Children = types.NewOrderedMap()
+    maximumPrefix.EntityData.Leafs = types.NewOrderedMap()
+    maximumPrefix.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefix.PrefixLimit})
+    maximumPrefix.EntityData.Leafs.Append("mid-threshold", types.YLeaf{"MidThreshold", maximumPrefix.MidThreshold})
+
+    maximumPrefix.EntityData.YListKeys = []string {}
+
+    return &(maximumPrefix.EntityData)
 }
 
 // GlobalAf_Afs_Af_Bgp
@@ -1728,42 +1764,6 @@ func (globalToVrfImportRoutePolicy *GlobalAf_Afs_Af_Bgp_GlobalToVrfImportRoutePo
     return &(globalToVrfImportRoutePolicy.EntityData)
 }
 
-// GlobalAf_Afs_Af_MaximumPrefix
-// Set maximum prefix limits
-// This type is a presence type.
-type GlobalAf_Afs_Af_MaximumPrefix struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Set table's maximum prefix limit. The type is interface{} with range:
-    // 32..10000000. This attribute is mandatory.
-    PrefixLimit interface{}
-
-    // Mid-threshold (% of maximum). The type is interface{} with range: 1..100.
-    MidThreshold interface{}
-}
-
-func (maximumPrefix *GlobalAf_Afs_Af_MaximumPrefix) GetEntityData() *types.CommonEntityData {
-    maximumPrefix.EntityData.YFilter = maximumPrefix.YFilter
-    maximumPrefix.EntityData.YangName = "maximum-prefix"
-    maximumPrefix.EntityData.BundleName = "cisco_ios_xr"
-    maximumPrefix.EntityData.ParentYangName = "af"
-    maximumPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-    maximumPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    maximumPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    maximumPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    maximumPrefix.EntityData.Children = types.NewOrderedMap()
-    maximumPrefix.EntityData.Leafs = types.NewOrderedMap()
-    maximumPrefix.EntityData.Leafs.Append("prefix-limit", types.YLeaf{"PrefixLimit", maximumPrefix.PrefixLimit})
-    maximumPrefix.EntityData.Leafs.Append("mid-threshold", types.YLeaf{"MidThreshold", maximumPrefix.MidThreshold})
-
-    maximumPrefix.EntityData.YListKeys = []string {}
-
-    return &(maximumPrefix.EntityData)
-}
-
 // Srlg
 // srlg
 type Srlg struct {
@@ -1848,7 +1848,7 @@ type Srlg_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable SRLG interface. The type is interface{}.

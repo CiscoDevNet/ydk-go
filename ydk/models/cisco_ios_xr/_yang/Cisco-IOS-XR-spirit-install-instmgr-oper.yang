@@ -29,7 +29,7 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
      for the following management objects:
        software-install: Install operations info
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -53,6 +53,21 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
       description
         "Show superseded packages";
       uses INSTMGR-SHOW-INST-SUP;
+    }
+    container committed-summary {
+      description
+        "Show Committed packages installed";
+      uses INSTMGR-CALV-SHOW-INST-COMMIT;
+    }
+    container active-summary {
+      description
+        "Show active packages installed";
+      uses INSTMGR-CALV-SHOW-INST-ACT;
+    }
+    container inactive-summary {
+      description
+        "Show XR inactive packages";
+      uses INSTALL-LOG;
     }
     container prepare {
       description
@@ -79,6 +94,11 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
         "Show current request";
       uses CURRENT-INSTALL-OPERATION;
     }
+    container superseded-summary {
+      description
+        "Show superseded packages";
+      uses INSTALL-LOG;
+    }
     container issu {
       description
         "ISSU operation";
@@ -101,6 +121,17 @@ module Cisco-IOS-XR-spirit-install-instmgr-oper {
     container all-operations-log {
       description
         "Show log file for all operations";
+      container reverse-detail {
+        description
+          "Show detailed log file for all operations -
+           reverse";
+        uses INSTALL-LOG;
+      }
+      container reverse {
+        description
+          "Show log file for all operations - reverse";
+        uses INSTALL-LOG;
+      }
       container summary {
         description
           "Show summary log file for all operations";

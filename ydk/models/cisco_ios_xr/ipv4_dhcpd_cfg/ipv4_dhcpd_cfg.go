@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv4-dhcpd: DHCP IPV4 configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_dhcpd_cfg
 
@@ -23,77 +23,6 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-dhcpd-cfg ipv4-dhcpd}", reflect.TypeOf(Ipv4Dhcpd{}))
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd", reflect.TypeOf(Ipv4Dhcpd{}))
 }
-
-// Dhcpv4LimitLease1 represents Dhcpv4 limit lease1
-type Dhcpv4LimitLease1 string
-
-const (
-    // Interface
-    Dhcpv4LimitLease1_interface_ Dhcpv4LimitLease1 = "interface"
-
-    // Circuit ID
-    Dhcpv4LimitLease1_circuit_id Dhcpv4LimitLease1 = "circuit-id"
-
-    // Remote ID
-    Dhcpv4LimitLease1_remote_id Dhcpv4LimitLease1 = "remote-id"
-
-    // Circuit ID Remote ID
-    Dhcpv4LimitLease1_circuit_id_remote_id Dhcpv4LimitLease1 = "circuit-id-remote-id"
-)
-
-// ProxyAction represents Proxy action
-type ProxyAction string
-
-const (
-    // Allow vendor specific DHCP Discover
-    ProxyAction_allow ProxyAction = "allow"
-
-    // Drop vendor specific DHCP Discover
-    ProxyAction_drop ProxyAction = "drop"
-
-    // Relay vendor-id specific DHCP packets unaltered
-    ProxyAction_relay ProxyAction = "relay"
-)
-
-// Ipv4dhcpdLayer represents Ipv4dhcpd layer
-type Ipv4dhcpdLayer string
-
-const (
-    // Layer2
-    Ipv4dhcpdLayer_layer2 Ipv4dhcpdLayer = "layer2"
-
-    // Layer3
-    Ipv4dhcpdLayer_layer3 Ipv4dhcpdLayer = "layer3"
-)
-
-// Ipv4dhcpdFmtSpecifier represents Ipv4dhcpd fmt specifier
-type Ipv4dhcpdFmtSpecifier string
-
-const (
-    // Physical chassis
-    Ipv4dhcpdFmtSpecifier_physical_chassis Ipv4dhcpdFmtSpecifier = "physical-chassis"
-
-    // Physical slot
-    Ipv4dhcpdFmtSpecifier_physical_slot Ipv4dhcpdFmtSpecifier = "physical-slot"
-
-    // Physical sub-slot
-    Ipv4dhcpdFmtSpecifier_physical_sub_slot Ipv4dhcpdFmtSpecifier = "physical-sub-slot"
-
-    // Physical port
-    Ipv4dhcpdFmtSpecifier_physical_port Ipv4dhcpdFmtSpecifier = "physical-port"
-
-    // Physical sub-port
-    Ipv4dhcpdFmtSpecifier_physical_sub_port Ipv4dhcpdFmtSpecifier = "physical-sub-port"
-
-    // Inner VLAN ID
-    Ipv4dhcpdFmtSpecifier_inner_vlan_id Ipv4dhcpdFmtSpecifier = "inner-vlan-id"
-
-    // Outer VLAN ID
-    Ipv4dhcpdFmtSpecifier_outer_vlan_id Ipv4dhcpdFmtSpecifier = "outer-vlan-id"
-
-    // L2 Interface
-    Ipv4dhcpdFmtSpecifier_l2_interface Ipv4dhcpdFmtSpecifier = "l2-interface"
-)
 
 // Matchaction represents Matchaction
 type Matchaction string
@@ -117,48 +46,6 @@ const (
     Dhcpv4AuthUsername_auth_username_giaddr Dhcpv4AuthUsername = "auth-username-giaddr"
 )
 
-// LeaseLimitValue represents Lease limit value
-type LeaseLimitValue string
-
-const (
-    // Insert the limit lease type interface
-    LeaseLimitValue_per_interface LeaseLimitValue = "per-interface"
-
-    // Insert the limit lease type circuit-id
-    LeaseLimitValue_per_circuit_id LeaseLimitValue = "per-circuit-id"
-
-    // Insert the limit lease type remote-id
-    LeaseLimitValue_per_remote_id LeaseLimitValue = "per-remote-id"
-)
-
-// Ipv4dhcpdRelayInfoOptionPolicy represents Ipv4dhcpd relay info option policy
-type Ipv4dhcpdRelayInfoOptionPolicy string
-
-const (
-    // Replace
-    Ipv4dhcpdRelayInfoOptionPolicy_replace Ipv4dhcpdRelayInfoOptionPolicy = "replace"
-
-    // Keep
-    Ipv4dhcpdRelayInfoOptionPolicy_keep Ipv4dhcpdRelayInfoOptionPolicy = "keep"
-
-    // Drop
-    Ipv4dhcpdRelayInfoOptionPolicy_drop Ipv4dhcpdRelayInfoOptionPolicy = "drop"
-
-    // Encapsulate
-    Ipv4dhcpdRelayInfoOptionPolicy_encapsulate Ipv4dhcpdRelayInfoOptionPolicy = "encapsulate"
-)
-
-// Ipv4dhcpdRelayInfoOptionAuthenticate represents Ipv4dhcpd relay info option authenticate
-type Ipv4dhcpdRelayInfoOptionAuthenticate string
-
-const (
-    // Received
-    Ipv4dhcpdRelayInfoOptionAuthenticate_received Ipv4dhcpdRelayInfoOptionAuthenticate = "received"
-
-    // Inserted
-    Ipv4dhcpdRelayInfoOptionAuthenticate_inserted Ipv4dhcpdRelayInfoOptionAuthenticate = "inserted"
-)
-
 // Policy represents Policy
 type Policy string
 
@@ -171,67 +58,6 @@ const (
 
     // Always Unicast the reply
     Policy_unicastalways Policy = "unicastalways"
-)
-
-// Ipv4dhcpdBroadcastFlagPolicy represents Ipv4dhcpd broadcast flag policy
-type Ipv4dhcpdBroadcastFlagPolicy string
-
-const (
-    // Ignore
-    Ipv4dhcpdBroadcastFlagPolicy_ignore Ipv4dhcpdBroadcastFlagPolicy = "ignore"
-
-    // check
-    Ipv4dhcpdBroadcastFlagPolicy_check Ipv4dhcpdBroadcastFlagPolicy = "check"
-
-    // Unicast always
-    Ipv4dhcpdBroadcastFlagPolicy_unicast_always Ipv4dhcpdBroadcastFlagPolicy = "unicast-always"
-)
-
-// Dhcpv4MatchOption represents Dhcpv4 match option
-type Dhcpv4MatchOption string
-
-const (
-    // Vendor class ID
-    Dhcpv4MatchOption_Y_60__FWD_SLASH__60 Dhcpv4MatchOption = "60/60"
-
-    // 77 User class
-    Dhcpv4MatchOption_Y_77__FWD_SLASH__77 Dhcpv4MatchOption = "77/77"
-
-    // Vendor identifying class
-    Dhcpv4MatchOption_Y_124__FWD_SLASH__124 Dhcpv4MatchOption = "124/124"
-
-    // Vendor specific information
-    Dhcpv4MatchOption_Y_125__FWD_SLASH__125 Dhcpv4MatchOption = "125/125"
-)
-
-// Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
-type Ipv4dhcpdRelayInfoOptionvpnMode string
-
-const (
-    // RFC
-    Ipv4dhcpdRelayInfoOptionvpnMode_rfc Ipv4dhcpdRelayInfoOptionvpnMode = "rfc"
-
-    // Cisco
-    Ipv4dhcpdRelayInfoOptionvpnMode_cisco Ipv4dhcpdRelayInfoOptionvpnMode = "cisco"
-)
-
-// Ipv4dhcpdGiaddrPolicy represents Ipv4dhcpd giaddr policy
-type Ipv4dhcpdGiaddrPolicy string
-
-const (
-    // Giaddr Policy Keep
-    Ipv4dhcpdGiaddrPolicy_giaddr_policy_keep Ipv4dhcpdGiaddrPolicy = "giaddr-policy-keep"
-)
-
-// Ipv4dhcpdFmt represents Ipv4dhcpd fmt
-type Ipv4dhcpdFmt string
-
-const (
-    // Not a Format String
-    Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
-
-    // Format String
-    Ipv4dhcpdFmt_format Ipv4dhcpdFmt = "format"
 )
 
 // Matchoption represents Matchoption
@@ -261,17 +87,6 @@ const (
     Matchoption_Y_125 Matchoption = "125"
 )
 
-// MacMismatchAction represents Mac mismatch action
-type MacMismatchAction string
-
-const (
-    // Forward
-    MacMismatchAction_forward MacMismatchAction = "forward"
-
-    // Drop
-    MacMismatchAction_drop MacMismatchAction = "drop"
-)
-
 // BaseAction represents Base action
 type BaseAction string
 
@@ -281,6 +96,42 @@ const (
 
     // Drop vendor specific DHCP Discover
     BaseAction_drop BaseAction = "drop"
+)
+
+// Dhcpv4LimitLease1 represents Dhcpv4 limit lease1
+type Dhcpv4LimitLease1 string
+
+const (
+    // Interface
+    Dhcpv4LimitLease1_interface_ Dhcpv4LimitLease1 = "interface"
+
+    // Circuit ID
+    Dhcpv4LimitLease1_circuit_id Dhcpv4LimitLease1 = "circuit-id"
+
+    // Remote ID
+    Dhcpv4LimitLease1_remote_id Dhcpv4LimitLease1 = "remote-id"
+
+    // Circuit ID Remote ID
+    Dhcpv4LimitLease1_circuit_id_remote_id Dhcpv4LimitLease1 = "circuit-id-remote-id"
+)
+
+// Ipv4dhcpdLayer represents Ipv4dhcpd layer
+type Ipv4dhcpdLayer string
+
+const (
+    // Layer2
+    Ipv4dhcpdLayer_layer2 Ipv4dhcpdLayer = "layer2"
+
+    // Layer3
+    Ipv4dhcpdLayer_layer3 Ipv4dhcpdLayer = "layer3"
+)
+
+// Ipv4dhcpdGiaddrPolicy represents Ipv4dhcpd giaddr policy
+type Ipv4dhcpdGiaddrPolicy string
+
+const (
+    // Giaddr Policy Keep
+    Ipv4dhcpdGiaddrPolicy_giaddr_policy_keep Ipv4dhcpdGiaddrPolicy = "giaddr-policy-keep"
 )
 
 // Ipv4dhcpdMode represents Ipv4dhcpd mode
@@ -304,6 +155,172 @@ const (
 
     // Base2
     Ipv4dhcpdMode_base2 Ipv4dhcpdMode = "base2"
+)
+
+// Ipv4dhcpdFmtSpecifier represents Ipv4dhcpd fmt specifier
+type Ipv4dhcpdFmtSpecifier string
+
+const (
+    // Physical chassis
+    Ipv4dhcpdFmtSpecifier_physical_chassis Ipv4dhcpdFmtSpecifier = "physical-chassis"
+
+    // Physical slot
+    Ipv4dhcpdFmtSpecifier_physical_slot Ipv4dhcpdFmtSpecifier = "physical-slot"
+
+    // Physical sub-slot
+    Ipv4dhcpdFmtSpecifier_physical_sub_slot Ipv4dhcpdFmtSpecifier = "physical-sub-slot"
+
+    // Physical port
+    Ipv4dhcpdFmtSpecifier_physical_port Ipv4dhcpdFmtSpecifier = "physical-port"
+
+    // Physical sub-port
+    Ipv4dhcpdFmtSpecifier_physical_sub_port Ipv4dhcpdFmtSpecifier = "physical-sub-port"
+
+    // Inner VLAN ID
+    Ipv4dhcpdFmtSpecifier_inner_vlan_id Ipv4dhcpdFmtSpecifier = "inner-vlan-id"
+
+    // Outer VLAN ID
+    Ipv4dhcpdFmtSpecifier_outer_vlan_id Ipv4dhcpdFmtSpecifier = "outer-vlan-id"
+
+    // L2 Interface
+    Ipv4dhcpdFmtSpecifier_l2_interface Ipv4dhcpdFmtSpecifier = "l2-interface"
+
+    // L3 Interface
+    Ipv4dhcpdFmtSpecifier_l3_interface Ipv4dhcpdFmtSpecifier = "l3-interface"
+
+    // Hostname
+    Ipv4dhcpdFmtSpecifier_host_name Ipv4dhcpdFmtSpecifier = "host-name"
+)
+
+// Ipv4dhcpdRelayInfoOptionPolicy represents Ipv4dhcpd relay info option policy
+type Ipv4dhcpdRelayInfoOptionPolicy string
+
+const (
+    // Replace
+    Ipv4dhcpdRelayInfoOptionPolicy_replace Ipv4dhcpdRelayInfoOptionPolicy = "replace"
+
+    // Keep
+    Ipv4dhcpdRelayInfoOptionPolicy_keep Ipv4dhcpdRelayInfoOptionPolicy = "keep"
+
+    // Drop
+    Ipv4dhcpdRelayInfoOptionPolicy_drop Ipv4dhcpdRelayInfoOptionPolicy = "drop"
+
+    // Encapsulate
+    Ipv4dhcpdRelayInfoOptionPolicy_encapsulate Ipv4dhcpdRelayInfoOptionPolicy = "encapsulate"
+)
+
+// MacMismatchAction represents Mac mismatch action
+type MacMismatchAction string
+
+const (
+    // Forward
+    MacMismatchAction_forward MacMismatchAction = "forward"
+
+    // Drop
+    MacMismatchAction_drop MacMismatchAction = "drop"
+)
+
+// Ipv4dhcpdBroadcastFlagPolicy represents Ipv4dhcpd broadcast flag policy
+type Ipv4dhcpdBroadcastFlagPolicy string
+
+const (
+    // Ignore
+    Ipv4dhcpdBroadcastFlagPolicy_ignore Ipv4dhcpdBroadcastFlagPolicy = "ignore"
+
+    // check
+    Ipv4dhcpdBroadcastFlagPolicy_check Ipv4dhcpdBroadcastFlagPolicy = "check"
+
+    // Unicast always
+    Ipv4dhcpdBroadcastFlagPolicy_unicast_always Ipv4dhcpdBroadcastFlagPolicy = "unicast-always"
+)
+
+// Ipv4dhcpdFmt represents Ipv4dhcpd fmt
+type Ipv4dhcpdFmt string
+
+const (
+    // Not a Format String
+    Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
+
+    // Format String
+    Ipv4dhcpdFmt_format Ipv4dhcpdFmt = "format"
+)
+
+// Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
+type Ipv4dhcpdRelayInfoOptionvpnMode string
+
+const (
+    // RFC
+    Ipv4dhcpdRelayInfoOptionvpnMode_rfc Ipv4dhcpdRelayInfoOptionvpnMode = "rfc"
+
+    // Cisco
+    Ipv4dhcpdRelayInfoOptionvpnMode_cisco Ipv4dhcpdRelayInfoOptionvpnMode = "cisco"
+)
+
+// ProxyAction represents Proxy action
+type ProxyAction string
+
+const (
+    // Allow vendor specific DHCP Discover
+    ProxyAction_allow ProxyAction = "allow"
+
+    // Drop vendor specific DHCP Discover
+    ProxyAction_drop ProxyAction = "drop"
+
+    // Relay vendor-id specific DHCP packets unaltered
+    ProxyAction_relay ProxyAction = "relay"
+)
+
+// LeaseLimitValue represents Lease limit value
+type LeaseLimitValue string
+
+const (
+    // Insert the limit lease type interface
+    LeaseLimitValue_per_interface LeaseLimitValue = "per-interface"
+
+    // Insert the limit lease type circuit-id
+    LeaseLimitValue_per_circuit_id LeaseLimitValue = "per-circuit-id"
+
+    // Insert the limit lease type remote-id
+    LeaseLimitValue_per_remote_id LeaseLimitValue = "per-remote-id"
+)
+
+// Dhcpv4MatchOption represents Dhcpv4 match option
+type Dhcpv4MatchOption string
+
+const (
+    // Vendor class ID
+    Dhcpv4MatchOption_Y_60__FWD_SLASH__60 Dhcpv4MatchOption = "60/60"
+
+    // 77 User class
+    Dhcpv4MatchOption_Y_77__FWD_SLASH__77 Dhcpv4MatchOption = "77/77"
+
+    // Vendor identifying class
+    Dhcpv4MatchOption_Y_124__FWD_SLASH__124 Dhcpv4MatchOption = "124/124"
+
+    // Vendor specific information
+    Dhcpv4MatchOption_Y_125__FWD_SLASH__125 Dhcpv4MatchOption = "125/125"
+)
+
+// Ipv4dhcpdRelayInfoOptionAuthenticate represents Ipv4dhcpd relay info option authenticate
+type Ipv4dhcpdRelayInfoOptionAuthenticate string
+
+const (
+    // Received
+    Ipv4dhcpdRelayInfoOptionAuthenticate_received Ipv4dhcpdRelayInfoOptionAuthenticate = "received"
+
+    // Inserted
+    Ipv4dhcpdRelayInfoOptionAuthenticate_inserted Ipv4dhcpdRelayInfoOptionAuthenticate = "inserted"
+)
+
+// Ipv4dhcpdRelayGiaddrPolicy represents Ipv4dhcpd relay giaddr policy
+type Ipv4dhcpdRelayGiaddrPolicy string
+
+const (
+    // Replace
+    Ipv4dhcpdRelayGiaddrPolicy_replace Ipv4dhcpdRelayGiaddrPolicy = "replace"
+
+    // Drop
+    Ipv4dhcpdRelayGiaddrPolicy_drop Ipv4dhcpdRelayGiaddrPolicy = "drop"
 )
 
 // Ipv4Dhcpd
@@ -1200,6 +1217,9 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server struct {
     // Enable Secure Arp. The type is interface{}.
     SecureArp interface{}
 
+    // Skip ARP installation for standalone sessions. The type is interface{}.
+    ArpInstalSkipStdalone interface{}
+
     // Boot Filename. The type is string with length: 1..128.
     BootFilename interface{}
 
@@ -1291,6 +1311,7 @@ func (server *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server) GetEntityData() *typ
     server.EntityData.Leafs.Append("pool", types.YLeaf{"Pool", server.Pool})
     server.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", server.DomainName})
     server.EntityData.Leafs.Append("secure-arp", types.YLeaf{"SecureArp", server.SecureArp})
+    server.EntityData.Leafs.Append("arp-instal-skip-stdalone", types.YLeaf{"ArpInstalSkipStdalone", server.ArpInstalSkipStdalone})
     server.EntityData.Leafs.Append("boot-filename", types.YLeaf{"BootFilename", server.BootFilename})
     server.EntityData.Leafs.Append("next-server", types.YLeaf{"NextServer", server.NextServer})
 
@@ -2000,7 +2021,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_ClassMatch struc
     YFilter yfilter.YFilter
 
     // Specify match l2-interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Specify match VRF. The type is string with length: 1..32.
@@ -2116,7 +2137,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Lease struct {
     // Hours. The type is interface{} with range: 0..23. Units are hour.
     Hours interface{}
 
-    // Minutes. The type is interface{} with range: 1..59. Units are minute.
+    // Minutes. The type is interface{} with range: 0..59. Units are minute.
     Minutes interface{}
 }
 
@@ -2343,7 +2364,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Lease struct {
     // Hours. The type is interface{} with range: 0..23. Units are hour.
     Hours interface{}
 
-    // Minutes. The type is interface{} with range: 1..59. Units are minute.
+    // Minutes. The type is interface{} with range: 0..59. Units are minute.
     Minutes interface{}
 }
 
@@ -2512,8 +2533,8 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DhcpToAaa_Option_List struct {
     // Set constant integer. The type is interface{} with range: 0..4294967295.
     OptionAll interface{}
 
-    // Option number. The type is interface{} with range: 1..255.
-    OptionNumber interface{}
+    // Option number. The type is slice of interface{} with range: 0..4294967295.
+    OptionNumber []interface{}
 }
 
 func (list *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DhcpToAaa_Option_List) GetEntityData() *types.CommonEntityData {
@@ -2670,7 +2691,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_GiAddrPolicy struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // GIADDR policy. The type is Ipv4dhcpdGiaddrPolicy. This attribute is
+    // GIADDR policy. The type is Ipv4dhcpdRelayGiaddrPolicy. This attribute is
     // mandatory.
     Policy interface{}
 }
@@ -4131,7 +4152,7 @@ type Ipv4Dhcpd_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCP IPv4 proxy information.
@@ -4653,7 +4674,7 @@ type Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics_Static struct {
     MacAddress interface{}
 
     // This attribute is a key. Client Id. The type is interface{} with range:
-    // 1..4294967295.
+    // 0..4294967295.
     ClientId interface{}
 
     // This attribute is a key. DHCP IPV4 Static layer. The type is

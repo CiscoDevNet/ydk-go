@@ -6,7 +6,7 @@
 //   ssh1: Crypto Secure Shell(SSH) data
 //   ssh: ssh
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package crypto_ssh_oper
 
@@ -31,6 +31,9 @@ func init() {
 type KexName string
 
 const (
+    // unknown
+    KexName_kex_not_applicable KexName = "kex-not-applicable"
+
     // Diffie-Hellman group 1 key exchange algorithm
     KexName_diffie_hellman_group1 KexName = "diffie-hellman-group1"
 
@@ -69,6 +72,9 @@ const (
 type Hostkey string
 
 const (
+    // unknown
+    Hostkey_host_key_not_applicable Hostkey = "host-key-not-applicable"
+
     // Algorithm type DSS
     Hostkey_ssh_dss Hostkey = "ssh-dss"
 
@@ -173,6 +179,9 @@ const (
 type Mac string
 
 const (
+    // unknown
+    Mac_mac_not_applicable Mac = "mac-not-applicable"
+
     // Hash-based Message Authentication Code(HMAC)
     // MD5 algorithm
     Mac_hmac_md5 Mac = "hmac-md5"
@@ -198,6 +207,9 @@ const (
 type Cipher string
 
 const (
+    // unknown
+    Cipher_cipher_not_applicable Cipher = "cipher-not-applicable"
+
     // Advanced Encryption Standard(AES) 128 bits
     // cipher block chaining(CBC)
     Cipher_aes128_cbc Cipher = "aes128-cbc"

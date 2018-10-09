@@ -10,7 +10,7 @@
 //   Cisco-IOS-XR-l2vpn-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_span_cfg
 
@@ -157,7 +157,7 @@ type SpanMonitorSession_Sessions_Session struct {
     Class interface{}
 
     // Specify the inject interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InjectInterface interface{}
 
     // Specify a destination.
@@ -196,7 +196,7 @@ type SpanMonitorSession_Sessions_Session_Destination struct {
     DestinationType interface{}
 
     // Specify the destination interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DestinationInterfaceName interface{}
 
     // Specify the destination next-hop IPv4 address. The type is string with

@@ -22,7 +22,7 @@ module Cisco-IOS-XR-fib-common-cfg {
      for the following management objects:
        fib: CEF configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -124,11 +124,28 @@ module Cisco-IOS-XR-fib-common-cfg {
         }
       }
     }
+    leaf auto-hash-recover {
+      type boolean;
+      description
+        "Set option for automatcially recovering
+         consistent-hashing state on interface up";
+    }
     leaf prefer-aib-routes {
       type boolean;
       description
         "Set options for adjacency routes overriding RIB
          routes";
+    }
+    leaf encap-sharing-disable {
+      type boolean;
+      description
+        "Set true to disable encapsulation sharing";
+    }
+    leaf frr-follow-bgp-pic {
+      type boolean;
+      description
+        "Set option for fast-reroute to follow BGP PIC
+         update, not to wait for timeout";
     }
   }
 }

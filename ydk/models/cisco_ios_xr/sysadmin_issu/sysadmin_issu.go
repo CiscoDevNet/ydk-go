@@ -1,4 +1,9 @@
-// Execution and monitoring of sysadmin ISSU operations 
+// This module contains a collection of YANG
+// definitions for executing and monitoring Cisco IOS-XR
+// sysadmin ISSU operations.
+// 
+// Copyright(c) 2016-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_issu
 
 import (

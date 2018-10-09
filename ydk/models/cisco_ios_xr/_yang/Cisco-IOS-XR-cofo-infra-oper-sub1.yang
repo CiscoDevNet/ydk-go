@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-cofo-infra-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR cofo-infra package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -31,9 +31,64 @@ submodule Cisco-IOS-XR-cofo-infra-oper-sub1 {
       "IOS XR 6.0 revision.";
   }
 
+  grouping COFO-TIMESPEC {
+    description
+      "COFO TIMESPEC";
+    leaf tv-sec {
+      type uint32;
+      description
+        "tv sec";
+    }
+    leaf tv-nsec {
+      type uint32;
+      description
+        "tv nsec";
+    }
+  }
+
   grouping COFO-OBJECT-INFO {
     description
       "Cofo client object published";
+    container object-add-time {
+      description
+        "Cofo object add time";
+      uses COFO-TIMESPEC;
+    }
+    container object-delete-time {
+      description
+        "Cofo object delete time";
+      uses COFO-TIMESPEC;
+    }
+    container object-txl-add-time {
+      description
+        "Cofo object txl add time";
+      uses COFO-TIMESPEC;
+    }
+    container object-txl-encode-time {
+      description
+        "Cofo object txl encode time";
+      uses COFO-TIMESPEC;
+    }
+    leaf client-id {
+      type uint32;
+      description
+        "Client ID";
+    }
+    leaf object-id {
+      type uint32;
+      description
+        "Object ID";
+    }
+    leaf insert-count {
+      type uint32;
+      description
+        "Insert Count";
+    }
+    leaf item-state {
+      type uint32;
+      description
+        "Item State";
+    }
     leaf cofo-infra-object-key {
       type yang:hex-string;
       description
@@ -49,10 +104,10 @@ submodule Cisco-IOS-XR-cofo-infra-oper-sub1 {
   grouping COFO-PER-CLIENT-DB-INFO {
     description
       "Cofo per client database info struct";
-    leaf total-objects-published {
+    leaf total-objects {
       type uint32;
       description
-        "Total objects published";
+        "Total objects";
     }
     leaf total-valid-items-in-db {
       type uint32;
@@ -99,6 +154,16 @@ submodule Cisco-IOS-XR-cofo-infra-oper-sub1 {
   grouping COFO-CLIENT-DATA-BAG {
     description
       "Cofo client info bag";
+    leaf connection-handle {
+      type uint32;
+      description
+        "Connection Handle";
+    }
+    leaf peer-handle {
+      type uint32;
+      description
+        "Peer Handle";
+    }
     leaf client-id {
       type uint32;
       description
@@ -118,6 +183,16 @@ submodule Cisco-IOS-XR-cofo-infra-oper-sub1 {
       type uint32;
       description
         "Connection state";
+    }
+    leaf-list topic-subscribed {
+      type uint32;
+      description
+        "Topic Subscribed";
+    }
+    leaf-list topic-published {
+      type uint32;
+      description
+        "Topic Published";
     }
   }
 }

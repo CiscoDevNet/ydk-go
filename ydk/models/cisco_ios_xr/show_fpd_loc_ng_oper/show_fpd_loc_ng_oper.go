@@ -5,7 +5,7 @@
 // for the following management objects:
 //   show-fpd: Show hw-module fpd
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package show_fpd_loc_ng_oper
 
@@ -115,9 +115,8 @@ type ShowFpd_Locations_Location struct {
     // 1..32.
     LocationName interface{}
 
-    // Display fpds on given locations. The type is slice of
-    // ShowFpd_Locations_Location_Fpd.
-    Fpd []*ShowFpd_Locations_Location_Fpd
+    // Display fpds on given locations.
+    Details ShowFpd_Locations_Location_Details
 }
 
 func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityData {
@@ -131,10 +130,7 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     location.EntityData.Children = types.NewOrderedMap()
-    location.EntityData.Children.Append("fpd", types.YChild{"Fpd", nil})
-    for i := range location.Fpd {
-        location.EntityData.Children.Append(types.GetSegmentPath(location.Fpd[i]), types.YChild{"Fpd", location.Fpd[i]})
-    }
+    location.EntityData.Children.Append("details", types.YChild{"Details", &location.Details})
     location.EntityData.Leafs = types.NewOrderedMap()
     location.EntityData.Leafs.Append("location-name", types.YLeaf{"LocationName", location.LocationName})
 
@@ -143,46 +139,83 @@ func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityD
     return &(location.EntityData)
 }
 
-// ShowFpd_Locations_Location_Fpd
+// ShowFpd_Locations_Location_Details
 // Display fpds on given locations
-type ShowFpd_Locations_Location_Fpd struct {
+type ShowFpd_Locations_Location_Details struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Display fpds detail. The type is slice of
+    // ShowFpd_Locations_Location_Details_Detail.
+    Detail []*ShowFpd_Locations_Location_Details_Detail
+}
+
+func (details *ShowFpd_Locations_Location_Details) GetEntityData() *types.CommonEntityData {
+    details.EntityData.YFilter = details.YFilter
+    details.EntityData.YangName = "details"
+    details.EntityData.BundleName = "cisco_ios_xr"
+    details.EntityData.ParentYangName = "location"
+    details.EntityData.SegmentPath = "details"
+    details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    details.EntityData.Children = types.NewOrderedMap()
+    details.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
+    for i := range details.Detail {
+        details.EntityData.Children.Append(types.GetSegmentPath(details.Detail[i]), types.YChild{"Detail", details.Detail[i]})
+    }
+    details.EntityData.Leafs = types.NewOrderedMap()
+
+    details.EntityData.YListKeys = []string {}
+
+    return &(details.EntityData)
+}
+
+// ShowFpd_Locations_Location_Details_Detail
+// Display fpds detail
+type ShowFpd_Locations_Location_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fpd Name. The type is string with length: 1..32.
     FpdName interface{}
 
+    // Either Upgrading or free used by CTC . The type is string.
+    UpgradeStatus interface{}
+
     // fpd list with all detailes. The type is slice of
-    // ShowFpd_Locations_Location_Fpd_FpdInfoDetaile.
-    FpdInfoDetaile []*ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
+    // ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile.
+    FpdInfoDetaile []*ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile
 }
 
-func (fpd *ShowFpd_Locations_Location_Fpd) GetEntityData() *types.CommonEntityData {
-    fpd.EntityData.YFilter = fpd.YFilter
-    fpd.EntityData.YangName = "fpd"
-    fpd.EntityData.BundleName = "cisco_ios_xr"
-    fpd.EntityData.ParentYangName = "location"
-    fpd.EntityData.SegmentPath = "fpd" + types.AddKeyToken(fpd.FpdName, "fpd-name")
-    fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (detail *ShowFpd_Locations_Location_Details_Detail) GetEntityData() *types.CommonEntityData {
+    detail.EntityData.YFilter = detail.YFilter
+    detail.EntityData.YangName = "detail"
+    detail.EntityData.BundleName = "cisco_ios_xr"
+    detail.EntityData.ParentYangName = "details"
+    detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FpdName, "fpd-name")
+    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fpd.EntityData.Children = types.NewOrderedMap()
-    fpd.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
-    for i := range fpd.FpdInfoDetaile {
-        fpd.EntityData.Children.Append(types.GetSegmentPath(fpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", fpd.FpdInfoDetaile[i]})
+    detail.EntityData.Children = types.NewOrderedMap()
+    detail.EntityData.Children.Append("fpd-info-detaile", types.YChild{"FpdInfoDetaile", nil})
+    for i := range detail.FpdInfoDetaile {
+        detail.EntityData.Children.Append(types.GetSegmentPath(detail.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", detail.FpdInfoDetaile[i]})
     }
-    fpd.EntityData.Leafs = types.NewOrderedMap()
-    fpd.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", fpd.FpdName})
+    detail.EntityData.Leafs = types.NewOrderedMap()
+    detail.EntityData.Leafs.Append("fpd-name", types.YLeaf{"FpdName", detail.FpdName})
+    detail.EntityData.Leafs.Append("upgrade-status", types.YLeaf{"UpgradeStatus", detail.UpgradeStatus})
 
-    fpd.EntityData.YListKeys = []string {"FpdName"}
+    detail.EntityData.YListKeys = []string {"FpdName"}
 
-    return &(fpd.EntityData)
+    return &(detail.EntityData)
 }
 
-// ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
+// ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile
 //  fpd list with all detailes
-type ShowFpd_Locations_Location_Fpd_FpdInfoDetaile struct {
+type ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -211,11 +244,11 @@ type ShowFpd_Locations_Location_Fpd_FpdInfoDetaile struct {
     ProgramdVersion interface{}
 }
 
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
+func (fpdInfoDetaile *ShowFpd_Locations_Location_Details_Detail_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
     fpdInfoDetaile.EntityData.YFilter = fpdInfoDetaile.YFilter
     fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
     fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
-    fpdInfoDetaile.EntityData.ParentYangName = "fpd"
+    fpdInfoDetaile.EntityData.ParentYangName = "detail"
     fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile"
     fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -244,6 +277,9 @@ type ShowFpd_HwModuleFpd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Either Upgrading or free used by CTC . The type is string.
+    UpgradeStatus interface{}
+
     // fpd list with all detailes. The type is slice of
     // ShowFpd_HwModuleFpd_FpdInfoDetaile.
     FpdInfoDetaile []*ShowFpd_HwModuleFpd_FpdInfoDetaile
@@ -265,6 +301,7 @@ func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData 
         hwModuleFpd.EntityData.Children.Append(types.GetSegmentPath(hwModuleFpd.FpdInfoDetaile[i]), types.YChild{"FpdInfoDetaile", hwModuleFpd.FpdInfoDetaile[i]})
     }
     hwModuleFpd.EntityData.Leafs = types.NewOrderedMap()
+    hwModuleFpd.EntityData.Leafs.Append("upgrade-status", types.YLeaf{"UpgradeStatus", hwModuleFpd.UpgradeStatus})
 
     hwModuleFpd.EntityData.YListKeys = []string {}
 

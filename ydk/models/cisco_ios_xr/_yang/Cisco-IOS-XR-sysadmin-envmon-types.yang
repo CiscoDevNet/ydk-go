@@ -1,87 +1,53 @@
 module Cisco-IOS-XR-sysadmin-envmon-types {
-  namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-envmon-types";
+  namespace "http://www.cisco.com/ns/Cisco-IOS-XR-sysadmin-envmon-types";
   prefix envmon-types;
 
   import tailf-common {
     prefix tailf;
   }
-  import Cisco-IOS-XR-sysadmin-types {
-    prefix calvados;
-  }
 
-  revision 2017-07-31 {
+  revision 2017-11-27 {
     description
-      "Changing the namespace to follow Cisco guidelines on naming convention";
+      "Add graceful shutdown disable CLI.";
   }
-  revision 2017-05-01 {
+  revision 2017-08-15 {
     description
-      "Namespace change to comply with Cisco guidelines on namespace";
+      "Initial creation";
   }
 
   typedef num_pm {
     type uint32 {
-      range "0..5";
+      range "0..1";
     }
   }
 
   grouping fan-speed-group {
-    container raise-fan-speed {
-      tailf:info "raise the default fan speed in PWM (the speed cannot go lower, but can go higher based on environmental condition)";
-      container all {
-        tailf:cli-drop-node-name;
-        leaf speed_pwm {
-          type uint32 {
-            range "0..100";
-          }
-          tailf:cli-drop-node-name;
-        }
+    leaf raise-fan-speed {
+      type uint32 {
+        range "0..100";
       }
-      container rack_loc {
-        tailf:cli-drop-node-name;
-        list location {
-          key "rackId";
-          tailf:info "rack-id";
-          tailf:cli-sequence-commands;
-          tailf:cli-incomplete-command;
-          tailf:cli-compact-syntax;
-          tailf:cli-suppress-mode;
-          tailf:cli-delete-when-empty;
-          leaf rackId {
-            type calvados:rack-id;
-          }
-          leaf speed_pwm {
-            type uint32 {
-              range "0..100";
-            }
-            tailf:cli-drop-node-name;
-          }
-        }
-      }
+      config false;
+      tailf:cli-drop-node-name;
     }
   }
 
   grouping fan-ctrl-optics-group {
-    container fan-ctrl-optics {
-      tailf:info "system fans run higher speed than normal case to cool down special optics";
-      tailf:cli-sequence-commands;
-      container enable {
-        tailf:info "enable higher fan speed";
-        container rack_loc {
-          tailf:cli-drop-node-name;
-          leaf all {
-            type empty;
-            tailf:cli-drop-node-name;
-          }
-          list location {
-            key "rackId";
-            tailf:info "rack-id";
-            tailf:cli-optional-in-sequence;
-            leaf rackId {
-              type calvados:rack-id;
-            }
-          }
-        }
+    leaf fan-ctrl-optics {
+      type uint32 {
+        range "0..1";
       }
+      config false;
+      tailf:cli-drop-node-name;
+    }
+  }
+
+  grouping vin-uv-shut-group {
+    leaf graceful-shutdown {
+      type uint32 {
+        range "0..1";
+      }
+      config false;
+      tailf:cli-drop-node-name;
     }
   }
   tailf:id "http://www.cisco.com/panini/calvados/envmon/types";

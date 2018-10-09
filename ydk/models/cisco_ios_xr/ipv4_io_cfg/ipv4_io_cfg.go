@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_io_cfg
 
@@ -40,14 +40,6 @@ const (
 
     // Allow router to ping itself
     Ipv4SelfPing_enabled Ipv4SelfPing = "enabled"
-)
-
-// DhcpClientOptionCode represents Dhcp client option code
-type DhcpClientOptionCode string
-
-const (
-    // Vendor id  DHCP Discover
-    DhcpClientOptionCode_Y_60 DhcpClientOptionCode = "60"
 )
 
 // Ipv4Reachable represents Ipv4 reachable

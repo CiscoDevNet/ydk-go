@@ -404,6 +404,9 @@ type Install_Superseded struct {
 
     // The type is slice of string.
     SiSupersededOutput []interface{}
+
+    // shows summary information of the show install superseded.
+    Summary Install_Superseded_Summary
 }
 
 func (superseded *Install_Superseded) GetEntityData() *types.CommonEntityData {
@@ -417,12 +420,42 @@ func (superseded *Install_Superseded) GetEntityData() *types.CommonEntityData {
     superseded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     superseded.EntityData.Children = types.NewOrderedMap()
+    superseded.EntityData.Children.Append("summary", types.YChild{"Summary", &superseded.Summary})
     superseded.EntityData.Leafs = types.NewOrderedMap()
     superseded.EntityData.Leafs.Append("si_superseded_output", types.YLeaf{"SiSupersededOutput", superseded.SiSupersededOutput})
 
     superseded.EntityData.YListKeys = []string {}
 
     return &(superseded.EntityData)
+}
+
+// Install_Superseded_Summary
+// shows summary information of the show install superseded
+type Install_Superseded_Summary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of string.
+    SiSupersededSummaryOutput []interface{}
+}
+
+func (summary *Install_Superseded_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "superseded"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("si_superseded_summary_output", types.YLeaf{"SiSupersededSummaryOutput", summary.SiSupersededSummaryOutput})
+
+    summary.EntityData.YListKeys = []string {}
+
+    return &(summary.EntityData)
 }
 
 // Install_Request

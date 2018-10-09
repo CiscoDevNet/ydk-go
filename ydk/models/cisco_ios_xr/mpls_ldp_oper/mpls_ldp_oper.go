@@ -5,7 +5,7 @@
 // for the following management objects:
 //   mpls-ldp: MPLS LDP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_ldp_oper
 
@@ -401,6 +401,9 @@ const (
 
     // IPv6
     MplsLdpOperAfName_ipv6 MplsLdpOperAfName = "ipv6"
+
+    // All
+    MplsLdpOperAfName_all MplsLdpOperAfName = "all"
 )
 
 // LdpAf represents Ldp af
@@ -876,7 +879,7 @@ type MplsLdp_Global_Standby_DefaultVrf_GracefulRestart_GracefulRestartableNeighb
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -1316,9 +1319,6 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Forwardings
 
@@ -1346,7 +1346,6 @@ func (af *MplsLdp_Global_Standby_DefaultVrf_Afs_Af) GetEntityData() *types.Commo
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -1865,7 +1864,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -2286,10 +2285,10 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -2537,14 +2536,14 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Discovery_LinkHellos_LinkHello str
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -3483,7 +3482,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Li
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -3492,7 +3491,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Li
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -3899,176 +3898,6 @@ func (stat *MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Discovery_Stats_Stat) GetEn
     return &(stat.EntityData)
 }
 
-// MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Global_Standby_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Forwardings struct {
@@ -4429,7 +4258,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Afs_Af_Forwardings_Forwarding_Paths_Routi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -8529,7 +8358,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_Adja
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -8751,7 +8580,7 @@ type MplsLdp_Global_Standby_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_Adja
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -11170,7 +10999,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_GracefulRestart_GracefulRestartableNeighbor
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -11610,9 +11439,6 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Forwardings
 
@@ -11640,7 +11466,6 @@ func (af *MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonE
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -12159,7 +11984,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -12580,10 +12405,10 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -12831,14 +12656,14 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Discovery_LinkHellos_LinkHello struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -13777,7 +13602,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Link
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -13786,7 +13611,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Link
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -14193,176 +14018,6 @@ func (stat *MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Discovery_Stats_Stat) GetEnti
     return &(stat.EntityData)
 }
 
-// MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Forwardings struct {
@@ -14723,7 +14378,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Afs_Af_Forwardings_Forwarding_Paths_Routing
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -18822,7 +18477,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_Adjace
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -19044,7 +18699,7 @@ type MplsLdp_Global_Standby_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_Adjace
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -19956,7 +19611,7 @@ type MplsLdp_Global_Active_DefaultVrf_GracefulRestart_GracefulRestartableNeighbo
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -20396,9 +20051,6 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Global_Active_DefaultVrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Global_Active_DefaultVrf_Afs_Af_Forwardings
 
@@ -20426,7 +20078,6 @@ func (af *MplsLdp_Global_Active_DefaultVrf_Afs_Af) GetEntityData() *types.Common
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -20945,7 +20596,7 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -21366,10 +21017,10 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -21617,14 +21268,14 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Discovery_LinkHellos_LinkHello stru
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -22563,7 +22214,7 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Lin
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -22572,7 +22223,7 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_Lin
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -22979,176 +22630,6 @@ func (stat *MplsLdp_Global_Active_DefaultVrf_Afs_Af_Discovery_Stats_Stat) GetEnt
     return &(stat.EntityData)
 }
 
-// MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Global_Active_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Global_Active_DefaultVrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Forwardings struct {
@@ -23509,7 +22990,7 @@ type MplsLdp_Global_Active_DefaultVrf_Afs_Af_Forwardings_Forwarding_Paths_Routin
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -27609,7 +27090,7 @@ type MplsLdp_Global_Active_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_Adjac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -27831,7 +27312,7 @@ type MplsLdp_Global_Active_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_Adjac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -30250,7 +29731,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_GracefulRestart_GracefulRestartableNeighbor_
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -30690,9 +30171,6 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Forwardings
 
@@ -30720,7 +30198,6 @@ func (af *MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEn
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -31239,7 +30716,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -31660,10 +31137,10 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -31911,14 +31388,14 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Discovery_LinkHellos_LinkHello struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -32857,7 +32334,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkH
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -32866,7 +32343,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkH
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -33273,176 +32750,6 @@ func (stat *MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Discovery_Stats_Stat) GetEntit
     return &(stat.EntityData)
 }
 
-// MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Forwardings struct {
@@ -33803,7 +33110,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Afs_Af_Forwardings_Forwarding_Paths_Routing 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -37902,7 +37209,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_Adjacen
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -38124,7 +37431,7 @@ type MplsLdp_Global_Active_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_Adjacen
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -39075,7 +38382,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_GracefulRestart_GracefulRestartableNeighbor_D
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -39515,9 +38822,6 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Forwardings
 
@@ -39545,7 +38849,6 @@ func (af *MplsLdp_Nodes_Node_DefaultVrf_Afs_Af) GetEntityData() *types.CommonEnt
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -40064,7 +39367,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -40485,10 +39788,10 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -40736,14 +40039,14 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Discovery_LinkHellos_LinkHello struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -41682,7 +40985,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkHe
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -41691,7 +40994,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkHe
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -42098,176 +41401,6 @@ func (stat *MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Discovery_Stats_Stat) GetEntity
     return &(stat.EntityData)
 }
 
-// MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Forwardings struct {
@@ -42628,7 +41761,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Afs_Af_Forwardings_Forwarding_Paths_Routing s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -46727,7 +45860,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_Adjacenc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -46949,7 +46082,7 @@ type MplsLdp_Nodes_Node_DefaultVrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_Adjacenc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -49367,7 +48500,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_GracefulRestart_GracefulRestartableNeighbor_Dow
     // Interface adj Address Family. The type is LdpAfId.
     AddressFamily interface{}
 
-    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interfaces handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -49807,9 +48940,6 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af struct {
     // The LDP Discovery.
     Discovery MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Discovery
 
-    // Aggregate VRF counters for the LDP Label Infomation Base (LIB).
-    BindingsSummaryAll MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-
     // The LDP Forwarding rewrites.
     Forwardings MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Forwardings
 
@@ -49837,7 +48967,6 @@ func (af *MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntit
     af.EntityData.Children.Append("bindings-summary", types.YChild{"BindingsSummary", &af.BindingsSummary})
     af.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &af.Interfaces})
     af.EntityData.Children.Append("discovery", types.YChild{"Discovery", &af.Discovery})
-    af.EntityData.Children.Append("bindings-summary-all", types.YChild{"BindingsSummaryAll", &af.BindingsSummaryAll})
     af.EntityData.Children.Append("forwardings", types.YChild{"Forwardings", &af.Forwardings})
     af.EntityData.Children.Append("bindings-advertise-spec", types.YChild{"BindingsAdvertiseSpec", &af.BindingsAdvertiseSpec})
     af.EntityData.Children.Append("forwarding-summary", types.YChild{"ForwardingSummary", &af.ForwardingSummary})
@@ -50356,7 +49485,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Igp_Syncs_Sync struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -50777,10 +49906,10 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -51028,14 +50157,14 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Discovery_LinkHellos_LinkHello struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hello due time in msec. The type is interface{} with range:
     // 0..4294967295.
     NextHello interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -51974,7 +51103,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkHell
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Discovery Brief Address Family. The type is LdpAf.
@@ -51983,7 +51112,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Discovery_Brief_LinkHelloBriefs_LinkHell
     // Discovery Brief Address Family Set. The type is LdpAf.
     AddressFamilySet interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -52390,176 +51519,6 @@ func (stat *MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Discovery_Stats_Stat) GetEntityDa
     return &(stat.EntityData)
 }
 
-// MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll
-// Aggregate VRF counters for the LDP Label
-// Infomation Base (LIB)
-type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Bindings with no route. The type is interface{} with range: 0..4294967295.
-    BindingNoRoute interface{}
-
-    // Local bindings with no route. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNoRoute interface{}
-
-    // Number of local null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNull interface{}
-
-    // Number of local implicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalImplicitNull interface{}
-
-    // Number of local explicit null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalExplicitNull interface{}
-
-    // Number of local non-null bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocalNonNull interface{}
-
-    // Number of local bindings        needing label - OOR. The type is
-    // interface{} with range: 0..4294967295.
-    BindingLocalOor interface{}
-
-    // Lowest allocated label. The type is interface{} with range: 0..4294967295.
-    LowestAllocatedLabel interface{}
-
-    // Highest allocated label. The type is interface{} with range: 0..4294967295.
-    HighestAllocatedLabel interface{}
-
-    // VRF information.
-    Vrf MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-
-    // bind af. The type is slice of
-    // MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf.
-    BindAf []*MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-}
-
-func (bindingsSummaryAll *MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll) GetEntityData() *types.CommonEntityData {
-    bindingsSummaryAll.EntityData.YFilter = bindingsSummaryAll.YFilter
-    bindingsSummaryAll.EntityData.YangName = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.BundleName = "cisco_ios_xr"
-    bindingsSummaryAll.EntityData.ParentYangName = "af"
-    bindingsSummaryAll.EntityData.SegmentPath = "bindings-summary-all"
-    bindingsSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindingsSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindingsSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindingsSummaryAll.EntityData.Children = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Children.Append("vrf", types.YChild{"Vrf", &bindingsSummaryAll.Vrf})
-    bindingsSummaryAll.EntityData.Children.Append("bind-af", types.YChild{"BindAf", nil})
-    for i := range bindingsSummaryAll.BindAf {
-        bindingsSummaryAll.EntityData.Children.Append(types.GetSegmentPath(bindingsSummaryAll.BindAf[i]), types.YChild{"BindAf", bindingsSummaryAll.BindAf[i]})
-    }
-    bindingsSummaryAll.EntityData.Leafs = types.NewOrderedMap()
-    bindingsSummaryAll.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindingsSummaryAll.AddressFamily})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-no-route", types.YLeaf{"BindingNoRoute", bindingsSummaryAll.BindingNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-no-route", types.YLeaf{"BindingLocalNoRoute", bindingsSummaryAll.BindingLocalNoRoute})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-null", types.YLeaf{"BindingLocalNull", bindingsSummaryAll.BindingLocalNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-implicit-null", types.YLeaf{"BindingLocalImplicitNull", bindingsSummaryAll.BindingLocalImplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-explicit-null", types.YLeaf{"BindingLocalExplicitNull", bindingsSummaryAll.BindingLocalExplicitNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-non-null", types.YLeaf{"BindingLocalNonNull", bindingsSummaryAll.BindingLocalNonNull})
-    bindingsSummaryAll.EntityData.Leafs.Append("binding-local-oor", types.YLeaf{"BindingLocalOor", bindingsSummaryAll.BindingLocalOor})
-    bindingsSummaryAll.EntityData.Leafs.Append("lowest-allocated-label", types.YLeaf{"LowestAllocatedLabel", bindingsSummaryAll.LowestAllocatedLabel})
-    bindingsSummaryAll.EntityData.Leafs.Append("highest-allocated-label", types.YLeaf{"HighestAllocatedLabel", bindingsSummaryAll.HighestAllocatedLabel})
-
-    bindingsSummaryAll.EntityData.YListKeys = []string {}
-
-    return &(bindingsSummaryAll.EntityData)
-}
-
-// MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf
-// VRF information
-type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VRF Name. The type is string.
-    Name interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Id interface{}
-}
-
-func (vrf *MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_Vrf) GetEntityData() *types.CommonEntityData {
-    vrf.EntityData.YFilter = vrf.YFilter
-    vrf.EntityData.YangName = "vrf"
-    vrf.EntityData.BundleName = "cisco_ios_xr"
-    vrf.EntityData.ParentYangName = "bindings-summary-all"
-    vrf.EntityData.SegmentPath = "vrf"
-    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrf.EntityData.Children = types.NewOrderedMap()
-    vrf.EntityData.Leafs = types.NewOrderedMap()
-    vrf.EntityData.Leafs.Append("name", types.YLeaf{"Name", vrf.Name})
-    vrf.EntityData.Leafs.Append("id", types.YLeaf{"Id", vrf.Id})
-
-    vrf.EntityData.YListKeys = []string {}
-
-    return &(vrf.EntityData)
-}
-
-// MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf
-// bind af
-type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Binding Summary Address Family. The type is LdpAf.
-    AddressFamily interface{}
-
-    // Last update to LIB local binding. The type is interface{} with range:
-    // 0..4294967295.
-    LastLibUpdate interface{}
-
-    // Last update sent to all peers. The type is interface{} with range:
-    // 0..4294967295.
-    LibMinimumRevisionSentAll interface{}
-
-    // Total bindings. The type is interface{} with range: 0..4294967295.
-    BindingTotal interface{}
-
-    // Number of local bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingLocal interface{}
-
-    // Number of remote bindings. The type is interface{} with range:
-    // 0..4294967295.
-    BindingRemote interface{}
-}
-
-func (bindAf *MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_BindingsSummaryAll_BindAf) GetEntityData() *types.CommonEntityData {
-    bindAf.EntityData.YFilter = bindAf.YFilter
-    bindAf.EntityData.YangName = "bind-af"
-    bindAf.EntityData.BundleName = "cisco_ios_xr"
-    bindAf.EntityData.ParentYangName = "bindings-summary-all"
-    bindAf.EntityData.SegmentPath = "bind-af"
-    bindAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    bindAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    bindAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    bindAf.EntityData.Children = types.NewOrderedMap()
-    bindAf.EntityData.Leafs = types.NewOrderedMap()
-    bindAf.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", bindAf.AddressFamily})
-    bindAf.EntityData.Leafs.Append("last-lib-update", types.YLeaf{"LastLibUpdate", bindAf.LastLibUpdate})
-    bindAf.EntityData.Leafs.Append("lib-minimum-revision-sent-all", types.YLeaf{"LibMinimumRevisionSentAll", bindAf.LibMinimumRevisionSentAll})
-    bindAf.EntityData.Leafs.Append("binding-total", types.YLeaf{"BindingTotal", bindAf.BindingTotal})
-    bindAf.EntityData.Leafs.Append("binding-local", types.YLeaf{"BindingLocal", bindAf.BindingLocal})
-    bindAf.EntityData.Leafs.Append("binding-remote", types.YLeaf{"BindingRemote", bindAf.BindingRemote})
-
-    bindAf.EntityData.YListKeys = []string {}
-
-    return &(bindAf.EntityData)
-}
-
 // MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Forwardings
 // The LDP Forwarding rewrites
 type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Forwardings struct {
@@ -52920,7 +51879,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Afs_Af_Forwardings_Forwarding_Paths_Routing str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -57019,7 +55978,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv4AdjInfo_AdjacencyG
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.
@@ -57241,7 +56200,7 @@ type MplsLdp_Nodes_Node_Vrfs_Vrf_Neighbors_Neighbor_LdpNbrIpv6AdjInfo_AdjacencyG
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface name. The type is string.

@@ -27,9 +27,13 @@ module Cisco-IOS-XR-ip-tcp-cfg {
        ip-tcp: Global IP TCP configuration
        ip: ip
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-14 {
+    description
+      "Added support for TCP-AO feature.";
+  }
   revision 2017-09-30 {
     description
       "Ensure propagation of MDA mandatory state to YANG model.";
@@ -204,6 +208,67 @@ module Cisco-IOS-XR-ip-tcp-cfg {
           "Max throttle";
       }
     }
+    container ao {
+      description
+        "TCP authentication option configuration mode";
+      container keychains {
+        description
+          "Configure a Key Chain";
+        list keychain {
+          key "name";
+          description
+            "Name of the key chain";
+          container keys {
+            description
+              "Configure a Key";
+            list key {
+              key "key-id";
+              description
+                "Key identifier";
+              leaf key-id {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "48-bit Key identifier in range [0 -
+                   281474976710655]";
+              }
+              leaf send-id {
+                type uint32 {
+                  range "0..255";
+                }
+                mandatory true;
+                description
+                  "Send ID";
+              }
+              leaf receive-id {
+                type uint32 {
+                  range "0..255";
+                }
+                mandatory true;
+                description
+                  "Receive ID";
+              }
+            }
+          }
+          leaf create {
+            type empty;
+            description
+              "Create keychain";
+          }
+          leaf name {
+            type xr:Cisco-ios-xr-string {
+              length "1..32";
+            }
+            description
+              "Name of the key chain";
+          }
+        }
+      }
+      leaf enable {
+        type empty;
+        description
+          "Create TCP-AO submode";
+      }
+    }
     container num-thread {
       presence "Indicates a num-thread node is configured.";
       description
@@ -299,6 +364,7 @@ module Cisco-IOS-XR-ip-tcp-cfg {
           description
             "VRF table";
           list vrf {
+            must "ipv4 or ipv6";
             key "vrf-name";
             description
               "VRF specific data";

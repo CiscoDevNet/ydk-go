@@ -36,7 +36,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-30 {
@@ -1190,6 +1190,35 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
           container neighbor {
             description
               "Configuration related to Neighbors";
+            container dual-stack {
+              description
+                "Configuration related to neighbor transport";
+              container transport-connection {
+                description
+                  "Configuration related to neighbor transport";
+                container prefer {
+                  description
+                    "Configuration related to neighbor
+                     dual-stack xport-connection preference";
+                  leaf ipv4 {
+                    type empty;
+                    description
+                      "Configuration related to neighbor
+                       dual-stack xport-connection preference
+                       ipv4";
+                  }
+                }
+                leaf max-wait {
+                  type uint32 {
+                    range "0..60";
+                  }
+                  units "second";
+                  description
+                    "Configuration related to neighbor
+                     dual-stack xport-connection max-wait";
+                }
+              }
+            }
             container ldp-ids {
               description
                 "Configuration related to Neighbors using LDP

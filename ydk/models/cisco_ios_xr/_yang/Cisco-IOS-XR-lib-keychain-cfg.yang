@@ -26,9 +26,13 @@ module Cisco-IOS-XR-lib-keychain-cfg {
      for the following management objects:
        keychains: Configure a Key Chain
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2017-10-15 {
     description
       "Removed presence statement generated from internal CLI data.";
@@ -227,7 +231,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
       container macsec-keychain {
         description
           "Name of the key chain for MACSec";
-        container macsec-keies {
+        container macsec-keys {
           description
             "Configure a Key";
           list macsec-key {
@@ -235,12 +239,14 @@ module Cisco-IOS-XR-lib-keychain-cfg {
             description
               "Key Identifier";
             container macsec-lifetime {
+              presence "Indicates a macsec-lifetime node is configured.";
               description
                 "Configure a key Lifetime";
               leaf start-hour {
                 type uint32 {
                   range "0..23";
                 }
+                mandatory true;
                 description
                   "Start Hour";
               }
@@ -249,6 +255,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                   range "0..59";
                 }
                 units "minute";
+                mandatory true;
                 description
                   "Start Minutes";
               }
@@ -257,6 +264,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                   range "0..59";
                 }
                 units "second";
+                mandatory true;
                 description
                   "Start Seconds";
               }
@@ -264,11 +272,13 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 type uint32 {
                   range "1..31";
                 }
+                mandatory true;
                 description
                   "Start Date";
               }
               leaf start-month {
                 type Key-chain-month;
+                mandatory true;
                 description
                   "Start Month";
               }
@@ -276,6 +286,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 type uint32 {
                   range "1993..2035";
                 }
+                mandatory true;
                 description
                   "Start Year";
               }
@@ -360,14 +371,18 @@ module Cisco-IOS-XR-lib-keychain-cfg {
               }
             }
             leaf key-id {
-              type xr:Cisco-ios-xr-string;
+              type xr:Cisco-ios-xr-string {
+                length "2..64";
+              }
               description
-                "48-bit Key identifier";
+                "Enter CKN as non-zero hex string of even
+                 length, length range: <02-64>, i.e 1-32
+                 bytes of MACsec CKN";
             }
           }
         }
       }
-      container keies {
+      container keys {
         description
           "Configure a Key";
         list key {
@@ -375,12 +390,14 @@ module Cisco-IOS-XR-lib-keychain-cfg {
           description
             "Key Identifier";
           container accept-lifetime {
+            presence "Indicates a accept-lifetime node is configured.";
             description
               "Configure a key Acceptance Lifetime";
             leaf start-hour {
               type uint32 {
                 range "0..23";
               }
+              mandatory true;
               description
                 "Start Hour";
             }
@@ -389,6 +406,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 range "0..59";
               }
               units "minute";
+              mandatory true;
               description
                 "Start Minutes";
             }
@@ -397,6 +415,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 range "0..59";
               }
               units "second";
+              mandatory true;
               description
                 "Start Seconds";
             }
@@ -404,11 +423,13 @@ module Cisco-IOS-XR-lib-keychain-cfg {
               type uint32 {
                 range "1..31";
               }
+              mandatory true;
               description
                 "Start Date";
             }
             leaf start-month {
               type Key-chain-month;
+              mandatory true;
               description
                 "Start Month";
             }
@@ -416,6 +437,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
               type uint32 {
                 range "1993..2035";
               }
+              mandatory true;
               description
                 "Start Year";
             }
@@ -476,12 +498,14 @@ module Cisco-IOS-XR-lib-keychain-cfg {
             }
           }
           container send-lifetime {
+            presence "Indicates a send-lifetime node is configured.";
             description
               "Configure a Send Lifetime";
             leaf start-hour {
               type uint32 {
                 range "0..23";
               }
+              mandatory true;
               description
                 "Start Hour";
             }
@@ -490,6 +514,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 range "0..59";
               }
               units "minute";
+              mandatory true;
               description
                 "Start Minutes";
             }
@@ -498,6 +523,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
                 range "0..59";
               }
               units "second";
+              mandatory true;
               description
                 "Start Seconds";
             }
@@ -505,11 +531,13 @@ module Cisco-IOS-XR-lib-keychain-cfg {
               type uint32 {
                 range "1..31";
               }
+              mandatory true;
               description
                 "Start Date";
             }
             leaf start-month {
               type Key-chain-month;
+              mandatory true;
               description
                 "Start Month";
             }
@@ -517,6 +545,7 @@ module Cisco-IOS-XR-lib-keychain-cfg {
               type uint32 {
                 range "1993..2035";
               }
+              mandatory true;
               description
                 "Start Year";
             }
@@ -594,7 +623,9 @@ module Cisco-IOS-XR-lib-keychain-cfg {
         }
       }
       leaf chain-name {
-        type xr:Cisco-ios-xr-string;
+        type xr:Cisco-ios-xr-string {
+          length "1..32";
+        }
         description
           "Name of the key chain";
       }

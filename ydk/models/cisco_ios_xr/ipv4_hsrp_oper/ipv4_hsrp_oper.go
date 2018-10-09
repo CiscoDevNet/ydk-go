@@ -5,7 +5,7 @@
 // for the following management objects:
 //   hsrp: HSRP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_hsrp_oper
 
@@ -302,7 +302,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -411,7 +411,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     // Interface Name. The type is string with length: 0..64.
     InterfaceNameXr interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Priority of the router. The type is interface{} with range: 0..255.
@@ -503,7 +503,7 @@ type Hsrp_Ipv4_Groups_Group struct {
     // HSRP BFD fast failover. The type is bool.
     BfdEnabled interface{}
 
-    // BFD Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BfdInterface interface{}
 
     // BFD Peer IP address. The type is string with pattern:
@@ -1037,7 +1037,7 @@ type Hsrp_Ipv4_TrackedInterfaces_TrackedInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name of the interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1045,10 +1045,10 @@ type Hsrp_Ipv4_TrackedInterfaces_TrackedInterface struct {
     GroupNumber interface{}
 
     // This attribute is a key. The interface name of the interface being tracked.
-    // The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The type is string with pattern: [a-zA-Z0-9._/-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -1134,10 +1134,10 @@ type Hsrp_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Use burnt in mac address flag. The type is bool.
@@ -1285,7 +1285,7 @@ type Hsrp_MgoSessions_MgoSession struct {
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is HsrpBAf.
@@ -1442,7 +1442,7 @@ type Hsrp_Ipv6_TrackedInterfaces_TrackedInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name of the interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1450,10 +1450,10 @@ type Hsrp_Ipv6_TrackedInterfaces_TrackedInterface struct {
     GroupNumber interface{}
 
     // This attribute is a key. The interface name of the interface being tracked.
-    // The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The type is string with pattern: [a-zA-Z0-9._/-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // HSRP Group number. The type is interface{} with range: 0..4294967295.
@@ -1538,7 +1538,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The HSRP group number. The type is interface{}
@@ -1647,7 +1647,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     // Interface Name. The type is string with length: 0..64.
     InterfaceNameXr interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Priority of the router. The type is interface{} with range: 0..255.
@@ -1739,7 +1739,7 @@ type Hsrp_Ipv6_Groups_Group struct {
     // HSRP BFD fast failover. The type is bool.
     BfdEnabled interface{}
 
-    // BFD Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BfdInterface interface{}
 
     // BFD Peer IP address. The type is string with pattern:
@@ -2273,10 +2273,10 @@ type Hsrp_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Use burnt in mac address flag. The type is bool.
@@ -2417,7 +2417,7 @@ type Hsrp_BfdSessions_BfdSession struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Destination IP Address of BFD Session. The type is

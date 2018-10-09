@@ -5,7 +5,7 @@
 // for the following management objects:
 //   mpls-static: MPLS Static Configuration Data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_static_cfg
 
@@ -371,7 +371,7 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths_Path s
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -535,7 +535,7 @@ type MplsStatic_Vrfs_Vrf_LabelSwitchedPaths_LabelSwitchedPath_Paths_Path struct 
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -865,7 +865,7 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_Paths_Path s
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1092,7 +1092,7 @@ type MplsStatic_Vrfs_Vrf_Afs_Af_LocalLabels_LocalLabel_Paths_Path struct {
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1184,7 +1184,7 @@ type MplsStatic_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1386,7 +1386,7 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_BackupPaths_Path
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1550,7 +1550,7 @@ type MplsStatic_DefaultVrf_LabelSwitchedPaths_LabelSwitchedPath_Paths_Path struc
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -1880,7 +1880,7 @@ type MplsStatic_DefaultVrf_Afs_Af_TopLabelHash_LocalLabels_LocalLabel_Paths_Path
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default
@@ -2107,7 +2107,7 @@ type MplsStatic_DefaultVrf_Afs_Af_LocalLabels_LocalLabel_Paths_Path struct {
     NextHopAddress interface{}
 
     // Next hop Interface with form <Interface>R/S/I/P. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Next hop Address Family. The type is MplsStaticNhAddressFamily. The default

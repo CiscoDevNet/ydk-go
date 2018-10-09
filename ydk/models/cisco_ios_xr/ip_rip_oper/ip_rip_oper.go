@@ -5,7 +5,7 @@
 // for the following management objects:
 //   rip: RIP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_rip_oper
 
@@ -330,7 +330,7 @@ type Rip_Vrfs_Vrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -595,13 +595,13 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.
@@ -1401,7 +1401,7 @@ type Rip_Protocol_DefaultVrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -1666,13 +1666,13 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.
@@ -2299,7 +2299,7 @@ type Rip_DefaultVrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -2564,13 +2564,13 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.

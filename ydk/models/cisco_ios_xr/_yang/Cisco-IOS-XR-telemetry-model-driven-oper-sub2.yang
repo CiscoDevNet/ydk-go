@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR telemetry-model-driven package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-27 {
@@ -758,6 +758,11 @@ submodule Cisco-IOS-XR-telemetry-model-driven-oper-sub2 {
       type uint32;
       description
         "Total number of send drops";
+    }
+    leaf strict-timer {
+      type boolean;
+      description
+        "Set if strict timer is ON";
     }
     list collection-path {
       description

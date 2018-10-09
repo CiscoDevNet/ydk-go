@@ -5,7 +5,7 @@
 // for the following management objects:
 //   alarm-logger: Alarm Logger operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_alarm_logger_oper
 

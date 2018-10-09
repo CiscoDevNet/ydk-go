@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ospf: OSPF operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_ospf_oper
 
@@ -62,6 +62,9 @@ const (
 
     // SRLG disjoint
     IpfrrTbrkr_srlg_disjoint IpfrrTbrkr = "srlg-disjoint"
+
+    // Interface disjoint
+    IpfrrTbrkr_interface_disjoint IpfrrTbrkr = "interface-disjoint"
 
     // Tunnel
     IpfrrTbrkr_tunnel IpfrrTbrkr = "tunnel"
@@ -288,6 +291,20 @@ const (
     OspfSrEndpResFailReason_ospf_se_res_fail_rid_mismatch OspfSrEndpResFailReason = "ospf-se-res-fail-rid-mismatch"
 )
 
+// OspfSrlbStatus represents Ospf srlb status
+type OspfSrlbStatus string
+
+const (
+    // Unknown
+    OspfSrlbStatus_unknown OspfSrlbStatus = "unknown"
+
+    // Not allocated
+    OspfSrlbStatus_not_allocated OspfSrlbStatus = "not-allocated"
+
+    // Allocated
+    OspfSrlbStatus_allocated OspfSrlbStatus = "allocated"
+)
+
 // SrDp represents Sr dp
 type SrDp string
 
@@ -328,24 +345,42 @@ const (
     Interface__mgmt_if_loop_back Interface_ = "mgmt-if-loop-back"
 )
 
-// InterfaceState represents Interface state
-type InterfaceState string
+// OspfInternalLsaTypes represents OSPF LSA format types
+type OspfInternalLsaTypes string
 
 const (
-    // Interface state unknown
-    InterfaceState_mgmt_ifs_unknown InterfaceState = "mgmt-ifs-unknown"
+    // Router LSA
+    OspfInternalLsaTypes_mgmt_rtr_type OspfInternalLsaTypes = "mgmt-rtr-type"
 
-    // Interface is administratively down
-    InterfaceState_mgmt_ifs_admin_down InterfaceState = "mgmt-ifs-admin-down"
+    // Network LSA
+    OspfInternalLsaTypes_mgmt_ntwk_type OspfInternalLsaTypes = "mgmt-ntwk-type"
 
-    // Interface is down
-    InterfaceState_mgmt_ifs_down InterfaceState = "mgmt-ifs-down"
+    // Summary and ASBR summary LSA
+    OspfInternalLsaTypes_mgmt_sum_type OspfInternalLsaTypes = "mgmt-sum-type"
 
-    // Interface is up
-    InterfaceState_mgmt_ifs_up InterfaceState = "mgmt-ifs-up"
+    // Type 5 and NSSA external LSA
+    OspfInternalLsaTypes_mgmt_ext_type OspfInternalLsaTypes = "mgmt-ext-type"
 
-    // Interface is administratively down
-    InterfaceState_mgmt_ifs_shutdown InterfaceState = "mgmt-ifs-shutdown"
+    // Generic AS/Area Opaque LSA
+    OspfInternalLsaTypes_mgmt_opq_type OspfInternalLsaTypes = "mgmt-opq-type"
+
+    // Generic Link Opaque LSA
+    OspfInternalLsaTypes_mgmt_opq_link_type OspfInternalLsaTypes = "mgmt-opq-link-type"
+
+    // Opaque Area type 1 LSA
+    OspfInternalLsaTypes_mgmt_opq_rrr_type OspfInternalLsaTypes = "mgmt-opq-rrr-type"
+
+    // Opaque link type 1 LSA
+    OspfInternalLsaTypes_mgmt_opq_gr_type OspfInternalLsaTypes = "mgmt-opq-gr-type"
+
+    // Opaque Router Information LSA
+    OspfInternalLsaTypes_mgmt_opq_ri_type OspfInternalLsaTypes = "mgmt-opq-ri-type"
+
+    // Opaque Area type 128
+    OspfInternalLsaTypes_mgmt_opq_epl_type OspfInternalLsaTypes = "mgmt-opq-epl-type"
+
+    // Opaque Area type 8
+    OspfInternalLsaTypes_mgmt_opq_ell_type OspfInternalLsaTypes = "mgmt-opq-ell-type"
 )
 
 // ExMetric represents Ex metric
@@ -513,6 +548,9 @@ const (
 
     // Node MSD (Max SID Depth)
     OspfShOpqRiTlvTypes_mgmt_ospf_opq_ri_tlv_type_node_msd OspfShOpqRiTlvTypes = "mgmt-ospf-opq-ri-tlv-type-node-msd"
+
+    // Segment Routing Local Block
+    OspfShOpqRiTlvTypes_mgmt_ospf_opq_ri_tlv_type_srlb OspfShOpqRiTlvTypes = "mgmt-ospf-opq-ri-tlv-type-srlb"
 )
 
 // Timer represents maxage
@@ -685,42 +723,24 @@ const (
     NeighborState_mgmt_nbr_sc_virtual NeighborState = "mgmt-nbr-sc-virtual"
 )
 
-// OspfInternalLsaTypes represents OSPF LSA format types
-type OspfInternalLsaTypes string
+// InterfaceState represents Interface state
+type InterfaceState string
 
 const (
-    // Router LSA
-    OspfInternalLsaTypes_mgmt_rtr_type OspfInternalLsaTypes = "mgmt-rtr-type"
+    // Interface state unknown
+    InterfaceState_mgmt_ifs_unknown InterfaceState = "mgmt-ifs-unknown"
 
-    // Network LSA
-    OspfInternalLsaTypes_mgmt_ntwk_type OspfInternalLsaTypes = "mgmt-ntwk-type"
+    // Interface is administratively down
+    InterfaceState_mgmt_ifs_admin_down InterfaceState = "mgmt-ifs-admin-down"
 
-    // Summary and ASBR summary LSA
-    OspfInternalLsaTypes_mgmt_sum_type OspfInternalLsaTypes = "mgmt-sum-type"
+    // Interface is down
+    InterfaceState_mgmt_ifs_down InterfaceState = "mgmt-ifs-down"
 
-    // Type 5 and NSSA external LSA
-    OspfInternalLsaTypes_mgmt_ext_type OspfInternalLsaTypes = "mgmt-ext-type"
+    // Interface is up
+    InterfaceState_mgmt_ifs_up InterfaceState = "mgmt-ifs-up"
 
-    // Generic AS/Area Opaque LSA
-    OspfInternalLsaTypes_mgmt_opq_type OspfInternalLsaTypes = "mgmt-opq-type"
-
-    // Generic Link Opaque LSA
-    OspfInternalLsaTypes_mgmt_opq_link_type OspfInternalLsaTypes = "mgmt-opq-link-type"
-
-    // Opaque Area type 1 LSA
-    OspfInternalLsaTypes_mgmt_opq_rrr_type OspfInternalLsaTypes = "mgmt-opq-rrr-type"
-
-    // Opaque link type 1 LSA
-    OspfInternalLsaTypes_mgmt_opq_gr_type OspfInternalLsaTypes = "mgmt-opq-gr-type"
-
-    // Opaque Router Information LSA
-    OspfInternalLsaTypes_mgmt_opq_ri_type OspfInternalLsaTypes = "mgmt-opq-ri-type"
-
-    // Opaque Area type 128
-    OspfInternalLsaTypes_mgmt_opq_epl_type OspfInternalLsaTypes = "mgmt-opq-epl-type"
-
-    // Opaque Area type 8
-    OspfInternalLsaTypes_mgmt_opq_ell_type OspfInternalLsaTypes = "mgmt-opq-ell-type"
+    // Interface is administratively down
+    InterfaceState_mgmt_ifs_shutdown InterfaceState = "mgmt-ifs-shutdown"
 )
 
 // MplsTeOptTlv represents Mpls te opt tlv
@@ -888,6 +908,47 @@ const (
 
     // Designated Router Other
     DrBdrState_mgmt_dbdr_dr_other DrBdrState = "mgmt-dbdr-dr-other"
+)
+
+// OspfCrytographicAlgo represents Cryptographic algorithm
+type OspfCrytographicAlgo string
+
+const (
+    // Not configured
+    OspfCrytographicAlgo_mgmt_not_configured OspfCrytographicAlgo = "mgmt-not-configured"
+
+    // AES 128 CMAC 96
+    OspfCrytographicAlgo_mgmt_aes_128_cmac_96 OspfCrytographicAlgo = "mgmt-aes-128-cmac-96"
+
+    // HAMC SHA1 12
+    OspfCrytographicAlgo_mgmt_hmac_sha1_12 OspfCrytographicAlgo = "mgmt-hmac-sha1-12"
+
+    // MD5 16
+    OspfCrytographicAlgo_mgmt_md5_16 OspfCrytographicAlgo = "mgmt-md5-16"
+
+    // SHA1 20
+    OspfCrytographicAlgo_mgmt_sha1_20 OspfCrytographicAlgo = "mgmt-sha1-20"
+
+    // HMAC MD5 16
+    OspfCrytographicAlgo_mgmt_hmac_md5_16 OspfCrytographicAlgo = "mgmt-hmac-md5-16"
+
+    // HMAC SHA1 20
+    OspfCrytographicAlgo_mgmt_hmac_sha1_20 OspfCrytographicAlgo = "mgmt-hmac-sha1-20"
+
+    // AES 128 CMAC
+    OspfCrytographicAlgo_mgmt_aes_128_cmac OspfCrytographicAlgo = "mgmt-aes-128-cmac"
+
+    // AES 256 CMAC
+    OspfCrytographicAlgo_mgmt_aes_256_cmac OspfCrytographicAlgo = "mgmt-aes-256-cmac"
+
+    // HMAC SHA1 96
+    OspfCrytographicAlgo_mgmt_hmac_sha1_96 OspfCrytographicAlgo = "mgmt-hmac-sha1-96"
+
+    // HMAC SHA 256
+    OspfCrytographicAlgo_mgmt_hmac_sha_256 OspfCrytographicAlgo = "mgmt-hmac-sha-256"
+
+    // HMAC SHA1
+    OspfCrytographicAlgo_mgmt_hmac_sha1 OspfCrytographicAlgo = "mgmt-hmac-sha1"
 )
 
 // TimerTable represents minute timer table
@@ -1359,9 +1420,18 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceVrfInformation_ShamLinks_ShamLink 
     // type is interface{} with range: 0..4294967295.
     ShamLinkOldMdKeyCount interface{}
 
+    // Sham Link Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    ShamLinkKeychainKeyConf interface{}
+
     // Sham Link Keychain ID. The type is interface{} with range:
     // 0..18446744073709551615.
     ShamLinkKeychainId interface{}
+
+    // Sham Link Keychain Alg. The type is OspfCrytographicAlgo.
+    ShamLinkKeychainAlg interface{}
 
     // If true, NSF enabled. The type is bool.
     ShamLinkNsfEnabled interface{}
@@ -1422,7 +1492,10 @@ func (shamLink *Ospf_Processes_Process_Vrfs_Vrf_InterfaceVrfInformation_ShamLink
     shamLink.EntityData.Leafs.Append("sham-link-youngest-md-key", types.YLeaf{"ShamLinkYoungestMdKey", shamLink.ShamLinkYoungestMdKey})
     shamLink.EntityData.Leafs.Append("sham-link-youngest-md-key-id", types.YLeaf{"ShamLinkYoungestMdKeyId", shamLink.ShamLinkYoungestMdKeyId})
     shamLink.EntityData.Leafs.Append("sham-link-old-md-key-count", types.YLeaf{"ShamLinkOldMdKeyCount", shamLink.ShamLinkOldMdKeyCount})
+    shamLink.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", shamLink.KeychainName})
+    shamLink.EntityData.Leafs.Append("sham-link-keychain-key-conf", types.YLeaf{"ShamLinkKeychainKeyConf", shamLink.ShamLinkKeychainKeyConf})
     shamLink.EntityData.Leafs.Append("sham-link-keychain-id", types.YLeaf{"ShamLinkKeychainId", shamLink.ShamLinkKeychainId})
+    shamLink.EntityData.Leafs.Append("sham-link-keychain-alg", types.YLeaf{"ShamLinkKeychainAlg", shamLink.ShamLinkKeychainAlg})
     shamLink.EntityData.Leafs.Append("sham-link-nsf-enabled", types.YLeaf{"ShamLinkNsfEnabled", shamLink.ShamLinkNsfEnabled})
     shamLink.EntityData.Leafs.Append("sham-link-nsf", types.YLeaf{"ShamLinkNsf", shamLink.ShamLinkNsf})
     shamLink.EntityData.Leafs.Append("sham-link-last-nsf", types.YLeaf{"ShamLinkLastNsf", shamLink.ShamLinkLastNsf})
@@ -1658,10 +1731,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_FloodListTable_Flood struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FloodInterfaceName interface{}
 
     // Time until next LS update due (ms). The type is interface{} with range:
@@ -1965,7 +2038,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_SegmentRouting_SrEndpointPolicies_SrEndpoin
     PolicyName interface{}
 
     // SR Policy Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PolicyIfHandle interface{}
 
     // SR Policy Metric. The type is interface{} with range:
@@ -10856,10 +10929,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_Statistics_InterfaceStatsEntries_InterfaceS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.
@@ -11049,7 +11122,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Neighbors_Neighbor str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -11065,7 +11138,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Neighbors_Neighbor str
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -11195,7 +11268,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Requests_Request struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -11210,7 +11283,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Requests_Request struc
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
-    // Request list interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Request list interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RequestInterfaceName interface{}
 
     // List of request list entries. The type is slice of
@@ -11336,7 +11409,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Retransmissions_Retran
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -11352,7 +11425,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_Retransmissions_Retran
     RetransmissionNeighborIpAddress interface{}
 
     // Retransmission list interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     RetransmissionInterfaceName interface{}
 
     // Amount of time remaining on retransmission timer (ms). The type is
@@ -11548,7 +11621,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_NeighborDetails_Neighb
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -11611,7 +11684,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_NeighborDetails_Neighb
     // 0..4294967295. Units are second.
     LastOobTime interface{}
 
-    // LFA Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LFA Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     LfaInterface interface{}
 
     // LFA Next Hop. The type is string with pattern:
@@ -11718,7 +11791,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AdjacencyInformation_NeighborDetails_Neighb
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -12280,8 +12353,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_BackupRoutes_BackupRoute_R
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12358,6 +12434,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_BackupRoutes_B
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -12384,7 +12461,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_BackupRoutes_BackupRoute_R
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -12423,7 +12500,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_BackupRoutes_BackupRoute_R
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -12519,7 +12596,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_BackupRoutes_BackupRoute_R
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -12891,8 +12968,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactRouteTable_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12965,6 +13045,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntac
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -12996,7 +13077,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactRouteTable_
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -13368,8 +13449,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactBackupRoute
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -13446,6 +13530,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntac
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -13472,7 +13557,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactBackupRoute
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -13511,7 +13596,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactBackupRoute
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -13607,7 +13692,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_MulticastIntactBackupRoute
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -14108,8 +14193,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ConnectedRoutes_ConnectedR
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14182,6 +14270,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ConnectedRoute
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -14213,7 +14302,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ConnectedRoutes_ConnectedR
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -14584,8 +14673,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_LocalRoutes_LocalRoute_Rou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14658,6 +14750,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_LocalRoutes_Lo
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -14689,7 +14782,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_LocalRoutes_LocalRoute_Rou
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -15153,8 +15246,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15231,6 +15327,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -15257,7 +15354,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -15296,7 +15393,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -15392,7 +15489,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -15763,8 +15860,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Conne
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15837,6 +15937,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -15868,7 +15969,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Conne
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -16240,8 +16341,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Backu
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -16318,6 +16422,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -16344,7 +16449,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Backu
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -16383,7 +16488,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Backu
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -16479,7 +16584,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Backu
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -16850,8 +16955,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Route
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -16924,6 +17032,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -16955,7 +17064,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Route
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -17327,8 +17436,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17401,6 +17513,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -17432,7 +17545,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Multi
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -17933,8 +18046,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Local
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -18007,6 +18123,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -18038,7 +18155,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteAreas_RouteArea_Local
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -18409,8 +18526,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteTable_Route_RoutePath
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -18483,6 +18603,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteTable_Rou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -18514,7 +18635,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_RouteTable_Route_RoutePath
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -18922,8 +19043,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ExternalRoutes_ExternalRou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -18996,6 +19120,7 @@ func (routePath *Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ExternalRoutes
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -19027,7 +19152,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_RouteInformation_ExternalRoutes_ExternalRou
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -19343,7 +19468,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_VirtualLinks_VirtualLi
     TransitArea interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     VirtualLinkInterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -19393,9 +19518,18 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_VirtualLinks_VirtualLi
     // type is interface{} with range: 0..4294967295.
     VirtualLinkOldMdKeyCount interface{}
 
+    // Virtual Link Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    VirtualLinkKeychainKeyConf interface{}
+
     // Virtual Link Keychain ID. The type is interface{} with range:
     // 0..18446744073709551615.
     VirtualLinkKeychainId interface{}
+
+    // Virtual Link Keychain Alg. The type is OspfCrytographicAlgo.
+    VirtualLinkKeychainAlg interface{}
 
     // If true, NSF enabled. The type is bool.
     VirtualLinkNsfEnabled interface{}
@@ -19454,7 +19588,10 @@ func (virtualLink *Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_VirtualL
     virtualLink.EntityData.Leafs.Append("virtual-link-youngest-md-key", types.YLeaf{"VirtualLinkYoungestMdKey", virtualLink.VirtualLinkYoungestMdKey})
     virtualLink.EntityData.Leafs.Append("virtual-link-youngest-md-key-id", types.YLeaf{"VirtualLinkYoungestMdKeyId", virtualLink.VirtualLinkYoungestMdKeyId})
     virtualLink.EntityData.Leafs.Append("virtual-link-old-md-key-count", types.YLeaf{"VirtualLinkOldMdKeyCount", virtualLink.VirtualLinkOldMdKeyCount})
+    virtualLink.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", virtualLink.KeychainName})
+    virtualLink.EntityData.Leafs.Append("virtual-link-keychain-key-conf", types.YLeaf{"VirtualLinkKeychainKeyConf", virtualLink.VirtualLinkKeychainKeyConf})
     virtualLink.EntityData.Leafs.Append("virtual-link-keychain-id", types.YLeaf{"VirtualLinkKeychainId", virtualLink.VirtualLinkKeychainId})
+    virtualLink.EntityData.Leafs.Append("virtual-link-keychain-alg", types.YLeaf{"VirtualLinkKeychainAlg", virtualLink.VirtualLinkKeychainAlg})
     virtualLink.EntityData.Leafs.Append("virtual-link-nsf-enabled", types.YLeaf{"VirtualLinkNsfEnabled", virtualLink.VirtualLinkNsfEnabled})
     virtualLink.EntityData.Leafs.Append("virtual-link-nsf", types.YLeaf{"VirtualLinkNsf", virtualLink.VirtualLinkNsf})
     virtualLink.EntityData.Leafs.Append("virtual-link-last-nsf", types.YLeaf{"VirtualLinkLastNsf", virtualLink.VirtualLinkLastNsf})
@@ -19690,10 +19827,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_InterfaceBriefs_Interf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Area ID string in decimal or dotted-decimal format. The type is string with
@@ -19859,10 +19996,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_Interfaces_Interface s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is InterfaceState.
@@ -20080,7 +20217,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_Interfaces_Interface s
     // Topology Independent LFA. The type is bool.
     FastRerouteTopologyIndependentLfa interface{}
 
-    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceUnnum interface{}
 
     // Forward reference interface. The type is bool.
@@ -20420,8 +20557,17 @@ type Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_Interfaces_Interface_A
     // Youngest MD key ID. The type is interface{} with range: 0..65535.
     YoungestMdKeyId interface{}
 
+    // Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    KeychainKeyConf interface{}
+
     // Keychain ID. The type is interface{} with range: 0..18446744073709551615.
     KeychainId interface{}
+
+    // Keychain Alg. The type is OspfCrytographicAlgo.
+    KeychainAlg interface{}
 
     // List of old MD keys. The type is slice of
     // Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_Interfaces_Interface_ActiveInterface_MdKeys.
@@ -20463,7 +20609,10 @@ func (activeInterface *Ospf_Processes_Process_Vrfs_Vrf_InterfaceInformation_Inte
     activeInterface.EntityData.Leafs.Append("youngest-md-key", types.YLeaf{"YoungestMdKey", activeInterface.YoungestMdKey})
     activeInterface.EntityData.Leafs.Append("old-md5-key-neighbor-count", types.YLeaf{"OldMd5KeyNeighborCount", activeInterface.OldMd5KeyNeighborCount})
     activeInterface.EntityData.Leafs.Append("youngest-md-key-id", types.YLeaf{"YoungestMdKeyId", activeInterface.YoungestMdKeyId})
+    activeInterface.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", activeInterface.KeychainName})
+    activeInterface.EntityData.Leafs.Append("keychain-key-conf", types.YLeaf{"KeychainKeyConf", activeInterface.KeychainKeyConf})
     activeInterface.EntityData.Leafs.Append("keychain-id", types.YLeaf{"KeychainId", activeInterface.KeychainId})
+    activeInterface.EntityData.Leafs.Append("keychain-alg", types.YLeaf{"KeychainAlg", activeInterface.KeychainAlg})
 
     activeInterface.EntityData.YListKeys = []string {}
 
@@ -20814,7 +20963,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter_BorderRouterPath
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BorderRouterNextHopInterfaceName interface{}
 
     // Border router type. The type is OspfBr.
@@ -20994,7 +21143,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProtocolAreas_ProtocolAr
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProtocolInterfaceName interface{}
 
     // Authentication type. The type is Authentication.
@@ -21834,6 +21983,17 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProcessSummary struct {
     // True if Segment Routing Strict-SPF capable. The type is bool.
     SrStrictSpfCap interface{}
 
+    // Segment Routing Local Block start label value. The type is interface{} with
+    // range: 0..4294967295.
+    SrlbStart interface{}
+
+    // Segment Routing Local Block end label value. The type is interface{} with
+    // range: 0..4294967295.
+    SrlbEnd interface{}
+
+    // Segment Routing Local Block allocation status. The type is OspfSrlbStatus.
+    SrlbStatus interface{}
+
     // Domain ID information.
     DomainId Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_ProcessSummary_DomainId
 
@@ -21954,6 +22114,9 @@ func (processSummary *Ospf_Processes_Process_Vrfs_Vrf_ProcessInformation_Process
     processSummary.EntityData.Leafs.Append("srgb-end", types.YLeaf{"SrgbEnd", processSummary.SrgbEnd})
     processSummary.EntityData.Leafs.Append("srgb-status", types.YLeaf{"SrgbStatus", processSummary.SrgbStatus})
     processSummary.EntityData.Leafs.Append("sr-strict-spf-cap", types.YLeaf{"SrStrictSpfCap", processSummary.SrStrictSpfCap})
+    processSummary.EntityData.Leafs.Append("srlb-start", types.YLeaf{"SrlbStart", processSummary.SrlbStart})
+    processSummary.EntityData.Leafs.Append("srlb-end", types.YLeaf{"SrlbEnd", processSummary.SrlbEnd})
+    processSummary.EntityData.Leafs.Append("srlb-status", types.YLeaf{"SrlbStatus", processSummary.SrlbStatus})
 
     processSummary.EntityData.YListKeys = []string {}
 
@@ -22413,10 +22576,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListAreaTable_Flood struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FloodInterfaceName interface{}
 
     // Time until next LS update due (ms). The type is interface{} with range:
@@ -22609,7 +22772,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -22625,7 +22788,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbors_Neighbor struct {
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -22756,10 +22919,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceBriefs_InterfaceBrief s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Area ID string in decimal or dotted-decimal format. The type is string with
@@ -22924,7 +23087,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Requests_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -22939,7 +23102,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Requests_Request struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
-    // Request list interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Request list interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RequestInterfaceName interface{}
 
     // List of request list entries. The type is slice of
@@ -23065,7 +23228,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmissions_Retransmission s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -23081,7 +23244,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmissions_Retransmission s
     RetransmissionNeighborIpAddress interface{}
 
     // Retransmission list interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     RetransmissionInterfaceName interface{}
 
     // Amount of time remaining on retransmission timer (ms). The type is
@@ -23307,10 +23470,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_AreaStatistics_InterfaceStatsEnt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.
@@ -23459,7 +23622,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetails_NeighborDetail s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -23522,7 +23685,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetails_NeighborDetail s
     // 0..4294967295. Units are second.
     LastOobTime interface{}
 
-    // LFA Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LFA Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     LfaInterface interface{}
 
     // LFA Next Hop. The type is string with pattern:
@@ -23629,7 +23792,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetails_NeighborDetail_N
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -23912,10 +24075,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is InterfaceState.
@@ -24133,7 +24296,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Interfaces_Interface struct {
     // Topology Independent LFA. The type is bool.
     FastRerouteTopologyIndependentLfa interface{}
 
-    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceUnnum interface{}
 
     // Forward reference interface. The type is bool.
@@ -24473,8 +24636,17 @@ type Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Interfaces_Interface_ActiveInter
     // Youngest MD key ID. The type is interface{} with range: 0..65535.
     YoungestMdKeyId interface{}
 
+    // Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    KeychainKeyConf interface{}
+
     // Keychain ID. The type is interface{} with range: 0..18446744073709551615.
     KeychainId interface{}
+
+    // Keychain Alg. The type is OspfCrytographicAlgo.
+    KeychainAlg interface{}
 
     // List of old MD keys. The type is slice of
     // Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Interfaces_Interface_ActiveInterface_MdKeys.
@@ -24516,7 +24688,10 @@ func (activeInterface *Ospf_Processes_Process_Vrfs_Vrf_Areas_Area_Interfaces_Int
     activeInterface.EntityData.Leafs.Append("youngest-md-key", types.YLeaf{"YoungestMdKey", activeInterface.YoungestMdKey})
     activeInterface.EntityData.Leafs.Append("old-md5-key-neighbor-count", types.YLeaf{"OldMd5KeyNeighborCount", activeInterface.OldMd5KeyNeighborCount})
     activeInterface.EntityData.Leafs.Append("youngest-md-key-id", types.YLeaf{"YoungestMdKeyId", activeInterface.YoungestMdKeyId})
+    activeInterface.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", activeInterface.KeychainName})
+    activeInterface.EntityData.Leafs.Append("keychain-key-conf", types.YLeaf{"KeychainKeyConf", activeInterface.KeychainKeyConf})
     activeInterface.EntityData.Leafs.Append("keychain-id", types.YLeaf{"KeychainId", activeInterface.KeychainId})
+    activeInterface.EntityData.Leafs.Append("keychain-alg", types.YLeaf{"KeychainAlg", activeInterface.KeychainAlg})
 
     activeInterface.EntityData.YListKeys = []string {}
 
@@ -24944,7 +25119,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Ls
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Header information.
@@ -25880,7 +26055,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Ls
     YFilter yfilter.YFilter
 
     // Interface on which the Opaque link LSA is received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OpaqueInterfaceName interface{}
 }
 
@@ -26080,7 +26255,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Ls
     OpaqueRilsaScope interface{}
 
     // Interface on which this Link-Local Opaque link LSA is received. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     OpaqueRiInterfaceName interface{}
 
     // Router Information TLV. The type is slice of
@@ -26138,6 +26313,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Ls
 
     // Node MSD TLV.
     NodeMsdtlv Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_NodeMsdtlv
+
+    // SRLB Range TLV.
+    Srlbtlv Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
 }
 
 func (opaqueRitlv *Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv) GetEntityData() *types.CommonEntityData {
@@ -26157,6 +26335,7 @@ func (opaqueRitlv *Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_Databa
     opaqueRitlv.EntityData.Children.Append("sr-algo-tlv", types.YChild{"SrAlgoTlv", &opaqueRitlv.SrAlgoTlv})
     opaqueRitlv.EntityData.Children.Append("sr-range-tlv", types.YChild{"SrRangeTlv", &opaqueRitlv.SrRangeTlv})
     opaqueRitlv.EntityData.Children.Append("node-msdtlv", types.YChild{"NodeMsdtlv", &opaqueRitlv.NodeMsdtlv})
+    opaqueRitlv.EntityData.Children.Append("srlbtlv", types.YChild{"Srlbtlv", &opaqueRitlv.Srlbtlv})
     opaqueRitlv.EntityData.Leafs = types.NewOrderedMap()
     opaqueRitlv.EntityData.Leafs.Append("ritlv-internal-type", types.YLeaf{"RitlvInternalType", opaqueRitlv.RitlvInternalType})
 
@@ -26708,6 +26887,76 @@ func (nodeMsdSubTypes *Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_Da
     return &(nodeMsdSubTypes.EntityData)
 }
 
+// Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
+// SRLB Range TLV
+type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of TLV. The type is interface{} with range: 0..65535.
+    SrlbtlvLength interface{}
+
+    // SRLB Range Size. The type is interface{} with range: 0..4294967295.
+    SrlbRangeSize interface{}
+
+    // SID sub-TLV.
+    Sidtlv Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+}
+
+func (srlbtlv *Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv) GetEntityData() *types.CommonEntityData {
+    srlbtlv.EntityData.YFilter = srlbtlv.YFilter
+    srlbtlv.EntityData.YangName = "srlbtlv"
+    srlbtlv.EntityData.BundleName = "cisco_ios_xr"
+    srlbtlv.EntityData.ParentYangName = "opaque-ritlv"
+    srlbtlv.EntityData.SegmentPath = "srlbtlv"
+    srlbtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlbtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlbtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlbtlv.EntityData.Children = types.NewOrderedMap()
+    srlbtlv.EntityData.Children.Append("sidtlv", types.YChild{"Sidtlv", &srlbtlv.Sidtlv})
+    srlbtlv.EntityData.Leafs = types.NewOrderedMap()
+    srlbtlv.EntityData.Leafs.Append("srlbtlv-length", types.YLeaf{"SrlbtlvLength", srlbtlv.SrlbtlvLength})
+    srlbtlv.EntityData.Leafs.Append("srlb-range-size", types.YLeaf{"SrlbRangeSize", srlbtlv.SrlbRangeSize})
+
+    srlbtlv.EntityData.YListKeys = []string {}
+
+    return &(srlbtlv.EntityData)
+}
+
+// Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+// SID sub-TLV
+type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of sub-TLV. The type is interface{} with range: 0..65535.
+    SrSidLength interface{}
+
+    // SID Value. The type is interface{} with range: 0..4294967295.
+    SrSidValue interface{}
+}
+
+func (sidtlv *Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv) GetEntityData() *types.CommonEntityData {
+    sidtlv.EntityData.YFilter = sidtlv.YFilter
+    sidtlv.EntityData.YangName = "sidtlv"
+    sidtlv.EntityData.BundleName = "cisco_ios_xr"
+    sidtlv.EntityData.ParentYangName = "srlbtlv"
+    sidtlv.EntityData.SegmentPath = "sidtlv"
+    sidtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sidtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sidtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sidtlv.EntityData.Children = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs.Append("sr-sid-length", types.YLeaf{"SrSidLength", sidtlv.SrSidLength})
+    sidtlv.EntityData.Leafs.Append("sr-sid-value", types.YLeaf{"SrSidValue", sidtlv.SrSidValue})
+
+    sidtlv.EntityData.YListKeys = []string {}
+
+    return &(sidtlv.EntityData)
+}
+
 // Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType
 // Extende Prefix LSA type
 type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType struct {
@@ -27013,7 +27262,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_DatabaseAreas_DatabaseArea_LsaSumm
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -27376,7 +27625,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Header information.
@@ -28312,7 +28561,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueLin
     YFilter yfilter.YFilter
 
     // Interface on which the Opaque link LSA is received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OpaqueInterfaceName interface{}
 }
 
@@ -28512,7 +28761,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRou
     OpaqueRilsaScope interface{}
 
     // Interface on which this Link-Local Opaque link LSA is received. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     OpaqueRiInterfaceName interface{}
 
     // Router Information TLV. The type is slice of
@@ -28570,6 +28819,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRou
 
     // Node MSD TLV.
     NodeMsdtlv Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_NodeMsdtlv
+
+    // SRLB Range TLV.
+    Srlbtlv Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
 }
 
 func (opaqueRitlv *Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv) GetEntityData() *types.CommonEntityData {
@@ -28589,6 +28841,7 @@ func (opaqueRitlv *Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternal
     opaqueRitlv.EntityData.Children.Append("sr-algo-tlv", types.YChild{"SrAlgoTlv", &opaqueRitlv.SrAlgoTlv})
     opaqueRitlv.EntityData.Children.Append("sr-range-tlv", types.YChild{"SrRangeTlv", &opaqueRitlv.SrRangeTlv})
     opaqueRitlv.EntityData.Children.Append("node-msdtlv", types.YChild{"NodeMsdtlv", &opaqueRitlv.NodeMsdtlv})
+    opaqueRitlv.EntityData.Children.Append("srlbtlv", types.YChild{"Srlbtlv", &opaqueRitlv.Srlbtlv})
     opaqueRitlv.EntityData.Leafs = types.NewOrderedMap()
     opaqueRitlv.EntityData.Leafs.Append("ritlv-internal-type", types.YLeaf{"RitlvInternalType", opaqueRitlv.RitlvInternalType})
 
@@ -29140,6 +29393,76 @@ func (nodeMsdSubTypes *Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInte
     return &(nodeMsdSubTypes.EntityData)
 }
 
+// Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
+// SRLB Range TLV
+type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of TLV. The type is interface{} with range: 0..65535.
+    SrlbtlvLength interface{}
+
+    // SRLB Range Size. The type is interface{} with range: 0..4294967295.
+    SrlbRangeSize interface{}
+
+    // SID sub-TLV.
+    Sidtlv Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+}
+
+func (srlbtlv *Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv) GetEntityData() *types.CommonEntityData {
+    srlbtlv.EntityData.YFilter = srlbtlv.YFilter
+    srlbtlv.EntityData.YangName = "srlbtlv"
+    srlbtlv.EntityData.BundleName = "cisco_ios_xr"
+    srlbtlv.EntityData.ParentYangName = "opaque-ritlv"
+    srlbtlv.EntityData.SegmentPath = "srlbtlv"
+    srlbtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlbtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlbtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlbtlv.EntityData.Children = types.NewOrderedMap()
+    srlbtlv.EntityData.Children.Append("sidtlv", types.YChild{"Sidtlv", &srlbtlv.Sidtlv})
+    srlbtlv.EntityData.Leafs = types.NewOrderedMap()
+    srlbtlv.EntityData.Leafs.Append("srlbtlv-length", types.YLeaf{"SrlbtlvLength", srlbtlv.SrlbtlvLength})
+    srlbtlv.EntityData.Leafs.Append("srlb-range-size", types.YLeaf{"SrlbRangeSize", srlbtlv.SrlbRangeSize})
+
+    srlbtlv.EntityData.YListKeys = []string {}
+
+    return &(srlbtlv.EntityData)
+}
+
+// Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+// SID sub-TLV
+type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of sub-TLV. The type is interface{} with range: 0..65535.
+    SrSidLength interface{}
+
+    // SID Value. The type is interface{} with range: 0..4294967295.
+    SrSidValue interface{}
+}
+
+func (sidtlv *Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv) GetEntityData() *types.CommonEntityData {
+    sidtlv.EntityData.YFilter = sidtlv.YFilter
+    sidtlv.EntityData.YangName = "sidtlv"
+    sidtlv.EntityData.BundleName = "cisco_ios_xr"
+    sidtlv.EntityData.ParentYangName = "srlbtlv"
+    sidtlv.EntityData.SegmentPath = "sidtlv"
+    sidtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sidtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sidtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sidtlv.EntityData.Children = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs.Append("sr-sid-length", types.YLeaf{"SrSidLength", sidtlv.SrSidLength})
+    sidtlv.EntityData.Leafs.Append("sr-sid-value", types.YLeaf{"SrSidValue", sidtlv.SrSidValue})
+
+    sidtlv.EntityData.YListKeys = []string {}
+
+    return &(sidtlv.EntityData)
+}
+
 // Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType
 // Extende Prefix LSA type
 type Ospf_Processes_Process_Vrfs_Vrf_Database_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType struct {
@@ -29445,7 +29768,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Database_LsaSummaries_LsaSummary struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -29708,10 +30031,10 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaStatistics_InterfaceStatsEntries_Interf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.
@@ -30600,10 +30923,10 @@ type Ospf_Processes_Process_DefaultVrf_FloodListTable_Flood struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FloodInterfaceName interface{}
 
     // Time until next LS update due (ms). The type is interface{} with range:
@@ -30907,7 +31230,7 @@ type Ospf_Processes_Process_DefaultVrf_SegmentRouting_SrEndpointPolicies_SrEndpo
     PolicyName interface{}
 
     // SR Policy Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PolicyIfHandle interface{}
 
     // SR Policy Metric. The type is interface{} with range:
@@ -39798,10 +40121,10 @@ type Ospf_Processes_Process_DefaultVrf_Statistics_InterfaceStatsEntries_Interfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.
@@ -39991,7 +40314,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Neighbors_Neighbor s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -40007,7 +40330,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Neighbors_Neighbor s
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -40137,7 +40460,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Requests_Request str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -40152,7 +40475,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Requests_Request str
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
-    // Request list interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Request list interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RequestInterfaceName interface{}
 
     // List of request list entries. The type is slice of
@@ -40278,7 +40601,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Retransmissions_Retr
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -40294,7 +40617,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_Retransmissions_Retr
     RetransmissionNeighborIpAddress interface{}
 
     // Retransmission list interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     RetransmissionInterfaceName interface{}
 
     // Amount of time remaining on retransmission timer (ms). The type is
@@ -40490,7 +40813,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_NeighborDetails_Neig
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -40553,7 +40876,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_NeighborDetails_Neig
     // 0..4294967295. Units are second.
     LastOobTime interface{}
 
-    // LFA Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LFA Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     LfaInterface interface{}
 
     // LFA Next Hop. The type is string with pattern:
@@ -40660,7 +40983,7 @@ type Ospf_Processes_Process_DefaultVrf_AdjacencyInformation_NeighborDetails_Neig
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -41222,8 +41545,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_BackupRoutes_BackupRoute
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -41300,6 +41626,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_BackupRoutes
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -41326,7 +41653,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_BackupRoutes_BackupRoute
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -41365,7 +41692,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_BackupRoutes_BackupRoute
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -41461,7 +41788,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_BackupRoutes_BackupRoute
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -41833,8 +42160,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactRouteTabl
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -41907,6 +42237,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastInt
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -41938,7 +42269,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactRouteTabl
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -42310,8 +42641,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactBackupRou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -42388,6 +42722,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastInt
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -42414,7 +42749,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactBackupRou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -42453,7 +42788,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactBackupRou
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -42549,7 +42884,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_MulticastIntactBackupRou
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -43050,8 +43385,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_ConnectedRoutes_Connecte
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -43124,6 +43462,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_ConnectedRou
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -43155,7 +43494,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_ConnectedRoutes_Connecte
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -43526,8 +43865,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_LocalRoutes_LocalRoute_R
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -43600,6 +43942,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_LocalRoutes_
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -43631,7 +43974,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_LocalRoutes_LocalRoute_R
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -44095,8 +44438,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -44173,6 +44519,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -44199,7 +44546,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -44238,7 +44585,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -44334,7 +44681,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -44705,8 +45052,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Con
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -44779,6 +45129,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -44810,7 +45161,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Con
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -45182,8 +45533,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Bac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -45260,6 +45614,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -45286,7 +45641,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Bac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -45325,7 +45680,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Bac
     // Repair List Size. The type is interface{} with range: 0..4294967295.
     BackupRepairListSize interface{}
 
-    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupTunnelInterfaceName interface{}
 
     // Interface Disjoint. The type is bool.
@@ -45421,7 +45776,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Bac
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -45792,8 +46147,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Rou
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -45866,6 +46224,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -45897,7 +46256,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Rou
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -46269,8 +46628,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -46343,6 +46705,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -46374,7 +46737,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Mul
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -46875,8 +47238,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Loc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -46949,6 +47315,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -46980,7 +47347,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteAreas_RouteArea_Loc
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -47351,8 +47718,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteTable_Route_RoutePa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -47425,6 +47795,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteTable_R
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -47456,7 +47827,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_RouteTable_Route_RoutePa
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -47864,8 +48235,11 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_ExternalRoutes_ExternalR
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RouteInterfaceName interface{}
+
+    // Interface snmp index. The type is interface{} with range: 0..4294967295.
+    RouteInterfaceSnmpIndex interface{}
 
     // Nexthop IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -47938,6 +48312,7 @@ func (routePath *Ospf_Processes_Process_DefaultVrf_RouteInformation_ExternalRout
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("route-interface-name", types.YLeaf{"RouteInterfaceName", routePath.RouteInterfaceName})
+    routePath.EntityData.Leafs.Append("route-interface-snmp-index", types.YLeaf{"RouteInterfaceSnmpIndex", routePath.RouteInterfaceSnmpIndex})
     routePath.EntityData.Leafs.Append("route-next-hop-address", types.YLeaf{"RouteNextHopAddress", routePath.RouteNextHopAddress})
     routePath.EntityData.Leafs.Append("route-source", types.YLeaf{"RouteSource", routePath.RouteSource})
     routePath.EntityData.Leafs.Append("route-lsaid", types.YLeaf{"RouteLsaid", routePath.RouteLsaid})
@@ -47969,7 +48344,7 @@ type Ospf_Processes_Process_DefaultVrf_RouteInformation_ExternalRoutes_ExternalR
     MicroloopRepairListSize interface{}
 
     // Microloop Tunnel Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MicroloopTunnelInterfaceName interface{}
 
     // Strict SPF SID. The type is bool.
@@ -48285,7 +48660,7 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_VirtualLinks_Virtual
     TransitArea interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     VirtualLinkInterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -48335,9 +48710,18 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_VirtualLinks_Virtual
     // type is interface{} with range: 0..4294967295.
     VirtualLinkOldMdKeyCount interface{}
 
+    // Virtual Link Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    VirtualLinkKeychainKeyConf interface{}
+
     // Virtual Link Keychain ID. The type is interface{} with range:
     // 0..18446744073709551615.
     VirtualLinkKeychainId interface{}
+
+    // Virtual Link Keychain Alg. The type is OspfCrytographicAlgo.
+    VirtualLinkKeychainAlg interface{}
 
     // If true, NSF enabled. The type is bool.
     VirtualLinkNsfEnabled interface{}
@@ -48396,7 +48780,10 @@ func (virtualLink *Ospf_Processes_Process_DefaultVrf_InterfaceInformation_Virtua
     virtualLink.EntityData.Leafs.Append("virtual-link-youngest-md-key", types.YLeaf{"VirtualLinkYoungestMdKey", virtualLink.VirtualLinkYoungestMdKey})
     virtualLink.EntityData.Leafs.Append("virtual-link-youngest-md-key-id", types.YLeaf{"VirtualLinkYoungestMdKeyId", virtualLink.VirtualLinkYoungestMdKeyId})
     virtualLink.EntityData.Leafs.Append("virtual-link-old-md-key-count", types.YLeaf{"VirtualLinkOldMdKeyCount", virtualLink.VirtualLinkOldMdKeyCount})
+    virtualLink.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", virtualLink.KeychainName})
+    virtualLink.EntityData.Leafs.Append("virtual-link-keychain-key-conf", types.YLeaf{"VirtualLinkKeychainKeyConf", virtualLink.VirtualLinkKeychainKeyConf})
     virtualLink.EntityData.Leafs.Append("virtual-link-keychain-id", types.YLeaf{"VirtualLinkKeychainId", virtualLink.VirtualLinkKeychainId})
+    virtualLink.EntityData.Leafs.Append("virtual-link-keychain-alg", types.YLeaf{"VirtualLinkKeychainAlg", virtualLink.VirtualLinkKeychainAlg})
     virtualLink.EntityData.Leafs.Append("virtual-link-nsf-enabled", types.YLeaf{"VirtualLinkNsfEnabled", virtualLink.VirtualLinkNsfEnabled})
     virtualLink.EntityData.Leafs.Append("virtual-link-nsf", types.YLeaf{"VirtualLinkNsf", virtualLink.VirtualLinkNsf})
     virtualLink.EntityData.Leafs.Append("virtual-link-last-nsf", types.YLeaf{"VirtualLinkLastNsf", virtualLink.VirtualLinkLastNsf})
@@ -48632,10 +49019,10 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_InterfaceBriefs_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Area ID string in decimal or dotted-decimal format. The type is string with
@@ -48801,10 +49188,10 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_Interfaces_Interface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is InterfaceState.
@@ -49022,7 +49409,7 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_Interfaces_Interface
     // Topology Independent LFA. The type is bool.
     FastRerouteTopologyIndependentLfa interface{}
 
-    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceUnnum interface{}
 
     // Forward reference interface. The type is bool.
@@ -49362,8 +49749,17 @@ type Ospf_Processes_Process_DefaultVrf_InterfaceInformation_Interfaces_Interface
     // Youngest MD key ID. The type is interface{} with range: 0..65535.
     YoungestMdKeyId interface{}
 
+    // Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    KeychainKeyConf interface{}
+
     // Keychain ID. The type is interface{} with range: 0..18446744073709551615.
     KeychainId interface{}
+
+    // Keychain Alg. The type is OspfCrytographicAlgo.
+    KeychainAlg interface{}
 
     // List of old MD keys. The type is slice of
     // Ospf_Processes_Process_DefaultVrf_InterfaceInformation_Interfaces_Interface_ActiveInterface_MdKeys.
@@ -49405,7 +49801,10 @@ func (activeInterface *Ospf_Processes_Process_DefaultVrf_InterfaceInformation_In
     activeInterface.EntityData.Leafs.Append("youngest-md-key", types.YLeaf{"YoungestMdKey", activeInterface.YoungestMdKey})
     activeInterface.EntityData.Leafs.Append("old-md5-key-neighbor-count", types.YLeaf{"OldMd5KeyNeighborCount", activeInterface.OldMd5KeyNeighborCount})
     activeInterface.EntityData.Leafs.Append("youngest-md-key-id", types.YLeaf{"YoungestMdKeyId", activeInterface.YoungestMdKeyId})
+    activeInterface.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", activeInterface.KeychainName})
+    activeInterface.EntityData.Leafs.Append("keychain-key-conf", types.YLeaf{"KeychainKeyConf", activeInterface.KeychainKeyConf})
     activeInterface.EntityData.Leafs.Append("keychain-id", types.YLeaf{"KeychainId", activeInterface.KeychainId})
+    activeInterface.EntityData.Leafs.Append("keychain-alg", types.YLeaf{"KeychainAlg", activeInterface.KeychainAlg})
 
     activeInterface.EntityData.YListKeys = []string {}
 
@@ -49756,7 +50155,7 @@ type Ospf_Processes_Process_DefaultVrf_BorderRouters_BorderRouter_BorderRouterPa
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BorderRouterNextHopInterfaceName interface{}
 
     // Border router type. The type is OspfBr.
@@ -49936,7 +50335,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProtocolAreas_Protocol
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProtocolInterfaceName interface{}
 
     // Authentication type. The type is Authentication.
@@ -50776,6 +51175,17 @@ type Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProcessSummary struct 
     // True if Segment Routing Strict-SPF capable. The type is bool.
     SrStrictSpfCap interface{}
 
+    // Segment Routing Local Block start label value. The type is interface{} with
+    // range: 0..4294967295.
+    SrlbStart interface{}
+
+    // Segment Routing Local Block end label value. The type is interface{} with
+    // range: 0..4294967295.
+    SrlbEnd interface{}
+
+    // Segment Routing Local Block allocation status. The type is OspfSrlbStatus.
+    SrlbStatus interface{}
+
     // Domain ID information.
     DomainId Ospf_Processes_Process_DefaultVrf_ProcessInformation_ProcessSummary_DomainId
 
@@ -50896,6 +51306,9 @@ func (processSummary *Ospf_Processes_Process_DefaultVrf_ProcessInformation_Proce
     processSummary.EntityData.Leafs.Append("srgb-end", types.YLeaf{"SrgbEnd", processSummary.SrgbEnd})
     processSummary.EntityData.Leafs.Append("srgb-status", types.YLeaf{"SrgbStatus", processSummary.SrgbStatus})
     processSummary.EntityData.Leafs.Append("sr-strict-spf-cap", types.YLeaf{"SrStrictSpfCap", processSummary.SrStrictSpfCap})
+    processSummary.EntityData.Leafs.Append("srlb-start", types.YLeaf{"SrlbStart", processSummary.SrlbStart})
+    processSummary.EntityData.Leafs.Append("srlb-end", types.YLeaf{"SrlbEnd", processSummary.SrlbEnd})
+    processSummary.EntityData.Leafs.Append("srlb-status", types.YLeaf{"SrlbStatus", processSummary.SrlbStatus})
 
     processSummary.EntityData.YListKeys = []string {}
 
@@ -51355,10 +51768,10 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_FloodListAreaTable_Flood struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FloodInterfaceName interface{}
 
     // Time until next LS update due (ms). The type is interface{} with range:
@@ -51551,7 +51964,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -51567,7 +51980,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Neighbors_Neighbor struct {
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -51698,10 +52111,10 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_InterfaceBriefs_InterfaceBrief
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Area ID string in decimal or dotted-decimal format. The type is string with
@@ -51866,7 +52279,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Requests_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -51881,7 +52294,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Requests_Request struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
-    // Request list interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Request list interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     RequestInterfaceName interface{}
 
     // List of request list entries. The type is slice of
@@ -52007,7 +52420,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Retransmissions_Retransmission
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -52023,7 +52436,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Retransmissions_Retransmission
     RetransmissionNeighborIpAddress interface{}
 
     // Retransmission list interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     RetransmissionInterfaceName interface{}
 
     // Amount of time remaining on retransmission timer (ms). The type is
@@ -52249,10 +52662,10 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_AreaStatistics_InterfaceStatsE
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.
@@ -52401,7 +52814,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_NeighborDetails_NeighborDetail
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -52464,7 +52877,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_NeighborDetails_NeighborDetail
     // 0..4294967295. Units are second.
     LastOobTime interface{}
 
-    // LFA Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LFA Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     LfaInterface interface{}
 
     // LFA Next Hop. The type is string with pattern:
@@ -52571,7 +52984,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_NeighborDetails_NeighborDetail
     NeighborAddressXr interface{}
 
     // Interface via which the neighbor is seen. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Neighbor's DR priority. The type is interface{} with range: 0..255.
@@ -52854,10 +53267,10 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is InterfaceState.
@@ -53075,7 +53488,7 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Interfaces_Interface struct {
     // Topology Independent LFA. The type is bool.
     FastRerouteTopologyIndependentLfa interface{}
 
-    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Unnumbered interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceUnnum interface{}
 
     // Forward reference interface. The type is bool.
@@ -53415,8 +53828,17 @@ type Ospf_Processes_Process_DefaultVrf_Areas_Area_Interfaces_Interface_ActiveInt
     // Youngest MD key ID. The type is interface{} with range: 0..65535.
     YoungestMdKeyId interface{}
 
+    // Keychain Name. The type is string with length: 0..255.
+    KeychainName interface{}
+
+    // If true, Keychain key is configured. The type is bool.
+    KeychainKeyConf interface{}
+
     // Keychain ID. The type is interface{} with range: 0..18446744073709551615.
     KeychainId interface{}
+
+    // Keychain Alg. The type is OspfCrytographicAlgo.
+    KeychainAlg interface{}
 
     // List of old MD keys. The type is slice of
     // Ospf_Processes_Process_DefaultVrf_Areas_Area_Interfaces_Interface_ActiveInterface_MdKeys.
@@ -53458,7 +53880,10 @@ func (activeInterface *Ospf_Processes_Process_DefaultVrf_Areas_Area_Interfaces_I
     activeInterface.EntityData.Leafs.Append("youngest-md-key", types.YLeaf{"YoungestMdKey", activeInterface.YoungestMdKey})
     activeInterface.EntityData.Leafs.Append("old-md5-key-neighbor-count", types.YLeaf{"OldMd5KeyNeighborCount", activeInterface.OldMd5KeyNeighborCount})
     activeInterface.EntityData.Leafs.Append("youngest-md-key-id", types.YLeaf{"YoungestMdKeyId", activeInterface.YoungestMdKeyId})
+    activeInterface.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", activeInterface.KeychainName})
+    activeInterface.EntityData.Leafs.Append("keychain-key-conf", types.YLeaf{"KeychainKeyConf", activeInterface.KeychainKeyConf})
     activeInterface.EntityData.Leafs.Append("keychain-id", types.YLeaf{"KeychainId", activeInterface.KeychainId})
+    activeInterface.EntityData.Leafs.Append("keychain-alg", types.YLeaf{"KeychainAlg", activeInterface.KeychainAlg})
 
     activeInterface.EntityData.YListKeys = []string {}
 
@@ -53886,7 +54311,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Header information.
@@ -54822,7 +55247,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_
     YFilter yfilter.YFilter
 
     // Interface on which the Opaque link LSA is received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OpaqueInterfaceName interface{}
 }
 
@@ -55022,7 +55447,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_
     OpaqueRilsaScope interface{}
 
     // Interface on which this Link-Local Opaque link LSA is received. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     OpaqueRiInterfaceName interface{}
 
     // Router Information TLV. The type is slice of
@@ -55080,6 +55505,9 @@ type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_
 
     // Node MSD TLV.
     NodeMsdtlv Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_NodeMsdtlv
+
+    // SRLB Range TLV.
+    Srlbtlv Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
 }
 
 func (opaqueRitlv *Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv) GetEntityData() *types.CommonEntityData {
@@ -55099,6 +55527,7 @@ func (opaqueRitlv *Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_Data
     opaqueRitlv.EntityData.Children.Append("sr-algo-tlv", types.YChild{"SrAlgoTlv", &opaqueRitlv.SrAlgoTlv})
     opaqueRitlv.EntityData.Children.Append("sr-range-tlv", types.YChild{"SrRangeTlv", &opaqueRitlv.SrRangeTlv})
     opaqueRitlv.EntityData.Children.Append("node-msdtlv", types.YChild{"NodeMsdtlv", &opaqueRitlv.NodeMsdtlv})
+    opaqueRitlv.EntityData.Children.Append("srlbtlv", types.YChild{"Srlbtlv", &opaqueRitlv.Srlbtlv})
     opaqueRitlv.EntityData.Leafs = types.NewOrderedMap()
     opaqueRitlv.EntityData.Leafs.Append("ritlv-internal-type", types.YLeaf{"RitlvInternalType", opaqueRitlv.RitlvInternalType})
 
@@ -55650,6 +56079,76 @@ func (nodeMsdSubTypes *Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_
     return &(nodeMsdSubTypes.EntityData)
 }
 
+// Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
+// SRLB Range TLV
+type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of TLV. The type is interface{} with range: 0..65535.
+    SrlbtlvLength interface{}
+
+    // SRLB Range Size. The type is interface{} with range: 0..4294967295.
+    SrlbRangeSize interface{}
+
+    // SID sub-TLV.
+    Sidtlv Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+}
+
+func (srlbtlv *Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv) GetEntityData() *types.CommonEntityData {
+    srlbtlv.EntityData.YFilter = srlbtlv.YFilter
+    srlbtlv.EntityData.YangName = "srlbtlv"
+    srlbtlv.EntityData.BundleName = "cisco_ios_xr"
+    srlbtlv.EntityData.ParentYangName = "opaque-ritlv"
+    srlbtlv.EntityData.SegmentPath = "srlbtlv"
+    srlbtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlbtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlbtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlbtlv.EntityData.Children = types.NewOrderedMap()
+    srlbtlv.EntityData.Children.Append("sidtlv", types.YChild{"Sidtlv", &srlbtlv.Sidtlv})
+    srlbtlv.EntityData.Leafs = types.NewOrderedMap()
+    srlbtlv.EntityData.Leafs.Append("srlbtlv-length", types.YLeaf{"SrlbtlvLength", srlbtlv.SrlbtlvLength})
+    srlbtlv.EntityData.Leafs.Append("srlb-range-size", types.YLeaf{"SrlbRangeSize", srlbtlv.SrlbRangeSize})
+
+    srlbtlv.EntityData.YListKeys = []string {}
+
+    return &(srlbtlv.EntityData)
+}
+
+// Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+// SID sub-TLV
+type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of sub-TLV. The type is interface{} with range: 0..65535.
+    SrSidLength interface{}
+
+    // SID Value. The type is interface{} with range: 0..4294967295.
+    SrSidValue interface{}
+}
+
+func (sidtlv *Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv) GetEntityData() *types.CommonEntityData {
+    sidtlv.EntityData.YFilter = sidtlv.YFilter
+    sidtlv.EntityData.YangName = "sidtlv"
+    sidtlv.EntityData.BundleName = "cisco_ios_xr"
+    sidtlv.EntityData.ParentYangName = "srlbtlv"
+    sidtlv.EntityData.SegmentPath = "sidtlv"
+    sidtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sidtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sidtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sidtlv.EntityData.Children = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs.Append("sr-sid-length", types.YLeaf{"SrSidLength", sidtlv.SrSidLength})
+    sidtlv.EntityData.Leafs.Append("sr-sid-value", types.YLeaf{"SrSidValue", sidtlv.SrSidValue})
+
+    sidtlv.EntityData.YListKeys = []string {}
+
+    return &(sidtlv.EntityData)
+}
+
 // Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType
 // Extende Prefix LSA type
 type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType struct {
@@ -55955,7 +56454,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_DatabaseAreas_DatabaseArea_LsaSu
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -56318,7 +56817,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Header information.
@@ -57254,7 +57753,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueL
     YFilter yfilter.YFilter
 
     // Interface on which the Opaque link LSA is received. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OpaqueInterfaceName interface{}
 }
 
@@ -57454,7 +57953,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueR
     OpaqueRilsaScope interface{}
 
     // Interface on which this Link-Local Opaque link LSA is received. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     OpaqueRiInterfaceName interface{}
 
     // Router Information TLV. The type is slice of
@@ -57512,6 +58011,9 @@ type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueR
 
     // Node MSD TLV.
     NodeMsdtlv Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_NodeMsdtlv
+
+    // SRLB Range TLV.
+    Srlbtlv Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
 }
 
 func (opaqueRitlv *Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv) GetEntityData() *types.CommonEntityData {
@@ -57531,6 +58033,7 @@ func (opaqueRitlv *Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaIntern
     opaqueRitlv.EntityData.Children.Append("sr-algo-tlv", types.YChild{"SrAlgoTlv", &opaqueRitlv.SrAlgoTlv})
     opaqueRitlv.EntityData.Children.Append("sr-range-tlv", types.YChild{"SrRangeTlv", &opaqueRitlv.SrRangeTlv})
     opaqueRitlv.EntityData.Children.Append("node-msdtlv", types.YChild{"NodeMsdtlv", &opaqueRitlv.NodeMsdtlv})
+    opaqueRitlv.EntityData.Children.Append("srlbtlv", types.YChild{"Srlbtlv", &opaqueRitlv.Srlbtlv})
     opaqueRitlv.EntityData.Leafs = types.NewOrderedMap()
     opaqueRitlv.EntityData.Leafs.Append("ritlv-internal-type", types.YLeaf{"RitlvInternalType", opaqueRitlv.RitlvInternalType})
 
@@ -58082,6 +58585,76 @@ func (nodeMsdSubTypes *Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaIn
     return &(nodeMsdSubTypes.EntityData)
 }
 
+// Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv
+// SRLB Range TLV
+type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of TLV. The type is interface{} with range: 0..65535.
+    SrlbtlvLength interface{}
+
+    // SRLB Range Size. The type is interface{} with range: 0..4294967295.
+    SrlbRangeSize interface{}
+
+    // SID sub-TLV.
+    Sidtlv Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+}
+
+func (srlbtlv *Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv) GetEntityData() *types.CommonEntityData {
+    srlbtlv.EntityData.YFilter = srlbtlv.YFilter
+    srlbtlv.EntityData.YangName = "srlbtlv"
+    srlbtlv.EntityData.BundleName = "cisco_ios_xr"
+    srlbtlv.EntityData.ParentYangName = "opaque-ritlv"
+    srlbtlv.EntityData.SegmentPath = "srlbtlv"
+    srlbtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlbtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlbtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlbtlv.EntityData.Children = types.NewOrderedMap()
+    srlbtlv.EntityData.Children.Append("sidtlv", types.YChild{"Sidtlv", &srlbtlv.Sidtlv})
+    srlbtlv.EntityData.Leafs = types.NewOrderedMap()
+    srlbtlv.EntityData.Leafs.Append("srlbtlv-length", types.YLeaf{"SrlbtlvLength", srlbtlv.SrlbtlvLength})
+    srlbtlv.EntityData.Leafs.Append("srlb-range-size", types.YLeaf{"SrlbRangeSize", srlbtlv.SrlbRangeSize})
+
+    srlbtlv.EntityData.YListKeys = []string {}
+
+    return &(srlbtlv.EntityData)
+}
+
+// Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv
+// SID sub-TLV
+type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of sub-TLV. The type is interface{} with range: 0..65535.
+    SrSidLength interface{}
+
+    // SID Value. The type is interface{} with range: 0..4294967295.
+    SrSidValue interface{}
+}
+
+func (sidtlv *Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueRouterInfoLsaType_OpaqueRitlv_Srlbtlv_Sidtlv) GetEntityData() *types.CommonEntityData {
+    sidtlv.EntityData.YFilter = sidtlv.YFilter
+    sidtlv.EntityData.YangName = "sidtlv"
+    sidtlv.EntityData.BundleName = "cisco_ios_xr"
+    sidtlv.EntityData.ParentYangName = "srlbtlv"
+    sidtlv.EntityData.SegmentPath = "sidtlv"
+    sidtlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sidtlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sidtlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sidtlv.EntityData.Children = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs = types.NewOrderedMap()
+    sidtlv.EntityData.Leafs.Append("sr-sid-length", types.YLeaf{"SrSidLength", sidtlv.SrSidLength})
+    sidtlv.EntityData.Leafs.Append("sr-sid-value", types.YLeaf{"SrSidValue", sidtlv.SrSidValue})
+
+    sidtlv.EntityData.YListKeys = []string {}
+
+    return &(sidtlv.EntityData)
+}
+
 // Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType
 // Extende Prefix LSA type
 type Ospf_Processes_Process_DefaultVrf_Database_Lsas_Lsa_LsaInternalData_OpaqueEpLsaType struct {
@@ -58387,7 +58960,7 @@ type Ospf_Processes_Process_DefaultVrf_Database_LsaSummaries_LsaSummary struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -58650,10 +59223,10 @@ type Ospf_Processes_Process_DefaultVrf_AreaStatistics_InterfaceStatsEntries_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // interface handle type. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interface handle type. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // interface name. The type is string.

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ip-domain: IP domain configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_domain_cfg
 
@@ -102,7 +102,7 @@ type IpDomain_Vrfs_Vrf struct {
     MulticastDomain interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Default domain name. The type is string.

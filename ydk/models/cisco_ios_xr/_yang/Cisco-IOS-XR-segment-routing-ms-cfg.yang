@@ -29,7 +29,7 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
      for the following management objects:
        sr: Segment Routing
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -132,17 +132,19 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
         description
           "IP prefix to SID mapping";
         leaf af {
-          type xr:Cisco-ios-xr-string;
+          type Srms-address-family;
           description
             "Address Family";
         }
         leaf ip {
-          type xr:Cisco-ios-xr-string;
+          type inet:ip-address-no-zone;
           description
             "IP prefix";
         }
         leaf mask {
-          type uint32;
+          type uint32 {
+            range "1..128";
+          }
           description
             "Mask";
         }
@@ -154,7 +156,9 @@ module Cisco-IOS-XR-segment-routing-ms-cfg {
             "Start of SID index range";
         }
         leaf sid-range {
-          type uint32;
+          type uint32 {
+            range "0..1048575";
+          }
           description
             "Range (number of SIDs)";
         }

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   tpa: tpa configuration commands
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package kim_tpa_cfg
 
@@ -320,7 +320,7 @@ type Tpa_VrfNames_VrfName_AddressFamily_Ipv6_InterfaceNames_InterfaceName struct
     InterfaceName interface{}
 
     // Interface name for source address. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     EgressInterfaceSource interface{}
 }
 
@@ -351,7 +351,7 @@ type Tpa_VrfNames_VrfName_AddressFamily_Ipv6_UpdateSource struct {
     YFilter yfilter.YFilter
 
     // Interface name for source address. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Use the management port on the Active RP. The type is interface{}.
@@ -460,7 +460,7 @@ type Tpa_VrfNames_VrfName_AddressFamily_Ipv4_InterfaceNames_InterfaceName struct
     InterfaceName interface{}
 
     // Interface name for source address. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     EgressInterfaceSource interface{}
 }
 
@@ -491,7 +491,7 @@ type Tpa_VrfNames_VrfName_AddressFamily_Ipv4_UpdateSource struct {
     YFilter yfilter.YFilter
 
     // Interface name for source address. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Use the management port on the Active RP. The type is interface{}.

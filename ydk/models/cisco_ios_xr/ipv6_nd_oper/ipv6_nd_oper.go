@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv6-node-discovery: IPv6 node discovery operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_nd_oper
 
@@ -309,7 +309,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NeighborInterfaces_NeighborInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IPv6 node discovery list of neighbor host addresses.
@@ -853,10 +853,10 @@ type Ipv6NodeDiscovery_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Interface type. The type is interface{} with range: 0..4294967295.
@@ -1217,7 +1217,7 @@ type Ipv6NodeDiscovery_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, DAD (D.. A.. D..) is enabled otherwise it is disabled. The type is
@@ -1371,7 +1371,7 @@ type Ipv6NodeDiscovery_Nodes_Node_NdVirtualRouters_NdVirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Link-Layer Address. The type is string with pattern:
@@ -1550,7 +1550,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IPv6 ND operational data for a specific slaac interface.
@@ -1584,7 +1584,7 @@ type Ipv6NodeDiscovery_Nodes_Node_SlaacInterfaces_SlaacInterface_RouterAdvertDet
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // idb. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // idb. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Idb interface{}
 
     // slaac db. The type is slice of

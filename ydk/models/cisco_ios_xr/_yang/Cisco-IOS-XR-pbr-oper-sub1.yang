@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-pbr-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pbr package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -42,6 +42,54 @@ submodule Cisco-IOS-XR-pbr-oper-sub1 {
     }
     description
       "Different Interface states";
+  }
+
+  grouping HTTP-ENRICH-STATS-ST {
+    description
+      "HTTP Enrichment Stats";
+    leaf rqst-rcvd-packets {
+      type uint64;
+      description
+        "TotalNum of pkts HTTP request received";
+    }
+    leaf rqst-rcvd-bytes {
+      type uint64;
+      units "byte";
+      description
+        "TotalNum of Bytes HTTP request received";
+    }
+    leaf drop-packets {
+      type uint64;
+      description
+        "Dropped  packets";
+    }
+    leaf drop-bytes {
+      type uint64;
+      units "byte";
+      description
+        "Dropped bytes";
+    }
+    leaf resp-sent-packets {
+      type uint64;
+      description
+        "TotalNum of pkts HTTP Enrichment response sent";
+    }
+    leaf resp-sent-bytes {
+      type uint64;
+      units "byte";
+      description
+        "TotalNum of Bytes HTTP Enrichment response sent";
+    }
+    leaf req-sent-packets {
+      type uint64;
+      description
+        "TotalNum of pkts HTTP Enrichment request sent";
+    }
+    leaf tcp-sent-packets {
+      type uint64;
+      description
+        "TotalNum of pkts HTTP Enrichment TCP packet sent";
+    }
   }
 
   grouping HTTPR-STATS-ST {
@@ -153,6 +201,11 @@ submodule Cisco-IOS-XR-pbr-oper-sub1 {
         "HTTPR stats";
       uses HTTPR-STATS-ST;
     }
+    container http-enrich-stats {
+      description
+        "HTTP Enrichment stats";
+      uses HTTP-ENRICH-STATS-ST;
+    }
     leaf counter-validity-bitmask {
       type uint64;
       units "byte";
@@ -173,7 +226,10 @@ submodule Cisco-IOS-XR-pbr-oper-sub1 {
          ), 0x00000002 - Drop
          (TotalDropPackets/TotalDropBytes/TotalDropRate),
          0x00000004 - Httpr
-         (HttprTransmitPackets/HttprTransmitBytes), ";
+         (HttprTransmitPackets/HttprTransmitBytes),
+         0x00000020 - HttpErich
+         (HttpErichTransmitPackets
+         /HttpEnrichTransmitBytes), ";
     }
     leaf class-name {
       type string {

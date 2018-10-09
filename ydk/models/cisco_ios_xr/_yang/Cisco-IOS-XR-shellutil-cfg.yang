@@ -22,7 +22,7 @@ module Cisco-IOS-XR-shellutil-cfg {
      for the following management objects:
        host-names: Container Schema for hostname configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-10-12 {

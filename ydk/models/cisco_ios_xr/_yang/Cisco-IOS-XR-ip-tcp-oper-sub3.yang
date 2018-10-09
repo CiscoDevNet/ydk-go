@@ -23,12 +23,16 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-tcp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";
+  }
+  revision 2018-02-14 {
+    description
+      "Added support for TCP-AO feature.";
   }
   revision 2017-05-01 {
     description
@@ -41,6 +45,100 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Tcp-mac-algo {
+    type enumeration {
+      enum "not-configured" {
+        value 0;
+        description
+          "Not configured";
+      }
+      enum "aes-128-cmac-96" {
+        value 1;
+        description
+          "CMAC 96";
+      }
+      enum "hmac-sha1-12" {
+        value 2;
+        description
+          "HMAC SHA1 12";
+      }
+      enum "md5-16" {
+        value 3;
+        description
+          "MD5 16";
+      }
+      enum "sha1-20" {
+        value 4;
+        description
+          "SHA1 20";
+      }
+      enum "hmac-md5-16" {
+        value 5;
+        description
+          "HMAC MD5 16";
+      }
+      enum "hmac-sha1-20" {
+        value 6;
+        description
+          "HMAC SHA1 20";
+      }
+      enum "aes-128-cmac" {
+        value 7;
+        description
+          "AES 128 CMAC";
+      }
+      enum "aes-256-cmac" {
+        value 8;
+        description
+          "AES 256 CMAC";
+      }
+      enum "hmac-sha1-96" {
+        value 9;
+        description
+          "HMAC SHA1 96";
+      }
+      enum "hmac-sha-256" {
+        value 10;
+        description
+          "HMAC SHA1 256";
+      }
+    }
+    description
+      "TCP AO MAC algorithm type";
+  }
+
+  typedef Tcp-key-invalid-reason {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "No reason";
+      }
+      enum "incomplete" {
+        value 1;
+        description
+          "Incomplete";
+      }
+      enum "lifetime-not-same" {
+        value 2;
+        description
+          "Send and accept lifetime are not same";
+      }
+      enum "send-id-invalid" {
+        value 3;
+        description
+          "Send ID is invalid";
+      }
+      enum "recv-id-invalid" {
+        value 4;
+        description
+          "Receive ID is invalid";
+      }
+    }
+    description
+      "TCP AO key state invalid reason";
   }
 
   typedef Tcp-timer {
@@ -273,6 +371,142 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub3 {
       type uint32;
       description
         "VRF ID";
+    }
+  }
+
+  grouping TCP-SH-ID-BAG {
+    description
+      "Detailed information about a TCP AO ID under a
+       keychain";
+    leaf id {
+      type uint8;
+      description
+        "Identifier";
+    }
+    list keys {
+      description
+        "List of keys having this id";
+      uses TCP-SH-KEY-ID-BAG;
+    }
+  }
+
+  grouping TCP-SH-KEY-ID-BAG {
+    description
+      "Information about a TCP AO active key";
+    leaf key-id {
+      type uint64;
+      description
+        "Key identifier";
+    }
+  }
+
+  grouping TCP-SH-KEY-BAG {
+    description
+      "Detailed information about a TCP AO key";
+    leaf key-id {
+      type uint64;
+      description
+        "Key identifier";
+    }
+    leaf is-active {
+      type boolean;
+      description
+        "Is key active";
+    }
+    leaf is-expired {
+      type boolean;
+      description
+        "Is key expired";
+    }
+    leaf is-valid {
+      type boolean;
+      description
+        "Is key valid";
+    }
+    leaf reason {
+      type Tcp-key-invalid-reason;
+      description
+        "Key invalid reason";
+    }
+    leaf send-id {
+      type uint8;
+      description
+        "Send ID";
+    }
+    leaf recv-id {
+      type uint8;
+      description
+        "Receive ID";
+    }
+    leaf crypt-algo {
+      type Tcp-mac-algo;
+      description
+        "Cryptography algorithm associated with the key";
+    }
+    leaf is-configured {
+      type boolean;
+      description
+        "Is key configured?";
+    }
+    leaf overlapping-key-available {
+      type boolean;
+      description
+        "Is overlapping key available?";
+    }
+    leaf overlapping-key {
+      type uint64;
+      description
+        "Overlapping key identifier";
+    }
+    list invalidated-key {
+      description
+        "List of keys invalidated";
+      uses TCP-SH-KEY-ID-BAG;
+    }
+  }
+
+  grouping TCP-SH-KEYCHAIN-BAG {
+    description
+      "Detailed information about a TCP AO keychain";
+    leaf chain-name {
+      type string;
+      description
+        "Keychain name";
+    }
+    leaf is-configured {
+      type boolean;
+      description
+        "Is keychain configured?";
+    }
+    leaf desired-key-available {
+      type boolean;
+      description
+        "Is desired key available?";
+    }
+    leaf desired-key-id {
+      type uint64;
+      description
+        "Desired key identifier";
+    }
+    list keys {
+      description
+        "Keys under this keychain";
+      uses TCP-SH-KEY-BAG;
+    }
+    list active-key {
+      description
+        "List of active keys";
+      uses TCP-SH-KEY-ID-BAG;
+    }
+    list send-id {
+      description
+        "Send IDs under this keychain";
+      uses TCP-SH-ID-BAG;
+    }
+    list receive-id {
+      description
+        "Receive IDs under this keychain";
+      uses TCP-SH-ID-BAG;
     }
   }
 

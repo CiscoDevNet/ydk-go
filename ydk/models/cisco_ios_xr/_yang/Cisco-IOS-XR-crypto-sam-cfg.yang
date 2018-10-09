@@ -22,7 +22,7 @@ module Cisco-IOS-XR-crypto-sam-cfg {
      for the following management objects:
        sam: Software Authentication Manager (SAM) Config
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-11-21 {

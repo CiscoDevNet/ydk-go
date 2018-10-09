@@ -5,7 +5,7 @@
 // for the following management objects:
 //   fia: FIA driver operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dnx_driver_oper
 
@@ -726,7 +726,7 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single link. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Link interface{}
 
     // speed. The type is interface{} with range: 0..4294967295.
@@ -1312,6 +1312,21 @@ type Fia_Nodes_Node_DriverInformation struct {
     // board rev id. The type is interface{} with range: 0..4294967295.
     BoardRevId interface{}
 
+    // all wb insync. The type is bool.
+    AllWbInsync interface{}
+
+    // all wb insync since. The type is interface{} with range: 0..4294967295.
+    AllWbInsyncSince interface{}
+
+    // all startup wb insync. The type is bool.
+    AllStartupWbInsync interface{}
+
+    // planeA bitmap. The type is interface{} with range: 0..4294967295.
+    PlaneABitmap interface{}
+
+    // planeB bitmap. The type is interface{} with range: 0..4294967295.
+    PlaneBBitmap interface{}
+
     // device info. The type is slice of
     // Fia_Nodes_Node_DriverInformation_DeviceInfo.
     DeviceInfo []*Fia_Nodes_Node_DriverInformation_DeviceInfo
@@ -1384,6 +1399,11 @@ func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *type
     driverInformation.EntityData.Leafs.Append("fabric-mode", types.YLeaf{"FabricMode", driverInformation.FabricMode})
     driverInformation.EntityData.Leafs.Append("fc-mode", types.YLeaf{"FcMode", driverInformation.FcMode})
     driverInformation.EntityData.Leafs.Append("board-rev-id", types.YLeaf{"BoardRevId", driverInformation.BoardRevId})
+    driverInformation.EntityData.Leafs.Append("all-wb-insync", types.YLeaf{"AllWbInsync", driverInformation.AllWbInsync})
+    driverInformation.EntityData.Leafs.Append("all-wb-insync-since", types.YLeaf{"AllWbInsyncSince", driverInformation.AllWbInsyncSince})
+    driverInformation.EntityData.Leafs.Append("all-startup-wb-insync", types.YLeaf{"AllStartupWbInsync", driverInformation.AllStartupWbInsync})
+    driverInformation.EntityData.Leafs.Append("plane-a-bitmap", types.YLeaf{"PlaneABitmap", driverInformation.PlaneABitmap})
+    driverInformation.EntityData.Leafs.Append("plane-b-bitmap", types.YLeaf{"PlaneBBitmap", driverInformation.PlaneBBitmap})
 
     driverInformation.EntityData.YListKeys = []string {}
 
@@ -1429,6 +1449,24 @@ type Fia_Nodes_Node_DriverInformation_DeviceInfo struct {
     // local switch state. The type is bool.
     LocalSwitchState interface{}
 
+    // startup wb mtime str. The type is string.
+    StartupWbMtimeStr interface{}
+
+    // startup wb outof sync. The type is bool.
+    StartupWbOutofSync interface{}
+
+    // local wb sync end str. The type is string.
+    LocalWbSyncEndStr interface{}
+
+    // remote wb sync end str. The type is string.
+    RemoteWbSyncEndStr interface{}
+
+    // local wb sync pending. The type is bool.
+    LocalWbSyncPending interface{}
+
+    // sdk delay msec. The type is interface{} with range: 0..4294967295.
+    SdkDelayMsec interface{}
+
     // asic id.
     AsicId Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId
 }
@@ -1457,6 +1495,12 @@ func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetEntityData() *
     deviceInfo.EntityData.Leafs.Append("num-pon-resets", types.YLeaf{"NumPonResets", deviceInfo.NumPonResets})
     deviceInfo.EntityData.Leafs.Append("num-hard-resets", types.YLeaf{"NumHardResets", deviceInfo.NumHardResets})
     deviceInfo.EntityData.Leafs.Append("local-switch-state", types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState})
+    deviceInfo.EntityData.Leafs.Append("startup-wb-mtime-str", types.YLeaf{"StartupWbMtimeStr", deviceInfo.StartupWbMtimeStr})
+    deviceInfo.EntityData.Leafs.Append("startup-wb-outof-sync", types.YLeaf{"StartupWbOutofSync", deviceInfo.StartupWbOutofSync})
+    deviceInfo.EntityData.Leafs.Append("local-wb-sync-end-str", types.YLeaf{"LocalWbSyncEndStr", deviceInfo.LocalWbSyncEndStr})
+    deviceInfo.EntityData.Leafs.Append("remote-wb-sync-end-str", types.YLeaf{"RemoteWbSyncEndStr", deviceInfo.RemoteWbSyncEndStr})
+    deviceInfo.EntityData.Leafs.Append("local-wb-sync-pending", types.YLeaf{"LocalWbSyncPending", deviceInfo.LocalWbSyncPending})
+    deviceInfo.EntityData.Leafs.Append("sdk-delay-msec", types.YLeaf{"SdkDelayMsec", deviceInfo.SdkDelayMsec})
 
     deviceInfo.EntityData.YListKeys = []string {}
 
@@ -1771,8 +1815,8 @@ type Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance struct {
     // 0..255.
     AsicInstance interface{}
 
-    // Clear value. The type is interface{} with range: -2147483648..2147483647.
-    // This attribute is mandatory.
+    // Clear value. The type is interface{} with range: 0..4294967295. This
+    // attribute is mandatory.
     Instance interface{}
 }
 
@@ -2031,7 +2075,7 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Link. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Link interface{}
 
     // speed. The type is interface{} with range: 0..4294967295.
@@ -2678,7 +2722,7 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Flag value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Flag interface{}
 
     // Slot table for history.
@@ -2745,7 +2789,7 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Slot interface{}
 
     // drv version. The type is interface{} with range: 0..4294967295.
@@ -2883,6 +2927,21 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
     // board rev id. The type is interface{} with range: 0..4294967295.
     BoardRevId interface{}
 
+    // all wb insync. The type is bool.
+    AllWbInsync interface{}
+
+    // all wb insync since. The type is interface{} with range: 0..4294967295.
+    AllWbInsyncSince interface{}
+
+    // all startup wb insync. The type is bool.
+    AllStartupWbInsync interface{}
+
+    // planeA bitmap. The type is interface{} with range: 0..4294967295.
+    PlaneABitmap interface{}
+
+    // planeB bitmap. The type is interface{} with range: 0..4294967295.
+    PlaneBBitmap interface{}
+
     // device info. The type is slice of
     // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo.
     DeviceInfo []*Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo
@@ -2957,6 +3016,11 @@ func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *ty
     slot.EntityData.Leafs.Append("fabric-mode", types.YLeaf{"FabricMode", slot.FabricMode})
     slot.EntityData.Leafs.Append("fc-mode", types.YLeaf{"FcMode", slot.FcMode})
     slot.EntityData.Leafs.Append("board-rev-id", types.YLeaf{"BoardRevId", slot.BoardRevId})
+    slot.EntityData.Leafs.Append("all-wb-insync", types.YLeaf{"AllWbInsync", slot.AllWbInsync})
+    slot.EntityData.Leafs.Append("all-wb-insync-since", types.YLeaf{"AllWbInsyncSince", slot.AllWbInsyncSince})
+    slot.EntityData.Leafs.Append("all-startup-wb-insync", types.YLeaf{"AllStartupWbInsync", slot.AllStartupWbInsync})
+    slot.EntityData.Leafs.Append("plane-a-bitmap", types.YLeaf{"PlaneABitmap", slot.PlaneABitmap})
+    slot.EntityData.Leafs.Append("plane-b-bitmap", types.YLeaf{"PlaneBBitmap", slot.PlaneBBitmap})
 
     slot.EntityData.YListKeys = []string {"Slot"}
 
@@ -3002,6 +3066,24 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo struct {
     // local switch state. The type is bool.
     LocalSwitchState interface{}
 
+    // startup wb mtime str. The type is string.
+    StartupWbMtimeStr interface{}
+
+    // startup wb outof sync. The type is bool.
+    StartupWbOutofSync interface{}
+
+    // local wb sync end str. The type is string.
+    LocalWbSyncEndStr interface{}
+
+    // remote wb sync end str. The type is string.
+    RemoteWbSyncEndStr interface{}
+
+    // local wb sync pending. The type is bool.
+    LocalWbSyncPending interface{}
+
+    // sdk delay msec. The type is interface{} with range: 0..4294967295.
+    SdkDelayMsec interface{}
+
     // asic id.
     AsicId Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId
 }
@@ -3030,6 +3112,12 @@ func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) Ge
     deviceInfo.EntityData.Leafs.Append("num-pon-resets", types.YLeaf{"NumPonResets", deviceInfo.NumPonResets})
     deviceInfo.EntityData.Leafs.Append("num-hard-resets", types.YLeaf{"NumHardResets", deviceInfo.NumHardResets})
     deviceInfo.EntityData.Leafs.Append("local-switch-state", types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState})
+    deviceInfo.EntityData.Leafs.Append("startup-wb-mtime-str", types.YLeaf{"StartupWbMtimeStr", deviceInfo.StartupWbMtimeStr})
+    deviceInfo.EntityData.Leafs.Append("startup-wb-outof-sync", types.YLeaf{"StartupWbOutofSync", deviceInfo.StartupWbOutofSync})
+    deviceInfo.EntityData.Leafs.Append("local-wb-sync-end-str", types.YLeaf{"LocalWbSyncEndStr", deviceInfo.LocalWbSyncEndStr})
+    deviceInfo.EntityData.Leafs.Append("remote-wb-sync-end-str", types.YLeaf{"RemoteWbSyncEndStr", deviceInfo.RemoteWbSyncEndStr})
+    deviceInfo.EntityData.Leafs.Append("local-wb-sync-pending", types.YLeaf{"LocalWbSyncPending", deviceInfo.LocalWbSyncPending})
+    deviceInfo.EntityData.Leafs.Append("sdk-delay-msec", types.YLeaf{"SdkDelayMsec", deviceInfo.SdkDelayMsec})
 
     deviceInfo.EntityData.YListKeys = []string {}
 
@@ -3633,7 +3721,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Link number. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Link interface{}
 
     // Single aisc information. The type is slice of
@@ -3671,7 +3759,7 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single asic. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     Asic interface{}
 
     // valid. The type is bool.

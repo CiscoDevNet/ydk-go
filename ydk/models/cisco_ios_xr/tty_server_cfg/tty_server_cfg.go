@@ -5,7 +5,7 @@
 // for the following management objects:
 //   tty: TTY Line Configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tty_server_cfg
 
@@ -598,7 +598,7 @@ type Tty_TtyLines_TtyLine_Connection_TransportInput struct {
     // Transport protocol2. The type is TtyTransportProtocol.
     Protocol2 interface{}
 
-    // Not used. The type is interface{} with range: -2147483648..2147483647.
+    // Not used. The type is interface{} with range: 0..4294967295.
     None interface{}
 }
 
@@ -642,7 +642,7 @@ type Tty_TtyLines_TtyLine_Connection_TransportOutput struct {
     // Transport protocol2. The type is TtyTransportProtocol.
     Protocol2 interface{}
 
-    // Not used. The type is interface{} with range: -2147483648..2147483647.
+    // Not used. The type is interface{} with range: 0..4294967295.
     None interface{}
 }
 

@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-ipv4-io-oper
 // module with state data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_ma_oper
 
@@ -17,6 +17,20 @@ import (
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ipv4_ma_oper"))
 }
+
+// Ipv4MaOperConfig represents ipv4 client type
+type Ipv4MaOperConfig string
+
+const (
+    // ipv4 ma oper client none
+    Ipv4MaOperConfig_ipv4_ma_oper_client_none Ipv4MaOperConfig = "ipv4-ma-oper-client-none"
+
+    // ipv4 ma oper non oc client
+    Ipv4MaOperConfig_ipv4_ma_oper_non_oc_client Ipv4MaOperConfig = "ipv4-ma-oper-non-oc-client"
+
+    // ipv4 ma oper oc client
+    Ipv4MaOperConfig_ipv4_ma_oper_oc_client Ipv4MaOperConfig = "ipv4-ma-oper-oc-client"
+)
 
 // RpfMode represents Interface line states
 type RpfMode string

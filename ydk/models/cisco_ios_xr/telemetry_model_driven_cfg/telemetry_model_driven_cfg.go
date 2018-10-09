@@ -5,7 +5,7 @@
 // for the following management objects:
 //   telemetry-model-driven: Model Driven Telemetry configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package telemetry_model_driven_cfg
 
@@ -126,14 +126,33 @@ type TelemetryModelDriven struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // enable strict-timer for all subscriptions, default is relative timer. The
+    // type is interface{}.
+    StrictTimer interface{}
+
     // Enable Model Driven Telemetry. The type is interface{}.
     Enable interface{}
+
+    // Maximum allowed sensor paths, default: 1000. The type is interface{} with
+    // range: 0..4000.
+    MaxSensorPaths interface{}
+
+    // Maximum containers allowed per path, 0 disables the check. The type is
+    // interface{} with range: 0..1024.
+    MaxContainersPerPath interface{}
+
+    // TCP send timeout value, default:30 sec,0 will disable the timeout. The type
+    // is interface{} with range: 0..30.
+    TcpSendTimeout interface{}
 
     // Sensor group configuration.
     SensorGroups TelemetryModelDriven_SensorGroups
 
     // Streaming Telemetry Subscription.
     Subscriptions TelemetryModelDriven_Subscriptions
+
+    // Include fields with empty values in output.
+    Include TelemetryModelDriven_Include
 
     // Destination Group configuration.
     DestinationGroups TelemetryModelDriven_DestinationGroups
@@ -152,9 +171,14 @@ func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonE
     telemetryModelDriven.EntityData.Children = types.NewOrderedMap()
     telemetryModelDriven.EntityData.Children.Append("sensor-groups", types.YChild{"SensorGroups", &telemetryModelDriven.SensorGroups})
     telemetryModelDriven.EntityData.Children.Append("subscriptions", types.YChild{"Subscriptions", &telemetryModelDriven.Subscriptions})
+    telemetryModelDriven.EntityData.Children.Append("include", types.YChild{"Include", &telemetryModelDriven.Include})
     telemetryModelDriven.EntityData.Children.Append("destination-groups", types.YChild{"DestinationGroups", &telemetryModelDriven.DestinationGroups})
     telemetryModelDriven.EntityData.Leafs = types.NewOrderedMap()
+    telemetryModelDriven.EntityData.Leafs.Append("strict-timer", types.YLeaf{"StrictTimer", telemetryModelDriven.StrictTimer})
     telemetryModelDriven.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", telemetryModelDriven.Enable})
+    telemetryModelDriven.EntityData.Leafs.Append("max-sensor-paths", types.YLeaf{"MaxSensorPaths", telemetryModelDriven.MaxSensorPaths})
+    telemetryModelDriven.EntityData.Leafs.Append("max-containers-per-path", types.YLeaf{"MaxContainersPerPath", telemetryModelDriven.MaxContainersPerPath})
+    telemetryModelDriven.EntityData.Leafs.Append("tcp-send-timeout", types.YLeaf{"TcpSendTimeout", telemetryModelDriven.TcpSendTimeout})
 
     telemetryModelDriven.EntityData.YListKeys = []string {}
 
@@ -337,7 +361,7 @@ type TelemetryModelDriven_Subscriptions_Subscription struct {
     SourceQosMarking interface{}
 
     // Source address to use for streaming telemetry information. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Associate Sensor Groups with Subscription.
@@ -417,7 +441,7 @@ type TelemetryModelDriven_Subscriptions_Subscription_SensorProfiles_SensorProfil
     StrictTimer interface{}
 
     // Sample interval in milliseconds. The type is interface{} with range:
-    // 0..4294967295. Units are millisecond.
+    // 0..4294967295. This attribute is mandatory. Units are millisecond.
     SampleInterval interface{}
 }
 
@@ -503,6 +527,66 @@ func (destinationProfile *TelemetryModelDriven_Subscriptions_Subscription_Destin
     destinationProfile.EntityData.YListKeys = []string {"DestinationId"}
 
     return &(destinationProfile.EntityData)
+}
+
+// TelemetryModelDriven_Include
+// Include fields with empty values in output.
+type TelemetryModelDriven_Include struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Include fields with empty values in output.
+    Empty TelemetryModelDriven_Include_Empty
+}
+
+func (include *TelemetryModelDriven_Include) GetEntityData() *types.CommonEntityData {
+    include.EntityData.YFilter = include.YFilter
+    include.EntityData.YangName = "include"
+    include.EntityData.BundleName = "cisco_ios_xr"
+    include.EntityData.ParentYangName = "telemetry-model-driven"
+    include.EntityData.SegmentPath = "include"
+    include.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    include.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    include.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    include.EntityData.Children = types.NewOrderedMap()
+    include.EntityData.Children.Append("empty", types.YChild{"Empty", &include.Empty})
+    include.EntityData.Leafs = types.NewOrderedMap()
+
+    include.EntityData.YListKeys = []string {}
+
+    return &(include.EntityData)
+}
+
+// TelemetryModelDriven_Include_Empty
+// Include fields with empty values in output.
+type TelemetryModelDriven_Include_Empty struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // String type fields with empty string value, for example, are omitted by
+    // default. This provides an option to override this behavior and include them
+    // in the output. The type is interface{}.
+    Values interface{}
+}
+
+func (empty *TelemetryModelDriven_Include_Empty) GetEntityData() *types.CommonEntityData {
+    empty.EntityData.YFilter = empty.YFilter
+    empty.EntityData.YangName = "empty"
+    empty.EntityData.BundleName = "cisco_ios_xr"
+    empty.EntityData.ParentYangName = "include"
+    empty.EntityData.SegmentPath = "empty"
+    empty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    empty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    empty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    empty.EntityData.Children = types.NewOrderedMap()
+    empty.EntityData.Leafs = types.NewOrderedMap()
+    empty.EntityData.Leafs.Append("values", types.YLeaf{"Values", empty.Values})
+
+    empty.EntityData.YListKeys = []string {}
+
+    return &(empty.EntityData)
 }
 
 // TelemetryModelDriven_DestinationGroups
@@ -673,8 +757,8 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv6Destinations_Ip
     // tls hostname. The type is string.
     TlsHostname interface{}
 
-    // no tls. The type is interface{} with range: -2147483648..2147483647. The
-    // default value is 0.
+    // no tls. The type is interface{} with range: 0..4294967295. The default
+    // value is 0.
     NoTls interface{}
 
     // udp packetsize. The type is interface{} with range: 484..65507. The default
@@ -797,8 +881,8 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv4Destinations_Ip
     // tls hostname. The type is string.
     TlsHostname interface{}
 
-    // no tls. The type is interface{} with range: -2147483648..2147483647. The
-    // default value is 0.
+    // no tls. The type is interface{} with range: 0..4294967295. The default
+    // value is 0.
     NoTls interface{}
 
     // udp packetsize. The type is interface{} with range: 484..65507. The default

@@ -6,7 +6,7 @@
 //   sla: SLA oper commands
 //   sla-nodes: sla nodes
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_sla_oper
 
@@ -186,7 +186,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -954,7 +954,7 @@ type Sla_Protocols_Ethernet_Operations_Operation struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -1446,7 +1446,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -2217,7 +2217,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -2987,7 +2987,7 @@ type Sla_Protocols_Ethernet_ConfigErrors_ConfigError struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. The type is interface{} with range: 1..8191.
@@ -3162,7 +3162,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -3653,7 +3653,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be

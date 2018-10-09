@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ospfv3: OSPFv3 operational information 
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_ospfv3_oper
 
@@ -1012,7 +1012,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter_BorderRouterPa
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Border router type . The type is Ospfv3BorderRoute.
@@ -1679,7 +1679,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa struct {
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -1823,7 +1823,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaSum
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -2285,7 +2285,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Router
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3494,7 +3494,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLs
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -4060,7 +4060,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_GraceL
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -4297,7 +4297,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4525,7 +4525,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4753,7 +4753,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4981,7 +4981,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -5255,7 +5255,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa struct
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -5399,7 +5399,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -5861,7 +5861,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7070,7 +7070,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -7636,7 +7636,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -7873,7 +7873,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8101,7 +8101,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8329,7 +8329,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8557,7 +8557,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8819,7 +8819,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -9517,8 +9517,12 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath st
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -9553,6 +9557,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -9567,7 +9572,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath_Ro
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -9693,7 +9698,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -9840,7 +9845,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink struct {
     TransitAreaId interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -10162,7 +10167,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -10576,7 +10581,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetailTable_NeighborDe
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -10954,7 +10959,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceBriefTable_InterfaceB
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
@@ -11042,7 +11047,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Request struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -11188,7 +11193,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable_Neighbor struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -11565,7 +11570,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -12021,7 +12026,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -12265,7 +12270,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retran
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -12582,7 +12587,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa str
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -12726,7 +12731,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -13188,7 +13193,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14397,7 +14402,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -14963,7 +14968,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -15200,7 +15205,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -15428,7 +15433,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -15656,7 +15661,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -15884,7 +15889,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -16158,7 +16163,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -16302,7 +16307,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -16764,7 +16769,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17973,7 +17978,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -18539,7 +18544,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -18776,7 +18781,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19004,7 +19009,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19232,7 +19237,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19460,7 +19465,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -20053,8 +20058,12 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath st
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -20089,6 +20098,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -20103,7 +20113,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath_Ro
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -20276,7 +20286,8 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea_ProtocolInterf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Protocol interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Protocol interface name . The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Distribute List In. The type is string.
@@ -20431,8 +20442,12 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath 
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -20467,6 +20482,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRout
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -20481,7 +20497,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -20653,7 +20669,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolStats_ProtocolStat 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -22364,7 +22380,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmis
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -22941,7 +22957,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -23462,7 +23478,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBriefProcessTable_InterfaceBrief
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
@@ -23550,7 +23566,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTable_NeighborDetail
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -25583,7 +25599,7 @@ type Ospfv3_Processes_Process_Statistics_ProtocolStats_ProtocolStat struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -26663,7 +26679,7 @@ type Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRouter_BorderRouter
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Border router type . The type is Ospfv3BorderRoute.
@@ -27330,7 +27346,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa struct {
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -27474,7 +27490,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaS
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -27936,7 +27952,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Rout
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -29145,7 +29161,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Link
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -29711,7 +29727,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Grac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -29948,7 +29964,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -30176,7 +30192,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -30404,7 +30420,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -30632,7 +30648,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -30906,7 +30922,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa stru
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -31050,7 +31066,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -31512,7 +31528,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -32721,7 +32737,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -33287,7 +33303,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -33524,7 +33540,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -33752,7 +33768,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -33980,7 +33996,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -34208,7 +34224,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -34470,7 +34486,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -35168,8 +35184,12 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath 
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -35204,6 +35224,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRout
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -35218,7 +35239,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -35344,7 +35365,7 @@ type Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Request struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -35491,7 +35512,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VirtualLink struct {
     TransitAreaId interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -35813,7 +35834,7 @@ type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -36227,7 +36248,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDetailTable_Neighbor
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -36605,7 +36626,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceBriefTable_Interfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
@@ -36693,7 +36714,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_Request str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -36839,7 +36860,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTable_Neighbor struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -37216,7 +37237,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -37672,7 +37693,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -37916,7 +37937,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retr
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -38233,7 +38254,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa s
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -38377,7 +38398,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -38839,7 +38860,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -40048,7 +40069,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -40614,7 +40635,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -40851,7 +40872,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -41079,7 +41100,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -41307,7 +41328,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -41535,7 +41556,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -41809,7 +41830,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -41953,7 +41974,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -42415,7 +42436,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -43624,7 +43645,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -44190,7 +44211,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -44427,7 +44448,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -44655,7 +44676,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -44883,7 +44904,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -45111,7 +45132,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -45704,8 +45725,12 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath 
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -45740,6 +45765,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRout
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -45754,7 +45780,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -45927,7 +45953,8 @@ type Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolArea_ProtocolInte
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Protocol interface name . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Protocol interface name . The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Distribute List In. The type is string.
@@ -46082,8 +46109,12 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePat
     YFilter yfilter.YFilter
 
     // Route path interface name . The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Route path interface Index . The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -46118,6 +46149,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRo
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
     routePath.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routePath.InterfaceName})
+    routePath.EntityData.Leafs.Append("interface-index", types.YLeaf{"InterfaceIndex", routePath.InterfaceIndex})
     routePath.EntityData.Leafs.Append("route-path-next-hop", types.YLeaf{"RoutePathNextHop", routePath.RoutePathNextHop})
     routePath.EntityData.Leafs.Append("route-path-id", types.YLeaf{"RoutePathId", routePath.RoutePathId})
 
@@ -46132,7 +46164,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
@@ -46304,7 +46336,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolStats_ProtocolSta
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -48015,7 +48047,7 @@ type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransm
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
@@ -48592,7 +48624,7 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
@@ -49113,7 +49145,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceBriefProcessTable_InterfaceBri
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
@@ -49201,7 +49233,7 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessTable_NeighborDeta
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:

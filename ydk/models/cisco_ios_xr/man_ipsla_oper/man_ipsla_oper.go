@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipsla: IPSLA operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_ipsla_oper
 
@@ -803,7 +803,7 @@ type Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPaths_LpdPath
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
@@ -2383,7 +2383,7 @@ type Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths_LpdPath_PathId
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
@@ -4686,7 +4686,7 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPaths_LpdPath
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:
@@ -8248,7 +8248,7 @@ type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_N
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LspSelector interface{}
 
-    // Output interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Output interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Nexthop address. The type is string with pattern:

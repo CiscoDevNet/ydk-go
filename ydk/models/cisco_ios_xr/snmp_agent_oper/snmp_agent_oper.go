@@ -5,7 +5,7 @@
 // for the following management objects:
 //   snmp: SNMP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package snmp_agent_oper
 
@@ -2873,7 +2873,7 @@ type Snmp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Interface Index as used by MIB tables. The type is interface{} with range:
@@ -3915,7 +3915,7 @@ type Snmp_InterfaceMib_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -3983,7 +3983,7 @@ type Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface ifConnector. The type is string.
@@ -4050,7 +4050,7 @@ type Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface ifAlias. The type is string.
@@ -4117,7 +4117,7 @@ type Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // LinkUpDown notification status. The type is LinkUpDownStatus.

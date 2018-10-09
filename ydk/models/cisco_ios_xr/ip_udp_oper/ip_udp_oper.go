@@ -6,7 +6,7 @@
 //   udp: IP UDP Operational Data
 //   udp-connection: udp connection
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_udp_oper
 
@@ -1245,8 +1245,8 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Protocol Control Block address. The type is
-    // interface{} with range: 0..4294967295.
+    // This attribute is a key. Protocol Control Block address. The type is string
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // VRF ID. The type is interface{} with range: 0..4294967295.
@@ -1861,7 +1861,7 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Remote address length. The type is interface{} with range: 0..65535.
@@ -2087,8 +2087,8 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Protocol Control Block address. The type is
-    // interface{} with range: 0..4294967295.
+    // This attribute is a key. Protocol Control Block address. The type is string
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Address family. The type is UdpAddressFamily.
@@ -2264,8 +2264,8 @@ type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Protocol Control Block address. The type is
-    // interface{} with range: 0..4294967295.
+    // This attribute is a key. Protocol Control Block address. The type is string
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Address family. The type is UdpAddressFamily.

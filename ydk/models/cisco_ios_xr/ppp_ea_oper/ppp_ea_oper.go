@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pppea: PPPEA operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ppp_ea_oper
 
@@ -173,10 +173,10 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPPEA. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // TRUE if LCP is running in the dataplane for the interface. The type is
@@ -235,7 +235,7 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     ForwardingEnabled interface{}
 
     // Multilink interface that this interface is a member of, if any. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     MultilinkInterface interface{}
 
     // L2 Tunnel State. The type is bool.
@@ -253,7 +253,7 @@ type Pppea_Nodes_Node_EaInterfaceNames_EaInterfaceName struct {
     // XConnect ID. The type is interface{} with range: 0..4294967295.
     XconnectId interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceHandle interface{}
 
     // IPCP VRF Table ID. The type is interface{} with range: 0..4294967295.

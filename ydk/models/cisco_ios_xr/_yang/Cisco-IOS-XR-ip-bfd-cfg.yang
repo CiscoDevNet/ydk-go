@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ip-bfd-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -305,7 +305,7 @@ module Cisco-IOS-XR-ip-bfd-cfg {
         description
           "Location configuration";
         leaf location {
-          type string;
+          type xr:Node-id;
           description
             "Location";
         }

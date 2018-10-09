@@ -5,7 +5,7 @@
 // for the following management objects:
 //   macsec: Macsec operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package crypto_macsec_secy_oper
 
@@ -122,7 +122,7 @@ type Macsec_Secy_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // MACsec Stats.

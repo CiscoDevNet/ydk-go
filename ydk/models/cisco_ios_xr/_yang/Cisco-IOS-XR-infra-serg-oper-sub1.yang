@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-serg package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -189,6 +189,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
         value 2;
         description
           "DHCPv6";
+      }
+      enum "daps" {
+        value 3;
+        description
+          "DAPS";
       }
     }
     description
@@ -782,6 +787,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "TxListPeerSessionConnectionDownNotOk";
     }
+    leaf tx-list-send-pool-update-not-ok {
+      type uint32;
+      description
+        "TxListSendPoolUpdateNotOk";
+    }
     list client-status {
       description
         "Client Status";
@@ -971,6 +981,17 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "Interface status for each client";
       uses SERG-SHOW-AGT-INTF-CLIENT-STATUS;
+    }
+  }
+
+  grouping SERG-SHOW-GROUP-POOL-INFO {
+    description
+      "Session Redundancy Group Interface-List
+       Information";
+    leaf pool-name {
+      type string;
+      description
+        "Pool Name";
     }
   }
 
@@ -1191,6 +1212,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "Switchover Revert Time in seconds";
     }
+    leaf pool-count {
+      type uint32;
+      description
+        "No. of Configured Pools";
+    }
     list client-session-count {
       description
         "Client Session Count";
@@ -1200,6 +1226,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "Interface List";
       uses SERG-SHOW-GROUP-INTF-INFO;
+    }
+    list pool {
+      description
+        "Pool List";
+      uses SERG-SHOW-GROUP-POOL-INFO;
     }
   }
 
@@ -1441,6 +1472,31 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       description
         "TxListDeActiveNotOk";
     }
+    leaf tx-list-send-pool-role-ok {
+      type uint32;
+      description
+        "TxListSendPoolRoleOk";
+    }
+    leaf tx-list-send-pool-role-not-ok {
+      type uint32;
+      description
+        "TxListSendPoolRoleNotOk";
+    }
+    leaf tx-list-send-pool-update-ok {
+      type uint32;
+      description
+        "TxListSendPoolUpdateOk";
+    }
+    leaf tx-list-send-pool-update-not-ok {
+      type uint32;
+      description
+        "TxListSendPoolUpdateNotOk";
+    }
+    leaf tx-list-recv-pool-update-ok {
+      type uint32;
+      description
+        "TxListRecvPoolUpdateOk";
+    }
   }
 
   grouping SERG-SHOW-SESSION-ERROR-INFO {
@@ -1617,6 +1673,11 @@ submodule Cisco-IOS-XR-infra-serg-oper-sub1 {
       type uint32;
       description
         "No. of Slave Interfaces";
+    }
+    leaf pool-count {
+      type uint32;
+      description
+        "No. of Configured Pools";
     }
   }
 

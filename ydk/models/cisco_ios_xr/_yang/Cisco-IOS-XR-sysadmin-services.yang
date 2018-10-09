@@ -27,7 +27,7 @@ module Cisco-IOS-XR-sysadmin-services {
      Copyright(c) 2016 by Cisco Systems, Inc.
      All rights reserved.
      
-     Copyright (c) 2012-2017 by Cisco Systems, Inc.
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2016-11-10 {

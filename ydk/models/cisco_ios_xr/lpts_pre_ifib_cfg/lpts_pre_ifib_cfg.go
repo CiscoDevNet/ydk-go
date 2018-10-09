@@ -6,7 +6,7 @@
 //   Cisco-IOS-XR-config-mda-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lpts_pre_ifib_cfg
 
@@ -391,6 +391,12 @@ const (
 
     // EXR packets.
     LptsFlow_exr LptsFlow = "exr"
+
+    // IETF BFD packets over Logical Bundle.
+    LptsFlow_bob_ietf LptsFlow = "bob-ietf"
+
+    // XIPC Throttle Flow.
+    LptsFlow_xipc_throt LptsFlow = "xipc-throt"
 
     // Platform Limit.
     LptsFlow_platform_limit LptsFlow = "platform-limit"

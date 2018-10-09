@@ -23,9 +23,13 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-ospf package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-18 {
+    description
+      "Added keychain name to be displayed in show ospf interface bag";
+  }
   revision 2017-10-26 {
     description
       "Fixed some field name and values for better interpretation";

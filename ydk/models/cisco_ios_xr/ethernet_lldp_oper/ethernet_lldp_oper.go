@@ -5,7 +5,7 @@
 // for the following management objects:
 //   lldp: Link Layer Discovery Protocol operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_lldp_oper
 
@@ -305,7 +305,7 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device struct {
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // lldp neighbor. The type is slice of
@@ -344,11 +344,11 @@ type Lldp_Nodes_Node_Neighbors_Devices_Device_LldpNeighbor struct {
     YFilter yfilter.YFilter
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -841,7 +841,7 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
@@ -883,11 +883,11 @@ type Lldp_Nodes_Node_Neighbors_Details_Detail_LldpNeighbor struct {
     YFilter yfilter.YFilter
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -1380,7 +1380,7 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
@@ -1422,11 +1422,11 @@ type Lldp_Nodes_Node_Neighbors_Summaries_Summary_LldpNeighbor struct {
     YFilter yfilter.YFilter
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Parent Interface the neighbor entry was received on . The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     ReceivingParentInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -1921,10 +1921,10 @@ type Lldp_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // TX Enabled. The type is interface{} with range: 0..255.

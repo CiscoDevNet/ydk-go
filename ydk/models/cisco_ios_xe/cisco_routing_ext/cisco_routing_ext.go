@@ -12,6 +12,34 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_routing_ext"))
 }
 
+type Igrp struct {
+}
+
+func (id Igrp) String() string {
+	return "cisco-routing-ext:igrp"
+}
+
+type Nhrp struct {
+}
+
+func (id Nhrp) String() string {
+	return "cisco-routing-ext:nhrp"
+}
+
+type Hsrp struct {
+}
+
+func (id Hsrp) String() string {
+	return "cisco-routing-ext:hsrp"
+}
+
+type Rip struct {
+}
+
+func (id Rip) String() string {
+	return "cisco-routing-ext:rip"
+}
+
 type Bgp struct {
 }
 
@@ -19,11 +47,11 @@ func (id Bgp) String() string {
 	return "cisco-routing-ext:bgp"
 }
 
-type Mobile struct {
+type Lisp struct {
 }
 
-func (id Mobile) String() string {
-	return "cisco-routing-ext:mobile"
+func (id Lisp) String() string {
+	return "cisco-routing-ext:lisp"
 }
 
 type Eigrp struct {
@@ -38,12 +66,5 @@ type IsIs struct {
 
 func (id IsIs) String() string {
 	return "cisco-routing-ext:is-is"
-}
-
-type Rip struct {
-}
-
-func (id Rip) String() string {
-	return "cisco-routing-ext:rip"
 }
 

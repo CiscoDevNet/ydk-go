@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package clns_isis_cfg
 
@@ -97,18 +97,12 @@ const (
     IsisAuthenticationAlgorithm_keychain IsisAuthenticationAlgorithm = "keychain"
 )
 
-// IsisOverloadBitMode represents Isis overload bit mode
-type IsisOverloadBitMode string
+// IsisAdvTypeExternal represents Isis adv type external
+type IsisAdvTypeExternal string
 
 const (
-    // Set always
-    IsisOverloadBitMode_permanently_set IsisOverloadBitMode = "permanently-set"
-
-    // Set during the startup period
-    IsisOverloadBitMode_startup_period IsisOverloadBitMode = "startup-period"
-
-    // Set until BGP comverges
-    IsisOverloadBitMode_wait_for_bgp IsisOverloadBitMode = "wait-for-bgp"
+    // External
+    IsisAdvTypeExternal_external IsisAdvTypeExternal = "external"
 )
 
 // IsisMibRejectedAdjacencyBoolean represents Isis mib rejected adjacency boolean
@@ -200,24 +194,12 @@ const (
     IsisTracingMode_enhanced IsisTracingMode = "enhanced"
 )
 
-// IsisMetricStyle represents Isis metric style
-type IsisMetricStyle string
+// IsisAdvTypeInterLevel represents Isis adv type inter level
+type IsisAdvTypeInterLevel string
 
 const (
-    // ISO 10589 metric style (old-style)
-    IsisMetricStyle_old_metric_style IsisMetricStyle = "old-metric-style"
-
-    // 32-bit metric style (new-style)
-    IsisMetricStyle_new_metric_style IsisMetricStyle = "new-metric-style"
-
-    // Both forms of metric style
-    IsisMetricStyle_both_metric_style IsisMetricStyle = "both-metric-style"
-
-    // Send ISO 10589 metric style but accept both
-    IsisMetricStyle_old_metric_style_transition IsisMetricStyle = "old-metric-style-transition"
-
-    // Send 32-bit metric style but accept both
-    IsisMetricStyle_new_metric_style_transition IsisMetricStyle = "new-metric-style-transition"
+    // InterLevel
+    IsisAdvTypeInterLevel_inter_level IsisAdvTypeInterLevel = "inter-level"
 )
 
 // IsisNsfFlavor represents Isis nsf flavor
@@ -250,6 +232,26 @@ const (
     IsissidProtected_enable IsissidProtected = "enable"
 )
 
+// IsisMetricStyle represents Isis metric style
+type IsisMetricStyle string
+
+const (
+    // ISO 10589 metric style (old-style)
+    IsisMetricStyle_old_metric_style IsisMetricStyle = "old-metric-style"
+
+    // 32-bit metric style (new-style)
+    IsisMetricStyle_new_metric_style IsisMetricStyle = "new-metric-style"
+
+    // Both forms of metric style
+    IsisMetricStyle_both_metric_style IsisMetricStyle = "both-metric-style"
+
+    // Send ISO 10589 metric style but accept both
+    IsisMetricStyle_old_metric_style_transition IsisMetricStyle = "old-metric-style-transition"
+
+    // Send 32-bit metric style but accept both
+    IsisMetricStyle_new_metric_style_transition IsisMetricStyle = "new-metric-style-transition"
+)
+
 // IsisApplyWeight represents Isis apply weight
 type IsisApplyWeight string
 
@@ -264,18 +266,29 @@ const (
     IsisApplyWeight_ecmp_only_bandwidth IsisApplyWeight = "ecmp-only-bandwidth"
 )
 
-// IsisPrefixPriority represents Isis prefix priority
-type IsisPrefixPriority string
+// IsisfrrSrlgProtection represents Isisfrr srlg protection
+type IsisfrrSrlgProtection string
 
 const (
-    // Critical prefix priority
-    IsisPrefixPriority_critical_priority IsisPrefixPriority = "critical-priority"
+    // SRLG Attribute
+    IsisfrrSrlgProtection_local IsisfrrSrlgProtection = "local"
 
-    // High prefix priority
-    IsisPrefixPriority_high_priority IsisPrefixPriority = "high-priority"
+    // SRLG Attribute
+    IsisfrrSrlgProtection_weighted_global IsisfrrSrlgProtection = "weighted-global"
+)
 
-    // Medium prefix priority
-    IsisPrefixPriority_medium_priority IsisPrefixPriority = "medium-priority"
+// IsisOverloadBitMode represents Isis overload bit mode
+type IsisOverloadBitMode string
+
+const (
+    // Set always
+    IsisOverloadBitMode_permanently_set IsisOverloadBitMode = "permanently-set"
+
+    // Set during the startup period
+    IsisOverloadBitMode_startup_period IsisOverloadBitMode = "startup-period"
+
+    // Set until BGP comverges
+    IsisOverloadBitMode_wait_for_bgp IsisOverloadBitMode = "wait-for-bgp"
 )
 
 // IsisMibAuthenticationTypeFailureBoolean represents Isis mib authentication type failure boolean
@@ -307,12 +320,12 @@ const (
     IsisMicroLoopAvoidance_micro_loop_avoidance_segement_routing IsisMicroLoopAvoidance = "micro-loop-avoidance-segement-routing"
 )
 
-// IsisAdvTypeExternal represents Isis adv type external
-type IsisAdvTypeExternal string
+// IsisApplication represents Isis application
+type IsisApplication string
 
 const (
-    // External
-    IsisAdvTypeExternal_external IsisAdvTypeExternal = "external"
+    // LFA Application
+    IsisApplication_lfa IsisApplication = "lfa"
 )
 
 // IsisRemoteLfa represents Isis remote lfa
@@ -346,6 +359,20 @@ const (
 
     // Enable
     IsisMibAttemptToExceedMaxSequenceBoolean_true_ IsisMibAttemptToExceedMaxSequenceBoolean = "true"
+)
+
+// IsisPrefixPriority represents Isis prefix priority
+type IsisPrefixPriority string
+
+const (
+    // Critical prefix priority
+    IsisPrefixPriority_critical_priority IsisPrefixPriority = "critical-priority"
+
+    // High prefix priority
+    IsisPrefixPriority_high_priority IsisPrefixPriority = "high-priority"
+
+    // Medium prefix priority
+    IsisPrefixPriority_medium_priority IsisPrefixPriority = "medium-priority"
 )
 
 // IsisConfigurableLevels represents Isis configurable levels
@@ -410,6 +437,17 @@ const (
     IsisexplicitNullFlag_enable IsisexplicitNullFlag = "enable"
 )
 
+// IsisEnablePoi represents Isis enable poi
+type IsisEnablePoi string
+
+const (
+    // Disable purge originator
+    IsisEnablePoi_enable_poi_off IsisEnablePoi = "enable-poi-off"
+
+    // Enable purge originator
+    IsisEnablePoi_enable_poi_on IsisEnablePoi = "enable-poi-on"
+)
+
 // IsisMetric represents Isis metric
 type IsisMetric string
 
@@ -449,12 +487,12 @@ const (
     IsisMibDatabaseOverFlowBoolean_true_ IsisMibDatabaseOverFlowBoolean = "true"
 )
 
-// IsisAdvTypeInterLevel represents Isis adv type inter level
-type IsisAdvTypeInterLevel string
+// IsisApplicationAttribute represents Isis application attribute
+type IsisApplicationAttribute string
 
 const (
-    // InterLevel
-    IsisAdvTypeInterLevel_inter_level IsisAdvTypeInterLevel = "inter-level"
+    // SRLG Attribute
+    IsisApplicationAttribute_srlg IsisApplicationAttribute = "srlg"
 )
 
 // IsisAuthenticationFailureMode represents Isis authentication failure mode
@@ -732,7 +770,7 @@ type Isis_Instances_Instance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Instance identifier. The type is string with
-    // length: 1..40.
+    // length: 1..36.
     InstanceName interface{}
 
     // Flag to indicate that instance should be running.  This must be the first
@@ -801,11 +839,20 @@ type Isis_Instances_Instance struct {
     // Distribute link-state configuration.
     Distribute Isis_Instances_Instance_Distribute
 
+    // Flex-Algo Table.
+    FlexAlgos Isis_Instances_Instance_FlexAlgos
+
+    // Affinity Mapping Table.
+    AffinityMappings Isis_Instances_Instance_AffinityMappings
+
     // LSP/SNP accept password configuration.
     LspAcceptPasswords Isis_Instances_Instance_LspAcceptPasswords
 
     // LSP MTU configuration.
     LspMtus Isis_Instances_Instance_LspMtus
+
+    // SRLG configuration.
+    SrlgTable Isis_Instances_Instance_SrlgTable
 
     // IS-IS NSF configuration.
     Nsf Isis_Instances_Instance_Nsf
@@ -852,8 +899,11 @@ func (instance *Isis_Instances_Instance) GetEntityData() *types.CommonEntityData
     instance.EntityData.Children.Append("afs", types.YChild{"Afs", &instance.Afs})
     instance.EntityData.Children.Append("lsp-refresh-intervals", types.YChild{"LspRefreshIntervals", &instance.LspRefreshIntervals})
     instance.EntityData.Children.Append("distribute", types.YChild{"Distribute", &instance.Distribute})
+    instance.EntityData.Children.Append("flex-algos", types.YChild{"FlexAlgos", &instance.FlexAlgos})
+    instance.EntityData.Children.Append("affinity-mappings", types.YChild{"AffinityMappings", &instance.AffinityMappings})
     instance.EntityData.Children.Append("lsp-accept-passwords", types.YChild{"LspAcceptPasswords", &instance.LspAcceptPasswords})
     instance.EntityData.Children.Append("lsp-mtus", types.YChild{"LspMtus", &instance.LspMtus})
+    instance.EntityData.Children.Append("srlg-table", types.YChild{"SrlgTable", &instance.SrlgTable})
     instance.EntityData.Children.Append("nsf", types.YChild{"Nsf", &instance.Nsf})
     instance.EntityData.Children.Append("link-groups", types.YChild{"LinkGroups", &instance.LinkGroups})
     instance.EntityData.Children.Append("lsp-check-intervals", types.YChild{"LspCheckIntervals", &instance.LspCheckIntervals})
@@ -1302,9 +1352,11 @@ func (af *Isis_Instances_Instance_Afs_Af) GetEntityData() *types.CommonEntityDat
 
 // Isis_Instances_Instance_Afs_Af_AfData
 // Data container.
+// This type is a presence type.
 type Isis_Instances_Instance_Afs_Af_AfData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Maximum number of active parallel paths per route. The type is interface{}
     // with range: 1..64.
@@ -1384,6 +1436,9 @@ type Isis_Instances_Instance_Afs_Af_AfData struct {
     // Protocol redistribution configuration.
     Redistributions Isis_Instances_Instance_Afs_Af_AfData_Redistributions
 
+    // Advertise application specific values.
+    ApplicationTables Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables
+
     // Peoridic SPF configuration.
     SpfPeriodicIntervals Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicIntervals
 
@@ -1447,6 +1502,7 @@ func (afData *Isis_Instances_Instance_Afs_Af_AfData) GetEntityData() *types.Comm
     afData.EntityData.Children.Append("max-redist-prefixes", types.YChild{"MaxRedistPrefixes", &afData.MaxRedistPrefixes})
     afData.EntityData.Children.Append("propagations", types.YChild{"Propagations", &afData.Propagations})
     afData.EntityData.Children.Append("redistributions", types.YChild{"Redistributions", &afData.Redistributions})
+    afData.EntityData.Children.Append("application-tables", types.YChild{"ApplicationTables", &afData.ApplicationTables})
     afData.EntityData.Children.Append("spf-periodic-intervals", types.YChild{"SpfPeriodicIntervals", &afData.SpfPeriodicIntervals})
     afData.EntityData.Children.Append("distribute-list-in", types.YChild{"DistributeListIn", &afData.DistributeListIn})
     afData.EntityData.Children.Append("spf-intervals", types.YChild{"SpfIntervals", &afData.SpfIntervals})
@@ -1490,6 +1546,9 @@ type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting struct {
     // IsisLabelPreference.
     Mpls interface{}
 
+    // Enable Segment Routing SRV6 configuration. The type is interface{}.
+    Srv6 interface{}
+
     // Enable Segment Routing prefix SID map configuration.
     PrefixSidMap Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_PrefixSidMap
 }
@@ -1509,6 +1568,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting) GetE
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
+    segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
     segmentRouting.EntityData.YListKeys = []string {}
 
@@ -1624,8 +1684,15 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Delay before running FRR (milliseconds). The type is interface{} with
+    // range: 100..60000. Units are millisecond.
+    FrrInitialDelay interface{}
+
     // Load share prefixes across multiple backups.
     FrrLoadSharings Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadSharings
+
+    // SRLG protection type configuration.
+    FrrsrlgProtectionTypes Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes
 
     // FRR prefix-limit configuration.
     PriorityLimits Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits
@@ -1652,11 +1719,13 @@ func (frrTable *Isis_Instances_Instance_Afs_Af_AfData_FrrTable) GetEntityData() 
 
     frrTable.EntityData.Children = types.NewOrderedMap()
     frrTable.EntityData.Children.Append("frr-load-sharings", types.YChild{"FrrLoadSharings", &frrTable.FrrLoadSharings})
+    frrTable.EntityData.Children.Append("frrsrlg-protection-types", types.YChild{"FrrsrlgProtectionTypes", &frrTable.FrrsrlgProtectionTypes})
     frrTable.EntityData.Children.Append("priority-limits", types.YChild{"PriorityLimits", &frrTable.PriorityLimits})
     frrTable.EntityData.Children.Append("frr-remote-lfa-prefixes", types.YChild{"FrrRemoteLfaPrefixes", &frrTable.FrrRemoteLfaPrefixes})
     frrTable.EntityData.Children.Append("frr-tiebreakers", types.YChild{"FrrTiebreakers", &frrTable.FrrTiebreakers})
     frrTable.EntityData.Children.Append("frr-use-cand-onlies", types.YChild{"FrrUseCandOnlies", &frrTable.FrrUseCandOnlies})
     frrTable.EntityData.Leafs = types.NewOrderedMap()
+    frrTable.EntityData.Leafs.Append("frr-initial-delay", types.YLeaf{"FrrInitialDelay", frrTable.FrrInitialDelay})
 
     frrTable.EntityData.YListKeys = []string {}
 
@@ -1731,6 +1800,74 @@ func (frrLoadSharing *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadShar
     return &(frrLoadSharing.EntityData)
 }
 
+// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes
+// SRLG protection type configuration
+type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FRR SRLG Protection Type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType.
+    FrrsrlgProtectionType []*Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType
+}
+
+func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes) GetEntityData() *types.CommonEntityData {
+    frrsrlgProtectionTypes.EntityData.YFilter = frrsrlgProtectionTypes.YFilter
+    frrsrlgProtectionTypes.EntityData.YangName = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.BundleName = "cisco_ios_xr"
+    frrsrlgProtectionTypes.EntityData.ParentYangName = "frr-table"
+    frrsrlgProtectionTypes.EntityData.SegmentPath = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrsrlgProtectionTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrsrlgProtectionTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrsrlgProtectionTypes.EntityData.Children = types.NewOrderedMap()
+    frrsrlgProtectionTypes.EntityData.Children.Append("frrsrlg-protection-type", types.YChild{"FrrsrlgProtectionType", nil})
+    for i := range frrsrlgProtectionTypes.FrrsrlgProtectionType {
+        frrsrlgProtectionTypes.EntityData.Children.Append(types.GetSegmentPath(frrsrlgProtectionTypes.FrrsrlgProtectionType[i]), types.YChild{"FrrsrlgProtectionType", frrsrlgProtectionTypes.FrrsrlgProtectionType[i]})
+    }
+    frrsrlgProtectionTypes.EntityData.Leafs = types.NewOrderedMap()
+
+    frrsrlgProtectionTypes.EntityData.YListKeys = []string {}
+
+    return &(frrsrlgProtectionTypes.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType
+// FRR SRLG Protection Type
+type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Level to which configuration applies. The type is
+    // IsisInternalLevel.
+    Level interface{}
+
+    // Protection Type. The type is IsisfrrSrlgProtection. This attribute is
+    // mandatory.
+    ProtectionType interface{}
+}
+
+func (frrsrlgProtectionType *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType) GetEntityData() *types.CommonEntityData {
+    frrsrlgProtectionType.EntityData.YFilter = frrsrlgProtectionType.YFilter
+    frrsrlgProtectionType.EntityData.YangName = "frrsrlg-protection-type"
+    frrsrlgProtectionType.EntityData.BundleName = "cisco_ios_xr"
+    frrsrlgProtectionType.EntityData.ParentYangName = "frrsrlg-protection-types"
+    frrsrlgProtectionType.EntityData.SegmentPath = "frrsrlg-protection-type" + types.AddKeyToken(frrsrlgProtectionType.Level, "level")
+    frrsrlgProtectionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrsrlgProtectionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrsrlgProtectionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrsrlgProtectionType.EntityData.Children = types.NewOrderedMap()
+    frrsrlgProtectionType.EntityData.Leafs = types.NewOrderedMap()
+    frrsrlgProtectionType.EntityData.Leafs.Append("level", types.YLeaf{"Level", frrsrlgProtectionType.Level})
+    frrsrlgProtectionType.EntityData.Leafs.Append("protection-type", types.YLeaf{"ProtectionType", frrsrlgProtectionType.ProtectionType})
+
+    frrsrlgProtectionType.EntityData.YListKeys = []string {"Level"}
+
+    return &(frrsrlgProtectionType.EntityData)
+}
+
 // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits
 // FRR prefix-limit configuration
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits struct {
@@ -1775,6 +1912,74 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit
     // IsisInternalLevel.
     Level interface{}
 
+    // Data container.
+    PriorityLimitData Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
+
+    // keys: frr-type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType.
+    FrrType []*Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
+}
+
+func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
+    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
+    priorityLimit.EntityData.YangName = "priority-limit"
+    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimit.EntityData.ParentYangName = "priority-limits"
+    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimit.EntityData.Children = types.NewOrderedMap()
+    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
+    priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
+    for i := range priorityLimit.FrrType {
+        priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
+    }
+    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
+
+    priorityLimit.EntityData.YListKeys = []string {"Level"}
+
+    return &(priorityLimit.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
+// Data container.
+type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Compute for all prefixes upto the specified priority. The type is
+    // IsisPrefixPriority. This attribute is mandatory.
+    Priority interface{}
+}
+
+func (priorityLimitData *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
+    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
+    priorityLimitData.EntityData.YangName = "priority-limit-data"
+    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimitData.EntityData.ParentYangName = "priority-limit"
+    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
+    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimitData.EntityData.Children = types.NewOrderedMap()
+    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
+
+    priorityLimitData.EntityData.YListKeys = []string {}
+
+    return &(priorityLimitData.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
+// keys: frr-type
+type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
 
@@ -1783,25 +1988,24 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit
     Priority interface{}
 }
 
-func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
-    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
-    priorityLimit.EntityData.YangName = "priority-limit"
-    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimit.EntityData.ParentYangName = "priority-limits"
-    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level") + types.AddKeyToken(priorityLimit.FrrType, "frr-type")
-    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (frrType *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType) GetEntityData() *types.CommonEntityData {
+    frrType.EntityData.YFilter = frrType.YFilter
+    frrType.EntityData.YangName = "frr-type"
+    frrType.EntityData.BundleName = "cisco_ios_xr"
+    frrType.EntityData.ParentYangName = "priority-limit"
+    frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
-    priorityLimit.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", priorityLimit.FrrType})
-    priorityLimit.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimit.Priority})
+    frrType.EntityData.Children = types.NewOrderedMap()
+    frrType.EntityData.Leafs = types.NewOrderedMap()
+    frrType.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", frrType.FrrType})
+    frrType.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", frrType.Priority})
 
-    priorityLimit.EntityData.YListKeys = []string {"Level", "FrrType"}
+    frrType.EntityData.YListKeys = []string {"FrrType"}
 
-    return &(priorityLimit.EntityData)
+    return &(frrType.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRemoteLfaPrefixes
@@ -2029,7 +2233,7 @@ type Isis_Instances_Instance_Afs_Af_AfData_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2356,7 +2560,7 @@ type Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInterfaces_ExcludeInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface to be excluded. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2836,6 +3040,111 @@ func (eigrp *Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistributio
     eigrp.EntityData.YListKeys = []string {"AsZz"}
 
     return &(eigrp.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables
+// Advertise application specific values
+type Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application Name. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable.
+    ApplicationTable []*Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable
+}
+
+func (applicationTables *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables) GetEntityData() *types.CommonEntityData {
+    applicationTables.EntityData.YFilter = applicationTables.YFilter
+    applicationTables.EntityData.YangName = "application-tables"
+    applicationTables.EntityData.BundleName = "cisco_ios_xr"
+    applicationTables.EntityData.ParentYangName = "af-data"
+    applicationTables.EntityData.SegmentPath = "application-tables"
+    applicationTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationTables.EntityData.Children = types.NewOrderedMap()
+    applicationTables.EntityData.Children.Append("application-table", types.YChild{"ApplicationTable", nil})
+    for i := range applicationTables.ApplicationTable {
+        applicationTables.EntityData.Children.Append(types.GetSegmentPath(applicationTables.ApplicationTable[i]), types.YChild{"ApplicationTable", applicationTables.ApplicationTable[i]})
+    }
+    applicationTables.EntityData.Leafs = types.NewOrderedMap()
+
+    applicationTables.EntityData.YListKeys = []string {}
+
+    return &(applicationTables.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable
+// Application Name
+type Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Application Type. The type is IsisApplication.
+    AppType interface{}
+
+    // Attribute Name. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable.
+    AttributeTable []*Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable
+}
+
+func (applicationTable *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable) GetEntityData() *types.CommonEntityData {
+    applicationTable.EntityData.YFilter = applicationTable.YFilter
+    applicationTable.EntityData.YangName = "application-table"
+    applicationTable.EntityData.BundleName = "cisco_ios_xr"
+    applicationTable.EntityData.ParentYangName = "application-tables"
+    applicationTable.EntityData.SegmentPath = "application-table" + types.AddKeyToken(applicationTable.AppType, "app-type")
+    applicationTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationTable.EntityData.Children = types.NewOrderedMap()
+    applicationTable.EntityData.Children.Append("attribute-table", types.YChild{"AttributeTable", nil})
+    for i := range applicationTable.AttributeTable {
+        applicationTable.EntityData.Children.Append(types.GetSegmentPath(applicationTable.AttributeTable[i]), types.YChild{"AttributeTable", applicationTable.AttributeTable[i]})
+    }
+    applicationTable.EntityData.Leafs = types.NewOrderedMap()
+    applicationTable.EntityData.Leafs.Append("app-type", types.YLeaf{"AppType", applicationTable.AppType})
+
+    applicationTable.EntityData.YListKeys = []string {"AppType"}
+
+    return &(applicationTable.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable
+// Attribute Name
+type Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Application Type. The type is
+    // IsisApplicationAttribute.
+    AppType interface{}
+
+    // If TRUE, advertise application link attribute in our LSP. The type is bool.
+    // This attribute is mandatory.
+    Enable interface{}
+}
+
+func (attributeTable *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable) GetEntityData() *types.CommonEntityData {
+    attributeTable.EntityData.YFilter = attributeTable.YFilter
+    attributeTable.EntityData.YangName = "attribute-table"
+    attributeTable.EntityData.BundleName = "cisco_ios_xr"
+    attributeTable.EntityData.ParentYangName = "application-table"
+    attributeTable.EntityData.SegmentPath = "attribute-table" + types.AddKeyToken(attributeTable.AppType, "app-type")
+    attributeTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributeTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributeTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributeTable.EntityData.Children = types.NewOrderedMap()
+    attributeTable.EntityData.Leafs = types.NewOrderedMap()
+    attributeTable.EntityData.Leafs.Append("app-type", types.YLeaf{"AppType", attributeTable.AppType})
+    attributeTable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", attributeTable.Enable})
+
+    attributeTable.EntityData.YListKeys = []string {"AppType"}
+
+    return &(attributeTable.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicIntervals
@@ -3368,7 +3677,7 @@ type Isis_Instances_Instance_Afs_Af_AfData_Mpls_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3752,6 +4061,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName struct {
     // Protocol redistribution configuration.
     Redistributions Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions
 
+    // Advertise application specific values.
+    ApplicationTables Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables
+
     // Peoridic SPF configuration.
     SpfPeriodicIntervals Isis_Instances_Instance_Afs_Af_TopologyName_SpfPeriodicIntervals
 
@@ -3815,6 +4127,7 @@ func (topologyName *Isis_Instances_Instance_Afs_Af_TopologyName) GetEntityData()
     topologyName.EntityData.Children.Append("max-redist-prefixes", types.YChild{"MaxRedistPrefixes", &topologyName.MaxRedistPrefixes})
     topologyName.EntityData.Children.Append("propagations", types.YChild{"Propagations", &topologyName.Propagations})
     topologyName.EntityData.Children.Append("redistributions", types.YChild{"Redistributions", &topologyName.Redistributions})
+    topologyName.EntityData.Children.Append("application-tables", types.YChild{"ApplicationTables", &topologyName.ApplicationTables})
     topologyName.EntityData.Children.Append("spf-periodic-intervals", types.YChild{"SpfPeriodicIntervals", &topologyName.SpfPeriodicIntervals})
     topologyName.EntityData.Children.Append("distribute-list-in", types.YChild{"DistributeListIn", &topologyName.DistributeListIn})
     topologyName.EntityData.Children.Append("spf-intervals", types.YChild{"SpfIntervals", &topologyName.SpfIntervals})
@@ -3859,6 +4172,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting struct {
     // IsisLabelPreference.
     Mpls interface{}
 
+    // Enable Segment Routing SRV6 configuration. The type is interface{}.
+    Srv6 interface{}
+
     // Enable Segment Routing prefix SID map configuration.
     PrefixSidMap Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_PrefixSidMap
 }
@@ -3878,6 +4194,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
+    segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
     segmentRouting.EntityData.YListKeys = []string {}
 
@@ -3993,8 +4310,15 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Delay before running FRR (milliseconds). The type is interface{} with
+    // range: 100..60000. Units are millisecond.
+    FrrInitialDelay interface{}
+
     // Load share prefixes across multiple backups.
     FrrLoadSharings Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrLoadSharings
+
+    // SRLG protection type configuration.
+    FrrsrlgProtectionTypes Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes
 
     // FRR prefix-limit configuration.
     PriorityLimits Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits
@@ -4021,11 +4345,13 @@ func (frrTable *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable) GetEntityD
 
     frrTable.EntityData.Children = types.NewOrderedMap()
     frrTable.EntityData.Children.Append("frr-load-sharings", types.YChild{"FrrLoadSharings", &frrTable.FrrLoadSharings})
+    frrTable.EntityData.Children.Append("frrsrlg-protection-types", types.YChild{"FrrsrlgProtectionTypes", &frrTable.FrrsrlgProtectionTypes})
     frrTable.EntityData.Children.Append("priority-limits", types.YChild{"PriorityLimits", &frrTable.PriorityLimits})
     frrTable.EntityData.Children.Append("frr-remote-lfa-prefixes", types.YChild{"FrrRemoteLfaPrefixes", &frrTable.FrrRemoteLfaPrefixes})
     frrTable.EntityData.Children.Append("frr-tiebreakers", types.YChild{"FrrTiebreakers", &frrTable.FrrTiebreakers})
     frrTable.EntityData.Children.Append("frr-use-cand-onlies", types.YChild{"FrrUseCandOnlies", &frrTable.FrrUseCandOnlies})
     frrTable.EntityData.Leafs = types.NewOrderedMap()
+    frrTable.EntityData.Leafs.Append("frr-initial-delay", types.YLeaf{"FrrInitialDelay", frrTable.FrrInitialDelay})
 
     frrTable.EntityData.YListKeys = []string {}
 
@@ -4100,6 +4426,74 @@ func (frrLoadSharing *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrLo
     return &(frrLoadSharing.EntityData)
 }
 
+// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes
+// SRLG protection type configuration
+type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FRR SRLG Protection Type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType.
+    FrrsrlgProtectionType []*Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType
+}
+
+func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes) GetEntityData() *types.CommonEntityData {
+    frrsrlgProtectionTypes.EntityData.YFilter = frrsrlgProtectionTypes.YFilter
+    frrsrlgProtectionTypes.EntityData.YangName = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.BundleName = "cisco_ios_xr"
+    frrsrlgProtectionTypes.EntityData.ParentYangName = "frr-table"
+    frrsrlgProtectionTypes.EntityData.SegmentPath = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrsrlgProtectionTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrsrlgProtectionTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrsrlgProtectionTypes.EntityData.Children = types.NewOrderedMap()
+    frrsrlgProtectionTypes.EntityData.Children.Append("frrsrlg-protection-type", types.YChild{"FrrsrlgProtectionType", nil})
+    for i := range frrsrlgProtectionTypes.FrrsrlgProtectionType {
+        frrsrlgProtectionTypes.EntityData.Children.Append(types.GetSegmentPath(frrsrlgProtectionTypes.FrrsrlgProtectionType[i]), types.YChild{"FrrsrlgProtectionType", frrsrlgProtectionTypes.FrrsrlgProtectionType[i]})
+    }
+    frrsrlgProtectionTypes.EntityData.Leafs = types.NewOrderedMap()
+
+    frrsrlgProtectionTypes.EntityData.YListKeys = []string {}
+
+    return &(frrsrlgProtectionTypes.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType
+// FRR SRLG Protection Type
+type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Level to which configuration applies. The type is
+    // IsisInternalLevel.
+    Level interface{}
+
+    // Protection Type. The type is IsisfrrSrlgProtection. This attribute is
+    // mandatory.
+    ProtectionType interface{}
+}
+
+func (frrsrlgProtectionType *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType) GetEntityData() *types.CommonEntityData {
+    frrsrlgProtectionType.EntityData.YFilter = frrsrlgProtectionType.YFilter
+    frrsrlgProtectionType.EntityData.YangName = "frrsrlg-protection-type"
+    frrsrlgProtectionType.EntityData.BundleName = "cisco_ios_xr"
+    frrsrlgProtectionType.EntityData.ParentYangName = "frrsrlg-protection-types"
+    frrsrlgProtectionType.EntityData.SegmentPath = "frrsrlg-protection-type" + types.AddKeyToken(frrsrlgProtectionType.Level, "level")
+    frrsrlgProtectionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrsrlgProtectionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrsrlgProtectionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    frrsrlgProtectionType.EntityData.Children = types.NewOrderedMap()
+    frrsrlgProtectionType.EntityData.Leafs = types.NewOrderedMap()
+    frrsrlgProtectionType.EntityData.Leafs.Append("level", types.YLeaf{"Level", frrsrlgProtectionType.Level})
+    frrsrlgProtectionType.EntityData.Leafs.Append("protection-type", types.YLeaf{"ProtectionType", frrsrlgProtectionType.ProtectionType})
+
+    frrsrlgProtectionType.EntityData.YListKeys = []string {"Level"}
+
+    return &(frrsrlgProtectionType.EntityData)
+}
+
 // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits
 // FRR prefix-limit configuration
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits struct {
@@ -4144,6 +4538,74 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_Priorit
     // IsisInternalLevel.
     Level interface{}
 
+    // Data container.
+    PriorityLimitData Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
+
+    // keys: frr-type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType.
+    FrrType []*Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
+}
+
+func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
+    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
+    priorityLimit.EntityData.YangName = "priority-limit"
+    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimit.EntityData.ParentYangName = "priority-limits"
+    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimit.EntityData.Children = types.NewOrderedMap()
+    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
+    priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
+    for i := range priorityLimit.FrrType {
+        priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
+    }
+    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
+
+    priorityLimit.EntityData.YListKeys = []string {"Level"}
+
+    return &(priorityLimit.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
+// Data container.
+type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Compute for all prefixes upto the specified priority. The type is
+    // IsisPrefixPriority. This attribute is mandatory.
+    Priority interface{}
+}
+
+func (priorityLimitData *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
+    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
+    priorityLimitData.EntityData.YangName = "priority-limit-data"
+    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimitData.EntityData.ParentYangName = "priority-limit"
+    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
+    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimitData.EntityData.Children = types.NewOrderedMap()
+    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
+
+    priorityLimitData.EntityData.YListKeys = []string {}
+
+    return &(priorityLimitData.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
+// keys: frr-type
+type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
 
@@ -4152,25 +4614,24 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_Priorit
     Priority interface{}
 }
 
-func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
-    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
-    priorityLimit.EntityData.YangName = "priority-limit"
-    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimit.EntityData.ParentYangName = "priority-limits"
-    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level") + types.AddKeyToken(priorityLimit.FrrType, "frr-type")
-    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (frrType *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType) GetEntityData() *types.CommonEntityData {
+    frrType.EntityData.YFilter = frrType.YFilter
+    frrType.EntityData.YangName = "frr-type"
+    frrType.EntityData.BundleName = "cisco_ios_xr"
+    frrType.EntityData.ParentYangName = "priority-limit"
+    frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
-    priorityLimit.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", priorityLimit.FrrType})
-    priorityLimit.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimit.Priority})
+    frrType.EntityData.Children = types.NewOrderedMap()
+    frrType.EntityData.Leafs = types.NewOrderedMap()
+    frrType.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", frrType.FrrType})
+    frrType.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", frrType.Priority})
 
-    priorityLimit.EntityData.YListKeys = []string {"Level", "FrrType"}
+    frrType.EntityData.YListKeys = []string {"FrrType"}
 
-    return &(priorityLimit.EntityData)
+    return &(frrType.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrRemoteLfaPrefixes
@@ -4398,7 +4859,7 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4725,7 +5186,7 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_ExcludeInterfaces_ExcludeI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface to be excluded. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5205,6 +5666,111 @@ func (eigrp *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistr
     eigrp.EntityData.YListKeys = []string {"AsZz"}
 
     return &(eigrp.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables
+// Advertise application specific values
+type Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application Name. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable.
+    ApplicationTable []*Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable
+}
+
+func (applicationTables *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables) GetEntityData() *types.CommonEntityData {
+    applicationTables.EntityData.YFilter = applicationTables.YFilter
+    applicationTables.EntityData.YangName = "application-tables"
+    applicationTables.EntityData.BundleName = "cisco_ios_xr"
+    applicationTables.EntityData.ParentYangName = "topology-name"
+    applicationTables.EntityData.SegmentPath = "application-tables"
+    applicationTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationTables.EntityData.Children = types.NewOrderedMap()
+    applicationTables.EntityData.Children.Append("application-table", types.YChild{"ApplicationTable", nil})
+    for i := range applicationTables.ApplicationTable {
+        applicationTables.EntityData.Children.Append(types.GetSegmentPath(applicationTables.ApplicationTable[i]), types.YChild{"ApplicationTable", applicationTables.ApplicationTable[i]})
+    }
+    applicationTables.EntityData.Leafs = types.NewOrderedMap()
+
+    applicationTables.EntityData.YListKeys = []string {}
+
+    return &(applicationTables.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable
+// Application Name
+type Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Application Type. The type is IsisApplication.
+    AppType interface{}
+
+    // Attribute Name. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable.
+    AttributeTable []*Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable
+}
+
+func (applicationTable *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable) GetEntityData() *types.CommonEntityData {
+    applicationTable.EntityData.YFilter = applicationTable.YFilter
+    applicationTable.EntityData.YangName = "application-table"
+    applicationTable.EntityData.BundleName = "cisco_ios_xr"
+    applicationTable.EntityData.ParentYangName = "application-tables"
+    applicationTable.EntityData.SegmentPath = "application-table" + types.AddKeyToken(applicationTable.AppType, "app-type")
+    applicationTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationTable.EntityData.Children = types.NewOrderedMap()
+    applicationTable.EntityData.Children.Append("attribute-table", types.YChild{"AttributeTable", nil})
+    for i := range applicationTable.AttributeTable {
+        applicationTable.EntityData.Children.Append(types.GetSegmentPath(applicationTable.AttributeTable[i]), types.YChild{"AttributeTable", applicationTable.AttributeTable[i]})
+    }
+    applicationTable.EntityData.Leafs = types.NewOrderedMap()
+    applicationTable.EntityData.Leafs.Append("app-type", types.YLeaf{"AppType", applicationTable.AppType})
+
+    applicationTable.EntityData.YListKeys = []string {"AppType"}
+
+    return &(applicationTable.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable
+// Attribute Name
+type Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Application Type. The type is
+    // IsisApplicationAttribute.
+    AppType interface{}
+
+    // If TRUE, advertise application link attribute in our LSP. The type is bool.
+    // This attribute is mandatory.
+    Enable interface{}
+}
+
+func (attributeTable *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable) GetEntityData() *types.CommonEntityData {
+    attributeTable.EntityData.YFilter = attributeTable.YFilter
+    attributeTable.EntityData.YangName = "attribute-table"
+    attributeTable.EntityData.BundleName = "cisco_ios_xr"
+    attributeTable.EntityData.ParentYangName = "application-table"
+    attributeTable.EntityData.SegmentPath = "attribute-table" + types.AddKeyToken(attributeTable.AppType, "app-type")
+    attributeTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attributeTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attributeTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    attributeTable.EntityData.Children = types.NewOrderedMap()
+    attributeTable.EntityData.Leafs = types.NewOrderedMap()
+    attributeTable.EntityData.Leafs.Append("app-type", types.YLeaf{"AppType", attributeTable.AppType})
+    attributeTable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", attributeTable.Enable})
+
+    attributeTable.EntityData.YListKeys = []string {"AppType"}
+
+    return &(attributeTable.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_TopologyName_SpfPeriodicIntervals
@@ -5737,7 +6303,7 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_Mpls_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6142,6 +6708,185 @@ func (distribute *Isis_Instances_Instance_Distribute) GetEntityData() *types.Com
     return &(distribute.EntityData)
 }
 
+// Isis_Instances_Instance_FlexAlgos
+// Flex-Algo Table
+type Isis_Instances_Instance_FlexAlgos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration for an IS-IS Flex-Algo. The type is slice of
+    // Isis_Instances_Instance_FlexAlgos_FlexAlgo.
+    FlexAlgo []*Isis_Instances_Instance_FlexAlgos_FlexAlgo
+}
+
+func (flexAlgos *Isis_Instances_Instance_FlexAlgos) GetEntityData() *types.CommonEntityData {
+    flexAlgos.EntityData.YFilter = flexAlgos.YFilter
+    flexAlgos.EntityData.YangName = "flex-algos"
+    flexAlgos.EntityData.BundleName = "cisco_ios_xr"
+    flexAlgos.EntityData.ParentYangName = "instance"
+    flexAlgos.EntityData.SegmentPath = "flex-algos"
+    flexAlgos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flexAlgos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flexAlgos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flexAlgos.EntityData.Children = types.NewOrderedMap()
+    flexAlgos.EntityData.Children.Append("flex-algo", types.YChild{"FlexAlgo", nil})
+    for i := range flexAlgos.FlexAlgo {
+        flexAlgos.EntityData.Children.Append(types.GetSegmentPath(flexAlgos.FlexAlgo[i]), types.YChild{"FlexAlgo", flexAlgos.FlexAlgo[i]})
+    }
+    flexAlgos.EntityData.Leafs = types.NewOrderedMap()
+
+    flexAlgos.EntityData.YListKeys = []string {}
+
+    return &(flexAlgos.EntityData)
+}
+
+// Isis_Instances_Instance_FlexAlgos_FlexAlgo
+// Configuration for an IS-IS Flex-Algo
+type Isis_Instances_Instance_FlexAlgos_FlexAlgo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Flex Algo. The type is interface{} with range:
+    // 128..255.
+    FlexAlgo interface{}
+
+    // This object must be set before any other configuration is supplied for an
+    // interface, and must be the last per-interface configuration object to be
+    // removed. The type is interface{}.
+    Running interface{}
+
+    // Set the Flex-Algo metric-type. The type is interface{} with range:
+    // 0..4294967295.
+    MetricType interface{}
+
+    // Set the Flex-Algo priority. The type is interface{} with range: 0..255.
+    Priority interface{}
+
+    // Set the exclude-any affinity.
+    AffinityExcludeAnies Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies
+}
+
+func (flexAlgo *Isis_Instances_Instance_FlexAlgos_FlexAlgo) GetEntityData() *types.CommonEntityData {
+    flexAlgo.EntityData.YFilter = flexAlgo.YFilter
+    flexAlgo.EntityData.YangName = "flex-algo"
+    flexAlgo.EntityData.BundleName = "cisco_ios_xr"
+    flexAlgo.EntityData.ParentYangName = "flex-algos"
+    flexAlgo.EntityData.SegmentPath = "flex-algo" + types.AddKeyToken(flexAlgo.FlexAlgo, "flex-algo")
+    flexAlgo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flexAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flexAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flexAlgo.EntityData.Children = types.NewOrderedMap()
+    flexAlgo.EntityData.Children.Append("affinity-exclude-anies", types.YChild{"AffinityExcludeAnies", &flexAlgo.AffinityExcludeAnies})
+    flexAlgo.EntityData.Leafs = types.NewOrderedMap()
+    flexAlgo.EntityData.Leafs.Append("flex-algo", types.YLeaf{"FlexAlgo", flexAlgo.FlexAlgo})
+    flexAlgo.EntityData.Leafs.Append("running", types.YLeaf{"Running", flexAlgo.Running})
+    flexAlgo.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", flexAlgo.MetricType})
+    flexAlgo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", flexAlgo.Priority})
+
+    flexAlgo.EntityData.YListKeys = []string {"FlexAlgo"}
+
+    return &(flexAlgo.EntityData)
+}
+
+// Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies
+// Set the exclude-any affinity
+type Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Array of Attribute Names. The type is slice of string.
+    AffinityExcludeAny []interface{}
+}
+
+func (affinityExcludeAnies *Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies) GetEntityData() *types.CommonEntityData {
+    affinityExcludeAnies.EntityData.YFilter = affinityExcludeAnies.YFilter
+    affinityExcludeAnies.EntityData.YangName = "affinity-exclude-anies"
+    affinityExcludeAnies.EntityData.BundleName = "cisco_ios_xr"
+    affinityExcludeAnies.EntityData.ParentYangName = "flex-algo"
+    affinityExcludeAnies.EntityData.SegmentPath = "affinity-exclude-anies"
+    affinityExcludeAnies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityExcludeAnies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityExcludeAnies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityExcludeAnies.EntityData.Children = types.NewOrderedMap()
+    affinityExcludeAnies.EntityData.Leafs = types.NewOrderedMap()
+    affinityExcludeAnies.EntityData.Leafs.Append("affinity-exclude-any", types.YLeaf{"AffinityExcludeAny", affinityExcludeAnies.AffinityExcludeAny})
+
+    affinityExcludeAnies.EntityData.YListKeys = []string {}
+
+    return &(affinityExcludeAnies.EntityData)
+}
+
+// Isis_Instances_Instance_AffinityMappings
+// Affinity Mapping Table
+type Isis_Instances_Instance_AffinityMappings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Affinity Mapping configuration. The type is slice of
+    // Isis_Instances_Instance_AffinityMappings_AffinityMapping.
+    AffinityMapping []*Isis_Instances_Instance_AffinityMappings_AffinityMapping
+}
+
+func (affinityMappings *Isis_Instances_Instance_AffinityMappings) GetEntityData() *types.CommonEntityData {
+    affinityMappings.EntityData.YFilter = affinityMappings.YFilter
+    affinityMappings.EntityData.YangName = "affinity-mappings"
+    affinityMappings.EntityData.BundleName = "cisco_ios_xr"
+    affinityMappings.EntityData.ParentYangName = "instance"
+    affinityMappings.EntityData.SegmentPath = "affinity-mappings"
+    affinityMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityMappings.EntityData.Children = types.NewOrderedMap()
+    affinityMappings.EntityData.Children.Append("affinity-mapping", types.YChild{"AffinityMapping", nil})
+    for i := range affinityMappings.AffinityMapping {
+        affinityMappings.EntityData.Children.Append(types.GetSegmentPath(affinityMappings.AffinityMapping[i]), types.YChild{"AffinityMapping", affinityMappings.AffinityMapping[i]})
+    }
+    affinityMappings.EntityData.Leafs = types.NewOrderedMap()
+
+    affinityMappings.EntityData.YListKeys = []string {}
+
+    return &(affinityMappings.EntityData)
+}
+
+// Isis_Instances_Instance_AffinityMappings_AffinityMapping
+// Affinity Mapping configuration
+type Isis_Instances_Instance_AffinityMappings_AffinityMapping struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Affinity Name. The type is string with length:
+    // 1..32.
+    AffinityName interface{}
+
+    // Bit position. The type is interface{} with range: 0..255. This attribute is
+    // mandatory.
+    Value interface{}
+}
+
+func (affinityMapping *Isis_Instances_Instance_AffinityMappings_AffinityMapping) GetEntityData() *types.CommonEntityData {
+    affinityMapping.EntityData.YFilter = affinityMapping.YFilter
+    affinityMapping.EntityData.YangName = "affinity-mapping"
+    affinityMapping.EntityData.BundleName = "cisco_ios_xr"
+    affinityMapping.EntityData.ParentYangName = "affinity-mappings"
+    affinityMapping.EntityData.SegmentPath = "affinity-mapping" + types.AddKeyToken(affinityMapping.AffinityName, "affinity-name")
+    affinityMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    affinityMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    affinityMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    affinityMapping.EntityData.Children = types.NewOrderedMap()
+    affinityMapping.EntityData.Leafs = types.NewOrderedMap()
+    affinityMapping.EntityData.Leafs.Append("affinity-name", types.YLeaf{"AffinityName", affinityMapping.AffinityName})
+    affinityMapping.EntityData.Leafs.Append("value", types.YLeaf{"Value", affinityMapping.Value})
+
+    affinityMapping.EntityData.YListKeys = []string {"AffinityName"}
+
+    return &(affinityMapping.EntityData)
+}
+
 // Isis_Instances_Instance_LspAcceptPasswords
 // LSP/SNP accept password configuration
 type Isis_Instances_Instance_LspAcceptPasswords struct {
@@ -6278,6 +7023,181 @@ func (lspMtu *Isis_Instances_Instance_LspMtus_LspMtu) GetEntityData() *types.Com
     lspMtu.EntityData.YListKeys = []string {"Level"}
 
     return &(lspMtu.EntityData)
+}
+
+// Isis_Instances_Instance_SrlgTable
+// SRLG configuration
+type Isis_Instances_Instance_SrlgTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure Default SRLG Admin Weight. The type is interface{} with range:
+    // 0..16777215.
+    SrlgAdminWeightDefault interface{}
+
+    // SRLG named configuration.
+    SrlgNames Isis_Instances_Instance_SrlgTable_SrlgNames
+}
+
+func (srlgTable *Isis_Instances_Instance_SrlgTable) GetEntityData() *types.CommonEntityData {
+    srlgTable.EntityData.YFilter = srlgTable.YFilter
+    srlgTable.EntityData.YangName = "srlg-table"
+    srlgTable.EntityData.BundleName = "cisco_ios_xr"
+    srlgTable.EntityData.ParentYangName = "instance"
+    srlgTable.EntityData.SegmentPath = "srlg-table"
+    srlgTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlgTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlgTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlgTable.EntityData.Children = types.NewOrderedMap()
+    srlgTable.EntityData.Children.Append("srlg-names", types.YChild{"SrlgNames", &srlgTable.SrlgNames})
+    srlgTable.EntityData.Leafs = types.NewOrderedMap()
+    srlgTable.EntityData.Leafs.Append("srlg-admin-weight-default", types.YLeaf{"SrlgAdminWeightDefault", srlgTable.SrlgAdminWeightDefault})
+
+    srlgTable.EntityData.YListKeys = []string {}
+
+    return &(srlgTable.EntityData)
+}
+
+// Isis_Instances_Instance_SrlgTable_SrlgNames
+// SRLG named configuration
+type Isis_Instances_Instance_SrlgTable_SrlgNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration for an IS-IS SRLG. The type is slice of
+    // Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName.
+    SrlgName []*Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName
+}
+
+func (srlgNames *Isis_Instances_Instance_SrlgTable_SrlgNames) GetEntityData() *types.CommonEntityData {
+    srlgNames.EntityData.YFilter = srlgNames.YFilter
+    srlgNames.EntityData.YangName = "srlg-names"
+    srlgNames.EntityData.BundleName = "cisco_ios_xr"
+    srlgNames.EntityData.ParentYangName = "srlg-table"
+    srlgNames.EntityData.SegmentPath = "srlg-names"
+    srlgNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlgNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlgNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlgNames.EntityData.Children = types.NewOrderedMap()
+    srlgNames.EntityData.Children.Append("srlg-name", types.YChild{"SrlgName", nil})
+    for i := range srlgNames.SrlgName {
+        srlgNames.EntityData.Children.Append(types.GetSegmentPath(srlgNames.SrlgName[i]), types.YChild{"SrlgName", srlgNames.SrlgName[i]})
+    }
+    srlgNames.EntityData.Leafs = types.NewOrderedMap()
+
+    srlgNames.EntityData.YListKeys = []string {}
+
+    return &(srlgNames.EntityData)
+}
+
+// Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName
+// Configuration for an IS-IS SRLG
+type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Srlg name. The type is string with length: 1..64.
+    SrlgName interface{}
+
+    // Configure SRLG Admin Weight. The type is interface{} with range:
+    // 0..16777215.
+    AdminWeight interface{}
+
+    // Configure Static Remote SRLG.
+    FromTos Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos
+}
+
+func (srlgName *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName) GetEntityData() *types.CommonEntityData {
+    srlgName.EntityData.YFilter = srlgName.YFilter
+    srlgName.EntityData.YangName = "srlg-name"
+    srlgName.EntityData.BundleName = "cisco_ios_xr"
+    srlgName.EntityData.ParentYangName = "srlg-names"
+    srlgName.EntityData.SegmentPath = "srlg-name" + types.AddKeyToken(srlgName.SrlgName, "srlg-name")
+    srlgName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlgName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlgName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srlgName.EntityData.Children = types.NewOrderedMap()
+    srlgName.EntityData.Children.Append("from-tos", types.YChild{"FromTos", &srlgName.FromTos})
+    srlgName.EntityData.Leafs = types.NewOrderedMap()
+    srlgName.EntityData.Leafs.Append("srlg-name", types.YLeaf{"SrlgName", srlgName.SrlgName})
+    srlgName.EntityData.Leafs.Append("admin-weight", types.YLeaf{"AdminWeight", srlgName.AdminWeight})
+
+    srlgName.EntityData.YListKeys = []string {"SrlgName"}
+
+    return &(srlgName.EntityData)
+}
+
+// Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos
+// Configure Static Remote SRLG
+type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Local and remote addresses of a link. The type is slice of
+    // Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo.
+    FromTo []*Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo
+}
+
+func (fromTos *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos) GetEntityData() *types.CommonEntityData {
+    fromTos.EntityData.YFilter = fromTos.YFilter
+    fromTos.EntityData.YangName = "from-tos"
+    fromTos.EntityData.BundleName = "cisco_ios_xr"
+    fromTos.EntityData.ParentYangName = "srlg-name"
+    fromTos.EntityData.SegmentPath = "from-tos"
+    fromTos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fromTos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fromTos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fromTos.EntityData.Children = types.NewOrderedMap()
+    fromTos.EntityData.Children.Append("from-to", types.YChild{"FromTo", nil})
+    for i := range fromTos.FromTo {
+        fromTos.EntityData.Children.Append(types.GetSegmentPath(fromTos.FromTo[i]), types.YChild{"FromTo", fromTos.FromTo[i]})
+    }
+    fromTos.EntityData.Leafs = types.NewOrderedMap()
+
+    fromTos.EntityData.YListKeys = []string {}
+
+    return &(fromTos.EntityData)
+}
+
+// Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo
+// Local and remote addresses of a link
+type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Local IPv4 address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    LocalIpv4Address interface{}
+
+    // This attribute is a key. Remote IPv4 address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    RemoteIpv4Address interface{}
+}
+
+func (fromTo *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo) GetEntityData() *types.CommonEntityData {
+    fromTo.EntityData.YFilter = fromTo.YFilter
+    fromTo.EntityData.YangName = "from-to"
+    fromTo.EntityData.BundleName = "cisco_ios_xr"
+    fromTo.EntityData.ParentYangName = "from-tos"
+    fromTo.EntityData.SegmentPath = "from-to" + types.AddKeyToken(fromTo.LocalIpv4Address, "local-ipv4-address") + types.AddKeyToken(fromTo.RemoteIpv4Address, "remote-ipv4-address")
+    fromTo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fromTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fromTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fromTo.EntityData.Children = types.NewOrderedMap()
+    fromTo.EntityData.Leafs = types.NewOrderedMap()
+    fromTo.EntityData.Leafs.Append("local-ipv4-address", types.YLeaf{"LocalIpv4Address", fromTo.LocalIpv4Address})
+    fromTo.EntityData.Leafs.Append("remote-ipv4-address", types.YLeaf{"RemoteIpv4Address", fromTo.RemoteIpv4Address})
+
+    fromTo.EntityData.YListKeys = []string {"LocalIpv4Address", "RemoteIpv4Address"}
+
+    return &(fromTo.EntityData)
 }
 
 // Isis_Instances_Instance_Nsf
@@ -6535,6 +7455,9 @@ type Isis_Instances_Instance_LspPasswords_LspPassword struct {
     // Password or unencrypted Key Chain name. The type is string with pattern:
     // (!.+)|([^!].+). This attribute is mandatory.
     Password interface{}
+
+    // Enable POI. The type is IsisEnablePoi.
+    EnablePoi interface{}
 }
 
 func (lspPassword *Isis_Instances_Instance_LspPasswords_LspPassword) GetEntityData() *types.CommonEntityData {
@@ -6554,6 +7477,7 @@ func (lspPassword *Isis_Instances_Instance_LspPasswords_LspPassword) GetEntityDa
     lspPassword.EntityData.Leafs.Append("failure-mode", types.YLeaf{"FailureMode", lspPassword.FailureMode})
     lspPassword.EntityData.Leafs.Append("authentication-type", types.YLeaf{"AuthenticationType", lspPassword.AuthenticationType})
     lspPassword.EntityData.Leafs.Append("password", types.YLeaf{"Password", lspPassword.Password})
+    lspPassword.EntityData.Leafs.Append("enable-poi", types.YLeaf{"EnablePoi", lspPassword.EnablePoi})
 
     lspPassword.EntityData.YListKeys = []string {"Level"}
 
@@ -6823,7 +7747,7 @@ type Isis_Instances_Instance_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This object must be set before any other configuration is supplied for an
@@ -6850,6 +7774,9 @@ type Isis_Instances_Instance_Interfaces_Interface struct {
     // Configure high priority detection of interface down event. The type is
     // interface{}.
     LinkDownFastDetect interface{}
+
+    // Interface Affinity Table.
+    IntAffinityTable Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable
 
     // LSP-retransmission-throttle-interval configuration.
     LspRetransmitThrottleIntervals Isis_Instances_Instance_Interfaces_Interface_LspRetransmitThrottleIntervals
@@ -6905,6 +7832,7 @@ func (self *Isis_Instances_Instance_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Children.Append("int-affinity-table", types.YChild{"IntAffinityTable", &self.IntAffinityTable})
     self.EntityData.Children.Append("lsp-retransmit-throttle-intervals", types.YChild{"LspRetransmitThrottleIntervals", &self.LspRetransmitThrottleIntervals})
     self.EntityData.Children.Append("lsp-retransmit-intervals", types.YChild{"LspRetransmitIntervals", &self.LspRetransmitIntervals})
     self.EntityData.Children.Append("bfd", types.YChild{"Bfd", &self.Bfd})
@@ -6931,6 +7859,65 @@ func (self *Isis_Instances_Instance_Interfaces_Interface) GetEntityData() *types
     self.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(self.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable
+// Interface Affinity Table
+type Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the interface affinities used by Flex-Algo.
+    FlexAlgos Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable_FlexAlgos
+}
+
+func (intAffinityTable *Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable) GetEntityData() *types.CommonEntityData {
+    intAffinityTable.EntityData.YFilter = intAffinityTable.YFilter
+    intAffinityTable.EntityData.YangName = "int-affinity-table"
+    intAffinityTable.EntityData.BundleName = "cisco_ios_xr"
+    intAffinityTable.EntityData.ParentYangName = "interface"
+    intAffinityTable.EntityData.SegmentPath = "int-affinity-table"
+    intAffinityTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intAffinityTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intAffinityTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    intAffinityTable.EntityData.Children = types.NewOrderedMap()
+    intAffinityTable.EntityData.Children.Append("flex-algos", types.YChild{"FlexAlgos", &intAffinityTable.FlexAlgos})
+    intAffinityTable.EntityData.Leafs = types.NewOrderedMap()
+
+    intAffinityTable.EntityData.YListKeys = []string {}
+
+    return &(intAffinityTable.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable_FlexAlgos
+// Set the interface affinities used by
+// Flex-Algo
+type Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable_FlexAlgos struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Array of Attribute Names. The type is slice of string.
+    FlexAlgo []interface{}
+}
+
+func (flexAlgos *Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable_FlexAlgos) GetEntityData() *types.CommonEntityData {
+    flexAlgos.EntityData.YFilter = flexAlgos.YFilter
+    flexAlgos.EntityData.YangName = "flex-algos"
+    flexAlgos.EntityData.BundleName = "cisco_ios_xr"
+    flexAlgos.EntityData.ParentYangName = "int-affinity-table"
+    flexAlgos.EntityData.SegmentPath = "flex-algos"
+    flexAlgos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flexAlgos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flexAlgos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flexAlgos.EntityData.Children = types.NewOrderedMap()
+    flexAlgos.EntityData.Leafs = types.NewOrderedMap()
+    flexAlgos.EntityData.Leafs.Append("flex-algo", types.YLeaf{"FlexAlgo", flexAlgos.FlexAlgo})
+
+    flexAlgos.EntityData.YListKeys = []string {}
+
+    return &(flexAlgos.EntityData)
 }
 
 // Isis_Instances_Instance_Interfaces_Interface_LspRetransmitThrottleIntervals
@@ -7799,6 +8786,9 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Inter
     // to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag.
     PrefixSspfsid Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_PrefixSspfsid
 
+    // Algorithm SID Table.
+    AlgorithmPrefixSids Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids
+
     // AutoMetric configuration.
     AutoMetrics Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AutoMetrics
 
@@ -7833,6 +8823,7 @@ func (interfaceAfData *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs
     interfaceAfData.EntityData.Children.Append("interface-frr-table", types.YChild{"InterfaceFrrTable", &interfaceAfData.InterfaceFrrTable})
     interfaceAfData.EntityData.Children.Append("mpls-ldp", types.YChild{"MplsLdp", &interfaceAfData.MplsLdp})
     interfaceAfData.EntityData.Children.Append("prefix-sspfsid", types.YChild{"PrefixSspfsid", &interfaceAfData.PrefixSspfsid})
+    interfaceAfData.EntityData.Children.Append("algorithm-prefix-sids", types.YChild{"AlgorithmPrefixSids", &interfaceAfData.AlgorithmPrefixSids})
     interfaceAfData.EntityData.Children.Append("auto-metrics", types.YChild{"AutoMetrics", &interfaceAfData.AutoMetrics})
     interfaceAfData.EntityData.Children.Append("admin-tags", types.YChild{"AdminTags", &interfaceAfData.AdminTags})
     interfaceAfData.EntityData.Children.Append("interface-link-group", types.YChild{"InterfaceLinkGroup", &interfaceAfData.InterfaceLinkGroup})
@@ -8001,7 +8992,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -8407,7 +9398,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -8596,6 +9587,99 @@ func (prefixSspfsid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     prefixSspfsid.EntityData.YListKeys = []string {}
 
     return &(prefixSspfsid.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids
+// Algorithm SID Table
+type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Assign prefix SID for algorithm to an interface, ISISPHPFlag will be
+    // rejected if set to disable, ISISEXPLICITNULLFlag will override the value of
+    // ISISPHPFlag. The type is slice of
+    // Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid.
+    AlgorithmPrefixSid []*Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid
+}
+
+func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids) GetEntityData() *types.CommonEntityData {
+    algorithmPrefixSids.EntityData.YFilter = algorithmPrefixSids.YFilter
+    algorithmPrefixSids.EntityData.YangName = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.BundleName = "cisco_ios_xr"
+    algorithmPrefixSids.EntityData.ParentYangName = "interface-af-data"
+    algorithmPrefixSids.EntityData.SegmentPath = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    algorithmPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    algorithmPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    algorithmPrefixSids.EntityData.Children = types.NewOrderedMap()
+    algorithmPrefixSids.EntityData.Children.Append("algorithm-prefix-sid", types.YChild{"AlgorithmPrefixSid", nil})
+    for i := range algorithmPrefixSids.AlgorithmPrefixSid {
+        algorithmPrefixSids.EntityData.Children.Append(types.GetSegmentPath(algorithmPrefixSids.AlgorithmPrefixSid[i]), types.YChild{"AlgorithmPrefixSid", algorithmPrefixSids.AlgorithmPrefixSid[i]})
+    }
+    algorithmPrefixSids.EntityData.Leafs = types.NewOrderedMap()
+
+    algorithmPrefixSids.EntityData.YListKeys = []string {}
+
+    return &(algorithmPrefixSids.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid
+// Assign prefix SID for algorithm to an
+// interface, ISISPHPFlag will be rejected
+// if set to disable, ISISEXPLICITNULLFlag
+// will override the value of ISISPHPFlag
+type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Algorithm. The type is interface{} with range:
+    // 128..255.
+    Algo interface{}
+
+    // SID type for the interface. The type is Isissid1. This attribute is
+    // mandatory.
+    Type interface{}
+
+    // SID value for the interface. The type is interface{} with range:
+    // 0..1048575. This attribute is mandatory.
+    Value interface{}
+
+    // Enable/Disable Penultimate Hop Popping. The type is IsisphpFlag. This
+    // attribute is mandatory.
+    Php interface{}
+
+    // Enable/Disable Explicit-NULL flag. The type is IsisexplicitNullFlag. This
+    // attribute is mandatory.
+    ExplicitNull interface{}
+
+    // Clear N-flag for the prefix-SID. The type is NflagClear. This attribute is
+    // mandatory.
+    NflagClear interface{}
+}
+
+func (algorithmPrefixSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid) GetEntityData() *types.CommonEntityData {
+    algorithmPrefixSid.EntityData.YFilter = algorithmPrefixSid.YFilter
+    algorithmPrefixSid.EntityData.YangName = "algorithm-prefix-sid"
+    algorithmPrefixSid.EntityData.BundleName = "cisco_ios_xr"
+    algorithmPrefixSid.EntityData.ParentYangName = "algorithm-prefix-sids"
+    algorithmPrefixSid.EntityData.SegmentPath = "algorithm-prefix-sid" + types.AddKeyToken(algorithmPrefixSid.Algo, "algo")
+    algorithmPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    algorithmPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    algorithmPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    algorithmPrefixSid.EntityData.Children = types.NewOrderedMap()
+    algorithmPrefixSid.EntityData.Leafs = types.NewOrderedMap()
+    algorithmPrefixSid.EntityData.Leafs.Append("algo", types.YLeaf{"Algo", algorithmPrefixSid.Algo})
+    algorithmPrefixSid.EntityData.Leafs.Append("type", types.YLeaf{"Type", algorithmPrefixSid.Type})
+    algorithmPrefixSid.EntityData.Leafs.Append("value", types.YLeaf{"Value", algorithmPrefixSid.Value})
+    algorithmPrefixSid.EntityData.Leafs.Append("php", types.YLeaf{"Php", algorithmPrefixSid.Php})
+    algorithmPrefixSid.EntityData.Leafs.Append("explicit-null", types.YLeaf{"ExplicitNull", algorithmPrefixSid.ExplicitNull})
+    algorithmPrefixSid.EntityData.Leafs.Append("nflag-clear", types.YLeaf{"NflagClear", algorithmPrefixSid.NflagClear})
+
+    algorithmPrefixSid.EntityData.YListKeys = []string {"Algo"}
+
+    return &(algorithmPrefixSid.EntityData)
 }
 
 // Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AutoMetrics
@@ -9057,6 +10141,9 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Topol
     // to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag.
     PrefixSspfsid Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_PrefixSspfsid
 
+    // Algorithm SID Table.
+    AlgorithmPrefixSids Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids
+
     // AutoMetric configuration.
     AutoMetrics Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AutoMetrics
 
@@ -9091,6 +10178,7 @@ func (topologyName *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     topologyName.EntityData.Children.Append("interface-frr-table", types.YChild{"InterfaceFrrTable", &topologyName.InterfaceFrrTable})
     topologyName.EntityData.Children.Append("mpls-ldp", types.YChild{"MplsLdp", &topologyName.MplsLdp})
     topologyName.EntityData.Children.Append("prefix-sspfsid", types.YChild{"PrefixSspfsid", &topologyName.PrefixSspfsid})
+    topologyName.EntityData.Children.Append("algorithm-prefix-sids", types.YChild{"AlgorithmPrefixSids", &topologyName.AlgorithmPrefixSids})
     topologyName.EntityData.Children.Append("auto-metrics", types.YChild{"AutoMetrics", &topologyName.AutoMetrics})
     topologyName.EntityData.Children.Append("admin-tags", types.YChild{"AdminTags", &topologyName.AdminTags})
     topologyName.EntityData.Children.Append("interface-link-group", types.YChild{"InterfaceLinkGroup", &topologyName.InterfaceLinkGroup})
@@ -9260,7 +10348,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -9666,7 +10754,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -9855,6 +10943,99 @@ func (prefixSspfsid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     prefixSspfsid.EntityData.YListKeys = []string {}
 
     return &(prefixSspfsid.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids
+// Algorithm SID Table
+type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Assign prefix SID for algorithm to an interface, ISISPHPFlag will be
+    // rejected if set to disable, ISISEXPLICITNULLFlag will override the value of
+    // ISISPHPFlag. The type is slice of
+    // Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid.
+    AlgorithmPrefixSid []*Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid
+}
+
+func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids) GetEntityData() *types.CommonEntityData {
+    algorithmPrefixSids.EntityData.YFilter = algorithmPrefixSids.YFilter
+    algorithmPrefixSids.EntityData.YangName = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.BundleName = "cisco_ios_xr"
+    algorithmPrefixSids.EntityData.ParentYangName = "topology-name"
+    algorithmPrefixSids.EntityData.SegmentPath = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    algorithmPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    algorithmPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    algorithmPrefixSids.EntityData.Children = types.NewOrderedMap()
+    algorithmPrefixSids.EntityData.Children.Append("algorithm-prefix-sid", types.YChild{"AlgorithmPrefixSid", nil})
+    for i := range algorithmPrefixSids.AlgorithmPrefixSid {
+        algorithmPrefixSids.EntityData.Children.Append(types.GetSegmentPath(algorithmPrefixSids.AlgorithmPrefixSid[i]), types.YChild{"AlgorithmPrefixSid", algorithmPrefixSids.AlgorithmPrefixSid[i]})
+    }
+    algorithmPrefixSids.EntityData.Leafs = types.NewOrderedMap()
+
+    algorithmPrefixSids.EntityData.YListKeys = []string {}
+
+    return &(algorithmPrefixSids.EntityData)
+}
+
+// Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid
+// Assign prefix SID for algorithm to an
+// interface, ISISPHPFlag will be rejected
+// if set to disable, ISISEXPLICITNULLFlag
+// will override the value of ISISPHPFlag
+type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Algorithm. The type is interface{} with range:
+    // 128..255.
+    Algo interface{}
+
+    // SID type for the interface. The type is Isissid1. This attribute is
+    // mandatory.
+    Type interface{}
+
+    // SID value for the interface. The type is interface{} with range:
+    // 0..1048575. This attribute is mandatory.
+    Value interface{}
+
+    // Enable/Disable Penultimate Hop Popping. The type is IsisphpFlag. This
+    // attribute is mandatory.
+    Php interface{}
+
+    // Enable/Disable Explicit-NULL flag. The type is IsisexplicitNullFlag. This
+    // attribute is mandatory.
+    ExplicitNull interface{}
+
+    // Clear N-flag for the prefix-SID. The type is NflagClear. This attribute is
+    // mandatory.
+    NflagClear interface{}
+}
+
+func (algorithmPrefixSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid) GetEntityData() *types.CommonEntityData {
+    algorithmPrefixSid.EntityData.YFilter = algorithmPrefixSid.YFilter
+    algorithmPrefixSid.EntityData.YangName = "algorithm-prefix-sid"
+    algorithmPrefixSid.EntityData.BundleName = "cisco_ios_xr"
+    algorithmPrefixSid.EntityData.ParentYangName = "algorithm-prefix-sids"
+    algorithmPrefixSid.EntityData.SegmentPath = "algorithm-prefix-sid" + types.AddKeyToken(algorithmPrefixSid.Algo, "algo")
+    algorithmPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    algorithmPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    algorithmPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    algorithmPrefixSid.EntityData.Children = types.NewOrderedMap()
+    algorithmPrefixSid.EntityData.Leafs = types.NewOrderedMap()
+    algorithmPrefixSid.EntityData.Leafs.Append("algo", types.YLeaf{"Algo", algorithmPrefixSid.Algo})
+    algorithmPrefixSid.EntityData.Leafs.Append("type", types.YLeaf{"Type", algorithmPrefixSid.Type})
+    algorithmPrefixSid.EntityData.Leafs.Append("value", types.YLeaf{"Value", algorithmPrefixSid.Value})
+    algorithmPrefixSid.EntityData.Leafs.Append("php", types.YLeaf{"Php", algorithmPrefixSid.Php})
+    algorithmPrefixSid.EntityData.Leafs.Append("explicit-null", types.YLeaf{"ExplicitNull", algorithmPrefixSid.ExplicitNull})
+    algorithmPrefixSid.EntityData.Leafs.Append("nflag-clear", types.YLeaf{"NflagClear", algorithmPrefixSid.NflagClear})
+
+    algorithmPrefixSid.EntityData.YListKeys = []string {"Algo"}
+
+    return &(algorithmPrefixSid.EntityData)
 }
 
 // Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AutoMetrics

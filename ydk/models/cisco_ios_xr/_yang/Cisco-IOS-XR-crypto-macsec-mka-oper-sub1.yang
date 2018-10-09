@@ -19,12 +19,153 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR crypto-macsec-mka package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Mka-authentication-mode {
+    type enumeration {
+      enum "auth-mode-invalid" {
+        value 0;
+        description
+          "Invalid authentication mode";
+      }
+      enum "auth-mode-psk" {
+        value 1;
+        description
+          "Preshared Key";
+      }
+      enum "auth-mode-eap" {
+        value 2;
+        description
+          "EAP";
+      }
+    }
+    description
+      "Mka authentication mode";
+  }
+
+  typedef Macsec-service-port {
+    type enumeration {
+      enum "macsec-service-port-none" {
+        value 0;
+        description
+          "Macsec Service not enabled";
+      }
+      enum "macsec-service-port-encryption" {
+        value 1;
+        description
+          "Macsec Service Encryption Port";
+      }
+      enum "macsec-service-port-decryption" {
+        value 2;
+        description
+          "Macsec Service Decryption Port";
+      }
+    }
+    description
+      "Macsec service port";
+  }
+
+  typedef Macsec-cipher-suite {
+    type enumeration {
+      enum "cipher-suite-none" {
+        value 0;
+        description
+          "Invalid MACsec cipher";
+      }
+      enum "cipher-suite-gcm-aes-128" {
+        value 1;
+        description
+          "128 bit GCM_AES MACsec cipher suite";
+      }
+      enum "cipher-suite-gcm-aes-256" {
+        value 2;
+        description
+          "256 bit GCM_AES MACsec cipher suite";
+      }
+      enum "cipher-suite-gcm-aes-128-xpn" {
+        value 3;
+        description
+          "128 bit GCM_AES MACsec XPN cipher suite";
+      }
+      enum "cipher-suite-gcm-aes-256-xpn" {
+        value 4;
+        description
+          "256 bit GCM_AES MACsec XPN cipher suite";
+      }
+    }
+    description
+      "Macsec cipher suite";
+  }
+
+  grouping MKA-INTERFACE-SUMMARY {
+    description
+      "MKA INTERFACE SUMMARY";
+    leaf interface-name {
+      type string;
+      description
+        "macsec configured interface";
+    }
+    leaf short-name {
+      type string;
+      description
+        "Short Name String";
+    }
+    leaf key-chain {
+      type string;
+      description
+        "Name  of the Key chain";
+    }
+    leaf policy {
+      type string;
+      description
+        "Policy name";
+    }
+    leaf macsec-svc-port {
+      type boolean;
+      description
+        "Is macsec-service port or not";
+    }
+    leaf macsec-svc-port-type {
+      type Macsec-service-port;
+      description
+        "Macsec-service Encryption / Decryption port";
+    }
+    leaf svcport-short-name {
+      type string;
+      description
+        "Macsec Service paired port Short Name String";
+    }
+    leaf mka-mode {
+      type Mka-authentication-mode;
+      description
+        "MKA authentication mode";
+    }
+    leaf fallback-keychain {
+      type string;
+      description
+        "fallback Keychain name";
+    }
+    leaf macsec-shutdown {
+      type boolean;
+      description
+        "MacsecShutdown";
+    }
+  }
+
+  grouping MKA-INTERFACE-INFO {
+    description
+      "MKA INTERFACE INFO";
+    container interface-summary {
+      description
+        "MKA Interface Summary";
+      uses MKA-INTERFACE-SUMMARY;
+    }
   }
 
   grouping PEER-DATA {
@@ -315,8 +456,8 @@ submodule Cisco-IOS-XR-crypto-macsec-mka-oper-sub1 {
       description
         "SAK Retire time";
     }
-    leaf cipher-suite {
-      type uint32;
+    leaf macsec-cipher-suite {
+      type Macsec-cipher-suite;
       description
         "SAK Cipher Suite";
     }

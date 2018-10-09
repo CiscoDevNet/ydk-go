@@ -5,7 +5,7 @@
 // for the following management objects:
 //   session-redundancy: Session Redundancy configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_serg_cfg
 
@@ -61,7 +61,7 @@ type SessionRedundancy struct {
     Enable interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Set preferred role. The type is SessionRedundancyGroupRole.
@@ -180,6 +180,9 @@ type SessionRedundancy_Groups_Group struct {
 
     // List of Interfaces for this Group.
     InterfaceList SessionRedundancy_Groups_Group_InterfaceList
+
+    // List of Pool-names for this Group.
+    PoolList SessionRedundancy_Groups_Group_PoolList
 }
 
 func (group *SessionRedundancy_Groups_Group) GetEntityData() *types.CommonEntityData {
@@ -196,6 +199,7 @@ func (group *SessionRedundancy_Groups_Group) GetEntityData() *types.CommonEntity
     group.EntityData.Children.Append("peer", types.YChild{"Peer", &group.Peer})
     group.EntityData.Children.Append("revertive-timer", types.YChild{"RevertiveTimer", &group.RevertiveTimer})
     group.EntityData.Children.Append("interface-list", types.YChild{"InterfaceList", &group.InterfaceList})
+    group.EntityData.Children.Append("pool-list", types.YChild{"PoolList", &group.PoolList})
     group.EntityData.Leafs = types.NewOrderedMap()
     group.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", group.GroupId})
     group.EntityData.Leafs.Append("core-tracking-object", types.YLeaf{"CoreTrackingObject", group.CoreTrackingObject})
@@ -391,7 +395,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -472,7 +476,7 @@ type SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -498,6 +502,104 @@ func (self *SessionRedundancy_Groups_Group_InterfaceList_Interfaces_Interface) G
     self.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(self.EntityData)
+}
+
+// SessionRedundancy_Groups_Group_PoolList
+// List of Pool-names for this Group
+type SessionRedundancy_Groups_Group_PoolList struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable List of Pool-names for this Group. Deletion of this object also
+    // causes deletion of all associated objects under PoolList. The type is
+    // interface{}.
+    Enable interface{}
+
+    // Table of PoolName.
+    PoolNames SessionRedundancy_Groups_Group_PoolList_PoolNames
+}
+
+func (poolList *SessionRedundancy_Groups_Group_PoolList) GetEntityData() *types.CommonEntityData {
+    poolList.EntityData.YFilter = poolList.YFilter
+    poolList.EntityData.YangName = "pool-list"
+    poolList.EntityData.BundleName = "cisco_ios_xr"
+    poolList.EntityData.ParentYangName = "group"
+    poolList.EntityData.SegmentPath = "pool-list"
+    poolList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    poolList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    poolList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    poolList.EntityData.Children = types.NewOrderedMap()
+    poolList.EntityData.Children.Append("pool-names", types.YChild{"PoolNames", &poolList.PoolNames})
+    poolList.EntityData.Leafs = types.NewOrderedMap()
+    poolList.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", poolList.Enable})
+
+    poolList.EntityData.YListKeys = []string {}
+
+    return &(poolList.EntityData)
+}
+
+// SessionRedundancy_Groups_Group_PoolList_PoolNames
+// Table of PoolName
+type SessionRedundancy_Groups_Group_PoolList_PoolNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Address Pool Name. The type is slice of
+    // SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName.
+    PoolName []*SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName
+}
+
+func (poolNames *SessionRedundancy_Groups_Group_PoolList_PoolNames) GetEntityData() *types.CommonEntityData {
+    poolNames.EntityData.YFilter = poolNames.YFilter
+    poolNames.EntityData.YangName = "pool-names"
+    poolNames.EntityData.BundleName = "cisco_ios_xr"
+    poolNames.EntityData.ParentYangName = "pool-list"
+    poolNames.EntityData.SegmentPath = "pool-names"
+    poolNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    poolNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    poolNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    poolNames.EntityData.Children = types.NewOrderedMap()
+    poolNames.EntityData.Children.Append("pool-name", types.YChild{"PoolName", nil})
+    for i := range poolNames.PoolName {
+        poolNames.EntityData.Children.Append(types.GetSegmentPath(poolNames.PoolName[i]), types.YChild{"PoolName", poolNames.PoolName[i]})
+    }
+    poolNames.EntityData.Leafs = types.NewOrderedMap()
+
+    poolNames.EntityData.YListKeys = []string {}
+
+    return &(poolNames.EntityData)
+}
+
+// SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName
+// Address Pool Name
+type SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Pool name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    PoolName interface{}
+}
+
+func (poolName *SessionRedundancy_Groups_Group_PoolList_PoolNames_PoolName) GetEntityData() *types.CommonEntityData {
+    poolName.EntityData.YFilter = poolName.YFilter
+    poolName.EntityData.YangName = "pool-name"
+    poolName.EntityData.BundleName = "cisco_ios_xr"
+    poolName.EntityData.ParentYangName = "pool-names"
+    poolName.EntityData.SegmentPath = "pool-name" + types.AddKeyToken(poolName.PoolName, "pool-name")
+    poolName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    poolName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    poolName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    poolName.EntityData.Children = types.NewOrderedMap()
+    poolName.EntityData.Leafs = types.NewOrderedMap()
+    poolName.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", poolName.PoolName})
+
+    poolName.EntityData.YListKeys = []string {"PoolName"}
+
+    return &(poolName.EntityData)
 }
 
 // SessionRedundancy_RevertiveTimer

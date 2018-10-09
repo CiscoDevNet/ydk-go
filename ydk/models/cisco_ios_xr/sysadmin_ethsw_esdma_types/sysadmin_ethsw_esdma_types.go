@@ -1,8 +1,14 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains the YANG enumerated type
 // definitions used by the Cisco IOS-XR SysAdmin
 // Control Ethernet commands.
 // 
 // Copyright(c) 2011-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_ethsw_esdma_types
 
@@ -151,6 +157,8 @@ const (
     EsdmaSwitchTypeEnum_CB_SW EsdmaSwitchTypeEnum = "CB-SW"
 
     EsdmaSwitchTypeEnum_Unknown EsdmaSwitchTypeEnum = "Unknown"
+
+    EsdmaSwitchTypeEnum_RP_SW1 EsdmaSwitchTypeEnum = "RP-SW1"
 )
 
 // EsdmaSwitchSfpTranceiverTypeEnum

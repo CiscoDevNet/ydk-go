@@ -5,7 +5,7 @@
 // for the following management objects:
 //   controllers: Controller operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pfi_im_cmd_ctrlr_oper
 
@@ -155,10 +155,10 @@ type Controllers_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the controller. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterafceName interface{}
 
-    // Controller. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Controller. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Controller interface{}
 
     // Operational state with no translation of error disable or shutdown. The

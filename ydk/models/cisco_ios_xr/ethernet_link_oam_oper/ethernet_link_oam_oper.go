@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ether-link-oam: Ethernet Link OAM operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_link_oam_oper
 
@@ -275,7 +275,7 @@ type EtherLinkOam_DiscoveryInfoInterfaces_DiscoveryInfoInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Interface Name. The type is string.
@@ -543,7 +543,7 @@ type EtherLinkOam_InterfaceStateInterfaces_InterfaceStateInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // The state the protocol is in. The type is ProtocolState.
@@ -752,7 +752,7 @@ type EtherLinkOam_RunningConfigInterfaces_RunningConfigInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Is 100ms hello interval time enabled?. The type is bool.
@@ -1356,7 +1356,7 @@ type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Table of Ethernet Link OAM Event Log entries on the interface.
@@ -1434,7 +1434,7 @@ type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface_EventLogEntryIn
     Index interface{}
 
     // Interface handle for this log entry. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // OUI for the log entry. The type is string with pattern:
@@ -1585,7 +1585,7 @@ type EtherLinkOam_StatsInterfaces_StatsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Number of information OAMPDUs transmitted. The type is interface{} with

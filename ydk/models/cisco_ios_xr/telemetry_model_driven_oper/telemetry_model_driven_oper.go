@@ -5,7 +5,7 @@
 // for the following management objects:
 //   telemetry-model-driven: Telemetry operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package telemetry_model_driven_oper
 
@@ -229,6 +229,9 @@ type TelemetryModelDriven struct {
 
     // Telemetry Sensor Groups.
     SensorGroups TelemetryModelDriven_SensorGroups
+
+    // Telemetry Summary info.
+    Summary TelemetryModelDriven_Summary
 }
 
 func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonEntityData {
@@ -245,6 +248,7 @@ func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonE
     telemetryModelDriven.EntityData.Children.Append("destinations", types.YChild{"Destinations", &telemetryModelDriven.Destinations})
     telemetryModelDriven.EntityData.Children.Append("subscriptions", types.YChild{"Subscriptions", &telemetryModelDriven.Subscriptions})
     telemetryModelDriven.EntityData.Children.Append("sensor-groups", types.YChild{"SensorGroups", &telemetryModelDriven.SensorGroups})
+    telemetryModelDriven.EntityData.Children.Append("summary", types.YChild{"Summary", &telemetryModelDriven.Summary})
     telemetryModelDriven.EntityData.Leafs = types.NewOrderedMap()
 
     telemetryModelDriven.EntityData.YListKeys = []string {}
@@ -578,6 +582,9 @@ type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup s
     // 0..4294967295.
     TotalSendDrops interface{}
 
+    // Set if strict timer is ON. The type is bool.
+    StrictTimer interface{}
+
     // Array of information for sensor paths within collection group. The type is
     // slice of
     // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath.
@@ -625,6 +632,7 @@ func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination
     collectionGroup.EntityData.Leafs.Append("total-not-ready", types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady})
     collectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors})
     collectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops})
+    collectionGroup.EntityData.Leafs.Append("strict-timer", types.YLeaf{"StrictTimer", collectionGroup.StrictTimer})
 
     collectionGroup.EntityData.YListKeys = []string {}
 
@@ -1384,6 +1392,9 @@ type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup struct {
     // 0..4294967295.
     TotalSendDrops interface{}
 
+    // Set if strict timer is ON. The type is bool.
+    StrictTimer interface{}
+
     // Array of information for sensor paths within collection group. The type is
     // slice of
     // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath.
@@ -1431,6 +1442,7 @@ func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_Collectio
     collectionGroup.EntityData.Leafs.Append("total-not-ready", types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady})
     collectionGroup.EntityData.Leafs.Append("total-send-errors", types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors})
     collectionGroup.EntityData.Leafs.Append("total-send-drops", types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops})
+    collectionGroup.EntityData.Leafs.Append("strict-timer", types.YLeaf{"StrictTimer", collectionGroup.StrictTimer})
 
     collectionGroup.EntityData.YListKeys = []string {}
 
@@ -1752,5 +1764,126 @@ func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetE
     sensorPath.EntityData.YListKeys = []string {}
 
     return &(sensorPath.EntityData)
+}
+
+// TelemetryModelDriven_Summary
+// Telemetry Summary info
+type TelemetryModelDriven_Summary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of Subscriptions. The type is interface{} with range: 0..4294967295.
+    NumOfSubscriptions interface{}
+
+    // Number of Active Subscriptions. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfActiveSubscriptions interface{}
+
+    // Number of Paused Subscriptions. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfPausedSubscriptions interface{}
+
+    // Number of Destination Groups. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfDestinationGroups interface{}
+
+    // Number of Destinations. The type is interface{} with range: 0..4294967295.
+    NumOfDestinations interface{}
+
+    // Number of Tcp Dialout Destinations. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfTcpDialouts interface{}
+
+    // Number of Udp Dialout Destinations. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfUdpDialouts interface{}
+
+    // Number of GRPC TLS Dialout Destinations. The type is interface{} with
+    // range: 0..4294967295.
+    NumOfGrpcTlsDialouts interface{}
+
+    // Number of GRPC Non-TLS Dialout Destinations. The type is interface{} with
+    // range: 0..4294967295.
+    NumOfGrpcNonTlsDialouts interface{}
+
+    // Number of Dialin Destinations. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfDialins interface{}
+
+    // Number of Active Destinations. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfActiveDestinations interface{}
+
+    // Number of Connected Sessions. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfConnectedSessions interface{}
+
+    // Number of Connecting Sessions. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfConnectingSessions interface{}
+
+    // Number of Sensor Groups. The type is interface{} with range: 0..4294967295.
+    NumOfSensorGroups interface{}
+
+    // Number of Unique Sensor Paths. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfUniqueSensorPaths interface{}
+
+    // Number of Sensor Paths. The type is interface{} with range: 0..4294967295.
+    NumOfSensorPaths interface{}
+
+    // Number of not resolved sensor paths. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfNotResolvedSensorPaths interface{}
+
+    // Number of Active Sensor Paths. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfActiveSensorPaths interface{}
+
+    // Maximum Sensor Paths allowed. The type is interface{} with range:
+    // 0..4294967295.
+    MaxSensorPaths interface{}
+
+    // Max containers allowed per Sensor Path. The type is interface{} with range:
+    // 0..4294967295.
+    MaxContainersPerPath interface{}
+}
+
+func (summary *TelemetryModelDriven_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "telemetry-model-driven"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    summary.EntityData.Children = types.NewOrderedMap()
+    summary.EntityData.Leafs = types.NewOrderedMap()
+    summary.EntityData.Leafs.Append("num-of-subscriptions", types.YLeaf{"NumOfSubscriptions", summary.NumOfSubscriptions})
+    summary.EntityData.Leafs.Append("num-of-active-subscriptions", types.YLeaf{"NumOfActiveSubscriptions", summary.NumOfActiveSubscriptions})
+    summary.EntityData.Leafs.Append("num-of-paused-subscriptions", types.YLeaf{"NumOfPausedSubscriptions", summary.NumOfPausedSubscriptions})
+    summary.EntityData.Leafs.Append("num-of-destination-groups", types.YLeaf{"NumOfDestinationGroups", summary.NumOfDestinationGroups})
+    summary.EntityData.Leafs.Append("num-of-destinations", types.YLeaf{"NumOfDestinations", summary.NumOfDestinations})
+    summary.EntityData.Leafs.Append("num-of-tcp-dialouts", types.YLeaf{"NumOfTcpDialouts", summary.NumOfTcpDialouts})
+    summary.EntityData.Leafs.Append("num-of-udp-dialouts", types.YLeaf{"NumOfUdpDialouts", summary.NumOfUdpDialouts})
+    summary.EntityData.Leafs.Append("num-of-grpc-tls-dialouts", types.YLeaf{"NumOfGrpcTlsDialouts", summary.NumOfGrpcTlsDialouts})
+    summary.EntityData.Leafs.Append("num-of-grpc-non-tls-dialouts", types.YLeaf{"NumOfGrpcNonTlsDialouts", summary.NumOfGrpcNonTlsDialouts})
+    summary.EntityData.Leafs.Append("num-of-dialins", types.YLeaf{"NumOfDialins", summary.NumOfDialins})
+    summary.EntityData.Leafs.Append("num-of-active-destinations", types.YLeaf{"NumOfActiveDestinations", summary.NumOfActiveDestinations})
+    summary.EntityData.Leafs.Append("num-of-connected-sessions", types.YLeaf{"NumOfConnectedSessions", summary.NumOfConnectedSessions})
+    summary.EntityData.Leafs.Append("num-of-connecting-sessions", types.YLeaf{"NumOfConnectingSessions", summary.NumOfConnectingSessions})
+    summary.EntityData.Leafs.Append("num-of-sensor-groups", types.YLeaf{"NumOfSensorGroups", summary.NumOfSensorGroups})
+    summary.EntityData.Leafs.Append("num-of-unique-sensor-paths", types.YLeaf{"NumOfUniqueSensorPaths", summary.NumOfUniqueSensorPaths})
+    summary.EntityData.Leafs.Append("num-of-sensor-paths", types.YLeaf{"NumOfSensorPaths", summary.NumOfSensorPaths})
+    summary.EntityData.Leafs.Append("num-of-not-resolved-sensor-paths", types.YLeaf{"NumOfNotResolvedSensorPaths", summary.NumOfNotResolvedSensorPaths})
+    summary.EntityData.Leafs.Append("num-of-active-sensor-paths", types.YLeaf{"NumOfActiveSensorPaths", summary.NumOfActiveSensorPaths})
+    summary.EntityData.Leafs.Append("max-sensor-paths", types.YLeaf{"MaxSensorPaths", summary.MaxSensorPaths})
+    summary.EntityData.Leafs.Append("max-containers-per-path", types.YLeaf{"MaxContainersPerPath", summary.MaxContainersPerPath})
+
+    summary.EntityData.YListKeys = []string {}
+
+    return &(summary.EntityData)
 }
 

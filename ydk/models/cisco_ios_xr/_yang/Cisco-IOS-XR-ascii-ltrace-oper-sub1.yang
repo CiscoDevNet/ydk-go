@@ -22,7 +22,7 @@ submodule Cisco-IOS-XR-ascii-ltrace-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-12-16 {
+  revision 2018-01-21 {
     description
       "Initial feature";
   }

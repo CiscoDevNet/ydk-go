@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR drivers-media-eth package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -539,6 +539,10 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       enum "otn-framing-error" {
         description
           "OTN Framing Error";
+      }
+      enum "shutdown" {
+        description
+          "Link is shutdown";
       }
     }
     description
@@ -2054,6 +2058,18 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
         description
           "Passive Twinax cable assembly 1m";
       }
+      enum "ethernet-10gbase-cu1-5m" {
+        description
+          "Passive Twinax cable assembly 1.5m";
+      }
+      enum "ethernet-10gbase-cu2m" {
+        description
+          "Passive Twinax cable assembly 2m";
+      }
+      enum "ethernet-10gbase-cu2-5m" {
+        description
+          "Passive Twinax cable assembly 2.5m";
+      }
       enum "ethernet-10gbase-cu3m" {
         description
           "Passive Twinax cable assembly 3m";
@@ -2069,6 +2085,78 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       enum "ethernet-10gbase-acu10m" {
         description
           "Active Twinax cable assembly 10m";
+      }
+      enum "ethernet-10gbase-aoc1m" {
+        description
+          "Active optical cable 1m";
+      }
+      enum "ethernet-10gbase-aoc2m" {
+        description
+          "Active optical cable 2m";
+      }
+      enum "ethernet-10gbase-aoc3m" {
+        description
+          "Active optical cable 3m";
+      }
+      enum "ethernet-10gbase-aoc5m" {
+        description
+          "Active optical cable 5m";
+      }
+      enum "ethernet-10gbase-aoc7m" {
+        description
+          "Active optical cable 7m";
+      }
+      enum "ethernet-10gbase-aoc10m" {
+        description
+          "Active optical cable 10m";
+      }
+      enum "ethernet-40gbase-aoc" {
+        description
+          "Active optical cable";
+      }
+      enum "ethernet-4x10g-base-lr" {
+        description
+          "fiber over 4 lane optics (long reach)";
+      }
+      enum "ethernet-40gbase-acu1m" {
+        description
+          "Active Twinax cable assembly 1m";
+      }
+      enum "ethernet-40gbase-acu3m" {
+        description
+          "Active Twinax cable assembly 3m";
+      }
+      enum "ethernet-40gbase-acu5m" {
+        description
+          "Active Twinax cable assembly 5m";
+      }
+      enum "ethernet-40gbase-acu7m" {
+        description
+          "Active Twinax cable assembly 7m";
+      }
+      enum "ethernet-40gbase-acu10m" {
+        description
+          "Active Twinax cable assembly 10m";
+      }
+      enum "ethernet-25gbase-cu1m" {
+        description
+          "Twinaxial copper cabling (1m)";
+      }
+      enum "ethernet-25gbase-cu2m" {
+        description
+          "Twinaxial copper cabling (2m)";
+      }
+      enum "ethernet-25gbase-cu3m" {
+        description
+          "Twinaxial copper cabling (3m)";
+      }
+      enum "ethernet-25gbase-cu5m" {
+        description
+          "Twinaxial copper cabling (5m)";
+      }
+      enum "ethernet-100gbase-sm-sr" {
+        description
+          "4 lane CWDM Lite cable";
       }
       enum "ethernet-base-max" {
         description
@@ -2189,9 +2277,9 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
     }
     leaf total-duration {
       type uint32;
-      units "second";
+      units "minute";
       description
-        "Total duration (seconds) of AINS soak timer";
+        "Total duration (minutes) of AINS soak timer";
     }
     leaf remaining-duration {
       type uint32;
@@ -3005,6 +3093,11 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       type Ethernet-loopback;
       description
         "Port operational loopback";
+    }
+    leaf holdoff-time {
+      type uint32;
+      description
+        "Holdoff Time";
     }
     list extended-loopback {
       description

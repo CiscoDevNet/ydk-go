@@ -40,7 +40,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -637,6 +637,11 @@ module Cisco-IOS-XR-mpls-te-cfg {
         description
           "TE Metric";
       }
+      enum "delay" {
+        value 4;
+        description
+          "DELAY Metric";
+      }
     }
     description
       "Mpls te path selection metric";
@@ -672,7 +677,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       enum "sr" {
         value 6;
         description
-          "Segment routing";
+          "Deprecated";
       }
     }
     description
@@ -1361,6 +1366,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
           "Path selection hop limit configuration for this
            specific tunnel";
       }
+      uses PATH-SELECTION-DELAY-LIMIT;
       uses INVALIDATION;
       uses PATH-SELECTION-COST-LIMIT;
     }
@@ -1375,8 +1381,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
     container invalidation {
       presence "enable invalidation";
       description
-        "Path invalidation configuration for this
-         specific tunnel";
+        "Deprecated";
       leaf path-invalidation-timeout {
         type uint32 {
           range "0..60000";
@@ -1554,10 +1559,77 @@ module Cisco-IOS-XR-mpls-te-cfg {
              (kbps)";
         }
       }
+      container auto-capacity {
+        description
+          "Tunnel auto-capacity configuration data";
+        leaf nominal-bandwidth {
+          type uint32 {
+            range "0..4294967295";
+          }
+          units "kbit/s";
+          description
+            "Bandwidth value used to compute the desired
+             number of tunnels for auto-capacity";
+        }
+        leaf enable {
+          type boolean;
+          description
+            "Enable auto-capacityThe object must be set
+             before any other auto capacity configuration
+             is supplied for the tunnel,and must be the
+             last auto-capacity configuration object to be
+             removed.";
+        }
+        leaf clones-minimum {
+          type uint32 {
+            range "0..63";
+          }
+          default "0";
+          description
+            "Lower limit on the number of clones can be
+             created for the tunnel";
+        }
+        leaf split-bandwidth {
+          type uint32 {
+            range "0..4294967295";
+          }
+          units "kbit/s";
+          description
+            "Upper bandwidth limit that causes the tunnel
+             to be split";
+        }
+        leaf merge-bandwidth {
+          type uint32 {
+            range "0..4294967295";
+          }
+          units "kbit/s";
+          description
+            "Lower bandwidth limit that causes the tunnel
+             to be merged";
+        }
+        leaf clones-maximum {
+          type uint32 {
+            range "0..63";
+          }
+          default "63";
+          description
+            "Upper limit on the number of clones can be
+             created for the tunnel";
+        }
+      }
       leaf underflow-enable {
         type boolean;
         description
           "Enable auto bandwidth underflow detection";
+      }
+      leaf resignal-last-bandwidth-time-out {
+        type uint32 {
+          range "1..3600000";
+        }
+        units "second";
+        description
+          "Set the tunnel auto-bw resignal last bandwidth
+           time-out in seconds";
       }
       leaf enabled {
         type boolean;
@@ -2562,6 +2634,20 @@ module Cisco-IOS-XR-mpls-te-cfg {
     }
   }
 
+  grouping PATH-SELECTION-DELAY-LIMIT {
+    description
+      "Common node of tunnel-path-selection,
+       att-path-option-path-selection";
+    leaf path-selection-delay-limit {
+      type uint32 {
+        range "1..4294967295";
+      }
+      description
+        "Path selection delay limit (usec) configuration
+         for this specific tunnel";
+    }
+  }
+
   grouping OOR-METRIC-TE-PENALTY {
     description
       "Common node of oor-green-state, oor-yellow-state,
@@ -2584,6 +2670,35 @@ module Cisco-IOS-XR-mpls-te-cfg {
       }
       description
         "Keychain based authentication";
+    }
+  }
+
+  grouping FORWARDING-ADJACENCY {
+    description
+      "Common node of tunnel-attributes,
+       tunnel-te-attributes";
+    container forwarding-adjacency {
+      description
+        "Forwarding adjacency announcement to IGP";
+      leaf enable {
+        type empty;
+        description
+          "Enable forwarding adjacency";
+      }
+      leaf include-ipv6 {
+        type empty;
+        description
+          "Specify that the tunnel should be an IPv6
+           forwarding adjacency also";
+      }
+      leaf hold-time {
+        type uint32 {
+          range "0..20000";
+        }
+        description
+          "Specify the holdtime for the tunnel as
+           forwarding adjacency";
+      }
     }
   }
 
@@ -2769,27 +2884,13 @@ module Cisco-IOS-XR-mpls-te-cfg {
             "MPLS label";
         }
       }
-      container forwarding-adjacency {
+      container tunnel-path-protection {
         description
-          "Forwarding adjacency announcement to IGP";
+          "MPLS tunnel path protected configs";
         leaf enable {
           type empty;
           description
-            "Enable forwarding adjacency";
-        }
-        leaf include-ipv6 {
-          type empty;
-          description
-            "Specify that the tunnel should be an IPv6
-             forwarding adjacency also";
-        }
-        leaf hold-time {
-          type uint32 {
-            range "0..20000";
-          }
-          description
-            "Specify the holdtime for the tunnel as
-             forwarding adjacency";
+            "Enable Path Protection";
         }
       }
       container path-option-protects {
@@ -2924,7 +3025,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 type Mpls-te-path-option-property;
                 default "none";
                 description
-                  "SegmentRouting properties";
+                  "Deprecated";
               }
             }
           }
@@ -2967,6 +3068,11 @@ module Cisco-IOS-XR-mpls-te-cfg {
             description
               "Controls whether association type is
                co-routed.";
+          }
+          leaf disable-protection-object {
+            type empty;
+            description
+              "Disable signaling of RSVP Protection Object";
           }
         }
         container association-parameters {
@@ -3074,11 +3180,6 @@ module Cisco-IOS-XR-mpls-te-cfg {
             "Enable PCE Delegation";
         }
       }
-      leaf path-protection {
-        type empty;
-        description
-          "Specify MPLS tunnel to be path protected";
-      }
       uses FORWARD-CLASS;
       uses TUNNEL-PATH-SELECTION;
       uses AUTO-BANDWIDTH;
@@ -3086,6 +3187,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
       uses DESTINATION;
       uses RECORD-ROUTE;
       uses AFFINITY-MASK;
+      uses FORWARDING-ADJACENCY;
       uses LOGGING;
       uses BANDWIDTH;
       uses AUTOROUTE;
@@ -3857,7 +3959,9 @@ module Cisco-IOS-XR-mpls-te-cfg {
                   }
                 }
                 leaf preference {
-                  type uint32;
+                  type uint32 {
+                    range "0..255";
+                  }
                   description
                     "Path preference level";
                 }
@@ -3885,6 +3989,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
             uses DESTINATION;
             uses RECORD-ROUTE;
             uses AFFINITY-MASK;
+            uses FORWARDING-ADJACENCY;
             uses LOGGING;
             uses BANDWIDTH;
             uses AUTOROUTE;
@@ -3919,7 +4024,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
           }
           leaf tunnel-name {
             type xr:Cisco-ios-xr-string {
-              length "1..59";
+              length "1..54";
             }
             description
               "Tunnel name";
@@ -4395,6 +4500,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                    configuration";
               }
               uses ENABLE;
+              uses PATH-SELECTION-DELAY-LIMIT;
               uses INVALIDATION;
               uses PATH-SELECTION-COST-LIMIT;
             }
@@ -4446,8 +4552,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Configure path selection properties";
               container segment-routing-prepend {
                 description
-                  "Path selection segment routing prepend
-                   configuration";
+                  "Deprecated";
                 container indexes {
                   description
                     "Segment routing prepend index table";
@@ -4485,7 +4590,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
               }
               container invalidation {
                 description
-                  "Path selection invalidation configuration";
+                  "Deprecated";
                 leaf invalidation-timer {
                   type uint32 {
                     range "0..60000";
@@ -5067,6 +5172,12 @@ module Cisco-IOS-XR-mpls-te-cfg {
             description
               "Delegate all statically configured tunnels";
           }
+          leaf autoroute-announce {
+            type empty;
+            description
+              "Enable autoroute announce for PCE
+               instantiated tunnels";
+          }
           leaf report {
             type empty;
             description
@@ -5185,7 +5296,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
         leaf segment-routing {
           type empty;
           description
-            "PCE segment routing capability";
+            "Always set to true";
         }
         uses PASSWORD;
         uses KEYCHAIN;
@@ -5288,8 +5399,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
         }
         container invalidation {
           description
-            "Path invalidation configuration for all
-             tunnels";
+            "Deprecated";
           leaf path-invalidation-timeout {
             type uint32 {
               range "0..60000";
@@ -5377,6 +5487,14 @@ module Cisco-IOS-XR-mpls-te-cfg {
           description
             "Use only the IGP instance of the incoming
              interface";
+        }
+        leaf delay-limit {
+          type uint32 {
+            range "1..4294967295";
+          }
+          description
+            "Path selection delay limit configuration for
+             p2p tunnels (usec)";
         }
       }
       container affinity-mappings {
@@ -6115,7 +6233,7 @@ module Cisco-IOS-XR-mpls-te-cfg {
                 "Tunnel name";
               leaf tunnel-name {
                 type xr:Cisco-ios-xr-string {
-                  length "1..59";
+                  length "1..54";
                 }
                 description
                   "Tunnel name";
@@ -6550,6 +6668,12 @@ module Cisco-IOS-XR-mpls-te-cfg {
             description
               "The existence of this configuration indicates
                the a new GMPLS NNI tunnel has been enabled";
+          }
+          leaf announce-srlg {
+            type empty;
+            description
+              "Announce SRLG on term interface for the
+               tunnel";
           }
           leaf restore-lsp-shutdown {
             type empty;

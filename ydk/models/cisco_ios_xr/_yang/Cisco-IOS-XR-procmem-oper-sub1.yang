@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-procmem-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR procmem package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -60,37 +60,38 @@ submodule Cisco-IOS-XR-procmem-oper-sub1 {
     leaf text-seg-size {
       type uint32;
       description
-        "Text Segment Size";
+        "Text Segment Size in KB";
     }
     leaf data-seg-size {
       type uint32;
       description
-        "Data Segment Size";
+        "Data Segment Size in KB";
     }
     leaf stack-seg-size {
       type uint32;
       description
-        "Stack Segment Size";
+        "Stack Segment Size in KB";
     }
     leaf malloc-size {
       type uint32;
       description
-        "Malloced Memory Size";
+        "Malloced Memory Size in KB";
     }
     leaf dyn-limit {
       type uint32;
       description
-        "Dynamic memory limit";
+        "Dynamic memory limit in KB (4294967295 for
+         RLIM_INFINITY)";
     }
     leaf shared-mem {
       type uint32;
       description
-        "Shared memory size";
+        "Shared memory size in KB";
     }
     leaf physical-mem {
       type uint32;
       description
-        "Physical memory size";
+        "Physical memory size in KB";
     }
   }
 }

@@ -654,7 +654,7 @@ type NetworkInstances_NetworkInstance_Config struct {
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
+    // type is slice of ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -729,7 +729,7 @@ type NetworkInstances_NetworkInstance_State struct {
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
+    // type is slice of ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -1363,7 +1363,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_Config struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
+    // ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -1418,7 +1418,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_State struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
+    // ['L2ETHERNET', 'IPV6', 'MPLS', 'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -4755,7 +4755,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Se
     // The maximum traffic generation rate that the head-end device sends traffic
     // at. The type is one of the following types: string with length: 32 Units
     // are bytes per second., or enumeration
-    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
+    // Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
     // Units are bytes per second..
     PeakDataRate interface{}
 }
@@ -5889,8 +5889,8 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAt
 
     // This attribute is a key. Reference to the RSVP priority level. The type is
     // one of the following types: int with range: 0..7, or
-    // :go:struct:`NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
-    // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
+    // :go:struct:`Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
+    // <ydk/models/mpls/Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
     Priority interface{}
 
     // Operational state parameters relating to a bandwidth reservation at a
@@ -5927,7 +5927,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAt
 
     // RSVP priority level for LSPs traversing the interface. The type is one of
     // the following types: int with range: 0..7, or enumeration
-    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
+    // Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
     Priority interface{}
 
     // Bandwidth currently available with the priority level, or for the entire
@@ -48584,8 +48584,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     MultiTopology interface{}
 
     // ISIS topology type support(ipv4-unicast, ipv6-unicast, ipv4-multicast,
-    // ipv6-multicast). The type is slice of ['IPV6UNICAST', 'IPV4MULTICAST',
-    // 'IPV6MULTICAST', 'IPV4UNICAST'].
+    // ipv6-multicast). The type is slice of [u'IPV6UNICAST', u'IPV4MULTICAST',
+    // u'IPV6MULTICAST', u'IPV4UNICAST'].
     Topology []interface{}
 
     // When set to true, Graceful-restart signaling is supported. The type is

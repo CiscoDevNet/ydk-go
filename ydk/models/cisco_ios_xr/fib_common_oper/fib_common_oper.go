@@ -8,7 +8,7 @@
 //   oc-aft-l3: oc aft l3
 //   mpls-forwarding: mpls forwarding
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package fib_common_oper
 
@@ -596,6 +596,14 @@ type FibStatistics_Nodes_Node_Drops struct {
     // Drops for the packets with multi[le labels. The type is interface{} with
     // range: 0..18446744073709551615.
     MultiLabelDrops interface{}
+
+    // No route or unresolved route of MPLS SR labels. The type is interface{}
+    // with range: 0..18446744073709551615.
+    UnreachableSrLabelDrops interface{}
+
+    // TTL expired drops of MPLS SR labels. The type is interface{} with range:
+    // 0..18446744073709551615.
+    TtlExpiredSrLabelDrops interface{}
 }
 
 func (drops *FibStatistics_Nodes_Node_Drops) GetEntityData() *types.CommonEntityData {
@@ -633,6 +641,8 @@ func (drops *FibStatistics_Nodes_Node_Drops) GetEntityData() *types.CommonEntity
     drops.EntityData.Leafs.Append("lisp-encap-error-drops", types.YLeaf{"LispEncapErrorDrops", drops.LispEncapErrorDrops})
     drops.EntityData.Leafs.Append("lisp-decap-error-drops", types.YLeaf{"LispDecapErrorDrops", drops.LispDecapErrorDrops})
     drops.EntityData.Leafs.Append("multi-label-drops", types.YLeaf{"MultiLabelDrops", drops.MultiLabelDrops})
+    drops.EntityData.Leafs.Append("unreachable-sr-label-drops", types.YLeaf{"UnreachableSrLabelDrops", drops.UnreachableSrLabelDrops})
+    drops.EntityData.Leafs.Append("ttl-expired-sr-label-drops", types.YLeaf{"TtlExpiredSrLabelDrops", drops.TtlExpiredSrLabelDrops})
 
     drops.EntityData.YListKeys = []string {}
 
@@ -891,8 +901,14 @@ type Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntries_FibCofoIdbT
     // Interface Index. The type is interface{} with range: 0..4294967295.
     IntfIndex interface{}
 
+    // Interface State. The type is interface{} with range: 0..4294967295.
+    IntfState interface{}
+
     // Parent Interface Index. The type is interface{} with range: 0..4294967295.
     ParentIntfIndex interface{}
+
+    // Parent Interface Type. The type is interface{} with range: 0..4294967295.
+    ParentIntfType interface{}
 
     // Bundle Member Total Weight. The type is interface{} with range: 0..65535.
     BundleMemberTotalWeight interface{}
@@ -945,7 +961,9 @@ func (fibCofoIdbTableEntry *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbT
     fibCofoIdbTableEntry.EntityData.Leafs.Append("sdrid", types.YLeaf{"Sdrid", fibCofoIdbTableEntry.Sdrid})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("intf-type", types.YLeaf{"IntfType", fibCofoIdbTableEntry.IntfType})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("intf-index", types.YLeaf{"IntfIndex", fibCofoIdbTableEntry.IntfIndex})
+    fibCofoIdbTableEntry.EntityData.Leafs.Append("intf-state", types.YLeaf{"IntfState", fibCofoIdbTableEntry.IntfState})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("parent-intf-index", types.YLeaf{"ParentIntfIndex", fibCofoIdbTableEntry.ParentIntfIndex})
+    fibCofoIdbTableEntry.EntityData.Leafs.Append("parent-intf-type", types.YLeaf{"ParentIntfType", fibCofoIdbTableEntry.ParentIntfType})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("bundle-member-total-weight", types.YLeaf{"BundleMemberTotalWeight", fibCofoIdbTableEntry.BundleMemberTotalWeight})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("main-pointer", types.YLeaf{"MainPointer", fibCofoIdbTableEntry.MainPointer})
     fibCofoIdbTableEntry.EntityData.Leafs.Append("table-pointer", types.YLeaf{"TablePointer", fibCofoIdbTableEntry.TablePointer})
@@ -1018,6 +1036,9 @@ type Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntries_FibCofoIdbT
     // Unique Identifier. The type is interface{} with range: 0..255.
     UniqueId interface{}
 
+    // Link Order Number. The type is interface{} with range: 0..255.
+    OrderNum interface{}
+
     // Member Weight. The type is interface{} with range: 0..255.
     Weight interface{}
 
@@ -1040,6 +1061,7 @@ func (bundleMemberInfo *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTable
     bundleMemberInfo.EntityData.Leafs = types.NewOrderedMap()
     bundleMemberInfo.EntityData.Leafs.Append("intf-index", types.YLeaf{"IntfIndex", bundleMemberInfo.IntfIndex})
     bundleMemberInfo.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", bundleMemberInfo.UniqueId})
+    bundleMemberInfo.EntityData.Leafs.Append("order-num", types.YLeaf{"OrderNum", bundleMemberInfo.OrderNum})
     bundleMemberInfo.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", bundleMemberInfo.Weight})
     bundleMemberInfo.EntityData.Leafs.Append("pic", types.YLeaf{"Pic", bundleMemberInfo.Pic})
 
@@ -2091,8 +2113,10 @@ type Fib_Nodes_Node_Protocols_Protocol struct {
     // Exact Route Table.
     ExactRoutes Fib_Nodes_Node_Protocols_Protocol_ExactRoutes
 
-    // NHIdTable is accessed by two keys; {NHIdValue} and/or
-    // {NHInterface,NHAddress.
+    // FIB ipv6 global information.
+    ProtocolGlobal Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal
+
+    // NHIdTable is accessed by two keys; {NHId} and/or {NHInterface,NHAddress.
     NhIds Fib_Nodes_Node_Protocols_Protocol_NhIds
 
     // External Client Summary Table.
@@ -2123,6 +2147,7 @@ func (protocol *Fib_Nodes_Node_Protocols_Protocol) GetEntityData() *types.Common
     protocol.EntityData.Children.Append("frr-log", types.YChild{"FrrLog", &protocol.FrrLog})
     protocol.EntityData.Children.Append("vrfs", types.YChild{"Vrfs", &protocol.Vrfs})
     protocol.EntityData.Children.Append("exact-routes", types.YChild{"ExactRoutes", &protocol.ExactRoutes})
+    protocol.EntityData.Children.Append("protocol-global", types.YChild{"ProtocolGlobal", &protocol.ProtocolGlobal})
     protocol.EntityData.Children.Append("nh-ids", types.YChild{"NhIds", &protocol.NhIds})
     protocol.EntityData.Children.Append("external-client-summaries", types.YChild{"ExternalClientSummaries", &protocol.ExternalClientSummaries})
     protocol.EntityData.Children.Append("misc", types.YChild{"Misc", &protocol.Misc})
@@ -3072,16 +3097,11 @@ type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary struct {
     // with range: 0..4294967295.
     LispRlocObjects interface{}
 
-    // Number of SRv6 transit routes. The type is interface{} with range:
-    // 0..4294967295.
-    NumberRoutesSrv6Transit interface{}
-
-    // Number of SRv6 end routes. The type is interface{} with range:
-    // 0..4294967295.
-    NumberRoutesSrv6End interface{}
+    // Number of SR labels. The type is interface{} with range: 0..4294967295.
+    NumberOfSrLabels interface{}
 
     // VXLAN local Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SsVxlanLtepIfh interface{}
 
     // Number of dropped pathlists. The type is interface{} with range:
@@ -3097,8 +3117,8 @@ type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary struct {
     // Cross-table shared load sharing element.
     CrossSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_CrossSharedLoadSharingElement
 
-    // Label-shared load sharing element.
-    LabelSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_LabelSharedLoadSharingElement
+    // Encap-shared load sharing element.
+    EncapSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_EncapSharedLoadSharingElement
 
     // Distribution of prefix mask lengths.
     PrefixMasklenDistribution Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_PrefixMasklenDistribution
@@ -3118,7 +3138,7 @@ func (fibSummary *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary) Get
     fibSummary.EntityData.Children.Append("exclusive-load-sharing-element", types.YChild{"ExclusiveLoadSharingElement", &fibSummary.ExclusiveLoadSharingElement})
     fibSummary.EntityData.Children.Append("shared-load-sharing-element", types.YChild{"SharedLoadSharingElement", &fibSummary.SharedLoadSharingElement})
     fibSummary.EntityData.Children.Append("cross-shared-load-sharing-element", types.YChild{"CrossSharedLoadSharingElement", &fibSummary.CrossSharedLoadSharingElement})
-    fibSummary.EntityData.Children.Append("label-shared-load-sharing-element", types.YChild{"LabelSharedLoadSharingElement", &fibSummary.LabelSharedLoadSharingElement})
+    fibSummary.EntityData.Children.Append("encap-shared-load-sharing-element", types.YChild{"EncapSharedLoadSharingElement", &fibSummary.EncapSharedLoadSharingElement})
     fibSummary.EntityData.Children.Append("prefix-masklen-distribution", types.YChild{"PrefixMasklenDistribution", &fibSummary.PrefixMasklenDistribution})
     fibSummary.EntityData.Leafs = types.NewOrderedMap()
     fibSummary.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", fibSummary.VrfName})
@@ -3160,8 +3180,7 @@ func (fibSummary *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary) Get
     fibSummary.EntityData.Leafs.Append("lisp-eid-prefixes", types.YLeaf{"LispEidPrefixes", fibSummary.LispEidPrefixes})
     fibSummary.EntityData.Leafs.Append("lisp-eid-valid-prefixes", types.YLeaf{"LispEidValidPrefixes", fibSummary.LispEidValidPrefixes})
     fibSummary.EntityData.Leafs.Append("lisp-rloc-objects", types.YLeaf{"LispRlocObjects", fibSummary.LispRlocObjects})
-    fibSummary.EntityData.Leafs.Append("number-routes-srv6-transit", types.YLeaf{"NumberRoutesSrv6Transit", fibSummary.NumberRoutesSrv6Transit})
-    fibSummary.EntityData.Leafs.Append("number-routes-srv6-end", types.YLeaf{"NumberRoutesSrv6End", fibSummary.NumberRoutesSrv6End})
+    fibSummary.EntityData.Leafs.Append("number-of-sr-labels", types.YLeaf{"NumberOfSrLabels", fibSummary.NumberOfSrLabels})
     fibSummary.EntityData.Leafs.Append("ss-vxlan-ltep-ifh", types.YLeaf{"SsVxlanLtepIfh", fibSummary.SsVxlanLtepIfh})
     fibSummary.EntityData.Leafs.Append("ss-drop-pl-count", types.YLeaf{"SsDropPlCount", fibSummary.SsDropPlCount})
 
@@ -3395,9 +3414,9 @@ func (crossSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummar
     return &(crossSharedLoadSharingElement.EntityData)
 }
 
-// Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_LabelSharedLoadSharingElement
-// Label-shared load sharing element
-type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_LabelSharedLoadSharingElement struct {
+// Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_EncapSharedLoadSharingElement
+// Encap-shared load sharing element
+type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_EncapSharedLoadSharingElement struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3442,32 +3461,32 @@ type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_LabelSharedLoadSh
     XplLoadInfoElements interface{}
 }
 
-func (labelSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_LabelSharedLoadSharingElement) GetEntityData() *types.CommonEntityData {
-    labelSharedLoadSharingElement.EntityData.YFilter = labelSharedLoadSharingElement.YFilter
-    labelSharedLoadSharingElement.EntityData.YangName = "label-shared-load-sharing-element"
-    labelSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
-    labelSharedLoadSharingElement.EntityData.ParentYangName = "fib-summary"
-    labelSharedLoadSharingElement.EntityData.SegmentPath = "label-shared-load-sharing-element"
-    labelSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    labelSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    labelSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (encapSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_EncapSharedLoadSharingElement) GetEntityData() *types.CommonEntityData {
+    encapSharedLoadSharingElement.EntityData.YFilter = encapSharedLoadSharingElement.YFilter
+    encapSharedLoadSharingElement.EntityData.YangName = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
+    encapSharedLoadSharingElement.EntityData.ParentYangName = "fib-summary"
+    encapSharedLoadSharingElement.EntityData.SegmentPath = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    encapSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    encapSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSharedLoadSharingElement.EntityData.Children = types.NewOrderedMap()
-    labelSharedLoadSharingElement.EntityData.Leafs = types.NewOrderedMap()
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-bytes", types.YLeaf{"TotalLoadSharingElementBytes", labelSharedLoadSharingElement.TotalLoadSharingElementBytes})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-references", types.YLeaf{"TotalLoadSharingElementReferences", labelSharedLoadSharingElement.TotalLoadSharingElementReferences})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-path-list-elements", types.YLeaf{"TotalPathListElements", labelSharedLoadSharingElement.TotalPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("recursive-path-list-elements", types.YLeaf{"RecursivePathListElements", labelSharedLoadSharingElement.RecursivePathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-path-list-elements", types.YLeaf{"PlatformSharedPathListElements", labelSharedLoadSharingElement.PlatformSharedPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("retry-path-list-elements", types.YLeaf{"RetryPathListElements", labelSharedLoadSharingElement.RetryPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-info-elements", types.YLeaf{"TotalLoadInfoElements", labelSharedLoadSharingElement.TotalLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("recursive-load-info-elements", types.YLeaf{"RecursiveLoadInfoElements", labelSharedLoadSharingElement.RecursiveLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-load-info-elements", types.YLeaf{"PlatformSharedLoadInfoElements", labelSharedLoadSharingElement.PlatformSharedLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("xpl-load-info-elements", types.YLeaf{"XplLoadInfoElements", labelSharedLoadSharingElement.XplLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Children = types.NewOrderedMap()
+    encapSharedLoadSharingElement.EntityData.Leafs = types.NewOrderedMap()
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-bytes", types.YLeaf{"TotalLoadSharingElementBytes", encapSharedLoadSharingElement.TotalLoadSharingElementBytes})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-references", types.YLeaf{"TotalLoadSharingElementReferences", encapSharedLoadSharingElement.TotalLoadSharingElementReferences})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-path-list-elements", types.YLeaf{"TotalPathListElements", encapSharedLoadSharingElement.TotalPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("recursive-path-list-elements", types.YLeaf{"RecursivePathListElements", encapSharedLoadSharingElement.RecursivePathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-path-list-elements", types.YLeaf{"PlatformSharedPathListElements", encapSharedLoadSharingElement.PlatformSharedPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("retry-path-list-elements", types.YLeaf{"RetryPathListElements", encapSharedLoadSharingElement.RetryPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-info-elements", types.YLeaf{"TotalLoadInfoElements", encapSharedLoadSharingElement.TotalLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("recursive-load-info-elements", types.YLeaf{"RecursiveLoadInfoElements", encapSharedLoadSharingElement.RecursiveLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-load-info-elements", types.YLeaf{"PlatformSharedLoadInfoElements", encapSharedLoadSharingElement.PlatformSharedLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("xpl-load-info-elements", types.YLeaf{"XplLoadInfoElements", encapSharedLoadSharingElement.XplLoadInfoElements})
 
-    labelSharedLoadSharingElement.EntityData.YListKeys = []string {}
+    encapSharedLoadSharingElement.EntityData.YListKeys = []string {}
 
-    return &(labelSharedLoadSharingElement.EntityData)
+    return &(encapSharedLoadSharingElement.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_PrefixMasklenDistribution
@@ -3794,7 +3813,7 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // FRR log table.
@@ -3867,7 +3886,8 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_Logs_Lo
     // FIB Protocol Type. The type is FibFrrProtocolShow.
     FrrProtocolType interface{}
 
-    // Interface assoc w frr nh. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface assoc w frr nh. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // nh prefix. The type is string with length: 0..52.
@@ -3876,7 +3896,7 @@ type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_Logs_Lo
     // frr switching time. The type is interface{} with range: 0..4294967295.
     FrrSwitchingTime interface{}
 
-    // bundle member. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // bundle member. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleMemberInterfaceName interface{}
 
     // frr timestamp.
@@ -4604,7 +4624,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -5117,7 +5137,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -5630,7 +5650,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -6143,7 +6163,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -6174,7 +6194,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Detail hardware egress NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress.
     NhInfoLocalDetailHardwareEgress []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress
 }
@@ -6202,13 +6222,19 @@ func (nhInfoLocalDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress
-// Detail hardware egress NHinfo entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -6392,6 +6418,8 @@ func (nhInfoLocalDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vr
     nhInfoLocalDetailHardwareEgress.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoLocalDetailHardwareEgress.NhInfoExtension})
     nhInfoLocalDetailHardwareEgress.EntityData.Leafs = types.NewOrderedMap()
     nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoLocalDetailHardwareEgress.NhInterfaceName})
+    nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoLocalDetailHardwareEgress.NhProto})
+    nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoLocalDetailHardwareEgress.NhPfxLength})
     nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoLocalDetailHardwareEgress.NhAddress})
     nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoLocalDetailHardwareEgress.SiLinkProto})
     nhInfoLocalDetailHardwareEgress.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoLocalDetailHardwareEgress.SiNhinfo})
@@ -6697,7 +6725,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -6729,7 +6757,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Detail hardware egress info for NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress.
     NhInfoRemoteDetailHardwareEgress []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress
 }
@@ -6757,14 +6785,19 @@ func (nhInfoRemoteDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress
-// Detail hardware egress info for NHinfo
-// entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -6948,6 +6981,8 @@ func (nhInfoRemoteDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_V
     nhInfoRemoteDetailHardwareEgress.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoRemoteDetailHardwareEgress.NhInfoExtension})
     nhInfoRemoteDetailHardwareEgress.EntityData.Leafs = types.NewOrderedMap()
     nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoRemoteDetailHardwareEgress.NhInterfaceName})
+    nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoRemoteDetailHardwareEgress.NhProto})
+    nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoRemoteDetailHardwareEgress.NhPfxLength})
     nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoRemoteDetailHardwareEgress.NhAddress})
     nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoRemoteDetailHardwareEgress.SiLinkProto})
     nhInfoRemoteDetailHardwareEgress.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoRemoteDetailHardwareEgress.SiNhinfo})
@@ -7253,7 +7288,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInf
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -7461,15 +7496,6 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail s
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
-    // This route is SRv6 Transit function. The type is bool.
-    RouteIsSrv6Transit interface{}
-
-    // This route is SRv6 End function. The type is bool.
-    RouteIsSrv6End interface{}
-
-    // SRv6 Operation Type. The type is string.
-    Srv6OperationType interface{}
-
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation
 
@@ -7540,9 +7566,6 @@ func (ipPrefixDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
     ipPrefixDetail.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", ipPrefixDetail.L2tpv3CookieLengthBits})
     ipPrefixDetail.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixDetail.RouteForExternalReachLinecardFlag})
     ipPrefixDetail.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixDetail.RouteIsSrFlag})
-    ipPrefixDetail.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", ipPrefixDetail.RouteIsSrv6Transit})
-    ipPrefixDetail.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", ipPrefixDetail.RouteIsSrv6End})
-    ipPrefixDetail.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", ipPrefixDetail.Srv6OperationType})
 
     ipPrefixDetail.EntityData.YListKeys = []string {}
 
@@ -8015,7 +8038,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_D
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
 }
 
@@ -8226,7 +8249,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -8284,7 +8307,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
@@ -8295,9 +8318,6 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath
-
-    // SRv6 info for this path entry.
-    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -8313,7 +8333,6 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
-    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -8363,10 +8382,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // Next hop VRF. The type is string with length: 0..33.
@@ -8435,6 +8454,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // IP Encap. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap.
     SpdIpencap []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap
+
+    // Next Next hop sets. The type is slice of
+    // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop.
+    NextNextHop []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
 }
 
 func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath) GetEntityData() *types.CommonEntityData {
@@ -8451,6 +8474,10 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDe
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
+    }
+    moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
+    for i := range moreDetailAboutPath.NextNextHop {
+        moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Leafs.Append("ip-address-to-recurse", types.YLeaf{"IpAddressToRecurse", moreDetailAboutPath.IpAddressToRecurse})
@@ -8592,6 +8619,44 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
     return &(ipEncapHdr.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
+// Next Next hop sets
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Next next hop index. The type is interface{} with range: 0..255.
+    NextNextHopIndex interface{}
+
+    // Next next hop prefix. The type is string with length: 0..52.
+    NextNextHopPrefix interface{}
+
+    // Next next hop interface index. The type is interface{} with range:
+    // 0..4294967295.
+    NextNextHopInterface interface{}
+}
+
+func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop) GetEntityData() *types.CommonEntityData {
+    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
+    nextNextHop.EntityData.YangName = "next-next-hop"
+    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
+    nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextNextHop.EntityData.Children = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-index", types.YLeaf{"NextNextHopIndex", nextNextHop.NextNextHopIndex})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-prefix", types.YLeaf{"NextNextHopPrefix", nextNextHop.NextNextHopPrefix})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-interface", types.YLeaf{"NextNextHopInterface", nextNextHop.NextNextHopInterface})
+
+    nextNextHop.EntityData.YListKeys = []string {}
+
+    return &(nextNextHop.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath
 // mpls info for this path entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath struct {
@@ -8687,7 +8752,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_F
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -8750,35 +8815,6 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefi
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
-}
-
-// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath
-// SRv6 info for this path entry
-type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SRv6 SID list. The type is string.
-    Srv6SidList interface{}
-}
-
-func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
-    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
-    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
-    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
-    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
-
-    srv6InformationForPath.EntityData.YListKeys = []string {}
-
-    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_ExtensionObject
@@ -8924,8 +8960,14 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9109,6 +9151,8 @@ func (nhInfoLocalDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail
     nhInfoLocalDetail.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoLocalDetail.NhInfoExtension})
     nhInfoLocalDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoLocalDetail.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoLocalDetail.NhInterfaceName})
+    nhInfoLocalDetail.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoLocalDetail.NhProto})
+    nhInfoLocalDetail.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoLocalDetail.NhPfxLength})
     nhInfoLocalDetail.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoLocalDetail.NhAddress})
     nhInfoLocalDetail.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoLocalDetail.SiLinkProto})
     nhInfoLocalDetail.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoLocalDetail.SiNhinfo})
@@ -9414,7 +9458,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -9967,7 +10011,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -10479,7 +10523,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -10991,7 +11035,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -11503,7 +11547,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -11534,7 +11578,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Detailed remote NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail.
     NhInfoRemoteDetail []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail
 }
@@ -11562,13 +11606,19 @@ func (nhInfoRemoteDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail
-// Detailed remote NHinfo entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -11752,6 +11802,8 @@ func (nhInfoRemoteDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetai
     nhInfoRemoteDetail.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoRemoteDetail.NhInfoExtension})
     nhInfoRemoteDetail.EntityData.Leafs = types.NewOrderedMap()
     nhInfoRemoteDetail.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoRemoteDetail.NhInterfaceName})
+    nhInfoRemoteDetail.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoRemoteDetail.NhProto})
+    nhInfoRemoteDetail.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoRemoteDetail.NhPfxLength})
     nhInfoRemoteDetail.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoRemoteDetail.NhAddress})
     nhInfoRemoteDetail.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoRemoteDetail.SiLinkProto})
     nhInfoRemoteDetail.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoRemoteDetail.SiNhinfo})
@@ -12057,7 +12109,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -12230,16 +12282,11 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary struct {
     // with range: 0..4294967295.
     LispRlocObjects interface{}
 
-    // Number of SRv6 transit routes. The type is interface{} with range:
-    // 0..4294967295.
-    NumberRoutesSrv6Transit interface{}
-
-    // Number of SRv6 end routes. The type is interface{} with range:
-    // 0..4294967295.
-    NumberRoutesSrv6End interface{}
+    // Number of SR labels. The type is interface{} with range: 0..4294967295.
+    NumberOfSrLabels interface{}
 
     // VXLAN local Interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SsVxlanLtepIfh interface{}
 
     // Number of dropped pathlists. The type is interface{} with range:
@@ -12255,8 +12302,8 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary struct {
     // Cross-table shared load sharing element.
     CrossSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_CrossSharedLoadSharingElement
 
-    // Label-shared load sharing element.
-    LabelSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_LabelSharedLoadSharingElement
+    // Encap-shared load sharing element.
+    EncapSharedLoadSharingElement Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_EncapSharedLoadSharingElement
 
     // Distribution of prefix mask lengths.
     PrefixMasklenDistribution Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixMasklenDistribution
@@ -12276,7 +12323,7 @@ func (summary *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary) GetEntityData
     summary.EntityData.Children.Append("exclusive-load-sharing-element", types.YChild{"ExclusiveLoadSharingElement", &summary.ExclusiveLoadSharingElement})
     summary.EntityData.Children.Append("shared-load-sharing-element", types.YChild{"SharedLoadSharingElement", &summary.SharedLoadSharingElement})
     summary.EntityData.Children.Append("cross-shared-load-sharing-element", types.YChild{"CrossSharedLoadSharingElement", &summary.CrossSharedLoadSharingElement})
-    summary.EntityData.Children.Append("label-shared-load-sharing-element", types.YChild{"LabelSharedLoadSharingElement", &summary.LabelSharedLoadSharingElement})
+    summary.EntityData.Children.Append("encap-shared-load-sharing-element", types.YChild{"EncapSharedLoadSharingElement", &summary.EncapSharedLoadSharingElement})
     summary.EntityData.Children.Append("prefix-masklen-distribution", types.YChild{"PrefixMasklenDistribution", &summary.PrefixMasklenDistribution})
     summary.EntityData.Leafs = types.NewOrderedMap()
     summary.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", summary.Prefix})
@@ -12316,8 +12363,7 @@ func (summary *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary) GetEntityData
     summary.EntityData.Leafs.Append("lisp-eid-prefixes", types.YLeaf{"LispEidPrefixes", summary.LispEidPrefixes})
     summary.EntityData.Leafs.Append("lisp-eid-valid-prefixes", types.YLeaf{"LispEidValidPrefixes", summary.LispEidValidPrefixes})
     summary.EntityData.Leafs.Append("lisp-rloc-objects", types.YLeaf{"LispRlocObjects", summary.LispRlocObjects})
-    summary.EntityData.Leafs.Append("number-routes-srv6-transit", types.YLeaf{"NumberRoutesSrv6Transit", summary.NumberRoutesSrv6Transit})
-    summary.EntityData.Leafs.Append("number-routes-srv6-end", types.YLeaf{"NumberRoutesSrv6End", summary.NumberRoutesSrv6End})
+    summary.EntityData.Leafs.Append("number-of-sr-labels", types.YLeaf{"NumberOfSrLabels", summary.NumberOfSrLabels})
     summary.EntityData.Leafs.Append("ss-vxlan-ltep-ifh", types.YLeaf{"SsVxlanLtepIfh", summary.SsVxlanLtepIfh})
     summary.EntityData.Leafs.Append("ss-drop-pl-count", types.YLeaf{"SsDropPlCount", summary.SsDropPlCount})
 
@@ -12551,9 +12597,9 @@ func (crossSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_
     return &(crossSharedLoadSharingElement.EntityData)
 }
 
-// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_LabelSharedLoadSharingElement
-// Label-shared load sharing element
-type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_LabelSharedLoadSharingElement struct {
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_EncapSharedLoadSharingElement
+// Encap-shared load sharing element
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_EncapSharedLoadSharingElement struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -12598,32 +12644,32 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_LabelSharedLoadSharingEl
     XplLoadInfoElements interface{}
 }
 
-func (labelSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_LabelSharedLoadSharingElement) GetEntityData() *types.CommonEntityData {
-    labelSharedLoadSharingElement.EntityData.YFilter = labelSharedLoadSharingElement.YFilter
-    labelSharedLoadSharingElement.EntityData.YangName = "label-shared-load-sharing-element"
-    labelSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
-    labelSharedLoadSharingElement.EntityData.ParentYangName = "summary"
-    labelSharedLoadSharingElement.EntityData.SegmentPath = "label-shared-load-sharing-element"
-    labelSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    labelSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    labelSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (encapSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_EncapSharedLoadSharingElement) GetEntityData() *types.CommonEntityData {
+    encapSharedLoadSharingElement.EntityData.YFilter = encapSharedLoadSharingElement.YFilter
+    encapSharedLoadSharingElement.EntityData.YangName = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
+    encapSharedLoadSharingElement.EntityData.ParentYangName = "summary"
+    encapSharedLoadSharingElement.EntityData.SegmentPath = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    encapSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    encapSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    labelSharedLoadSharingElement.EntityData.Children = types.NewOrderedMap()
-    labelSharedLoadSharingElement.EntityData.Leafs = types.NewOrderedMap()
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-bytes", types.YLeaf{"TotalLoadSharingElementBytes", labelSharedLoadSharingElement.TotalLoadSharingElementBytes})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-references", types.YLeaf{"TotalLoadSharingElementReferences", labelSharedLoadSharingElement.TotalLoadSharingElementReferences})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-path-list-elements", types.YLeaf{"TotalPathListElements", labelSharedLoadSharingElement.TotalPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("recursive-path-list-elements", types.YLeaf{"RecursivePathListElements", labelSharedLoadSharingElement.RecursivePathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-path-list-elements", types.YLeaf{"PlatformSharedPathListElements", labelSharedLoadSharingElement.PlatformSharedPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("retry-path-list-elements", types.YLeaf{"RetryPathListElements", labelSharedLoadSharingElement.RetryPathListElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("total-load-info-elements", types.YLeaf{"TotalLoadInfoElements", labelSharedLoadSharingElement.TotalLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("recursive-load-info-elements", types.YLeaf{"RecursiveLoadInfoElements", labelSharedLoadSharingElement.RecursiveLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-load-info-elements", types.YLeaf{"PlatformSharedLoadInfoElements", labelSharedLoadSharingElement.PlatformSharedLoadInfoElements})
-    labelSharedLoadSharingElement.EntityData.Leafs.Append("xpl-load-info-elements", types.YLeaf{"XplLoadInfoElements", labelSharedLoadSharingElement.XplLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Children = types.NewOrderedMap()
+    encapSharedLoadSharingElement.EntityData.Leafs = types.NewOrderedMap()
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-bytes", types.YLeaf{"TotalLoadSharingElementBytes", encapSharedLoadSharingElement.TotalLoadSharingElementBytes})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-sharing-element-references", types.YLeaf{"TotalLoadSharingElementReferences", encapSharedLoadSharingElement.TotalLoadSharingElementReferences})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-path-list-elements", types.YLeaf{"TotalPathListElements", encapSharedLoadSharingElement.TotalPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("recursive-path-list-elements", types.YLeaf{"RecursivePathListElements", encapSharedLoadSharingElement.RecursivePathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-path-list-elements", types.YLeaf{"PlatformSharedPathListElements", encapSharedLoadSharingElement.PlatformSharedPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("retry-path-list-elements", types.YLeaf{"RetryPathListElements", encapSharedLoadSharingElement.RetryPathListElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("total-load-info-elements", types.YLeaf{"TotalLoadInfoElements", encapSharedLoadSharingElement.TotalLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("recursive-load-info-elements", types.YLeaf{"RecursiveLoadInfoElements", encapSharedLoadSharingElement.RecursiveLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("platform-shared-load-info-elements", types.YLeaf{"PlatformSharedLoadInfoElements", encapSharedLoadSharingElement.PlatformSharedLoadInfoElements})
+    encapSharedLoadSharingElement.EntityData.Leafs.Append("xpl-load-info-elements", types.YLeaf{"XplLoadInfoElements", encapSharedLoadSharingElement.XplLoadInfoElements})
 
-    labelSharedLoadSharingElement.EntityData.YListKeys = []string {}
+    encapSharedLoadSharingElement.EntityData.YListKeys = []string {}
 
-    return &(labelSharedLoadSharingElement.EntityData)
+    return &(encapSharedLoadSharingElement.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixMasklenDistribution
@@ -12883,10 +12929,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     PerInterface interface{}
 
     // FIB Interface type. The type is interface{} with range: 0..4294967295.
@@ -13575,15 +13621,6 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief str
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
-    // This route is SRv6 Transit function. The type is bool.
-    RouteIsSrv6Transit interface{}
-
-    // This route is SRv6 End function. The type is bool.
-    RouteIsSrv6End interface{}
-
-    // SRv6 Operation Type. The type is string.
-    Srv6OperationType interface{}
-
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation
 
@@ -13654,9 +13691,6 @@ func (ipPrefixBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     ipPrefixBrief.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", ipPrefixBrief.L2tpv3CookieLengthBits})
     ipPrefixBrief.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", ipPrefixBrief.RouteForExternalReachLinecardFlag})
     ipPrefixBrief.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", ipPrefixBrief.RouteIsSrFlag})
-    ipPrefixBrief.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", ipPrefixBrief.RouteIsSrv6Transit})
-    ipPrefixBrief.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", ipPrefixBrief.RouteIsSrv6End})
-    ipPrefixBrief.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", ipPrefixBrief.Srv6OperationType})
 
     ipPrefixBrief.EntityData.YListKeys = []string {}
 
@@ -14129,7 +14163,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Det
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
 }
 
@@ -14340,7 +14374,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -14398,7 +14432,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
@@ -14409,9 +14443,6 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath
-
-    // SRv6 info for this path entry.
-    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -14427,7 +14458,6 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
-    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -14477,10 +14507,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // Next hop VRF. The type is string with length: 0..33.
@@ -14549,6 +14579,10 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // IP Encap. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap.
     SpdIpencap []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap
+
+    // Next Next hop sets. The type is slice of
+    // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop.
+    NextNextHop []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
 }
 
 func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath) GetEntityData() *types.CommonEntityData {
@@ -14565,6 +14599,10 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBr
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
+    }
+    moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
+    for i := range moreDetailAboutPath.NextNextHop {
+        moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Leafs.Append("ip-address-to-recurse", types.YLeaf{"IpAddressToRecurse", moreDetailAboutPath.IpAddressToRecurse})
@@ -14706,6 +14744,44 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
     return &(ipEncapHdr.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
+// Next Next hop sets
+type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Next next hop index. The type is interface{} with range: 0..255.
+    NextNextHopIndex interface{}
+
+    // Next next hop prefix. The type is string with length: 0..52.
+    NextNextHopPrefix interface{}
+
+    // Next next hop interface index. The type is interface{} with range:
+    // 0..4294967295.
+    NextNextHopInterface interface{}
+}
+
+func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop) GetEntityData() *types.CommonEntityData {
+    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
+    nextNextHop.EntityData.YangName = "next-next-hop"
+    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
+    nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextNextHop.EntityData.Children = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-index", types.YLeaf{"NextNextHopIndex", nextNextHop.NextNextHopIndex})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-prefix", types.YLeaf{"NextNextHopPrefix", nextNextHop.NextNextHopPrefix})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-interface", types.YLeaf{"NextNextHopInterface", nextNextHop.NextNextHopInterface})
+
+    nextNextHop.EntityData.YListKeys = []string {}
+
+    return &(nextNextHop.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath
 // mpls info for this path entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath struct {
@@ -14801,7 +14877,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_Fib
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -14864,35 +14940,6 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefix
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
-}
-
-// Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath
-// SRv6 info for this path entry
-type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SRv6 SID list. The type is string.
-    Srv6SidList interface{}
-}
-
-func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
-    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
-    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
-    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
-    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
-
-    srv6InformationForPath.EntityData.YListKeys = []string {}
-
-    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_ExtensionObject
@@ -15006,7 +15053,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Detail hardware ingress info for remote NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress.
     NhInfoRemoteDetailHardwareIngress []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress
 }
@@ -15034,14 +15081,19 @@ func (nhInfoRemoteDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrf
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress
-// Detail hardware ingress info for remote
-// NHinfo entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -15225,6 +15277,8 @@ func (nhInfoRemoteDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
     nhInfoRemoteDetailHardwareIngress.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoRemoteDetailHardwareIngress.NhInfoExtension})
     nhInfoRemoteDetailHardwareIngress.EntityData.Leafs = types.NewOrderedMap()
     nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoRemoteDetailHardwareIngress.NhInterfaceName})
+    nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoRemoteDetailHardwareIngress.NhProto})
+    nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoRemoteDetailHardwareIngress.NhPfxLength})
     nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoRemoteDetailHardwareIngress.NhAddress})
     nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoRemoteDetailHardwareIngress.SiLinkProto})
     nhInfoRemoteDetailHardwareIngress.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoRemoteDetailHardwareIngress.SiNhinfo})
@@ -15530,7 +15584,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -15561,7 +15615,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Detail hardware ingress NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress.
     NhInfoLocalDetailHardwareIngress []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress
 }
@@ -15589,13 +15643,19 @@ func (nhInfoLocalDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress
-// Detail hardware ingress NHinfo entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -15779,6 +15839,8 @@ func (nhInfoLocalDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_V
     nhInfoLocalDetailHardwareIngress.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoLocalDetailHardwareIngress.NhInfoExtension})
     nhInfoLocalDetailHardwareIngress.EntityData.Leafs = types.NewOrderedMap()
     nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoLocalDetailHardwareIngress.NhInterfaceName})
+    nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoLocalDetailHardwareIngress.NhProto})
+    nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoLocalDetailHardwareIngress.NhPfxLength})
     nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoLocalDetailHardwareIngress.NhAddress})
     nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoLocalDetailHardwareIngress.SiLinkProto})
     nhInfoLocalDetailHardwareIngress.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoLocalDetailHardwareIngress.SiNhinfo})
@@ -16084,7 +16146,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -16638,7 +16700,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -17151,7 +17213,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -17664,7 +17726,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -18177,7 +18239,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhIn
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -18768,7 +18830,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -19280,7 +19342,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -19792,7 +19854,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -20304,7 +20366,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_N
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -20335,7 +20397,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Brief remote NHinfo entry. The type is slice of
+    // Detail NHinfo entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief.
     NhInfoRemoteBrief []*Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief
 }
@@ -20363,13 +20425,19 @@ func (nhInfoRemoteBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief
-// Brief remote NHinfo entry
+// Detail NHinfo entry
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20553,6 +20621,8 @@ func (nhInfoRemoteBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_
     nhInfoRemoteBrief.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoRemoteBrief.NhInfoExtension})
     nhInfoRemoteBrief.EntityData.Leafs = types.NewOrderedMap()
     nhInfoRemoteBrief.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoRemoteBrief.NhInterfaceName})
+    nhInfoRemoteBrief.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoRemoteBrief.NhProto})
+    nhInfoRemoteBrief.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoRemoteBrief.NhPfxLength})
     nhInfoRemoteBrief.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoRemoteBrief.NhAddress})
     nhInfoRemoteBrief.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoRemoteBrief.SiLinkProto})
     nhInfoRemoteBrief.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoRemoteBrief.SiNhinfo})
@@ -20858,7 +20928,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_N
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -20922,8 +20992,14 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
+
+    // Next-hop proto. The type is FibProtocol.
+    NhProto interface{}
+
+    // Next-hop prefix length. The type is interface{} with range: 0..4294967295.
+    NhPfxLength interface{}
 
     // Next-hop address in string format. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -21107,6 +21183,8 @@ func (nhInfoLocalBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_N
     nhInfoLocalBrief.EntityData.Children.Append("nh-info-extension", types.YChild{"NhInfoExtension", &nhInfoLocalBrief.NhInfoExtension})
     nhInfoLocalBrief.EntityData.Leafs = types.NewOrderedMap()
     nhInfoLocalBrief.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhInfoLocalBrief.NhInterfaceName})
+    nhInfoLocalBrief.EntityData.Leafs.Append("nh-proto", types.YLeaf{"NhProto", nhInfoLocalBrief.NhProto})
+    nhInfoLocalBrief.EntityData.Leafs.Append("nh-pfx-length", types.YLeaf{"NhPfxLength", nhInfoLocalBrief.NhPfxLength})
     nhInfoLocalBrief.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhInfoLocalBrief.NhAddress})
     nhInfoLocalBrief.EntityData.Leafs.Append("si-link-proto", types.YLeaf{"SiLinkProto", nhInfoLocalBrief.SiLinkProto})
     nhInfoLocalBrief.EntityData.Leafs.Append("si-nhinfo", types.YLeaf{"SiNhinfo", nhInfoLocalBrief.SiNhinfo})
@@ -21412,7 +21490,7 @@ type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_Nh
     NhInfoReplicatedNhId interface{}
 
     // Interface of the replicated NHINFO. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     NhInfoReplicatedInterface interface{}
 }
 
@@ -21489,6 +21567,10 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     // Destination address. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
     Destination interface{}
+
+    // IPv6 flow label (applies only to and used only for IPv6). The type is
+    // interface{} with range: 0..1048575.
+    Ipv6FlowLabel interface{}
 
     // Proto type for this entry. The type is interface{} with range:
     // 0..4294967295.
@@ -21624,15 +21706,6 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     // Route is a MPLS Segment-Routing prefix. The type is bool.
     RouteIsSrFlag interface{}
 
-    // This route is SRv6 Transit function. The type is bool.
-    RouteIsSrv6Transit interface{}
-
-    // This route is SRv6 End function. The type is bool.
-    RouteIsSrv6End interface{}
-
-    // SRv6 Operation Type. The type is string.
-    Srv6OperationType interface{}
-
     // Detailed FIB entry information.
     DetailFibEntryInformation Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation
 
@@ -21666,6 +21739,7 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", exactRoute.VrfName})
     exactRoute.EntityData.Leafs.Append("source", types.YLeaf{"Source", exactRoute.Source})
     exactRoute.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", exactRoute.Destination})
+    exactRoute.EntityData.Leafs.Append("ipv6-flow-label", types.YLeaf{"Ipv6FlowLabel", exactRoute.Ipv6FlowLabel})
     exactRoute.EntityData.Leafs.Append("protocol-type-fib-entry", types.YLeaf{"ProtocolTypeFibEntry", exactRoute.ProtocolTypeFibEntry})
     exactRoute.EntityData.Leafs.Append("platform-hardware", types.YLeaf{"PlatformHardware", exactRoute.PlatformHardware})
     exactRoute.EntityData.Leafs.Append("number-of-referances-to-path-list", types.YLeaf{"NumberOfReferancesToPathList", exactRoute.NumberOfReferancesToPathList})
@@ -21705,9 +21779,6 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.Leafs.Append("l2tpv3-cookie-length-bits", types.YLeaf{"L2tpv3CookieLengthBits", exactRoute.L2tpv3CookieLengthBits})
     exactRoute.EntityData.Leafs.Append("route-for-external-reach-linecard-flag", types.YLeaf{"RouteForExternalReachLinecardFlag", exactRoute.RouteForExternalReachLinecardFlag})
     exactRoute.EntityData.Leafs.Append("route-is-sr-flag", types.YLeaf{"RouteIsSrFlag", exactRoute.RouteIsSrFlag})
-    exactRoute.EntityData.Leafs.Append("route-is-srv6-transit", types.YLeaf{"RouteIsSrv6Transit", exactRoute.RouteIsSrv6Transit})
-    exactRoute.EntityData.Leafs.Append("route-is-srv6-end", types.YLeaf{"RouteIsSrv6End", exactRoute.RouteIsSrv6End})
-    exactRoute.EntityData.Leafs.Append("srv6-operation-type", types.YLeaf{"Srv6OperationType", exactRoute.Srv6OperationType})
 
     exactRoute.EntityData.YListKeys = []string {}
 
@@ -22180,7 +22251,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInfo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: [a-zA-Z0-9./-]+.
+    // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
 }
 
@@ -22391,7 +22462,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HardwareInformation interface{}
 
-    // Interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BriefInterfaceHandle interface{}
 
     // Next hop prefix. The type is string with length: 0..52.
@@ -22449,7 +22520,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // Next Hop Index. The type is interface{} with range: 0..4294967295.
     NextHopIndex interface{}
 
-    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceHandle interface{}
 
     // recursion via /N constraint. The type is interface{} with range: 0..255.
@@ -22460,9 +22531,6 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
 
     // mpls info for this path entry.
     MplsInformationForPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath
-
-    // SRv6 info for this path entry.
-    Srv6InformationForPath Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath
 }
 
 func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath) GetEntityData() *types.CommonEntityData {
@@ -22478,7 +22546,6 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     fibShTblPath.EntityData.Children = types.NewOrderedMap()
     fibShTblPath.EntityData.Children.Append("more-detail-about-path", types.YChild{"MoreDetailAboutPath", &fibShTblPath.MoreDetailAboutPath})
     fibShTblPath.EntityData.Children.Append("mpls-information-for-path", types.YChild{"MplsInformationForPath", &fibShTblPath.MplsInformationForPath})
-    fibShTblPath.EntityData.Children.Append("srv6-information-for-path", types.YChild{"Srv6InformationForPath", &fibShTblPath.Srv6InformationForPath})
     fibShTblPath.EntityData.Leafs = types.NewOrderedMap()
     fibShTblPath.EntityData.Leafs.Append("hardware-information", types.YLeaf{"HardwareInformation", fibShTblPath.HardwareInformation})
     fibShTblPath.EntityData.Leafs.Append("brief-interface-handle", types.YLeaf{"BriefInterfaceHandle", fibShTblPath.BriefInterfaceHandle})
@@ -22528,10 +22595,10 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     NextHopMaskLength interface{}
 
     // Interface associated with this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceAssociatedPath interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // Next hop VRF. The type is string with length: 0..33.
@@ -22600,6 +22667,10 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // IP Encap. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap.
     SpdIpencap []*Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap
+
+    // Next Next hop sets. The type is slice of
+    // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop.
+    NextNextHop []*Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
 }
 
 func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath) GetEntityData() *types.CommonEntityData {
@@ -22616,6 +22687,10 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRo
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
+    }
+    moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
+    for i := range moreDetailAboutPath.NextNextHop {
+        moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Leafs.Append("ip-address-to-recurse", types.YLeaf{"IpAddressToRecurse", moreDetailAboutPath.IpAddressToRecurse})
@@ -22757,6 +22832,44 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
     return &(ipEncapHdr.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop
+// Next Next hop sets
+type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Next next hop index. The type is interface{} with range: 0..255.
+    NextNextHopIndex interface{}
+
+    // Next next hop prefix. The type is string with length: 0..52.
+    NextNextHopPrefix interface{}
+
+    // Next next hop interface index. The type is interface{} with range:
+    // 0..4294967295.
+    NextNextHopInterface interface{}
+}
+
+func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop) GetEntityData() *types.CommonEntityData {
+    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
+    nextNextHop.EntityData.YangName = "next-next-hop"
+    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
+    nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextNextHop.EntityData.Children = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-index", types.YLeaf{"NextNextHopIndex", nextNextHop.NextNextHopIndex})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-prefix", types.YLeaf{"NextNextHopPrefix", nextNextHop.NextNextHopPrefix})
+    nextNextHop.EntityData.Leafs.Append("next-next-hop-interface", types.YLeaf{"NextNextHopInterface", nextNextHop.NextNextHopInterface})
+
+    nextNextHop.EntityData.YListKeys = []string {}
+
+    return &(nextNextHop.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath
 // mpls info for this path entry
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath struct {
@@ -22852,7 +22965,7 @@ type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibSh
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
 
-    // OutInterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // OutInterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // NHAddress. The type is string with length: 0..52.
@@ -22915,35 +23028,6 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryP
     lstack.EntityData.YListKeys = []string {}
 
     return &(lstack.EntityData)
-}
-
-// Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath
-// SRv6 info for this path entry
-type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SRv6 SID list. The type is string.
-    Srv6SidList interface{}
-}
-
-func (srv6InformationForPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_Srv6InformationForPath) GetEntityData() *types.CommonEntityData {
-    srv6InformationForPath.EntityData.YFilter = srv6InformationForPath.YFilter
-    srv6InformationForPath.EntityData.YangName = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.BundleName = "cisco_ios_xr"
-    srv6InformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
-    srv6InformationForPath.EntityData.SegmentPath = "srv6-information-for-path"
-    srv6InformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6InformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6InformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6InformationForPath.EntityData.Children = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs = types.NewOrderedMap()
-    srv6InformationForPath.EntityData.Leafs.Append("srv6-sid-list", types.YLeaf{"Srv6SidList", srv6InformationForPath.Srv6SidList})
-
-    srv6InformationForPath.EntityData.YListKeys = []string {}
-
-    return &(srv6InformationForPath.EntityData)
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_ExtensionObject
@@ -23012,14 +23096,156 @@ func (sfecdLe *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Extensio
     return &(sfecdLe.EntityData)
 }
 
+// Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal
+// FIB ipv6 global information
+type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FIB ipv6 global segment routing information.
+    SegmentRouting Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting
+}
+
+func (protocolGlobal *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal) GetEntityData() *types.CommonEntityData {
+    protocolGlobal.EntityData.YFilter = protocolGlobal.YFilter
+    protocolGlobal.EntityData.YangName = "protocol-global"
+    protocolGlobal.EntityData.BundleName = "cisco_ios_xr"
+    protocolGlobal.EntityData.ParentYangName = "protocol"
+    protocolGlobal.EntityData.SegmentPath = "protocol-global"
+    protocolGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocolGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocolGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    protocolGlobal.EntityData.Children = types.NewOrderedMap()
+    protocolGlobal.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &protocolGlobal.SegmentRouting})
+    protocolGlobal.EntityData.Leafs = types.NewOrderedMap()
+
+    protocolGlobal.EntityData.YListKeys = []string {}
+
+    return &(protocolGlobal.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting
+// FIB ipv6 global segment routing information
+type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FIB ipv6 global segment routing srv6 information.
+    Srv6 Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
+}
+
+func (segmentRouting *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting) GetEntityData() *types.CommonEntityData {
+    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
+    segmentRouting.EntityData.YangName = "segment-routing"
+    segmentRouting.EntityData.BundleName = "cisco_ios_xr"
+    segmentRouting.EntityData.ParentYangName = "protocol-global"
+    segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segmentRouting.EntityData.Children = types.NewOrderedMap()
+    segmentRouting.EntityData.Children.Append("srv6", types.YChild{"Srv6", &segmentRouting.Srv6})
+    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
+
+    segmentRouting.EntityData.YListKeys = []string {}
+
+    return &(segmentRouting.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
+// FIB ipv6 global segment routing srv6
+// information
+type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is SRv6 enabled?. The type is bool.
+    Srv6Enabled interface{}
+
+    // Encap Source Address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    EncapSourceAddress interface{}
+
+    // Locator Count. The type is interface{} with range: 0..4294967295.
+    LocatorCount interface{}
+
+    // Locator Array. The type is slice of
+    // Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator.
+    Locator []*Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator
+}
+
+func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6) GetEntityData() *types.CommonEntityData {
+    srv6.EntityData.YFilter = srv6.YFilter
+    srv6.EntityData.YangName = "srv6"
+    srv6.EntityData.BundleName = "cisco_ios_xr"
+    srv6.EntityData.ParentYangName = "segment-routing"
+    srv6.EntityData.SegmentPath = "srv6"
+    srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srv6.EntityData.Children = types.NewOrderedMap()
+    srv6.EntityData.Children.Append("locator", types.YChild{"Locator", nil})
+    for i := range srv6.Locator {
+        srv6.EntityData.Children.Append(types.GetSegmentPath(srv6.Locator[i]), types.YChild{"Locator", srv6.Locator[i]})
+    }
+    srv6.EntityData.Leafs = types.NewOrderedMap()
+    srv6.EntityData.Leafs.Append("srv6-enabled", types.YLeaf{"Srv6Enabled", srv6.Srv6Enabled})
+    srv6.EntityData.Leafs.Append("encap-source-address", types.YLeaf{"EncapSourceAddress", srv6.EncapSourceAddress})
+    srv6.EntityData.Leafs.Append("locator-count", types.YLeaf{"LocatorCount", srv6.LocatorCount})
+
+    srv6.EntityData.YListKeys = []string {}
+
+    return &(srv6.EntityData)
+}
+
+// Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator
+// Locator Array
+type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Locator name. The type is string.
+    Name interface{}
+
+    // Locator prefix. The type is string.
+    Prefix interface{}
+
+    // Locator. The type is string.
+    Locator interface{}
+}
+
+func (locator *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator) GetEntityData() *types.CommonEntityData {
+    locator.EntityData.YFilter = locator.YFilter
+    locator.EntityData.YangName = "locator"
+    locator.EntityData.BundleName = "cisco_ios_xr"
+    locator.EntityData.ParentYangName = "srv6"
+    locator.EntityData.SegmentPath = "locator"
+    locator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    locator.EntityData.Children = types.NewOrderedMap()
+    locator.EntityData.Leafs = types.NewOrderedMap()
+    locator.EntityData.Leafs.Append("name", types.YLeaf{"Name", locator.Name})
+    locator.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", locator.Prefix})
+    locator.EntityData.Leafs.Append("locator", types.YLeaf{"Locator", locator.Locator})
+
+    locator.EntityData.YListKeys = []string {}
+
+    return &(locator.EntityData)
+}
+
 // Fib_Nodes_Node_Protocols_Protocol_NhIds
-// NHIdTable is accessed by two keys;
-// {NHIdValue} and/or {NHInterface,NHAddress
+// NHIdTable is accessed by two keys; {NHId}
+// and/or {NHInterface,NHAddress
 type Fib_Nodes_Node_Protocols_Protocol_NhIds struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // NextHopeId table entry. The type is slice of
+    // NextHopId table entry. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId.
     NhId []*Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId
 }
@@ -23047,23 +23273,23 @@ func (nhIds *Fib_Nodes_Node_Protocols_Protocol_NhIds) GetEntityData() *types.Com
 }
 
 // Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId
-// NextHopeId table entry
+// NextHopId table entry
 type Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NexthopId Value. The type is interface{} with range: 0..4294967295.
-    NhIdValue interface{}
+    NhId interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
 
     // Next-hop address in string format (e.g., 1 .2.3.4). The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     NhAddress interface{}
 
-    // Next-hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    NhInterfHandle interface{}
+    // Next-hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    NhInterfaceNameXr interface{}
 
     // Next-hop address. The type is string.
     NhAddressXr interface{}
@@ -23080,7 +23306,7 @@ type Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId struct {
     NhTableId interface{}
 
     // NHID value. The type is interface{} with range: 0..4294967295.
-    NhId interface{}
+    NhIdXr interface{}
 
     // NHID application type. The type is interface{} with range: 0..255.
     NhIdApplication interface{}
@@ -23105,15 +23331,15 @@ func (nhId *Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId) GetEntityData() *types
 
     nhId.EntityData.Children = types.NewOrderedMap()
     nhId.EntityData.Leafs = types.NewOrderedMap()
-    nhId.EntityData.Leafs.Append("nh-id-value", types.YLeaf{"NhIdValue", nhId.NhIdValue})
+    nhId.EntityData.Leafs.Append("nh-id", types.YLeaf{"NhId", nhId.NhId})
     nhId.EntityData.Leafs.Append("nh-interface-name", types.YLeaf{"NhInterfaceName", nhId.NhInterfaceName})
     nhId.EntityData.Leafs.Append("nh-address", types.YLeaf{"NhAddress", nhId.NhAddress})
-    nhId.EntityData.Leafs.Append("nh-interf-handle", types.YLeaf{"NhInterfHandle", nhId.NhInterfHandle})
+    nhId.EntityData.Leafs.Append("nh-interface-name-xr", types.YLeaf{"NhInterfaceNameXr", nhId.NhInterfaceNameXr})
     nhId.EntityData.Leafs.Append("nh-address-xr", types.YLeaf{"NhAddressXr", nhId.NhAddressXr})
     nhId.EntityData.Leafs.Append("nh-protocol", types.YLeaf{"NhProtocol", nhId.NhProtocol})
     nhId.EntityData.Leafs.Append("nh-link-type", types.YLeaf{"NhLinkType", nhId.NhLinkType})
     nhId.EntityData.Leafs.Append("nh-table-id", types.YLeaf{"NhTableId", nhId.NhTableId})
-    nhId.EntityData.Leafs.Append("nh-id", types.YLeaf{"NhId", nhId.NhId})
+    nhId.EntityData.Leafs.Append("nh-id-xr", types.YLeaf{"NhIdXr", nhId.NhIdXr})
     nhId.EntityData.Leafs.Append("nh-id-application", types.YLeaf{"NhIdApplication", nhId.NhIdApplication})
     nhId.EntityData.Leafs.Append("version", types.YLeaf{"Version", nhId.Version})
     nhId.EntityData.Leafs.Append("time-of-last-update-in-msec", types.YLeaf{"TimeOfLastUpdateInMsec", nhId.TimeOfLastUpdateInMsec})
@@ -23382,6 +23608,15 @@ type Fib_Nodes_Node_Protocols_Protocol_Misc struct {
     // XPL loadinfo is enabled. The type is bool.
     MiXplLdiEnabled interface{}
 
+    // fast-reroute follow BGP-PIC configured. The type is bool.
+    MiFrrFollowBgpPic interface{}
+
+    // MPLS encapsulation sharing disabled. The type is bool.
+    MiEncapSharingDisable interface{}
+
+    // Consistent-hashing auto-recovery. The type is bool.
+    MiLbaHashRecover interface{}
+
     // FIB ISSU state.
     MiIssuState Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState
 
@@ -23520,6 +23755,9 @@ func (misc *Fib_Nodes_Node_Protocols_Protocol_Misc) GetEntityData() *types.Commo
     misc.EntityData.Leafs.Append("mi-prefer-aib-routes-over-rib-oper", types.YLeaf{"MiPreferAibRoutesOverRibOper", misc.MiPreferAibRoutesOverRibOper})
     misc.EntityData.Leafs.Append("mi-prefer-aib-routes-over-rib-cfg", types.YLeaf{"MiPreferAibRoutesOverRibCfg", misc.MiPreferAibRoutesOverRibCfg})
     misc.EntityData.Leafs.Append("mi-xpl-ldi-enabled", types.YLeaf{"MiXplLdiEnabled", misc.MiXplLdiEnabled})
+    misc.EntityData.Leafs.Append("mi-frr-follow-bgp-pic", types.YLeaf{"MiFrrFollowBgpPic", misc.MiFrrFollowBgpPic})
+    misc.EntityData.Leafs.Append("mi-encap-sharing-disable", types.YLeaf{"MiEncapSharingDisable", misc.MiEncapSharingDisable})
+    misc.EntityData.Leafs.Append("mi-lba-hash-recover", types.YLeaf{"MiLbaHashRecover", misc.MiLbaHashRecover})
 
     misc.EntityData.YListKeys = []string {}
 
@@ -25776,14 +26014,10 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixE
 
     // This attribute is a key. Network address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NetworkAddress interface{}
-
-    // This attribute is a key. Mask legnth (prefix length). The type is
-    // interface{} with range: 0..4294967295.
-    MaskLength interface{}
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    Network interface{}
 
     // State.
     State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_State
@@ -25798,7 +26032,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixE
     prefixEntry.EntityData.YangName = "prefix-entry"
     prefixEntry.EntityData.BundleName = "cisco_ios_xr"
     prefixEntry.EntityData.ParentYangName = "prefix-entries"
-    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.NetworkAddress, "network-address") + types.AddKeyToken(prefixEntry.MaskLength, "mask-length")
+    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
     prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25810,10 +26044,9 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixE
         prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
     }
     prefixEntry.EntityData.Leafs = types.NewOrderedMap()
-    prefixEntry.EntityData.Leafs.Append("network-address", types.YLeaf{"NetworkAddress", prefixEntry.NetworkAddress})
-    prefixEntry.EntityData.Leafs.Append("mask-length", types.YLeaf{"MaskLength", prefixEntry.MaskLength})
+    prefixEntry.EntityData.Leafs.Append("network", types.YLeaf{"Network", prefixEntry.Network})
 
-    prefixEntry.EntityData.YListKeys = []string {"NetworkAddress", "MaskLength"}
+    prefixEntry.EntityData.YListKeys = []string {"Network"}
 
     return &(prefixEntry.EntityData)
 }
@@ -26065,14 +26298,10 @@ type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixE
 
     // This attribute is a key. Network address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    NetworkAddress interface{}
-
-    // This attribute is a key. Mask legnth (prefix length). The type is
-    // interface{} with range: 0..4294967295.
-    MaskLength interface{}
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    Network interface{}
 
     // State.
     State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_State
@@ -26087,7 +26316,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixE
     prefixEntry.EntityData.YangName = "prefix-entry"
     prefixEntry.EntityData.BundleName = "cisco_ios_xr"
     prefixEntry.EntityData.ParentYangName = "prefix-entries"
-    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.NetworkAddress, "network-address") + types.AddKeyToken(prefixEntry.MaskLength, "mask-length")
+    prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
     prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26099,10 +26328,9 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixE
         prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
     }
     prefixEntry.EntityData.Leafs = types.NewOrderedMap()
-    prefixEntry.EntityData.Leafs.Append("network-address", types.YLeaf{"NetworkAddress", prefixEntry.NetworkAddress})
-    prefixEntry.EntityData.Leafs.Append("mask-length", types.YLeaf{"MaskLength", prefixEntry.MaskLength})
+    prefixEntry.EntityData.Leafs.Append("network", types.YLeaf{"Network", prefixEntry.Network})
 
-    prefixEntry.EntityData.YListKeys = []string {"NetworkAddress", "MaskLength"}
+    prefixEntry.EntityData.YListKeys = []string {"Network"}
 
     return &(prefixEntry.EntityData)
 }
@@ -26607,7 +26835,7 @@ type MplsForwarding_Nodes_Node_FrrLogs_FrrLog struct {
     // 0..4294967295.
     EventId interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProtectedFrrInterfaceName interface{}
 
     // Next Hop. The type is interface{} with range: 0..4294967295.
@@ -26946,7 +27174,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Multi
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -27041,18 +27269,18 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingPhysicalInterface interface{}
 
     // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingParentInterface interface{}
 
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // LabelInformationPathIndex. The type is interface{} with range:
@@ -27168,7 +27396,7 @@ type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_Label
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -27485,7 +27713,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_MulticastInform
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -27580,18 +27808,18 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingPhysicalInterface interface{}
 
     // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingParentInterface interface{}
 
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // LabelInformationPathIndex. The type is interface{} with range:
@@ -27707,7 +27935,7 @@ type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformatio
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -27887,7 +28115,7 @@ type MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interface struc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // RPF is enabled on interface. The type is bool.
@@ -27909,7 +28137,7 @@ type MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interface struc
     // 0..18446744073709551615.
     MultiLabelDrops interface{}
 
-    // RPF interface handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // RPF interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Rpfifh interface{}
 }
 
@@ -28042,7 +28270,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Tunnel head information.
@@ -28079,7 +28307,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_TunnelI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
 
     // Tunnel Local label. The type is interface{} with range: 0..4294967295.
@@ -28300,7 +28528,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_Mu
     // MOL refcount. The type is interface{} with range: 0..65535.
     MulticastMolReferanceCount interface{}
 
-    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // multicast mpls tunnel. The type is string with pattern: [a-zA-Z0-9._/-]+.
     MulticastTunnelInterfaceHandler interface{}
 
     // multicast mpls P2MP-TE tunnel id or MLDP Tunnel LSMID on all nodes. The
@@ -28395,18 +28623,18 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     // Tunnel id present?. The type is bool.
     TunnelIdPresent interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing Physical Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingPhysicalInterface interface{}
 
     // Outgoing Parent Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutgoingParentInterface interface{}
 
-    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // LabelInformationPathIndex. The type is interface{} with range:
@@ -28522,7 +28750,7 @@ type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_La
     // Status. The type is interface{} with range: -2147483648..2147483647.
     Status interface{}
 
-    // Next hop interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Next hop interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NextHopInterface interface{}
 
     // The address family (V4/V6) . The type is Proto.
@@ -28770,7 +28998,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbProtectedInterfaceTableSummaries
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -28942,19 +29170,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29135,19 +29363,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29347,7 +29575,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead stru
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Output label in string format. The type is string.
@@ -29388,19 +29616,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29581,19 +29809,19 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
     InputLabel interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutgoingLabel interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterfaceName interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29839,7 +30067,7 @@ type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbBackupInterfaceSummaries_FrrdbBa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:

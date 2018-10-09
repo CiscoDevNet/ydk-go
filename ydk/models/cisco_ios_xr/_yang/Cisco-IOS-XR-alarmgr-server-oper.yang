@@ -29,7 +29,7 @@ module Cisco-IOS-XR-alarmgr-server-oper {
      for the following management objects:
        alarms: Show Alarms associated with XR
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -47,6 +47,11 @@ module Cisco-IOS-XR-alarmgr-server-oper {
       container detail-system {
         description
           "show detail system scope alarm related data.";
+        container conditions {
+          description
+            "Show the Conditions present at this scope.";
+          uses ALARM-MGR-SHOW-ALARM-INFO-CLI;
+        }
         container active {
           description
             "Show the active alarms at this scope.";
@@ -83,6 +88,11 @@ module Cisco-IOS-XR-alarmgr-server-oper {
             key "node-id";
             description
               "Specify a card location for alarms.";
+            container conditions {
+              description
+                "Show the conditions present at this scope.";
+              uses ALARM-MGR-SHOW-ALARM-INFO-CLI;
+            }
             container active {
               description
                 "Show the active alarms at this scope.";
@@ -131,6 +141,11 @@ module Cisco-IOS-XR-alarmgr-server-oper {
             key "node-id";
             description
               "Specify a card location for alarms.";
+            container conditions {
+              description
+                "Show the conditions present at this scope.";
+              uses ALARM-MGR-SHOW-ALARM-BRIEF-INFO;
+            }
             container active {
               description
                 "Show the active alarms at this scope.";
@@ -157,6 +172,11 @@ module Cisco-IOS-XR-alarmgr-server-oper {
       container brief-system {
         description
           "Show brief system scope alarm related data.";
+        container conditions {
+          description
+            "Show the conditions present at this scope.";
+          uses ALARM-MGR-SHOW-ALARM-BRIEF-INFO;
+        }
         container active {
           description
             "Show the active alarms at this scope.";

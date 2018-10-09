@@ -50,7 +50,7 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
        Cisco-IOS-XR-infra-sla-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-06 {
@@ -243,6 +243,52 @@ module Cisco-IOS-XR-ethernet-cfm-cfg {
                   mandatory true;
                   description
                     "Unit associated with the BucketsSize";
+                }
+              }
+              container actions {
+                description
+                  "Thresholds and associated actions for the
+                   given statistics type";
+                list action {
+                  key "threshold-type action-type condition";
+                  description
+                    "Action to perform when the threshold is
+                     crossed";
+                  leaf threshold-type {
+                    type dt2:Sla-threshold-type-enum;
+                    description
+                      "Threshold type";
+                  }
+                  leaf action-type {
+                    type dt2:Sla-action-type-enum;
+                    description
+                      "Action to take when the threshold is
+                       crossed";
+                  }
+                  leaf condition {
+                    type dt2:Sla-threshold-condition-enum;
+                    description
+                      "Condition to be met to consider the
+                       threshold crossed";
+                  }
+                  leaf threshold-value {
+                    type uint32 {
+                      range "1..2147483647";
+                    }
+                    mandatory true;
+                    description
+                      "Threshold Value";
+                  }
+                  leaf bin-number {
+                    type uint32 {
+                      range "2..100";
+                    }
+                    description
+                      "Bin number in-and-above which samples
+                       contribute towards a sample-count
+                       threshold (required only when Condition
+                       is SampleCount)";
+                  }
                 }
               }
               container aggregation {

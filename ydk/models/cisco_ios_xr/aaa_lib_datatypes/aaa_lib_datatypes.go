@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package aaa_lib_datatypes
 
@@ -108,6 +108,62 @@ const (
 
     // Enable Broadcast
     AaaAccountingBroadcast_enable AaaAccountingBroadcast = "enable"
+)
+
+// AaaMethodAccounting represents Aaa method accounting
+type AaaMethodAccounting string
+
+const (
+    // Not Set
+    AaaMethodAccounting_not_set AaaMethodAccounting = "not-set"
+
+    // None
+    AaaMethodAccounting_none AaaMethodAccounting = "none"
+
+    // Radius
+    AaaMethodAccounting_radius AaaMethodAccounting = "radius"
+
+    // TACACS+
+    AaaMethodAccounting_tacacs_plus AaaMethodAccounting = "tacacs-plus"
+
+    // DSMD
+    AaaMethodAccounting_dsmd AaaMethodAccounting = "dsmd"
+
+    // SGBP
+    AaaMethodAccounting_sgbp AaaMethodAccounting = "sgbp"
+
+    // AcctD
+    AaaMethodAccounting_acct_d AaaMethodAccounting = "acct-d"
+
+    // Error
+    AaaMethodAccounting_error_ AaaMethodAccounting = "error"
+
+    // If Authenticated
+    AaaMethodAccounting_if_authenticated AaaMethodAccounting = "if-authenticated"
+
+    // Server Group
+    AaaMethodAccounting_server_group AaaMethodAccounting = "server-group"
+
+    // Server Group Not Defined
+    AaaMethodAccounting_server_group_not_defined AaaMethodAccounting = "server-group-not-defined"
+
+    // Line
+    AaaMethodAccounting_line AaaMethodAccounting = "line"
+
+    // Enable
+    AaaMethodAccounting_enable AaaMethodAccounting = "enable"
+
+    // Kerberos
+    AaaMethodAccounting_kerberos AaaMethodAccounting = "kerberos"
+
+    // Diameter
+    AaaMethodAccounting_diameter AaaMethodAccounting = "diameter"
+
+    // Last
+    AaaMethodAccounting_last AaaMethodAccounting = "last"
+
+    // Local
+    AaaMethodAccounting_local AaaMethodAccounting = "local"
 )
 
 // AaaAccountingRpFailover represents Aaa accounting rp failover

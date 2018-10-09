@@ -6,7 +6,7 @@
 //   l2tp: L2TP operational data
 //   l2tpv2: l2tpv2
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tunnel_l2tun_oper
 
@@ -2205,9 +2205,9 @@ type L2tp_CounterHistFail struct {
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RxCounters interface{}
 
-    // timeout events by packet. The type is slice of interface{} with range:
-    // 0..4294967295.
-    PktTimeout []interface{}
+    // timeout events by packet. The type is slice of
+    // L2tp_CounterHistFail_PktTimeout.
+    PktTimeout []*L2tp_CounterHistFail_PktTimeout
 }
 
 func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntityData {
@@ -2221,15 +2221,47 @@ func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntity
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     counterHistFail.EntityData.Children = types.NewOrderedMap()
+    counterHistFail.EntityData.Children.Append("pkt-timeout", types.YChild{"PktTimeout", nil})
+    for i := range counterHistFail.PktTimeout {
+        counterHistFail.EntityData.Children.Append(types.GetSegmentPath(counterHistFail.PktTimeout[i]), types.YChild{"PktTimeout", counterHistFail.PktTimeout[i]})
+    }
     counterHistFail.EntityData.Leafs = types.NewOrderedMap()
     counterHistFail.EntityData.Leafs.Append("sess-down-tmout", types.YLeaf{"SessDownTmout", counterHistFail.SessDownTmout})
     counterHistFail.EntityData.Leafs.Append("tx-counters", types.YLeaf{"TxCounters", counterHistFail.TxCounters})
     counterHistFail.EntityData.Leafs.Append("rx-counters", types.YLeaf{"RxCounters", counterHistFail.RxCounters})
-    counterHistFail.EntityData.Leafs.Append("pkt-timeout", types.YLeaf{"PktTimeout", counterHistFail.PktTimeout})
 
     counterHistFail.EntityData.YListKeys = []string {}
 
     return &(counterHistFail.EntityData)
+}
+
+// L2tp_CounterHistFail_PktTimeout
+// timeout events by packet
+type L2tp_CounterHistFail_PktTimeout struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (pktTimeout *L2tp_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
+    pktTimeout.EntityData.YFilter = pktTimeout.YFilter
+    pktTimeout.EntityData.YangName = "pkt-timeout"
+    pktTimeout.EntityData.BundleName = "cisco_ios_xr"
+    pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
+    pktTimeout.EntityData.SegmentPath = "pkt-timeout"
+    pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pktTimeout.EntityData.Children = types.NewOrderedMap()
+    pktTimeout.EntityData.Leafs = types.NewOrderedMap()
+    pktTimeout.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", pktTimeout.Entry})
+
+    pktTimeout.EntityData.YListKeys = []string {}
+
+    return &(pktTimeout.EntityData)
 }
 
 // L2tp_Classes
@@ -2543,9 +2575,9 @@ type L2tp_Tunnels_Tunnel struct {
     // True if congestion control is enabled else false. The type is bool.
     IsCongestionControlEnabled interface{}
 
-    // Retransmit time distribution in seconds. The type is slice of interface{}
-    // with range: 0..65535. Units are second.
-    RetransmitTime []interface{}
+    // Retransmit time distribution in seconds. The type is slice of
+    // L2tp_Tunnels_Tunnel_RetransmitTime.
+    RetransmitTime []*L2tp_Tunnels_Tunnel_RetransmitTime
 }
 
 func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
@@ -2559,6 +2591,10 @@ func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Children.Append("retransmit-time", types.YChild{"RetransmitTime", nil})
+    for i := range tunnel.RetransmitTime {
+        tunnel.EntityData.Children.Append(types.GetSegmentPath(tunnel.RetransmitTime[i]), types.YChild{"RetransmitTime", tunnel.RetransmitTime[i]})
+    }
     tunnel.EntityData.Leafs = types.NewOrderedMap()
     tunnel.EntityData.Leafs.Append("local-tunnel-id", types.YLeaf{"LocalTunnelId", tunnel.LocalTunnelId})
     tunnel.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", tunnel.LocalAddress})
@@ -2592,11 +2628,39 @@ func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.Leafs.Append("total-peer-authentication-failures", types.YLeaf{"TotalPeerAuthenticationFailures", tunnel.TotalPeerAuthenticationFailures})
     tunnel.EntityData.Leafs.Append("is-tunnel-up", types.YLeaf{"IsTunnelUp", tunnel.IsTunnelUp})
     tunnel.EntityData.Leafs.Append("is-congestion-control-enabled", types.YLeaf{"IsCongestionControlEnabled", tunnel.IsCongestionControlEnabled})
-    tunnel.EntityData.Leafs.Append("retransmit-time", types.YLeaf{"RetransmitTime", tunnel.RetransmitTime})
 
     tunnel.EntityData.YListKeys = []string {"LocalTunnelId"}
 
     return &(tunnel.EntityData)
+}
+
+// L2tp_Tunnels_Tunnel_RetransmitTime
+// Retransmit time distribution in seconds
+type L2tp_Tunnels_Tunnel_RetransmitTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535. Units are second.
+    Entry interface{}
+}
+
+func (retransmitTime *L2tp_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
+    retransmitTime.EntityData.YFilter = retransmitTime.YFilter
+    retransmitTime.EntityData.YangName = "retransmit-time"
+    retransmitTime.EntityData.BundleName = "cisco_ios_xr"
+    retransmitTime.EntityData.ParentYangName = "tunnel"
+    retransmitTime.EntityData.SegmentPath = "retransmit-time"
+    retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    retransmitTime.EntityData.Children = types.NewOrderedMap()
+    retransmitTime.EntityData.Leafs = types.NewOrderedMap()
+    retransmitTime.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", retransmitTime.Entry})
+
+    retransmitTime.EntityData.YListKeys = []string {}
+
+    return &(retransmitTime.EntityData)
 }
 
 // L2tp_Sessions
@@ -2854,7 +2918,7 @@ type L2tp_Sessions_Session_SessionApplicationData_Vpdn struct {
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5465,9 +5529,9 @@ type L2tpv2_CounterHistFail struct {
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RxCounters interface{}
 
-    // timeout events by packet. The type is slice of interface{} with range:
-    // 0..4294967295.
-    PktTimeout []interface{}
+    // timeout events by packet. The type is slice of
+    // L2tpv2_CounterHistFail_PktTimeout.
+    PktTimeout []*L2tpv2_CounterHistFail_PktTimeout
 }
 
 func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEntityData {
@@ -5481,15 +5545,47 @@ func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEnti
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     counterHistFail.EntityData.Children = types.NewOrderedMap()
+    counterHistFail.EntityData.Children.Append("pkt-timeout", types.YChild{"PktTimeout", nil})
+    for i := range counterHistFail.PktTimeout {
+        counterHistFail.EntityData.Children.Append(types.GetSegmentPath(counterHistFail.PktTimeout[i]), types.YChild{"PktTimeout", counterHistFail.PktTimeout[i]})
+    }
     counterHistFail.EntityData.Leafs = types.NewOrderedMap()
     counterHistFail.EntityData.Leafs.Append("sess-down-tmout", types.YLeaf{"SessDownTmout", counterHistFail.SessDownTmout})
     counterHistFail.EntityData.Leafs.Append("tx-counters", types.YLeaf{"TxCounters", counterHistFail.TxCounters})
     counterHistFail.EntityData.Leafs.Append("rx-counters", types.YLeaf{"RxCounters", counterHistFail.RxCounters})
-    counterHistFail.EntityData.Leafs.Append("pkt-timeout", types.YLeaf{"PktTimeout", counterHistFail.PktTimeout})
 
     counterHistFail.EntityData.YListKeys = []string {}
 
     return &(counterHistFail.EntityData)
+}
+
+// L2tpv2_CounterHistFail_PktTimeout
+// timeout events by packet
+type L2tpv2_CounterHistFail_PktTimeout struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (pktTimeout *L2tpv2_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
+    pktTimeout.EntityData.YFilter = pktTimeout.YFilter
+    pktTimeout.EntityData.YangName = "pkt-timeout"
+    pktTimeout.EntityData.BundleName = "cisco_ios_xr"
+    pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
+    pktTimeout.EntityData.SegmentPath = "pkt-timeout"
+    pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pktTimeout.EntityData.Children = types.NewOrderedMap()
+    pktTimeout.EntityData.Leafs = types.NewOrderedMap()
+    pktTimeout.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", pktTimeout.Entry})
+
+    pktTimeout.EntityData.YListKeys = []string {}
+
+    return &(pktTimeout.EntityData)
 }
 
 // L2tpv2_Classes
@@ -5803,9 +5899,9 @@ type L2tpv2_Tunnels_Tunnel struct {
     // True if congestion control is enabled else false. The type is bool.
     IsCongestionControlEnabled interface{}
 
-    // Retransmit time distribution in seconds. The type is slice of interface{}
-    // with range: 0..65535. Units are second.
-    RetransmitTime []interface{}
+    // Retransmit time distribution in seconds. The type is slice of
+    // L2tpv2_Tunnels_Tunnel_RetransmitTime.
+    RetransmitTime []*L2tpv2_Tunnels_Tunnel_RetransmitTime
 }
 
 func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
@@ -5819,6 +5915,10 @@ func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     tunnel.EntityData.Children = types.NewOrderedMap()
+    tunnel.EntityData.Children.Append("retransmit-time", types.YChild{"RetransmitTime", nil})
+    for i := range tunnel.RetransmitTime {
+        tunnel.EntityData.Children.Append(types.GetSegmentPath(tunnel.RetransmitTime[i]), types.YChild{"RetransmitTime", tunnel.RetransmitTime[i]})
+    }
     tunnel.EntityData.Leafs = types.NewOrderedMap()
     tunnel.EntityData.Leafs.Append("local-tunnel-id", types.YLeaf{"LocalTunnelId", tunnel.LocalTunnelId})
     tunnel.EntityData.Leafs.Append("local-address", types.YLeaf{"LocalAddress", tunnel.LocalAddress})
@@ -5852,11 +5952,39 @@ func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.Leafs.Append("total-peer-authentication-failures", types.YLeaf{"TotalPeerAuthenticationFailures", tunnel.TotalPeerAuthenticationFailures})
     tunnel.EntityData.Leafs.Append("is-tunnel-up", types.YLeaf{"IsTunnelUp", tunnel.IsTunnelUp})
     tunnel.EntityData.Leafs.Append("is-congestion-control-enabled", types.YLeaf{"IsCongestionControlEnabled", tunnel.IsCongestionControlEnabled})
-    tunnel.EntityData.Leafs.Append("retransmit-time", types.YLeaf{"RetransmitTime", tunnel.RetransmitTime})
 
     tunnel.EntityData.YListKeys = []string {"LocalTunnelId"}
 
     return &(tunnel.EntityData)
+}
+
+// L2tpv2_Tunnels_Tunnel_RetransmitTime
+// Retransmit time distribution in seconds
+type L2tpv2_Tunnels_Tunnel_RetransmitTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..65535. Units are second.
+    Entry interface{}
+}
+
+func (retransmitTime *L2tpv2_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
+    retransmitTime.EntityData.YFilter = retransmitTime.YFilter
+    retransmitTime.EntityData.YangName = "retransmit-time"
+    retransmitTime.EntityData.BundleName = "cisco_ios_xr"
+    retransmitTime.EntityData.ParentYangName = "tunnel"
+    retransmitTime.EntityData.SegmentPath = "retransmit-time"
+    retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    retransmitTime.EntityData.Children = types.NewOrderedMap()
+    retransmitTime.EntityData.Leafs = types.NewOrderedMap()
+    retransmitTime.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", retransmitTime.Entry})
+
+    retransmitTime.EntityData.YListKeys = []string {}
+
+    return &(retransmitTime.EntityData)
 }
 
 // L2tpv2_Sessions
@@ -6114,7 +6242,7 @@ type L2tpv2_Sessions_Session_SessionApplicationData_Vpdn struct {
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 

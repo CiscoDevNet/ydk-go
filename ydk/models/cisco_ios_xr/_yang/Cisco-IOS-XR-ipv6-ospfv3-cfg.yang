@@ -36,9 +36,13 @@ module Cisco-IOS-XR-ipv6-ospfv3-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-15 {
+    description
+      "Added naming-union to create sublist for distribute-out.";
+  }
   revision 2017-11-05 {
     description
       "Corrected boolean values in when statements.";

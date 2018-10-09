@@ -26,7 +26,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub6 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -169,6 +169,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub6 {
       description
         "Unique Identifier";
     }
+    leaf order-num {
+      type uint8;
+      description
+        "Link Order Number";
+    }
     leaf weight {
       type uint8;
       description
@@ -204,10 +209,20 @@ submodule Cisco-IOS-XR-fib-common-oper-sub6 {
       description
         "Interface Index";
     }
+    leaf intf-state {
+      type uint32;
+      description
+        "Interface State";
+    }
     leaf parent-intf-index {
       type uint32;
       description
         "Parent Interface Index";
+    }
+    leaf parent-intf-type {
+      type uint32;
+      description
+        "Parent Interface Type";
     }
     leaf bundle-member-total-weight {
       type uint16;

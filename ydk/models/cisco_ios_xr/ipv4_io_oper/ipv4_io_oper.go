@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv4-network: IPv4 network operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_io_oper
 
@@ -23,6 +23,20 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-oper ipv4-network}", reflect.TypeOf(Ipv4Network{}))
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-io-oper:ipv4-network", reflect.TypeOf(Ipv4Network{}))
 }
+
+// Ipv4MaOperConfig represents ipv4 client type
+type Ipv4MaOperConfig string
+
+const (
+    // ipv4 ma oper client none
+    Ipv4MaOperConfig_ipv4_ma_oper_client_none Ipv4MaOperConfig = "ipv4-ma-oper-client-none"
+
+    // ipv4 ma oper non oc client
+    Ipv4MaOperConfig_ipv4_ma_oper_non_oc_client Ipv4MaOperConfig = "ipv4-ma-oper-non-oc-client"
+
+    // ipv4 ma oper oc client
+    Ipv4MaOperConfig_ipv4_ma_oper_oc_client Ipv4MaOperConfig = "ipv4-ma-oper-oc-client"
+)
 
 // RpfMode represents Interface line states
 type RpfMode string
@@ -304,7 +318,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
@@ -386,7 +400,7 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
@@ -431,6 +445,10 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     // Name of referenced interface (valid if unnumbered). The type is string.
     UnnumberedInterfaceName interface{}
 
+    // Name of interface which is also unnum to         same interface where this
+    // intf is unnumbered. The type is string.
+    NextUnnumberedInterfaceName interface{}
+
     // Is Proxy ARP disabled on the interface?. The type is bool.
     ProxyArpDisabled interface{}
 
@@ -439,6 +457,37 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
 
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
+
+    // IDB configuration flags. The type is interface{} with range: 0..65535.
+    ConfigFlags interface{}
+
+    // IDB operational flags. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OperFlags interface{}
+
+    // IP ARM operation flags. The type is interface{} with range: 0..65535.
+    ArmFlags interface{}
+
+    // state as recieved                                from IM. The type is
+    // Ipv4MaOperLineState.
+    StateRecvdFrmIm interface{}
+
+    // Conflicated ipv4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CflctAddress interface{}
+
+    // Client type for IDB. The type is Ipv4MaOperConfig.
+    ClientType interface{}
+
+    // Is OR event for IDB. The type is bool.
+    IsOrEvent interface{}
+
+    // OR IM state type. The type is Ipv4MaOperLineState.
+    OrImState interface{}
+
+    // idb pointer value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    IdbPointer interface{}
 
     // ACLs configured on the interface.
     Acl Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl
@@ -523,9 +572,19 @@ func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Leafs.Append("rg-id-exists", types.YLeaf{"RgIdExists", detail.RgIdExists})
     detail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", detail.MlacpActive})
     detail.EntityData.Leafs.Append("unnumbered-interface-name", types.YLeaf{"UnnumberedInterfaceName", detail.UnnumberedInterfaceName})
+    detail.EntityData.Leafs.Append("next-unnumbered-interface-name", types.YLeaf{"NextUnnumberedInterfaceName", detail.NextUnnumberedInterfaceName})
     detail.EntityData.Leafs.Append("proxy-arp-disabled", types.YLeaf{"ProxyArpDisabled", detail.ProxyArpDisabled})
     detail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", detail.FlowTagSrc})
     detail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", detail.FlowTagDst})
+    detail.EntityData.Leafs.Append("config-flags", types.YLeaf{"ConfigFlags", detail.ConfigFlags})
+    detail.EntityData.Leafs.Append("oper-flags", types.YLeaf{"OperFlags", detail.OperFlags})
+    detail.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", detail.ArmFlags})
+    detail.EntityData.Leafs.Append("state-recvd-frm-im", types.YLeaf{"StateRecvdFrmIm", detail.StateRecvdFrmIm})
+    detail.EntityData.Leafs.Append("cflct-address", types.YLeaf{"CflctAddress", detail.CflctAddress})
+    detail.EntityData.Leafs.Append("client-type", types.YLeaf{"ClientType", detail.ClientType})
+    detail.EntityData.Leafs.Append("is-or-event", types.YLeaf{"IsOrEvent", detail.IsOrEvent})
+    detail.EntityData.Leafs.Append("or-im-state", types.YLeaf{"OrImState", detail.OrImState})
+    detail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", detail.IdbPointer})
 
     detail.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -1829,7 +1888,7 @@ type Ipv4Network_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // List of VRF on the interface.
@@ -1976,6 +2035,10 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     // Name of referenced interface (valid if unnumbered). The type is string.
     UnnumberedInterfaceName interface{}
 
+    // Name of interface which is also unnum to         same interface where this
+    // intf is unnumbered. The type is string.
+    NextUnnumberedInterfaceName interface{}
+
     // Is Proxy ARP disabled on the interface?. The type is bool.
     ProxyArpDisabled interface{}
 
@@ -1984,6 +2047,37 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
 
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
+
+    // IDB configuration flags. The type is interface{} with range: 0..65535.
+    ConfigFlags interface{}
+
+    // IDB operational flags. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OperFlags interface{}
+
+    // IP ARM operation flags. The type is interface{} with range: 0..65535.
+    ArmFlags interface{}
+
+    // state as recieved                                from IM. The type is
+    // Ipv4MaOperLineState.
+    StateRecvdFrmIm interface{}
+
+    // Conflicated ipv4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    CflctAddress interface{}
+
+    // Client type for IDB. The type is Ipv4MaOperConfig.
+    ClientType interface{}
+
+    // Is OR event for IDB. The type is bool.
+    IsOrEvent interface{}
+
+    // OR IM state type. The type is Ipv4MaOperLineState.
+    OrImState interface{}
+
+    // idb pointer value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    IdbPointer interface{}
 
     // ACLs configured on the interface.
     Acl Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl
@@ -2067,9 +2161,19 @@ func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetEntityData() 
     detail.EntityData.Leafs.Append("rg-id-exists", types.YLeaf{"RgIdExists", detail.RgIdExists})
     detail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", detail.MlacpActive})
     detail.EntityData.Leafs.Append("unnumbered-interface-name", types.YLeaf{"UnnumberedInterfaceName", detail.UnnumberedInterfaceName})
+    detail.EntityData.Leafs.Append("next-unnumbered-interface-name", types.YLeaf{"NextUnnumberedInterfaceName", detail.NextUnnumberedInterfaceName})
     detail.EntityData.Leafs.Append("proxy-arp-disabled", types.YLeaf{"ProxyArpDisabled", detail.ProxyArpDisabled})
     detail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", detail.FlowTagSrc})
     detail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", detail.FlowTagDst})
+    detail.EntityData.Leafs.Append("config-flags", types.YLeaf{"ConfigFlags", detail.ConfigFlags})
+    detail.EntityData.Leafs.Append("oper-flags", types.YLeaf{"OperFlags", detail.OperFlags})
+    detail.EntityData.Leafs.Append("arm-flags", types.YLeaf{"ArmFlags", detail.ArmFlags})
+    detail.EntityData.Leafs.Append("state-recvd-frm-im", types.YLeaf{"StateRecvdFrmIm", detail.StateRecvdFrmIm})
+    detail.EntityData.Leafs.Append("cflct-address", types.YLeaf{"CflctAddress", detail.CflctAddress})
+    detail.EntityData.Leafs.Append("client-type", types.YLeaf{"ClientType", detail.ClientType})
+    detail.EntityData.Leafs.Append("is-or-event", types.YLeaf{"IsOrEvent", detail.IsOrEvent})
+    detail.EntityData.Leafs.Append("or-im-state", types.YLeaf{"OrImState", detail.OrImState})
+    detail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", detail.IdbPointer})
 
     detail.EntityData.YListKeys = []string {}
 

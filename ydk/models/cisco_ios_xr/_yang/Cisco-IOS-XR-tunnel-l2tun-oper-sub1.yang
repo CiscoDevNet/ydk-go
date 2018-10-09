@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR tunnel-l2tun package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -896,12 +896,14 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       description
         "True if congestion control is enabled else false";
     }
-    leaf-list retransmit-time {
-      type uint16;
-      units "second";
+    list retransmit-time {
       max-elements "9";
       description
         "Retransmit time distribution in seconds";
+      leaf entry {
+        type uint16;
+        units "second";
+      }
     }
   }
 
@@ -924,11 +926,13 @@ submodule Cisco-IOS-XR-tunnel-l2tun-oper-sub1 {
       description
         "Receive side counters";
     }
-    leaf-list pkt-timeout {
-      type uint32;
+    list pkt-timeout {
       max-elements "24";
       description
         "timeout events by packet";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 

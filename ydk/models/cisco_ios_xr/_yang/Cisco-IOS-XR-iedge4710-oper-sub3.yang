@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR iedge4710 package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -275,6 +275,11 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub3 {
       type uint32;
       description
         "Total No of times Master EOMS Pending";
+    }
+    leaf total-master-eoms-pending-cleared {
+      type uint32;
+      description
+        "Total No of times Master EOMS Pending Cleared";
     }
     leaf last-pause-period {
       type uint64;

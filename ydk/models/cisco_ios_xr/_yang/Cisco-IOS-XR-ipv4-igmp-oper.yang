@@ -9,7 +9,7 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-igmp-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-01-31;
   }
 
   organization
@@ -33,9 +33,13 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
        mld: MLD operational data
        igmp: igmp
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -309,7 +313,7 @@ module Cisco-IOS-XR-ipv4-igmp-oper {
           "NSR Information";
         uses IGMP-EDM-NSR-BAG;
       }
-      container amt-gatewaies {
+      container amt-gateways {
         description
           "Table containing AMT Gateway DataBase
            information";

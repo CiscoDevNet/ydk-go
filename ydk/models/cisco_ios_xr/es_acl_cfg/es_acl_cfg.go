@@ -5,7 +5,7 @@
 // for the following management objects:
 //   es-acl: Layer 2 ACL configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package es_acl_cfg
 
@@ -24,7 +24,7 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-es-acl-cfg:es-acl", reflect.TypeOf(EsAcl{}))
 }
 
-// EsAclGrantEnum represents ES acl forwarding action.
+// EsAclGrantEnum represents ES ACL forwarding action.
 type EsAclGrantEnum string
 
 const (
@@ -183,40 +183,40 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     // This 12-bit VLAN-ID in the VLAN Tag header uniquely identifies the VLAN. It
     // can be used for the lower bound (in range) or single value. Any value not
     // in the permissible range will be rejected. The type is interface{} with
-    // range: 0..65535.
+    // range: 0..4095.
     Vlan1 interface{}
 
     // This 12 bit VLAN-ID in the VLAN Tag header uniquely identifies the VLAN. It
     // is used in the upper bound (in range). Any value not in the permissible
-    // range will be rejected. The type is interface{} with range: 0..65535.
+    // range will be rejected. The type is interface{} with range: 0..4095.
     Vlan2 interface{}
 
     // Class of Service value. Any value not in the permissible range will be
-    // rejected. The type is interface{} with range: 0..255.
+    // rejected. The type is interface{} with range: 0..7.
     Cos interface{}
 
     // Discard Eligibility Indication bit. User can specify 1 to indicate the bit
     // is set. Leave unspecified otherwise. The type is interface{} with range:
-    // 0..255.
+    // 0..1.
     Dei interface{}
 
     // This represents the QinQ vlan identifier. It can be used for the lower
     // bound (in range) or single value. Any value not in the permissible range
-    // will be rejected. The type is interface{} with range: 0..65535.
+    // will be rejected. The type is interface{} with range: 0..4095.
     InnerVlan1 interface{}
 
     // This represents the QinQ vlan identifier. It is used in the upper bound (in
     // range). Any value not in the permissible range will be rejected. The type
-    // is interface{} with range: 0..65535.
+    // is interface{} with range: 0..4095.
     InnerVlan2 interface{}
 
     // Class of Service of Inner Header. Range from 0 to 7. Any value beyond this
     // range will be rejected by ACL verifier. The type is interface{} with range:
-    // 0..255.
+    // 0..7.
     InnerCos interface{}
 
     // Class of Service of Inner Header. Any value not in the permissible range
-    // will be rejected. The type is interface{} with range: 0..255.
+    // will be rejected. The type is interface{} with range: 0..1.
     InnerDei interface{}
 
     // Description for the access-list-entry/rule. The type is string with length:
@@ -224,7 +224,7 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     Remark interface{}
 
     // Ethernet type Number in Hex. Any value not in the permissible range will be
-    // rejected. The type is interface{} with range: 0..65535.
+    // rejected. The type is string with pattern: [0-9a-fA-F]{1,4}.
     EtherTypeNumber interface{}
 
     // Enable capture if set to TRUE. The type is bool.
@@ -232,7 +232,7 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
 
     // Log the packet on this access-list-entry/rule. User can specify 1 to enable
     // logging the match, leave unspecified otherwise. The type is interface{}
-    // with range: 0..255.
+    // with range: 0..1.
     LogOption interface{}
 
     // Sequence String for the ace. The type is string with length: 1..64.

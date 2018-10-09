@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-infra-sla-oper
 // module with state data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_cfm_oper
 
@@ -1249,13 +1249,13 @@ type Cfm_Nodes_Node_InterfaceAises_InterfaceAis struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. AIS Direction. The type is CfmAisDir.
     Direction interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // IM Interface state. The type is string.
@@ -1544,10 +1544,10 @@ type Cfm_Nodes_Node_InterfaceStatistics_InterfaceStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // EFP statistics.
@@ -1979,7 +1979,7 @@ type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. Transaction ID. The type is interface{} with
@@ -2037,7 +2037,7 @@ type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute_TracerouteInformation
     // Source MEP ID. The type is interface{} with range: 0..65535.
     SourceMepId interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source MAC address. The type is string with pattern:
@@ -2257,7 +2257,7 @@ type Cfm_Global_MaintenancePoints_MaintenancePoint struct {
     Service interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // MEP error flag. The type is bool.
@@ -2310,7 +2310,7 @@ type Cfm_Global_MaintenancePoints_MaintenancePoint_MaintenancePoint struct {
     // Service name. The type is string.
     ServiceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Type of Maintenance Point. The type is CfmMaMpVariety.
@@ -2539,7 +2539,7 @@ type Cfm_Global_MepConfigurationErrors_MepConfigurationError struct {
     Service interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interval between CCMs sent on this MEP. The type is CfmBagCcmInterval.
@@ -2594,6 +2594,14 @@ type Cfm_Global_MepConfigurationErrors_MepConfigurationError struct {
     // The configured MAID format is not supported for hardware offload. The type
     // is bool.
     MaidFormatNotSupported interface{}
+
+    // The configured SMAN format is not supported for hardware offload. The type
+    // is bool.
+    SmanFormatNotSupported interface{}
+
+    // The configured MDID format is not supported for hardware offload. The type
+    // is bool.
+    MdidFormatNotSupported interface{}
 
     // The platform returned a fatal error when passed the offload session. The
     // type is bool.
@@ -2685,6 +2693,8 @@ func (mepConfigurationError *Cfm_Global_MepConfigurationErrors_MepConfigurationE
     mepConfigurationError.EntityData.Leafs.Append("bundle-level0", types.YLeaf{"BundleLevel0", mepConfigurationError.BundleLevel0})
     mepConfigurationError.EntityData.Leafs.Append("bridge-domain-not-in-bd-infra", types.YLeaf{"BridgeDomainNotInBdInfra", mepConfigurationError.BridgeDomainNotInBdInfra})
     mepConfigurationError.EntityData.Leafs.Append("maid-format-not-supported", types.YLeaf{"MaidFormatNotSupported", mepConfigurationError.MaidFormatNotSupported})
+    mepConfigurationError.EntityData.Leafs.Append("sman-format-not-supported", types.YLeaf{"SmanFormatNotSupported", mepConfigurationError.SmanFormatNotSupported})
+    mepConfigurationError.EntityData.Leafs.Append("mdid-format-not-supported", types.YLeaf{"MdidFormatNotSupported", mepConfigurationError.MdidFormatNotSupported})
     mepConfigurationError.EntityData.Leafs.Append("fatal-offload-error", types.YLeaf{"FatalOffloadError", mepConfigurationError.FatalOffloadError})
     mepConfigurationError.EntityData.Leafs.Append("satellite-limitation", types.YLeaf{"SatelliteLimitation", mepConfigurationError.SatelliteLimitation})
     mepConfigurationError.EntityData.Leafs.Append("sla-loopback-operations-disabled", types.YLeaf{"SlaLoopbackOperationsDisabled", mepConfigurationError.SlaLoopbackOperationsDisabled})
@@ -2717,7 +2727,7 @@ type Cfm_Global_MepConfigurationErrors_MepConfigurationError_Mep struct {
     // Service name. The type is string.
     ServiceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Type of Maintenance Point. The type is CfmMaMpVariety.
@@ -3045,7 +3055,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. Transaction ID. The type is interface{} with
@@ -3119,7 +3129,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_TracerouteInformation struct {
     // Source MEP ID. The type is interface{} with range: 0..65535.
     SourceMepId interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source MAC address. The type is string with pattern:
@@ -4882,7 +4892,7 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Maintenance domain name. The type is string.
@@ -4897,7 +4907,7 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     // MEP ID. The type is interface{} with range: 0..65535.
     MepIdXr interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // IM Interface state. The type is string.
@@ -5511,7 +5521,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     LocalMepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. MEP ID of Peer MEP. The type is interface{} with
@@ -5534,7 +5544,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     // MEP ID. The type is interface{} with range: 0..65535.
     MepId interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // MEP facing direction. The type is CfmBagDirection.

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   perf-mgmt: Performance Management agent operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package manageability_perfmgmt_oper
 
@@ -244,7 +244,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Sampl
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -486,7 +486,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Sampl
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -751,7 +751,7 @@ type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -971,7 +971,7 @@ type PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -1049,7 +1049,7 @@ type PerfMgmt_Periodic_Nodes_Node_Processes_Process struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     ProcessId interface{}
 
     // Process data.
@@ -1116,7 +1116,7 @@ type PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -1198,7 +1198,7 @@ type PerfMgmt_Periodic_Nodes_Node_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -1373,7 +1373,7 @@ type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -1518,7 +1518,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -1585,7 +1585,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -1749,7 +1749,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -1816,7 +1816,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Sa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds from UCT. The type is interface{} with
@@ -1933,7 +1933,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.
@@ -2000,7 +2000,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples_Sa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -2256,7 +2256,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Sample
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -2498,7 +2498,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Sample
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -2763,7 +2763,7 @@ type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -2983,7 +2983,7 @@ type PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -3061,7 +3061,7 @@ type PerfMgmt_Monitor_Nodes_Node_Processes_Process struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     ProcessId interface{}
 
     // Process data.
@@ -3128,7 +3128,7 @@ type PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -3210,7 +3210,7 @@ type PerfMgmt_Monitor_Nodes_Node_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -3385,7 +3385,7 @@ type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -3530,7 +3530,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -3597,7 +3597,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with
@@ -3761,7 +3761,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -3828,7 +3828,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Sam
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds from UCT. The type is interface{} with
@@ -3945,7 +3945,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.
@@ -4012,7 +4012,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples_Sam
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SampleId interface{}
 
     // Timestamp of sample in seconds drom UCT. The type is interface{} with

@@ -30,7 +30,7 @@ module Cisco-IOS-XR-ip-static-cfg {
        router-static: This class represents router static
          configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {

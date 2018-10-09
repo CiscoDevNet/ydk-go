@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions for
 // monitoring the interfaces in a Network Element.
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package interfaces_oper
 
@@ -47,6 +47,34 @@ const (
     EtherDuplex_auto_duplex EtherDuplex = "auto-duplex"
 
     EtherDuplex_unknown_duplex EtherDuplex = "unknown-duplex"
+)
+
+// SerialCrc represents The Cyclic Redundancy Code type
+type SerialCrc string
+
+const (
+    // 32-bit Cyclic Redundancy Code
+    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
+
+    // 16 bit Cyclic Redundancy Code
+    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
+)
+
+// ThreshUnit represents Units of threshold
+type ThreshUnit string
+
+const (
+    ThreshUnit_thresh_units_default ThreshUnit = "thresh-units-default"
+
+    ThreshUnit_thresh_units_bytes ThreshUnit = "thresh-units-bytes"
+
+    ThreshUnit_thresh_units_sec ThreshUnit = "thresh-units-sec"
+
+    ThreshUnit_thresh_units_packets ThreshUnit = "thresh-units-packets"
+
+    ThreshUnit_thresh_units_cells ThreshUnit = "thresh-units-cells"
+
+    ThreshUnit_thresh_units_percent ThreshUnit = "thresh-units-percent"
 )
 
 // T1e1LoopbackMode represents Loopback mode type
@@ -102,44 +130,17 @@ const (
     T1e1LoopbackMode_t1e1_line_iboc_local_loopback T1e1LoopbackMode = "t1e1-line-iboc-local-loopback"
 )
 
-// ThreshUnit represents Units of threshold
-type ThreshUnit string
+// IntfState represents RFC 2863: The Interfaces Group MIB - ifAdminStatus
+type IntfState string
 
 const (
-    ThreshUnit_thresh_units_default ThreshUnit = "thresh-units-default"
+    IntfState_if_state_unknown IntfState = "if-state-unknown"
 
-    ThreshUnit_thresh_units_bytes ThreshUnit = "thresh-units-bytes"
+    IntfState_if_state_up IntfState = "if-state-up"
 
-    ThreshUnit_thresh_units_sec ThreshUnit = "thresh-units-sec"
+    IntfState_if_state_down IntfState = "if-state-down"
 
-    ThreshUnit_thresh_units_packets ThreshUnit = "thresh-units-packets"
-
-    ThreshUnit_thresh_units_cells ThreshUnit = "thresh-units-cells"
-
-    ThreshUnit_thresh_units_percent ThreshUnit = "thresh-units-percent"
-)
-
-// EtherSpeed represents The speed setting of the interface
-type EtherSpeed string
-
-const (
-    EtherSpeed_speed_10mb EtherSpeed = "speed-10mb"
-
-    EtherSpeed_speed_100mb EtherSpeed = "speed-100mb"
-
-    EtherSpeed_speed_1gb EtherSpeed = "speed-1gb"
-
-    EtherSpeed_speed_10bg EtherSpeed = "speed-10bg"
-
-    EtherSpeed_speed_25gb EtherSpeed = "speed-25gb"
-
-    EtherSpeed_speed_40gb EtherSpeed = "speed-40gb"
-
-    EtherSpeed_speed_50gb EtherSpeed = "speed-50gb"
-
-    EtherSpeed_speed_100bg EtherSpeed = "speed-100bg"
-
-    EtherSpeed_speed_unknown EtherSpeed = "speed-unknown"
+    IntfState_if_state_test IntfState = "if-state-test"
 )
 
 // OperState represents RFC 2863: The Interfaces Group MIB - ifOperStatus
@@ -163,15 +164,21 @@ const (
     OperState_if_oper_state_lower_layer_down OperState = "if-oper-state-lower-layer-down"
 )
 
-// SerialCrc represents The Cyclic Redundancy Code type
-type SerialCrc string
+// AggregationType represents defined and managed
+type AggregationType string
 
 const (
-    // 32-bit Cyclic Redundancy Code
-    SerialCrc_serial_crc32 SerialCrc = "serial-crc32"
+    // LAG mode is off
+    AggregationType_lag_off AggregationType = "lag-off"
 
-    // 16 bit Cyclic Redundancy Code
-    SerialCrc_serial_crc16 SerialCrc = "serial-crc16"
+    // LAG mode is auto
+    AggregationType_lag_auto AggregationType = "lag-auto"
+
+    // LAG mode is active
+    AggregationType_lag_active AggregationType = "lag-active"
+
+    // LAG mode is passive
+    AggregationType_lag_passive AggregationType = "lag-passive"
 )
 
 // SubrateSpeed represents The subrate on a serial interface
@@ -757,17 +764,27 @@ const (
     QosDirection_qos_outbound QosDirection = "qos-outbound"
 )
 
-// IntfState represents RFC 2863: The Interfaces Group MIB - ifAdminStatus
-type IntfState string
+// EtherSpeed represents The speed setting of the interface
+type EtherSpeed string
 
 const (
-    IntfState_if_state_unknown IntfState = "if-state-unknown"
+    EtherSpeed_speed_10mb EtherSpeed = "speed-10mb"
 
-    IntfState_if_state_up IntfState = "if-state-up"
+    EtherSpeed_speed_100mb EtherSpeed = "speed-100mb"
 
-    IntfState_if_state_down IntfState = "if-state-down"
+    EtherSpeed_speed_1gb EtherSpeed = "speed-1gb"
 
-    IntfState_if_state_test IntfState = "if-state-test"
+    EtherSpeed_speed_10gb EtherSpeed = "speed-10gb"
+
+    EtherSpeed_speed_25gb EtherSpeed = "speed-25gb"
+
+    EtherSpeed_speed_40gb EtherSpeed = "speed-40gb"
+
+    EtherSpeed_speed_50gb EtherSpeed = "speed-50gb"
+
+    EtherSpeed_speed_100gb EtherSpeed = "speed-100gb"
+
+    EtherSpeed_speed_unknown EtherSpeed = "speed-unknown"
 )
 
 // Interfaces
@@ -905,6 +922,23 @@ type Interfaces_Interface struct {
     // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BiaAddress interface{}
 
+    // A list of the IPv6 addresses associated with the interface. This conatins
+    // all the IPv6 addresses, including the link local addresses, assigned to the
+    // interface. The type is one of the following types: slice of string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or slice of string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6Addrs []interface{}
+
+    // When ip tcp adjust-mss is configured, this vlaue shows the tcp mss, or the
+    // value is zero. The type is interface{} with range: 0..65535.
+    Ipv4TcpAdjustMss interface{}
+
+    // When ipv6 tcp adjust-mss is configured, this value shows the tcp mss, or
+    // the value is zero. The type is interface{} with range: 0..65535.
+    Ipv6TcpAdjustMss interface{}
+
     // No specific interface class information. The type is bool.
     IntfClassUnspecified interface{}
 
@@ -920,6 +954,10 @@ type Interfaces_Interface struct {
 
     // IPv6 traffic statistics for this interface.
     V6ProtocolStats Interfaces_Interface_V6ProtocolStats
+
+    // Operational state variables for logical aggregate / LAG interfaces. The
+    // type is slice of Interfaces_Interface_LagAggregateState.
+    LagAggregateState []*Interfaces_Interface_LagAggregateState
 
     // The Ethernet state information.
     EtherState Interfaces_Interface_EtherState
@@ -952,6 +990,10 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     }
     self.EntityData.Children.Append("v4-protocol-stats", types.YChild{"V4ProtocolStats", &self.V4ProtocolStats})
     self.EntityData.Children.Append("v6-protocol-stats", types.YChild{"V6ProtocolStats", &self.V6ProtocolStats})
+    self.EntityData.Children.Append("lag-aggregate-state", types.YChild{"LagAggregateState", nil})
+    for i := range self.LagAggregateState {
+        self.EntityData.Children.Append(types.GetSegmentPath(self.LagAggregateState[i]), types.YChild{"LagAggregateState", self.LagAggregateState[i]})
+    }
     self.EntityData.Children.Append("ether-state", types.YChild{"EtherState", &self.EtherState})
     self.EntityData.Children.Append("ether-stats", types.YChild{"EtherStats", &self.EtherStats})
     self.EntityData.Children.Append("serial-state", types.YChild{"SerialState", &self.SerialState})
@@ -975,6 +1017,9 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.Leafs.Append("input-security-acl", types.YLeaf{"InputSecurityAcl", self.InputSecurityAcl})
     self.EntityData.Leafs.Append("output-security-acl", types.YLeaf{"OutputSecurityAcl", self.OutputSecurityAcl})
     self.EntityData.Leafs.Append("bia-address", types.YLeaf{"BiaAddress", self.BiaAddress})
+    self.EntityData.Leafs.Append("ipv6-addrs", types.YLeaf{"Ipv6Addrs", self.Ipv6Addrs})
+    self.EntityData.Leafs.Append("ipv4-tcp-adjust-mss", types.YLeaf{"Ipv4TcpAdjustMss", self.Ipv4TcpAdjustMss})
+    self.EntityData.Leafs.Append("ipv6-tcp-adjust-mss", types.YLeaf{"Ipv6TcpAdjustMss", self.Ipv6TcpAdjustMss})
     self.EntityData.Leafs.Append("intf-class-unspecified", types.YLeaf{"IntfClassUnspecified", self.IntfClassUnspecified})
 
     self.EntityData.YListKeys = []string {"Name"}
@@ -1017,7 +1062,7 @@ type Interfaces_Interface_Statistics struct {
     // of the management system, and at other times as indicated by the value of
     // 'discontinuity-time'. The type is interface{} with range:
     // 0..18446744073709551615.
-    NewName interface{}
+    InBroadcastPkts interface{}
 
     // The number of packets, delivered by this sub-layer to a higher (sub-)layer,
     // that were addressed to a multicast address at this sub-layer.  For a
@@ -1152,7 +1197,7 @@ func (statistics *Interfaces_Interface_Statistics) GetEntityData() *types.Common
     statistics.EntityData.Leafs.Append("discontinuity-time", types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime})
     statistics.EntityData.Leafs.Append("in-octets", types.YLeaf{"InOctets", statistics.InOctets})
     statistics.EntityData.Leafs.Append("in-unicast-pkts", types.YLeaf{"InUnicastPkts", statistics.InUnicastPkts})
-    statistics.EntityData.Leafs.Append("new-name", types.YLeaf{"NewName", statistics.NewName})
+    statistics.EntityData.Leafs.Append("in-broadcast-pkts", types.YLeaf{"InBroadcastPkts", statistics.InBroadcastPkts})
     statistics.EntityData.Leafs.Append("in-multicast-pkts", types.YLeaf{"InMulticastPkts", statistics.InMulticastPkts})
     statistics.EntityData.Leafs.Append("in-discards", types.YLeaf{"InDiscards", statistics.InDiscards})
     statistics.EntityData.Leafs.Append("in-errors", types.YLeaf{"InErrors", statistics.InErrors})
@@ -3944,6 +3989,59 @@ func (v6ProtocolStats *Interfaces_Interface_V6ProtocolStats) GetEntityData() *ty
     v6ProtocolStats.EntityData.YListKeys = []string {}
 
     return &(v6ProtocolStats.EntityData)
+}
+
+// Interfaces_Interface_LagAggregateState
+// Operational state variables for logical
+// aggregate / LAG interfaces
+type Interfaces_Interface_LagAggregateState struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Specify the logical aggregate interface to which
+    // this id belongs. The type is string.
+    AggregateId interface{}
+
+    // Type to define the lag-type, i.e., how the LAG is defined and managed. The
+    // type is AggregationType.
+    LagType interface{}
+
+    // Specifies the minimum number of member interfaces that must be active for
+    // the aggregate interface to be available. The type is interface{} with
+    // range: 0..65535.
+    MinLinks interface{}
+
+    // Reports effective speed of the aggregate interface, based on speed of
+    // active member interfaces. The type is interface{} with range:
+    // 0..4294967295.
+    LagSpeed interface{}
+
+    // List of current member interfaces for the aggregate, expressed as
+    // references to existing interfaces. The type is slice of string.
+    Members []interface{}
+}
+
+func (lagAggregateState *Interfaces_Interface_LagAggregateState) GetEntityData() *types.CommonEntityData {
+    lagAggregateState.EntityData.YFilter = lagAggregateState.YFilter
+    lagAggregateState.EntityData.YangName = "lag-aggregate-state"
+    lagAggregateState.EntityData.BundleName = "cisco_ios_xe"
+    lagAggregateState.EntityData.ParentYangName = "interface"
+    lagAggregateState.EntityData.SegmentPath = "lag-aggregate-state" + types.AddKeyToken(lagAggregateState.AggregateId, "aggregate-id")
+    lagAggregateState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lagAggregateState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lagAggregateState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    lagAggregateState.EntityData.Children = types.NewOrderedMap()
+    lagAggregateState.EntityData.Leafs = types.NewOrderedMap()
+    lagAggregateState.EntityData.Leafs.Append("aggregate-id", types.YLeaf{"AggregateId", lagAggregateState.AggregateId})
+    lagAggregateState.EntityData.Leafs.Append("lag-type", types.YLeaf{"LagType", lagAggregateState.LagType})
+    lagAggregateState.EntityData.Leafs.Append("min-links", types.YLeaf{"MinLinks", lagAggregateState.MinLinks})
+    lagAggregateState.EntityData.Leafs.Append("lag-speed", types.YLeaf{"LagSpeed", lagAggregateState.LagSpeed})
+    lagAggregateState.EntityData.Leafs.Append("members", types.YLeaf{"Members", lagAggregateState.Members})
+
+    lagAggregateState.EntityData.YListKeys = []string {"AggregateId"}
+
+    return &(lagAggregateState.EntityData)
 }
 
 // Interfaces_Interface_EtherState

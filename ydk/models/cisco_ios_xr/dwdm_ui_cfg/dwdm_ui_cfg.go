@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dwdm_ui_cfg
 
@@ -80,6 +80,12 @@ const (
     // High-Gain Multivendor Interoperable Hard
     // Decision
     Fec_high_gain_multivendor_hd Fec = "high-gain-multivendor-hd"
+
+    // SD Everest
+    Fec_sd_everest Fec = "sd-everest"
+
+    // SD Denali
+    Fec_sd_denali Fec = "sd-denali"
 )
 
 // OduAlarm represents Odu alarm

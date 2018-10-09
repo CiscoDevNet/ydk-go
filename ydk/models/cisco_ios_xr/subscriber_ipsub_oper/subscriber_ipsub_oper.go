@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ip-subscriber: IP subscriber operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_ipsub_oper
 
@@ -1046,11 +1046,11 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Access interface through which this subscriber is accessible. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     AccessInterface interface{}
 
     // IPv4 Address of the subscriber. The type is string with pattern:
@@ -1268,7 +1268,7 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface creation time in Month Date HH:MM:SS format. The type is string.

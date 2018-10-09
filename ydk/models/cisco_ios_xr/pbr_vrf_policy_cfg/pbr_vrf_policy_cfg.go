@@ -5,7 +5,7 @@
 // for the following management objects:
 //   vrf-policy: VRF Policy PBR configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pbr_vrf_policy_cfg
 
@@ -99,7 +99,8 @@ type VrfPolicy_Vrf_Afi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. AFI name. The type is string with pattern: (ipv4).
+    // This attribute is a key. AFI name. The type is string with pattern:
+    // (ipv4)|(ipv6).
     AfiType interface{}
 
     // Policy map name. The type is string.

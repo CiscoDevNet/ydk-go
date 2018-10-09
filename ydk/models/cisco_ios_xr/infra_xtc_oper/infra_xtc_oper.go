@@ -8,7 +8,7 @@
 //   pce-topology: pce topology
 //   pce: pce
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_xtc_oper
 
@@ -483,6 +483,9 @@ type PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation struct {
     // Admin state. The type is LspState.
     AdministrativeState interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    Msd interface{}
+
     // Source address.
     SourceAddress PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress
 
@@ -510,6 +513,7 @@ func (briefLspInformation *PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation
     briefLspInformation.EntityData.Leafs.Append("lsp-setup-type", types.YLeaf{"LspSetupType", briefLspInformation.LspSetupType})
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
+    briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -982,6 +986,10 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_PrivateLspInformation_EventBu
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Event ID in range 1 - 0xFFFFFFFF. 0 is invalid. The type is interface{}
+    // with range: 0..4294967295.
+    EventId interface{}
+
     // Event message. The type is string.
     EventMessage interface{}
 
@@ -1002,6 +1010,7 @@ func (eventBuffer *PceLspData_TunnelDetailInfos_TunnelDetailInfo_PrivateLspInfor
 
     eventBuffer.EntityData.Children = types.NewOrderedMap()
     eventBuffer.EntityData.Leafs = types.NewOrderedMap()
+    eventBuffer.EntityData.Leafs.Append("event-id", types.YLeaf{"EventId", eventBuffer.EventId})
     eventBuffer.EntityData.Leafs.Append("event-message", types.YLeaf{"EventMessage", eventBuffer.EventMessage})
     eventBuffer.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", eventBuffer.TimeStamp})
 
@@ -1130,6 +1139,9 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLsp
     // Admin state. The type is LspState.
     AdministrativeState interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    Msd interface{}
+
     // Source address.
     SourceAddress PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInformation_SourceAddress
 
@@ -1157,6 +1169,7 @@ func (briefLspInformation *PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailL
     briefLspInformation.EntityData.Leafs.Append("lsp-setup-type", types.YLeaf{"LspSetupType", briefLspInformation.LspSetupType})
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
+    briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -2204,6 +2217,9 @@ type PcePeer_PeerDetailInfos_PeerDetailInfo struct {
     // Protocol between PCE and peer. The type is PceProto.
     PeerProtocol interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    MaxSidDepth interface{}
+
     // Peer address.
     PeerAddressXr PcePeer_PeerDetailInfos_PeerDetailInfo_PeerAddressXr
 
@@ -2227,6 +2243,7 @@ func (peerDetailInfo *PcePeer_PeerDetailInfos_PeerDetailInfo) GetEntityData() *t
     peerDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     peerDetailInfo.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", peerDetailInfo.PeerAddress})
     peerDetailInfo.EntityData.Leafs.Append("peer-protocol", types.YLeaf{"PeerProtocol", peerDetailInfo.PeerProtocol})
+    peerDetailInfo.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", peerDetailInfo.MaxSidDepth})
 
     peerDetailInfo.EntityData.YListKeys = []string {"PeerAddress"}
 
@@ -2369,6 +2386,10 @@ type PcePeer_PeerDetailInfos_PeerDetailInfo_DetailPcepInformation struct {
     // 0..255.
     MaximumDeadInterval interface{}
 
+    // Maximum number of labels the peer can impose. The type is interface{} with
+    // range: 0..255.
+    MaxSidDepth interface{}
+
     // Brief PCE protocol information.
     BriefPcepInformation PcePeer_PeerDetailInfos_PeerDetailInfo_DetailPcepInformation_BriefPcepInformation
 
@@ -2423,6 +2444,7 @@ func (detailPcepInformation *PcePeer_PeerDetailInfos_PeerDetailInfo_DetailPcepIn
     detailPcepInformation.EntityData.Leafs.Append("remote-session-id", types.YLeaf{"RemoteSessionId", detailPcepInformation.RemoteSessionId})
     detailPcepInformation.EntityData.Leafs.Append("minimum-keepalive-interval", types.YLeaf{"MinimumKeepaliveInterval", detailPcepInformation.MinimumKeepaliveInterval})
     detailPcepInformation.EntityData.Leafs.Append("maximum-dead-interval", types.YLeaf{"MaximumDeadInterval", detailPcepInformation.MaximumDeadInterval})
+    detailPcepInformation.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", detailPcepInformation.MaxSidDepth})
 
     detailPcepInformation.EntityData.YListKeys = []string {}
 
@@ -2953,9 +2975,9 @@ type PceTopology_TopologyNodes_TopologyNode struct {
     // Node protocol identifier.
     NodeProtocolIdentifier PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier
 
-    // Prefix SIDs. The type is slice of
-    // PceTopology_TopologyNodes_TopologyNode_PrefixSid.
-    PrefixSid []*PceTopology_TopologyNodes_TopologyNode_PrefixSid
+    // Prefixes. The type is slice of
+    // PceTopology_TopologyNodes_TopologyNode_Prefixe.
+    Prefixe []*PceTopology_TopologyNodes_TopologyNode_Prefixe
 
     // IPv4 Link information. The type is slice of
     // PceTopology_TopologyNodes_TopologyNode_Ipv4Link.
@@ -2978,9 +3000,9 @@ func (topologyNode *PceTopology_TopologyNodes_TopologyNode) GetEntityData() *typ
 
     topologyNode.EntityData.Children = types.NewOrderedMap()
     topologyNode.EntityData.Children.Append("node-protocol-identifier", types.YChild{"NodeProtocolIdentifier", &topologyNode.NodeProtocolIdentifier})
-    topologyNode.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", nil})
-    for i := range topologyNode.PrefixSid {
-        topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.PrefixSid[i]), types.YChild{"PrefixSid", topologyNode.PrefixSid[i]})
+    topologyNode.EntityData.Children.Append("prefixe", types.YChild{"Prefixe", nil})
+    for i := range topologyNode.Prefixe {
+        topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.Prefixe[i]), types.YChild{"Prefixe", topologyNode.Prefixe[i]})
     }
     topologyNode.EntityData.Children.Append("ipv4-link", types.YChild{"Ipv4Link", nil})
     for i := range topologyNode.Ipv4Link {
@@ -3073,12 +3095,8 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -3092,19 +3110,56 @@ func (igpInformation *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentif
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3112,20 +3167,20 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3143,9 +3198,9 @@ func (igp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInfo
     return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3156,7 +3211,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -3176,9 +3231,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInf
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3190,7 +3245,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -3210,9 +3265,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInf
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3224,7 +3279,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -3256,8 +3311,12 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -3271,19 +3330,58 @@ func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdenti
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3291,40 +3389,40 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3335,11 +3433,11 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3355,9 +3453,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbIn
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3369,11 +3467,11 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3389,9 +3487,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbIn
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3403,11 +3501,11 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3423,9 +3521,47 @@ func (bgp *PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInf
     return &(bgp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_PrefixSid
-// Prefix SIDs
-type PceTopology_TopologyNodes_TopologyNode_PrefixSid struct {
+// PceTopology_TopologyNodes_TopologyNode_Prefixe
+// Prefixes
+type PceTopology_TopologyNodes_TopologyNode_Prefixe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Prefix SID.
+    PfxSid PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid
+
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId
+}
+
+func (prefixe *PceTopology_TopologyNodes_TopologyNode_Prefixe) GetEntityData() *types.CommonEntityData {
+    prefixe.EntityData.YFilter = prefixe.YFilter
+    prefixe.EntityData.YangName = "prefixe"
+    prefixe.EntityData.BundleName = "cisco_ios_xr"
+    prefixe.EntityData.ParentYangName = "topology-node"
+    prefixe.EntityData.SegmentPath = "prefixe"
+    prefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    prefixe.EntityData.Children = types.NewOrderedMap()
+    prefixe.EntityData.Children.Append("pfx-sid", types.YChild{"PfxSid", &prefixe.PfxSid})
+    prefixe.EntityData.Children.Append("node-id", types.YChild{"NodeId", &prefixe.NodeId})
+    prefixe.EntityData.Leafs = types.NewOrderedMap()
+    prefixe.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", prefixe.DomainIdentifier})
+
+    prefixe.EntityData.YListKeys = []string {}
+
+    return &(prefixe.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid
+// Prefix SID
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3434,10 +3570,6 @@ type PceTopology_TopologyNodes_TopologyNode_PrefixSid struct {
 
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
-
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
 
     // R Flag. The type is bool.
     Rflag interface{}
@@ -3458,40 +3590,39 @@ type PceTopology_TopologyNodes_TopologyNode_PrefixSid struct {
     Lflag interface{}
 
     // Prefix.
-    SidPrefix PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix
+    SidPrefix PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix
 }
 
-func (prefixSid *PceTopology_TopologyNodes_TopologyNode_PrefixSid) GetEntityData() *types.CommonEntityData {
-    prefixSid.EntityData.YFilter = prefixSid.YFilter
-    prefixSid.EntityData.YangName = "prefix-sid"
-    prefixSid.EntityData.BundleName = "cisco_ios_xr"
-    prefixSid.EntityData.ParentYangName = "topology-node"
-    prefixSid.EntityData.SegmentPath = "prefix-sid"
-    prefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (pfxSid *PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid) GetEntityData() *types.CommonEntityData {
+    pfxSid.EntityData.YFilter = pfxSid.YFilter
+    pfxSid.EntityData.YangName = "pfx-sid"
+    pfxSid.EntityData.BundleName = "cisco_ios_xr"
+    pfxSid.EntityData.ParentYangName = "prefixe"
+    pfxSid.EntityData.SegmentPath = "pfx-sid"
+    pfxSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pfxSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pfxSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixSid.EntityData.Children = types.NewOrderedMap()
-    prefixSid.EntityData.Children.Append("sid-prefix", types.YChild{"SidPrefix", &prefixSid.SidPrefix})
-    prefixSid.EntityData.Leafs = types.NewOrderedMap()
-    prefixSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", prefixSid.SidType})
-    prefixSid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", prefixSid.MplsLabel})
-    prefixSid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", prefixSid.DomainIdentifier})
-    prefixSid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", prefixSid.Rflag})
-    prefixSid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", prefixSid.Nflag})
-    prefixSid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", prefixSid.Pflag})
-    prefixSid.EntityData.Leafs.Append("eflag", types.YLeaf{"Eflag", prefixSid.Eflag})
-    prefixSid.EntityData.Leafs.Append("vflag", types.YLeaf{"Vflag", prefixSid.Vflag})
-    prefixSid.EntityData.Leafs.Append("lflag", types.YLeaf{"Lflag", prefixSid.Lflag})
+    pfxSid.EntityData.Children = types.NewOrderedMap()
+    pfxSid.EntityData.Children.Append("sid-prefix", types.YChild{"SidPrefix", &pfxSid.SidPrefix})
+    pfxSid.EntityData.Leafs = types.NewOrderedMap()
+    pfxSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", pfxSid.SidType})
+    pfxSid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", pfxSid.MplsLabel})
+    pfxSid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", pfxSid.Rflag})
+    pfxSid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", pfxSid.Nflag})
+    pfxSid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", pfxSid.Pflag})
+    pfxSid.EntityData.Leafs.Append("eflag", types.YLeaf{"Eflag", pfxSid.Eflag})
+    pfxSid.EntityData.Leafs.Append("vflag", types.YLeaf{"Vflag", pfxSid.Vflag})
+    pfxSid.EntityData.Leafs.Append("lflag", types.YLeaf{"Lflag", pfxSid.Lflag})
 
-    prefixSid.EntityData.YListKeys = []string {}
+    pfxSid.EntityData.YListKeys = []string {}
 
-    return &(prefixSid.EntityData)
+    return &(pfxSid.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix
 // Prefix
-type PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix struct {
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3507,11 +3638,11 @@ type PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix struct {
     Ipv6 interface{}
 }
 
-func (sidPrefix *PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) GetEntityData() *types.CommonEntityData {
+func (sidPrefix *PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix) GetEntityData() *types.CommonEntityData {
     sidPrefix.EntityData.YFilter = sidPrefix.YFilter
     sidPrefix.EntityData.YangName = "sid-prefix"
     sidPrefix.EntityData.BundleName = "cisco_ios_xr"
-    sidPrefix.EntityData.ParentYangName = "prefix-sid"
+    sidPrefix.EntityData.ParentYangName = "pfx-sid"
     sidPrefix.EntityData.SegmentPath = "sid-prefix"
     sidPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3526,6 +3657,186 @@ func (sidPrefix *PceTopology_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) Get
     sidPrefix.EntityData.YListKeys = []string {}
 
     return &(sidPrefix.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "prefixe"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp
+// IGP-specific information
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IGP ID. The type is PceIgpInfoId.
+    IgpId interface{}
+
+    // ISIS information.
+    Isis PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis
+
+    // OSPF information.
+    Ospf PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf
+
+    // BGP information.
+    Bgp PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp
+}
+
+func (igp *PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
+
+    igp.EntityData.YListKeys = []string {}
+
+    return &(igp.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis
+// ISIS information
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ISIS system ID. The type is string.
+    SystemId interface{}
+
+    // ISIS level. The type is interface{} with range: 0..4294967295.
+    Level interface{}
+}
+
+func (isis *PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
+    isis.EntityData.YFilter = isis.YFilter
+    isis.EntityData.YangName = "isis"
+    isis.EntityData.BundleName = "cisco_ios_xr"
+    isis.EntityData.ParentYangName = "igp"
+    isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    isis.EntityData.Children = types.NewOrderedMap()
+    isis.EntityData.Leafs = types.NewOrderedMap()
+    isis.EntityData.Leafs.Append("system-id", types.YLeaf{"SystemId", isis.SystemId})
+    isis.EntityData.Leafs.Append("level", types.YLeaf{"Level", isis.Level})
+
+    isis.EntityData.YListKeys = []string {}
+
+    return &(isis.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf
+// OSPF information
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // OSPF router ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    RouterId interface{}
+
+    // OSPF area. The type is interface{} with range: 0..4294967295.
+    Area interface{}
+}
+
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+    ospf.EntityData.YFilter = ospf.YFilter
+    ospf.EntityData.YangName = "ospf"
+    ospf.EntityData.BundleName = "cisco_ios_xr"
+    ospf.EntityData.ParentYangName = "igp"
+    ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", ospf.RouterId})
+    ospf.EntityData.Leafs.Append("area", types.YLeaf{"Area", ospf.Area})
+
+    ospf.EntityData.YListKeys = []string {}
+
+    return &(ospf.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp
+// BGP information
+type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BGP router ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    RouterId interface{}
+
+    // Confederation ASN. The type is interface{} with range: 0..4294967295.
+    ConfedAsn interface{}
+}
+
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+    bgp.EntityData.YFilter = bgp.YFilter
+    bgp.EntityData.YangName = "bgp"
+    bgp.EntityData.BundleName = "cisco_ios_xr"
+    bgp.EntityData.ParentYangName = "igp"
+    bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", bgp.RouterId})
+    bgp.EntityData.Leafs.Append("confed-asn", types.YLeaf{"ConfedAsn", bgp.ConfedAsn})
+
+    bgp.EntityData.YListKeys = []string {}
+
+    return &(bgp.EntityData)
 }
 
 // PceTopology_TopologyNodes_TopologyNode_Ipv4Link
@@ -3555,6 +3866,9 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link struct {
     // Max Reservable bandwidth. The type is interface{} with range:
     // 0..18446744073709551615.
     MaxReservableBandwidth interface{}
+
+    // Link admin-groups. The type is interface{} with range: 0..4294967295.
+    AdministrativeGroups interface{}
 
     // SRLG Values. The type is slice of interface{} with range: 0..4294967295.
     Srlgs []interface{}
@@ -3598,6 +3912,7 @@ func (ipv4Link *PceTopology_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData()
     ipv4Link.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", ipv4Link.TeMetric})
     ipv4Link.EntityData.Leafs.Append("maximum-link-bandwidth", types.YLeaf{"MaximumLinkBandwidth", ipv4Link.MaximumLinkBandwidth})
     ipv4Link.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", ipv4Link.MaxReservableBandwidth})
+    ipv4Link.EntityData.Leafs.Append("administrative-groups", types.YLeaf{"AdministrativeGroups", ipv4Link.AdministrativeGroups})
     ipv4Link.EntityData.Leafs.Append("srlgs", types.YLeaf{"Srlgs", ipv4Link.Srlgs})
 
     ipv4Link.EntityData.YListKeys = []string {}
@@ -3615,12 +3930,8 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation struct 
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId
 }
 
 func (localIgpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation) GetEntityData() *types.CommonEntityData {
@@ -3634,19 +3945,56 @@ func (localIgpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_Local
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localIgpInformation.EntityData.Children = types.NewOrderedMap()
-    localIgpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &localIgpInformation.Igp})
+    localIgpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &localIgpInformation.NodeId})
     localIgpInformation.EntityData.Leafs = types.NewOrderedMap()
     localIgpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", localIgpInformation.DomainIdentifier})
-    localIgpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", localIgpInformation.AutonomousSystemNumber})
 
     localIgpInformation.EntityData.YListKeys = []string {}
 
     return &(localIgpInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "local-igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3654,20 +4002,20 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp str
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "local-igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3685,9 +4033,9 @@ func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_I
     return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3698,7 +4046,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isi
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -3718,9 +4066,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3732,7 +4080,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Osp
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -3752,9 +4100,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3766,7 +4114,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -3859,12 +4207,8 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -3878,19 +4222,56 @@ func (igpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNode
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3898,20 +4279,20 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3929,9 +4310,9 @@ func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIde
     return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3942,7 +4323,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -3962,9 +4343,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolId
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3976,7 +4357,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -3996,9 +4377,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolId
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4010,7 +4391,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -4042,8 +4423,12 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -4057,19 +4442,58 @@ func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNod
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4077,40 +4501,40 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4121,11 +4545,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4141,9 +4565,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolId
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4155,11 +4579,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4175,9 +4599,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolId
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4189,11 +4613,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4250,10 +4674,6 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid struct {
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
 
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
-
     // R Flag. The type is bool.
     Rflag interface{}
 
@@ -4291,7 +4711,6 @@ func (adjacencySid *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid
     adjacencySid.EntityData.Leafs = types.NewOrderedMap()
     adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
     adjacencySid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", adjacencySid.MplsLabel})
-    adjacencySid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", adjacencySid.DomainIdentifier})
     adjacencySid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", adjacencySid.Rflag})
     adjacencySid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", adjacencySid.Nflag})
     adjacencySid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", adjacencySid.Pflag})
@@ -4422,12 +4841,8 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation struct 
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId
 }
 
 func (localIgpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation) GetEntityData() *types.CommonEntityData {
@@ -4441,19 +4856,56 @@ func (localIgpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_Local
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localIgpInformation.EntityData.Children = types.NewOrderedMap()
-    localIgpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &localIgpInformation.Igp})
+    localIgpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &localIgpInformation.NodeId})
     localIgpInformation.EntityData.Leafs = types.NewOrderedMap()
     localIgpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", localIgpInformation.DomainIdentifier})
-    localIgpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", localIgpInformation.AutonomousSystemNumber})
 
     localIgpInformation.EntityData.YListKeys = []string {}
 
     return &(localIgpInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "local-igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4461,20 +4913,20 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp str
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "local-igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4492,9 +4944,9 @@ func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_I
     return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4505,7 +4957,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isi
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -4525,9 +4977,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4539,7 +4991,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Osp
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -4559,9 +5011,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4573,7 +5025,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -4666,12 +5118,8 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -4685,19 +5133,56 @@ func (igpInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNode
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4705,20 +5190,20 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4736,9 +5221,9 @@ func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIde
     return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4749,7 +5234,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -4769,9 +5254,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolId
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4783,7 +5268,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -4803,9 +5288,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolId
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4817,7 +5302,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -4849,8 +5334,12 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -4864,19 +5353,58 @@ func (srgbInformation *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNod
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4884,40 +5412,40 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4928,11 +5456,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     Level interface{}
 }
 
-func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4948,9 +5476,9 @@ func (isis *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolId
     return &(isis.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4962,11 +5490,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     Area interface{}
 }
 
-func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4982,9 +5510,9 @@ func (ospf *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolId
     return &(ospf.EntityData)
 }
 
-// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4996,11 +5524,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5027,10 +5555,6 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid struct {
 
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
-
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
 
     // R Flag. The type is bool.
     Rflag interface{}
@@ -5069,7 +5593,6 @@ func (adjacencySid *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid
     adjacencySid.EntityData.Leafs = types.NewOrderedMap()
     adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
     adjacencySid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", adjacencySid.MplsLabel})
-    adjacencySid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", adjacencySid.DomainIdentifier})
     adjacencySid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", adjacencySid.Rflag})
     adjacencySid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", adjacencySid.Nflag})
     adjacencySid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", adjacencySid.Pflag})
@@ -5273,12 +5796,8 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation st
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -5292,19 +5811,56 @@ func (igpInformation *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5312,20 +5868,20 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Ig
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5343,9 +5899,9 @@ func (igp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformat
     return &(igp.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5356,7 +5912,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Ig
     Level interface{}
 }
 
-func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -5376,9 +5932,9 @@ func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInforma
     return &(isis.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5390,7 +5946,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Ig
     Area interface{}
 }
 
-func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -5410,9 +5966,9 @@ func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInforma
     return &(ospf.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5424,7 +5980,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Ig
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -5456,8 +6012,12 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation s
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -5471,19 +6031,58 @@ func (srgbInformation *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5491,40 +6090,40 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_I
     IgpId interface{}
 
     // ISIS information.
-    Isis PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5535,11 +6134,11 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_I
     Level interface{}
 }
 
-func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5555,9 +6154,9 @@ func (isis *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInform
     return &(isis.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5569,11 +6168,11 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_I
     Area interface{}
 }
 
-func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5589,9 +6188,9 @@ func (ospf *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInform
     return &(ospf.EntityData)
 }
 
-// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5603,11 +6202,11 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_I
     ConfedAsn interface{}
 }
 
-func (bgp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5629,16 +6228,8 @@ type PceTopology_PrefixInfos_PrefixInfo_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // AFName. The type is PceAfId.
-    AfName interface{}
-
-    // IPv4 address type. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Ipv4 interface{}
-
-    // IPv6 address type. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Ipv6 interface{}
+    // Prefix IP address.
+    Ip PceTopology_PrefixInfos_PrefixInfo_Address_Ip
 }
 
 func (address *PceTopology_PrefixInfos_PrefixInfo_Address) GetEntityData() *types.CommonEntityData {
@@ -5652,14 +6243,51 @@ func (address *PceTopology_PrefixInfos_PrefixInfo_Address) GetEntityData() *type
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("ip", types.YChild{"Ip", &address.Ip})
     address.EntityData.Leafs = types.NewOrderedMap()
-    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
-    address.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", address.Ipv4})
-    address.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", address.Ipv6})
 
     address.EntityData.YListKeys = []string {}
 
     return &(address.EntityData)
+}
+
+// PceTopology_PrefixInfos_PrefixInfo_Address_Ip
+// Prefix IP address
+type PceTopology_PrefixInfos_PrefixInfo_Address_Ip struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (ip *PceTopology_PrefixInfos_PrefixInfo_Address_Ip) GetEntityData() *types.CommonEntityData {
+    ip.EntityData.YFilter = ip.YFilter
+    ip.EntityData.YangName = "ip"
+    ip.EntityData.BundleName = "cisco_ios_xr"
+    ip.EntityData.ParentYangName = "address"
+    ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Leafs = types.NewOrderedMap()
+    ip.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", ip.AfName})
+    ip.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ip.Ipv4})
+    ip.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ip.Ipv6})
+
+    ip.EntityData.YListKeys = []string {}
+
+    return &(ip.EntityData)
 }
 
 // Pce
@@ -5667,6 +6295,9 @@ func (address *PceTopology_PrefixInfos_PrefixInfo_Address) GetEntityData() *type
 type Pce struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+
+    // PCE Verification events in XTC.
+    VerificationEvents Pce_VerificationEvents
 
     // Associaition database in XTC.
     AssociationInfos Pce_AssociationInfos
@@ -5710,6 +6341,7 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     pce.EntityData.Children = types.NewOrderedMap()
+    pce.EntityData.Children.Append("verification-events", types.YChild{"VerificationEvents", &pce.VerificationEvents})
     pce.EntityData.Children.Append("association-infos", types.YChild{"AssociationInfos", &pce.AssociationInfos})
     pce.EntityData.Children.Append("cspf", types.YChild{"Cspf", &pce.Cspf})
     pce.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", &pce.TopologySummary})
@@ -5725,6 +6357,83 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.YListKeys = []string {}
 
     return &(pce.EntityData)
+}
+
+// Pce_VerificationEvents
+// PCE Verification events in XTC
+type Pce_VerificationEvents struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PCE single verification event. The type is slice of
+    // Pce_VerificationEvents_VerificationEvent.
+    VerificationEvent []*Pce_VerificationEvents_VerificationEvent
+}
+
+func (verificationEvents *Pce_VerificationEvents) GetEntityData() *types.CommonEntityData {
+    verificationEvents.EntityData.YFilter = verificationEvents.YFilter
+    verificationEvents.EntityData.YangName = "verification-events"
+    verificationEvents.EntityData.BundleName = "cisco_ios_xr"
+    verificationEvents.EntityData.ParentYangName = "pce"
+    verificationEvents.EntityData.SegmentPath = "verification-events"
+    verificationEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    verificationEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    verificationEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    verificationEvents.EntityData.Children = types.NewOrderedMap()
+    verificationEvents.EntityData.Children.Append("verification-event", types.YChild{"VerificationEvent", nil})
+    for i := range verificationEvents.VerificationEvent {
+        verificationEvents.EntityData.Children.Append(types.GetSegmentPath(verificationEvents.VerificationEvent[i]), types.YChild{"VerificationEvent", verificationEvents.VerificationEvent[i]})
+    }
+    verificationEvents.EntityData.Leafs = types.NewOrderedMap()
+
+    verificationEvents.EntityData.YListKeys = []string {}
+
+    return &(verificationEvents.EntityData)
+}
+
+// Pce_VerificationEvents_VerificationEvent
+// PCE single verification event
+type Pce_VerificationEvents_VerificationEvent struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Index of an event. The type is interface{} with
+    // range: 0..4294967295.
+    EventIdx interface{}
+
+    // Event ID in range 1 - 0xFFFFFFFF. 0 is invalid. The type is interface{}
+    // with range: 0..4294967295.
+    EventId interface{}
+
+    // Event message. The type is string.
+    EventMessage interface{}
+
+    // Event time, relative to Jan 1, 1970. The type is interface{} with range:
+    // 0..4294967295.
+    TimeStamp interface{}
+}
+
+func (verificationEvent *Pce_VerificationEvents_VerificationEvent) GetEntityData() *types.CommonEntityData {
+    verificationEvent.EntityData.YFilter = verificationEvent.YFilter
+    verificationEvent.EntityData.YangName = "verification-event"
+    verificationEvent.EntityData.BundleName = "cisco_ios_xr"
+    verificationEvent.EntityData.ParentYangName = "verification-events"
+    verificationEvent.EntityData.SegmentPath = "verification-event" + types.AddKeyToken(verificationEvent.EventIdx, "event-idx")
+    verificationEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    verificationEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    verificationEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    verificationEvent.EntityData.Children = types.NewOrderedMap()
+    verificationEvent.EntityData.Leafs = types.NewOrderedMap()
+    verificationEvent.EntityData.Leafs.Append("event-idx", types.YLeaf{"EventIdx", verificationEvent.EventIdx})
+    verificationEvent.EntityData.Leafs.Append("event-id", types.YLeaf{"EventId", verificationEvent.EventId})
+    verificationEvent.EntityData.Leafs.Append("event-message", types.YLeaf{"EventMessage", verificationEvent.EventMessage})
+    verificationEvent.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", verificationEvent.TimeStamp})
+
+    verificationEvent.EntityData.YListKeys = []string {"EventIdx"}
+
+    return &(verificationEvent.EntityData)
 }
 
 // Pce_AssociationInfos
@@ -6583,6 +7292,9 @@ type Pce_TunnelInfos_TunnelInfo_BriefLspInformation struct {
     // Admin state. The type is LspState.
     AdministrativeState interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    Msd interface{}
+
     // Source address.
     SourceAddress Pce_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress
 
@@ -6610,6 +7322,7 @@ func (briefLspInformation *Pce_TunnelInfos_TunnelInfo_BriefLspInformation) GetEn
     briefLspInformation.EntityData.Leafs.Append("lsp-setup-type", types.YLeaf{"LspSetupType", briefLspInformation.LspSetupType})
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
+    briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 
@@ -6743,6 +7456,9 @@ type Pce_PeerDetailInfos_PeerDetailInfo struct {
     // Protocol between PCE and peer. The type is PceProto.
     PeerProtocol interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    MaxSidDepth interface{}
+
     // Peer address.
     PeerAddressXr Pce_PeerDetailInfos_PeerDetailInfo_PeerAddressXr
 
@@ -6766,6 +7482,7 @@ func (peerDetailInfo *Pce_PeerDetailInfos_PeerDetailInfo) GetEntityData() *types
     peerDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     peerDetailInfo.EntityData.Leafs.Append("peer-address", types.YLeaf{"PeerAddress", peerDetailInfo.PeerAddress})
     peerDetailInfo.EntityData.Leafs.Append("peer-protocol", types.YLeaf{"PeerProtocol", peerDetailInfo.PeerProtocol})
+    peerDetailInfo.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", peerDetailInfo.MaxSidDepth})
 
     peerDetailInfo.EntityData.YListKeys = []string {"PeerAddress"}
 
@@ -6908,6 +7625,10 @@ type Pce_PeerDetailInfos_PeerDetailInfo_DetailPcepInformation struct {
     // 0..255.
     MaximumDeadInterval interface{}
 
+    // Maximum number of labels the peer can impose. The type is interface{} with
+    // range: 0..255.
+    MaxSidDepth interface{}
+
     // Brief PCE protocol information.
     BriefPcepInformation Pce_PeerDetailInfos_PeerDetailInfo_DetailPcepInformation_BriefPcepInformation
 
@@ -6962,6 +7683,7 @@ func (detailPcepInformation *Pce_PeerDetailInfos_PeerDetailInfo_DetailPcepInform
     detailPcepInformation.EntityData.Leafs.Append("remote-session-id", types.YLeaf{"RemoteSessionId", detailPcepInformation.RemoteSessionId})
     detailPcepInformation.EntityData.Leafs.Append("minimum-keepalive-interval", types.YLeaf{"MinimumKeepaliveInterval", detailPcepInformation.MinimumKeepaliveInterval})
     detailPcepInformation.EntityData.Leafs.Append("maximum-dead-interval", types.YLeaf{"MaximumDeadInterval", detailPcepInformation.MaximumDeadInterval})
+    detailPcepInformation.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", detailPcepInformation.MaxSidDepth})
 
     detailPcepInformation.EntityData.YListKeys = []string {}
 
@@ -7142,8 +7864,8 @@ type Pce_TopologyNodes_TopologyNode struct {
     // Node protocol identifier.
     NodeProtocolIdentifier Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier
 
-    // Prefix SIDs. The type is slice of Pce_TopologyNodes_TopologyNode_PrefixSid.
-    PrefixSid []*Pce_TopologyNodes_TopologyNode_PrefixSid
+    // Prefixes. The type is slice of Pce_TopologyNodes_TopologyNode_Prefixe.
+    Prefixe []*Pce_TopologyNodes_TopologyNode_Prefixe
 
     // IPv4 Link information. The type is slice of
     // Pce_TopologyNodes_TopologyNode_Ipv4Link.
@@ -7166,9 +7888,9 @@ func (topologyNode *Pce_TopologyNodes_TopologyNode) GetEntityData() *types.Commo
 
     topologyNode.EntityData.Children = types.NewOrderedMap()
     topologyNode.EntityData.Children.Append("node-protocol-identifier", types.YChild{"NodeProtocolIdentifier", &topologyNode.NodeProtocolIdentifier})
-    topologyNode.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", nil})
-    for i := range topologyNode.PrefixSid {
-        topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.PrefixSid[i]), types.YChild{"PrefixSid", topologyNode.PrefixSid[i]})
+    topologyNode.EntityData.Children.Append("prefixe", types.YChild{"Prefixe", nil})
+    for i := range topologyNode.Prefixe {
+        topologyNode.EntityData.Children.Append(types.GetSegmentPath(topologyNode.Prefixe[i]), types.YChild{"Prefixe", topologyNode.Prefixe[i]})
     }
     topologyNode.EntityData.Children.Append("ipv4-link", types.YChild{"Ipv4Link", nil})
     for i := range topologyNode.Ipv4Link {
@@ -7261,12 +7983,8 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation struct
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -7280,19 +7998,56 @@ func (igpInformation *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpI
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7300,20 +8055,20 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp st
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7331,9 +8086,9 @@ func (igp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_
     return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7344,7 +8099,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Is
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -7364,9 +8119,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7378,7 +8133,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Os
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -7398,9 +8153,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7412,7 +8167,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bg
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -7444,8 +8199,12 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation struc
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -7459,19 +8218,58 @@ func (srgbInformation *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_Srg
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7479,40 +8277,40 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSr
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7523,11 +8321,11 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSr
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7543,9 +8341,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformatio
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7557,11 +8355,11 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSr
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7577,9 +8375,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformatio
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7591,11 +8389,11 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSr
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7611,9 +8409,47 @@ func (bgp *Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation
     return &(bgp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_PrefixSid
-// Prefix SIDs
-type Pce_TopologyNodes_TopologyNode_PrefixSid struct {
+// Pce_TopologyNodes_TopologyNode_Prefixe
+// Prefixes
+type Pce_TopologyNodes_TopologyNode_Prefixe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Prefix SID.
+    PfxSid Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid
+
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Prefixe_NodeId
+}
+
+func (prefixe *Pce_TopologyNodes_TopologyNode_Prefixe) GetEntityData() *types.CommonEntityData {
+    prefixe.EntityData.YFilter = prefixe.YFilter
+    prefixe.EntityData.YangName = "prefixe"
+    prefixe.EntityData.BundleName = "cisco_ios_xr"
+    prefixe.EntityData.ParentYangName = "topology-node"
+    prefixe.EntityData.SegmentPath = "prefixe"
+    prefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    prefixe.EntityData.Children = types.NewOrderedMap()
+    prefixe.EntityData.Children.Append("pfx-sid", types.YChild{"PfxSid", &prefixe.PfxSid})
+    prefixe.EntityData.Children.Append("node-id", types.YChild{"NodeId", &prefixe.NodeId})
+    prefixe.EntityData.Leafs = types.NewOrderedMap()
+    prefixe.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", prefixe.DomainIdentifier})
+
+    prefixe.EntityData.YListKeys = []string {}
+
+    return &(prefixe.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid
+// Prefix SID
+type Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7622,10 +8458,6 @@ type Pce_TopologyNodes_TopologyNode_PrefixSid struct {
 
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
-
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
 
     // R Flag. The type is bool.
     Rflag interface{}
@@ -7646,40 +8478,39 @@ type Pce_TopologyNodes_TopologyNode_PrefixSid struct {
     Lflag interface{}
 
     // Prefix.
-    SidPrefix Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix
+    SidPrefix Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix
 }
 
-func (prefixSid *Pce_TopologyNodes_TopologyNode_PrefixSid) GetEntityData() *types.CommonEntityData {
-    prefixSid.EntityData.YFilter = prefixSid.YFilter
-    prefixSid.EntityData.YangName = "prefix-sid"
-    prefixSid.EntityData.BundleName = "cisco_ios_xr"
-    prefixSid.EntityData.ParentYangName = "topology-node"
-    prefixSid.EntityData.SegmentPath = "prefix-sid"
-    prefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    prefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    prefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (pfxSid *Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid) GetEntityData() *types.CommonEntityData {
+    pfxSid.EntityData.YFilter = pfxSid.YFilter
+    pfxSid.EntityData.YangName = "pfx-sid"
+    pfxSid.EntityData.BundleName = "cisco_ios_xr"
+    pfxSid.EntityData.ParentYangName = "prefixe"
+    pfxSid.EntityData.SegmentPath = "pfx-sid"
+    pfxSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pfxSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pfxSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    prefixSid.EntityData.Children = types.NewOrderedMap()
-    prefixSid.EntityData.Children.Append("sid-prefix", types.YChild{"SidPrefix", &prefixSid.SidPrefix})
-    prefixSid.EntityData.Leafs = types.NewOrderedMap()
-    prefixSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", prefixSid.SidType})
-    prefixSid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", prefixSid.MplsLabel})
-    prefixSid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", prefixSid.DomainIdentifier})
-    prefixSid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", prefixSid.Rflag})
-    prefixSid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", prefixSid.Nflag})
-    prefixSid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", prefixSid.Pflag})
-    prefixSid.EntityData.Leafs.Append("eflag", types.YLeaf{"Eflag", prefixSid.Eflag})
-    prefixSid.EntityData.Leafs.Append("vflag", types.YLeaf{"Vflag", prefixSid.Vflag})
-    prefixSid.EntityData.Leafs.Append("lflag", types.YLeaf{"Lflag", prefixSid.Lflag})
+    pfxSid.EntityData.Children = types.NewOrderedMap()
+    pfxSid.EntityData.Children.Append("sid-prefix", types.YChild{"SidPrefix", &pfxSid.SidPrefix})
+    pfxSid.EntityData.Leafs = types.NewOrderedMap()
+    pfxSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", pfxSid.SidType})
+    pfxSid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", pfxSid.MplsLabel})
+    pfxSid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", pfxSid.Rflag})
+    pfxSid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", pfxSid.Nflag})
+    pfxSid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", pfxSid.Pflag})
+    pfxSid.EntityData.Leafs.Append("eflag", types.YLeaf{"Eflag", pfxSid.Eflag})
+    pfxSid.EntityData.Leafs.Append("vflag", types.YLeaf{"Vflag", pfxSid.Vflag})
+    pfxSid.EntityData.Leafs.Append("lflag", types.YLeaf{"Lflag", pfxSid.Lflag})
 
-    prefixSid.EntityData.YListKeys = []string {}
+    pfxSid.EntityData.YListKeys = []string {}
 
-    return &(prefixSid.EntityData)
+    return &(pfxSid.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix
+// Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix
 // Prefix
-type Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix struct {
+type Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7695,11 +8526,11 @@ type Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix struct {
     Ipv6 interface{}
 }
 
-func (sidPrefix *Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) GetEntityData() *types.CommonEntityData {
+func (sidPrefix *Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix) GetEntityData() *types.CommonEntityData {
     sidPrefix.EntityData.YFilter = sidPrefix.YFilter
     sidPrefix.EntityData.YangName = "sid-prefix"
     sidPrefix.EntityData.BundleName = "cisco_ios_xr"
-    sidPrefix.EntityData.ParentYangName = "prefix-sid"
+    sidPrefix.EntityData.ParentYangName = "pfx-sid"
     sidPrefix.EntityData.SegmentPath = "sid-prefix"
     sidPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7714,6 +8545,186 @@ func (sidPrefix *Pce_TopologyNodes_TopologyNode_PrefixSid_SidPrefix) GetEntityDa
     sidPrefix.EntityData.YListKeys = []string {}
 
     return &(sidPrefix.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Prefixe_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "prefixe"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp
+// IGP-specific information
+type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IGP ID. The type is PceIgpInfoId.
+    IgpId interface{}
+
+    // ISIS information.
+    Isis Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis
+
+    // OSPF information.
+    Ospf Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf
+
+    // BGP information.
+    Bgp Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp
+}
+
+func (igp *Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
+
+    igp.EntityData.YListKeys = []string {}
+
+    return &(igp.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis
+// ISIS information
+type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ISIS system ID. The type is string.
+    SystemId interface{}
+
+    // ISIS level. The type is interface{} with range: 0..4294967295.
+    Level interface{}
+}
+
+func (isis *Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
+    isis.EntityData.YFilter = isis.YFilter
+    isis.EntityData.YangName = "isis"
+    isis.EntityData.BundleName = "cisco_ios_xr"
+    isis.EntityData.ParentYangName = "igp"
+    isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    isis.EntityData.Children = types.NewOrderedMap()
+    isis.EntityData.Leafs = types.NewOrderedMap()
+    isis.EntityData.Leafs.Append("system-id", types.YLeaf{"SystemId", isis.SystemId})
+    isis.EntityData.Leafs.Append("level", types.YLeaf{"Level", isis.Level})
+
+    isis.EntityData.YListKeys = []string {}
+
+    return &(isis.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf
+// OSPF information
+type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // OSPF router ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    RouterId interface{}
+
+    // OSPF area. The type is interface{} with range: 0..4294967295.
+    Area interface{}
+}
+
+func (ospf *Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+    ospf.EntityData.YFilter = ospf.YFilter
+    ospf.EntityData.YangName = "ospf"
+    ospf.EntityData.BundleName = "cisco_ios_xr"
+    ospf.EntityData.ParentYangName = "igp"
+    ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ospf.EntityData.Children = types.NewOrderedMap()
+    ospf.EntityData.Leafs = types.NewOrderedMap()
+    ospf.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", ospf.RouterId})
+    ospf.EntityData.Leafs.Append("area", types.YLeaf{"Area", ospf.Area})
+
+    ospf.EntityData.YListKeys = []string {}
+
+    return &(ospf.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp
+// BGP information
+type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BGP router ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    RouterId interface{}
+
+    // Confederation ASN. The type is interface{} with range: 0..4294967295.
+    ConfedAsn interface{}
+}
+
+func (bgp *Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+    bgp.EntityData.YFilter = bgp.YFilter
+    bgp.EntityData.YangName = "bgp"
+    bgp.EntityData.BundleName = "cisco_ios_xr"
+    bgp.EntityData.ParentYangName = "igp"
+    bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgp.EntityData.Children = types.NewOrderedMap()
+    bgp.EntityData.Leafs = types.NewOrderedMap()
+    bgp.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", bgp.RouterId})
+    bgp.EntityData.Leafs.Append("confed-asn", types.YLeaf{"ConfedAsn", bgp.ConfedAsn})
+
+    bgp.EntityData.YListKeys = []string {}
+
+    return &(bgp.EntityData)
 }
 
 // Pce_TopologyNodes_TopologyNode_Ipv4Link
@@ -7743,6 +8754,9 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link struct {
     // Max Reservable bandwidth. The type is interface{} with range:
     // 0..18446744073709551615.
     MaxReservableBandwidth interface{}
+
+    // Link admin-groups. The type is interface{} with range: 0..4294967295.
+    AdministrativeGroups interface{}
 
     // SRLG Values. The type is slice of interface{} with range: 0..4294967295.
     Srlgs []interface{}
@@ -7786,6 +8800,7 @@ func (ipv4Link *Pce_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData() *types.
     ipv4Link.EntityData.Leafs.Append("te-metric", types.YLeaf{"TeMetric", ipv4Link.TeMetric})
     ipv4Link.EntityData.Leafs.Append("maximum-link-bandwidth", types.YLeaf{"MaximumLinkBandwidth", ipv4Link.MaximumLinkBandwidth})
     ipv4Link.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", ipv4Link.MaxReservableBandwidth})
+    ipv4Link.EntityData.Leafs.Append("administrative-groups", types.YLeaf{"AdministrativeGroups", ipv4Link.AdministrativeGroups})
     ipv4Link.EntityData.Leafs.Append("srlgs", types.YLeaf{"Srlgs", ipv4Link.Srlgs})
 
     ipv4Link.EntityData.YListKeys = []string {}
@@ -7803,12 +8818,8 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation struct {
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId
 }
 
 func (localIgpInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation) GetEntityData() *types.CommonEntityData {
@@ -7822,19 +8833,56 @@ func (localIgpInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInfor
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localIgpInformation.EntityData.Children = types.NewOrderedMap()
-    localIgpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &localIgpInformation.Igp})
+    localIgpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &localIgpInformation.NodeId})
     localIgpInformation.EntityData.Leafs = types.NewOrderedMap()
     localIgpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", localIgpInformation.DomainIdentifier})
-    localIgpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", localIgpInformation.AutonomousSystemNumber})
 
     localIgpInformation.EntityData.YListKeys = []string {}
 
     return &(localIgpInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "local-igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7842,20 +8890,20 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp struct {
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "local-igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7873,9 +8921,9 @@ func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp) GetE
     return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7886,7 +8934,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis struct
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -7906,9 +8954,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Isis
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7920,7 +8968,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf struct
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -7940,9 +8988,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7954,7 +9002,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp struct 
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -8047,12 +9095,8 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -8066,19 +9110,56 @@ func (igpInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocol
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8086,20 +9167,20 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8117,9 +9198,9 @@ func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_
     return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8130,7 +9211,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -8150,9 +9231,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8164,7 +9245,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -8184,9 +9265,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8198,7 +9279,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -8230,8 +9311,12 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -8245,19 +9330,58 @@ func (srgbInformation *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtoco
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8265,40 +9389,40 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8309,11 +9433,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8329,9 +9453,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8343,11 +9467,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8363,9 +9487,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8377,11 +9501,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8438,10 +9562,6 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid struct {
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
 
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
-
     // R Flag. The type is bool.
     Rflag interface{}
 
@@ -8479,7 +9599,6 @@ func (adjacencySid *Pce_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid) GetEnt
     adjacencySid.EntityData.Leafs = types.NewOrderedMap()
     adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
     adjacencySid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", adjacencySid.MplsLabel})
-    adjacencySid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", adjacencySid.DomainIdentifier})
     adjacencySid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", adjacencySid.Rflag})
     adjacencySid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", adjacencySid.Nflag})
     adjacencySid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", adjacencySid.Pflag})
@@ -8610,12 +9729,8 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation struct {
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId
 }
 
 func (localIgpInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation) GetEntityData() *types.CommonEntityData {
@@ -8629,19 +9744,56 @@ func (localIgpInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInfor
     localIgpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     localIgpInformation.EntityData.Children = types.NewOrderedMap()
-    localIgpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &localIgpInformation.Igp})
+    localIgpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &localIgpInformation.NodeId})
     localIgpInformation.EntityData.Leafs = types.NewOrderedMap()
     localIgpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", localIgpInformation.DomainIdentifier})
-    localIgpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", localIgpInformation.AutonomousSystemNumber})
 
     localIgpInformation.EntityData.YListKeys = []string {}
 
     return &(localIgpInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "local-igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8649,20 +9801,20 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp struct {
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "local-igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8680,9 +9832,9 @@ func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp) GetE
     return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8693,7 +9845,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis struct
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -8713,9 +9865,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Isis
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8727,7 +9879,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf struct
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -8747,9 +9899,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8761,7 +9913,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp struct 
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -8854,12 +10006,8 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -8873,19 +10021,56 @@ func (igpInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocol
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8893,20 +10078,20 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8924,9 +10109,9 @@ func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_
     return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8937,7 +10122,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -8957,9 +10142,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8971,7 +10156,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -8991,9 +10176,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9005,7 +10190,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -9037,8 +10222,12 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -9052,19 +10241,58 @@ func (srgbInformation *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtoco
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9072,40 +10300,40 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9116,11 +10344,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     Level interface{}
 }
 
-func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9136,9 +10364,9 @@ func (isis *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     return &(isis.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9150,11 +10378,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     Area interface{}
 }
 
-func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9170,9 +10398,9 @@ func (ospf *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier
     return &(ospf.EntityData)
 }
 
-// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9184,11 +10412,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9215,10 +10443,6 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid struct {
 
     // MPLS Label. The type is interface{} with range: 0..4294967295.
     MplsLabel interface{}
-
-    // Domain identifier. The type is interface{} with range:
-    // 0..18446744073709551615.
-    DomainIdentifier interface{}
 
     // R Flag. The type is bool.
     Rflag interface{}
@@ -9257,7 +10481,6 @@ func (adjacencySid *Pce_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid) GetEnt
     adjacencySid.EntityData.Leafs = types.NewOrderedMap()
     adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
     adjacencySid.EntityData.Leafs.Append("mpls-label", types.YLeaf{"MplsLabel", adjacencySid.MplsLabel})
-    adjacencySid.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", adjacencySid.DomainIdentifier})
     adjacencySid.EntityData.Leafs.Append("rflag", types.YLeaf{"Rflag", adjacencySid.Rflag})
     adjacencySid.EntityData.Leafs.Append("nflag", types.YLeaf{"Nflag", adjacencySid.Nflag})
     adjacencySid.EntityData.Leafs.Append("pflag", types.YLeaf{"Pflag", adjacencySid.Pflag})
@@ -9459,12 +10682,8 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation struct {
     // 0..18446744073709551615.
     DomainIdentifier interface{}
 
-    // Autonomous System Number. The type is interface{} with range:
-    // 0..4294967295.
-    AutonomousSystemNumber interface{}
-
-    // IGP-specific information.
-    Igp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
+    // Link-state node identifier.
+    NodeId Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId
 }
 
 func (igpInformation *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation) GetEntityData() *types.CommonEntityData {
@@ -9478,19 +10697,56 @@ func (igpInformation *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInfor
     igpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     igpInformation.EntityData.Children = types.NewOrderedMap()
-    igpInformation.EntityData.Children.Append("igp", types.YChild{"Igp", &igpInformation.Igp})
+    igpInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &igpInformation.NodeId})
     igpInformation.EntityData.Leafs = types.NewOrderedMap()
     igpInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", igpInformation.DomainIdentifier})
-    igpInformation.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", igpInformation.AutonomousSystemNumber})
 
     igpInformation.EntityData.YListKeys = []string {}
 
     return &(igpInformation.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId
+// Link-state node identifier
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "igp-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
 // IGP-specific information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9498,20 +10754,20 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp struct
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+    Isis Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+    Ospf Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+    Bgp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 }
 
-func (igp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp) GetEntityData() *types.CommonEntityData {
+func (igp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
     igp.EntityData.YFilter = igp.YFilter
     igp.EntityData.YangName = "igp"
     igp.EntityData.BundleName = "cisco_ios_xr"
-    igp.EntityData.ParentYangName = "igp-information"
+    igp.EntityData.ParentYangName = "node-id"
     igp.EntityData.SegmentPath = "igp"
     igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9529,9 +10785,9 @@ func (igp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp)
     return &(igp.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9542,7 +10798,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis s
     Level interface{}
 }
 
-func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
@@ -9562,9 +10818,9 @@ func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
     return &(isis.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9576,7 +10832,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf s
     Area interface{}
 }
 
-func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
@@ -9596,9 +10852,9 @@ func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp
     return &(ospf.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9610,7 +10866,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp st
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
@@ -9642,8 +10898,12 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation struct {
     // SRGB size. The type is interface{} with range: 0..4294967295.
     Size interface{}
 
-    // IGP-specific information.
-    IgpSrgb Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+    // Domain identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DomainIdentifier interface{}
+
+    // Link-state node identifier.
+    NodeId Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId
 }
 
 func (srgbInformation *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation) GetEntityData() *types.CommonEntityData {
@@ -9657,19 +10917,58 @@ func (srgbInformation *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInf
     srgbInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     srgbInformation.EntityData.Children = types.NewOrderedMap()
-    srgbInformation.EntityData.Children.Append("igp-srgb", types.YChild{"IgpSrgb", &srgbInformation.IgpSrgb})
+    srgbInformation.EntityData.Children.Append("node-id", types.YChild{"NodeId", &srgbInformation.NodeId})
     srgbInformation.EntityData.Leafs = types.NewOrderedMap()
     srgbInformation.EntityData.Leafs.Append("start", types.YLeaf{"Start", srgbInformation.Start})
     srgbInformation.EntityData.Leafs.Append("size", types.YLeaf{"Size", srgbInformation.Size})
+    srgbInformation.EntityData.Leafs.Append("domain-identifier", types.YLeaf{"DomainIdentifier", srgbInformation.DomainIdentifier})
 
     srgbInformation.EntityData.YListKeys = []string {}
 
     return &(srgbInformation.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId
+// Link-state node identifier
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Autonomous System Number. The type is interface{} with range:
+    // 0..4294967295.
+    AutonomousSystemNumber interface{}
+
+    // Link-State identifier. The type is interface{} with range: 0..4294967295.
+    LsIdentifier interface{}
+
+    // IGP-specific information.
+    Igp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
+}
+
+func (nodeId *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId) GetEntityData() *types.CommonEntityData {
+    nodeId.EntityData.YFilter = nodeId.YFilter
+    nodeId.EntityData.YangName = "node-id"
+    nodeId.EntityData.BundleName = "cisco_ios_xr"
+    nodeId.EntityData.ParentYangName = "srgb-information"
+    nodeId.EntityData.SegmentPath = "node-id"
+    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeId.EntityData.Children = types.NewOrderedMap()
+    nodeId.EntityData.Children.Append("igp", types.YChild{"Igp", &nodeId.Igp})
+    nodeId.EntityData.Leafs = types.NewOrderedMap()
+    nodeId.EntityData.Leafs.Append("autonomous-system-number", types.YLeaf{"AutonomousSystemNumber", nodeId.AutonomousSystemNumber})
+    nodeId.EntityData.Leafs.Append("ls-identifier", types.YLeaf{"LsIdentifier", nodeId.LsIdentifier})
+
+    nodeId.EntityData.YListKeys = []string {}
+
+    return &(nodeId.EntityData)
+}
+
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp
 // IGP-specific information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9677,40 +10976,40 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb s
     IgpId interface{}
 
     // ISIS information.
-    Isis Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+    Isis Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 
     // OSPF information.
-    Ospf Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+    Ospf Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 
     // BGP information.
-    Bgp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+    Bgp Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 }
 
-func (igpSrgb *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb) GetEntityData() *types.CommonEntityData {
-    igpSrgb.EntityData.YFilter = igpSrgb.YFilter
-    igpSrgb.EntityData.YangName = "igp-srgb"
-    igpSrgb.EntityData.BundleName = "cisco_ios_xr"
-    igpSrgb.EntityData.ParentYangName = "srgb-information"
-    igpSrgb.EntityData.SegmentPath = "igp-srgb"
-    igpSrgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    igpSrgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    igpSrgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (igp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xr"
+    igp.EntityData.ParentYangName = "node-id"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    igpSrgb.EntityData.Children = types.NewOrderedMap()
-    igpSrgb.EntityData.Children.Append("isis", types.YChild{"Isis", &igpSrgb.Isis})
-    igpSrgb.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igpSrgb.Ospf})
-    igpSrgb.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igpSrgb.Bgp})
-    igpSrgb.EntityData.Leafs = types.NewOrderedMap()
-    igpSrgb.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igpSrgb.IgpId})
+    igp.EntityData.Children = types.NewOrderedMap()
+    igp.EntityData.Children.Append("isis", types.YChild{"Isis", &igp.Isis})
+    igp.EntityData.Children.Append("ospf", types.YChild{"Ospf", &igp.Ospf})
+    igp.EntityData.Children.Append("bgp", types.YChild{"Bgp", &igp.Bgp})
+    igp.EntityData.Leafs = types.NewOrderedMap()
+    igp.EntityData.Leafs.Append("igp-id", types.YLeaf{"IgpId", igp.IgpId})
 
-    igpSrgb.EntityData.YListKeys = []string {}
+    igp.EntityData.YListKeys = []string {}
 
-    return &(igpSrgb.EntityData)
+    return &(igp.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis
 // ISIS information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9721,11 +11020,11 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_I
     Level interface{}
 }
 
-func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Isis) GetEntityData() *types.CommonEntityData {
+func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.YFilter = isis.YFilter
     isis.EntityData.YangName = "isis"
     isis.EntityData.BundleName = "cisco_ios_xr"
-    isis.EntityData.ParentYangName = "igp-srgb"
+    isis.EntityData.ParentYangName = "igp"
     isis.EntityData.SegmentPath = "isis"
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9741,9 +11040,9 @@ func (isis *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_Ig
     return &(isis.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf
 // OSPF information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9755,11 +11054,11 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_O
     Area interface{}
 }
 
-func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Ospf) GetEntityData() *types.CommonEntityData {
+func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.YFilter = ospf.YFilter
     ospf.EntityData.YangName = "ospf"
     ospf.EntityData.BundleName = "cisco_ios_xr"
-    ospf.EntityData.ParentYangName = "igp-srgb"
+    ospf.EntityData.ParentYangName = "igp"
     ospf.EntityData.SegmentPath = "ospf"
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9775,9 +11074,9 @@ func (ospf *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_Ig
     return &(ospf.EntityData)
 }
 
-// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp
+// Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp
 // BGP information
-type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp struct {
+type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9789,11 +11088,11 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_B
     ConfedAsn interface{}
 }
 
-func (bgp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_IgpSrgb_Bgp) GetEntityData() *types.CommonEntityData {
+func (bgp *Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Igp_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.YFilter = bgp.YFilter
     bgp.EntityData.YangName = "bgp"
     bgp.EntityData.BundleName = "cisco_ios_xr"
-    bgp.EntityData.ParentYangName = "igp-srgb"
+    bgp.EntityData.ParentYangName = "igp"
     bgp.EntityData.SegmentPath = "bgp"
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9815,16 +11114,8 @@ type Pce_PrefixInfos_PrefixInfo_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // AFName. The type is PceAfId.
-    AfName interface{}
-
-    // IPv4 address type. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Ipv4 interface{}
-
-    // IPv6 address type. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Ipv6 interface{}
+    // Prefix IP address.
+    Ip Pce_PrefixInfos_PrefixInfo_Address_Ip
 }
 
 func (address *Pce_PrefixInfos_PrefixInfo_Address) GetEntityData() *types.CommonEntityData {
@@ -9838,14 +11129,51 @@ func (address *Pce_PrefixInfos_PrefixInfo_Address) GetEntityData() *types.Common
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     address.EntityData.Children = types.NewOrderedMap()
+    address.EntityData.Children.Append("ip", types.YChild{"Ip", &address.Ip})
     address.EntityData.Leafs = types.NewOrderedMap()
-    address.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", address.AfName})
-    address.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", address.Ipv4})
-    address.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", address.Ipv6})
 
     address.EntityData.YListKeys = []string {}
 
     return &(address.EntityData)
+}
+
+// Pce_PrefixInfos_PrefixInfo_Address_Ip
+// Prefix IP address
+type Pce_PrefixInfos_PrefixInfo_Address_Ip struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AFName. The type is PceAfId.
+    AfName interface{}
+
+    // IPv4 address type. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4 interface{}
+
+    // IPv6 address type. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6 interface{}
+}
+
+func (ip *Pce_PrefixInfos_PrefixInfo_Address_Ip) GetEntityData() *types.CommonEntityData {
+    ip.EntityData.YFilter = ip.YFilter
+    ip.EntityData.YangName = "ip"
+    ip.EntityData.BundleName = "cisco_ios_xr"
+    ip.EntityData.ParentYangName = "address"
+    ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ip.EntityData.Children = types.NewOrderedMap()
+    ip.EntityData.Leafs = types.NewOrderedMap()
+    ip.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", ip.AfName})
+    ip.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", ip.Ipv4})
+    ip.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", ip.Ipv6})
+
+    ip.EntityData.YListKeys = []string {}
+
+    return &(ip.EntityData)
 }
 
 // Pce_LspSummary
@@ -10409,6 +11737,10 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_PrivateLspInformation_EventBuffer st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Event ID in range 1 - 0xFFFFFFFF. 0 is invalid. The type is interface{}
+    // with range: 0..4294967295.
+    EventId interface{}
+
     // Event message. The type is string.
     EventMessage interface{}
 
@@ -10429,6 +11761,7 @@ func (eventBuffer *Pce_TunnelDetailInfos_TunnelDetailInfo_PrivateLspInformation_
 
     eventBuffer.EntityData.Children = types.NewOrderedMap()
     eventBuffer.EntityData.Leafs = types.NewOrderedMap()
+    eventBuffer.EntityData.Leafs.Append("event-id", types.YLeaf{"EventId", eventBuffer.EventId})
     eventBuffer.EntityData.Leafs.Append("event-message", types.YLeaf{"EventMessage", eventBuffer.EventMessage})
     eventBuffer.EntityData.Leafs.Append("time-stamp", types.YLeaf{"TimeStamp", eventBuffer.TimeStamp})
 
@@ -10557,6 +11890,9 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInforma
     // Admin state. The type is LspState.
     AdministrativeState interface{}
 
+    // Maximum SID Depth. The type is interface{} with range: 0..4294967295.
+    Msd interface{}
+
     // Source address.
     SourceAddress Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInformation_SourceAddress
 
@@ -10584,6 +11920,7 @@ func (briefLspInformation *Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInfor
     briefLspInformation.EntityData.Leafs.Append("lsp-setup-type", types.YLeaf{"LspSetupType", briefLspInformation.LspSetupType})
     briefLspInformation.EntityData.Leafs.Append("operational-state", types.YLeaf{"OperationalState", briefLspInformation.OperationalState})
     briefLspInformation.EntityData.Leafs.Append("administrative-state", types.YLeaf{"AdministrativeState", briefLspInformation.AdministrativeState})
+    briefLspInformation.EntityData.Leafs.Append("msd", types.YLeaf{"Msd", briefLspInformation.Msd})
 
     briefLspInformation.EntityData.YListKeys = []string {}
 

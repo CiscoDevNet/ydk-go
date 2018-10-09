@@ -5,7 +5,7 @@
 // for the following management objects:
 //   optics-oper: Optics operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package controller_optics_oper
 
@@ -36,6 +36,44 @@ const (
 
     // Extended
     OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
+)
+
+// OpticsModulation represents Optics modulation
+type OpticsModulation string
+
+const (
+    // BPSK
+    OpticsModulation_mod_bpsk OpticsModulation = "mod-bpsk"
+
+    // QPSK
+    OpticsModulation_mod_qpsk OpticsModulation = "mod-qpsk"
+
+    // 8QAM
+    OpticsModulation_mod_8qam OpticsModulation = "mod-8qam"
+
+    // 16QAM
+    OpticsModulation_mod_16qam OpticsModulation = "mod-16qam"
+
+    // 32QAM
+    OpticsModulation_mod_32qam OpticsModulation = "mod-32qam"
+
+    // 64QAM
+    OpticsModulation_mod_64qam OpticsModulation = "mod-64qam"
+
+    // BPSK QPSK
+    OpticsModulation_mod_bpsk_qpsk OpticsModulation = "mod-bpsk-qpsk"
+
+    // QPSK 8QAM
+    OpticsModulation_mod_qpsk_8qam OpticsModulation = "mod-qpsk-8qam"
+
+    // 8QAM 16QAM
+    OpticsModulation_mod_8qam_16qam OpticsModulation = "mod-8qam-16qam"
+
+    // 16QAM 32QAM
+    OpticsModulation_mode_16qam_32qam OpticsModulation = "mode-16qam-32qam"
+
+    // 32QAM 64QAM
+    OpticsModulation_mod_32qam_64qam OpticsModulation = "mod-32qam-64qam"
 )
 
 // OpticsAmplifierControlMode represents Optics amplifier control mode
@@ -164,6 +202,20 @@ const (
     OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
 )
 
+// OpticsAinsStateEt represents Optics ains state et
+type OpticsAinsStateEt string
+
+const (
+    // None
+    OpticsAinsStateEt_none OpticsAinsStateEt = "none"
+
+    // Running
+    OpticsAinsStateEt_active_running OpticsAinsStateEt = "active-running"
+
+    // Pending
+    OpticsAinsStateEt_active_pending OpticsAinsStateEt = "active-pending"
+)
+
 // FiberConnector represents Fiber connector
 type FiberConnector string
 
@@ -220,6 +272,12 @@ const (
 
     // CFP2
     OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
+
+    // CFP2 ACO
+    OpticsFormFactor_cfp2_aco OpticsFormFactor = "cfp2-aco"
+
+    // CFP2 DCO
+    OpticsFormFactor_cfp2_dco OpticsFormFactor = "cfp2-dco"
 
     // CFP4
     OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
@@ -300,6 +358,9 @@ const (
 
     // Apr
     OpticsLaserState_apr OpticsLaserState = "apr"
+
+    // N/A
+    OpticsLaserState_na OpticsLaserState = "na"
 )
 
 // OpticsFec represents Optics fec
@@ -327,7 +388,7 @@ const (
     // FEC DISABLED
     OpticsFec_fec_not_set OpticsFec = "fec-not-set"
 
-    // FEC CL91 
+    // FEC CL91
     OpticsFec_fec_cl91 OpticsFec = "fec-cl91"
 )
 
@@ -543,6 +604,9 @@ const (
 
     // TenGigE Edge Performance 1 Lane
     OpticsPhy_ten_gig_e_edge_performance OpticsPhy = "ten-gig-e-edge-performance"
+
+    // OneGig CSFP optics
+    OpticsPhy_one_gig_csfp OpticsPhy = "one-gig-csfp"
 )
 
 // OpticsTas represents Optics tas
@@ -717,23 +781,23 @@ type OpticsOper_OpticsPorts_OpticsPort struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Optics operational data.
-    OpticsDwdmCarrrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
+    OpticsDwdmCarrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
 
     // Ots Spectrum Operational data.
     OtsSpectrumInfo OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo
+
+    // Optics operational data.
+    OpticsDwdmCarrierChannelMapFlexi OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
 
     // Optics operational data.
     OpticsInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
 
     // All Optics Port operational data.
     OpticsLanes OpticsOper_OpticsPorts_OpticsPort_OpticsLanes
-
-    // Optics operational data.
-    OpticsDwdmCarrrierChannelMapFlexi OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi
 
     // Optics operational data.
     OpticsDbInfo OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo
@@ -750,11 +814,11 @@ func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetEntityData() *types.Comm
     opticsPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     opticsPort.EntityData.Children = types.NewOrderedMap()
-    opticsPort.EntityData.Children.Append("optics-dwdm-carrrier-channel-map", types.YChild{"OpticsDwdmCarrrierChannelMap", &opticsPort.OpticsDwdmCarrrierChannelMap})
+    opticsPort.EntityData.Children.Append("optics-dwdm-carrier-channel-map", types.YChild{"OpticsDwdmCarrierChannelMap", &opticsPort.OpticsDwdmCarrierChannelMap})
     opticsPort.EntityData.Children.Append("ots-spectrum-info", types.YChild{"OtsSpectrumInfo", &opticsPort.OtsSpectrumInfo})
+    opticsPort.EntityData.Children.Append("optics-dwdm-carrier-channel-map-flexi", types.YChild{"OpticsDwdmCarrierChannelMapFlexi", &opticsPort.OpticsDwdmCarrierChannelMapFlexi})
     opticsPort.EntityData.Children.Append("optics-info", types.YChild{"OpticsInfo", &opticsPort.OpticsInfo})
     opticsPort.EntityData.Children.Append("optics-lanes", types.YChild{"OpticsLanes", &opticsPort.OpticsLanes})
-    opticsPort.EntityData.Children.Append("optics-dwdm-carrrier-channel-map-flexi", types.YChild{"OpticsDwdmCarrrierChannelMapFlexi", &opticsPort.OpticsDwdmCarrrierChannelMapFlexi})
     opticsPort.EntityData.Children.Append("optics-db-info", types.YChild{"OpticsDbInfo", &opticsPort.OpticsDbInfo})
     opticsPort.EntityData.Leafs = types.NewOrderedMap()
     opticsPort.EntityData.Leafs.Append("name", types.YLeaf{"Name", opticsPort.Name})
@@ -764,9 +828,9 @@ func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetEntityData() *types.Comm
     return &(opticsPort.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
 // Optics operational data
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -782,38 +846,38 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap struct {
     DwdmCarrierMax interface{}
 
     // DWDM carrier mapping info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo.
-    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
 }
 
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetEntityData() *types.CommonEntityData {
-    opticsDwdmCarrrierChannelMap.EntityData.YFilter = opticsDwdmCarrrierChannelMap.YFilter
-    opticsDwdmCarrrierChannelMap.EntityData.YangName = "optics-dwdm-carrrier-channel-map"
-    opticsDwdmCarrrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
-    opticsDwdmCarrrierChannelMap.EntityData.ParentYangName = "optics-port"
-    opticsDwdmCarrrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrrier-channel-map"
-    opticsDwdmCarrrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsDwdmCarrrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsDwdmCarrrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrierChannelMap.EntityData.YFilter = opticsDwdmCarrierChannelMap.YFilter
+    opticsDwdmCarrierChannelMap.EntityData.YangName = "optics-dwdm-carrier-channel-map"
+    opticsDwdmCarrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrierChannelMap.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map"
+    opticsDwdmCarrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    opticsDwdmCarrrierChannelMap.EntityData.Children = types.NewOrderedMap()
-    opticsDwdmCarrrierChannelMap.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
-    for i := range opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo {
-        opticsDwdmCarrrierChannelMap.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i]})
+    opticsDwdmCarrierChannelMap.EntityData.Children = types.NewOrderedMap()
+    opticsDwdmCarrierChannelMap.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
+    for i := range opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo {
+        opticsDwdmCarrierChannelMap.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]})
     }
-    opticsDwdmCarrrierChannelMap.EntityData.Leafs = types.NewOrderedMap()
-    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrrierChannelMap.DwdmCarrierBand})
-    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrrierChannelMap.DwdmCarrierMin})
-    opticsDwdmCarrrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrrierChannelMap.DwdmCarrierMax})
+    opticsDwdmCarrierChannelMap.EntityData.Leafs = types.NewOrderedMap()
+    opticsDwdmCarrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMap.DwdmCarrierBand})
+    opticsDwdmCarrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMap.DwdmCarrierMin})
+    opticsDwdmCarrierChannelMap.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMap.DwdmCarrierMax})
 
-    opticsDwdmCarrrierChannelMap.EntityData.YListKeys = []string {}
+    opticsDwdmCarrierChannelMap.EntityData.YListKeys = []string {}
 
-    return &(opticsDwdmCarrrierChannelMap.EntityData)
+    return &(opticsDwdmCarrierChannelMap.EntityData)
 }
 
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
 // DWDM carrier mapping info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo struct {
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -831,11 +895,11 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierM
     Wavelength interface{}
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
     dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
     dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
-    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrrier-channel-map"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map"
     dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
     dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -988,6 +1052,95 @@ func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_
     return &(spectrumSlicePowerInfo.EntityData)
 }
 
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
+// Optics operational data
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DWDM carrier band. The type is OpticsWaveBand.
+    DwdmCarrierBand interface{}
+
+    // Lowest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMin interface{}
+
+    // Highest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMax interface{}
+
+    // DWDM carrier mapping info. The type is slice of
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
+}
+
+func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrierChannelMapFlexi.EntityData.YFilter = opticsDwdmCarrierChannelMapFlexi.YFilter
+    opticsDwdmCarrierChannelMapFlexi.EntityData.YangName = "optics-dwdm-carrier-channel-map-flexi"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map-flexi"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Children = types.NewOrderedMap()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
+    for i := range opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo {
+        opticsDwdmCarrierChannelMapFlexi.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]})
+    }
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs = types.NewOrderedMap()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierBand})
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMin})
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMax})
+
+    opticsDwdmCarrierChannelMapFlexi.EntityData.YListKeys = []string {}
+
+    return &(opticsDwdmCarrierChannelMapFlexi.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
+// DWDM carrier mapping info
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ITU channel number. The type is interface{} with range: 0..4294967295.
+    ItuChanNum interface{}
+
+    // G694 channel number. The type is interface{} with range:
+    // -2147483648..2147483647.
+    G694ChanNum interface{}
+
+    // Frequency. The type is string with length: 0..32.
+    Frequency interface{}
+
+    // Wavelength. The type is string with length: 0..32.
+    Wavelength interface{}
+}
+
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
+    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map-flexi"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dwdmCarrierMapInfo.EntityData.Children = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs = types.NewOrderedMap()
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("itu-chan-num", types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("g694-chan-num", types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency})
+    dwdmCarrierMapInfo.EntityData.Leafs.Append("wavelength", types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength})
+
+    dwdmCarrierMapInfo.EntityData.YListKeys = []string {}
+
+    return &(dwdmCarrierMapInfo.EntityData)
+}
+
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
 // Optics operational data
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
@@ -1015,7 +1168,8 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Current ITU DWDM Carrier channel number. The type is string.
     DwdmCarrierChannel interface{}
 
-    // DWDM Carrier frequency read from hw in the unit 1THz. The type is string.
+    // DWDM Carrier frequency read from hw in the units of  1THz. The type is
+    // string.
     DwdmCarrierFrequency interface{}
 
     // Wavelength of color optics 0.001nm. The type is string.
@@ -1045,7 +1199,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // range: -2147483648..2147483647.
     TxHighThreshold interface{}
 
-    // LBC high threshold default value in unit of 0 .001mA. The type is
+    // LBC high threshold default value in units of 0 .001mA. The type is
     // interface{} with range: -2147483648..2147483647.
     LbcThHighDefault interface{}
 
@@ -1053,20 +1207,20 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // interface{} with range: -2147483648..2147483647.
     LbcThLowDefault interface{}
 
-    // Temp Low threshold value in the units 0.01 C. The type is interface{} with
+    // Temp Low threshold value in the units 0.01C. The type is interface{} with
     // range: -2147483648..2147483647.
     TempLowThreshold interface{}
 
-    // Temp High threshold value in the units of 0.01 C. The type is interface{}
+    // Temp High threshold value in the units of 0.01C. The type is interface{}
     // with range: -2147483648..2147483647.
     TempHighThreshold interface{}
 
-    // Volt Low threshold value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Volt Low threshold value in the units of 0.01V. The type is interface{}
+    // with range: -2147483648..2147483647.
     VoltLowThreshold interface{}
 
-    // Volt High threshold value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Volt High threshold value in the units of 0.01V. The type is interface{}
+    // with range: -2147483648..2147483647.
     VoltHighThreshold interface{}
 
     // Chromatic Dispersion ps/nm. The type is interface{} with range:
@@ -1123,6 +1277,9 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // OpticsLaserState.
     LaserState interface{}
 
+    // Available Modulation Types. The type is OpticsModulation.
+    ModulationType interface{}
+
     // Showing Current Colour of led state. The type is OpticsLedState.
     LedState interface{}
 
@@ -1136,18 +1293,19 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Optics physical type. The type is OpticsPhy.
     PhyType interface{}
 
-    // Configured Tx power value in 0.1 dB. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Configured Tx power value in units of 0.1dB. The type is interface{} with
+    // range: -2147483648..2147483647.
     CfgTxPower interface{}
 
     // TX Power Configuration is supported or not. The type is bool.
     CfgTxPowerConfigurable interface{}
 
-    // Temperature value. The type is interface{} with range:
+    // Temperature value in units of 0.01 C. The type is interface{} with range:
     // -2147483648..2147483647.
     Temperature interface{}
 
-    // Voltage value. The type is interface{} with range: -2147483648..2147483647.
+    // Voltage value in units of 0.01V. The type is interface{} with range:
+    // -2147483648..2147483647.
     Voltage interface{}
 
     // Display Volt/Temp ?. The type is bool.
@@ -1159,25 +1317,29 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Optics FEC. The type is OpticsFec.
     OpticsFec interface{}
 
+    // PM enabled or not. The type is interface{} with range:
+    // -2147483648..2147483647.
+    SkipSnmpPmTable interface{}
+
     // Showing port type. The type is OpticsPort.
     PortType interface{}
 
     // Showing port status. The type is OpticsPortStatus.
     PortStatus interface{}
 
-    // Rx Voa Attenuation in the unit of 0.01dBm. The type is interface{} with
+    // Rx Voa Attenuation in the units of 0.01dBm. The type is interface{} with
     // range: -2147483648..2147483647.
     RxVoaAttenuation interface{}
 
-    // Tx Voa Attenuation in the unit of 0.01dBm. The type is interface{} with
+    // Tx Voa Attenuation in the units of 0.01dBm. The type is interface{} with
     // range: -2147483648..2147483647.
     TxVoaAttenuation interface{}
 
-    // Ampli Gain in the unit of 0.01dBm. The type is interface{} with range:
+    // Ampli Gain in the units of 0.01dBm. The type is interface{} with range:
     // -2147483648..2147483647.
     AmpliGain interface{}
 
-    // Ampli Tilt in the unit of 0.01dBm. The type is interface{} with range:
+    // Ampli Tilt in the units of 0.01dBm. The type is interface{} with range:
     // -2147483648..2147483647.
     AmpliTilt interface{}
 
@@ -1187,12 +1349,12 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // tx power th configurable. The type is bool.
     TxPowerThConfigurable interface{}
 
-    // rx voa attenuation config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // RX VOA attenuation configured value in units of 0.1dB. The type is
+    // interface{} with range: -2147483648..2147483647.
     RxVoaAttenuationConfigVal interface{}
 
-    // tx voa attenuation config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // TX VOA attenuation configured value in units of 0.1dB. The type is
+    // interface{} with range: -2147483648..2147483647.
     TxVoaAttenuationConfigVal interface{}
 
     // ampli control mode config val. The type is OpticsAmplifierControlMode.
@@ -1201,28 +1363,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // ampli gain range config val. The type is OpticsAmplifierGainRange.
     AmpliGainRangeConfigVal interface{}
 
-    // ampli gain config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Ampli gain configured value in units of 0.1dB. The type is interface{} with
+    // range: -2147483648..2147483647.
     AmpliGainConfigVal interface{}
 
-    // ampli tilt config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Ampli tilt configured value in units of 0.1dB. The type is interface{} with
+    // range: -2147483648..2147483647.
     AmpliTiltConfigVal interface{}
 
-    // ampli channel power config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Ampli channel power configured value in units of 0.1dBm. The type is
+    // interface{} with range: -2147483648..2147483647.
     AmpliChannelPowerConfigVal interface{}
 
-    // channel power max delta config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Channel power max delta configured value in units of 0.1 dBm. The type is
+    // interface{} with range: -2147483648..2147483647.
     ChannelPowerMaxDeltaConfigVal interface{}
 
-    // ampli gain thr deg low config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Ampli gain low degrade threshold configured value in units of 0.1dBm. The
+    // type is interface{} with range: -2147483648..2147483647.
     AmpliGainThrDegLowConfigVal interface{}
 
-    // ampli gain thr deg high config val. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Ampli gain high degrade threshold configured value in units of 0.1dBm. The
+    // type is interface{} with range: -2147483648..2147483647.
     AmpliGainThrDegHighConfigVal interface{}
 
     // osri config val. The type is bool.
@@ -1238,12 +1400,12 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // OpticsAmplifierSafetyControlMode.
     SafetyControlModeConfigVal interface{}
 
-    // Total Receive Power for Multi-Lane Optics in dBm. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // Total Receive Power for Multi-Lane Optics in units of 0.01 dBm. The type is
+    // interface{} with range: -2147483648..2147483647.
     TotalRxPower interface{}
 
-    // Total Transmit Power for Multi-Lane Optics in dBm. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // Total Transmit Power for Multi-Lane Optics in units of 0.01 dBm. The type
+    // is interface{} with range: -2147483648..2147483647.
     TotalTxPower interface{}
 
     // Is BO configured ?. The type is bool.
@@ -1271,7 +1433,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // interface{} with range: -2147483648..2147483647.
     TxHighWarningThreshold interface{}
 
-    // LBC high Warning threshold default value in unit of 0.001mA. The type is
+    // LBC high Warning threshold default value in units of 0.001mA. The type is
     // interface{} with range: -2147483648..2147483647.
     LbcThHighWarningDefault interface{}
 
@@ -1279,20 +1441,20 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // interface{} with range: -2147483648..2147483647.
     LbcThLowWarningDefault interface{}
 
-    // Temp Low warning threshold value in the units 0 .01 C. The type is
+    // Temp Low warning threshold value in the units 0 .01C. The type is
     // interface{} with range: -2147483648..2147483647.
     TempLowWarningThreshold interface{}
 
-    // Temp High warning threshold value in the units of 0.01 C. The type is
+    // Temp High warning threshold value in the units of 0.01C. The type is
     // interface{} with range: -2147483648..2147483647.
     TempHighWarningThreshold interface{}
 
-    // Volt Low warning threshold value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Volt Low warning threshold value in the units of 0.01V. The type is
+    // interface{} with range: -2147483648..2147483647.
     VoltLowWarningThreshold interface{}
 
-    // Volt High warning threshold value. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // Volt High warning threshold value in the units of 0.01V. The type is
+    // interface{} with range: -2147483648..2147483647.
     VoltHighWarningThreshold interface{}
 
     // Controller description string. The type is string.
@@ -1323,6 +1485,20 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // with range: -2147483648..2147483647.
     RxLowThresholdCurrent interface{}
 
+    // RX Span Loss in units of 0.01 dB. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RxSpanLoss interface{}
+
+    // TX Span Loss in units of 0.01 dB. The type is interface{} with range:
+    // -2147483648..2147483647.
+    TxSpanLoss interface{}
+
+    // Baud Rate in GBd. The type is string.
+    BaudRate interface{}
+
+    // Bits per Symbol. The type is string.
+    BitsPerSymbol interface{}
+
     // Network SRLG information.
     NetworkSrlgInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo
 
@@ -1343,6 +1519,9 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
 
     // Extended DOM alarm Information.
     ExtendedAlarmAlarmInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo
+
+    // AINS information.
+    AinsInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo
 
     // Lane information. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData.
@@ -1367,6 +1546,7 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Children.Append("ext-param-val", types.YChild{"ExtParamVal", &opticsInfo.ExtParamVal})
     opticsInfo.EntityData.Children.Append("ext-param-threshold-val", types.YChild{"ExtParamThresholdVal", &opticsInfo.ExtParamThresholdVal})
     opticsInfo.EntityData.Children.Append("extended-alarm-alarm-info", types.YChild{"ExtendedAlarmAlarmInfo", &opticsInfo.ExtendedAlarmAlarmInfo})
+    opticsInfo.EntityData.Children.Append("ains-info", types.YChild{"AinsInfo", &opticsInfo.AinsInfo})
     opticsInfo.EntityData.Children.Append("lane-data", types.YChild{"LaneData", nil})
     for i := range opticsInfo.LaneData {
         opticsInfo.EntityData.Children.Append(types.GetSegmentPath(opticsInfo.LaneData[i]), types.YChild{"LaneData", opticsInfo.LaneData[i]})
@@ -1409,6 +1589,7 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Leafs.Append("phase-noise", types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise})
     opticsInfo.EntityData.Leafs.Append("pm-enable", types.YLeaf{"PmEnable", opticsInfo.PmEnable})
     opticsInfo.EntityData.Leafs.Append("laser-state", types.YLeaf{"LaserState", opticsInfo.LaserState})
+    opticsInfo.EntityData.Leafs.Append("modulation-type", types.YLeaf{"ModulationType", opticsInfo.ModulationType})
     opticsInfo.EntityData.Leafs.Append("led-state", types.YLeaf{"LedState", opticsInfo.LedState})
     opticsInfo.EntityData.Leafs.Append("controller-state", types.YLeaf{"ControllerState", opticsInfo.ControllerState})
     opticsInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", opticsInfo.FormFactor})
@@ -1420,6 +1601,7 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Leafs.Append("display-volt-temp", types.YLeaf{"DisplayVoltTemp", opticsInfo.DisplayVoltTemp})
     opticsInfo.EntityData.Leafs.Append("cd-configurable", types.YLeaf{"CdConfigurable", opticsInfo.CdConfigurable})
     opticsInfo.EntityData.Leafs.Append("optics-fec", types.YLeaf{"OpticsFec", opticsInfo.OpticsFec})
+    opticsInfo.EntityData.Leafs.Append("skip-snmp-pm-table", types.YLeaf{"SkipSnmpPmTable", opticsInfo.SkipSnmpPmTable})
     opticsInfo.EntityData.Leafs.Append("port-type", types.YLeaf{"PortType", opticsInfo.PortType})
     opticsInfo.EntityData.Leafs.Append("port-status", types.YLeaf{"PortStatus", opticsInfo.PortStatus})
     opticsInfo.EntityData.Leafs.Append("rx-voa-attenuation", types.YLeaf{"RxVoaAttenuation", opticsInfo.RxVoaAttenuation})
@@ -1466,6 +1648,10 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Leafs.Append("is-optics-type-string-valid", types.YLeaf{"IsOpticsTypeStringValid", opticsInfo.IsOpticsTypeStringValid})
     opticsInfo.EntityData.Leafs.Append("optics-type-str", types.YLeaf{"OpticsTypeStr", opticsInfo.OpticsTypeStr})
     opticsInfo.EntityData.Leafs.Append("rx-low-threshold-current", types.YLeaf{"RxLowThresholdCurrent", opticsInfo.RxLowThresholdCurrent})
+    opticsInfo.EntityData.Leafs.Append("rx-span-loss", types.YLeaf{"RxSpanLoss", opticsInfo.RxSpanLoss})
+    opticsInfo.EntityData.Leafs.Append("tx-span-loss", types.YLeaf{"TxSpanLoss", opticsInfo.TxSpanLoss})
+    opticsInfo.EntityData.Leafs.Append("baud-rate", types.YLeaf{"BaudRate", opticsInfo.BaudRate})
+    opticsInfo.EntityData.Leafs.Append("bits-per-symbol", types.YLeaf{"BitsPerSymbol", opticsInfo.BitsPerSymbol})
 
     opticsInfo.EntityData.YListKeys = []string {}
 
@@ -1545,16 +1731,16 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // High Rx Power in uints of 0.1 dBm.
+    // High Rx Power in units of 0.1 dBm.
     HighRxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower
 
-    // Low Rx Power in uints of 0.1 dBm.
+    // Low Rx Power in units of 0.1 dBm.
     LowRxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower
 
-    // High Tx Power in uints of 0.1 dBm.
+    // High Tx Power in units of 0.1 dBm.
     HighTxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower
 
-    // Low Tx Power in uints of 0.1 dBm.
+    // Low Tx Power in units of 0.1 dBm.
     LowTxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower
 
     // High laser bias current in units of percentage.
@@ -1572,52 +1758,52 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
     // High Voltage alarm.
     HighVoltage OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighVoltage
 
-    // High Rx1 Power in uints of 0.1 dBm.
+    // High Rx1 Power in units of 0.1 dBm.
     HighRx1Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power
 
-    // High Rx2 Power in uints of 0.1 dBm.
+    // High Rx2 Power in units of 0.1 dBm.
     HighRx2Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power
 
-    // High Rx3 Power in uints of 0.1 dBm.
+    // High Rx3 Power in units of 0.1 dBm.
     HighRx3Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power
 
-    // High Rx4 Power in uints of 0.1 dBm.
+    // High Rx4 Power in units of 0.1 dBm.
     HighRx4Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power
 
-    // Low Rx1 Power in uints of 0.1 dBm.
+    // Low Rx1 Power in units of 0.1 dBm.
     LowRx1Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power
 
-    // Low Rx2 Power in uints of 0.1 dBm.
+    // Low Rx2 Power in units of 0.1 dBm.
     LowRx2Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power
 
-    // Low Rx3 Power in uints of 0.1 dBm.
+    // Low Rx3 Power in units of 0.1 dBm.
     LowRx3Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power
 
-    // Low Rx4 Power in uints of 0.1 dBm.
+    // Low Rx4 Power in units of 0.1 dBm.
     LowRx4Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power
 
-    // High Tx1 Power in uints of 0.1 dBm.
+    // High Tx1 Power in units of 0.1 dBm.
     HighTx1Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power
 
-    // High Tx2 Power in uints of 0.1 dBm.
+    // High Tx2 Power in units of 0.1 dBm.
     HighTx2Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power
 
-    // High Tx3 Power in uints of 0.1 dBm.
+    // High Tx3 Power in units of 0.1 dBm.
     HighTx3Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power
 
-    // High Tx4 Power in uints of 0.1 dBm.
+    // High Tx4 Power in units of 0.1 dBm.
     HighTx4Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power
 
-    // Low Tx1 Power in uints of 0.1 dBm.
+    // Low Tx1 Power in units of 0.1 dBm.
     LowTx1Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power
 
-    // Low Tx2 Power in uints of 0.1 dBm.
+    // Low Tx2 Power in units of 0.1 dBm.
     LowTx2Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power
 
-    // Low Tx3 Power in uints of 0.1 dBm.
+    // Low Tx3 Power in units of 0.1 dBm.
     LowTx3Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power
 
-    // Low Tx4 Power in uints of 0.1 dBm.
+    // Low Tx4 Power in units of 0.1 dBm.
     LowTx4Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power
 
     // High Tx1 laser bias current in units of percentage.
@@ -1757,7 +1943,7 @@ func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmI
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower
-// High Rx Power in uints of 0.1 dBm
+// High Rx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1790,7 +1976,7 @@ func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower
-// Low Rx Power in uints of 0.1 dBm
+// Low Rx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1823,7 +2009,7 @@ func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_L
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower
-// High Tx Power in uints of 0.1 dBm
+// High Tx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1856,7 +2042,7 @@ func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower
-// Low Tx Power in uints of 0.1 dBm
+// Low Tx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2054,7 +2240,7 @@ func (highVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power
-// High Rx1 Power in uints of 0.1 dBm
+// High Rx1 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2087,7 +2273,7 @@ func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power
-// High Rx2 Power in uints of 0.1 dBm
+// High Rx2 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2120,7 +2306,7 @@ func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power
-// High Rx3 Power in uints of 0.1 dBm
+// High Rx3 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2153,7 +2339,7 @@ func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power
-// High Rx4 Power in uints of 0.1 dBm
+// High Rx4 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2186,7 +2372,7 @@ func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power
-// Low Rx1 Power in uints of 0.1 dBm
+// Low Rx1 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2219,7 +2405,7 @@ func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power
-// Low Rx2 Power in uints of 0.1 dBm
+// Low Rx2 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2252,7 +2438,7 @@ func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power
-// Low Rx3 Power in uints of 0.1 dBm
+// Low Rx3 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2285,7 +2471,7 @@ func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power
-// Low Rx4 Power in uints of 0.1 dBm
+// Low Rx4 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2318,7 +2504,7 @@ func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power
-// High Tx1 Power in uints of 0.1 dBm
+// High Tx1 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2351,7 +2537,7 @@ func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power
-// High Tx2 Power in uints of 0.1 dBm
+// High Tx2 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2384,7 +2570,7 @@ func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power
-// High Tx3 Power in uints of 0.1 dBm
+// High Tx3 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2417,7 +2603,7 @@ func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power
-// High Tx4 Power in uints of 0.1 dBm
+// High Tx4 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2450,7 +2636,7 @@ func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power
-// Low Tx1 Power in uints of 0.1 dBm
+// Low Tx1 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2483,7 +2669,7 @@ func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power
-// Low Tx2 Power in uints of 0.1 dBm
+// Low Tx2 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2516,7 +2702,7 @@ func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power
-// Low Tx3 Power in uints of 0.1 dBm
+// Low Tx3 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -2549,7 +2735,7 @@ func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power
-// Low Tx4 Power in uints of 0.1 dBm
+// Low Tx4 Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -3354,10 +3540,10 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Low Tx Power in uints of 0.1 dBm.
+    // Low Tx Power in units of 0.1 dBm.
     LowTxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower
 
-    // Low Rx Power in uints of 0.1 dBm.
+    // Low Rx Power in units of 0.1 dBm.
     LowRxPower OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower
 
     // Rx LOS_P.
@@ -3422,7 +3608,7 @@ func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) G
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower
-// Low Tx Power in uints of 0.1 dBm
+// Low Tx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -3455,7 +3641,7 @@ func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowT
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower
-// Low Rx Power in uints of 0.1 dBm
+// Low Rx Power in units of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -3868,7 +4054,7 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo struct {
     // Ethernet Compliance Code. The type is EthernetPmd.
     EthernetComplianceCode interface{}
 
-    // Internal Temperature in C. The type is interface{} with range:
+    // Internal Temperature in units of C. The type is interface{} with range:
     // -2147483648..2147483647.
     InternalTemperature interface{}
 }
@@ -5524,6 +5710,45 @@ func (hiUncorrectedBerCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_Extended
     return &(hiUncorrectedBerCur.EntityData)
 }
 
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo
+// AINS information
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AINS State. The type is OpticsAinsStateEt.
+    AinsState interface{}
+
+    // AINS Timer in Minutes. The type is interface{} with range: 0..4294967295.
+    // Units are minute.
+    AinsTimerMinutes interface{}
+
+    // AINS Remaining Seconds. The type is interface{} with range: 0..4294967295.
+    // Units are second.
+    AinsRemainingSecs interface{}
+}
+
+func (ainsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_AinsInfo) GetEntityData() *types.CommonEntityData {
+    ainsInfo.EntityData.YFilter = ainsInfo.YFilter
+    ainsInfo.EntityData.YangName = "ains-info"
+    ainsInfo.EntityData.BundleName = "cisco_ios_xr"
+    ainsInfo.EntityData.ParentYangName = "optics-info"
+    ainsInfo.EntityData.SegmentPath = "ains-info"
+    ainsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ainsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ainsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ainsInfo.EntityData.Children = types.NewOrderedMap()
+    ainsInfo.EntityData.Leafs = types.NewOrderedMap()
+    ainsInfo.EntityData.Leafs.Append("ains-state", types.YLeaf{"AinsState", ainsInfo.AinsState})
+    ainsInfo.EntityData.Leafs.Append("ains-timer-minutes", types.YLeaf{"AinsTimerMinutes", ainsInfo.AinsTimerMinutes})
+    ainsInfo.EntityData.Leafs.Append("ains-remaining-secs", types.YLeaf{"AinsRemainingSecs", ainsInfo.AinsRemainingSecs})
+
+    ainsInfo.EntityData.YListKeys = []string {}
+
+    return &(ainsInfo.EntityData)
+}
+
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData
 // Lane information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData struct {
@@ -5542,27 +5767,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData struct {
     // 0..4294967295.
     LaserBiasCurrentMilliAmps interface{}
 
-    // Transmit power in the unit of 0.01dBm. The type is interface{} with range:
+    // Transmit power in the units of 0.01dBm. The type is interface{} with range:
     // -2147483648..2147483647.
     TransmitPower interface{}
 
-    // Transponder receive power in the unit of 0.01dBm. The type is interface{}
+    // Transponder receive power in the units of 0 .01dBm. The type is interface{}
     // with range: -2147483648..2147483647.
     ReceivePower interface{}
 
-    // Transponder receive signal power in the unit of 0.01dBm. The type is
+    // Transponder receive signal power in the units of 0.01dBm. The type is
     // interface{} with range: -2147483648..2147483647.
     ReceiveSignalPower interface{}
 
-    // Transmit Signal power in the unit of 0.01dBm. The type is interface{} with
+    // Transmit Signal power in the units of 0.01dBm. The type is interface{} with
     // range: -2147483648..2147483647.
     TransmitSignalPower interface{}
 
-    // Output frequency read from hw in the unit 100MHz. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // Output frequency read from hw in the units of 100MHz. The type is
+    // interface{} with range: -2147483648..2147483647.
     OutputFrequency interface{}
 
-    // Frequency Offset read from hw in unit of MHz. The type is interface{} with
+    // Frequency Offset read from hw in units of MHz. The type is interface{} with
     // range: -2147483648..2147483647.
     FrequencyOffset interface{}
 
@@ -5863,27 +6088,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane struct {
     // 0..4294967295.
     LaserBiasCurrentMilliAmps interface{}
 
-    // Transmit power in the unit of 0.01dBm. The type is interface{} with range:
+    // Transmit power in the units of 0.01dBm. The type is interface{} with range:
     // -2147483648..2147483647.
     TransmitPower interface{}
 
-    // Transponder receive power in the unit of 0.01dBm. The type is interface{}
+    // Transponder receive power in the units of 0 .01dBm. The type is interface{}
     // with range: -2147483648..2147483647.
     ReceivePower interface{}
 
-    // Transponder receive signal power in the unit of 0.01dBm. The type is
+    // Transponder receive signal power in the units of 0.01dBm. The type is
     // interface{} with range: -2147483648..2147483647.
     ReceiveSignalPower interface{}
 
-    // Transmit Signal power in the unit of 0.01dBm. The type is interface{} with
+    // Transmit Signal power in the units of 0.01dBm. The type is interface{} with
     // range: -2147483648..2147483647.
     TransmitSignalPower interface{}
 
-    // Output frequency read from hw in the unit 100MHz. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // Output frequency read from hw in the units of 100MHz. The type is
+    // interface{} with range: -2147483648..2147483647.
     OutputFrequency interface{}
 
-    // Frequency Offset read from hw in unit of MHz. The type is interface{} with
+    // Frequency Offset read from hw in units of MHz. The type is interface{} with
     // range: -2147483648..2147483647.
     FrequencyOffset interface{}
 
@@ -6128,95 +6353,6 @@ func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlar
     highLbc.EntityData.YListKeys = []string {}
 
     return &(highLbc.EntityData)
-}
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi
-// Optics operational data
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // DWDM carrier band. The type is OpticsWaveBand.
-    DwdmCarrierBand interface{}
-
-    // Lowest DWDM carrier supported. The type is interface{} with range:
-    // 0..4294967295.
-    DwdmCarrierMin interface{}
-
-    // Highest DWDM carrier supported. The type is interface{} with range:
-    // 0..4294967295.
-    DwdmCarrierMax interface{}
-
-    // DWDM carrier mapping info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo.
-    DwdmCarrierMapInfo []*OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo
-}
-
-func (opticsDwdmCarrrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi) GetEntityData() *types.CommonEntityData {
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.YFilter = opticsDwdmCarrrierChannelMapFlexi.YFilter
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.YangName = "optics-dwdm-carrrier-channel-map-flexi"
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrrier-channel-map-flexi"
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Children = types.NewOrderedMap()
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Children.Append("dwdm-carrier-map-info", types.YChild{"DwdmCarrierMapInfo", nil})
-    for i := range opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo {
-        opticsDwdmCarrrierChannelMapFlexi.EntityData.Children.Append(types.GetSegmentPath(opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo[i]), types.YChild{"DwdmCarrierMapInfo", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo[i]})
-    }
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs = types.NewOrderedMap()
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-band", types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierBand})
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-min", types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMin})
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.Leafs.Append("dwdm-carrier-max", types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMax})
-
-    opticsDwdmCarrrierChannelMapFlexi.EntityData.YListKeys = []string {}
-
-    return &(opticsDwdmCarrrierChannelMapFlexi.EntityData)
-}
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo
-// DWDM carrier mapping info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // ITU channel number. The type is interface{} with range: 0..4294967295.
-    ItuChanNum interface{}
-
-    // G694 channel number. The type is interface{} with range:
-    // -2147483648..2147483647.
-    G694ChanNum interface{}
-
-    // Frequency. The type is string with length: 0..32.
-    Frequency interface{}
-
-    // Wavelength. The type is string with length: 0..32.
-    Wavelength interface{}
-}
-
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMapFlexi_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
-    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
-    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
-    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
-    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrrier-channel-map-flexi"
-    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
-    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    dwdmCarrierMapInfo.EntityData.Children = types.NewOrderedMap()
-    dwdmCarrierMapInfo.EntityData.Leafs = types.NewOrderedMap()
-    dwdmCarrierMapInfo.EntityData.Leafs.Append("itu-chan-num", types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum})
-    dwdmCarrierMapInfo.EntityData.Leafs.Append("g694-chan-num", types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum})
-    dwdmCarrierMapInfo.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency})
-    dwdmCarrierMapInfo.EntityData.Leafs.Append("wavelength", types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength})
-
-    dwdmCarrierMapInfo.EntityData.YListKeys = []string {}
-
-    return &(dwdmCarrierMapInfo.EntityData)
 }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo

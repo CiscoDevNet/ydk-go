@@ -5,7 +5,7 @@
 // for the following management objects:
 //   lpts-ifib: lpts ifib database
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lpts_ifib_oper
 

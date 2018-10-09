@@ -18,9 +18,13 @@ module Cisco-IOS-XR-types {
     "This module contains a collection of IOS-XR derived YANG data 
      types.
          
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-29 {
+    description
+      "Modified string match pattern of Interface-name";
+  }
   revision 2017-12-01 {
     description
       "Modified string match pattern of Tty-escape-char-num";
@@ -178,7 +182,7 @@ module Cisco-IOS-XR-types {
 
   typedef Interface-name {
     type string {
-      pattern "[a-zA-Z0-9./-]+";
+      pattern "[a-zA-Z0-9._/-]+";
     }
     description
       "An interface name specifying an interface type and 
@@ -286,6 +290,15 @@ module Cisco-IOS-XR-types {
     }
     description
       "An unsigned 32-bit integer represented in
+       hexadecimal format.";
+  }
+
+  typedef Hex-integer-16 {
+    type string {
+      pattern "[0-9a-fA-F]{1,4}";
+    }
+    description
+      "An unsigned 16-bit integer represented in
        hexadecimal format.";
   }
 

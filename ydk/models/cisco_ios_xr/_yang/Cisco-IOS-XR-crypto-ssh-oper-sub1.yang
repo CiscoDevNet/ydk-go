@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR crypto-ssh package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-08-25 {
@@ -203,6 +203,11 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
 
   typedef Mac {
     type enumeration {
+      enum "mac-not-applicable" {
+        value -1;
+        description
+          "unknown";
+      }
       enum "hmac-md5" {
         value 0;
         description
@@ -241,6 +246,11 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
 
   typedef Cipher {
     type enumeration {
+      enum "cipher-not-applicable" {
+        value -1;
+        description
+          "unknown";
+      }
       enum "aes128-cbc" {
         value 0;
         description
@@ -302,6 +312,11 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
 
   typedef Hostkey {
     type enumeration {
+      enum "host-key-not-applicable" {
+        value -1;
+        description
+          "unknown";
+      }
       enum "ssh-dss" {
         value 0;
         description
@@ -334,6 +349,11 @@ submodule Cisco-IOS-XR-crypto-ssh-oper-sub1 {
 
   typedef Kex-name {
     type enumeration {
+      enum "kex-not-applicable" {
+        value -1;
+        description
+          "unknown";
+      }
       enum "diffie-hellman-group1" {
         value 0;
         description

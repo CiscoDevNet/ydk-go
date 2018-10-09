@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_acl_datatypes
 
@@ -559,31 +559,5 @@ const (
 
     // Enabled
     Ipv6AclStatusEnum_enabled Ipv6AclStatusEnum = "enabled"
-)
-
-// Ipv6AclTcpBitsNumber represents Ipv6 acl tcp bits number
-type Ipv6AclTcpBitsNumber string
-
-const (
-    // Match established connections (0x14)
-    Ipv6AclTcpBitsNumber_established Ipv6AclTcpBitsNumber = "established"
-
-    // Match on the ACK bit (0x10)
-    Ipv6AclTcpBitsNumber_ack Ipv6AclTcpBitsNumber = "ack"
-
-    // Match on the RST bit (0x04)
-    Ipv6AclTcpBitsNumber_rst Ipv6AclTcpBitsNumber = "rst"
-
-    // Match on the FIN bit (0x01)
-    Ipv6AclTcpBitsNumber_fin Ipv6AclTcpBitsNumber = "fin"
-
-    // Match on the PSH bit (0x08)
-    Ipv6AclTcpBitsNumber_psh Ipv6AclTcpBitsNumber = "psh"
-
-    // Match on the SYN bit (0x02)
-    Ipv6AclTcpBitsNumber_syn Ipv6AclTcpBitsNumber = "syn"
-
-    // Match on the URG bit (0x20)
-    Ipv6AclTcpBitsNumber_urg Ipv6AclTcpBitsNumber = "urg"
 )
 

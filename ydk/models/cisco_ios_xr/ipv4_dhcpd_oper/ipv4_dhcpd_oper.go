@@ -6,7 +6,7 @@
 //   dhcp-client: DHCP client operational data
 //   ipv4-dhcpd: ipv4 dhcpd
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_dhcpd_oper
 
@@ -2528,7 +2528,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     State interface{}
 
     // DHCP access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCP access interface VRF name. The type is string with length: 0..33.
@@ -2554,7 +2554,7 @@ type Ipv4Dhcpd_Nodes_Node_Proxy_Binding_Clients_Client struct {
     OldSubscriberLabel interface{}
 
     // DHCP subscriber interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberInterfaceName interface{}
 
     // DHCP received circuit ID. The type is string with length: 0..768.
@@ -4707,7 +4707,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     State interface{}
 
     // DHCP access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCP access interface VRF name. The type is string with length: 0..33.
@@ -4733,7 +4733,7 @@ type Ipv4Dhcpd_Nodes_Node_Server_Binding_Clients_Client struct {
     OldSubscriberLabel interface{}
 
     // DHCP subscriber interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberInterfaceName interface{}
 
     // DHCP received circuit ID. The type is string with length: 0..768.

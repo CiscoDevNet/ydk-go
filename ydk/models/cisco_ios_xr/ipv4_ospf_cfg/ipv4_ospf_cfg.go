@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_ospf_cfg
 
@@ -308,6 +308,9 @@ const (
 
     // MD5 Message Digest
     OspfAuthentication_md5 OspfAuthentication = "md5"
+
+    // Keychain Authentication
+    OspfAuthentication_keychain OspfAuthentication = "keychain"
 )
 
 // OspfLogAdj represents Ospf log adj
@@ -2042,7 +2045,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_CandidateI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2107,7 +2110,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_ExcludeInt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2251,7 +2254,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Candidat
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2316,7 +2319,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_ExcludeI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2429,7 +2432,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication struct {
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -2444,7 +2447,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authenticatio
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -2490,45 +2493,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_Type) Ge
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2541,11 +2544,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKe
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -3450,7 +3453,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Ucmp_ExcludeInterfaces_ExcludeInterface str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4354,7 +4357,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -4369,7 +4372,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -4415,45 +4418,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLin
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4466,11 +4469,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -4643,7 +4646,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -4658,7 +4661,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -4704,45 +4707,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkSc
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4755,11 +4758,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5049,7 +5052,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authent
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -5064,7 +5067,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -5110,45 +5113,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5161,11 +5164,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authent
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5395,7 +5398,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5460,7 +5463,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5676,7 +5679,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5741,7 +5744,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5837,7 +5840,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -6181,7 +6184,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -6196,7 +6199,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -6242,45 +6245,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6293,11 +6296,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -6613,7 +6616,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6678,7 +6681,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6894,7 +6897,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6959,7 +6962,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7055,7 +7058,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: [a-zA-Z0-9./-]+.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -7198,7 +7201,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -7213,7 +7216,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -7259,45 +7262,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaI
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7310,11 +7313,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7567,7 +7570,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7632,7 +7635,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7848,7 +7851,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7913,7 +7916,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8307,7 +8310,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -8322,7 +8325,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_V
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -8368,45 +8371,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLink
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8419,11 +8422,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -8596,7 +8599,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -8611,7 +8614,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_S
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -8657,45 +8660,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkSco
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8708,11 +8711,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9002,7 +9005,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authenti
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -9017,7 +9020,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_A
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -9063,45 +9066,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_A
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -9114,11 +9117,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authenti
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -9348,7 +9351,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9413,7 +9416,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9629,7 +9632,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9694,7 +9697,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9790,7 +9793,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -10134,7 +10137,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -10149,7 +10152,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_N
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -10195,45 +10198,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -10246,11 +10249,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -10566,7 +10569,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10631,7 +10634,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10847,7 +10850,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10912,7 +10915,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11008,7 +11011,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: [a-zA-Z0-9./-]+.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -11151,7 +11154,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -11166,7 +11169,7 @@ func (authentication *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_M
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -11212,45 +11215,45 @@ func (self *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaIn
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -11263,11 +11266,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -11520,7 +11523,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11585,7 +11588,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11801,7 +11804,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11866,7 +11869,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12636,7 +12639,7 @@ type Ospf_Processes_Process_DefaultVrf_Mpls_MplsRouterId struct {
     Address interface{}
 
     // MPLS-TE stable loopback interface for this OSPF process. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13615,7 +13618,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Candidat
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13680,7 +13683,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_ExcludeI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13824,7 +13827,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Candid
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13889,7 +13892,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Exclud
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14002,7 +14005,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication struct {
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -14017,7 +14020,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authenticat
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -14063,45 +14066,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_Type) 
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14114,11 +14117,11 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigest
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -15023,7 +15026,7 @@ type Ospf_Processes_Process_DefaultVrf_Ucmp_ExcludeInterfaces_ExcludeInterface s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -15927,7 +15930,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -15942,7 +15945,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddres
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -15988,45 +15991,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualL
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -16039,11 +16042,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -16216,7 +16219,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -16231,7 +16234,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddres
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -16277,45 +16280,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLink
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -16328,11 +16331,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -16622,7 +16625,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authe
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -16637,7 +16640,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddres
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -16683,45 +16686,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScop
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -16734,11 +16737,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authe
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -16968,7 +16971,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17033,7 +17036,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17249,7 +17252,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17314,7 +17317,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17410,7 +17413,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -17754,7 +17757,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -17769,7 +17772,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddres
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -17815,45 +17818,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScop
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -17866,11 +17869,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -18186,7 +18189,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18251,7 +18254,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18467,7 +18470,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18532,7 +18535,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18628,7 +18631,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: [a-zA-Z0-9./-]+.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -18771,7 +18774,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -18786,7 +18789,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddres
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -18832,45 +18835,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAre
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -18883,11 +18886,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -19140,7 +19143,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19205,7 +19208,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19421,7 +19424,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19486,7 +19489,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19880,7 +19883,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -19895,7 +19898,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -19941,45 +19944,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLi
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -19992,11 +19995,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -20169,7 +20172,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -20184,7 +20187,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -20230,45 +20233,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkS
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -20281,11 +20284,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -20575,7 +20578,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authen
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -20590,7 +20593,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -20636,45 +20639,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -20687,11 +20690,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authen
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -20921,7 +20924,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20986,7 +20989,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21202,7 +21205,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21267,7 +21270,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21363,7 +21366,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -21707,7 +21710,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -21722,7 +21725,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -21768,45 +21771,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScope
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -21819,11 +21822,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -22139,7 +22142,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22204,7 +22207,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22420,7 +22423,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22485,7 +22488,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22581,7 +22584,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: [a-zA-Z0-9./-]+.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -22724,7 +22727,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
 
     // Message digest authentication password (key) configurations, first 16 chars
     // used.
-    MessageDigestKeies Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+    MessageDigestKeys Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 }
 
 func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication) GetEntityData() *types.CommonEntityData {
@@ -22739,7 +22742,7 @@ func (authentication *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId
 
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("type", types.YChild{"Type", &authentication.Type})
-    authentication.EntityData.Children.Append("message-digest-keies", types.YChild{"MessageDigestKeies", &authentication.MessageDigestKeies})
+    authentication.EntityData.Children.Append("message-digest-keys", types.YChild{"MessageDigestKeys", &authentication.MessageDigestKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("key", types.YLeaf{"Key", authentication.Key})
 
@@ -22785,45 +22788,45 @@ func (self *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiArea
     return &(self.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys
 // Message digest authentication password (key)
 // configurations, first 16 chars used
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message digest authentication password (key) configuration. The type is
     // slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey.
-    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey.
+    MessageDigestKey []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 }
 
-func (messageDigestKeies *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies) GetEntityData() *types.CommonEntityData {
-    messageDigestKeies.EntityData.YFilter = messageDigestKeies.YFilter
-    messageDigestKeies.EntityData.YangName = "message-digest-keies"
-    messageDigestKeies.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKeies.EntityData.ParentYangName = "authentication"
-    messageDigestKeies.EntityData.SegmentPath = "message-digest-keies"
-    messageDigestKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    messageDigestKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    messageDigestKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (messageDigestKeys *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys) GetEntityData() *types.CommonEntityData {
+    messageDigestKeys.EntityData.YFilter = messageDigestKeys.YFilter
+    messageDigestKeys.EntityData.YangName = "message-digest-keys"
+    messageDigestKeys.EntityData.BundleName = "cisco_ios_xr"
+    messageDigestKeys.EntityData.ParentYangName = "authentication"
+    messageDigestKeys.EntityData.SegmentPath = "message-digest-keys"
+    messageDigestKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    messageDigestKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    messageDigestKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    messageDigestKeies.EntityData.Children = types.NewOrderedMap()
-    messageDigestKeies.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
-    for i := range messageDigestKeies.MessageDigestKey {
-        messageDigestKeies.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeies.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeies.MessageDigestKey[i]})
+    messageDigestKeys.EntityData.Children = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Children.Append("message-digest-key", types.YChild{"MessageDigestKey", nil})
+    for i := range messageDigestKeys.MessageDigestKey {
+        messageDigestKeys.EntityData.Children.Append(types.GetSegmentPath(messageDigestKeys.MessageDigestKey[i]), types.YChild{"MessageDigestKey", messageDigestKeys.MessageDigestKey[i]})
     }
-    messageDigestKeies.EntityData.Leafs = types.NewOrderedMap()
+    messageDigestKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    messageDigestKeies.EntityData.YListKeys = []string {}
+    messageDigestKeys.EntityData.YListKeys = []string {}
 
-    return &(messageDigestKeies.EntityData)
+    return &(messageDigestKeys.EntityData)
 }
 
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey
+// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey
 // Message digest authentication password (key)
 // configuration
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey struct {
+type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -22836,11 +22839,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     Password interface{}
 }
 
-func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeies_MessageDigestKey) GetEntityData() *types.CommonEntityData {
+func (messageDigestKey *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfaceScopes_MultiAreaInterfaceScope_Authentication_MessageDigestKeys_MessageDigestKey) GetEntityData() *types.CommonEntityData {
     messageDigestKey.EntityData.YFilter = messageDigestKey.YFilter
     messageDigestKey.EntityData.YangName = "message-digest-key"
     messageDigestKey.EntityData.BundleName = "cisco_ios_xr"
-    messageDigestKey.EntityData.ParentYangName = "message-digest-keies"
+    messageDigestKey.EntityData.ParentYangName = "message-digest-keys"
     messageDigestKey.EntityData.SegmentPath = "message-digest-key" + types.AddKeyToken(messageDigestKey.KeyId, "key-id")
     messageDigestKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageDigestKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -23093,7 +23096,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23158,7 +23161,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23374,7 +23377,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23439,7 +23442,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 

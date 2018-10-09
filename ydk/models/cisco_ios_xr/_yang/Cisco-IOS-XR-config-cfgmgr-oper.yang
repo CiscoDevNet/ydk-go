@@ -22,7 +22,7 @@ module Cisco-IOS-XR-config-cfgmgr-oper {
      for the following management objects:
        config: Configuration-related operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {

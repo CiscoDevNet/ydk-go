@@ -5,7 +5,7 @@
 // for the following management objects:
 //   span-monitor-session: Monitor Session operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ethernet_span_oper
 
@@ -282,7 +282,7 @@ type SpanMonitorSession_Global_Statistics_Statistic struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // RX Packets Mirrored. The type is interface{} with range:
@@ -399,7 +399,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
     DestinationInterfaceName interface{}
 
     // Destination interface handle (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterfaceHandle interface{}
 
     // Last error observed for the destination interface (deprecated by
@@ -645,7 +645,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId struct
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -909,7 +909,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Session Name. The type is string.
@@ -928,7 +928,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     // The Session is configured globally. The type is bool.
     SessionIsConfigured interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source interface state. The type is ImStateEnum.
@@ -946,7 +946,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     SourceInterfaceIsADestination interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by TrafficParameters). The type is
@@ -1053,7 +1053,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId struct {
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1223,7 +1223,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     SessionClassXr interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Last error observed for this session while programming the hardware. The
@@ -1231,7 +1231,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     PlatformError interface{}
 
     // Inject Interface ifhandle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InjectInterfaceIfh interface{}
 
     // Inject Interface MAC address. The type is string with pattern:
@@ -1285,7 +1285,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationI
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1437,10 +1437,10 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Last error observed for this interface while programming the hardware. The
@@ -1448,7 +1448,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     PlatformError interface{}
 
     // Destination interface (deprecated by Attachment). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by Attachment). The type is
@@ -1504,7 +1504,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId struct {
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1709,7 +1709,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.

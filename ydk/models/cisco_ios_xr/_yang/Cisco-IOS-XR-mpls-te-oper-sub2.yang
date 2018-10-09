@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-te package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -43,181 +43,174 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub2 {
     type enumeration {
       enum "up" {
         description
-          "TP LSP Up";
+          "Deprecated";
       }
       enum "down" {
         description
-          "TP LSP Down";
+          "Deprecated";
       }
     }
     description
-      "Transport profile mid-point LSP states";
+      "Deprecated";
   }
 
   grouping MPLS-TP-MID-SUMMARY-INFO {
     description
-      "Transport profile mid-point LSP summary
-       information";
+      "Deprecated";
     leaf mid-points {
       type uint32;
       description
-        "Total number of mid points";
+        "Deprecated";
     }
     leaf up-forward-ls-ps {
       type uint32;
       description
-        "Total number of forward LSPs that are Up";
+        "Deprecated";
     }
     leaf down-forward-ls-ps {
       type uint32;
       description
-        "Total number of forward LSPs that are Down";
+        "Deprecated";
     }
     leaf up-reverse-ls-ps {
       type uint32;
       description
-        "Total number of reverse LSPs that are Up";
+        "Deprecated";
     }
     leaf down-reverse-ls-ps {
       type uint32;
       description
-        "Total number of reverse LSPs that are Down";
+        "Deprecated";
     }
   }
 
   grouping MPLS-TP-MID-LSP-INFO {
     description
-      "Transport profile mid-point LSP detailed
-       information";
+      "Deprecated";
     leaf out-label {
       type uint32;
       description
-        "Outgoing label";
+        "Deprecated";
     }
     leaf out-link {
       type uint32;
       description
-        "Outgoing TP link ID";
+        "Deprecated";
     }
     leaf oam-refresh-interval {
       type uint32;
-      units "second";
       description
-        "OAM Refresh time in seconds";
+        "Deprecated";
     }
     leaf outgoing-interface {
       type string;
       description
-        "Outgoing interface";
+        "Deprecated";
     }
     leaf next-hop-address {
       type inet:ipv4-address;
       description
-        "Outgoing next-hop in IPv4 address format";
+        "Deprecated";
     }
     leaf in-label {
       type uint32;
       description
-        "Incoming label";
+        "Deprecated";
     }
     leaf bandwidth {
       type uint32;
-      units "kbit/s";
       description
-        "Configured bandwidth in Kbps";
+        "Deprecated";
     }
   }
 
   grouping MPLS-TP-MID-INFO {
     description
-      "Transport profile mid-point LSP information";
+      "Deprecated";
     leaf midpoint-name {
       type string;
       description
-        "Mid Point Name";
+        "Deprecated";
     }
     leaf tunnel-name {
       type string;
       description
-        "Tunnel Name";
+        "Deprecated";
     }
     leaf source-node-id {
       type inet:ipv4-address;
       description
-        "Source Node ID";
+        "Deprecated";
     }
     leaf source-global-id {
       type uint32;
       description
-        "Source Global ID";
+        "Deprecated";
     }
     leaf source-tunnel-id {
       type uint32;
       description
-        "Source Tunnel ID";
+        "Deprecated";
     }
     leaf lsp-id {
       type uint32;
       description
-        "LSP ID";
+        "Deprecated";
     }
     leaf destination-node-id {
       type inet:ipv4-address;
       description
-        "Destination Node ID";
+        "Deprecated";
     }
     leaf destination-global-id {
       type uint32;
       description
-        "Destination Global ID";
+        "Deprecated";
     }
     leaf destination-tunnel-id {
       type uint32;
       description
-        "Destination Tunnel ID";
+        "Deprecated";
     }
     leaf forward-lsp-state {
       type Tp-mid-lsp-status;
       description
-        "Forward LSP State";
+        "Deprecated";
     }
     leaf reverse-lsp-state {
       type Tp-mid-lsp-status;
       description
-        "Reverse LSP State";
+        "Deprecated";
     }
   }
 
   grouping MPLS-TP-DETAIL-MID-INFO {
     description
-      "Transport profile mid-point LSP detail
-       information";
+      "Deprecated";
     container brief-lsp-information {
       description
-        "Brief LSP information";
+        "Deprecated";
       uses MPLS-TP-MID-INFO;
     }
     container forward-lsp {
       description
-        "Forward LSP information";
+        "Deprecated";
       uses MPLS-TP-MID-LSP-INFO;
     }
     container reverse-lsp {
       description
-        "Reverse LSP information";
+        "Deprecated";
       uses MPLS-TP-MID-LSP-INFO;
     }
     leaf forward-lsp-reserved-bandwidth {
       type uint32;
-      units "kbit/s";
       description
-        "Forward LSP reserved bandwidth in Kbps";
+        "Deprecated";
     }
     leaf reverse-lsp-reserved-bandwidth {
       type uint32;
-      units "kbit/s";
       description
-        "Reverse LSP reserved bandwidth in Kbps";
+        "Deprecated";
     }
   }
 }

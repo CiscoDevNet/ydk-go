@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-infra-tc-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-tc package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -291,7 +291,12 @@ submodule Cisco-IOS-XR-infra-tc-oper-sub1 {
     leaf label-xr {
       type uint32;
       description
-        "Label";
+        "SR Label";
+    }
+    leaf ldp-label {
+      type uint32;
+      description
+        "LDP Label";
     }
     leaf is-active {
       type boolean;

@@ -29,7 +29,7 @@ module Cisco-IOS-XR-show-fpd-loc-ng-oper {
      for the following management objects:
        show-fpd: Show hw-module fpd
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -52,25 +52,29 @@ module Cisco-IOS-XR-show-fpd-loc-ng-oper {
         key "location-name";
         description
           "location";
+        container details {
+          description
+            "Display fpds on given locations";
+          list detail {
+            key "fpd-name";
+            description
+              "Display fpds detail";
+            leaf fpd-name {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Fpd Name";
+            }
+            uses FPD-INFO-LIST;
+          }
+        }
         leaf location-name {
           type xr:Cisco-ios-xr-string {
             length "1..32";
           }
           description
             "Fpd location";
-        }
-        list fpd {
-          key "fpd-name";
-          description
-            "Display fpds on given locations";
-          leaf fpd-name {
-            type xr:Cisco-ios-xr-string {
-              length "1..32";
-            }
-            description
-              "Fpd Name";
-          }
-          uses FPD-INFO-LIST;
         }
       }
     }

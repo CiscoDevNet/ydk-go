@@ -6,7 +6,7 @@
 //   netconf: NETCONF operational information
 //   xr-xml: xr xml
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_xml_ttyagent_oper
 
@@ -176,7 +176,7 @@ type Netconf_Agent_Tty_Sessions_Session struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session ID. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // Username. The type is string.
@@ -382,7 +382,7 @@ type XrXml_Agent_Tty_Sessions_Session struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // Username. The type is string.
@@ -522,7 +522,7 @@ type XrXml_Agent_Default_Sessions_Session struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // Username. The type is string.
@@ -662,7 +662,7 @@ type XrXml_Agent_Ssl_Sessions_Session struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // Username. The type is string.

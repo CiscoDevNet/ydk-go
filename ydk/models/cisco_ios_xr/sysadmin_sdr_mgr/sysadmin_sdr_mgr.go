@@ -1,9 +1,15 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // This module defines the SDR-SM support config for SDR
 // 
 // Copyright(c) 2011-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_sdr_mgr
 
@@ -22,6 +28,8 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-config", reflect.TypeOf(SdrConfig{}))
     ydk.RegisterEntity("{http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr sdr-manager}", reflect.TypeOf(SdrManager{}))
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-manager", reflect.TypeOf(SdrManager{}))
+    ydk.RegisterEntity("{http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr sdr-operation}", reflect.TypeOf(SdrOperation{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation", reflect.TypeOf(SdrOperation{}))
     ydk.RegisterEntity("{http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr private-sdr}", reflect.TypeOf(PrivateSdr{}))
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-sdr-mgr:private-sdr", reflect.TypeOf(PrivateSdr{}))
 }
@@ -1260,6 +1268,142 @@ func (traceBlocks *SdrManager_SdrMgr_Trace_Location_AllOptions_TraceBlocks) GetE
     traceBlocks.EntityData.YListKeys = []string {}
 
     return &(traceBlocks.EntityData)
+}
+
+// SdrOperation
+type SdrOperation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SDR. The type is slice of SdrOperation_Sdr.
+    Sdr []*SdrOperation_Sdr
+}
+
+func (sdrOperation *SdrOperation) GetEntityData() *types.CommonEntityData {
+    sdrOperation.EntityData.YFilter = sdrOperation.YFilter
+    sdrOperation.EntityData.YangName = "sdr-operation"
+    sdrOperation.EntityData.BundleName = "cisco_ios_xr"
+    sdrOperation.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sdr-mgr"
+    sdrOperation.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sdr-mgr:sdr-operation"
+    sdrOperation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sdrOperation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sdrOperation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sdrOperation.EntityData.Children = types.NewOrderedMap()
+    sdrOperation.EntityData.Children.Append("sdr", types.YChild{"Sdr", nil})
+    for i := range sdrOperation.Sdr {
+        sdrOperation.EntityData.Children.Append(types.GetSegmentPath(sdrOperation.Sdr[i]), types.YChild{"Sdr", sdrOperation.Sdr[i]})
+    }
+    sdrOperation.EntityData.Leafs = types.NewOrderedMap()
+
+    sdrOperation.EntityData.YListKeys = []string {}
+
+    return &(sdrOperation.EntityData)
+}
+
+// SdrOperation_Sdr
+// SDR
+type SdrOperation_Sdr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the Secure Domain Router, 30 max
+    // characters. The type is string with pattern: [a-zA-Z0-9_-]{1,30}.
+    Name interface{}
+
+    
+    Nodes SdrOperation_Sdr_Nodes
+}
+
+func (sdr *SdrOperation_Sdr) GetEntityData() *types.CommonEntityData {
+    sdr.EntityData.YFilter = sdr.YFilter
+    sdr.EntityData.YangName = "sdr"
+    sdr.EntityData.BundleName = "cisco_ios_xr"
+    sdr.EntityData.ParentYangName = "sdr-operation"
+    sdr.EntityData.SegmentPath = "sdr" + types.AddKeyToken(sdr.Name, "name")
+    sdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sdr.EntityData.Children = types.NewOrderedMap()
+    sdr.EntityData.Children.Append("nodes", types.YChild{"Nodes", &sdr.Nodes})
+    sdr.EntityData.Leafs = types.NewOrderedMap()
+    sdr.EntityData.Leafs.Append("name", types.YLeaf{"Name", sdr.Name})
+
+    sdr.EntityData.YListKeys = []string {"Name"}
+
+    return &(sdr.EntityData)
+}
+
+// SdrOperation_Sdr_Nodes
+type SdrOperation_Sdr_Nodes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of SdrOperation_Sdr_Nodes_Location.
+    Location []*SdrOperation_Sdr_Nodes_Location
+}
+
+func (nodes *SdrOperation_Sdr_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "sdr"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodes.EntityData.Children = types.NewOrderedMap()
+    nodes.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range nodes.Location {
+        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Location[i]), types.YChild{"Location", nodes.Location[i]})
+    }
+    nodes.EntityData.Leafs = types.NewOrderedMap()
+
+    nodes.EntityData.YListKeys = []string {}
+
+    return &(nodes.EntityData)
+}
+
+// SdrOperation_Sdr_Nodes_Location
+type SdrOperation_Sdr_Nodes_Location struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The type is string.
+    NodeLocation interface{}
+
+    // This attribute is a key. The type is interface{} with range: 0..4294967295.
+    NodeType interface{}
+
+    // Progress of Operation. The type is string.
+    Progress interface{}
+
+    // State of Operation. The type is string.
+    State interface{}
+}
+
+func (location *SdrOperation_Sdr_Nodes_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "nodes"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.NodeLocation, "node-location") + types.AddKeyToken(location.NodeType, "node-type")
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("node-location", types.YLeaf{"NodeLocation", location.NodeLocation})
+    location.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", location.NodeType})
+    location.EntityData.Leafs.Append("progress", types.YLeaf{"Progress", location.Progress})
+    location.EntityData.Leafs.Append("state", types.YLeaf{"State", location.State})
+
+    location.EntityData.YListKeys = []string {"NodeLocation", "NodeType"}
+
+    return &(location.EntityData)
 }
 
 // PrivateSdr

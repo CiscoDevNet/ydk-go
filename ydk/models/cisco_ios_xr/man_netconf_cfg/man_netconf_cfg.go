@@ -5,7 +5,7 @@
 // for the following management objects:
 //   netconf-yang: NETCONF YANG configuration commands
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_netconf_cfg
 
@@ -63,6 +63,9 @@ type NetconfYang_Agent struct {
     // 4096..4294967295. Units are byte.
     RateLimit interface{}
 
+    // Models to be disabled.
+    Models NetconfYang_Agent_Models
+
     // NETCONF YANG agent over SSH connection.
     Ssh NetconfYang_Agent_Ssh
 
@@ -81,6 +84,7 @@ func (agent *NetconfYang_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     agent.EntityData.Children = types.NewOrderedMap()
+    agent.EntityData.Children.Append("models", types.YChild{"Models", &agent.Models})
     agent.EntityData.Children.Append("ssh", types.YChild{"Ssh", &agent.Ssh})
     agent.EntityData.Children.Append("session", types.YChild{"Session", &agent.Session})
     agent.EntityData.Leafs = types.NewOrderedMap()
@@ -89,6 +93,64 @@ func (agent *NetconfYang_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.YListKeys = []string {}
 
     return &(agent.EntityData)
+}
+
+// NetconfYang_Agent_Models
+// Models to be disabled
+type NetconfYang_Agent_Models struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Type of models: openconfig.
+    Openconfig NetconfYang_Agent_Models_Openconfig
+}
+
+func (models *NetconfYang_Agent_Models) GetEntityData() *types.CommonEntityData {
+    models.EntityData.YFilter = models.YFilter
+    models.EntityData.YangName = "models"
+    models.EntityData.BundleName = "cisco_ios_xr"
+    models.EntityData.ParentYangName = "agent"
+    models.EntityData.SegmentPath = "models"
+    models.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    models.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    models.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    models.EntityData.Children = types.NewOrderedMap()
+    models.EntityData.Children.Append("openconfig", types.YChild{"Openconfig", &models.Openconfig})
+    models.EntityData.Leafs = types.NewOrderedMap()
+
+    models.EntityData.YListKeys = []string {}
+
+    return &(models.EntityData)
+}
+
+// NetconfYang_Agent_Models_Openconfig
+// Type of models: openconfig
+type NetconfYang_Agent_Models_Openconfig struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disable the specified model type. The type is interface{}.
+    Disabled interface{}
+}
+
+func (openconfig *NetconfYang_Agent_Models_Openconfig) GetEntityData() *types.CommonEntityData {
+    openconfig.EntityData.YFilter = openconfig.YFilter
+    openconfig.EntityData.YangName = "openconfig"
+    openconfig.EntityData.BundleName = "cisco_ios_xr"
+    openconfig.EntityData.ParentYangName = "models"
+    openconfig.EntityData.SegmentPath = "openconfig"
+    openconfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    openconfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    openconfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    openconfig.EntityData.Children = types.NewOrderedMap()
+    openconfig.EntityData.Leafs = types.NewOrderedMap()
+    openconfig.EntityData.Leafs.Append("disabled", types.YLeaf{"Disabled", openconfig.Disabled})
+
+    openconfig.EntityData.YListKeys = []string {}
+
+    return &(openconfig.EntityData)
 }
 
 // NetconfYang_Agent_Ssh

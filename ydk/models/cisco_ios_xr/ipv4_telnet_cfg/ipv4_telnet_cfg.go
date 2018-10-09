@@ -6,7 +6,7 @@
 //   ipv6-telnet: IPv6 telnet configuration
 //   ipv4-telnet: ipv4 telnet
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_telnet_cfg
 
@@ -63,7 +63,7 @@ type Ipv6Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 }
 
@@ -122,7 +122,7 @@ type Ipv4Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 }
 

@@ -161,6 +161,10 @@ type LispState_LispRouters struct {
     // This list represents the set of routing locators configured on this device.
     // The type is slice of LispState_LispRouters_LocalRlocs.
     LocalRlocs []*LispState_LispRouters_LocalRlocs
+
+    // This list represents list of prefix-lists configured on this device. The
+    // type is slice of LispState_LispRouters_PrefixLists.
+    PrefixLists []*LispState_LispRouters_PrefixLists
 }
 
 func (lispRouters *LispState_LispRouters) GetEntityData() *types.CommonEntityData {
@@ -185,6 +189,10 @@ func (lispRouters *LispState_LispRouters) GetEntityData() *types.CommonEntityDat
     lispRouters.EntityData.Children.Append("local-rlocs", types.YChild{"LocalRlocs", nil})
     for i := range lispRouters.LocalRlocs {
         lispRouters.EntityData.Children.Append(types.GetSegmentPath(lispRouters.LocalRlocs[i]), types.YChild{"LocalRlocs", lispRouters.LocalRlocs[i]})
+    }
+    lispRouters.EntityData.Children.Append("prefix-lists", types.YChild{"PrefixLists", nil})
+    for i := range lispRouters.PrefixLists {
+        lispRouters.EntityData.Children.Append(types.GetSegmentPath(lispRouters.PrefixLists[i]), types.YChild{"PrefixLists", lispRouters.PrefixLists[i]})
     }
     lispRouters.EntityData.Leafs = types.NewOrderedMap()
     lispRouters.EntityData.Leafs.Append("top-id", types.YLeaf{"TopId", lispRouters.TopId})
@@ -1085,6 +1093,9 @@ type LispState_LispRouters_Instances_Af_LocalDbase struct {
     // The type is bool.
     IsReachable interface{}
 
+    // If local database mapping is proxy. The type is bool.
+    IsProxy interface{}
+
     // List of locators. The type is slice of
     // LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRloc.
     LocalDbaseRloc []*LispState_LispRouters_Instances_Af_LocalDbase_LocalDbaseRloc
@@ -1110,6 +1121,7 @@ func (localDbase *LispState_LispRouters_Instances_Af_LocalDbase) GetEntityData()
     localDbase.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", localDbase.Prefix})
     localDbase.EntityData.Leafs.Append("lsb", types.YLeaf{"Lsb", localDbase.Lsb})
     localDbase.EntityData.Leafs.Append("is-reachable", types.YLeaf{"IsReachable", localDbase.IsReachable})
+    localDbase.EntityData.Leafs.Append("is-proxy", types.YLeaf{"IsProxy", localDbase.IsProxy})
 
     localDbase.EntityData.YListKeys = []string {"Afi", "Prefix"}
 
@@ -1884,5 +1896,94 @@ func (localRlocs *LispState_LispRouters_LocalRlocs) GetEntityData() *types.Commo
     localRlocs.EntityData.YListKeys = []string {"Afi", "Address"}
 
     return &(localRlocs.EntityData)
+}
+
+// LispState_LispRouters_PrefixLists
+// This list represents list of prefix-lists configured on this device
+type LispState_LispRouters_PrefixLists struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the prefix-list. The type is string.
+    Name interface{}
+
+    // Number of entries in the list. The type is interface{} with range:
+    // 0..18446744073709551615.
+    Count interface{}
+
+    // List of prefix list entries. The type is slice of
+    // LispState_LispRouters_PrefixLists_PrefixListEntry.
+    PrefixListEntry []*LispState_LispRouters_PrefixLists_PrefixListEntry
+}
+
+func (prefixLists *LispState_LispRouters_PrefixLists) GetEntityData() *types.CommonEntityData {
+    prefixLists.EntityData.YFilter = prefixLists.YFilter
+    prefixLists.EntityData.YangName = "prefix-lists"
+    prefixLists.EntityData.BundleName = "cisco_ios_xe"
+    prefixLists.EntityData.ParentYangName = "lisp-routers"
+    prefixLists.EntityData.SegmentPath = "prefix-lists" + types.AddKeyToken(prefixLists.Name, "name")
+    prefixLists.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    prefixLists.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    prefixLists.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    prefixLists.EntityData.Children = types.NewOrderedMap()
+    prefixLists.EntityData.Children.Append("prefix-list-entry", types.YChild{"PrefixListEntry", nil})
+    for i := range prefixLists.PrefixListEntry {
+        prefixLists.EntityData.Children.Append(types.GetSegmentPath(prefixLists.PrefixListEntry[i]), types.YChild{"PrefixListEntry", prefixLists.PrefixListEntry[i]})
+    }
+    prefixLists.EntityData.Leafs = types.NewOrderedMap()
+    prefixLists.EntityData.Leafs.Append("name", types.YLeaf{"Name", prefixLists.Name})
+    prefixLists.EntityData.Leafs.Append("count", types.YLeaf{"Count", prefixLists.Count})
+
+    prefixLists.EntityData.YListKeys = []string {"Name"}
+
+    return &(prefixLists.EntityData)
+}
+
+// LispState_LispRouters_PrefixLists_PrefixListEntry
+// List of prefix list entries
+type LispState_LispRouters_PrefixLists_PrefixListEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. LISP Address-Family of the prefix. The type is
+    // LispAddressFamilyType.
+    Afi interface{}
+
+    // This attribute is a key. LISP prefix. Format is defined by the AF. The type
+    // is string.
+    Prefix interface{}
+
+    // Is the entry sourced statically. The type is bool.
+    SourceHasStatic interface{}
+
+    // Is the entry sourced from RIB. The type is bool.
+    SourceHasRib interface{}
+
+    // Is the entry sourced from site registration. The type is bool.
+    SourceHasSiteReg interface{}
+}
+
+func (prefixListEntry *LispState_LispRouters_PrefixLists_PrefixListEntry) GetEntityData() *types.CommonEntityData {
+    prefixListEntry.EntityData.YFilter = prefixListEntry.YFilter
+    prefixListEntry.EntityData.YangName = "prefix-list-entry"
+    prefixListEntry.EntityData.BundleName = "cisco_ios_xe"
+    prefixListEntry.EntityData.ParentYangName = "prefix-lists"
+    prefixListEntry.EntityData.SegmentPath = "prefix-list-entry" + types.AddKeyToken(prefixListEntry.Afi, "afi") + types.AddKeyToken(prefixListEntry.Prefix, "prefix")
+    prefixListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    prefixListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    prefixListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    prefixListEntry.EntityData.Children = types.NewOrderedMap()
+    prefixListEntry.EntityData.Leafs = types.NewOrderedMap()
+    prefixListEntry.EntityData.Leafs.Append("afi", types.YLeaf{"Afi", prefixListEntry.Afi})
+    prefixListEntry.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefixListEntry.Prefix})
+    prefixListEntry.EntityData.Leafs.Append("source-has-static", types.YLeaf{"SourceHasStatic", prefixListEntry.SourceHasStatic})
+    prefixListEntry.EntityData.Leafs.Append("source-has-rib", types.YLeaf{"SourceHasRib", prefixListEntry.SourceHasRib})
+    prefixListEntry.EntityData.Leafs.Append("source-has-site-reg", types.YLeaf{"SourceHasSiteReg", prefixListEntry.SourceHasSiteReg})
+
+    prefixListEntry.EntityData.YListKeys = []string {"Afi", "Prefix"}
+
+    return &(prefixListEntry.EntityData)
 }
 

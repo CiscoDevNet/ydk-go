@@ -43,7 +43,7 @@ module Cisco-IOS-XR-bundlemgr-cfg {
        Cisco-IOS-XR-rgmgr-cfg,
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -560,6 +560,14 @@ module Cisco-IOS-XR-bundlemgr-cfg {
         description
           "Set the lacp-delay timeout for members of this
            bundle";
+      }
+      leaf lacp-fallback {
+        type uint32 {
+          range "1..120";
+        }
+        default "5";
+        description
+          "Set the lacp-fallback timeout for this bundle";
       }
       leaf shutdown {
         type empty;

@@ -7,7 +7,7 @@
 //   srlg: srlg
 //   selective-vrf-download: selective vrf download
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_rsi_oper
 
@@ -497,7 +497,7 @@ type Srlg_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -575,7 +575,7 @@ type Srlg_Rsips_Rsip struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     RsipName interface{}
 
     // Optical layer interface name. The type is string.
@@ -1154,7 +1154,7 @@ type Srlg_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -1233,7 +1233,7 @@ type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Groups. The type is interface{} with range: 0..4294967295.
@@ -1245,6 +1245,10 @@ type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail struct {
     // SRLG attributes. The type is slice of
     // Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttribute.
     SrlgAttribute []*Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttribute
+
+    // rsip list. The type is slice of
+    // Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip.
+    Rsip []*Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip
 }
 
 func (interfaceDetail *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail) GetEntityData() *types.CommonEntityData {
@@ -1261,6 +1265,10 @@ func (interfaceDetail *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail) GetEnti
     interfaceDetail.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range interfaceDetail.SrlgAttribute {
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.SrlgAttribute[i]), types.YChild{"SrlgAttribute", interfaceDetail.SrlgAttribute[i]})
+    }
+    interfaceDetail.EntityData.Children.Append("rsip", types.YChild{"Rsip", nil})
+    for i := range interfaceDetail.Rsip {
+        interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.Rsip[i]), types.YChild{"Rsip", interfaceDetail.Rsip[i]})
     }
     interfaceDetail.EntityData.Leafs = types.NewOrderedMap()
     interfaceDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceDetail.InterfaceName})
@@ -1315,6 +1323,35 @@ func (srlgAttribute *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttrib
     srlgAttribute.EntityData.YListKeys = []string {}
 
     return &(srlgAttribute.EntityData)
+}
+
+// Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip
+// rsip list
+type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // list of names matching rsip. The type is string.
+    RsipName interface{}
+}
+
+func (rsip *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip) GetEntityData() *types.CommonEntityData {
+    rsip.EntityData.YFilter = rsip.YFilter
+    rsip.EntityData.YangName = "rsip"
+    rsip.EntityData.BundleName = "cisco_ios_xr"
+    rsip.EntityData.ParentYangName = "interface-detail"
+    rsip.EntityData.SegmentPath = "rsip"
+    rsip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rsip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rsip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rsip.EntityData.Children = types.NewOrderedMap()
+    rsip.EntityData.Leafs = types.NewOrderedMap()
+    rsip.EntityData.Leafs.Append("rsip-name", types.YLeaf{"RsipName", rsip.RsipName})
+
+    rsip.EntityData.YListKeys = []string {}
+
+    return &(rsip.EntityData)
 }
 
 // Srlg_Nodes_Node_SrlgValues
@@ -1813,7 +1850,7 @@ type Srlg_InterfaceDetails_InterfaceDetail struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Groups. The type is interface{} with range: 0..4294967295.
@@ -1825,6 +1862,9 @@ type Srlg_InterfaceDetails_InterfaceDetail struct {
     // SRLG attributes. The type is slice of
     // Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute.
     SrlgAttribute []*Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute
+
+    // rsip list. The type is slice of Srlg_InterfaceDetails_InterfaceDetail_Rsip.
+    Rsip []*Srlg_InterfaceDetails_InterfaceDetail_Rsip
 }
 
 func (interfaceDetail *Srlg_InterfaceDetails_InterfaceDetail) GetEntityData() *types.CommonEntityData {
@@ -1841,6 +1881,10 @@ func (interfaceDetail *Srlg_InterfaceDetails_InterfaceDetail) GetEntityData() *t
     interfaceDetail.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range interfaceDetail.SrlgAttribute {
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.SrlgAttribute[i]), types.YChild{"SrlgAttribute", interfaceDetail.SrlgAttribute[i]})
+    }
+    interfaceDetail.EntityData.Children.Append("rsip", types.YChild{"Rsip", nil})
+    for i := range interfaceDetail.Rsip {
+        interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.Rsip[i]), types.YChild{"Rsip", interfaceDetail.Rsip[i]})
     }
     interfaceDetail.EntityData.Leafs = types.NewOrderedMap()
     interfaceDetail.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceDetail.InterfaceName})
@@ -1895,6 +1939,35 @@ func (srlgAttribute *Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute) GetEnt
     srlgAttribute.EntityData.YListKeys = []string {}
 
     return &(srlgAttribute.EntityData)
+}
+
+// Srlg_InterfaceDetails_InterfaceDetail_Rsip
+// rsip list
+type Srlg_InterfaceDetails_InterfaceDetail_Rsip struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // list of names matching rsip. The type is string.
+    RsipName interface{}
+}
+
+func (rsip *Srlg_InterfaceDetails_InterfaceDetail_Rsip) GetEntityData() *types.CommonEntityData {
+    rsip.EntityData.YFilter = rsip.YFilter
+    rsip.EntityData.YangName = "rsip"
+    rsip.EntityData.BundleName = "cisco_ios_xr"
+    rsip.EntityData.ParentYangName = "interface-detail"
+    rsip.EntityData.SegmentPath = "rsip"
+    rsip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rsip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rsip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rsip.EntityData.Children = types.NewOrderedMap()
+    rsip.EntityData.Leafs = types.NewOrderedMap()
+    rsip.EntityData.Leafs.Append("rsip-name", types.YLeaf{"RsipName", rsip.RsipName})
+
+    rsip.EntityData.YListKeys = []string {}
+
+    return &(rsip.EntityData)
 }
 
 // SelectiveVrfDownload

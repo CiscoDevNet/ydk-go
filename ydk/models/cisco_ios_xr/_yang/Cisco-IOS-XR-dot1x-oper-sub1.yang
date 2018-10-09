@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR dot1x package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -143,11 +143,21 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       description
         "Last Authenticated Server";
     }
+    leaf port-control {
+      type string;
+      description
+        "Auth Client Port Control Status";
+    }
   }
 
   grouping DOT1X-AUTH-INFO {
     description
       "DOT1X AUTH INFO";
+    leaf port-control {
+      type string;
+      description
+        "Port Control Feature";
+    }
     leaf reauth {
       type string;
       description
@@ -157,6 +167,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       type string;
       description
         "Configuration Dependency ";
+    }
+    leaf eap-profile {
+      type string;
+      description
+        "EAP profile";
     }
     list client {
       description
@@ -192,6 +207,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       type string;
       description
         "Dot1x Profile";
+    }
+    leaf l2-transport {
+      type boolean;
+      description
+        "L2 Transport Info";
     }
   }
 
@@ -235,9 +255,59 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
     }
   }
 
+  grouping DOT1X-GLOBAL-PORT-CONTROL-STATISTICS {
+    description
+      "DOT1X GLOBAL PORT CONTROL STATISTICS";
+    leaf enable-succ {
+      type uint32;
+      description
+        "EnableSucc";
+    }
+    leaf enable-fail {
+      type uint32;
+      description
+        "EnableFail";
+    }
+    leaf disable-succ {
+      type uint32;
+      description
+        "DisableSucc";
+    }
+    leaf disable-fail {
+      type uint32;
+      description
+        "DisableFail";
+    }
+    leaf add-client-succ {
+      type uint32;
+      description
+        "AddClientSucc";
+    }
+    leaf add-client-fail {
+      type uint32;
+      description
+        "AddClientFail";
+    }
+    leaf remove-client-succ {
+      type uint32;
+      description
+        "RemoveClientSucc";
+    }
+    leaf remove-client-fail {
+      type uint32;
+      description
+        "RemoveClientFail";
+    }
+  }
+
   grouping DOT1X-GLOBAL-STATISTICS {
     description
       "DOT1X GLOBAL STATISTICS";
+    container port-control {
+      description
+        "PortControl";
+      uses DOT1X-GLOBAL-PORT-CONTROL-STATISTICS;
+    }
     leaf tx-total {
       type uint32;
       description
@@ -252,6 +322,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       type uint32;
       description
         "RxNoIDB";
+    }
+    leaf packet-drop-no-config-received {
+      type uint32;
+      description
+        "PacketDrop";
     }
   }
 
@@ -380,6 +455,46 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
     }
   }
 
+  grouping DOT1X-IF-LOCAL-EAP-STATISTICS {
+    description
+      "DOT1X IF LOCAL EAP STATISTICS";
+    leaf requests {
+      type uint32;
+      description
+        "Requests";
+    }
+    leaf replies {
+      type uint32;
+      description
+        "Replies";
+    }
+    leaf timeout {
+      type uint32;
+      description
+        "Timeout";
+    }
+    leaf dropped-no-eap {
+      type uint32;
+      description
+        "DroppedNoEAP";
+    }
+    leaf dropped {
+      type uint32;
+      description
+        "Dropped";
+    }
+    leaf success {
+      type uint32;
+      description
+        "Success";
+    }
+    leaf failed {
+      type uint32;
+      description
+        "Failed";
+    }
+  }
+
   grouping DOT1X-IF-SUPP-STATISTICS {
     description
       "DOT1X IF SUPP STATISTICS";
@@ -430,9 +545,49 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
     }
   }
 
+  grouping DOT1X-IF-PORT-CONTROL-STATISTICS {
+    description
+      "DOT1X IF PORT CONTROL STATISTICS";
+    leaf enable-succ {
+      type uint32;
+      description
+        "EnableSucc";
+    }
+    leaf enable-fail {
+      type uint32;
+      description
+        "EnableFail";
+    }
+    leaf add-client-succ {
+      type uint32;
+      description
+        "AddClientSucc";
+    }
+    leaf add-client-fail {
+      type uint32;
+      description
+        "AddClientFail";
+    }
+    leaf remove-client-succ {
+      type uint32;
+      description
+        "RemoveClientSucc";
+    }
+    leaf remove-client-fail {
+      type uint32;
+      description
+        "RemoveClientFail";
+    }
+  }
+
   grouping DOT1X-IF-AUTH-STATISTICS {
     description
       "DOT1X IF AUTH STATISTICS";
+    container port-control {
+      description
+        "PortControl";
+      uses DOT1X-IF-PORT-CONTROL-STATISTICS;
+    }
     leaf rx-start {
       type uint32;
       description
@@ -488,6 +643,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       description
         "TxTotal";
     }
+    leaf packet-drop-no-config-received {
+      type uint32;
+      description
+        "PacketDrop";
+    }
   }
 
   grouping DOT1X-IDB-STATISTICS {
@@ -527,6 +687,11 @@ submodule Cisco-IOS-XR-dot1x-oper-sub1 {
       description
         "Dot1x Supplicant Port Statistics";
       uses DOT1X-IF-SUPP-STATISTICS;
+    }
+    container local-eap {
+      description
+        "Dot1x Local EAP Port Statistics";
+      uses DOT1X-IF-LOCAL-EAP-STATISTICS;
     }
     leaf interface-name {
       type string;

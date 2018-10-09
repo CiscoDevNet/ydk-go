@@ -6,7 +6,7 @@
 //   arp-gmp: ARP-GMP global operational data
 //   arp: arp
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_arp_oper
 
@@ -589,10 +589,11 @@ type ArpGmp_Vrfs_Vrf_Routes_Route struct {
     PrefixLengthXr interface{}
 
     // Interface name (first element of InterfaceNames array). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
-    // Interface names. The type is slice of string with pattern: [a-zA-Z0-9./-]+.
+    // Interface names. The type is slice of string with pattern:
+    // [a-zA-Z0-9._/-]+.
     InterfaceName []interface{}
 }
 
@@ -661,14 +662,14 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Configured ARP-GMP IP. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Route reference count. The type is interface{} with range: 0..4294967295.
@@ -904,7 +905,7 @@ type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
@@ -1375,7 +1376,7 @@ type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
@@ -1472,7 +1473,7 @@ type Arp_Nodes_Node_Entries_Entry struct {
     Address interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Media type for this entry. The type is IpArpBagMedia.
@@ -1566,7 +1567,7 @@ type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total ARP requests received. The type is interface{} with range:

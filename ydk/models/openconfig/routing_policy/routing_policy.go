@@ -1574,11 +1574,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Policy conditions for IGP attributes.
     IgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IgpConditions
 
-    // Match conditions relating to the IS-IS protocol.
-    IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-
     // Top-level container .
     BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
+
+    // Match conditions relating to the IS-IS protocol.
+    IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
 }
 
 func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions) GetEntityData() *types.CommonEntityData {
@@ -1599,8 +1599,8 @@ func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     conditions.EntityData.Children.Append("match-neighbor-set", types.YChild{"MatchNeighborSet", &conditions.MatchNeighborSet})
     conditions.EntityData.Children.Append("match-tag-set", types.YChild{"MatchTagSet", &conditions.MatchTagSet})
     conditions.EntityData.Children.Append("igp-conditions", types.YChild{"IgpConditions", &conditions.IgpConditions})
-    conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
     conditions.EntityData.Children.Append("openconfig-bgp-policy:bgp-conditions", types.YChild{"BgpConditions", &conditions.BgpConditions})
+    conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
     conditions.EntityData.Leafs = types.NewOrderedMap()
 
     conditions.EntityData.YListKeys = []string {}
@@ -2152,105 +2152,6 @@ func (igpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     igpConditions.EntityData.YListKeys = []string {}
 
     return &(igpConditions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-// Match conditions relating to the IS-IS protocol
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS match conditions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-
-    // Operational state parameters relating to IS-IS match conditions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-}
-
-func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
-    isisConditions.EntityData.YFilter = isisConditions.YFilter
-    isisConditions.EntityData.YangName = "isis-conditions"
-    isisConditions.EntityData.BundleName = "openconfig"
-    isisConditions.EntityData.ParentYangName = "conditions"
-    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
-    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisConditions.EntityData.Children = types.NewOrderedMap()
-    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
-    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
-    isisConditions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisConditions.EntityData.YListKeys = []string {}
-
-    return &(isisConditions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-// Configuration parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-conditions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-// Operational state parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-conditions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
 }
 
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
@@ -2978,6 +2879,105 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     return &(state.EntityData)
 }
 
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+// Match conditions relating to the IS-IS protocol
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS match conditions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+
+    // Operational state parameters relating to IS-IS match conditions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+}
+
+func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
+    isisConditions.EntityData.YFilter = isisConditions.YFilter
+    isisConditions.EntityData.YangName = "isis-conditions"
+    isisConditions.EntityData.BundleName = "openconfig"
+    isisConditions.EntityData.ParentYangName = "conditions"
+    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
+    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisConditions.EntityData.Children = types.NewOrderedMap()
+    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
+    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
+    isisConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisConditions.EntityData.YListKeys = []string {}
+
+    return &(isisConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+// Configuration parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-conditions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+// Operational state parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-conditions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions
 // Top-level container for policy action statements
 type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions struct {
@@ -2993,11 +2993,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Actions to set IGP route attributes; these actions apply to multiple IGPs.
     IgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IgpActions
 
-    // Actions that can be performed by IS-IS within a policy.
-    IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-
     // Top-level container for BGP-specific actions.
     BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
+
+    // Actions that can be performed by IS-IS within a policy.
+    IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
 }
 
 func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions) GetEntityData() *types.CommonEntityData {
@@ -3014,8 +3014,8 @@ func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_State
     actions.EntityData.Children.Append("config", types.YChild{"Config", &actions.Config})
     actions.EntityData.Children.Append("state", types.YChild{"State", &actions.State})
     actions.EntityData.Children.Append("igp-actions", types.YChild{"IgpActions", &actions.IgpActions})
-    actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
     actions.EntityData.Children.Append("openconfig-bgp-policy:bgp-actions", types.YChild{"BgpActions", &actions.BgpActions})
+    actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
     actions.EntityData.Leafs = types.NewOrderedMap()
 
     actions.EntityData.YListKeys = []string {}
@@ -3179,119 +3179,6 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-// Actions that can be performed by IS-IS within a policy
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS actions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-
-    // Operational state associated with IS-IS actions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-}
-
-func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
-    isisActions.EntityData.YFilter = isisActions.YFilter
-    isisActions.EntityData.YangName = "isis-actions"
-    isisActions.EntityData.BundleName = "openconfig"
-    isisActions.EntityData.ParentYangName = "actions"
-    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
-    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisActions.EntityData.Children = types.NewOrderedMap()
-    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
-    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
-    isisActions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisActions.EntityData.YListKeys = []string {}
-
-    return &(isisActions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-// Configuration parameters relating to IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-actions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
-    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
-    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-// Operational state associated with IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-actions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
-    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
-    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 
@@ -4262,6 +4149,119 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("ext-community-set-ref", types.YLeaf{"ExtCommunitySetRef", state.ExtCommunitySetRef})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+// Actions that can be performed by IS-IS within a policy
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS actions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+
+    // Operational state associated with IS-IS actions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+}
+
+func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
+    isisActions.EntityData.YFilter = isisActions.YFilter
+    isisActions.EntityData.YangName = "isis-actions"
+    isisActions.EntityData.BundleName = "openconfig"
+    isisActions.EntityData.ParentYangName = "actions"
+    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
+    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisActions.EntityData.Children = types.NewOrderedMap()
+    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
+    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
+    isisActions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisActions.EntityData.YListKeys = []string {}
+
+    return &(isisActions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+// Configuration parameters relating to IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-actions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
+    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
+    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+// Operational state associated with IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-actions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
+    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
+    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 

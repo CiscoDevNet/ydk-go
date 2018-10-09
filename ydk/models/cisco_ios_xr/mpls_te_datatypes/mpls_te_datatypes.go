@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_te_datatypes
 
@@ -378,6 +378,9 @@ const (
 
     // TE Metric
     MplsTePathSelectionMetric_te MplsTePathSelectionMetric = "te"
+
+    // DELAY Metric
+    MplsTePathSelectionMetric_delay MplsTePathSelectionMetric = "delay"
 )
 
 // MplsTePathOptionProtection represents Mpls te path option protection
@@ -410,7 +413,7 @@ const (
     // No ERO
     MplsTePathOption_no_ero MplsTePathOption = "no-ero"
 
-    // Segment routing
+    // Deprecated
     MplsTePathOption_sr MplsTePathOption = "sr"
 )
 

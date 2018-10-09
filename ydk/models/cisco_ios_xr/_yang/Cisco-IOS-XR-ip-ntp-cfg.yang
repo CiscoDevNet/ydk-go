@@ -36,7 +36,7 @@ module Cisco-IOS-XR-ip-ntp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-15 {
@@ -498,7 +498,7 @@ module Cisco-IOS-XR-ip-ntp-cfg {
     container authentication {
       description
         "Configure NTP Authentication keys";
-      container keies {
+      container keys {
         description
           "Authentication Key Table";
         list key {
@@ -518,7 +518,7 @@ module Cisco-IOS-XR-ip-ntp-cfg {
           }
         }
       }
-      container trusted-keies {
+      container trusted-keys {
         description
           "Key numbers for trusted time sources";
         list trusted-key {

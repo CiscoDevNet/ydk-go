@@ -5,7 +5,7 @@
 // for the following management objects:
 //   interfaces: Interface operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pfi_im_cmd_oper
 
@@ -54,6 +54,20 @@ const (
 
     // gcc
     ImCmdIntfTypeEnum_gcc ImCmdIntfTypeEnum = "gcc"
+)
+
+// VlanSwitchedMode represents VLAN-Switched mode
+type VlanSwitchedMode string
+
+const (
+    // Disabled
+    VlanSwitchedMode_none VlanSwitchedMode = "none"
+
+    // Trunk port
+    VlanSwitchedMode_trunk_port VlanSwitchedMode = "trunk-port"
+
+    // Access port
+    VlanSwitchedMode_access_port VlanSwitchedMode = "access-port"
 )
 
 // ImCmdStatsEnum represents List of different interface stats structures
@@ -2297,6 +2311,66 @@ const (
 
     // im attr media 10gbase acu10m
     ImAttrMedia_im_attr_media_10gbase_acu10m ImAttrMedia = "im-attr-media-10gbase-acu10m"
+
+    // im attr media 4x10g base lr
+    ImAttrMedia_im_attr_media_4x10g_base_lr ImAttrMedia = "im-attr-media-4x10g-base-lr"
+
+    // im attr media 10gbase cu1 5m
+    ImAttrMedia_im_attr_media_10gbase_cu1_5m ImAttrMedia = "im-attr-media-10gbase-cu1-5m"
+
+    // im attr media 10gbase cu2m
+    ImAttrMedia_im_attr_media_10gbase_cu2m ImAttrMedia = "im-attr-media-10gbase-cu2m"
+
+    // im attr media 10gbase cu2 5m
+    ImAttrMedia_im_attr_media_10gbase_cu2_5m ImAttrMedia = "im-attr-media-10gbase-cu2-5m"
+
+    // im attr media 10gbase aoc1m
+    ImAttrMedia_im_attr_media_10gbase_aoc1m ImAttrMedia = "im-attr-media-10gbase-aoc1m"
+
+    // im attr media 10gbase aoc2m
+    ImAttrMedia_im_attr_media_10gbase_aoc2m ImAttrMedia = "im-attr-media-10gbase-aoc2m"
+
+    // im attr media 10gbase aoc3m
+    ImAttrMedia_im_attr_media_10gbase_aoc3m ImAttrMedia = "im-attr-media-10gbase-aoc3m"
+
+    // im attr media 10gbase aoc5m
+    ImAttrMedia_im_attr_media_10gbase_aoc5m ImAttrMedia = "im-attr-media-10gbase-aoc5m"
+
+    // im attr media 10gbase aoc7m
+    ImAttrMedia_im_attr_media_10gbase_aoc7m ImAttrMedia = "im-attr-media-10gbase-aoc7m"
+
+    // im attr media 10gbase aoc10m
+    ImAttrMedia_im_attr_media_10gbase_aoc10m ImAttrMedia = "im-attr-media-10gbase-aoc10m"
+
+    // im attr media 40gbase acu1m
+    ImAttrMedia_im_attr_media_40gbase_acu1m ImAttrMedia = "im-attr-media-40gbase-acu1m"
+
+    // im attr media 40gbase acu3m
+    ImAttrMedia_im_attr_media_40gbase_acu3m ImAttrMedia = "im-attr-media-40gbase-acu3m"
+
+    // im attr media 40gbase acu5m
+    ImAttrMedia_im_attr_media_40gbase_acu5m ImAttrMedia = "im-attr-media-40gbase-acu5m"
+
+    // im attr media 40gbase acu7m
+    ImAttrMedia_im_attr_media_40gbase_acu7m ImAttrMedia = "im-attr-media-40gbase-acu7m"
+
+    // im attr media 40gbase acu10m
+    ImAttrMedia_im_attr_media_40gbase_acu10m ImAttrMedia = "im-attr-media-40gbase-acu10m"
+
+    // im attr media 25gbase cu1m
+    ImAttrMedia_im_attr_media_25gbase_cu1m ImAttrMedia = "im-attr-media-25gbase-cu1m"
+
+    // im attr media 25gbase cu2m
+    ImAttrMedia_im_attr_media_25gbase_cu2m ImAttrMedia = "im-attr-media-25gbase-cu2m"
+
+    // im attr media 25gbase cu3m
+    ImAttrMedia_im_attr_media_25gbase_cu3m ImAttrMedia = "im-attr-media-25gbase-cu3m"
+
+    // im attr media 25gbase cu5m
+    ImAttrMedia_im_attr_media_25gbase_cu5m ImAttrMedia = "im-attr-media-25gbase-cu5m"
+
+    // im attr media 100gbase sm sr
+    ImAttrMedia_im_attr_media_100gbase_sm_sr ImAttrMedia = "im-attr-media-100gbase-sm-sr"
 )
 
 // SrpMgmtSrrNodeState represents SRP SRR node state
@@ -2404,7 +2478,7 @@ type Interfaces_InterfaceXr_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -2487,7 +2561,7 @@ type Interfaces_InterfaceXr_Interface struct {
     // Loopback detected by layer 2. The type is bool.
     IsL2Looped interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Interface loopback configuration. The type is ImCmdLoopbackEnum.
@@ -2978,6 +3052,9 @@ type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation 
 
     // Encapsulation type and tag stack.
     EncapsulationDetails Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_EncapsulationDetails
+
+    // VLAN-Switched information.
+    VlanSwitched Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched
 }
 
 func (dot1qInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation) GetEntityData() *types.CommonEntityData {
@@ -2992,6 +3069,7 @@ func (dot1qInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformatio
 
     dot1qInformation.EntityData.Children = types.NewOrderedMap()
     dot1qInformation.EntityData.Children.Append("encapsulation-details", types.YChild{"EncapsulationDetails", &dot1qInformation.EncapsulationDetails})
+    dot1qInformation.EntityData.Children.Append("vlan-switched", types.YChild{"VlanSwitched", &dot1qInformation.VlanSwitched})
     dot1qInformation.EntityData.Leafs = types.NewOrderedMap()
 
     dot1qInformation.EntityData.YListKeys = []string {}
@@ -3380,6 +3458,295 @@ func (dot1adDot1qStack *Interfaces_InterfaceXr_Interface_EncapsulationInformatio
     dot1adDot1qStack.EntityData.YListKeys = []string {}
 
     return &(dot1adDot1qStack.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched
+// VLAN-Switched information
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VLAN-Switched mode. The type is VlanSwitchedMode.
+    Mode interface{}
+
+    // VLAN-Switched Access VLAN. The type is interface{} with range: 0..65535.
+    AccessVlan interface{}
+
+    // VLAN-Switched Trunk VLAN ranges.
+    TrunkVlanRanges Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges
+}
+
+func (vlanSwitched *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched) GetEntityData() *types.CommonEntityData {
+    vlanSwitched.EntityData.YFilter = vlanSwitched.YFilter
+    vlanSwitched.EntityData.YangName = "vlan-switched"
+    vlanSwitched.EntityData.BundleName = "cisco_ios_xr"
+    vlanSwitched.EntityData.ParentYangName = "dot1q-information"
+    vlanSwitched.EntityData.SegmentPath = "vlan-switched"
+    vlanSwitched.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanSwitched.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanSwitched.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanSwitched.EntityData.Children = types.NewOrderedMap()
+    vlanSwitched.EntityData.Children.Append("trunk-vlan-ranges", types.YChild{"TrunkVlanRanges", &vlanSwitched.TrunkVlanRanges})
+    vlanSwitched.EntityData.Leafs = types.NewOrderedMap()
+    vlanSwitched.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", vlanSwitched.Mode})
+    vlanSwitched.EntityData.Leafs.Append("access-vlan", types.YLeaf{"AccessVlan", vlanSwitched.AccessVlan})
+
+    vlanSwitched.EntityData.YListKeys = []string {}
+
+    return &(vlanSwitched.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges
+// VLAN-Switched Trunk VLAN ranges
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Payload Ethertype to match. The type is EfpPayloadEtype.
+    PayloadEthertype interface{}
+
+    // Number of tags popped on ingress. The type is interface{} with range:
+    // 0..65535.
+    TagsPopped interface{}
+
+    // Whether the packet must match the encapsulation exactly, with no further
+    // inner tags. The type is interface{} with range: -2147483648..2147483647.
+    IsExactMatch interface{}
+
+    // Whether this represents the native VLAN on the port. The type is
+    // interface{} with range: -2147483648..2147483647.
+    IsNativeVlan interface{}
+
+    // Whether the native VLAN is customer-tag preserving. The type is interface{}
+    // with range: -2147483648..2147483647.
+    IsNativePreserving interface{}
+
+    // The source MAC address to match on ingress. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    SourceMacMatch interface{}
+
+    // The destination MAC address to match on ingress. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    DestinationMacMatch interface{}
+
+    // VLAN tags for locally-sourced traffic.
+    LocalTrafficStack Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack
+
+    // Tags to match on ingress packets. The type is slice of
+    // Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch.
+    TagsToMatch []*Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch
+
+    // VLAN tags pushed on egress. The type is slice of
+    // Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe.
+    Pushe []*Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe
+}
+
+func (trunkVlanRanges *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges) GetEntityData() *types.CommonEntityData {
+    trunkVlanRanges.EntityData.YFilter = trunkVlanRanges.YFilter
+    trunkVlanRanges.EntityData.YangName = "trunk-vlan-ranges"
+    trunkVlanRanges.EntityData.BundleName = "cisco_ios_xr"
+    trunkVlanRanges.EntityData.ParentYangName = "vlan-switched"
+    trunkVlanRanges.EntityData.SegmentPath = "trunk-vlan-ranges"
+    trunkVlanRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trunkVlanRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trunkVlanRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    trunkVlanRanges.EntityData.Children = types.NewOrderedMap()
+    trunkVlanRanges.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &trunkVlanRanges.LocalTrafficStack})
+    trunkVlanRanges.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
+    for i := range trunkVlanRanges.TagsToMatch {
+        trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.TagsToMatch[i]), types.YChild{"TagsToMatch", trunkVlanRanges.TagsToMatch[i]})
+    }
+    trunkVlanRanges.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
+    for i := range trunkVlanRanges.Pushe {
+        trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.Pushe[i]), types.YChild{"Pushe", trunkVlanRanges.Pushe[i]})
+    }
+    trunkVlanRanges.EntityData.Leafs = types.NewOrderedMap()
+    trunkVlanRanges.EntityData.Leafs.Append("payload-ethertype", types.YLeaf{"PayloadEthertype", trunkVlanRanges.PayloadEthertype})
+    trunkVlanRanges.EntityData.Leafs.Append("tags-popped", types.YLeaf{"TagsPopped", trunkVlanRanges.TagsPopped})
+    trunkVlanRanges.EntityData.Leafs.Append("is-exact-match", types.YLeaf{"IsExactMatch", trunkVlanRanges.IsExactMatch})
+    trunkVlanRanges.EntityData.Leafs.Append("is-native-vlan", types.YLeaf{"IsNativeVlan", trunkVlanRanges.IsNativeVlan})
+    trunkVlanRanges.EntityData.Leafs.Append("is-native-preserving", types.YLeaf{"IsNativePreserving", trunkVlanRanges.IsNativePreserving})
+    trunkVlanRanges.EntityData.Leafs.Append("source-mac-match", types.YLeaf{"SourceMacMatch", trunkVlanRanges.SourceMacMatch})
+    trunkVlanRanges.EntityData.Leafs.Append("destination-mac-match", types.YLeaf{"DestinationMacMatch", trunkVlanRanges.DestinationMacMatch})
+
+    trunkVlanRanges.EntityData.YListKeys = []string {}
+
+    return &(trunkVlanRanges.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack
+// VLAN tags for locally-sourced traffic
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VLAN tags for locally-sourced traffic. The type is slice of
+    // Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag.
+    LocalTrafficTag []*Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag
+}
+
+func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack) GetEntityData() *types.CommonEntityData {
+    localTrafficStack.EntityData.YFilter = localTrafficStack.YFilter
+    localTrafficStack.EntityData.YangName = "local-traffic-stack"
+    localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
+    localTrafficStack.EntityData.ParentYangName = "trunk-vlan-ranges"
+    localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localTrafficStack.EntityData.Children = types.NewOrderedMap()
+    localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
+    for i := range localTrafficStack.LocalTrafficTag {
+        localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
+    }
+    localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
+
+    localTrafficStack.EntityData.YListKeys = []string {}
+
+    return &(localTrafficStack.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag
+// VLAN tags for locally-sourced traffic
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype of tag. The type is EfpTagEtype.
+    Ethertype interface{}
+
+    // VLAN Id. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (localTrafficTag *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag) GetEntityData() *types.CommonEntityData {
+    localTrafficTag.EntityData.YFilter = localTrafficTag.YFilter
+    localTrafficTag.EntityData.YangName = "local-traffic-tag"
+    localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
+    localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localTrafficTag.EntityData.Children = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs = types.NewOrderedMap()
+    localTrafficTag.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", localTrafficTag.Ethertype})
+    localTrafficTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", localTrafficTag.VlanId})
+
+    localTrafficTag.EntityData.YListKeys = []string {}
+
+    return &(localTrafficTag.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch
+// Tags to match on ingress packets
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype of tag to match. The type is EfpTagEtype.
+    Ethertype interface{}
+
+    // Priority to match. The type is EfpTagPriority.
+    Priority interface{}
+
+    // VLAN Ids to match. The type is slice of
+    // Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange.
+    VlanRange []*Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange
+}
+
+func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch) GetEntityData() *types.CommonEntityData {
+    tagsToMatch.EntityData.YFilter = tagsToMatch.YFilter
+    tagsToMatch.EntityData.YangName = "tags-to-match"
+    tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
+    tagsToMatch.EntityData.ParentYangName = "trunk-vlan-ranges"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tagsToMatch.EntityData.Children = types.NewOrderedMap()
+    tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
+    for i := range tagsToMatch.VlanRange {
+        tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
+    }
+    tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
+    tagsToMatch.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", tagsToMatch.Ethertype})
+    tagsToMatch.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", tagsToMatch.Priority})
+
+    tagsToMatch.EntityData.YListKeys = []string {}
+
+    return &(tagsToMatch.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange
+// VLAN Ids to match
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VLAN ID Low. The type is interface{} with range: 0..65535.
+    VlanIdLow interface{}
+
+    // VLAN ID High. The type is interface{} with range: 0..65535.
+    VlanIdHigh interface{}
+}
+
+func (vlanRange *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange) GetEntityData() *types.CommonEntityData {
+    vlanRange.EntityData.YFilter = vlanRange.YFilter
+    vlanRange.EntityData.YangName = "vlan-range"
+    vlanRange.EntityData.BundleName = "cisco_ios_xr"
+    vlanRange.EntityData.ParentYangName = "tags-to-match"
+    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanRange.EntityData.Children = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs = types.NewOrderedMap()
+    vlanRange.EntityData.Leafs.Append("vlan-id-low", types.YLeaf{"VlanIdLow", vlanRange.VlanIdLow})
+    vlanRange.EntityData.Leafs.Append("vlan-id-high", types.YLeaf{"VlanIdHigh", vlanRange.VlanIdHigh})
+
+    vlanRange.EntityData.YListKeys = []string {}
+
+    return &(vlanRange.EntityData)
+}
+
+// Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe
+// VLAN tags pushed on egress
+type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype of tag. The type is EfpTagEtype.
+    Ethertype interface{}
+
+    // VLAN Id. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (pushe *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe) GetEntityData() *types.CommonEntityData {
+    pushe.EntityData.YFilter = pushe.YFilter
+    pushe.EntityData.YangName = "pushe"
+    pushe.EntityData.BundleName = "cisco_ios_xr"
+    pushe.EntityData.ParentYangName = "trunk-vlan-ranges"
+    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pushe.EntityData.Children = types.NewOrderedMap()
+    pushe.EntityData.Leafs = types.NewOrderedMap()
+    pushe.EntityData.Leafs.Append("ethertype", types.YLeaf{"Ethertype", pushe.Ethertype})
+    pushe.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", pushe.VlanId})
+
+    pushe.EntityData.YListKeys = []string {}
+
+    return &(pushe.EntityData)
 }
 
 // Interfaces_InterfaceXr_Interface_EncapsulationInformation_PppInformation
@@ -4858,7 +5225,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5018,7 +5385,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -6032,7 +6399,7 @@ type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_StatsId struct {
     // Unused. The type is interface{} with range: 0..4294967295.
     Unused interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // Node ID. The type is string with pattern:
@@ -6457,13 +6824,13 @@ type Interfaces_InterfaceBriefs_InterfaceBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -6739,10 +7106,10 @@ type Interfaces_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Operational state with no translation of error disable or shutdown. The

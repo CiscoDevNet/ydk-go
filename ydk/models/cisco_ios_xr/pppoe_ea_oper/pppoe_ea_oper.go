@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pppoe-ea: PPPoE Ea data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pppoe_ea_oper
 
@@ -164,10 +164,10 @@ type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Is in sync. The type is bool.
@@ -269,16 +269,16 @@ type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Session ID. The type is interface{} with range: 0..65535.
     SessionId interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Is Priority Set. The type is bool.

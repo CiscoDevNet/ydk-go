@@ -22,7 +22,7 @@ module Cisco-IOS-XR-ipv6-acl-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -614,46 +614,36 @@ module Cisco-IOS-XR-ipv6-acl-datatypes {
   }
 
   typedef Ipv6-acl-tcp-bits-number {
-    type union {
-      type enumeration {
-        enum "established" {
-          value 20;
-          description
-            "Match established connections (0x14)";
-        }
-        enum "ack" {
-          value 16;
-          description
-            "Match on the ACK bit (0x10)";
-        }
-        enum "rst" {
-          value 4;
-          description
-            "Match on the RST bit (0x04)";
-        }
-        enum "fin" {
-          value 1;
-          description
-            "Match on the FIN bit (0x01)";
-        }
-        enum "psh" {
-          value 8;
-          description
-            "Match on the PSH bit (0x08)";
-        }
-        enum "syn" {
-          value 2;
-          description
-            "Match on the SYN bit (0x02)";
-        }
-        enum "urg" {
-          value 32;
-          description
-            "Match on the URG bit (0x20)";
-        }
+    type bits {
+      bit fin {
+        position 0;
+        description
+          "Match on the FIN bit (0x01)";
       }
-      type uint32 {
-        range "0..63";
+      bit syn {
+        position 1;
+        description
+          "Match on the SYN bit (0x02)";
+      }
+      bit rst {
+        position 2;
+        description
+          "Match on the RST bit (0x04)";
+      }
+      bit psh {
+        position 3;
+        description
+          "Match on the PSH bit (0x08)";
+      }
+      bit ack {
+        position 4;
+        description
+          "Match on the ACK bit (0x10)";
+      }
+      bit urg {
+        position 5;
+        description
+          "Match on the URG bit (0x20)";
       }
     }
     description

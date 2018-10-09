@@ -7,7 +7,7 @@
 //     information
 //   subscriber-redundancy-agent: subscriber redundancy agent
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_srg_oper
 
@@ -866,7 +866,7 @@ type SubscriberRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.

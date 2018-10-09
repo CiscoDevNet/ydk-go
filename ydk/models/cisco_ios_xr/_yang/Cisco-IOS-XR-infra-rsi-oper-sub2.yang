@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-rsi package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -153,6 +153,16 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
     }
   }
 
+  grouping RSI-SRLG-RSIP-LIST {
+    description
+      "RSI SRLG RSIP LIST";
+    leaf rsip-name {
+      type string;
+      description
+        "list of names matching rsip";
+    }
+  }
+
   grouping RSI-SRLG-ATTR-DETAIL {
     description
       "RSI SRLG ATTR DETAIL";
@@ -200,6 +210,11 @@ submodule Cisco-IOS-XR-infra-rsi-oper-sub2 {
       description
         "SRLG attributes";
       uses RSI-SRLG-ATTR-DETAIL;
+    }
+    list rsip {
+      description
+        "rsip list";
+      uses RSI-SRLG-RSIP-LIST;
     }
   }
 

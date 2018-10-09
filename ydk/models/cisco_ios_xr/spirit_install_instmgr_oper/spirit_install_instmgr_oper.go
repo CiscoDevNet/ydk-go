@@ -5,7 +5,7 @@
 // for the following management objects:
 //   software-install: Install operations info
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package spirit_install_instmgr_oper
 
@@ -140,8 +140,11 @@ const (
     // ISSU ST LOAD DONE
     IsdStateEt_load_done IsdStateEt = "load-done"
 
-    // ISSU ST RUN PREP
-    IsdStateEt_run_prep IsdStateEt = "run-prep"
+    // ISSU ST RUN PREP ISD
+    IsdStateEt_run_prep_isd IsdStateEt = "run-prep-isd"
+
+    // ISSU ST RUN PREP ISM
+    IsdStateEt_run_prep_ism IsdStateEt = "run-prep-ism"
 
     // ISSU ST RUN BIG BANG
     IsdStateEt_big_bang IsdStateEt = "big-bang"
@@ -266,6 +269,15 @@ type SoftwareInstall struct {
     // Show superseded packages.
     Superseded SoftwareInstall_Superseded
 
+    // Show Committed packages installed.
+    CommittedSummary SoftwareInstall_CommittedSummary
+
+    // Show active packages installed.
+    ActiveSummary SoftwareInstall_ActiveSummary
+
+    // Show XR inactive packages.
+    InactiveSummary SoftwareInstall_InactiveSummary
+
     // Show prepared packages ready for activation.
     Prepare SoftwareInstall_Prepare
 
@@ -280,6 +292,9 @@ type SoftwareInstall struct {
 
     // Show current request.
     Request SoftwareInstall_Request
+
+    // Show superseded packages.
+    SupersededSummary SoftwareInstall_SupersededSummary
 
     // ISSU operation.
     Issu SoftwareInstall_Issu
@@ -312,11 +327,15 @@ func (softwareInstall *SoftwareInstall) GetEntityData() *types.CommonEntityData 
 
     softwareInstall.EntityData.Children = types.NewOrderedMap()
     softwareInstall.EntityData.Children.Append("superseded", types.YChild{"Superseded", &softwareInstall.Superseded})
+    softwareInstall.EntityData.Children.Append("committed-summary", types.YChild{"CommittedSummary", &softwareInstall.CommittedSummary})
+    softwareInstall.EntityData.Children.Append("active-summary", types.YChild{"ActiveSummary", &softwareInstall.ActiveSummary})
+    softwareInstall.EntityData.Children.Append("inactive-summary", types.YChild{"InactiveSummary", &softwareInstall.InactiveSummary})
     softwareInstall.EntityData.Children.Append("prepare", types.YChild{"Prepare", &softwareInstall.Prepare})
     softwareInstall.EntityData.Children.Append("active", types.YChild{"Active", &softwareInstall.Active})
     softwareInstall.EntityData.Children.Append("version", types.YChild{"Version", &softwareInstall.Version})
     softwareInstall.EntityData.Children.Append("inactive", types.YChild{"Inactive", &softwareInstall.Inactive})
     softwareInstall.EntityData.Children.Append("request", types.YChild{"Request", &softwareInstall.Request})
+    softwareInstall.EntityData.Children.Append("superseded-summary", types.YChild{"SupersededSummary", &softwareInstall.SupersededSummary})
     softwareInstall.EntityData.Children.Append("issu", types.YChild{"Issu", &softwareInstall.Issu})
     softwareInstall.EntityData.Children.Append("committed", types.YChild{"Committed", &softwareInstall.Committed})
     softwareInstall.EntityData.Children.Append("all-operations-log", types.YChild{"AllOperationsLog", &softwareInstall.AllOperationsLog})
@@ -406,6 +425,200 @@ func (supersededPackageInfo *SoftwareInstall_Superseded_SupersededPackageInfo) G
     supersededPackageInfo.EntityData.YListKeys = []string {}
 
     return &(supersededPackageInfo.EntityData)
+}
+
+// SoftwareInstall_CommittedSummary
+// Show Committed packages installed
+type SoftwareInstall_CommittedSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // committed package info. The type is slice of
+    // SoftwareInstall_CommittedSummary_CommittedPackageInfo.
+    CommittedPackageInfo []*SoftwareInstall_CommittedSummary_CommittedPackageInfo
+}
+
+func (committedSummary *SoftwareInstall_CommittedSummary) GetEntityData() *types.CommonEntityData {
+    committedSummary.EntityData.YFilter = committedSummary.YFilter
+    committedSummary.EntityData.YangName = "committed-summary"
+    committedSummary.EntityData.BundleName = "cisco_ios_xr"
+    committedSummary.EntityData.ParentYangName = "software-install"
+    committedSummary.EntityData.SegmentPath = "committed-summary"
+    committedSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    committedSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    committedSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    committedSummary.EntityData.Children = types.NewOrderedMap()
+    committedSummary.EntityData.Children.Append("committed-package-info", types.YChild{"CommittedPackageInfo", nil})
+    for i := range committedSummary.CommittedPackageInfo {
+        committedSummary.EntityData.Children.Append(types.GetSegmentPath(committedSummary.CommittedPackageInfo[i]), types.YChild{"CommittedPackageInfo", committedSummary.CommittedPackageInfo[i]})
+    }
+    committedSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    committedSummary.EntityData.YListKeys = []string {}
+
+    return &(committedSummary.EntityData)
+}
+
+// SoftwareInstall_CommittedSummary_CommittedPackageInfo
+// committed package info
+type SoftwareInstall_CommittedSummary_CommittedPackageInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ErrorMessage. The type is string.
+    ErrorMessage interface{}
+
+    // Location. The type is string.
+    Location interface{}
+
+    // NodeType. The type is string.
+    NodeType interface{}
+
+    // BootPartitionName. The type is string.
+    BootPartitionName interface{}
+
+    // NumberOfCommittedPackages. The type is interface{} with range:
+    // 0..4294967295.
+    NumberOfCommittedPackages interface{}
+
+    // CommittedPackages. The type is string.
+    CommittedPackages interface{}
+}
+
+func (committedPackageInfo *SoftwareInstall_CommittedSummary_CommittedPackageInfo) GetEntityData() *types.CommonEntityData {
+    committedPackageInfo.EntityData.YFilter = committedPackageInfo.YFilter
+    committedPackageInfo.EntityData.YangName = "committed-package-info"
+    committedPackageInfo.EntityData.BundleName = "cisco_ios_xr"
+    committedPackageInfo.EntityData.ParentYangName = "committed-summary"
+    committedPackageInfo.EntityData.SegmentPath = "committed-package-info"
+    committedPackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    committedPackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    committedPackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    committedPackageInfo.EntityData.Children = types.NewOrderedMap()
+    committedPackageInfo.EntityData.Leafs = types.NewOrderedMap()
+    committedPackageInfo.EntityData.Leafs.Append("error-message", types.YLeaf{"ErrorMessage", committedPackageInfo.ErrorMessage})
+    committedPackageInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", committedPackageInfo.Location})
+    committedPackageInfo.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", committedPackageInfo.NodeType})
+    committedPackageInfo.EntityData.Leafs.Append("boot-partition-name", types.YLeaf{"BootPartitionName", committedPackageInfo.BootPartitionName})
+    committedPackageInfo.EntityData.Leafs.Append("number-of-committed-packages", types.YLeaf{"NumberOfCommittedPackages", committedPackageInfo.NumberOfCommittedPackages})
+    committedPackageInfo.EntityData.Leafs.Append("committed-packages", types.YLeaf{"CommittedPackages", committedPackageInfo.CommittedPackages})
+
+    committedPackageInfo.EntityData.YListKeys = []string {}
+
+    return &(committedPackageInfo.EntityData)
+}
+
+// SoftwareInstall_ActiveSummary
+// Show active packages installed
+type SoftwareInstall_ActiveSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // active package info. The type is slice of
+    // SoftwareInstall_ActiveSummary_ActivePackageInfo.
+    ActivePackageInfo []*SoftwareInstall_ActiveSummary_ActivePackageInfo
+}
+
+func (activeSummary *SoftwareInstall_ActiveSummary) GetEntityData() *types.CommonEntityData {
+    activeSummary.EntityData.YFilter = activeSummary.YFilter
+    activeSummary.EntityData.YangName = "active-summary"
+    activeSummary.EntityData.BundleName = "cisco_ios_xr"
+    activeSummary.EntityData.ParentYangName = "software-install"
+    activeSummary.EntityData.SegmentPath = "active-summary"
+    activeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    activeSummary.EntityData.Children = types.NewOrderedMap()
+    activeSummary.EntityData.Children.Append("active-package-info", types.YChild{"ActivePackageInfo", nil})
+    for i := range activeSummary.ActivePackageInfo {
+        activeSummary.EntityData.Children.Append(types.GetSegmentPath(activeSummary.ActivePackageInfo[i]), types.YChild{"ActivePackageInfo", activeSummary.ActivePackageInfo[i]})
+    }
+    activeSummary.EntityData.Leafs = types.NewOrderedMap()
+
+    activeSummary.EntityData.YListKeys = []string {}
+
+    return &(activeSummary.EntityData)
+}
+
+// SoftwareInstall_ActiveSummary_ActivePackageInfo
+// active package info
+type SoftwareInstall_ActiveSummary_ActivePackageInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ErrorMessage. The type is string.
+    ErrorMessage interface{}
+
+    // Location. The type is string.
+    Location interface{}
+
+    // NodeType. The type is string.
+    NodeType interface{}
+
+    // BootPartitionName. The type is string.
+    BootPartitionName interface{}
+
+    // NumberOfActivePackages. The type is interface{} with range: 0..4294967295.
+    NumberOfActivePackages interface{}
+
+    // ActivePackages. The type is string.
+    ActivePackages interface{}
+}
+
+func (activePackageInfo *SoftwareInstall_ActiveSummary_ActivePackageInfo) GetEntityData() *types.CommonEntityData {
+    activePackageInfo.EntityData.YFilter = activePackageInfo.YFilter
+    activePackageInfo.EntityData.YangName = "active-package-info"
+    activePackageInfo.EntityData.BundleName = "cisco_ios_xr"
+    activePackageInfo.EntityData.ParentYangName = "active-summary"
+    activePackageInfo.EntityData.SegmentPath = "active-package-info"
+    activePackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activePackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activePackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    activePackageInfo.EntityData.Children = types.NewOrderedMap()
+    activePackageInfo.EntityData.Leafs = types.NewOrderedMap()
+    activePackageInfo.EntityData.Leafs.Append("error-message", types.YLeaf{"ErrorMessage", activePackageInfo.ErrorMessage})
+    activePackageInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", activePackageInfo.Location})
+    activePackageInfo.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", activePackageInfo.NodeType})
+    activePackageInfo.EntityData.Leafs.Append("boot-partition-name", types.YLeaf{"BootPartitionName", activePackageInfo.BootPartitionName})
+    activePackageInfo.EntityData.Leafs.Append("number-of-active-packages", types.YLeaf{"NumberOfActivePackages", activePackageInfo.NumberOfActivePackages})
+    activePackageInfo.EntityData.Leafs.Append("active-packages", types.YLeaf{"ActivePackages", activePackageInfo.ActivePackages})
+
+    activePackageInfo.EntityData.YListKeys = []string {}
+
+    return &(activePackageInfo.EntityData)
+}
+
+// SoftwareInstall_InactiveSummary
+// Show XR inactive packages
+type SoftwareInstall_InactiveSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // log. The type is string.
+    Log interface{}
+}
+
+func (inactiveSummary *SoftwareInstall_InactiveSummary) GetEntityData() *types.CommonEntityData {
+    inactiveSummary.EntityData.YFilter = inactiveSummary.YFilter
+    inactiveSummary.EntityData.YangName = "inactive-summary"
+    inactiveSummary.EntityData.BundleName = "cisco_ios_xr"
+    inactiveSummary.EntityData.ParentYangName = "software-install"
+    inactiveSummary.EntityData.SegmentPath = "inactive-summary"
+    inactiveSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inactiveSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inactiveSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inactiveSummary.EntityData.Children = types.NewOrderedMap()
+    inactiveSummary.EntityData.Leafs = types.NewOrderedMap()
+    inactiveSummary.EntityData.Leafs.Append("log", types.YLeaf{"Log", inactiveSummary.Log})
+
+    inactiveSummary.EntityData.YListKeys = []string {}
+
+    return &(inactiveSummary.EntityData)
 }
 
 // SoftwareInstall_Prepare
@@ -617,8 +830,23 @@ type SoftwareInstall_Version struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // ImgInfo. The type is string.
-    ImgInfo interface{}
+    // Path where all cisco packages are installed. The type is string.
+    Location interface{}
+
+    // label name. The type is string.
+    Label interface{}
+
+    // copyright info. The type is string.
+    CopyrightInfo interface{}
+
+    // hardware info of the router. The type is string.
+    HardwareInfo interface{}
+
+    // duration since when system is up. The type is string.
+    SystemUptime interface{}
+
+    // package. The type is slice of SoftwareInstall_Version_Package.
+    Package []*SoftwareInstall_Version_Package
 }
 
 func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData {
@@ -632,12 +860,69 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     version.EntityData.Children = types.NewOrderedMap()
+    version.EntityData.Children.Append("package", types.YChild{"Package", nil})
+    for i := range version.Package {
+        version.EntityData.Children.Append(types.GetSegmentPath(version.Package[i]), types.YChild{"Package", version.Package[i]})
+    }
     version.EntityData.Leafs = types.NewOrderedMap()
-    version.EntityData.Leafs.Append("img-info", types.YLeaf{"ImgInfo", version.ImgInfo})
+    version.EntityData.Leafs.Append("location", types.YLeaf{"Location", version.Location})
+    version.EntityData.Leafs.Append("label", types.YLeaf{"Label", version.Label})
+    version.EntityData.Leafs.Append("copyright-info", types.YLeaf{"CopyrightInfo", version.CopyrightInfo})
+    version.EntityData.Leafs.Append("hardware-info", types.YLeaf{"HardwareInfo", version.HardwareInfo})
+    version.EntityData.Leafs.Append("system-uptime", types.YLeaf{"SystemUptime", version.SystemUptime})
 
     version.EntityData.YListKeys = []string {}
 
     return &(version.EntityData)
+}
+
+// SoftwareInstall_Version_Package
+// package
+type SoftwareInstall_Version_Package struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name. The type is string.
+    Name interface{}
+
+    // Running version. The type is string.
+    Version interface{}
+
+    // User built by. The type is string.
+    BuiltBy interface{}
+
+    // Time built. The type is string.
+    BuiltOn interface{}
+
+    // Build host. The type is string.
+    BuildHost interface{}
+
+    // Workspace built in. The type is string.
+    Workspace interface{}
+}
+
+func (self *SoftwareInstall_Version_Package) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "package"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "version"
+    self.EntityData.SegmentPath = "package"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("version", types.YLeaf{"Version", self.Version})
+    self.EntityData.Leafs.Append("built-by", types.YLeaf{"BuiltBy", self.BuiltBy})
+    self.EntityData.Leafs.Append("built-on", types.YLeaf{"BuiltOn", self.BuiltOn})
+    self.EntityData.Leafs.Append("build-host", types.YLeaf{"BuildHost", self.BuildHost})
+    self.EntityData.Leafs.Append("workspace", types.YLeaf{"Workspace", self.Workspace})
+
+    self.EntityData.YListKeys = []string {}
+
+    return &(self.EntityData)
 }
 
 // SoftwareInstall_Inactive
@@ -696,6 +981,35 @@ func (request *SoftwareInstall_Request) GetEntityData() *types.CommonEntityData 
     request.EntityData.YListKeys = []string {}
 
     return &(request.EntityData)
+}
+
+// SoftwareInstall_SupersededSummary
+// Show superseded packages
+type SoftwareInstall_SupersededSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // log. The type is string.
+    Log interface{}
+}
+
+func (supersededSummary *SoftwareInstall_SupersededSummary) GetEntityData() *types.CommonEntityData {
+    supersededSummary.EntityData.YFilter = supersededSummary.YFilter
+    supersededSummary.EntityData.YangName = "superseded-summary"
+    supersededSummary.EntityData.BundleName = "cisco_ios_xr"
+    supersededSummary.EntityData.ParentYangName = "software-install"
+    supersededSummary.EntityData.SegmentPath = "superseded-summary"
+    supersededSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    supersededSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    supersededSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    supersededSummary.EntityData.Children = types.NewOrderedMap()
+    supersededSummary.EntityData.Leafs = types.NewOrderedMap()
+    supersededSummary.EntityData.Leafs.Append("log", types.YLeaf{"Log", supersededSummary.Log})
+
+    supersededSummary.EntityData.YListKeys = []string {}
+
+    return &(supersededSummary.EntityData)
 }
 
 // SoftwareInstall_Issu
@@ -949,6 +1263,12 @@ type SoftwareInstall_AllOperationsLog struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Show detailed log file for all operations - reverse.
+    ReverseDetail SoftwareInstall_AllOperationsLog_ReverseDetail
+
+    // Show log file for all operations - reverse.
+    Reverse SoftwareInstall_AllOperationsLog_Reverse
+
     // Show summary log file for all operations.
     Summary SoftwareInstall_AllOperationsLog_Summary
 
@@ -967,6 +1287,8 @@ func (allOperationsLog *SoftwareInstall_AllOperationsLog) GetEntityData() *types
     allOperationsLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     allOperationsLog.EntityData.Children = types.NewOrderedMap()
+    allOperationsLog.EntityData.Children.Append("reverse-detail", types.YChild{"ReverseDetail", &allOperationsLog.ReverseDetail})
+    allOperationsLog.EntityData.Children.Append("reverse", types.YChild{"Reverse", &allOperationsLog.Reverse})
     allOperationsLog.EntityData.Children.Append("summary", types.YChild{"Summary", &allOperationsLog.Summary})
     allOperationsLog.EntityData.Children.Append("detail", types.YChild{"Detail", &allOperationsLog.Detail})
     allOperationsLog.EntityData.Leafs = types.NewOrderedMap()
@@ -974,6 +1296,65 @@ func (allOperationsLog *SoftwareInstall_AllOperationsLog) GetEntityData() *types
     allOperationsLog.EntityData.YListKeys = []string {}
 
     return &(allOperationsLog.EntityData)
+}
+
+// SoftwareInstall_AllOperationsLog_ReverseDetail
+// Show detailed log file for all operations -
+// reverse
+type SoftwareInstall_AllOperationsLog_ReverseDetail struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // log. The type is string.
+    Log interface{}
+}
+
+func (reverseDetail *SoftwareInstall_AllOperationsLog_ReverseDetail) GetEntityData() *types.CommonEntityData {
+    reverseDetail.EntityData.YFilter = reverseDetail.YFilter
+    reverseDetail.EntityData.YangName = "reverse-detail"
+    reverseDetail.EntityData.BundleName = "cisco_ios_xr"
+    reverseDetail.EntityData.ParentYangName = "all-operations-log"
+    reverseDetail.EntityData.SegmentPath = "reverse-detail"
+    reverseDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reverseDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reverseDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reverseDetail.EntityData.Children = types.NewOrderedMap()
+    reverseDetail.EntityData.Leafs = types.NewOrderedMap()
+    reverseDetail.EntityData.Leafs.Append("log", types.YLeaf{"Log", reverseDetail.Log})
+
+    reverseDetail.EntityData.YListKeys = []string {}
+
+    return &(reverseDetail.EntityData)
+}
+
+// SoftwareInstall_AllOperationsLog_Reverse
+// Show log file for all operations - reverse
+type SoftwareInstall_AllOperationsLog_Reverse struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // log. The type is string.
+    Log interface{}
+}
+
+func (reverse *SoftwareInstall_AllOperationsLog_Reverse) GetEntityData() *types.CommonEntityData {
+    reverse.EntityData.YFilter = reverse.YFilter
+    reverse.EntityData.YangName = "reverse"
+    reverse.EntityData.BundleName = "cisco_ios_xr"
+    reverse.EntityData.ParentYangName = "all-operations-log"
+    reverse.EntityData.SegmentPath = "reverse"
+    reverse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reverse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reverse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    reverse.EntityData.Children = types.NewOrderedMap()
+    reverse.EntityData.Leafs = types.NewOrderedMap()
+    reverse.EntityData.Leafs.Append("log", types.YLeaf{"Log", reverse.Log})
+
+    reverse.EntityData.YListKeys = []string {}
+
+    return &(reverse.EntityData)
 }
 
 // SoftwareInstall_AllOperationsLog_Summary

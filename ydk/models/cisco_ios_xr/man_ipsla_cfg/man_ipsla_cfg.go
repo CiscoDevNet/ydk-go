@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_ipsla_cfg
 
@@ -278,6 +278,9 @@ type Ipsla struct {
 
     // Provider Edge(PE) discovery configuration.
     MplsDiscovery Ipsla_MplsDiscovery
+
+    // IPPM Server configuration.
+    ServerTwamp Ipsla_ServerTwamp
 }
 
 func (ipsla *Ipsla) GetEntityData() *types.CommonEntityData {
@@ -296,6 +299,7 @@ func (ipsla *Ipsla) GetEntityData() *types.CommonEntityData {
     ipsla.EntityData.Children.Append("operation", types.YChild{"Operation", &ipsla.Operation})
     ipsla.EntityData.Children.Append("responder", types.YChild{"Responder", &ipsla.Responder})
     ipsla.EntityData.Children.Append("mpls-discovery", types.YChild{"MplsDiscovery", &ipsla.MplsDiscovery})
+    ipsla.EntityData.Children.Append("server-twamp", types.YChild{"ServerTwamp", &ipsla.ServerTwamp})
     ipsla.EntityData.Leafs = types.NewOrderedMap()
 
     ipsla.EntityData.YListKeys = []string {}
@@ -313,6 +317,9 @@ type Ipsla_Common struct {
     // range: 0..4294967295. The default value is 20480.
     LowMemory interface{}
 
+    // Hardware Timestamp configuration.
+    HardwareTimestamp Ipsla_Common_HardwareTimestamp
+
     // Authenticaion configuration.
     Authentication Ipsla_Common_Authentication
 }
@@ -328,6 +335,7 @@ func (common *Ipsla_Common) GetEntityData() *types.CommonEntityData {
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     common.EntityData.Children = types.NewOrderedMap()
+    common.EntityData.Children.Append("hardware-timestamp", types.YChild{"HardwareTimestamp", &common.HardwareTimestamp})
     common.EntityData.Children.Append("authentication", types.YChild{"Authentication", &common.Authentication})
     common.EntityData.Leafs = types.NewOrderedMap()
     common.EntityData.Leafs.Append("low-memory", types.YLeaf{"LowMemory", common.LowMemory})
@@ -335,6 +343,35 @@ func (common *Ipsla_Common) GetEntityData() *types.CommonEntityData {
     common.EntityData.YListKeys = []string {}
 
     return &(common.EntityData)
+}
+
+// Ipsla_Common_HardwareTimestamp
+// Hardware Timestamp configuration
+type Ipsla_Common_HardwareTimestamp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // states true if hw-timestamp is disabled. The type is interface{}.
+    Disable interface{}
+}
+
+func (hardwareTimestamp *Ipsla_Common_HardwareTimestamp) GetEntityData() *types.CommonEntityData {
+    hardwareTimestamp.EntityData.YFilter = hardwareTimestamp.YFilter
+    hardwareTimestamp.EntityData.YangName = "hardware-timestamp"
+    hardwareTimestamp.EntityData.BundleName = "cisco_ios_xr"
+    hardwareTimestamp.EntityData.ParentYangName = "common"
+    hardwareTimestamp.EntityData.SegmentPath = "hardware-timestamp"
+    hardwareTimestamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareTimestamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareTimestamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hardwareTimestamp.EntityData.Children = types.NewOrderedMap()
+    hardwareTimestamp.EntityData.Leafs = types.NewOrderedMap()
+    hardwareTimestamp.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", hardwareTimestamp.Disable})
+
+    hardwareTimestamp.EntityData.YListKeys = []string {}
+
+    return &(hardwareTimestamp.EntityData)
 }
 
 // Ipsla_Common_Authentication
@@ -1113,7 +1150,7 @@ type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTrace stru
     LspSelector interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Apply access list to filter PE addresses. The type is string with length:
@@ -1304,7 +1341,7 @@ type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing struc
     LspSelector interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Apply access list to filter PE addresses. The type is string with length:
@@ -3821,7 +3858,7 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing struct {
     Timeout interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Probe interval in seconds. The type is interface{} with range: 1..604800.
@@ -4613,7 +4650,7 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace struct {
     Timeout interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Probe interval in seconds. The type is interface{} with range: 1..604800.
@@ -5673,8 +5710,8 @@ type Ipsla_Responder struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Starts the responder process. The type is interface{}.
-    Enable interface{}
+    // Responder TWAMP configuration.
+    Twamp Ipsla_Responder_Twamp
 
     // Configure IPSLA Responder port type.
     Type Ipsla_Responder_Type
@@ -5691,13 +5728,43 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
     responder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     responder.EntityData.Children = types.NewOrderedMap()
+    responder.EntityData.Children.Append("twamp", types.YChild{"Twamp", &responder.Twamp})
     responder.EntityData.Children.Append("type", types.YChild{"Type", &responder.Type})
     responder.EntityData.Leafs = types.NewOrderedMap()
-    responder.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", responder.Enable})
 
     responder.EntityData.YListKeys = []string {}
 
     return &(responder.EntityData)
+}
+
+// Ipsla_Responder_Twamp
+// Responder TWAMP configuration
+type Ipsla_Responder_Twamp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure responder timeout value in seconds. The type is interface{} with
+    // range: 1..604800. Units are second. The default value is 900.
+    Timeout interface{}
+}
+
+func (twamp *Ipsla_Responder_Twamp) GetEntityData() *types.CommonEntityData {
+    twamp.EntityData.YFilter = twamp.YFilter
+    twamp.EntityData.YangName = "twamp"
+    twamp.EntityData.BundleName = "cisco_ios_xr"
+    twamp.EntityData.ParentYangName = "responder"
+    twamp.EntityData.SegmentPath = "twamp"
+    twamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    twamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    twamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    twamp.EntityData.Children = types.NewOrderedMap()
+    twamp.EntityData.Leafs = types.NewOrderedMap()
+    twamp.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", twamp.Timeout})
+
+    twamp.EntityData.YListKeys = []string {}
+
+    return &(twamp.EntityData)
 }
 
 // Ipsla_Responder_Type
@@ -5947,5 +6014,41 @@ func (vpn *Ipsla_MplsDiscovery_Vpn) GetEntityData() *types.CommonEntityData {
     vpn.EntityData.YListKeys = []string {}
 
     return &(vpn.EntityData)
+}
+
+// Ipsla_ServerTwamp
+// IPPM Server configuration
+type Ipsla_ServerTwamp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure ippmserver inactivity timer value in seconds. The type is
+    // interface{} with range: 1..6000. Units are second. The default value is
+    // 900.
+    InactivityTimer interface{}
+
+    // Configure port number for ippmserver listening port. The type is
+    // interface{} with range: 1..65535. The default value is 862.
+    Port interface{}
+}
+
+func (serverTwamp *Ipsla_ServerTwamp) GetEntityData() *types.CommonEntityData {
+    serverTwamp.EntityData.YFilter = serverTwamp.YFilter
+    serverTwamp.EntityData.YangName = "server-twamp"
+    serverTwamp.EntityData.BundleName = "cisco_ios_xr"
+    serverTwamp.EntityData.ParentYangName = "ipsla"
+    serverTwamp.EntityData.SegmentPath = "server-twamp"
+    serverTwamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverTwamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverTwamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverTwamp.EntityData.Children = types.NewOrderedMap()
+    serverTwamp.EntityData.Leafs = types.NewOrderedMap()
+    serverTwamp.EntityData.Leafs.Append("inactivity-timer", types.YLeaf{"InactivityTimer", serverTwamp.InactivityTimer})
+    serverTwamp.EntityData.Leafs.Append("port", types.YLeaf{"Port", serverTwamp.Port})
+
+    serverTwamp.EntityData.YListKeys = []string {}
+
+    return &(serverTwamp.EntityData)
 }
 

@@ -29,9 +29,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR clns-isis package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-07 {
+    description
+      "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";
+  }
+  revision 2018-01-24 {
+    description
+      "Added SRLG TILFA operation CLI.";
+  }
+  revision 2017-12-06 {
+    description
+      "Add segment-routing srv6";
+  }
   revision 2017-08-08 {
     description
       "Add openconfig network instance model isis telemetry EDM function support.";
@@ -740,232 +752,6 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       "Isis mesh group number";
   }
 
-  typedef Isis-sh-route-adv-origin {
-    type enumeration {
-      enum "isis-sh-route-adv-origin-interface" {
-        description
-          "IS-IS interface prefix";
-      }
-      enum "isis-sh-route-adv-origin-redistributed" {
-        description
-          "Redistributed prefix";
-      }
-      enum "isis-sh-route-adv-origin-native" {
-        description
-          "Native prefix";
-      }
-      enum "isis-sh-route-adv-origin-summary" {
-        description
-          "Summary prefix";
-      }
-      enum "isis-sh-route-adv-origin-default" {
-        description
-          "Explicit origination of default prefix";
-      }
-    }
-    description
-      "Origin of a prefix advertisement";
-  }
-
-  typedef Isis-prefix-priority {
-    type enumeration {
-      enum "isis-prefix-priority-critical" {
-        value 0;
-        description
-          "Critical priority prefixes";
-      }
-      enum "isis-prefix-priority-high" {
-        value 1;
-        description
-          "High priority prefixes";
-      }
-      enum "isis-prefix-priority-med" {
-        value 2;
-        description
-          "Medium priority prefixes";
-      }
-      enum "isis-prefix-priority-low" {
-        value 3;
-        description
-          "Low priority prefixes";
-      }
-    }
-    description
-      "Isis prefix priority";
-  }
-
-  typedef Isis-prefix-origin {
-    type enumeration {
-      enum "isis-prefix-origin-l1-summary-null" {
-        value 0;
-        description
-          "Level 1 Summary Null Route";
-      }
-      enum "isis-prefix-origin-l1" {
-        value 1;
-        description
-          "Level 1 Route";
-      }
-      enum "isis-prefix-origin-l2-summary-null" {
-        value 2;
-        description
-          "Level 2 Summary Null Route";
-      }
-      enum "isis-prefix-origin-l2" {
-        value 3;
-        description
-          "Level 2 Route";
-      }
-      enum "isis-prefix-origin-inter-area-summary-null" {
-        value 4;
-        description
-          "Level 1 Interarea Summary Null Route";
-      }
-      enum "isis-prefix-origin-inter-area" {
-        value 5;
-        description
-          "Level 1 Interarea Route";
-      }
-      enum "isis-prefix-origin-default-nearest-attached" {
-        value 6;
-        description
-          "Nearest Attached Default Route";
-      }
-    }
-    description
-      "Isis prefix origin";
-  }
-
-  typedef Isis-string {
-    type string;
-    description
-      "Isis string";
-  }
-
-  typedef Isis-redist-proto {
-    type enumeration {
-      enum "isis-redist-connected" {
-        value 0;
-        description
-          "Redistributed protocol is Connected";
-      }
-      enum "isis-redist-static" {
-        value 1;
-        description
-          "Redistributed protocol is Static";
-      }
-      enum "isis-redist-ospf" {
-        value 2;
-        description
-          "Redistributed protocol is OSPF";
-      }
-      enum "isis-redist-bgp" {
-        value 3;
-        description
-          "Redistributed protocol is BGP";
-      }
-      enum "isis-redist-isis" {
-        value 4;
-        description
-          "Redistributed protocol is IS-IS";
-      }
-      enum "isis-redist-ospfv3" {
-        value 5;
-        description
-          "Redistributed protocol is OSPFv3";
-      }
-      enum "isis-redist-rip" {
-        value 6;
-        description
-          "Redistributed protocol is RIP";
-      }
-      enum "isis-redist-eigrp" {
-        value 7;
-        description
-          "Redistributed protocol is EIGRP";
-      }
-      enum "isis-redist-subscriber" {
-        value 8;
-        description
-          "Redistributed protocol is Subscriber";
-      }
-      enum "isis-redist-application" {
-        value 9;
-        description
-          "Redistributed protocol is Application";
-      }
-      enum "isis-redist-mobile" {
-        value 10;
-        description
-          "Redistributed protocol is Mobile";
-      }
-    }
-    description
-      "Isis redist proto";
-  }
-
-  typedef Isis-valid {
-    type enumeration {
-      enum "isis-invalid" {
-        value 0;
-        description
-          "Invalid";
-      }
-      enum "isis-valid" {
-        value 1;
-        description
-          "Valid";
-      }
-    }
-    description
-      "Isis valid";
-  }
-
-  typedef Isis-tilfa-computation {
-    type enumeration {
-      enum "isis-tilfa-comp-none" {
-        description
-          "isis tilfa comp none";
-      }
-      enum "isis-tilfa-comp-link" {
-        description
-          "isis tilfa comp link";
-      }
-      enum "isis-tilfa-comp-node" {
-        description
-          "isis tilfa comp node";
-      }
-      enum "isis-tilfa-comp-srlg" {
-        description
-          "isis tilfa comp srlg";
-      }
-      enum "isis-tilfa-comp-node-srlg" {
-        description
-          "isis tilfa comp node srlg";
-      }
-    }
-    description
-      "Isis tilfa computation";
-  }
-
-  typedef Isis-prefix-tag {
-    type uint32;
-    description
-      "Isis prefix tag";
-  }
-
-  typedef Isis-sh-interface-name {
-    type string;
-    description
-      "Isis sh interface name";
-  }
-
-  typedef Isis-metric {
-    type uint32;
-    description
-      "Isis metric";
-  }
-
   typedef Isis-reachable {
     type enumeration {
       enum "isis-unreachable" {
@@ -1003,12 +789,6 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
     description
       "Isis metric mode";
-  }
-
-  typedef Isis-ip-prefix-length {
-    type uint8;
-    description
-      "Isis ip prefix length";
   }
 
   typedef Isis-spf-trigger {
@@ -1139,6 +919,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         description
           "Router id TLV content change";
       }
+      enum "isis-spf-trig-flex-algo" {
+        description
+          "Flex-Algo support change";
+      }
       enum "isis-spf-trig-prefix-policy" {
         description
           "Prefix policy change";
@@ -1175,18 +959,23 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         description
           "UCMP SPF";
       }
-      enum "isis-spf-next-hop" {
+      enum "isis-spf-flex" {
         value 5;
+        description
+          "Flex-Algo SPF";
+      }
+      enum "isis-spf-next-hop" {
+        value 6;
         description
           "Next Hop";
       }
       enum "isis-spf-incremental" {
-        value 6;
+        value 7;
         description
           "Incremental SPF";
       }
       enum "isis-spf-full" {
-        value 7;
+        value 8;
         description
           "Full SPF";
       }
@@ -1227,6 +1016,347 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
     description
       "Isis sh te link";
+  }
+
+  typedef Srv6-end-function {
+    type enumeration {
+      enum "unknown" {
+        description
+          "Unknown";
+      }
+      enum "end" {
+        description
+          "End (no PSP/USP)";
+      }
+      enum "end-with-psp" {
+        description
+          "End with PSP";
+      }
+      enum "end-with-usp" {
+        description
+          "End with USP";
+      }
+      enum "end-with-psp-usp" {
+        description
+          "End with PSP/USP";
+      }
+      enum "end-x" {
+        description
+          "End.X (no PSP/USP)";
+      }
+      enum "end-x-with-psp" {
+        description
+          "End.X with PSP";
+      }
+      enum "end-x-with-usp" {
+        description
+          "End.X with USP";
+      }
+      enum "end-x-with-psp-usp" {
+        description
+          "End.X with PSP/USP";
+      }
+      enum "end-tn" {
+        description
+          "End.T (no PSP/USP)";
+      }
+      enum "end-t-with-psp" {
+        description
+          "End.T with PSP";
+      }
+      enum "end-t-with-usp" {
+        description
+          "End.T with USP";
+      }
+      enum "end-t-with-psp-usp" {
+        description
+          "End.T with PSP/USP";
+      }
+      enum "end-b6" {
+        description
+          "End.B6";
+      }
+      enum "end-b6-encaps" {
+        description
+          "End.B6.Encaps";
+      }
+      enum "end-bm" {
+        description
+          "End.BM";
+      }
+      enum "end-dx6" {
+        description
+          "End.DX6";
+      }
+      enum "end-dx4" {
+        description
+          "End.DX4";
+      }
+      enum "end-dt6" {
+        description
+          "End.DT6";
+      }
+      enum "end-dt4" {
+        description
+          "End.DT4";
+      }
+      enum "end-dt46" {
+        description
+          "End.DT46";
+      }
+      enum "end-dx2" {
+        description
+          "End.DX2";
+      }
+      enum "end-dx2v" {
+        description
+          "End.DX2V";
+      }
+      enum "end-dx2u" {
+        description
+          "End.DX2U";
+      }
+      enum "end-dx2m" {
+        description
+          "End.DX2M";
+      }
+      enum "end-otp" {
+        description
+          "End.OTP";
+      }
+      enum "end-s" {
+        description
+          "End.S";
+      }
+    }
+    description
+      "SRv6 End Function Type";
+  }
+
+  typedef Isis-sh-route-adv-origin {
+    type enumeration {
+      enum "isis-sh-route-adv-origin-interface" {
+        description
+          "IS-IS interface prefix";
+      }
+      enum "isis-sh-route-adv-origin-redistributed" {
+        description
+          "Redistributed prefix";
+      }
+      enum "isis-sh-route-adv-origin-native" {
+        description
+          "Native prefix";
+      }
+      enum "isis-sh-route-adv-origin-summary" {
+        description
+          "Summary prefix";
+      }
+      enum "isis-sh-route-adv-origin-default" {
+        description
+          "Explicit origination of default prefix";
+      }
+    }
+    description
+      "Origin of a prefix advertisement";
+  }
+
+  typedef Isis-prefix-priority {
+    type enumeration {
+      enum "isis-prefix-priority-critical" {
+        value 0;
+        description
+          "Critical priority prefixes";
+      }
+      enum "isis-prefix-priority-high" {
+        value 1;
+        description
+          "High priority prefixes";
+      }
+      enum "isis-prefix-priority-med" {
+        value 2;
+        description
+          "Medium priority prefixes";
+      }
+      enum "isis-prefix-priority-low" {
+        value 3;
+        description
+          "Low priority prefixes";
+      }
+    }
+    description
+      "Isis prefix priority";
+  }
+
+  typedef Isis-tilfa-computation {
+    type enumeration {
+      enum "isis-tilfa-comp-none" {
+        description
+          "isis tilfa comp none";
+      }
+      enum "isis-tilfa-comp-link" {
+        description
+          "isis tilfa comp link";
+      }
+      enum "isis-tilfa-comp-node" {
+        description
+          "isis tilfa comp node";
+      }
+      enum "isis-tilfa-comp-srlg" {
+        description
+          "isis tilfa comp srlg";
+      }
+      enum "isis-tilfa-comp-node-srlg" {
+        description
+          "isis tilfa comp node srlg";
+      }
+    }
+    description
+      "Isis tilfa computation";
+  }
+
+  typedef Isis-prefix-tag {
+    type uint32;
+    description
+      "Isis prefix tag";
+  }
+
+  typedef Isis-metric {
+    type uint32;
+    description
+      "Isis metric";
+  }
+
+  typedef Isis-prefix-origin {
+    type enumeration {
+      enum "isis-prefix-origin-l1-summary-null" {
+        value 0;
+        description
+          "Level 1 Summary Null Route";
+      }
+      enum "isis-prefix-origin-l1" {
+        value 1;
+        description
+          "Level 1 Route";
+      }
+      enum "isis-prefix-origin-l2-summary-null" {
+        value 2;
+        description
+          "Level 2 Summary Null Route";
+      }
+      enum "isis-prefix-origin-l2" {
+        value 3;
+        description
+          "Level 2 Route";
+      }
+      enum "isis-prefix-origin-inter-area-summary-null" {
+        value 4;
+        description
+          "Level 1 Interarea Summary Null Route";
+      }
+      enum "isis-prefix-origin-inter-area" {
+        value 5;
+        description
+          "Level 1 Interarea Route";
+      }
+      enum "isis-prefix-origin-default-nearest-attached" {
+        value 6;
+        description
+          "Nearest Attached Default Route";
+      }
+    }
+    description
+      "Isis prefix origin";
+  }
+
+  typedef Isis-string {
+    type string;
+    description
+      "Isis string";
+  }
+
+  typedef Isis-redist-proto {
+    type enumeration {
+      enum "isis-redist-connected" {
+        value 0;
+        description
+          "Redistributed protocol is Connected";
+      }
+      enum "isis-redist-static" {
+        value 1;
+        description
+          "Redistributed protocol is Static";
+      }
+      enum "isis-redist-ospf" {
+        value 2;
+        description
+          "Redistributed protocol is OSPF";
+      }
+      enum "isis-redist-bgp" {
+        value 3;
+        description
+          "Redistributed protocol is BGP";
+      }
+      enum "isis-redist-isis" {
+        value 4;
+        description
+          "Redistributed protocol is IS-IS";
+      }
+      enum "isis-redist-ospfv3" {
+        value 5;
+        description
+          "Redistributed protocol is OSPFv3";
+      }
+      enum "isis-redist-rip" {
+        value 6;
+        description
+          "Redistributed protocol is RIP";
+      }
+      enum "isis-redist-eigrp" {
+        value 7;
+        description
+          "Redistributed protocol is EIGRP";
+      }
+      enum "isis-redist-subscriber" {
+        value 8;
+        description
+          "Redistributed protocol is Subscriber";
+      }
+      enum "isis-redist-application" {
+        value 9;
+        description
+          "Redistributed protocol is Application";
+      }
+      enum "isis-redist-mobile" {
+        value 10;
+        description
+          "Redistributed protocol is Mobile";
+      }
+    }
+    description
+      "Isis redist proto";
+  }
+
+  typedef Isis-sh-interface-name {
+    type string;
+    description
+      "Isis sh interface name";
+  }
+
+  typedef Isis-valid {
+    type enumeration {
+      enum "isis-invalid" {
+        value 0;
+        description
+          "Invalid";
+      }
+      enum "isis-valid" {
+        value 1;
+        description
+          "Valid";
+      }
+    }
+    description
+      "Isis valid";
   }
 
   typedef Isis-lsp-db-op {
@@ -1370,6 +1500,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
         description
           "Adjacency SID deleted";
       }
+      enum "isis-lsp-trig-adj-sid-change" {
+        description
+          "Adjacency SIDs added and/or deleted";
+      }
       enum "isis-lsp-trig-msd" {
         description
           "Maximum SID depth change";
@@ -1381,6 +1515,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       enum "isis-lsp-trig-direct-gen" {
         description
           "Direct LSP generation";
+      }
+      enum "isis-lsp-trig-flex-algo-enable-disable" {
+        description
+          "Flex-Algo Enable/Disable";
       }
       enum "isis-lsp-trig-pm-delay-loss" {
         description
@@ -1622,6 +1760,18 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
     description
       "Isis level";
+  }
+
+  typedef Isis-srv6-endpoint-func {
+    type uint16;
+    description
+      "Isis srv6 endpoint func";
+  }
+
+  typedef Isis-ip-prefix-length {
+    type uint8;
+    description
+      "Isis ip prefix length";
   }
 
   typedef Isis-ipv6-address {
@@ -2475,6 +2625,46 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Error Log entries";
       uses ISIS-SH-ERR-LOG-ENT;
+    }
+  }
+
+  grouping ISIS-SH-FLEX-ALGO {
+    description
+      "Flex Algo";
+    leaf number {
+      type uint32;
+      description
+        "Flex-Algo Number";
+    }
+    leaf local-priority {
+      type uint32;
+      description
+        "Flex_algo Local Priority";
+    }
+    leaf disabled {
+      type boolean;
+      description
+        "Flex-Algo Disabled";
+    }
+    leaf definition-prioroty {
+      type uint32;
+      description
+        "Flex-Algo Definition Priority";
+    }
+    leaf definition-local {
+      type boolean;
+      description
+        "Flex-Algo Definition Is Local";
+    }
+    leaf definition-equal-local {
+      type boolean;
+      description
+        "Flex-Algo Definition Is Equal To Local";
+    }
+    leaf definiion-node-id {
+      type xr:Isis-node-id;
+      description
+        "Flex-Algo Definition Node-ID";
     }
   }
 
@@ -4511,705 +4701,6 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
-  grouping ISIS-SH-IPV6-ROUTE-SUMMARIZATION-STATUS {
-    description
-      "Summarization status";
-    container summary-prefix {
-      when "../is-valid = 'isis-valid'" {
-        description
-          "../IsValid = 'ISIS_VALID'";
-      }
-      description
-        "Summarizing Prefix";
-      uses ISIS-IPV6-PREFIX-TYPE;
-    }
-    leaf is-valid {
-      type Isis-valid;
-      description
-        "IsValid";
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE-ADV {
-    description
-      "How a prefix is advertised in a particular level";
-    container summarization-status {
-      description
-        "Status of summarization for the prefix";
-      uses ISIS-SH-IPV6-ROUTE-SUMMARIZATION-STATUS;
-    }
-    leaf level {
-      type Isis-level;
-      description
-        "Level in which the prefix is advertised";
-    }
-    leaf advertising-origin {
-      type Isis-sh-route-adv-origin;
-      description
-        "The origin of the advertisement";
-    }
-    leaf metric {
-      type Isis-metric;
-      description
-        "Metric with which the prefix is advertised";
-    }
-    leaf is-propagated {
-      type boolean;
-      description
-        "Has the prefix been propagated from another
-         level?";
-    }
-    leaf is-external-metric {
-      type boolean;
-      description
-        "Is the metric an external metric?";
-    }
-    leaf is-external-reachability {
-      type boolean;
-      description
-        "Is the prefix external to the IS-IS domain?";
-    }
-    leaf is-interarea {
-      type boolean;
-      description
-        "Is the up/down bit set?";
-    }
-    list tags {
-      description
-        "Tags associated with the prefix";
-      leaf entry {
-        type Isis-prefix-tag;
-      }
-    }
-    list nodal-sid {
-      description
-        "Nodal SIDs with the prefix item";
-      uses ISIS-NODAL-SID-TYPE;
-    }
-  }
-
-  grouping ISIS-NODAL-SID-TYPE {
-    description
-      "ISIS NODAL SID TYPE";
-    leaf sid-value {
-      type Isis-nodal-sid-value;
-      description
-        "sid value";
-    }
-    leaf rflag {
-      type uint8;
-      description
-        "rflag";
-    }
-    leaf nflag {
-      type uint8;
-      description
-        "nflag";
-    }
-    leaf pflag {
-      type uint8;
-      description
-        "pflag";
-    }
-    leaf eflag {
-      type uint8;
-      description
-        "eflag";
-    }
-    leaf vflag {
-      type uint8;
-      description
-        "vflag";
-    }
-    leaf lflag {
-      type uint8;
-      description
-        "lflag";
-    }
-    leaf algorithm {
-      type uint8;
-      description
-        "algorithm";
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE {
-    description
-      "Source of a native route";
-    leaf source-lsp-id {
-      type xr:Isis-lsp-id;
-      description
-        "ID of the LSP advertising the prefix";
-    }
-    leaf source-address {
-      type Isis-ipv6-address;
-      description
-        "Source address of the IS advertising the prefix";
-    }
-    list tags {
-      description
-        "Tags associated with the prefix item";
-      leaf entry {
-        type Isis-prefix-tag;
-      }
-    }
-    list nodal-sid {
-      description
-        "Nodal SIDs with the prefix item";
-      uses ISIS-NODAL-SID-TYPE;
-    }
-  }
-
-  grouping ISIS-SH-IPV6-UCMP-PATH {
-    description
-      "IPv6 path to a destination";
-    container frr-backup {
-      description
-        "FRR backup for this path";
-      uses ISIS-SH-IPV6-FRR-BACKUP;
-    }
-    leaf neighbor-id {
-      type xr:Osi-system-id;
-      description
-        "Next hop neighbor ID";
-    }
-    leaf egress-interface {
-      type Isis-sh-interface-name;
-      description
-        "Interface to send the packet out of";
-    }
-    leaf neighbor-address {
-      type Isis-ipv6-address;
-      description
-        "Next hop neighbor's forwarding address";
-    }
-    leaf neighbor-snpa {
-      type xr:Isis-snpa;
-      description
-        "Next hop neighbor's SNPA";
-    }
-    leaf tag {
-      type Isis-prefix-tag;
-      description
-        "Tag associated with the path";
-    }
-    leaf total-ucmp-distance {
-      type Isis-metric;
-      description
-        "Distance to the network via this UCMP next hop";
-    }
-    leaf segment-routing-sid-value {
-      type Isis-nodal-sid-value;
-      description
-        "Segment routing sid value received from first
-         hop";
-    }
-    leaf weight {
-      type Isis-metric;
-      description
-        "Weight configured on the interface";
-    }
-    leaf is-te-tunnel-interface {
-      type boolean;
-      description
-        "Is path via a TE tunnel";
-    }
-    leaf is-sr-exclude-tunnel-interface {
-      type boolean;
-      description
-        "Is path via an SR-exclude TE tunnel";
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE {
-    description
-      "Paths and sources for a native route at a
-       particular preference";
-    leaf origin {
-      type Isis-prefix-origin;
-      description
-        "Origin of route";
-    }
-    leaf metric {
-      type Isis-metric;
-      description
-        "Distance to network";
-    }
-    leaf multicast-metric {
-      type Isis-metric;
-      description
-        "Multicast-intact distance to network";
-    }
-    leaf is-external-metric {
-      type boolean;
-      description
-        "Is the metric an external metric?";
-    }
-    leaf administrative-distance {
-      type uint16;
-      description
-        "Administrative Distance";
-    }
-    list paths {
-      description
-        "First hops toward the prefix";
-      uses ISIS-SH-IPV6-PATH;
-    }
-    list ucmp-next-hop {
-      description
-        "UCMP first hops toward the prefix";
-      uses ISIS-SH-IPV6-UCMP-PATH;
-    }
-    list multicast-path {
-      description
-        "Multicast intact first hops toward the prefix";
-      uses ISIS-SH-IPV6-PATH;
-    }
-    list srte-path {
-      description
-        "SR-TE native first hops toward the prefix";
-      uses ISIS-SH-IPV6-PATH;
-    }
-    list explicit-path {
-      description
-        "SR microloop avoidance paths";
-      uses ISIS-SH-IPV6-PATH;
-    }
-    list source {
-      description
-        "Sources advertising the prefix";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE;
-    }
-    list multicast-source {
-      description
-        "Multicast-intact sources advertising the prefix";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE;
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE-NATIVE-DETAILS {
-    description
-      "Details of a native IS-IS route to a prefix";
-    container primary {
-      description
-        "Primary paths to prefix";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE;
-    }
-    leaf priority {
-      type Isis-prefix-priority;
-      description
-        "Relative importance of the prefix";
-    }
-    list backup {
-      description
-        "Backup paths to prefix";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE;
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE-NATIVE-STATUS {
-    description
-      "Status of a native IS-IS route to a prefix";
-    container native-details {
-      when "../is-valid = 'isis-valid'" {
-        description
-          "../IsValid = 'ISIS_VALID'";
-      }
-      description
-        "Details of the native route";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-DETAILS;
-    }
-    leaf is-valid {
-      type Isis-valid;
-      description
-        "IsValid";
-    }
-  }
-
-  grouping ISIS-SH-REDIST-ENTRY-PROTO {
-    description
-      "Redistributed protocol information";
-    leaf protocol {
-      type Isis-redist-proto;
-      description
-        "Protocol";
-    }
-    leaf isis-instance-id {
-      when "../protocol = 'isis-redist-isis'" {
-        description
-          "../Protocol = 'ISIS_REDIST_ISIS'";
-      }
-      type Isis-string;
-      description
-        "IS-IS instance identifier";
-    }
-    leaf ospf-process-id {
-      when "../protocol = 'isis-redist-ospf'" {
-        description
-          "../Protocol = 'ISIS_REDIST_OSPF'";
-      }
-      type Isis-string;
-      description
-        "OSPF process identifier";
-    }
-    leaf ospfv3-process-id {
-      when "../protocol = 'isis-redist-ospfv3'" {
-        description
-          "../Protocol = 'ISIS_REDIST_OSPFV3'";
-      }
-      type Isis-string;
-      description
-        "OSPFv3 process identifier";
-    }
-    leaf bgp-as-number {
-      when "../protocol = 'isis-redist-bgp'" {
-        description
-          "../Protocol = 'ISIS_REDIST_BGP'";
-      }
-      type Isis-string;
-      description
-        "BGP Autonomous System number";
-    }
-    leaf eigrp-as-number {
-      when "../protocol = 'isis-redist-eigrp'" {
-        description
-          "../Protocol = 'ISIS_REDIST_EIGRP'";
-      }
-      type Isis-string;
-      description
-        "EIGRP Autonomous System number";
-    }
-    leaf application-name {
-      when "../protocol = 'isis-redist-application'" {
-        description
-          "../Protocol = 'ISIS_REDIST_APPLICATION'";
-      }
-      type Isis-string;
-      description
-        "Application Name";
-    }
-  }
-
-  grouping ISIS-SH-ROUTE-REDIST-LEVEL-DETAILS {
-    description
-      "Details of a route redistributed into a
-       particular level";
-    container owner {
-      description
-        "Protocol redistributing the route";
-      uses ISIS-SH-REDIST-ENTRY-PROTO;
-    }
-    leaf level {
-      type Isis-level;
-      description
-        "Level into which the route is redistributed";
-    }
-  }
-
-  grouping ISIS-SH-ROUTE-REDIST-DETAILS {
-    description
-      "ISIS SH ROUTE REDIST DETAILS";
-    list isis-sh-route-redist-detail {
-      description
-        "isis sh route redist detail";
-      uses ISIS-SH-ROUTE-REDIST-LEVEL-DETAILS;
-    }
-  }
-
-  grouping ISIS-SH-ROUTE-REDIST-STATUS {
-    description
-      "Status of redistributed routes to a prefix";
-    container redistribution-details {
-      when "../is-valid = 'isis-valid'" {
-        description
-          "../IsValid = 'ISIS_VALID'";
-      }
-      description
-        "Per level details of the redistributed route";
-      uses ISIS-SH-ROUTE-REDIST-DETAILS;
-    }
-    leaf is-valid {
-      type Isis-valid;
-      description
-        "IsValid";
-    }
-  }
-
-  grouping ISIS-SH-ROUTE-CONN-DETAILS {
-    description
-      "Details of an IS-IS directly connected prefix";
-    list interface {
-      description
-        "Interfaces";
-      leaf entry {
-        type Isis-sh-interface-name;
-      }
-    }
-  }
-
-  grouping ISIS-SH-ROUTE-CONN-STATUS {
-    description
-      "Status of an IS-IS directly connected prefix";
-    container connected-details {
-      when "../is-valid = 'isis-valid'" {
-        description
-          "../IsValid = 'ISIS_VALID'";
-      }
-      description
-        "Details of the directly connected prefix";
-      uses ISIS-SH-ROUTE-CONN-DETAILS;
-    }
-    leaf is-valid {
-      type Isis-valid;
-      description
-        "IsValid";
-    }
-  }
-
-  grouping ISIS-SH-IPV6-ROUTE {
-    description
-      "IS-IS IPv6 route";
-    container connected-status {
-      description
-        "Status of IS-IS directly connected routes to the
-         prefix";
-      uses ISIS-SH-ROUTE-CONN-STATUS;
-    }
-    container redistributed-status {
-      description
-        "Status of other protocols' routes redistributed
-         into IS-IS";
-      uses ISIS-SH-ROUTE-REDIST-STATUS;
-    }
-    container native-status {
-      description
-        "Status of native IS-IS routes to the prefix";
-      uses ISIS-SH-IPV6-ROUTE-NATIVE-STATUS;
-    }
-    list per-level-advertising-detail {
-      description
-        "Per level details of how the local system
-         advertises the prefix";
-      uses ISIS-SH-IPV6-ROUTE-ADV;
-    }
-  }
-
-  grouping ISIS-SH-IPV6-FRR-BACKUP {
-    description
-      "FRR backup path";
-    leaf neighbor-id {
-      type xr:Osi-system-id;
-      description
-        "Next hop neighbor ID";
-    }
-    leaf egress-interface {
-      type Isis-sh-interface-name;
-      description
-        "Interface to send the packet out of";
-    }
-    leaf neighbor-address {
-      type Isis-ipv6-address;
-      description
-        "Next hop neighbor's forwarding address";
-    }
-    leaf tunnel-egress-interface {
-      type Isis-sh-interface-name;
-      description
-        "Tunnel interface to send the packet out of";
-    }
-    leaf neighbor-snpa {
-      type xr:Isis-snpa;
-      description
-        "Next hop neighbor's SNPA";
-    }
-    leaf remote-lfa-system-id {
-      type xr:Osi-system-id;
-      description
-        "Remote LFA PQ Node's ID";
-    }
-    leaf remote-lfa-router-id {
-      type Isis-ipv6-address;
-      description
-        "Remote LFA Router ID";
-    }
-    leaf remote-lfa-system-pid {
-      type xr:Osi-system-id;
-      description
-        "Remote LFA PQ Node's ID";
-    }
-    leaf remote-lfa-router-pid {
-      type Isis-ipv6-address;
-      description
-        "Remote LFA Router ID";
-    }
-    leaf total-backup-distance {
-      type Isis-metric;
-      description
-        "Distance to the network via this backup path";
-    }
-    leaf segment-routing-sid-value {
-      type Isis-nodal-sid-value;
-      description
-        "Segment routing sid value received from first
-         hop";
-    }
-    leaf num-sid {
-      type uint32;
-      description
-        "Number of SIDs in TI-LFA/rLFA";
-    }
-    leaf backup-repair-list-size {
-      type uint32;
-      description
-        "Backup Repair List Size";
-    }
-    leaf tilfa-computation {
-      type Isis-tilfa-computation;
-      description
-        "Ti LFA computation which provided backup path";
-    }
-    leaf prefix-source-node-id {
-      type string;
-      description
-        "PrefixSourceNodeID";
-    }
-    leaf is-downstream {
-      type boolean;
-      description
-        "Is the backup path via downstream node?";
-    }
-    leaf is-lc-disjoint {
-      type boolean;
-      description
-        "Is the backup path line card disjoint with
-         primary?";
-    }
-    leaf is-node-protecting {
-      type boolean;
-      description
-        "Is the backup path node protecting?";
-    }
-    leaf is-primary-path {
-      type boolean;
-      description
-        "Is the backup path an ECMP to the network?";
-    }
-    leaf is-srlg-disjoint {
-      type boolean;
-      description
-        "Is the backup path SRLG disjoint with primary?";
-    }
-    leaf is-remote-lfa {
-      type boolean;
-      description
-        "Is the backup path via a Remote LFA?";
-    }
-    leaf is-epcfrr-lfa {
-      type boolean;
-      description
-        "Is the backup path via a TI-LFA?";
-    }
-    leaf is-strict-spflfa {
-      type boolean;
-      description
-        "Is the backup path TI-LFA strict SPF?";
-    }
-    leaf is-tunnel-requested {
-      type boolean;
-      description
-        "Is SR TE tunnel requested";
-    }
-    leaf weight {
-      type Isis-metric;
-      description
-        "Weight configured on the interface";
-    }
-    list segment-routing-sid-value-entry {
-      max-elements "3";
-      description
-        "Segment routing sid values for TI-LFA/rLFA";
-      leaf entry {
-        type Isis-nodal-sid-value;
-      }
-    }
-    list backup-repair {
-      description
-        "BAckup Repair List";
-      uses ISIS-SH-REP-EL;
-    }
-  }
-
-  grouping ISIS-SH-IPV6-PATH {
-    description
-      "IPv6 path to a destination";
-    container frr-backup {
-      description
-        "FRR backup for this path";
-      uses ISIS-SH-IPV6-FRR-BACKUP;
-    }
-    leaf neighbor-id {
-      type xr:Osi-system-id;
-      description
-        "Next hop neighbor ID";
-    }
-    leaf egress-interface {
-      type Isis-sh-interface-name;
-      description
-        "Interface to send the packet out of";
-    }
-    leaf neighbor-address {
-      type Isis-ipv6-address;
-      description
-        "Next hop neighbor's forwarding address";
-    }
-    leaf neighbor-snpa {
-      type xr:Isis-snpa;
-      description
-        "Next hop neighbor's SNPA";
-    }
-    leaf tag {
-      type Isis-prefix-tag;
-      description
-        "Tag associated with the path";
-    }
-    leaf tunnel-interface {
-      type Isis-sh-interface-name;
-      description
-        "Explicit path tunnel interface";
-    }
-    leaf segment-routing-sid-value {
-      type Isis-nodal-sid-value;
-      description
-        "Segment routing sid value received from first
-         hop";
-    }
-    leaf weight {
-      type Isis-metric;
-      description
-        "Weight configured on the interface";
-    }
-    leaf is-te-tunnel-interface {
-      type boolean;
-      description
-        "Is path via a TE tunnel";
-    }
-    leaf is-sr-exclude-tunnel-interface {
-      type boolean;
-      description
-        "Is path via an SR-exclude TE tunnel";
-    }
-    list uloop-explicit {
-      description
-        "Uloop Explicit List";
-      uses ISIS-SH-REP-EL;
-    }
-    list nnh {
-      description
-        "Next next hops";
-      uses ISIS-SH-NNH;
-    }
-  }
-
   grouping ISIS-SH-IPV6-TOPO-REACHABLE-DETAILS {
     description
       "Status of a reachable IPv6 IS";
@@ -5348,66 +4839,6 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       type xr:Isis-node-id;
       description
         "Pseudonode between system and its neighbor";
-    }
-  }
-
-  grouping ISIS-SH-NNH {
-    description
-      "Next next hops for a prefix";
-    leaf link-id-set {
-      type boolean;
-      description
-        "If link_id is given";
-    }
-    leaf ipv4-set {
-      type boolean;
-      description
-        "If ipv4 address is given";
-    }
-    leaf link-id {
-      type uint32;
-      description
-        "link ID of the next next hop";
-    }
-    leaf ipv4-address {
-      type Isis-ipv4-address;
-      description
-        "Ipv4 address of the next next hop";
-    }
-  }
-
-  grouping ISIS-SH-REP-EL {
-    description
-      "OSPF Repair Element";
-    leaf repair-element-node-id {
-      type string;
-      description
-        "RepairElementNodeID";
-    }
-    leaf repair-ipv4-addr {
-      type Isis-ipv4-address;
-      description
-        "RepairIPv4Addr";
-    }
-    leaf repair-ipv6-addr {
-      type Isis-ipv6-address;
-      description
-        "RepairIPv6Addr";
-    }
-    leaf repair-label {
-      type uint32;
-      description
-        "Repair Label";
-    }
-    leaf repair-element-type {
-      type uint32;
-      description
-        "Repair Element Type";
-    }
-    leaf repair-strict-spf-label {
-      type uint32;
-      description
-        "Repair Strict SPF Label";
     }
   }
 
@@ -6007,21 +5438,6 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
-  grouping ISIS-IPV6-PREFIX-TYPE {
-    description
-      "IPv4 address and prefix length";
-    leaf prefix {
-      type Isis-ipv6-address;
-      description
-        "prefix";
-    }
-    leaf prefix-length {
-      type Isis-ip-prefix-length;
-      description
-        "prefix length";
-    }
-  }
-
   grouping ISIS-IPV4-PREFIX-TYPE {
     description
       "IPv4 address and prefix length";
@@ -6386,6 +5802,57 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
+  grouping ISIS-SRV6-RSVD-OPCODE {
+    description
+      "ISIS SRV6 RSVD OPCODE";
+    leaf function-type {
+      type Srv6-end-function;
+      description
+        "FunctionType";
+    }
+    leaf function-opcode {
+      type uint16;
+      description
+        "FunctionOpcode";
+    }
+  }
+
+  grouping ISIS-SH-SRV6-LOCATOR {
+    description
+      "SRv6 Locator";
+    leaf locator-name {
+      type string;
+      description
+        "LocatorName";
+    }
+    leaf locator-id {
+      type uint32;
+      description
+        "LocatorID";
+    }
+    leaf locator-format {
+      type uint32;
+      description
+        "LocatorFormat";
+    }
+    leaf locator-flags {
+      type uint16;
+      description
+        "LocatorFlags";
+    }
+    leaf number-of-reserved-opcodes {
+      type uint8;
+      description
+        "NumberOfReservedOpcodes";
+    }
+    list opcode {
+      max-elements "5";
+      description
+        "Reserved Opcodes";
+      uses ISIS-SRV6-RSVD-OPCODE;
+    }
+  }
+
   grouping ISIS-PER-PRIORITY-COUNTS {
     description
       "Per-priority counts";
@@ -6450,6 +5917,765 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Unreachable prefixes";
       uses ISIS-PER-PRIORITY-COUNTS;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-SUMMARIZATION-STATUS {
+    description
+      "Summarization status";
+    container summary-prefix {
+      when "../is-valid = 'isis-valid'" {
+        description
+          "../IsValid = 'ISIS_VALID'";
+      }
+      description
+        "Summarizing Prefix";
+      uses ISIS-IPV6-PREFIX-TYPE;
+    }
+    leaf is-valid {
+      type Isis-valid;
+      description
+        "IsValid";
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-ADV {
+    description
+      "How a prefix is advertised in a particular level";
+    container summarization-status {
+      description
+        "Status of summarization for the prefix";
+      uses ISIS-SH-IPV6-ROUTE-SUMMARIZATION-STATUS;
+    }
+    leaf level {
+      type Isis-level;
+      description
+        "Level in which the prefix is advertised";
+    }
+    leaf advertising-origin {
+      type Isis-sh-route-adv-origin;
+      description
+        "The origin of the advertisement";
+    }
+    leaf metric {
+      type Isis-metric;
+      description
+        "Metric with which the prefix is advertised";
+    }
+    leaf is-propagated {
+      type boolean;
+      description
+        "Has the prefix been propagated from another
+         level?";
+    }
+    leaf is-external-metric {
+      type boolean;
+      description
+        "Is the metric an external metric?";
+    }
+    leaf is-external-reachability {
+      type boolean;
+      description
+        "Is the prefix external to the IS-IS domain?";
+    }
+    leaf is-interarea {
+      type boolean;
+      description
+        "Is the up/down bit set?";
+    }
+    list tags {
+      description
+        "Tags associated with the prefix";
+      leaf entry {
+        type Isis-prefix-tag;
+      }
+    }
+    list nodal-sid {
+      description
+        "Nodal SIDs with the prefix item";
+      uses ISIS-NODAL-SID-TYPE;
+    }
+  }
+
+  grouping ISIS-NODAL-SID-TYPE {
+    description
+      "ISIS NODAL SID TYPE";
+    leaf sid-value {
+      type Isis-nodal-sid-value;
+      description
+        "sid value";
+    }
+    leaf rflag {
+      type uint8;
+      description
+        "rflag";
+    }
+    leaf nflag {
+      type uint8;
+      description
+        "nflag";
+    }
+    leaf pflag {
+      type uint8;
+      description
+        "pflag";
+    }
+    leaf eflag {
+      type uint8;
+      description
+        "eflag";
+    }
+    leaf vflag {
+      type uint8;
+      description
+        "vflag";
+    }
+    leaf lflag {
+      type uint8;
+      description
+        "lflag";
+    }
+    leaf algorithm {
+      type uint8;
+      description
+        "algorithm";
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE {
+    description
+      "Source of a native route";
+    leaf source-lsp-id {
+      type xr:Isis-lsp-id;
+      description
+        "ID of the LSP advertising the prefix";
+    }
+    leaf source-address {
+      type Isis-ipv6-address;
+      description
+        "Source address of the IS advertising the prefix";
+    }
+    list tags {
+      description
+        "Tags associated with the prefix item";
+      leaf entry {
+        type Isis-prefix-tag;
+      }
+    }
+    list nodal-sid {
+      description
+        "Nodal SIDs with the prefix item";
+      uses ISIS-NODAL-SID-TYPE;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-UCMP-PATH {
+    description
+      "IPv6 path to a destination";
+    container frr-backup {
+      description
+        "FRR backup for this path";
+      uses ISIS-SH-IPV6-FRR-BACKUP;
+    }
+    leaf neighbor-id {
+      type xr:Osi-system-id;
+      description
+        "Next hop neighbor ID";
+    }
+    leaf egress-interface {
+      type Isis-sh-interface-name;
+      description
+        "Interface to send the packet out of";
+    }
+    leaf neighbor-address {
+      type Isis-ipv6-address;
+      description
+        "Next hop neighbor's forwarding address";
+    }
+    leaf neighbor-snpa {
+      type xr:Isis-snpa;
+      description
+        "Next hop neighbor's SNPA";
+    }
+    leaf tag {
+      type Isis-prefix-tag;
+      description
+        "Tag associated with the path";
+    }
+    leaf total-ucmp-distance {
+      type Isis-metric;
+      description
+        "Distance to the network via this UCMP next hop";
+    }
+    leaf segment-routing-sid-value {
+      type Isis-nodal-sid-value;
+      description
+        "Segment routing sid value received from first
+         hop";
+    }
+    leaf weight {
+      type Isis-metric;
+      description
+        "Weight configured on the interface";
+    }
+    leaf is-te-tunnel-interface {
+      type boolean;
+      description
+        "Is path via a TE tunnel";
+    }
+    leaf is-sr-exclude-tunnel-interface {
+      type boolean;
+      description
+        "Is path via an SR-exclude TE tunnel";
+    }
+  }
+
+  grouping ISIS-SH-NNH {
+    description
+      "Next next hops for a prefix";
+    leaf link-id-set {
+      type boolean;
+      description
+        "If link_id is given";
+    }
+    leaf ipv4-set {
+      type boolean;
+      description
+        "If ipv4 address is given";
+    }
+    leaf link-id {
+      type uint32;
+      description
+        "link ID of the next next hop";
+    }
+    leaf ipv4-address {
+      type Isis-ipv4-address;
+      description
+        "Ipv4 address of the next next hop";
+    }
+  }
+
+  grouping ISIS-SH-REP-EL {
+    description
+      "OSPF Repair Element";
+    leaf repair-element-node-id {
+      type string;
+      description
+        "RepairElementNodeID";
+    }
+    leaf repair-ipv4-addr {
+      type Isis-ipv4-address;
+      description
+        "RepairIPv4Addr";
+    }
+    leaf repair-ipv6-addr {
+      type Isis-ipv6-address;
+      description
+        "RepairIPv6Addr";
+    }
+    leaf repair-label {
+      type uint32;
+      description
+        "Repair Label";
+    }
+    leaf repair-element-type {
+      type uint32;
+      description
+        "Repair Element Type";
+    }
+    leaf repair-strict-spf-label {
+      type uint32;
+      description
+        "Repair Strict SPF Label";
+    }
+  }
+
+  grouping ISIS-SH-IPV6-FRR-BACKUP {
+    description
+      "FRR backup path";
+    leaf neighbor-id {
+      type xr:Osi-system-id;
+      description
+        "Next hop neighbor ID";
+    }
+    leaf egress-interface {
+      type Isis-sh-interface-name;
+      description
+        "Interface to send the packet out of";
+    }
+    leaf neighbor-address {
+      type Isis-ipv6-address;
+      description
+        "Next hop neighbor's forwarding address";
+    }
+    leaf tunnel-egress-interface {
+      type Isis-sh-interface-name;
+      description
+        "Tunnel interface to send the packet out of";
+    }
+    leaf neighbor-snpa {
+      type xr:Isis-snpa;
+      description
+        "Next hop neighbor's SNPA";
+    }
+    leaf remote-lfa-system-id {
+      type xr:Osi-system-id;
+      description
+        "Remote LFA PQ Node's ID";
+    }
+    leaf remote-lfa-router-id {
+      type Isis-ipv6-address;
+      description
+        "Remote LFA Router ID";
+    }
+    leaf remote-lfa-system-pid {
+      type xr:Osi-system-id;
+      description
+        "Remote LFA PQ Node's ID";
+    }
+    leaf remote-lfa-router-pid {
+      type Isis-ipv6-address;
+      description
+        "Remote LFA Router ID";
+    }
+    leaf total-backup-distance {
+      type Isis-metric;
+      description
+        "Distance to the network via this backup path";
+    }
+    leaf segment-routing-sid-value {
+      type Isis-nodal-sid-value;
+      description
+        "Segment routing sid value received from first
+         hop";
+    }
+    leaf num-sid {
+      type uint32;
+      description
+        "Number of SIDs in TI-LFA/rLFA";
+    }
+    leaf backup-repair-list-size {
+      type uint32;
+      description
+        "Backup Repair List Size";
+    }
+    leaf tilfa-computation {
+      type Isis-tilfa-computation;
+      description
+        "Ti LFA computation which provided backup path";
+    }
+    leaf prefix-source-node-id {
+      type string;
+      description
+        "PrefixSourceNodeID";
+    }
+    leaf is-downstream {
+      type boolean;
+      description
+        "Is the backup path via downstream node?";
+    }
+    leaf is-lc-disjoint {
+      type boolean;
+      description
+        "Is the backup path line card disjoint with
+         primary?";
+    }
+    leaf is-node-protecting {
+      type boolean;
+      description
+        "Is the backup path node protecting?";
+    }
+    leaf is-primary-path {
+      type boolean;
+      description
+        "Is the backup path an ECMP to the network?";
+    }
+    leaf is-srlg-disjoint {
+      type boolean;
+      description
+        "Is the backup path SRLG disjoint with primary?";
+    }
+    leaf is-remote-lfa {
+      type boolean;
+      description
+        "Is the backup path via a Remote LFA?";
+    }
+    leaf is-epcfrr-lfa {
+      type boolean;
+      description
+        "Is the backup path via a TI-LFA?";
+    }
+    leaf is-strict-spflfa {
+      type boolean;
+      description
+        "Is the backup path TI-LFA strict SPF?";
+    }
+    leaf is-tunnel-requested {
+      type boolean;
+      description
+        "Is SR TE tunnel requested";
+    }
+    leaf weight {
+      type Isis-metric;
+      description
+        "Weight configured on the interface";
+    }
+    list segment-routing-sid-value-entry {
+      max-elements "3";
+      description
+        "Segment routing sid values for TI-LFA/rLFA";
+      leaf entry {
+        type Isis-nodal-sid-value;
+      }
+    }
+    list backup-repair {
+      description
+        "BAckup Repair List";
+      uses ISIS-SH-REP-EL;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-PATH {
+    description
+      "IPv6 path to a destination";
+    container frr-backup {
+      description
+        "FRR backup for this path";
+      uses ISIS-SH-IPV6-FRR-BACKUP;
+    }
+    leaf neighbor-id {
+      type xr:Osi-system-id;
+      description
+        "Next hop neighbor ID";
+    }
+    leaf egress-interface {
+      type Isis-sh-interface-name;
+      description
+        "Interface to send the packet out of";
+    }
+    leaf neighbor-address {
+      type Isis-ipv6-address;
+      description
+        "Next hop neighbor's forwarding address";
+    }
+    leaf neighbor-snpa {
+      type xr:Isis-snpa;
+      description
+        "Next hop neighbor's SNPA";
+    }
+    leaf tag {
+      type Isis-prefix-tag;
+      description
+        "Tag associated with the path";
+    }
+    leaf tunnel-interface {
+      type Isis-sh-interface-name;
+      description
+        "Explicit path tunnel interface";
+    }
+    leaf segment-routing-sid-value {
+      type Isis-nodal-sid-value;
+      description
+        "Segment routing sid value received from first
+         hop";
+    }
+    leaf weight {
+      type Isis-metric;
+      description
+        "Weight configured on the interface";
+    }
+    leaf is-te-tunnel-interface {
+      type boolean;
+      description
+        "Is path via a TE tunnel";
+    }
+    leaf is-sr-exclude-tunnel-interface {
+      type boolean;
+      description
+        "Is path via an SR-exclude TE tunnel";
+    }
+    list uloop-explicit {
+      description
+        "Uloop Explicit List";
+      uses ISIS-SH-REP-EL;
+    }
+    list nnh {
+      description
+        "Next next hops";
+      uses ISIS-SH-NNH;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE {
+    description
+      "Paths and sources for a native route at a
+       particular preference";
+    leaf origin {
+      type Isis-prefix-origin;
+      description
+        "Origin of route";
+    }
+    leaf metric {
+      type Isis-metric;
+      description
+        "Distance to network";
+    }
+    leaf multicast-metric {
+      type Isis-metric;
+      description
+        "Multicast-intact distance to network";
+    }
+    leaf is-external-metric {
+      type boolean;
+      description
+        "Is the metric an external metric?";
+    }
+    leaf administrative-distance {
+      type uint16;
+      description
+        "Administrative Distance";
+    }
+    list paths {
+      description
+        "First hops toward the prefix";
+      uses ISIS-SH-IPV6-PATH;
+    }
+    list ucmp-next-hop {
+      description
+        "UCMP first hops toward the prefix";
+      uses ISIS-SH-IPV6-UCMP-PATH;
+    }
+    list multicast-path {
+      description
+        "Multicast intact first hops toward the prefix";
+      uses ISIS-SH-IPV6-PATH;
+    }
+    list srte-path {
+      description
+        "SR-TE native first hops toward the prefix";
+      uses ISIS-SH-IPV6-PATH;
+    }
+    list explicit-path {
+      description
+        "SR microloop avoidance paths";
+      uses ISIS-SH-IPV6-PATH;
+    }
+    list source {
+      description
+        "Sources advertising the prefix";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE;
+    }
+    list multicast-source {
+      description
+        "Multicast-intact sources advertising the prefix";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-SOURCE;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-NATIVE-DETAILS {
+    description
+      "Details of a native IS-IS route to a prefix";
+    container primary {
+      description
+        "Primary paths to prefix";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE;
+    }
+    leaf priority {
+      type Isis-prefix-priority;
+      description
+        "Relative importance of the prefix";
+    }
+    list backup {
+      description
+        "Backup paths to prefix";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-PREFERENCE;
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE-NATIVE-STATUS {
+    description
+      "Status of a native IS-IS route to a prefix";
+    container native-details {
+      when "../is-valid = 'isis-valid'" {
+        description
+          "../IsValid = 'ISIS_VALID'";
+      }
+      description
+        "Details of the native route";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-DETAILS;
+    }
+    leaf is-valid {
+      type Isis-valid;
+      description
+        "IsValid";
+    }
+  }
+
+  grouping ISIS-SH-REDIST-ENTRY-PROTO {
+    description
+      "Redistributed protocol information";
+    leaf protocol {
+      type Isis-redist-proto;
+      description
+        "Protocol";
+    }
+    leaf isis-instance-id {
+      when "../protocol = 'isis-redist-isis'" {
+        description
+          "../Protocol = 'ISIS_REDIST_ISIS'";
+      }
+      type Isis-string;
+      description
+        "IS-IS instance identifier";
+    }
+    leaf ospf-process-id {
+      when "../protocol = 'isis-redist-ospf'" {
+        description
+          "../Protocol = 'ISIS_REDIST_OSPF'";
+      }
+      type Isis-string;
+      description
+        "OSPF process identifier";
+    }
+    leaf ospfv3-process-id {
+      when "../protocol = 'isis-redist-ospfv3'" {
+        description
+          "../Protocol = 'ISIS_REDIST_OSPFV3'";
+      }
+      type Isis-string;
+      description
+        "OSPFv3 process identifier";
+    }
+    leaf bgp-as-number {
+      when "../protocol = 'isis-redist-bgp'" {
+        description
+          "../Protocol = 'ISIS_REDIST_BGP'";
+      }
+      type Isis-string;
+      description
+        "BGP Autonomous System number";
+    }
+    leaf eigrp-as-number {
+      when "../protocol = 'isis-redist-eigrp'" {
+        description
+          "../Protocol = 'ISIS_REDIST_EIGRP'";
+      }
+      type Isis-string;
+      description
+        "EIGRP Autonomous System number";
+    }
+    leaf application-name {
+      when "../protocol = 'isis-redist-application'" {
+        description
+          "../Protocol = 'ISIS_REDIST_APPLICATION'";
+      }
+      type Isis-string;
+      description
+        "Application Name";
+    }
+  }
+
+  grouping ISIS-SH-ROUTE-REDIST-LEVEL-DETAILS {
+    description
+      "Details of a route redistributed into a
+       particular level";
+    container owner {
+      description
+        "Protocol redistributing the route";
+      uses ISIS-SH-REDIST-ENTRY-PROTO;
+    }
+    leaf level {
+      type Isis-level;
+      description
+        "Level into which the route is redistributed";
+    }
+  }
+
+  grouping ISIS-SH-ROUTE-REDIST-DETAILS {
+    description
+      "ISIS SH ROUTE REDIST DETAILS";
+    list isis-sh-route-redist-detail {
+      description
+        "isis sh route redist detail";
+      uses ISIS-SH-ROUTE-REDIST-LEVEL-DETAILS;
+    }
+  }
+
+  grouping ISIS-SH-ROUTE-REDIST-STATUS {
+    description
+      "Status of redistributed routes to a prefix";
+    container redistribution-details {
+      when "../is-valid = 'isis-valid'" {
+        description
+          "../IsValid = 'ISIS_VALID'";
+      }
+      description
+        "Per level details of the redistributed route";
+      uses ISIS-SH-ROUTE-REDIST-DETAILS;
+    }
+    leaf is-valid {
+      type Isis-valid;
+      description
+        "IsValid";
+    }
+  }
+
+  grouping ISIS-SH-ROUTE-CONN-DETAILS {
+    description
+      "Details of an IS-IS directly connected prefix";
+    list interface {
+      description
+        "Interfaces";
+      leaf entry {
+        type Isis-sh-interface-name;
+      }
+    }
+  }
+
+  grouping ISIS-SH-ROUTE-CONN-STATUS {
+    description
+      "Status of an IS-IS directly connected prefix";
+    container connected-details {
+      when "../is-valid = 'isis-valid'" {
+        description
+          "../IsValid = 'ISIS_VALID'";
+      }
+      description
+        "Details of the directly connected prefix";
+      uses ISIS-SH-ROUTE-CONN-DETAILS;
+    }
+    leaf is-valid {
+      type Isis-valid;
+      description
+        "IsValid";
+    }
+  }
+
+  grouping ISIS-SH-IPV6-ROUTE {
+    description
+      "IS-IS IPv6 route";
+    container connected-status {
+      description
+        "Status of IS-IS directly connected routes to the
+         prefix";
+      uses ISIS-SH-ROUTE-CONN-STATUS;
+    }
+    container redistributed-status {
+      description
+        "Status of other protocols' routes redistributed
+         into IS-IS";
+      uses ISIS-SH-ROUTE-REDIST-STATUS;
+    }
+    container native-status {
+      description
+        "Status of native IS-IS routes to the prefix";
+      uses ISIS-SH-IPV6-ROUTE-NATIVE-STATUS;
+    }
+    list per-level-advertising-detail {
+      description
+        "Per level details of how the local system
+         advertises the prefix";
+      uses ISIS-SH-IPV6-ROUTE-ADV;
     }
   }
 
@@ -6562,6 +6788,13 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Time, in seconds, until LSP expiry (if active)
          or deletion (if expired) ";
+    }
+    leaf lsp-rcvd-holdtime {
+      type uint16;
+      units "second";
+      description
+        "Time, in seconds, for the received LSP it will
+         be zero for the local LSP ";
     }
     leaf lsp-sequence-number {
       type uint32;
@@ -7266,9 +7499,74 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
     }
   }
 
+  grouping ISIS-IPV6-ENDX-SID-BACKUP-INFO {
+    description
+      "IPv6 End.X SID backup information";
+    leaf backup-stack-size {
+      type uint8;
+      description
+        "Number of SIDs in the backup path stack";
+    }
+    leaf backup-node-address {
+      type Isis-ipv6-address;
+      description
+        "Neighbor address used as adjacency backup target";
+    }
+    leaf backup-nexthop {
+      type Isis-ipv6-address;
+      description
+        "Backup path nexthop address";
+    }
+    leaf backup-interface {
+      type xr:Interface-name;
+      description
+        "Backup path interface";
+    }
+    list backup-stack {
+      description
+        "Backup path SID stack";
+      uses ISIS-IPV6-PREFIX-TYPE;
+    }
+  }
+
+  grouping ISIS-IPV6-PREFIX-TYPE {
+    description
+      "IPv4 address and prefix length";
+    leaf prefix {
+      type Isis-ipv6-address;
+      description
+        "prefix";
+    }
+    leaf prefix-length {
+      type Isis-ip-prefix-length;
+      description
+        "prefix length";
+    }
+  }
+
+  grouping ISIS-IPV6-ENDX-SID {
+    description
+      "IPv6 End.X SID";
+    container end-xsid {
+      description
+        "End.X SID value";
+      uses ISIS-IPV6-PREFIX-TYPE;
+    }
+    container end-xsid-backup {
+      description
+        "End.X SID Backup Info";
+      uses ISIS-IPV6-ENDX-SID-BACKUP-INFO;
+    }
+    leaf end-xsid-function {
+      type Isis-srv6-endpoint-func;
+      description
+        "End.X SID Function";
+    }
+  }
+
   grouping ISIS-IPV6-ADJ-SID-BACKUP-INFO {
     description
-      "IPv4 Adjacency SID backup information";
+      "IPv6 Adjacency SID backup information";
     leaf backup-label-stack-size {
       type uint8;
       description
@@ -7330,6 +7628,16 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub1 {
       description
         "Adjacency SID not eligible for FRR protection";
       uses ISIS-IPV6-ADJ-SID;
+    }
+    container end-xsid {
+      description
+        "SRv6 End.X SID";
+      uses ISIS-IPV6-ENDX-SID;
+    }
+    container non-frr-end-xsid {
+      description
+        "SRv6 End.X SID not eligible for FRR protection";
+      uses ISIS-IPV6-ENDX-SID;
     }
     leaf next-hop {
       type Isis-ipv6-address;

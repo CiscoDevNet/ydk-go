@@ -33,12 +33,12 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
      
      This module holds chassis, cards Enviroment data.
      
-     Copyright (c) 2012-2017 by Cisco Systems, Inc.
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-07-31 {
+  revision 2018-02-06 {
     description
-      "Changing the namespace to follow Cisco guidelines on naming convention";
+      "Adding CLI input validation for LC priority shutdown feature";
   }
 
   grouping temp-data {
@@ -48,6 +48,13 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         key "location";
         leaf location {
           type string;
+        }
+        leaf loc_header {
+          type uint32;
+        }
+        leaf print_header {
+          type boolean;
+          default "false";
         }
         list sensor_attributes {
           key "sensor";
@@ -147,6 +154,13 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type uint32;
+        }
         list sensor_attributes {
           key "sensor";
           leaf sensor {
@@ -245,6 +259,13 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type uint32;
+        }
         list sensor_attributes {
           key "sensor";
           leaf sensor {
@@ -300,6 +321,13 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         key "location";
         leaf location {
           type string;
+        }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type uint32;
         }
         list fan_attributes {
           key "logical_slot";
@@ -462,6 +490,103 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
     }
   }
 
+  grouping all-power-data {
+    list power {
+      key "loc_iden";
+      config false;
+      leaf loc_iden {
+        type string;
+      }
+      list pem_attributes {
+        key "pem";
+        leaf pem {
+          type string;
+        }
+        leaf pem_id {
+          type string;
+        }
+        leaf card_type {
+          type string;
+        }
+        leaf ps_type {
+          type string;
+        }
+        leaf shelf_num {
+          type uint16;
+        }
+        leaf supply_type {
+          type string;
+        }
+        leaf input_voltage {
+          type string;
+        }
+        leaf input_current {
+          type string;
+        }
+        leaf output_voltage {
+          type xs:double;
+        }
+        leaf output_current {
+          type xs:double;
+        }
+        leaf status {
+          type string;
+        }
+        leaf input_power_to_ps {
+          type uint32;
+        }
+        leaf input_current_to_ps {
+          type string;
+        }
+        leaf output_power_from_ps {
+          type uint32;
+        }
+        leaf output_current_from_ps {
+          type xs:double;
+        }
+        leaf power_allocated {
+          type uint32;
+        }
+        leaf power_consumed {
+          type string;
+        }
+        leaf power_status {
+          type string;
+        }
+        leaf confgd_power_redundancy_mode {
+          type string;
+        }
+        leaf usable_power_capacity {
+          type uint32;
+        }
+        leaf protection_power_capacity {
+          type uint32;
+        }
+        leaf power_resrv_and_alloc {
+          type uint32;
+        }
+        leaf system_power_used {
+          type uint32;
+        }
+        leaf system_power_input {
+          type uint32;
+        }
+        leaf power_level {
+          type uint16;
+        }
+        leaf output_header {
+          type uint16;
+        }
+        leaf output_footer {
+          type uint16;
+        }
+        leaf ps_sum_footer {
+          type uint16;
+        }
+      }
+    }
+  }
+
   grouping altitude-data {
     container altitude {
       config false;
@@ -484,6 +609,39 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
           leaf source {
             type string;
           }
+          leaf print_header {
+            type boolean;
+            default "false";
+          }
+        }
+      }
+    }
+  }
+
+  grouping all-altitude-data {
+    list altitude {
+      key "loc_iden";
+      config false;
+      leaf loc_iden {
+        type string;
+      }
+      list alt_attributes {
+        key "sensor";
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf sensor {
+          type string;
+        }
+        leaf rack {
+          type uint32;
+        }
+        leaf sensor_value {
+          type string;
+        }
+        leaf source {
+          type string;
         }
       }
     }
@@ -621,6 +779,44 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         }
       }
     }
+    container progressive {
+      list enable {
+        key "enabled";
+        leaf enabled {
+          type enumeration {
+            enum "enable";
+          }
+          config true;
+        }
+        leaf syslog-threshold {
+          type uint32 {
+            range "3000 .. 72000";
+          }
+          config true;
+        }
+        leaf shutdown-threshold {
+          type uint32 {
+            range "3000 .. 72000";
+          }
+          config true;
+        }
+        container priority {
+          list location {
+            key "loc";
+            leaf loc {
+              type string {
+                pattern "0/([0-9]|1[0-9])";
+              }
+            }
+            leaf prior {
+              type uint32 {
+                range "0 .. 19";
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   grouping cmd_types {
@@ -646,6 +842,8 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         uses all-volt-data;
         uses all-current-data;
         uses all-fan-data;
+        uses all-power-data;
+        uses all-altitude-data;
       }
     }
     container config {
@@ -658,6 +856,7 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
       uses env-monitor-group;
       uses envmon-types:fan-speed-group;
       uses envmon-types:fan-ctrl-optics-group;
+      uses envmon-types:vin-uv-shut-group;
     }
   }
 

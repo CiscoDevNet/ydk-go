@@ -228,6 +228,9 @@ type VirtualServices_VirtualService_Details_PackageInformation_Application struc
 
     // Application type. The type is string.
     Type interface{}
+
+    // Which process creates the application. The type is string.
+    Owner interface{}
 }
 
 func (application *VirtualServices_VirtualService_Details_PackageInformation_Application) GetEntityData() *types.CommonEntityData {
@@ -246,6 +249,7 @@ func (application *VirtualServices_VirtualService_Details_PackageInformation_App
     application.EntityData.Leafs.Append("installed-version", types.YLeaf{"InstalledVersion", application.InstalledVersion})
     application.EntityData.Leafs.Append("description", types.YLeaf{"Description", application.Description})
     application.EntityData.Leafs.Append("type", types.YLeaf{"Type", application.Type})
+    application.EntityData.Leafs.Append("owner", types.YLeaf{"Owner", application.Owner})
 
     application.EntityData.YListKeys = []string {}
 

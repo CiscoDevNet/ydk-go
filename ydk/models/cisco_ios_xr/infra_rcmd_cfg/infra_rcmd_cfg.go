@@ -5,7 +5,7 @@
 // for the following management objects:
 //   router-convergence: Configure Router Convergence Monitoring
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_rcmd_cfg
 
@@ -292,9 +292,11 @@ func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetEnt
 // Absolute directory path for saving the archive
 // files. Example /disk0:/rcmd/ or
 // <tftp-location>/rcmd/
+// This type is a presence type.
 type RouterConvergence_StorageLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Absolute directory path for storing diagnostic reports. Example
     // /disk0:/rcmd/ or <tftp-location>/rcmd/. The type is string.
@@ -337,9 +339,11 @@ func (storageLocation *RouterConvergence_StorageLocation) GetEntityData() *types
 
 // RouterConvergence_MplsLdp
 // RCMD related configuration for MPLS-LDP
+// This type is a presence type.
 type RouterConvergence_MplsLdp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Monitoring configuration for Remote LFA.
     RemoteLfa RouterConvergence_MplsLdp_RemoteLfa
@@ -366,9 +370,11 @@ func (mplsLdp *RouterConvergence_MplsLdp) GetEntityData() *types.CommonEntityDat
 
 // RouterConvergence_MplsLdp_RemoteLfa
 // Monitoring configuration for Remote LFA
+// This type is a presence type.
 type RouterConvergence_MplsLdp_RemoteLfa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Threshold value for label coverage (in percentage). The type is interface{}
     // with range: 1..100. Units are percentage.

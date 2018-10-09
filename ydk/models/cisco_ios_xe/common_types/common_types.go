@@ -1,6 +1,6 @@
 // This module contains type definitions common to all Cisco IOS XE native models
 // 
-// Copyright (c) 2016-2018 by Cisco Systems, Inc.
+// Copyright (c) 2016-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package common_types
 

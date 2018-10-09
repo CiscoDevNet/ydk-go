@@ -261,6 +261,34 @@ const (
     RatPreference_lte_radio_tech_no_change RatPreference = "lte-radio-tech-no-change"
 )
 
+// CwanGpsModeSelected represents Cellular modem GPS mode selection status
+type CwanGpsModeSelected string
+
+const (
+    // Cellular modem GPS mode is disabled
+    CwanGpsModeSelected_gps_mode_disable CwanGpsModeSelected = "gps-mode-disable"
+
+    // Cellular modem GPS mode is standalone
+    CwanGpsModeSelected_gps_mode_standalone CwanGpsModeSelected = "gps-mode-standalone"
+
+    // Cellular modem GPS mode is ms-based
+    CwanGpsModeSelected_gps_mode_mbased CwanGpsModeSelected = "gps-mode-mbased"
+
+    // Cellular modem GPS mode is ms-assist
+    CwanGpsModeSelected_gps_mode_msassist CwanGpsModeSelected = "gps-mode-msassist"
+)
+
+// CwanGpsFeatureState represents Cellular modem GPS feature state status
+type CwanGpsFeatureState string
+
+const (
+    // Cellular modem GPS feature state is Disabled
+    CwanGpsFeatureState_gps_disabled CwanGpsFeatureState = "gps-disabled"
+
+    // Cellular modem GPS feature state is Enabled
+    CwanGpsFeatureState_gps_enabled CwanGpsFeatureState = "gps-enabled"
+)
+
 // PacketSessStatus represents Packet Session Status indicates the Cellular packet session state
 type PacketSessStatus string
 
@@ -270,6 +298,23 @@ const (
 
     // Cellular packet session status is active
     PacketSessStatus_packet_session_status_active PacketSessStatus = "packet-session-status-active"
+)
+
+// CwanGpsPortSelected represents Cellular modem GPS port selection status
+type CwanGpsPortSelected string
+
+const (
+    // Cellular modem dedicated GPS port selected
+    CwanGpsPortSelected_dedicated_gps_port CwanGpsPortSelected = "dedicated-gps-port"
+
+    // Cellular modem DIV port selected for GPS
+    CwanGpsPortSelected_div_gps_port CwanGpsPortSelected = "div-gps-port"
+
+    // Cellular modem voltage no-bias port selected for GPS
+    CwanGpsPortSelected_voltage_no_bias_gps_port CwanGpsPortSelected = "voltage-no-bias-gps-port"
+
+    // Cellular modem none port selected for GPS
+    CwanGpsPortSelected_gps_port_none CwanGpsPortSelected = "gps-port-none"
 )
 
 // CwRadioPowerStatus represents Radio power status indicates the current radio power mode of cellular modem
@@ -296,6 +341,32 @@ const (
 
     // Cellular modem is in persistent low power radio mode
     CwRadioPowerStatus_radio_power_mode_persistent_low_power CwRadioPowerStatus = "radio-power-mode-persistent-low-power"
+)
+
+// CellwanSimUserOp represents Cellular modem SIM user operation status
+type CellwanSimUserOp string
+
+const (
+    // Cellular modem SIM user operation is in None state
+    CellwanSimUserOp_sim_user_op_none CellwanSimUserOp = "sim-user-op-none"
+
+    // Cellular modem SIM user is in CHV1 (Card Holder Verification) state
+    CellwanSimUserOp_sim_user_op_chv1 CellwanSimUserOp = "sim-user-op-chv1"
+
+    // Cellular modem SIM user is in CHV2 (Card Holder Verification) state
+    CellwanSimUserOp_sim_user_op_chv2 CellwanSimUserOp = "sim-user-op-chv2"
+
+    // Cellular modem SIM user is in Unblocked CHV1 (Card Holder Verification) state
+    CellwanSimUserOp_sim_user_op_unblock_chv1 CellwanSimUserOp = "sim-user-op-unblock-chv1"
+
+    // Cellular modem SIM user is in Unblocked CHV2 (Card Holder Verification) state
+    CellwanSimUserOp_sim_user_op_unblock_chv2 CellwanSimUserOp = "sim-user-op-unblock-chv2"
+
+    // Cellular modem SIM user is in MEP (Mobile Equipment Personalization) state
+    CellwanSimUserOp_sim_user_op_mep CellwanSimUserOp = "sim-user-op-mep"
+
+    // Cellular modem SIM user operation is in Unknown state
+    CellwanSimUserOp_sim_user_op_unknown CellwanSimUserOp = "sim-user-op-unknown"
 )
 
 // ModemTechnology represents Modem technology indicates the current cellular technology selected
@@ -367,6 +438,23 @@ const (
     ModemStatus_modem_status_unknown ModemStatus = "modem-status-unknown"
 )
 
+// CwanGpsState represents Cellular modem GPS state
+type CwanGpsState string
+
+const (
+    // Cellular modem is in GPS disabled state
+    CwanGpsState_gps_state_disabled CwanGpsState = "gps-state-disabled"
+
+    // Cellular modem is in GPS acquiring state
+    CwanGpsState_gps_state_acquiring CwanGpsState = "gps-state-acquiring"
+
+    // Cellular modem is in GPS enabled state
+    CwanGpsState_gps_state_enabled CwanGpsState = "gps-state-enabled"
+
+    // Cellular modem is in GPS location error state
+    CwanGpsState_gps_loc_error CwanGpsState = "gps-loc-error"
+)
+
 // RegState represents Registration state indicates the current cellular network registration state
 type RegState string
 
@@ -385,6 +473,64 @@ const (
 
     // Cellular Network is in unsupported state
     RegState_reg_status_unsupported RegState = "reg-status-unsupported"
+)
+
+// CellwanSimStatus represents Cellular modem SIM status
+type CellwanSimStatus string
+
+const (
+    // Cellular modem SIM status is inserted
+    CellwanSimStatus_sim_status_ok CellwanSimStatus = "sim-status-ok"
+
+    // Cellular modem SIM is not inserted
+    CellwanSimStatus_sim_status_not_inserted CellwanSimStatus = "sim-status-not-inserted"
+
+    // Cellular modem SIM is in removed state
+    CellwanSimStatus_sim_status_removed CellwanSimStatus = "sim-status-removed"
+
+    // Cellular modem SIM is in initialization failure state
+    CellwanSimStatus_sim_status_init_failure CellwanSimStatus = "sim-status-init-failure"
+
+    // Cellular modem SIM is in general failure state
+    CellwanSimStatus_sim_status_general_failure CellwanSimStatus = "sim-status-general-failure"
+
+    // Cellular modem SIM is in locked state
+    CellwanSimStatus_sim_status_locked CellwanSimStatus = "sim-status-locked"
+
+    // Cellular modem SIM is in chv1 (Card Holder Verification) blocked state
+    CellwanSimStatus_sim_status_chv1_blocked CellwanSimStatus = "sim-status-chv1-blocked"
+
+    // Cellular modem SIM is in chv2 (Card Holder Verification) blocked state
+    CellwanSimStatus_sim_status_chv2_blocked CellwanSimStatus = "sim-status-chv2-blocked"
+
+    // Cellular modem SIM is in chv1 (Card Holder Verification) rejected state
+    CellwanSimStatus_sim_status_chv1_rejected CellwanSimStatus = "sim-status-chv1-rejected"
+
+    // Cellular modem SIM is in chv2 (Card Holder Verification) rejected state
+    CellwanSimStatus_sim_status_chv2_rejected CellwanSimStatus = "sim-status-chv2-rejected"
+
+    // Cellular modem SIM is in MEP (Mobile Equipment Personalization) locked state
+    CellwanSimStatus_sim_status_mep_locked CellwanSimStatus = "sim-status-mep-locked"
+
+    // Cellular modem SIM is in network reject state
+    CellwanSimStatus_sim_status_network_reject CellwanSimStatus = "sim-status-network-reject"
+
+    // Cellular modem SIM is in unknown state
+    CellwanSimStatus_sim_status_unknown CellwanSimStatus = "sim-status-unknown"
+)
+
+// CellwanChv1SimStatus represents Cellular modem SIM card holder verification (CHV1) status
+type CellwanChv1SimStatus string
+
+const (
+    // SIM card holder verification (CHV1) disabled
+    CellwanChv1SimStatus_chv1_verify_disabled CellwanChv1SimStatus = "chv1-verify-disabled"
+
+    // SIM card holder verification (CHV1) enabled
+    CellwanChv1SimStatus_chv1_verify_enabled CellwanChv1SimStatus = "chv1-verify-enabled"
+
+    // SIM card holder verification (CHV1) pending
+    CellwanChv1SimStatus_chv1_verify_pending CellwanChv1SimStatus = "chv1-verify-pending"
 )
 
 // CellwanOperData
@@ -408,6 +554,16 @@ type CellwanOperData struct {
     // Cellwan modem connection data. The type is slice of
     // CellwanOperData_CellwanConnection.
     CellwanConnection []*CellwanOperData_CellwanConnection
+
+    // Cellwan modem sim security data. The type is slice of
+    // CellwanOperData_CellwanSecurity.
+    CellwanSecurity []*CellwanOperData_CellwanSecurity
+
+    // Cellwan modem sms data. The type is slice of CellwanOperData_CellwanSms.
+    CellwanSms []*CellwanOperData_CellwanSms
+
+    // Cellwan modem gps data. The type is slice of CellwanOperData_CellwanGps.
+    CellwanGps []*CellwanOperData_CellwanGps
 }
 
 func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData {
@@ -436,6 +592,18 @@ func (cellwanOperData *CellwanOperData) GetEntityData() *types.CommonEntityData 
     cellwanOperData.EntityData.Children.Append("cellwan-connection", types.YChild{"CellwanConnection", nil})
     for i := range cellwanOperData.CellwanConnection {
         cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanConnection[i]), types.YChild{"CellwanConnection", cellwanOperData.CellwanConnection[i]})
+    }
+    cellwanOperData.EntityData.Children.Append("cellwan-security", types.YChild{"CellwanSecurity", nil})
+    for i := range cellwanOperData.CellwanSecurity {
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanSecurity[i]), types.YChild{"CellwanSecurity", cellwanOperData.CellwanSecurity[i]})
+    }
+    cellwanOperData.EntityData.Children.Append("cellwan-sms", types.YChild{"CellwanSms", nil})
+    for i := range cellwanOperData.CellwanSms {
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanSms[i]), types.YChild{"CellwanSms", cellwanOperData.CellwanSms[i]})
+    }
+    cellwanOperData.EntityData.Children.Append("cellwan-gps", types.YChild{"CellwanGps", nil})
+    for i := range cellwanOperData.CellwanGps {
+        cellwanOperData.EntityData.Children.Append(types.GetSegmentPath(cellwanOperData.CellwanGps[i]), types.YChild{"CellwanGps", cellwanOperData.CellwanGps[i]})
     }
     cellwanOperData.EntityData.Leafs = types.NewOrderedMap()
 
@@ -844,5 +1012,214 @@ func (cellwanConnection *CellwanOperData_CellwanConnection) GetEntityData() *typ
     cellwanConnection.EntityData.YListKeys = []string {"CellularInterface"}
 
     return &(cellwanConnection.EntityData)
+}
+
+// CellwanOperData_CellwanSecurity
+// Cellwan modem sim security data
+type CellwanOperData_CellwanSecurity struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Cellular interface. The type is string.
+    CellularInterface interface{}
+
+    // Cellular modem active SIM slot status. The type is interface{} with range:
+    // -128..127.
+    ActiveSim interface{}
+
+    // Cellular modem SIM switchover attempts. The type is interface{} with range:
+    // 0..4294967295.
+    SimNumSwitchover interface{}
+
+    // Cellular SIM Card Holder Verification (CHV1) status. The type is
+    // CellwanChv1SimStatus.
+    Chv1Status interface{}
+
+    // Cellular SIM status. The type is CellwanSimStatus.
+    SimStatus interface{}
+
+    // Cellular SIM user operation. The type is CellwanSimUserOp.
+    SimOper interface{}
+
+    // Cellular SIM number of CHV1 retries remaining. The type is interface{} with
+    // range: -128..127.
+    NumRetries interface{}
+}
+
+func (cellwanSecurity *CellwanOperData_CellwanSecurity) GetEntityData() *types.CommonEntityData {
+    cellwanSecurity.EntityData.YFilter = cellwanSecurity.YFilter
+    cellwanSecurity.EntityData.YangName = "cellwan-security"
+    cellwanSecurity.EntityData.BundleName = "cisco_ios_xe"
+    cellwanSecurity.EntityData.ParentYangName = "cellwan-oper-data"
+    cellwanSecurity.EntityData.SegmentPath = "cellwan-security" + types.AddKeyToken(cellwanSecurity.CellularInterface, "cellular-interface")
+    cellwanSecurity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cellwanSecurity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cellwanSecurity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    cellwanSecurity.EntityData.Children = types.NewOrderedMap()
+    cellwanSecurity.EntityData.Leafs = types.NewOrderedMap()
+    cellwanSecurity.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanSecurity.CellularInterface})
+    cellwanSecurity.EntityData.Leafs.Append("active-sim", types.YLeaf{"ActiveSim", cellwanSecurity.ActiveSim})
+    cellwanSecurity.EntityData.Leafs.Append("sim-num-switchover", types.YLeaf{"SimNumSwitchover", cellwanSecurity.SimNumSwitchover})
+    cellwanSecurity.EntityData.Leafs.Append("chv1-status", types.YLeaf{"Chv1Status", cellwanSecurity.Chv1Status})
+    cellwanSecurity.EntityData.Leafs.Append("sim-status", types.YLeaf{"SimStatus", cellwanSecurity.SimStatus})
+    cellwanSecurity.EntityData.Leafs.Append("sim-oper", types.YLeaf{"SimOper", cellwanSecurity.SimOper})
+    cellwanSecurity.EntityData.Leafs.Append("num-retries", types.YLeaf{"NumRetries", cellwanSecurity.NumRetries})
+
+    cellwanSecurity.EntityData.YListKeys = []string {"CellularInterface"}
+
+    return &(cellwanSecurity.EntityData)
+}
+
+// CellwanOperData_CellwanSms
+// Cellwan modem sms data
+type CellwanOperData_CellwanSms struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Cellular interface. The type is string.
+    CellularInterface interface{}
+
+    // Number of incoming SMS stored in Cellular modem. The type is interface{}
+    // with range: 0..65535.
+    InSmsCount interface{}
+
+    // Number of incoming SMS archived in Cellular modem. The type is interface{}
+    // with range: 0..65535.
+    InSmsArchived interface{}
+
+    // Number of incoming SMS deleted in Cellular modem. The type is interface{}
+    // with range: 0..65535.
+    InSmsDeleted interface{}
+
+    // Number of SIM/modem SMS record allocated. The type is interface{} with
+    // range: 0..65535.
+    InSmsMax interface{}
+
+    // Number of SIM/modem SMS record used. The type is interface{} with range:
+    // 0..65535.
+    InSmsUsed interface{}
+
+    // Number of SMS triggerred data callback. The type is interface{} with range:
+    // 0..65535.
+    SmsCallbackCount interface{}
+
+    // Number of successful archive on in SMS. The type is interface{} with range:
+    // 0..65535.
+    InSmsArchCount interface{}
+
+    // Number of failed archive on in SMS. The type is interface{} with range:
+    // 0..65535.
+    InSmsArchErrorCount interface{}
+
+    // Number of outgoing SMS successfully sent. The type is interface{} with
+    // range: 0..65535.
+    OutSmsCount interface{}
+
+    // Number of outgoing SMS send failure. The type is interface{} with range:
+    // 0..65535.
+    OutSmsErrorCount interface{}
+
+    // Number of outgoing SMS pending. The type is interface{} with range:
+    // 0..65535.
+    OutSmsPending interface{}
+
+    // Number of successful archive out in SMS. The type is interface{} with
+    // range: 0..65535.
+    OutSmsArchCount interface{}
+
+    // Number of failed archive on out SMS. The type is interface{} with range:
+    // 0..65535.
+    OutSmsArchErrorCount interface{}
+}
+
+func (cellwanSms *CellwanOperData_CellwanSms) GetEntityData() *types.CommonEntityData {
+    cellwanSms.EntityData.YFilter = cellwanSms.YFilter
+    cellwanSms.EntityData.YangName = "cellwan-sms"
+    cellwanSms.EntityData.BundleName = "cisco_ios_xe"
+    cellwanSms.EntityData.ParentYangName = "cellwan-oper-data"
+    cellwanSms.EntityData.SegmentPath = "cellwan-sms" + types.AddKeyToken(cellwanSms.CellularInterface, "cellular-interface")
+    cellwanSms.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cellwanSms.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cellwanSms.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    cellwanSms.EntityData.Children = types.NewOrderedMap()
+    cellwanSms.EntityData.Leafs = types.NewOrderedMap()
+    cellwanSms.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanSms.CellularInterface})
+    cellwanSms.EntityData.Leafs.Append("in-sms-count", types.YLeaf{"InSmsCount", cellwanSms.InSmsCount})
+    cellwanSms.EntityData.Leafs.Append("in-sms-archived", types.YLeaf{"InSmsArchived", cellwanSms.InSmsArchived})
+    cellwanSms.EntityData.Leafs.Append("in-sms-deleted", types.YLeaf{"InSmsDeleted", cellwanSms.InSmsDeleted})
+    cellwanSms.EntityData.Leafs.Append("in-sms-max", types.YLeaf{"InSmsMax", cellwanSms.InSmsMax})
+    cellwanSms.EntityData.Leafs.Append("in-sms-used", types.YLeaf{"InSmsUsed", cellwanSms.InSmsUsed})
+    cellwanSms.EntityData.Leafs.Append("sms-callback-count", types.YLeaf{"SmsCallbackCount", cellwanSms.SmsCallbackCount})
+    cellwanSms.EntityData.Leafs.Append("in-sms-arch-count", types.YLeaf{"InSmsArchCount", cellwanSms.InSmsArchCount})
+    cellwanSms.EntityData.Leafs.Append("in-sms-arch-error-count", types.YLeaf{"InSmsArchErrorCount", cellwanSms.InSmsArchErrorCount})
+    cellwanSms.EntityData.Leafs.Append("out-sms-count", types.YLeaf{"OutSmsCount", cellwanSms.OutSmsCount})
+    cellwanSms.EntityData.Leafs.Append("out-sms-error-count", types.YLeaf{"OutSmsErrorCount", cellwanSms.OutSmsErrorCount})
+    cellwanSms.EntityData.Leafs.Append("out-sms-pending", types.YLeaf{"OutSmsPending", cellwanSms.OutSmsPending})
+    cellwanSms.EntityData.Leafs.Append("out-sms-arch-count", types.YLeaf{"OutSmsArchCount", cellwanSms.OutSmsArchCount})
+    cellwanSms.EntityData.Leafs.Append("out-sms-arch-error-count", types.YLeaf{"OutSmsArchErrorCount", cellwanSms.OutSmsArchErrorCount})
+
+    cellwanSms.EntityData.YListKeys = []string {"CellularInterface"}
+
+    return &(cellwanSms.EntityData)
+}
+
+// CellwanOperData_CellwanGps
+// Cellwan modem gps data
+type CellwanOperData_CellwanGps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Cellular interface. The type is string.
+    CellularInterface interface{}
+
+    // Cellular modem GPS feature state status. The type is CwanGpsFeatureState.
+    GpsFeatureState interface{}
+
+    // Cellular modem GPS port selection status. The type is CwanGpsPortSelected.
+    PortSelected interface{}
+
+    // Cellular modem GPS state status. The type is CwanGpsState.
+    State interface{}
+
+    // Cellular modem GPS mode selection status. The type is CwanGpsModeSelected.
+    ModeSelected interface{}
+
+    // Cellular modem GPS latitude details. The type is string.
+    Latitude interface{}
+
+    // Cellular modem GPS longitude details. The type is string.
+    Longitude interface{}
+
+    // Cellular modem GPS timestamp details. The type is string with pattern:
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    Timestamp interface{}
+}
+
+func (cellwanGps *CellwanOperData_CellwanGps) GetEntityData() *types.CommonEntityData {
+    cellwanGps.EntityData.YFilter = cellwanGps.YFilter
+    cellwanGps.EntityData.YangName = "cellwan-gps"
+    cellwanGps.EntityData.BundleName = "cisco_ios_xe"
+    cellwanGps.EntityData.ParentYangName = "cellwan-oper-data"
+    cellwanGps.EntityData.SegmentPath = "cellwan-gps" + types.AddKeyToken(cellwanGps.CellularInterface, "cellular-interface")
+    cellwanGps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cellwanGps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cellwanGps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    cellwanGps.EntityData.Children = types.NewOrderedMap()
+    cellwanGps.EntityData.Leafs = types.NewOrderedMap()
+    cellwanGps.EntityData.Leafs.Append("cellular-interface", types.YLeaf{"CellularInterface", cellwanGps.CellularInterface})
+    cellwanGps.EntityData.Leafs.Append("gps-feature-state", types.YLeaf{"GpsFeatureState", cellwanGps.GpsFeatureState})
+    cellwanGps.EntityData.Leafs.Append("port-selected", types.YLeaf{"PortSelected", cellwanGps.PortSelected})
+    cellwanGps.EntityData.Leafs.Append("state", types.YLeaf{"State", cellwanGps.State})
+    cellwanGps.EntityData.Leafs.Append("mode-selected", types.YLeaf{"ModeSelected", cellwanGps.ModeSelected})
+    cellwanGps.EntityData.Leafs.Append("latitude", types.YLeaf{"Latitude", cellwanGps.Latitude})
+    cellwanGps.EntityData.Leafs.Append("longitude", types.YLeaf{"Longitude", cellwanGps.Longitude})
+    cellwanGps.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", cellwanGps.Timestamp})
+
+    cellwanGps.EntityData.YListKeys = []string {"CellularInterface"}
+
+    return &(cellwanGps.EntityData)
 }
 

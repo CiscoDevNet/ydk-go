@@ -32,7 +32,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
      for the following management objects:
        ipv4-dhcpd: DHCP IPV4 configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-30 {
@@ -54,7 +54,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
 
   typedef Ipv4dhcpd-client-id {
     type uint32 {
-      range "1..4294967295";
+      range "0..4294967295";
     }
     description
       "Ipv4dhcpd client id";
@@ -129,6 +129,23 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
     }
     description
       "Dhcpv4 limit lease1";
+  }
+
+  typedef Ipv4dhcpd-relay-giaddr-policy {
+    type enumeration {
+      enum "replace" {
+        value 1;
+        description
+          "Replace";
+      }
+      enum "drop" {
+        value 2;
+        description
+          "Drop";
+      }
+    }
+    description
+      "Ipv4dhcpd relay giaddr policy";
   }
 
   typedef Matchoption {
@@ -487,6 +504,16 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
         value 8;
         description
           "L2 Interface";
+      }
+      enum "l3-interface" {
+        value 9;
+        description
+          "L3 Interface";
+      }
+      enum "host-name" {
+        value 10;
+        description
+          "Hostname";
       }
     }
     description
@@ -1060,7 +1087,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                     }
                     leaf minutes {
                       type uint32 {
-                        range "1..59";
+                        range "0..59";
                       }
                       units "minute";
                       description
@@ -1191,7 +1218,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                 }
                 leaf minutes {
                   type uint32 {
-                    range "1..59";
+                    range "0..59";
                   }
                   units "minute";
                   description
@@ -1252,10 +1279,9 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                       description
                         "Set constant integer";
                     }
-                    leaf option-number {
-                      type uint32 {
-                        range "1..255";
-                      }
+                    leaf-list option-number {
+                      type uint32;
+                      max-elements "12";
                       description
                         "Option number";
                     }
@@ -1297,6 +1323,12 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                 description
                   "Enable Secure Arp";
               }
+              leaf arp-instal-skip-stdalone {
+                type empty;
+                description
+                  "Skip ARP installation for standalone
+                   sessions";
+              }
               leaf boot-filename {
                 type xr:Cisco-ios-xr-string {
                   length "1..128";
@@ -1320,7 +1352,7 @@ module Cisco-IOS-XR-ipv4-dhcpd-cfg {
                 description
                   "GIADDR policy";
                 leaf policy {
-                  type Ipv4dhcpd-giaddr-policy;
+                  type Ipv4dhcpd-relay-giaddr-policy;
                   mandatory true;
                   description
                     "GIADDR policy";

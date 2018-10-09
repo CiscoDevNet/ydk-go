@@ -29,7 +29,7 @@ module Cisco-IOS-XR-dwdm-ui-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -158,6 +158,16 @@ module Cisco-IOS-XR-dwdm-ui-cfg {
         description
           "High-Gain Multivendor Interoperable Hard
            Decision";
+      }
+      enum "sd-everest" {
+        value 9;
+        description
+          "SD Everest";
+      }
+      enum "sd-denali" {
+        value 10;
+        description
+          "SD Denali";
       }
     }
     description
@@ -881,7 +891,7 @@ module Cisco-IOS-XR-dwdm-ui-cfg {
             mandatory true;
             description
               "None, Standard, Enhanced, High-Gain,
-               Long-Haul, Ci-BCH";
+               Long-Haul, Ci-BCH, SD-Everest, SD-Denali";
           }
           leaf efec-mode {
             type Efec;

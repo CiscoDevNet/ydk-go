@@ -12,7 +12,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package l2vpn_cfg
 
@@ -55,6 +55,23 @@ const (
 
     // Inactivity aging type
     MacAging_inactivity MacAging = "inactivity"
+)
+
+// MacLimitAction represents Mac limit action
+type MacLimitAction string
+
+const (
+    // No action
+    MacLimitAction_none MacLimitAction = "none"
+
+    // Flood Mac Limit Action
+    MacLimitAction_flood MacLimitAction = "flood"
+
+    // NoFlood Mac Limit Action
+    MacLimitAction_no_flood MacLimitAction = "no-flood"
+
+    // Shutdown Mac Limit Action
+    MacLimitAction_shutdown MacLimitAction = "shutdown"
 )
 
 // BdmacLearn represents Bdmac learn
@@ -141,25 +158,8 @@ const (
     // RT is default type
     BgpRouteTarget_no_stitching BgpRouteTarget = "no-stitching"
 
-    // RT is for stitching (Golf-L2)
+    // RT is for stitching (Golf-L2) (DEPRECATED)
     BgpRouteTarget_stitching BgpRouteTarget = "stitching"
-)
-
-// MacLimitAction represents Mac limit action
-type MacLimitAction string
-
-const (
-    // No action
-    MacLimitAction_none MacLimitAction = "none"
-
-    // Flood Mac Limit Action
-    MacLimitAction_flood MacLimitAction = "flood"
-
-    // NoFlood Mac Limit Action
-    MacLimitAction_no_flood MacLimitAction = "no-flood"
-
-    // Shutdown Mac Limit Action
-    MacLimitAction_shutdown MacLimitAction = "shutdown"
 )
 
 // FlowLabelLoadBalance represents Flow label load balance
@@ -175,7 +175,7 @@ const (
     // Insert Flow Label on transmit side
     FlowLabelLoadBalance_transmit FlowLabelLoadBalance = "transmit"
 
-    // Insert/Delete  Flow Label on transmit/receive
+    // Insert/Delete Flow Label on transmit/receive
     // side
     FlowLabelLoadBalance_both FlowLabelLoadBalance = "both"
 )
@@ -402,8 +402,22 @@ const (
 type EvpnSide string
 
 const (
+    // EVPN Instance side defined as regular
+    EvpnSide_evpn_side_regular EvpnSide = "evpn-side-regular"
+
     // EVPN Instance side defined as stitching
     EvpnSide_evpn_side_stitching EvpnSide = "evpn-side-stitching"
+)
+
+// ControlWord represents Control word
+type ControlWord string
+
+const (
+    // Enable control word
+    ControlWord_enable ControlWord = "enable"
+
+    // Disable control word
+    ControlWord_disable ControlWord = "disable"
 )
 
 // PreferredPath represents Preferred path
@@ -457,9 +471,6 @@ type EthernetSegmentLoadBalance string
 const (
     // Single Active
     EthernetSegmentLoadBalance_single_active EthernetSegmentLoadBalance = "single-active"
-
-    // Port Active
-    EthernetSegmentLoadBalance_port_active EthernetSegmentLoadBalance = "port-active"
 )
 
 // L2tpSignalingProtocol represents L2tp signaling protocol
@@ -471,17 +482,6 @@ const (
 
     // L2TPv3
     L2tpSignalingProtocol_l2tpv3 L2tpSignalingProtocol = "l2tpv3"
-)
-
-// ControlWord represents Control word
-type ControlWord string
-
-const (
-    // Enable control word
-    ControlWord_enable ControlWord = "enable"
-
-    // Disable control word
-    ControlWord_disable ControlWord = "disable"
 )
 
 // EthernetSegmentIdentifier represents Ethernet segment identifier
@@ -526,6 +526,14 @@ const (
 
     // Ethernet port mode
     L2Encapsulation_ethernet L2Encapsulation = "ethernet"
+)
+
+// EthernetSegmentServiceCarving represents Ethernet segment service carving
+type EthernetSegmentServiceCarving string
+
+const (
+    // HRW
+    EthernetSegmentServiceCarving_hrw EthernetSegmentServiceCarving = "hrw"
 )
 
 // L2vpnLogging represents L2vpn logging
@@ -875,11 +883,14 @@ type L2vpn_Database struct {
     // List of xconnect groups.
     XconnectGroups L2vpn_Database_XconnectGroups
 
-    // List of bridge  groups.
+    // List of bridge groups.
     BridgeDomainGroups L2vpn_Database_BridgeDomainGroups
 
     // List of pseudowire classes.
     PseudowireClasses L2vpn_Database_PseudowireClasses
+
+    // List of VLAN Switches.
+    VlanSwitches L2vpn_Database_VlanSwitches
 
     // List of Flexible XConnect Services.
     FlexibleXconnectServiceTable L2vpn_Database_FlexibleXconnectServiceTable
@@ -903,6 +914,7 @@ func (database *L2vpn_Database) GetEntityData() *types.CommonEntityData {
     database.EntityData.Children.Append("xconnect-groups", types.YChild{"XconnectGroups", &database.XconnectGroups})
     database.EntityData.Children.Append("bridge-domain-groups", types.YChild{"BridgeDomainGroups", &database.BridgeDomainGroups})
     database.EntityData.Children.Append("pseudowire-classes", types.YChild{"PseudowireClasses", &database.PseudowireClasses})
+    database.EntityData.Children.Append("vlan-switches", types.YChild{"VlanSwitches", &database.VlanSwitches})
     database.EntityData.Children.Append("flexible-xconnect-service-table", types.YChild{"FlexibleXconnectServiceTable", &database.FlexibleXconnectServiceTable})
     database.EntityData.Children.Append("redundancy", types.YChild{"Redundancy", &database.Redundancy})
     database.EntityData.Leafs = types.NewOrderedMap()
@@ -1038,11 +1050,11 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s_ErpPort0 struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port0 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Ethernet ring protection port0 monitor. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1343,7 +1355,7 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_NoneOrVirtual struct
     YPresence bool
 
     // Ethernet ring protection port1 monitor. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1373,11 +1385,11 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port1 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Ethernet ring protection port1 monitor. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1607,7 +1619,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Backup
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: [a-zA-Z0-9./-]+.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2791,7 +2803,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Attach
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: [a-zA-Z0-9./-]+.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable attachment circuit interface. The type is interface{}.
@@ -3369,7 +3381,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // This attribute is a key. Remote Customer Edge Identifier. The type is
@@ -3398,7 +3410,7 @@ func (remoteCeidAttachmentCircuit *L2vpn_Database_XconnectGroups_XconnectGroup_M
 }
 
 // L2vpn_Database_BridgeDomainGroups
-// List of bridge  groups
+// List of bridge groups
 type L2vpn_Database_BridgeDomainGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -3568,6 +3580,9 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     // Specify the virtual forwarding interface name.
     Vfis L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis
 
+    // Bridge Domain EVPN VxLAN Network Identifier Table.
+    BridgeDomainvnis L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis
+
     // Attachment Circuit table.
     BdAttachmentCircuits L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits
 
@@ -3604,6 +3619,7 @@ func (bridgeDomain *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     bridgeDomain.EntityData.Children.Append("access-vfis", types.YChild{"AccessVfis", &bridgeDomain.AccessVfis})
     bridgeDomain.EntityData.Children.Append("bd-pseudowires", types.YChild{"BdPseudowires", &bridgeDomain.BdPseudowires})
     bridgeDomain.EntityData.Children.Append("vfis", types.YChild{"Vfis", &bridgeDomain.Vfis})
+    bridgeDomain.EntityData.Children.Append("bridge-domainvnis", types.YChild{"BridgeDomainvnis", &bridgeDomain.BridgeDomainvnis})
     bridgeDomain.EntityData.Children.Append("bd-attachment-circuits", types.YChild{"BdAttachmentCircuits", &bridgeDomain.BdAttachmentCircuits})
     bridgeDomain.EntityData.Children.Append("bd-pseudowire-evpns", types.YChild{"BdPseudowireEvpns", &bridgeDomain.BdPseudowireEvpns})
     bridgeDomain.EntityData.Children.Append("ip-source-guard", types.YChild{"IpSourceGuard", &bridgeDomain.IpSourceGuard})
@@ -3732,13 +3748,12 @@ func (stormControlUnit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis
-// Bridge Domain VxLAN Network Identifier
-// Table
+// Bridge Domain VxLAN Network Identifier Table
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bridge Domain Member VxLAN Network Identifier . The type is slice of
+    // Bridge Domain Member VxLAN Network Identifier. The type is slice of
     // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni.
     MemberVni []*L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni
 }
@@ -3766,8 +3781,7 @@ func (memberVnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni
-// Bridge Domain Member VxLAN Network
-// Identifier 
+// Bridge Domain Member VxLAN Network Identifier
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -4825,7 +4839,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bridge Domain EVI. The type is slice of
+    // Bridge Domain MPLS EVPN. The type is slice of
     // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi.
     BridgeDomainEvi []*L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi
 }
@@ -4853,14 +4867,14 @@ func (bridgeDomainEvis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi
-// Bridge Domain EVI
+// Bridge Domain MPLS EVPN
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Ethernet VPN ID. The type is interface{} with
+    // This attribute is a key. MPLS Ethernet VPN-ID. The type is interface{} with
     // range: 1..65534.
-    Eviid interface{}
+    VpnId interface{}
 }
 
 func (bridgeDomainEvi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi) GetEntityData() *types.CommonEntityData {
@@ -4868,16 +4882,16 @@ func (bridgeDomainEvi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bridgeDomainEvi.EntityData.YangName = "bridge-domain-evi"
     bridgeDomainEvi.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainEvi.EntityData.ParentYangName = "bridge-domain-evis"
-    bridgeDomainEvi.EntityData.SegmentPath = "bridge-domain-evi" + types.AddKeyToken(bridgeDomainEvi.Eviid, "eviid")
+    bridgeDomainEvi.EntityData.SegmentPath = "bridge-domain-evi" + types.AddKeyToken(bridgeDomainEvi.VpnId, "vpn-id")
     bridgeDomainEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     bridgeDomainEvi.EntityData.Children = types.NewOrderedMap()
     bridgeDomainEvi.EntityData.Leafs = types.NewOrderedMap()
-    bridgeDomainEvi.EntityData.Leafs.Append("eviid", types.YLeaf{"Eviid", bridgeDomainEvi.Eviid})
+    bridgeDomainEvi.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", bridgeDomainEvi.VpnId})
 
-    bridgeDomainEvi.EntityData.YListKeys = []string {"Eviid"}
+    bridgeDomainEvi.EntityData.YListKeys = []string {"VpnId"}
 
     return &(bridgeDomainEvi.EntityData)
 }
@@ -5538,8 +5552,8 @@ func (pseudowireIpSourceGuard *L2vpn_Database_BridgeDomainGroups_BridgeDomainGro
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac
-// Bridge-domain Pseudowire MAC
-// configuration commands
+// Bridge-domain Pseudowire MAC configuration
+// commands
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -5869,8 +5883,7 @@ func (bridgeDomainBackupPseudowire *L2vpn_Database_BridgeDomainGroups_BridgeDoma
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis
-// Specify the virtual forwarding interface
-// name
+// Specify the virtual forwarding interface name
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -6410,7 +6423,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable LDP as Signaling Protocol .Deletion of this object also causes
+    // Enable LDP as Signaling Protocol.Deletion of this object also causes
     // deletion of all objects under LDPSignalingProtocol. The type is
     // interface{}.
     Enable interface{}
@@ -6600,8 +6613,7 @@ func (routeDistinguisher *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
 }
 
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol
-// Enable Signaling Protocol BGP in this
-// VFI
+// Enable Signaling Protocol BGP in this VFI
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -6830,6 +6842,70 @@ func (ipv4Address *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     return &(ipv4Address.EntityData)
 }
 
+// L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis
+// Bridge Domain EVPN VxLAN Network Identifier
+// Table
+type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Domain VxLAN EVPN. The type is slice of
+    // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni.
+    BridgeDomainvni []*L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni
+}
+
+func (bridgeDomainvnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis) GetEntityData() *types.CommonEntityData {
+    bridgeDomainvnis.EntityData.YFilter = bridgeDomainvnis.YFilter
+    bridgeDomainvnis.EntityData.YangName = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainvnis.EntityData.ParentYangName = "bridge-domain"
+    bridgeDomainvnis.EntityData.SegmentPath = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainvnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainvnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainvnis.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainvnis.EntityData.Children.Append("bridge-domainvni", types.YChild{"BridgeDomainvni", nil})
+    for i := range bridgeDomainvnis.BridgeDomainvni {
+        bridgeDomainvnis.EntityData.Children.Append(types.GetSegmentPath(bridgeDomainvnis.BridgeDomainvni[i]), types.YChild{"BridgeDomainvni", bridgeDomainvnis.BridgeDomainvni[i]})
+    }
+    bridgeDomainvnis.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainvnis.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainvnis.EntityData)
+}
+
+// L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni
+// Bridge Domain VxLAN EVPN
+type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. VxLAN Ethernet VPN-ID. The type is interface{}
+    // with range: 1..16777215.
+    VpnId interface{}
+}
+
+func (bridgeDomainvni *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni) GetEntityData() *types.CommonEntityData {
+    bridgeDomainvni.EntityData.YFilter = bridgeDomainvni.YFilter
+    bridgeDomainvni.EntityData.YangName = "bridge-domainvni"
+    bridgeDomainvni.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainvni.EntityData.ParentYangName = "bridge-domainvnis"
+    bridgeDomainvni.EntityData.SegmentPath = "bridge-domainvni" + types.AddKeyToken(bridgeDomainvni.VpnId, "vpn-id")
+    bridgeDomainvni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainvni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainvni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainvni.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainvni.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomainvni.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", bridgeDomainvni.VpnId})
+
+    bridgeDomainvni.EntityData.YListKeys = []string {"VpnId"}
+
+    return &(bridgeDomainvni.EntityData)
+}
+
 // L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits
 // Attachment Circuit table
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits struct {
@@ -6870,7 +6946,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable or Disable Flooding. The type is InterfaceTrafficFlood.
@@ -7691,7 +7767,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the Routed Interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Routed interface split horizon group.
@@ -8321,6 +8397,4845 @@ func (flowLabelLoadBalance *L2vpn_Database_PseudowireClasses_PseudowireClass_Mpl
     return &(flowLabelLoadBalance.EntityData)
 }
 
+// L2vpn_Database_VlanSwitches
+// List of VLAN Switches
+type L2vpn_Database_VlanSwitches struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VLAN Switch. The type is slice of L2vpn_Database_VlanSwitches_VlanSwitch.
+    VlanSwitch []*L2vpn_Database_VlanSwitches_VlanSwitch
+}
+
+func (vlanSwitches *L2vpn_Database_VlanSwitches) GetEntityData() *types.CommonEntityData {
+    vlanSwitches.EntityData.YFilter = vlanSwitches.YFilter
+    vlanSwitches.EntityData.YangName = "vlan-switches"
+    vlanSwitches.EntityData.BundleName = "cisco_ios_xr"
+    vlanSwitches.EntityData.ParentYangName = "database"
+    vlanSwitches.EntityData.SegmentPath = "vlan-switches"
+    vlanSwitches.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanSwitches.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanSwitches.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanSwitches.EntityData.Children = types.NewOrderedMap()
+    vlanSwitches.EntityData.Children.Append("vlan-switch", types.YChild{"VlanSwitch", nil})
+    for i := range vlanSwitches.VlanSwitch {
+        vlanSwitches.EntityData.Children.Append(types.GetSegmentPath(vlanSwitches.VlanSwitch[i]), types.YChild{"VlanSwitch", vlanSwitches.VlanSwitch[i]})
+    }
+    vlanSwitches.EntityData.Leafs = types.NewOrderedMap()
+
+    vlanSwitches.EntityData.YListKeys = []string {}
+
+    return &(vlanSwitches.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch
+// VLAN Switch
+type L2vpn_Database_VlanSwitches_VlanSwitch struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the VLAN Switch. The type is string with
+    // length: 1..32.
+    Name interface{}
+
+    // List of VLAN Switched Ports.
+    VlanSwitchPorts L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts
+
+    // Configure VLAN Switch VxLAN Ethernet VPN-ID ranges.
+    VniRanges L2vpn_Database_VlanSwitches_VlanSwitch_VniRanges
+
+    // Configure VLAN Switch VLAN ranges.
+    VlanRanges L2vpn_Database_VlanSwitches_VlanSwitch_VlanRanges
+
+    // Configure VLAN Switch Routed BVI Interface ranges.
+    RoutedInterfaceRanges L2vpn_Database_VlanSwitches_VlanSwitch_RoutedInterfaceRanges
+
+    // List of Bridge Domain.
+    BridgeDomains L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
+}
+
+func (vlanSwitch *L2vpn_Database_VlanSwitches_VlanSwitch) GetEntityData() *types.CommonEntityData {
+    vlanSwitch.EntityData.YFilter = vlanSwitch.YFilter
+    vlanSwitch.EntityData.YangName = "vlan-switch"
+    vlanSwitch.EntityData.BundleName = "cisco_ios_xr"
+    vlanSwitch.EntityData.ParentYangName = "vlan-switches"
+    vlanSwitch.EntityData.SegmentPath = "vlan-switch" + types.AddKeyToken(vlanSwitch.Name, "name")
+    vlanSwitch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanSwitch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanSwitch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanSwitch.EntityData.Children = types.NewOrderedMap()
+    vlanSwitch.EntityData.Children.Append("vlan-switch-ports", types.YChild{"VlanSwitchPorts", &vlanSwitch.VlanSwitchPorts})
+    vlanSwitch.EntityData.Children.Append("vni-ranges", types.YChild{"VniRanges", &vlanSwitch.VniRanges})
+    vlanSwitch.EntityData.Children.Append("vlan-ranges", types.YChild{"VlanRanges", &vlanSwitch.VlanRanges})
+    vlanSwitch.EntityData.Children.Append("routed-interface-ranges", types.YChild{"RoutedInterfaceRanges", &vlanSwitch.RoutedInterfaceRanges})
+    vlanSwitch.EntityData.Children.Append("bridge-domains", types.YChild{"BridgeDomains", &vlanSwitch.BridgeDomains})
+    vlanSwitch.EntityData.Leafs = types.NewOrderedMap()
+    vlanSwitch.EntityData.Leafs.Append("name", types.YLeaf{"Name", vlanSwitch.Name})
+
+    vlanSwitch.EntityData.YListKeys = []string {"Name"}
+
+    return &(vlanSwitch.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts
+// List of VLAN Switched Ports
+type L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VLAN Switched Port. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort.
+    VlanSwitchPort []*L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort
+}
+
+func (vlanSwitchPorts *L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts) GetEntityData() *types.CommonEntityData {
+    vlanSwitchPorts.EntityData.YFilter = vlanSwitchPorts.YFilter
+    vlanSwitchPorts.EntityData.YangName = "vlan-switch-ports"
+    vlanSwitchPorts.EntityData.BundleName = "cisco_ios_xr"
+    vlanSwitchPorts.EntityData.ParentYangName = "vlan-switch"
+    vlanSwitchPorts.EntityData.SegmentPath = "vlan-switch-ports"
+    vlanSwitchPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanSwitchPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanSwitchPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanSwitchPorts.EntityData.Children = types.NewOrderedMap()
+    vlanSwitchPorts.EntityData.Children.Append("vlan-switch-port", types.YChild{"VlanSwitchPort", nil})
+    for i := range vlanSwitchPorts.VlanSwitchPort {
+        vlanSwitchPorts.EntityData.Children.Append(types.GetSegmentPath(vlanSwitchPorts.VlanSwitchPort[i]), types.YChild{"VlanSwitchPort", vlanSwitchPorts.VlanSwitchPort[i]})
+    }
+    vlanSwitchPorts.EntityData.Leafs = types.NewOrderedMap()
+
+    vlanSwitchPorts.EntityData.YListKeys = []string {}
+
+    return &(vlanSwitchPorts.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort
+// VLAN Switched Port
+type L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Interface name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (vlanSwitchPort *L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort) GetEntityData() *types.CommonEntityData {
+    vlanSwitchPort.EntityData.YFilter = vlanSwitchPort.YFilter
+    vlanSwitchPort.EntityData.YangName = "vlan-switch-port"
+    vlanSwitchPort.EntityData.BundleName = "cisco_ios_xr"
+    vlanSwitchPort.EntityData.ParentYangName = "vlan-switch-ports"
+    vlanSwitchPort.EntityData.SegmentPath = "vlan-switch-port" + types.AddKeyToken(vlanSwitchPort.InterfaceName, "interface-name")
+    vlanSwitchPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanSwitchPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanSwitchPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanSwitchPort.EntityData.Children = types.NewOrderedMap()
+    vlanSwitchPort.EntityData.Leafs = types.NewOrderedMap()
+    vlanSwitchPort.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", vlanSwitchPort.InterfaceName})
+
+    vlanSwitchPort.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(vlanSwitchPort.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_VniRanges
+// Configure VLAN Switch VxLAN Ethernet VPN-ID
+// ranges
+type L2vpn_Database_VlanSwitches_VlanSwitch_VniRanges struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Minimum value of VNI range #1. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange1Min interface{}
+
+    // Maximum value of VNI range #1. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange1Max interface{}
+
+    // Minimum value of VNI range #2. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange2Min interface{}
+
+    // Maximum value of VNI range #2. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange2Max interface{}
+
+    // Minimum value of VNI range #3. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange3Min interface{}
+
+    // Maximum value of VNI range #3. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange3Max interface{}
+
+    // Minimum value of VNI range #4. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange4Min interface{}
+
+    // Maximum value of VNI range #4. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange4Max interface{}
+
+    // Minimum value of VNI range #5. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange5Min interface{}
+
+    // Maximum value of VNI range #5. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange5Max interface{}
+
+    // Minimum value of VNI range #6. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange6Min interface{}
+
+    // Maximum value of VNI range #6. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange6Max interface{}
+
+    // Minimum value of VNI range #7. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange7Min interface{}
+
+    // Maximum value of VNI range #7. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange7Max interface{}
+
+    // Minimum value of VNI range #8. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange8Min interface{}
+
+    // Maximum value of VNI range #8. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange8Max interface{}
+
+    // Minimum value of VNI range #9. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange9Min interface{}
+
+    // Maximum value of VNI range #9. The type is interface{} with range:
+    // 0..4294967295.
+    VniRange9Max interface{}
+}
+
+func (vniRanges *L2vpn_Database_VlanSwitches_VlanSwitch_VniRanges) GetEntityData() *types.CommonEntityData {
+    vniRanges.EntityData.YFilter = vniRanges.YFilter
+    vniRanges.EntityData.YangName = "vni-ranges"
+    vniRanges.EntityData.BundleName = "cisco_ios_xr"
+    vniRanges.EntityData.ParentYangName = "vlan-switch"
+    vniRanges.EntityData.SegmentPath = "vni-ranges"
+    vniRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vniRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vniRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vniRanges.EntityData.Children = types.NewOrderedMap()
+    vniRanges.EntityData.Leafs = types.NewOrderedMap()
+    vniRanges.EntityData.Leafs.Append("vni-range1-min", types.YLeaf{"VniRange1Min", vniRanges.VniRange1Min})
+    vniRanges.EntityData.Leafs.Append("vni-range1-max", types.YLeaf{"VniRange1Max", vniRanges.VniRange1Max})
+    vniRanges.EntityData.Leafs.Append("vni-range2-min", types.YLeaf{"VniRange2Min", vniRanges.VniRange2Min})
+    vniRanges.EntityData.Leafs.Append("vni-range2-max", types.YLeaf{"VniRange2Max", vniRanges.VniRange2Max})
+    vniRanges.EntityData.Leafs.Append("vni-range3-min", types.YLeaf{"VniRange3Min", vniRanges.VniRange3Min})
+    vniRanges.EntityData.Leafs.Append("vni-range3-max", types.YLeaf{"VniRange3Max", vniRanges.VniRange3Max})
+    vniRanges.EntityData.Leafs.Append("vni-range4-min", types.YLeaf{"VniRange4Min", vniRanges.VniRange4Min})
+    vniRanges.EntityData.Leafs.Append("vni-range4-max", types.YLeaf{"VniRange4Max", vniRanges.VniRange4Max})
+    vniRanges.EntityData.Leafs.Append("vni-range5-min", types.YLeaf{"VniRange5Min", vniRanges.VniRange5Min})
+    vniRanges.EntityData.Leafs.Append("vni-range5-max", types.YLeaf{"VniRange5Max", vniRanges.VniRange5Max})
+    vniRanges.EntityData.Leafs.Append("vni-range6-min", types.YLeaf{"VniRange6Min", vniRanges.VniRange6Min})
+    vniRanges.EntityData.Leafs.Append("vni-range6-max", types.YLeaf{"VniRange6Max", vniRanges.VniRange6Max})
+    vniRanges.EntityData.Leafs.Append("vni-range7-min", types.YLeaf{"VniRange7Min", vniRanges.VniRange7Min})
+    vniRanges.EntityData.Leafs.Append("vni-range7-max", types.YLeaf{"VniRange7Max", vniRanges.VniRange7Max})
+    vniRanges.EntityData.Leafs.Append("vni-range8-min", types.YLeaf{"VniRange8Min", vniRanges.VniRange8Min})
+    vniRanges.EntityData.Leafs.Append("vni-range8-max", types.YLeaf{"VniRange8Max", vniRanges.VniRange8Max})
+    vniRanges.EntityData.Leafs.Append("vni-range9-min", types.YLeaf{"VniRange9Min", vniRanges.VniRange9Min})
+    vniRanges.EntityData.Leafs.Append("vni-range9-max", types.YLeaf{"VniRange9Max", vniRanges.VniRange9Max})
+
+    vniRanges.EntityData.YListKeys = []string {}
+
+    return &(vniRanges.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_VlanRanges
+// Configure VLAN Switch VLAN ranges
+type L2vpn_Database_VlanSwitches_VlanSwitch_VlanRanges struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Minimum value of VLAN range #1. The type is interface{} with range:
+    // 1..4094.
+    VlanRange1Min interface{}
+
+    // Maximum value of VLAN range #1. The type is interface{} with range:
+    // 1..4094.
+    VlanRange1Max interface{}
+
+    // Minimum value of VLAN range #2. The type is interface{} with range:
+    // 1..4094.
+    VlanRange2Min interface{}
+
+    // Maximum value of VLAN range #2. The type is interface{} with range:
+    // 1..4094.
+    VlanRange2Max interface{}
+
+    // Minimum value of VLAN range #3. The type is interface{} with range:
+    // 1..4094.
+    VlanRange3Min interface{}
+
+    // Maximum value of VLAN range #3. The type is interface{} with range:
+    // 1..4094.
+    VlanRange3Max interface{}
+
+    // Minimum value of VLAN range #4. The type is interface{} with range:
+    // 1..4094.
+    VlanRange4Min interface{}
+
+    // Maximum value of VLAN range #4. The type is interface{} with range:
+    // 1..4094.
+    VlanRange4Max interface{}
+
+    // Minimum value of VLAN range #5. The type is interface{} with range:
+    // 1..4094.
+    VlanRange5Min interface{}
+
+    // Maximum value of VLAN range #5. The type is interface{} with range:
+    // 1..4094.
+    VlanRange5Max interface{}
+
+    // Minimum value of VLAN range #6. The type is interface{} with range:
+    // 1..4094.
+    VlanRange6Min interface{}
+
+    // Maximum value of VLAN range #6. The type is interface{} with range:
+    // 1..4094.
+    VlanRange6Max interface{}
+
+    // Minimum value of VLAN range #7. The type is interface{} with range:
+    // 1..4094.
+    VlanRange7Min interface{}
+
+    // Maximum value of VLAN range #7. The type is interface{} with range:
+    // 1..4094.
+    VlanRange7Max interface{}
+
+    // Minimum value of VLAN range #8. The type is interface{} with range:
+    // 1..4094.
+    VlanRange8Min interface{}
+
+    // Maximum value of VLAN range #8. The type is interface{} with range:
+    // 1..4094.
+    VlanRange8Max interface{}
+
+    // Minimum value of VLAN range #9. The type is interface{} with range:
+    // 1..4094.
+    VlanRange9Min interface{}
+
+    // Maximum value of VLAN range #9. The type is interface{} with range:
+    // 1..4094.
+    VlanRange9Max interface{}
+}
+
+func (vlanRanges *L2vpn_Database_VlanSwitches_VlanSwitch_VlanRanges) GetEntityData() *types.CommonEntityData {
+    vlanRanges.EntityData.YFilter = vlanRanges.YFilter
+    vlanRanges.EntityData.YangName = "vlan-ranges"
+    vlanRanges.EntityData.BundleName = "cisco_ios_xr"
+    vlanRanges.EntityData.ParentYangName = "vlan-switch"
+    vlanRanges.EntityData.SegmentPath = "vlan-ranges"
+    vlanRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanRanges.EntityData.Children = types.NewOrderedMap()
+    vlanRanges.EntityData.Leafs = types.NewOrderedMap()
+    vlanRanges.EntityData.Leafs.Append("vlan-range1-min", types.YLeaf{"VlanRange1Min", vlanRanges.VlanRange1Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range1-max", types.YLeaf{"VlanRange1Max", vlanRanges.VlanRange1Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range2-min", types.YLeaf{"VlanRange2Min", vlanRanges.VlanRange2Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range2-max", types.YLeaf{"VlanRange2Max", vlanRanges.VlanRange2Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range3-min", types.YLeaf{"VlanRange3Min", vlanRanges.VlanRange3Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range3-max", types.YLeaf{"VlanRange3Max", vlanRanges.VlanRange3Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range4-min", types.YLeaf{"VlanRange4Min", vlanRanges.VlanRange4Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range4-max", types.YLeaf{"VlanRange4Max", vlanRanges.VlanRange4Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range5-min", types.YLeaf{"VlanRange5Min", vlanRanges.VlanRange5Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range5-max", types.YLeaf{"VlanRange5Max", vlanRanges.VlanRange5Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range6-min", types.YLeaf{"VlanRange6Min", vlanRanges.VlanRange6Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range6-max", types.YLeaf{"VlanRange6Max", vlanRanges.VlanRange6Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range7-min", types.YLeaf{"VlanRange7Min", vlanRanges.VlanRange7Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range7-max", types.YLeaf{"VlanRange7Max", vlanRanges.VlanRange7Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range8-min", types.YLeaf{"VlanRange8Min", vlanRanges.VlanRange8Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range8-max", types.YLeaf{"VlanRange8Max", vlanRanges.VlanRange8Max})
+    vlanRanges.EntityData.Leafs.Append("vlan-range9-min", types.YLeaf{"VlanRange9Min", vlanRanges.VlanRange9Min})
+    vlanRanges.EntityData.Leafs.Append("vlan-range9-max", types.YLeaf{"VlanRange9Max", vlanRanges.VlanRange9Max})
+
+    vlanRanges.EntityData.YListKeys = []string {}
+
+    return &(vlanRanges.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_RoutedInterfaceRanges
+// Configure VLAN Switch Routed BVI Interface
+// ranges
+type L2vpn_Database_VlanSwitches_VlanSwitch_RoutedInterfaceRanges struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Minimum value of Interface range #1. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange1Min interface{}
+
+    // Maximum value of Interface range #1. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange1Max interface{}
+
+    // Minimum value of Interface range #2. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange2Min interface{}
+
+    // Maximum value of Interface range #2. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange2Max interface{}
+
+    // Minimum value of Interface range #3. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange3Min interface{}
+
+    // Maximum value of Interface range #3. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange3Max interface{}
+
+    // Minimum value of Interface range #4. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange4Min interface{}
+
+    // Maximum value of Interface range #4. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange4Max interface{}
+
+    // Minimum value of Interface range #5. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange5Min interface{}
+
+    // Maximum value of Interface range #5. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange5Max interface{}
+
+    // Minimum value of Interface range #6. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange6Min interface{}
+
+    // Maximum value of Interface range #6. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange6Max interface{}
+
+    // Minimum value of Interface range #7. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange7Min interface{}
+
+    // Maximum value of Interface range #7. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange7Max interface{}
+
+    // Minimum value of Interface range #8. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange8Min interface{}
+
+    // Maximum value of Interface range #8. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange8Max interface{}
+
+    // Minimum value of Interface range #9. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange9Min interface{}
+
+    // Maximum value of Interface range #9. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceRange9Max interface{}
+}
+
+func (routedInterfaceRanges *L2vpn_Database_VlanSwitches_VlanSwitch_RoutedInterfaceRanges) GetEntityData() *types.CommonEntityData {
+    routedInterfaceRanges.EntityData.YFilter = routedInterfaceRanges.YFilter
+    routedInterfaceRanges.EntityData.YangName = "routed-interface-ranges"
+    routedInterfaceRanges.EntityData.BundleName = "cisco_ios_xr"
+    routedInterfaceRanges.EntityData.ParentYangName = "vlan-switch"
+    routedInterfaceRanges.EntityData.SegmentPath = "routed-interface-ranges"
+    routedInterfaceRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routedInterfaceRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routedInterfaceRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routedInterfaceRanges.EntityData.Children = types.NewOrderedMap()
+    routedInterfaceRanges.EntityData.Leafs = types.NewOrderedMap()
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range1-min", types.YLeaf{"InterfaceRange1Min", routedInterfaceRanges.InterfaceRange1Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range1-max", types.YLeaf{"InterfaceRange1Max", routedInterfaceRanges.InterfaceRange1Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range2-min", types.YLeaf{"InterfaceRange2Min", routedInterfaceRanges.InterfaceRange2Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range2-max", types.YLeaf{"InterfaceRange2Max", routedInterfaceRanges.InterfaceRange2Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range3-min", types.YLeaf{"InterfaceRange3Min", routedInterfaceRanges.InterfaceRange3Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range3-max", types.YLeaf{"InterfaceRange3Max", routedInterfaceRanges.InterfaceRange3Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range4-min", types.YLeaf{"InterfaceRange4Min", routedInterfaceRanges.InterfaceRange4Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range4-max", types.YLeaf{"InterfaceRange4Max", routedInterfaceRanges.InterfaceRange4Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range5-min", types.YLeaf{"InterfaceRange5Min", routedInterfaceRanges.InterfaceRange5Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range5-max", types.YLeaf{"InterfaceRange5Max", routedInterfaceRanges.InterfaceRange5Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range6-min", types.YLeaf{"InterfaceRange6Min", routedInterfaceRanges.InterfaceRange6Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range6-max", types.YLeaf{"InterfaceRange6Max", routedInterfaceRanges.InterfaceRange6Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range7-min", types.YLeaf{"InterfaceRange7Min", routedInterfaceRanges.InterfaceRange7Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range7-max", types.YLeaf{"InterfaceRange7Max", routedInterfaceRanges.InterfaceRange7Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range8-min", types.YLeaf{"InterfaceRange8Min", routedInterfaceRanges.InterfaceRange8Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range8-max", types.YLeaf{"InterfaceRange8Max", routedInterfaceRanges.InterfaceRange8Max})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range9-min", types.YLeaf{"InterfaceRange9Min", routedInterfaceRanges.InterfaceRange9Min})
+    routedInterfaceRanges.EntityData.Leafs.Append("interface-range9-max", types.YLeaf{"InterfaceRange9Max", routedInterfaceRanges.InterfaceRange9Max})
+
+    routedInterfaceRanges.EntityData.YListKeys = []string {}
+
+    return &(routedInterfaceRanges.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
+// List of Bridge Domain
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // bridge domain. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain.
+    BridgeDomain []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain
+}
+
+func (bridgeDomains *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains) GetEntityData() *types.CommonEntityData {
+    bridgeDomains.EntityData.YFilter = bridgeDomains.YFilter
+    bridgeDomains.EntityData.YangName = "bridge-domains"
+    bridgeDomains.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomains.EntityData.ParentYangName = "vlan-switch"
+    bridgeDomains.EntityData.SegmentPath = "bridge-domains"
+    bridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomains.EntityData.Children = types.NewOrderedMap()
+    bridgeDomains.EntityData.Children.Append("bridge-domain", types.YChild{"BridgeDomain", nil})
+    for i := range bridgeDomains.BridgeDomain {
+        bridgeDomains.EntityData.Children.Append(types.GetSegmentPath(bridgeDomains.BridgeDomain[i]), types.YChild{"BridgeDomain", bridgeDomains.BridgeDomain[i]})
+    }
+    bridgeDomains.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomains.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomains.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain
+// bridge domain
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the bridge domain. The type is string with
+    // length: 1..27.
+    Name interface{}
+
+    // Coupled-mode configuration. The type is interface{}.
+    CoupledMode interface{}
+
+    // shutdown the Bridge Domain. The type is interface{}.
+    Shutdown interface{}
+
+    // Disable Unknown Unicast flooding. The type is interface{}.
+    FloodingUnknownUnicast interface{}
+
+    // Disable IGMP Snooping. The type is interface{}.
+    IgmpSnoopingDisable interface{}
+
+    // Bridge Domain Transport mode. The type is BridgeDomainTransportMode.
+    TransportMode interface{}
+
+    // Attach MLD Snooping Profile Name. The type is string with length: 1..32.
+    MldSnooping interface{}
+
+    // Maximum transmission unit for this Bridge Domain. The type is interface{}
+    // with range: 46..65535. Units are byte.
+    BridgeDomainMtu interface{}
+
+    // DHCPv4 Snooping profile name. The type is string with length: 1..32.
+    Dhcp interface{}
+
+    // Bridge-domain description Name. The type is string with length: 1..64.
+    BridgeDescription interface{}
+
+    // Attach IGMP Snooping Profile Name. The type is string with length: 1..32.
+    IgmpSnooping interface{}
+
+    // Disable flooding. The type is interface{}.
+    Flooding interface{}
+
+    // Storm Control.
+    BdStormControls L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls
+
+    // Bridge Domain VxLAN Network Identifier Table.
+    MemberVnis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis
+
+    // MAC configuration commands.
+    BridgeDomainMac L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac
+
+    // nV Satellite.
+    NvSatellite L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_NvSatellite
+
+    // Bridge Domain PBB.
+    BridgeDomainPbb L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb
+
+    // Bridge Domain EVI Table.
+    BridgeDomainEvis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis
+
+    // Specify the access virtual forwarding interface name.
+    AccessVfis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis
+
+    // List of pseudowires.
+    BdPseudowires L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires
+
+    // Specify the virtual forwarding interface name.
+    Vfis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis
+
+    // Bridge Domain EVPN VxLAN Network Identifier Table.
+    BridgeDomainvnis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis
+
+    // Attachment Circuit table.
+    BdAttachmentCircuits L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits
+
+    // List of EVPN pseudowires.
+    BdPseudowireEvpns L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns
+
+    // IP Source Guard.
+    IpSourceGuard L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_IpSourceGuard
+
+    // Dynamic ARP Inspection.
+    Dai L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai
+
+    // Bridge Domain Routed Interface Table.
+    RoutedInterfaces L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces
+}
+
+func (bridgeDomain *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain) GetEntityData() *types.CommonEntityData {
+    bridgeDomain.EntityData.YFilter = bridgeDomain.YFilter
+    bridgeDomain.EntityData.YangName = "bridge-domain"
+    bridgeDomain.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomain.EntityData.ParentYangName = "bridge-domains"
+    bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Name, "name")
+    bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomain.EntityData.Children = types.NewOrderedMap()
+    bridgeDomain.EntityData.Children.Append("bd-storm-controls", types.YChild{"BdStormControls", &bridgeDomain.BdStormControls})
+    bridgeDomain.EntityData.Children.Append("member-vnis", types.YChild{"MemberVnis", &bridgeDomain.MemberVnis})
+    bridgeDomain.EntityData.Children.Append("bridge-domain-mac", types.YChild{"BridgeDomainMac", &bridgeDomain.BridgeDomainMac})
+    bridgeDomain.EntityData.Children.Append("nv-satellite", types.YChild{"NvSatellite", &bridgeDomain.NvSatellite})
+    bridgeDomain.EntityData.Children.Append("bridge-domain-pbb", types.YChild{"BridgeDomainPbb", &bridgeDomain.BridgeDomainPbb})
+    bridgeDomain.EntityData.Children.Append("bridge-domain-evis", types.YChild{"BridgeDomainEvis", &bridgeDomain.BridgeDomainEvis})
+    bridgeDomain.EntityData.Children.Append("access-vfis", types.YChild{"AccessVfis", &bridgeDomain.AccessVfis})
+    bridgeDomain.EntityData.Children.Append("bd-pseudowires", types.YChild{"BdPseudowires", &bridgeDomain.BdPseudowires})
+    bridgeDomain.EntityData.Children.Append("vfis", types.YChild{"Vfis", &bridgeDomain.Vfis})
+    bridgeDomain.EntityData.Children.Append("bridge-domainvnis", types.YChild{"BridgeDomainvnis", &bridgeDomain.BridgeDomainvnis})
+    bridgeDomain.EntityData.Children.Append("bd-attachment-circuits", types.YChild{"BdAttachmentCircuits", &bridgeDomain.BdAttachmentCircuits})
+    bridgeDomain.EntityData.Children.Append("bd-pseudowire-evpns", types.YChild{"BdPseudowireEvpns", &bridgeDomain.BdPseudowireEvpns})
+    bridgeDomain.EntityData.Children.Append("ip-source-guard", types.YChild{"IpSourceGuard", &bridgeDomain.IpSourceGuard})
+    bridgeDomain.EntityData.Children.Append("dai", types.YChild{"Dai", &bridgeDomain.Dai})
+    bridgeDomain.EntityData.Children.Append("routed-interfaces", types.YChild{"RoutedInterfaces", &bridgeDomain.RoutedInterfaces})
+    bridgeDomain.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomain.EntityData.Leafs.Append("name", types.YLeaf{"Name", bridgeDomain.Name})
+    bridgeDomain.EntityData.Leafs.Append("coupled-mode", types.YLeaf{"CoupledMode", bridgeDomain.CoupledMode})
+    bridgeDomain.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", bridgeDomain.Shutdown})
+    bridgeDomain.EntityData.Leafs.Append("flooding-unknown-unicast", types.YLeaf{"FloodingUnknownUnicast", bridgeDomain.FloodingUnknownUnicast})
+    bridgeDomain.EntityData.Leafs.Append("igmp-snooping-disable", types.YLeaf{"IgmpSnoopingDisable", bridgeDomain.IgmpSnoopingDisable})
+    bridgeDomain.EntityData.Leafs.Append("transport-mode", types.YLeaf{"TransportMode", bridgeDomain.TransportMode})
+    bridgeDomain.EntityData.Leafs.Append("mld-snooping", types.YLeaf{"MldSnooping", bridgeDomain.MldSnooping})
+    bridgeDomain.EntityData.Leafs.Append("bridge-domain-mtu", types.YLeaf{"BridgeDomainMtu", bridgeDomain.BridgeDomainMtu})
+    bridgeDomain.EntityData.Leafs.Append("dhcp", types.YLeaf{"Dhcp", bridgeDomain.Dhcp})
+    bridgeDomain.EntityData.Leafs.Append("bridge-description", types.YLeaf{"BridgeDescription", bridgeDomain.BridgeDescription})
+    bridgeDomain.EntityData.Leafs.Append("igmp-snooping", types.YLeaf{"IgmpSnooping", bridgeDomain.IgmpSnooping})
+    bridgeDomain.EntityData.Leafs.Append("flooding", types.YLeaf{"Flooding", bridgeDomain.Flooding})
+
+    bridgeDomain.EntityData.YListKeys = []string {"Name"}
+
+    return &(bridgeDomain.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls
+// Storm Control
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Storm Control Type. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl.
+    BdStormControl []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl
+}
+
+func (bdStormControls *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls) GetEntityData() *types.CommonEntityData {
+    bdStormControls.EntityData.YFilter = bdStormControls.YFilter
+    bdStormControls.EntityData.YangName = "bd-storm-controls"
+    bdStormControls.EntityData.BundleName = "cisco_ios_xr"
+    bdStormControls.EntityData.ParentYangName = "bridge-domain"
+    bdStormControls.EntityData.SegmentPath = "bd-storm-controls"
+    bdStormControls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdStormControls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdStormControls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdStormControls.EntityData.Children = types.NewOrderedMap()
+    bdStormControls.EntityData.Children.Append("bd-storm-control", types.YChild{"BdStormControl", nil})
+    for i := range bdStormControls.BdStormControl {
+        bdStormControls.EntityData.Children.Append(types.GetSegmentPath(bdStormControls.BdStormControl[i]), types.YChild{"BdStormControl", bdStormControls.BdStormControl[i]})
+    }
+    bdStormControls.EntityData.Leafs = types.NewOrderedMap()
+
+    bdStormControls.EntityData.YListKeys = []string {}
+
+    return &(bdStormControls.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl
+// Storm Control Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Storm Control Type. The type is StormControl.
+    Sctype interface{}
+
+    // Specify units for Storm Control Configuration.
+    StormControlUnit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl_StormControlUnit
+}
+
+func (bdStormControl *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl) GetEntityData() *types.CommonEntityData {
+    bdStormControl.EntityData.YFilter = bdStormControl.YFilter
+    bdStormControl.EntityData.YangName = "bd-storm-control"
+    bdStormControl.EntityData.BundleName = "cisco_ios_xr"
+    bdStormControl.EntityData.ParentYangName = "bd-storm-controls"
+    bdStormControl.EntityData.SegmentPath = "bd-storm-control" + types.AddKeyToken(bdStormControl.Sctype, "sctype")
+    bdStormControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdStormControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdStormControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdStormControl.EntityData.Children = types.NewOrderedMap()
+    bdStormControl.EntityData.Children.Append("storm-control-unit", types.YChild{"StormControlUnit", &bdStormControl.StormControlUnit})
+    bdStormControl.EntityData.Leafs = types.NewOrderedMap()
+    bdStormControl.EntityData.Leafs.Append("sctype", types.YLeaf{"Sctype", bdStormControl.Sctype})
+
+    bdStormControl.EntityData.YListKeys = []string {"Sctype"}
+
+    return &(bdStormControl.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl_StormControlUnit
+// Specify units for Storm Control Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl_StormControlUnit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 64..1280000. Units are
+    // kbit/s.
+    KbitsPerSec interface{}
+
+    // Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 1..160000. Units are
+    // packet/s.
+    PktsPerSec interface{}
+}
+
+func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl_StormControlUnit) GetEntityData() *types.CommonEntityData {
+    stormControlUnit.EntityData.YFilter = stormControlUnit.YFilter
+    stormControlUnit.EntityData.YangName = "storm-control-unit"
+    stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
+    stormControlUnit.EntityData.ParentYangName = "bd-storm-control"
+    stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stormControlUnit.EntityData.Children = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs.Append("kbits-per-sec", types.YLeaf{"KbitsPerSec", stormControlUnit.KbitsPerSec})
+    stormControlUnit.EntityData.Leafs.Append("pkts-per-sec", types.YLeaf{"PktsPerSec", stormControlUnit.PktsPerSec})
+
+    stormControlUnit.EntityData.YListKeys = []string {}
+
+    return &(stormControlUnit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis
+// Bridge Domain VxLAN Network Identifier Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Domain Member VxLAN Network Identifier. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni.
+    MemberVni []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni
+}
+
+func (memberVnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis) GetEntityData() *types.CommonEntityData {
+    memberVnis.EntityData.YFilter = memberVnis.YFilter
+    memberVnis.EntityData.YangName = "member-vnis"
+    memberVnis.EntityData.BundleName = "cisco_ios_xr"
+    memberVnis.EntityData.ParentYangName = "bridge-domain"
+    memberVnis.EntityData.SegmentPath = "member-vnis"
+    memberVnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberVnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberVnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberVnis.EntityData.Children = types.NewOrderedMap()
+    memberVnis.EntityData.Children.Append("member-vni", types.YChild{"MemberVni", nil})
+    for i := range memberVnis.MemberVni {
+        memberVnis.EntityData.Children.Append(types.GetSegmentPath(memberVnis.MemberVni[i]), types.YChild{"MemberVni", memberVnis.MemberVni[i]})
+    }
+    memberVnis.EntityData.Leafs = types.NewOrderedMap()
+
+    memberVnis.EntityData.YListKeys = []string {}
+
+    return &(memberVnis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni
+// Bridge Domain Member VxLAN Network Identifier
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. VxLAN Network Identifier number. The type is
+    // interface{} with range: 1..16777215.
+    Vni interface{}
+
+    // Static Mac Address Table.
+    MemberVniStaticMacAddresses L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses
+}
+
+func (memberVni *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni) GetEntityData() *types.CommonEntityData {
+    memberVni.EntityData.YFilter = memberVni.YFilter
+    memberVni.EntityData.YangName = "member-vni"
+    memberVni.EntityData.BundleName = "cisco_ios_xr"
+    memberVni.EntityData.ParentYangName = "member-vnis"
+    memberVni.EntityData.SegmentPath = "member-vni" + types.AddKeyToken(memberVni.Vni, "vni")
+    memberVni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberVni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberVni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberVni.EntityData.Children = types.NewOrderedMap()
+    memberVni.EntityData.Children.Append("member-vni-static-mac-addresses", types.YChild{"MemberVniStaticMacAddresses", &memberVni.MemberVniStaticMacAddresses})
+    memberVni.EntityData.Leafs = types.NewOrderedMap()
+    memberVni.EntityData.Leafs.Append("vni", types.YLeaf{"Vni", memberVni.Vni})
+
+    memberVni.EntityData.YListKeys = []string {"Vni"}
+
+    return &(memberVni.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses
+// Static Mac Address Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static Mac Address Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress.
+    MemberVniStaticMacAddress []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress
+}
+
+func (memberVniStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses) GetEntityData() *types.CommonEntityData {
+    memberVniStaticMacAddresses.EntityData.YFilter = memberVniStaticMacAddresses.YFilter
+    memberVniStaticMacAddresses.EntityData.YangName = "member-vni-static-mac-addresses"
+    memberVniStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
+    memberVniStaticMacAddresses.EntityData.ParentYangName = "member-vni"
+    memberVniStaticMacAddresses.EntityData.SegmentPath = "member-vni-static-mac-addresses"
+    memberVniStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberVniStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberVniStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberVniStaticMacAddresses.EntityData.Children = types.NewOrderedMap()
+    memberVniStaticMacAddresses.EntityData.Children.Append("member-vni-static-mac-address", types.YChild{"MemberVniStaticMacAddress", nil})
+    for i := range memberVniStaticMacAddresses.MemberVniStaticMacAddress {
+        memberVniStaticMacAddresses.EntityData.Children.Append(types.GetSegmentPath(memberVniStaticMacAddresses.MemberVniStaticMacAddress[i]), types.YChild{"MemberVniStaticMacAddress", memberVniStaticMacAddresses.MemberVniStaticMacAddress[i]})
+    }
+    memberVniStaticMacAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    memberVniStaticMacAddresses.EntityData.YListKeys = []string {}
+
+    return &(memberVniStaticMacAddresses.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress
+// Static Mac Address Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    MacAddress interface{}
+
+    // Enable Static Mac Address Configuration. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NextHopIp interface{}
+}
+
+func (memberVniStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress) GetEntityData() *types.CommonEntityData {
+    memberVniStaticMacAddress.EntityData.YFilter = memberVniStaticMacAddress.YFilter
+    memberVniStaticMacAddress.EntityData.YangName = "member-vni-static-mac-address"
+    memberVniStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    memberVniStaticMacAddress.EntityData.ParentYangName = "member-vni-static-mac-addresses"
+    memberVniStaticMacAddress.EntityData.SegmentPath = "member-vni-static-mac-address" + types.AddKeyToken(memberVniStaticMacAddress.MacAddress, "mac-address")
+    memberVniStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberVniStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberVniStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberVniStaticMacAddress.EntityData.Children = types.NewOrderedMap()
+    memberVniStaticMacAddress.EntityData.Leafs = types.NewOrderedMap()
+    memberVniStaticMacAddress.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", memberVniStaticMacAddress.MacAddress})
+    memberVniStaticMacAddress.EntityData.Leafs.Append("next-hop-ip", types.YLeaf{"NextHopIp", memberVniStaticMacAddress.NextHopIp})
+
+    memberVniStaticMacAddress.EntityData.YListKeys = []string {"MacAddress"}
+
+    return &(memberVniStaticMacAddress.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac
+// MAC configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mac withdraw sent from access PW to access PW. The type is interface{}.
+    BdMacWithdrawRelay interface{}
+
+    // MAC withdraw on Access PW. The type is interface{}.
+    BdMacWithdrawAccessPwDisable interface{}
+
+    // Disable MAC Flush when Port goes Down. The type is interface{}.
+    BdMacPortDownFlush interface{}
+
+    // Disable Mac Withdraw. The type is interface{}.
+    BdMacWithdraw interface{}
+
+    // MAC withdraw sent on bridge port down. The type is MacWithdrawBehavior.
+    BdMacWithdrawBehavior interface{}
+
+    // Mac Learning Type. The type is BdmacLearn.
+    BdMacLearn interface{}
+
+    // MAC-Limit configuration commands.
+    BdMacLimit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacLimit
+
+    // Filter Mac Address.
+    BdMacFilters L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters
+
+    // MAC Secure.
+    MacSecure L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure
+
+    // MAC-Aging configuration commands.
+    BdMacAging L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacAging
+}
+
+func (bridgeDomainMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac) GetEntityData() *types.CommonEntityData {
+    bridgeDomainMac.EntityData.YFilter = bridgeDomainMac.YFilter
+    bridgeDomainMac.EntityData.YangName = "bridge-domain-mac"
+    bridgeDomainMac.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainMac.EntityData.ParentYangName = "bridge-domain"
+    bridgeDomainMac.EntityData.SegmentPath = "bridge-domain-mac"
+    bridgeDomainMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainMac.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainMac.EntityData.Children.Append("bd-mac-limit", types.YChild{"BdMacLimit", &bridgeDomainMac.BdMacLimit})
+    bridgeDomainMac.EntityData.Children.Append("bd-mac-filters", types.YChild{"BdMacFilters", &bridgeDomainMac.BdMacFilters})
+    bridgeDomainMac.EntityData.Children.Append("mac-secure", types.YChild{"MacSecure", &bridgeDomainMac.MacSecure})
+    bridgeDomainMac.EntityData.Children.Append("bd-mac-aging", types.YChild{"BdMacAging", &bridgeDomainMac.BdMacAging})
+    bridgeDomainMac.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-withdraw-relay", types.YLeaf{"BdMacWithdrawRelay", bridgeDomainMac.BdMacWithdrawRelay})
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-withdraw-access-pw-disable", types.YLeaf{"BdMacWithdrawAccessPwDisable", bridgeDomainMac.BdMacWithdrawAccessPwDisable})
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-port-down-flush", types.YLeaf{"BdMacPortDownFlush", bridgeDomainMac.BdMacPortDownFlush})
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-withdraw", types.YLeaf{"BdMacWithdraw", bridgeDomainMac.BdMacWithdraw})
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-withdraw-behavior", types.YLeaf{"BdMacWithdrawBehavior", bridgeDomainMac.BdMacWithdrawBehavior})
+    bridgeDomainMac.EntityData.Leafs.Append("bd-mac-learn", types.YLeaf{"BdMacLearn", bridgeDomainMac.BdMacLearn})
+
+    bridgeDomainMac.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainMac.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacLimit
+// MAC-Limit configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address limit enforcement action. The type is MacLimitAction.
+    BdMacLimitAction interface{}
+
+    // Mac Address Limit Notification. The type is MacNotification.
+    BdMacLimitNotif interface{}
+
+    // Number of MAC addresses after which MAC limit action is taken. The type is
+    // interface{} with range: 0..4294967295.
+    BdMacLimitMax interface{}
+}
+
+func (bdMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacLimit) GetEntityData() *types.CommonEntityData {
+    bdMacLimit.EntityData.YFilter = bdMacLimit.YFilter
+    bdMacLimit.EntityData.YangName = "bd-mac-limit"
+    bdMacLimit.EntityData.BundleName = "cisco_ios_xr"
+    bdMacLimit.EntityData.ParentYangName = "bridge-domain-mac"
+    bdMacLimit.EntityData.SegmentPath = "bd-mac-limit"
+    bdMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdMacLimit.EntityData.Children = types.NewOrderedMap()
+    bdMacLimit.EntityData.Leafs = types.NewOrderedMap()
+    bdMacLimit.EntityData.Leafs.Append("bd-mac-limit-action", types.YLeaf{"BdMacLimitAction", bdMacLimit.BdMacLimitAction})
+    bdMacLimit.EntityData.Leafs.Append("bd-mac-limit-notif", types.YLeaf{"BdMacLimitNotif", bdMacLimit.BdMacLimitNotif})
+    bdMacLimit.EntityData.Leafs.Append("bd-mac-limit-max", types.YLeaf{"BdMacLimitMax", bdMacLimit.BdMacLimitMax})
+
+    bdMacLimit.EntityData.YListKeys = []string {}
+
+    return &(bdMacLimit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters
+// Filter Mac Address
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static MAC address. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter.
+    BdMacFilter []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter
+}
+
+func (bdMacFilters *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters) GetEntityData() *types.CommonEntityData {
+    bdMacFilters.EntityData.YFilter = bdMacFilters.YFilter
+    bdMacFilters.EntityData.YangName = "bd-mac-filters"
+    bdMacFilters.EntityData.BundleName = "cisco_ios_xr"
+    bdMacFilters.EntityData.ParentYangName = "bridge-domain-mac"
+    bdMacFilters.EntityData.SegmentPath = "bd-mac-filters"
+    bdMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdMacFilters.EntityData.Children = types.NewOrderedMap()
+    bdMacFilters.EntityData.Children.Append("bd-mac-filter", types.YChild{"BdMacFilter", nil})
+    for i := range bdMacFilters.BdMacFilter {
+        bdMacFilters.EntityData.Children.Append(types.GetSegmentPath(bdMacFilters.BdMacFilter[i]), types.YChild{"BdMacFilter", bdMacFilters.BdMacFilter[i]})
+    }
+    bdMacFilters.EntityData.Leafs = types.NewOrderedMap()
+
+    bdMacFilters.EntityData.YListKeys = []string {}
+
+    return &(bdMacFilters.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter
+// Static MAC address
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+
+    // MAC address for filtering. The type is interface{}.
+    Drop interface{}
+}
+
+func (bdMacFilter *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter) GetEntityData() *types.CommonEntityData {
+    bdMacFilter.EntityData.YFilter = bdMacFilter.YFilter
+    bdMacFilter.EntityData.YangName = "bd-mac-filter"
+    bdMacFilter.EntityData.BundleName = "cisco_ios_xr"
+    bdMacFilter.EntityData.ParentYangName = "bd-mac-filters"
+    bdMacFilter.EntityData.SegmentPath = "bd-mac-filter" + types.AddKeyToken(bdMacFilter.Address, "address")
+    bdMacFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdMacFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdMacFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdMacFilter.EntityData.Children = types.NewOrderedMap()
+    bdMacFilter.EntityData.Leafs = types.NewOrderedMap()
+    bdMacFilter.EntityData.Leafs.Append("address", types.YLeaf{"Address", bdMacFilter.Address})
+    bdMacFilter.EntityData.Leafs.Append("drop", types.YLeaf{"Drop", bdMacFilter.Drop})
+
+    bdMacFilter.EntityData.YListKeys = []string {"Address"}
+
+    return &(bdMacFilter.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure
+// MAC Secure
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC Secure Logging. The type is interface{}.
+    Logging interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
+
+    // MAC Secure Threshold. The type is interface{}.
+    Threshold interface{}
+}
+
+func (macSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure) GetEntityData() *types.CommonEntityData {
+    macSecure.EntityData.YFilter = macSecure.YFilter
+    macSecure.EntityData.YangName = "mac-secure"
+    macSecure.EntityData.BundleName = "cisco_ios_xr"
+    macSecure.EntityData.ParentYangName = "bridge-domain-mac"
+    macSecure.EntityData.SegmentPath = "mac-secure"
+    macSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    macSecure.EntityData.Children = types.NewOrderedMap()
+    macSecure.EntityData.Leafs = types.NewOrderedMap()
+    macSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", macSecure.Logging})
+    macSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", macSecure.Action})
+    macSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", macSecure.Enable})
+    macSecure.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macSecure.Threshold})
+
+    macSecure.EntityData.YListKeys = []string {}
+
+    return &(macSecure.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacAging
+// MAC-Aging configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacAging struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address aging type. The type is MacAging.
+    BdMacAgingType interface{}
+
+    // Mac Aging Time. The type is interface{} with range: 300..30000.
+    BdMacAgingTime interface{}
+}
+
+func (bdMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacAging) GetEntityData() *types.CommonEntityData {
+    bdMacAging.EntityData.YFilter = bdMacAging.YFilter
+    bdMacAging.EntityData.YangName = "bd-mac-aging"
+    bdMacAging.EntityData.BundleName = "cisco_ios_xr"
+    bdMacAging.EntityData.ParentYangName = "bridge-domain-mac"
+    bdMacAging.EntityData.SegmentPath = "bd-mac-aging"
+    bdMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdMacAging.EntityData.Children = types.NewOrderedMap()
+    bdMacAging.EntityData.Leafs = types.NewOrderedMap()
+    bdMacAging.EntityData.Leafs.Append("bd-mac-aging-type", types.YLeaf{"BdMacAgingType", bdMacAging.BdMacAgingType})
+    bdMacAging.EntityData.Leafs.Append("bd-mac-aging-time", types.YLeaf{"BdMacAgingTime", bdMacAging.BdMacAgingTime})
+
+    bdMacAging.EntityData.YListKeys = []string {}
+
+    return &(bdMacAging.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_NvSatellite
+// nV Satellite
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_NvSatellite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable IPv4 Multicast Offload to Satellite Nodes. The type is interface{}.
+    OffloadIpv4MulticastEnable interface{}
+
+    // Enable nV Satellite Settings. The type is interface{}.
+    Enable interface{}
+}
+
+func (nvSatellite *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_NvSatellite) GetEntityData() *types.CommonEntityData {
+    nvSatellite.EntityData.YFilter = nvSatellite.YFilter
+    nvSatellite.EntityData.YangName = "nv-satellite"
+    nvSatellite.EntityData.BundleName = "cisco_ios_xr"
+    nvSatellite.EntityData.ParentYangName = "bridge-domain"
+    nvSatellite.EntityData.SegmentPath = "nv-satellite"
+    nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatellite.EntityData.Children = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs.Append("offload-ipv4-multicast-enable", types.YLeaf{"OffloadIpv4MulticastEnable", nvSatellite.OffloadIpv4MulticastEnable})
+    nvSatellite.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", nvSatellite.Enable})
+
+    nvSatellite.EntityData.YListKeys = []string {}
+
+    return &(nvSatellite.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb
+// Bridge Domain PBB
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PBB Edge.
+    PbbEdges L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges
+
+    // PBB Core.
+    PbbCore L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore
+}
+
+func (bridgeDomainPbb *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb) GetEntityData() *types.CommonEntityData {
+    bridgeDomainPbb.EntityData.YFilter = bridgeDomainPbb.YFilter
+    bridgeDomainPbb.EntityData.YangName = "bridge-domain-pbb"
+    bridgeDomainPbb.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainPbb.EntityData.ParentYangName = "bridge-domain"
+    bridgeDomainPbb.EntityData.SegmentPath = "bridge-domain-pbb"
+    bridgeDomainPbb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainPbb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainPbb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainPbb.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainPbb.EntityData.Children.Append("pbb-edges", types.YChild{"PbbEdges", &bridgeDomainPbb.PbbEdges})
+    bridgeDomainPbb.EntityData.Children.Append("pbb-core", types.YChild{"PbbCore", &bridgeDomainPbb.PbbCore})
+    bridgeDomainPbb.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainPbb.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainPbb.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges
+// PBB Edge
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure BD as PBB Edge with ISID and associated PBB Core BD. The type is
+    // slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge.
+    PbbEdge []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge
+}
+
+func (pbbEdges *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges) GetEntityData() *types.CommonEntityData {
+    pbbEdges.EntityData.YFilter = pbbEdges.YFilter
+    pbbEdges.EntityData.YangName = "pbb-edges"
+    pbbEdges.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdges.EntityData.ParentYangName = "bridge-domain-pbb"
+    pbbEdges.EntityData.SegmentPath = "pbb-edges"
+    pbbEdges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdges.EntityData.Children = types.NewOrderedMap()
+    pbbEdges.EntityData.Children.Append("pbb-edge", types.YChild{"PbbEdge", nil})
+    for i := range pbbEdges.PbbEdge {
+        pbbEdges.EntityData.Children.Append(types.GetSegmentPath(pbbEdges.PbbEdge[i]), types.YChild{"PbbEdge", pbbEdges.PbbEdge[i]})
+    }
+    pbbEdges.EntityData.Leafs = types.NewOrderedMap()
+
+    pbbEdges.EntityData.YListKeys = []string {}
+
+    return &(pbbEdges.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge
+// Configure BD as PBB Edge with ISID and
+// associated PBB Core BD
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. ISID. The type is interface{} with range:
+    // 256..16777214.
+    Isid interface{}
+
+    // This attribute is a key. Core BD Name. The type is string with length:
+    // 1..27.
+    CoreBdName interface{}
+
+    // Attach a IGMP Snooping profile. The type is string with length: 1..32.
+    PbbEdgeIgmpProfile interface{}
+
+    // Configure Unknown Unicast BMAC address for PBB Edge Port. The type is
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    UnknownUnicastBmac interface{}
+
+    // Split Horizon Group.
+    PbbEdgeSplitHorizonGroup L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeSplitHorizonGroup
+
+    // PBB Static Mac Address Mapping Table.
+    PbbStaticMacMappings L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings
+
+    // Attach a DHCP profile.
+    PbbEdgeDhcpProfile L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeDhcpProfile
+
+    // MAC configuration commands.
+    PbbEdgeMac L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac
+}
+
+func (pbbEdge *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge) GetEntityData() *types.CommonEntityData {
+    pbbEdge.EntityData.YFilter = pbbEdge.YFilter
+    pbbEdge.EntityData.YangName = "pbb-edge"
+    pbbEdge.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdge.EntityData.ParentYangName = "pbb-edges"
+    pbbEdge.EntityData.SegmentPath = "pbb-edge" + types.AddKeyToken(pbbEdge.Isid, "isid") + types.AddKeyToken(pbbEdge.CoreBdName, "core-bd-name")
+    pbbEdge.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdge.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdge.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdge.EntityData.Children = types.NewOrderedMap()
+    pbbEdge.EntityData.Children.Append("pbb-edge-split-horizon-group", types.YChild{"PbbEdgeSplitHorizonGroup", &pbbEdge.PbbEdgeSplitHorizonGroup})
+    pbbEdge.EntityData.Children.Append("pbb-static-mac-mappings", types.YChild{"PbbStaticMacMappings", &pbbEdge.PbbStaticMacMappings})
+    pbbEdge.EntityData.Children.Append("pbb-edge-dhcp-profile", types.YChild{"PbbEdgeDhcpProfile", &pbbEdge.PbbEdgeDhcpProfile})
+    pbbEdge.EntityData.Children.Append("pbb-edge-mac", types.YChild{"PbbEdgeMac", &pbbEdge.PbbEdgeMac})
+    pbbEdge.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdge.EntityData.Leafs.Append("isid", types.YLeaf{"Isid", pbbEdge.Isid})
+    pbbEdge.EntityData.Leafs.Append("core-bd-name", types.YLeaf{"CoreBdName", pbbEdge.CoreBdName})
+    pbbEdge.EntityData.Leafs.Append("pbb-edge-igmp-profile", types.YLeaf{"PbbEdgeIgmpProfile", pbbEdge.PbbEdgeIgmpProfile})
+    pbbEdge.EntityData.Leafs.Append("unknown-unicast-bmac", types.YLeaf{"UnknownUnicastBmac", pbbEdge.UnknownUnicastBmac})
+
+    pbbEdge.EntityData.YListKeys = []string {"Isid", "CoreBdName"}
+
+    return &(pbbEdge.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeSplitHorizonGroup
+// Split Horizon Group
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeSplitHorizonGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disable split horizon group. The type is interface{}.
+    Disable interface{}
+}
+
+func (pbbEdgeSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeSplitHorizonGroup) GetEntityData() *types.CommonEntityData {
+    pbbEdgeSplitHorizonGroup.EntityData.YFilter = pbbEdgeSplitHorizonGroup.YFilter
+    pbbEdgeSplitHorizonGroup.EntityData.YangName = "pbb-edge-split-horizon-group"
+    pbbEdgeSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeSplitHorizonGroup.EntityData.ParentYangName = "pbb-edge"
+    pbbEdgeSplitHorizonGroup.EntityData.SegmentPath = "pbb-edge-split-horizon-group"
+    pbbEdgeSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeSplitHorizonGroup.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeSplitHorizonGroup.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeSplitHorizonGroup.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pbbEdgeSplitHorizonGroup.Disable})
+
+    pbbEdgeSplitHorizonGroup.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeSplitHorizonGroup.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings
+// PBB Static Mac Address Mapping Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PBB Static Mac Address Mapping Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping.
+    PbbStaticMacMapping []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping
+}
+
+func (pbbStaticMacMappings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings) GetEntityData() *types.CommonEntityData {
+    pbbStaticMacMappings.EntityData.YFilter = pbbStaticMacMappings.YFilter
+    pbbStaticMacMappings.EntityData.YangName = "pbb-static-mac-mappings"
+    pbbStaticMacMappings.EntityData.BundleName = "cisco_ios_xr"
+    pbbStaticMacMappings.EntityData.ParentYangName = "pbb-edge"
+    pbbStaticMacMappings.EntityData.SegmentPath = "pbb-static-mac-mappings"
+    pbbStaticMacMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbStaticMacMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbStaticMacMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbStaticMacMappings.EntityData.Children = types.NewOrderedMap()
+    pbbStaticMacMappings.EntityData.Children.Append("pbb-static-mac-mapping", types.YChild{"PbbStaticMacMapping", nil})
+    for i := range pbbStaticMacMappings.PbbStaticMacMapping {
+        pbbStaticMacMappings.EntityData.Children.Append(types.GetSegmentPath(pbbStaticMacMappings.PbbStaticMacMapping[i]), types.YChild{"PbbStaticMacMapping", pbbStaticMacMappings.PbbStaticMacMapping[i]})
+    }
+    pbbStaticMacMappings.EntityData.Leafs = types.NewOrderedMap()
+
+    pbbStaticMacMappings.EntityData.YListKeys = []string {}
+
+    return &(pbbStaticMacMappings.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping
+// PBB Static Mac Address Mapping
+// Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+
+    // Static backbone MAC address to map with. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    PbbStaticMacMappingBmac interface{}
+}
+
+func (pbbStaticMacMapping *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping) GetEntityData() *types.CommonEntityData {
+    pbbStaticMacMapping.EntityData.YFilter = pbbStaticMacMapping.YFilter
+    pbbStaticMacMapping.EntityData.YangName = "pbb-static-mac-mapping"
+    pbbStaticMacMapping.EntityData.BundleName = "cisco_ios_xr"
+    pbbStaticMacMapping.EntityData.ParentYangName = "pbb-static-mac-mappings"
+    pbbStaticMacMapping.EntityData.SegmentPath = "pbb-static-mac-mapping" + types.AddKeyToken(pbbStaticMacMapping.Address, "address")
+    pbbStaticMacMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbStaticMacMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbStaticMacMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbStaticMacMapping.EntityData.Children = types.NewOrderedMap()
+    pbbStaticMacMapping.EntityData.Leafs = types.NewOrderedMap()
+    pbbStaticMacMapping.EntityData.Leafs.Append("address", types.YLeaf{"Address", pbbStaticMacMapping.Address})
+    pbbStaticMacMapping.EntityData.Leafs.Append("pbb-static-mac-mapping-bmac", types.YLeaf{"PbbStaticMacMappingBmac", pbbStaticMacMapping.PbbStaticMacMappingBmac})
+
+    pbbStaticMacMapping.EntityData.YListKeys = []string {"Address"}
+
+    return &(pbbStaticMacMapping.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeDhcpProfile
+// Attach a DHCP profile
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeDhcpProfile struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the snooping profile. The type is InterfaceProfile.
+    ProfileId interface{}
+
+    // Disable DHCP snooping. The type is string.
+    DhcpSnoopingId interface{}
+}
+
+func (pbbEdgeDhcpProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeDhcpProfile) GetEntityData() *types.CommonEntityData {
+    pbbEdgeDhcpProfile.EntityData.YFilter = pbbEdgeDhcpProfile.YFilter
+    pbbEdgeDhcpProfile.EntityData.YangName = "pbb-edge-dhcp-profile"
+    pbbEdgeDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeDhcpProfile.EntityData.ParentYangName = "pbb-edge"
+    pbbEdgeDhcpProfile.EntityData.SegmentPath = "pbb-edge-dhcp-profile"
+    pbbEdgeDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeDhcpProfile.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeDhcpProfile.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeDhcpProfile.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pbbEdgeDhcpProfile.ProfileId})
+    pbbEdgeDhcpProfile.EntityData.Leafs.Append("dhcp-snooping-id", types.YLeaf{"DhcpSnoopingId", pbbEdgeDhcpProfile.DhcpSnoopingId})
+
+    pbbEdgeDhcpProfile.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeDhcpProfile.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac
+// MAC configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Mac Learning. The type is MacLearn.
+    PbbEdgeMacLearning interface{}
+
+    // MAC-Limit configuration commands.
+    PbbEdgeMacLimit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacLimit
+
+    // MAC-Aging configuration commands.
+    PbbEdgeMacAging L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacAging
+
+    // MAC Secure.
+    PbbEdgeMacSecure L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure
+}
+
+func (pbbEdgeMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac) GetEntityData() *types.CommonEntityData {
+    pbbEdgeMac.EntityData.YFilter = pbbEdgeMac.YFilter
+    pbbEdgeMac.EntityData.YangName = "pbb-edge-mac"
+    pbbEdgeMac.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeMac.EntityData.ParentYangName = "pbb-edge"
+    pbbEdgeMac.EntityData.SegmentPath = "pbb-edge-mac"
+    pbbEdgeMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeMac.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeMac.EntityData.Children.Append("pbb-edge-mac-limit", types.YChild{"PbbEdgeMacLimit", &pbbEdgeMac.PbbEdgeMacLimit})
+    pbbEdgeMac.EntityData.Children.Append("pbb-edge-mac-aging", types.YChild{"PbbEdgeMacAging", &pbbEdgeMac.PbbEdgeMacAging})
+    pbbEdgeMac.EntityData.Children.Append("pbb-edge-mac-secure", types.YChild{"PbbEdgeMacSecure", &pbbEdgeMac.PbbEdgeMacSecure})
+    pbbEdgeMac.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeMac.EntityData.Leafs.Append("pbb-edge-mac-learning", types.YLeaf{"PbbEdgeMacLearning", pbbEdgeMac.PbbEdgeMacLearning})
+
+    pbbEdgeMac.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeMac.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacLimit
+// MAC-Limit configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address limit enforcement action. The type is MacLimitAction.
+    PbbEdgeMacLimitAction interface{}
+
+    // Number of MAC addresses after which MAC limit action is taken. The type is
+    // interface{} with range: 0..4294967295.
+    PbbEdgeMacLimitMax interface{}
+
+    // MAC address limit notification action. The type is MacNotification.
+    PbbEdgeMacLimitNotif interface{}
+}
+
+func (pbbEdgeMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacLimit) GetEntityData() *types.CommonEntityData {
+    pbbEdgeMacLimit.EntityData.YFilter = pbbEdgeMacLimit.YFilter
+    pbbEdgeMacLimit.EntityData.YangName = "pbb-edge-mac-limit"
+    pbbEdgeMacLimit.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeMacLimit.EntityData.ParentYangName = "pbb-edge-mac"
+    pbbEdgeMacLimit.EntityData.SegmentPath = "pbb-edge-mac-limit"
+    pbbEdgeMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeMacLimit.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeMacLimit.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeMacLimit.EntityData.Leafs.Append("pbb-edge-mac-limit-action", types.YLeaf{"PbbEdgeMacLimitAction", pbbEdgeMacLimit.PbbEdgeMacLimitAction})
+    pbbEdgeMacLimit.EntityData.Leafs.Append("pbb-edge-mac-limit-max", types.YLeaf{"PbbEdgeMacLimitMax", pbbEdgeMacLimit.PbbEdgeMacLimitMax})
+    pbbEdgeMacLimit.EntityData.Leafs.Append("pbb-edge-mac-limit-notif", types.YLeaf{"PbbEdgeMacLimitNotif", pbbEdgeMacLimit.PbbEdgeMacLimitNotif})
+
+    pbbEdgeMacLimit.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeMacLimit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacAging
+// MAC-Aging configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacAging struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address aging type. The type is MacAging.
+    PbbEdgeMacAgingType interface{}
+
+    // Mac Aging Time. The type is interface{} with range: 300..30000.
+    PbbEdgeMacAgingTime interface{}
+}
+
+func (pbbEdgeMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacAging) GetEntityData() *types.CommonEntityData {
+    pbbEdgeMacAging.EntityData.YFilter = pbbEdgeMacAging.YFilter
+    pbbEdgeMacAging.EntityData.YangName = "pbb-edge-mac-aging"
+    pbbEdgeMacAging.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeMacAging.EntityData.ParentYangName = "pbb-edge-mac"
+    pbbEdgeMacAging.EntityData.SegmentPath = "pbb-edge-mac-aging"
+    pbbEdgeMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeMacAging.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeMacAging.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeMacAging.EntityData.Leafs.Append("pbb-edge-mac-aging-type", types.YLeaf{"PbbEdgeMacAgingType", pbbEdgeMacAging.PbbEdgeMacAgingType})
+    pbbEdgeMacAging.EntityData.Leafs.Append("pbb-edge-mac-aging-time", types.YLeaf{"PbbEdgeMacAgingTime", pbbEdgeMacAging.PbbEdgeMacAgingTime})
+
+    pbbEdgeMacAging.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeMacAging.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure
+// MAC Secure
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC Secure Logging. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable Virtual instance port MAC Secure. The type is interface{}.
+    Disable interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
+
+    // Accept Virtual instance port to be shutdown on mac violation. The type is
+    // interface{}.
+    AcceptShutdown interface{}
+}
+
+func (pbbEdgeMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure) GetEntityData() *types.CommonEntityData {
+    pbbEdgeMacSecure.EntityData.YFilter = pbbEdgeMacSecure.YFilter
+    pbbEdgeMacSecure.EntityData.YangName = "pbb-edge-mac-secure"
+    pbbEdgeMacSecure.EntityData.BundleName = "cisco_ios_xr"
+    pbbEdgeMacSecure.EntityData.ParentYangName = "pbb-edge-mac"
+    pbbEdgeMacSecure.EntityData.SegmentPath = "pbb-edge-mac-secure"
+    pbbEdgeMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbEdgeMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbEdgeMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbEdgeMacSecure.EntityData.Children = types.NewOrderedMap()
+    pbbEdgeMacSecure.EntityData.Leafs = types.NewOrderedMap()
+    pbbEdgeMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pbbEdgeMacSecure.Logging})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pbbEdgeMacSecure.Disable})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pbbEdgeMacSecure.Action})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbEdgeMacSecure.Enable})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("accept-shutdown", types.YLeaf{"AcceptShutdown", pbbEdgeMacSecure.AcceptShutdown})
+
+    pbbEdgeMacSecure.EntityData.YListKeys = []string {}
+
+    return &(pbbEdgeMacSecure.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore
+// PBB Core
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enabling MMRP PBB-VPLS Flood Optimization. The type is interface{}.
+    PbbCoreMmrpFloodOptimization interface{}
+
+    // VLAN ID to push. The type is interface{} with range: 1..4094.
+    VlanId interface{}
+
+    // Attach a IGMP Snooping profile. The type is string with length: 1..32.
+    PbbCoreIgmpProfile interface{}
+
+    // Enable Bridge Domain PBB Core Configuration. The type is interface{}.
+    Enable interface{}
+
+    // MAC configuration commands.
+    PbbCoreMac L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac
+
+    // PBB Core EVI Table.
+    PbbCoreEvis L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis
+
+    // Attach a DHCP profile.
+    PbbCoreDhcpProfile L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreDhcpProfile
+}
+
+func (pbbCore *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore) GetEntityData() *types.CommonEntityData {
+    pbbCore.EntityData.YFilter = pbbCore.YFilter
+    pbbCore.EntityData.YangName = "pbb-core"
+    pbbCore.EntityData.BundleName = "cisco_ios_xr"
+    pbbCore.EntityData.ParentYangName = "bridge-domain-pbb"
+    pbbCore.EntityData.SegmentPath = "pbb-core"
+    pbbCore.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCore.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCore.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCore.EntityData.Children = types.NewOrderedMap()
+    pbbCore.EntityData.Children.Append("pbb-core-mac", types.YChild{"PbbCoreMac", &pbbCore.PbbCoreMac})
+    pbbCore.EntityData.Children.Append("pbb-core-evis", types.YChild{"PbbCoreEvis", &pbbCore.PbbCoreEvis})
+    pbbCore.EntityData.Children.Append("pbb-core-dhcp-profile", types.YChild{"PbbCoreDhcpProfile", &pbbCore.PbbCoreDhcpProfile})
+    pbbCore.EntityData.Leafs = types.NewOrderedMap()
+    pbbCore.EntityData.Leafs.Append("pbb-core-mmrp-flood-optimization", types.YLeaf{"PbbCoreMmrpFloodOptimization", pbbCore.PbbCoreMmrpFloodOptimization})
+    pbbCore.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", pbbCore.VlanId})
+    pbbCore.EntityData.Leafs.Append("pbb-core-igmp-profile", types.YLeaf{"PbbCoreIgmpProfile", pbbCore.PbbCoreIgmpProfile})
+    pbbCore.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbCore.Enable})
+
+    pbbCore.EntityData.YListKeys = []string {}
+
+    return &(pbbCore.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac
+// MAC configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Mac Learning. The type is MacLearn.
+    PbbCoreMacLearning interface{}
+
+    // MAC-Aging configuration commands.
+    PbbCoreMacAging L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacAging
+
+    // MAC-Limit configuration commands.
+    PbbCoreMacLimit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacLimit
+}
+
+func (pbbCoreMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac) GetEntityData() *types.CommonEntityData {
+    pbbCoreMac.EntityData.YFilter = pbbCoreMac.YFilter
+    pbbCoreMac.EntityData.YangName = "pbb-core-mac"
+    pbbCoreMac.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreMac.EntityData.ParentYangName = "pbb-core"
+    pbbCoreMac.EntityData.SegmentPath = "pbb-core-mac"
+    pbbCoreMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreMac.EntityData.Children = types.NewOrderedMap()
+    pbbCoreMac.EntityData.Children.Append("pbb-core-mac-aging", types.YChild{"PbbCoreMacAging", &pbbCoreMac.PbbCoreMacAging})
+    pbbCoreMac.EntityData.Children.Append("pbb-core-mac-limit", types.YChild{"PbbCoreMacLimit", &pbbCoreMac.PbbCoreMacLimit})
+    pbbCoreMac.EntityData.Leafs = types.NewOrderedMap()
+    pbbCoreMac.EntityData.Leafs.Append("pbb-core-mac-learning", types.YLeaf{"PbbCoreMacLearning", pbbCoreMac.PbbCoreMacLearning})
+
+    pbbCoreMac.EntityData.YListKeys = []string {}
+
+    return &(pbbCoreMac.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacAging
+// MAC-Aging configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacAging struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address aging type. The type is MacAging.
+    PbbCoreMacAgingType interface{}
+
+    // Mac Aging Time. The type is interface{} with range: 300..30000.
+    PbbCoreMacAgingTime interface{}
+}
+
+func (pbbCoreMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacAging) GetEntityData() *types.CommonEntityData {
+    pbbCoreMacAging.EntityData.YFilter = pbbCoreMacAging.YFilter
+    pbbCoreMacAging.EntityData.YangName = "pbb-core-mac-aging"
+    pbbCoreMacAging.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreMacAging.EntityData.ParentYangName = "pbb-core-mac"
+    pbbCoreMacAging.EntityData.SegmentPath = "pbb-core-mac-aging"
+    pbbCoreMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreMacAging.EntityData.Children = types.NewOrderedMap()
+    pbbCoreMacAging.EntityData.Leafs = types.NewOrderedMap()
+    pbbCoreMacAging.EntityData.Leafs.Append("pbb-core-mac-aging-type", types.YLeaf{"PbbCoreMacAgingType", pbbCoreMacAging.PbbCoreMacAgingType})
+    pbbCoreMacAging.EntityData.Leafs.Append("pbb-core-mac-aging-time", types.YLeaf{"PbbCoreMacAgingTime", pbbCoreMacAging.PbbCoreMacAgingTime})
+
+    pbbCoreMacAging.EntityData.YListKeys = []string {}
+
+    return &(pbbCoreMacAging.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacLimit
+// MAC-Limit configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of MAC addresses after which MAC limit action is taken. The type is
+    // interface{} with range: 0..4294967295.
+    PbbCoreMacLimitMax interface{}
+
+    // MAC address limit notification action. The type is MacNotification.
+    PbbCoreMacLimitNotif interface{}
+
+    // MAC address limit enforcement action. The type is MacLimitAction.
+    PbbCoreMacLimitAction interface{}
+}
+
+func (pbbCoreMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreMac_PbbCoreMacLimit) GetEntityData() *types.CommonEntityData {
+    pbbCoreMacLimit.EntityData.YFilter = pbbCoreMacLimit.YFilter
+    pbbCoreMacLimit.EntityData.YangName = "pbb-core-mac-limit"
+    pbbCoreMacLimit.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreMacLimit.EntityData.ParentYangName = "pbb-core-mac"
+    pbbCoreMacLimit.EntityData.SegmentPath = "pbb-core-mac-limit"
+    pbbCoreMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreMacLimit.EntityData.Children = types.NewOrderedMap()
+    pbbCoreMacLimit.EntityData.Leafs = types.NewOrderedMap()
+    pbbCoreMacLimit.EntityData.Leafs.Append("pbb-core-mac-limit-max", types.YLeaf{"PbbCoreMacLimitMax", pbbCoreMacLimit.PbbCoreMacLimitMax})
+    pbbCoreMacLimit.EntityData.Leafs.Append("pbb-core-mac-limit-notif", types.YLeaf{"PbbCoreMacLimitNotif", pbbCoreMacLimit.PbbCoreMacLimitNotif})
+    pbbCoreMacLimit.EntityData.Leafs.Append("pbb-core-mac-limit-action", types.YLeaf{"PbbCoreMacLimitAction", pbbCoreMacLimit.PbbCoreMacLimitAction})
+
+    pbbCoreMacLimit.EntityData.YListKeys = []string {}
+
+    return &(pbbCoreMacLimit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis
+// PBB Core EVI Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PBB Core EVI. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi.
+    PbbCoreEvi []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi
+}
+
+func (pbbCoreEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis) GetEntityData() *types.CommonEntityData {
+    pbbCoreEvis.EntityData.YFilter = pbbCoreEvis.YFilter
+    pbbCoreEvis.EntityData.YangName = "pbb-core-evis"
+    pbbCoreEvis.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreEvis.EntityData.ParentYangName = "pbb-core"
+    pbbCoreEvis.EntityData.SegmentPath = "pbb-core-evis"
+    pbbCoreEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreEvis.EntityData.Children = types.NewOrderedMap()
+    pbbCoreEvis.EntityData.Children.Append("pbb-core-evi", types.YChild{"PbbCoreEvi", nil})
+    for i := range pbbCoreEvis.PbbCoreEvi {
+        pbbCoreEvis.EntityData.Children.Append(types.GetSegmentPath(pbbCoreEvis.PbbCoreEvi[i]), types.YChild{"PbbCoreEvi", pbbCoreEvis.PbbCoreEvi[i]})
+    }
+    pbbCoreEvis.EntityData.Leafs = types.NewOrderedMap()
+
+    pbbCoreEvis.EntityData.YListKeys = []string {}
+
+    return &(pbbCoreEvis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi
+// PBB Core EVI
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Ethernet VPN ID. The type is interface{} with
+    // range: 1..4294967295.
+    Eviid interface{}
+}
+
+func (pbbCoreEvi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi) GetEntityData() *types.CommonEntityData {
+    pbbCoreEvi.EntityData.YFilter = pbbCoreEvi.YFilter
+    pbbCoreEvi.EntityData.YangName = "pbb-core-evi"
+    pbbCoreEvi.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreEvi.EntityData.ParentYangName = "pbb-core-evis"
+    pbbCoreEvi.EntityData.SegmentPath = "pbb-core-evi" + types.AddKeyToken(pbbCoreEvi.Eviid, "eviid")
+    pbbCoreEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreEvi.EntityData.Children = types.NewOrderedMap()
+    pbbCoreEvi.EntityData.Leafs = types.NewOrderedMap()
+    pbbCoreEvi.EntityData.Leafs.Append("eviid", types.YLeaf{"Eviid", pbbCoreEvi.Eviid})
+
+    pbbCoreEvi.EntityData.YListKeys = []string {"Eviid"}
+
+    return &(pbbCoreEvi.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreDhcpProfile
+// Attach a DHCP profile
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreDhcpProfile struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the snooping profile. The type is InterfaceProfile.
+    ProfileId interface{}
+
+    // Disable DHCP snooping. The type is string.
+    DhcpSnoopingId interface{}
+}
+
+func (pbbCoreDhcpProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreDhcpProfile) GetEntityData() *types.CommonEntityData {
+    pbbCoreDhcpProfile.EntityData.YFilter = pbbCoreDhcpProfile.YFilter
+    pbbCoreDhcpProfile.EntityData.YangName = "pbb-core-dhcp-profile"
+    pbbCoreDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
+    pbbCoreDhcpProfile.EntityData.ParentYangName = "pbb-core"
+    pbbCoreDhcpProfile.EntityData.SegmentPath = "pbb-core-dhcp-profile"
+    pbbCoreDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbbCoreDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbbCoreDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pbbCoreDhcpProfile.EntityData.Children = types.NewOrderedMap()
+    pbbCoreDhcpProfile.EntityData.Leafs = types.NewOrderedMap()
+    pbbCoreDhcpProfile.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pbbCoreDhcpProfile.ProfileId})
+    pbbCoreDhcpProfile.EntityData.Leafs.Append("dhcp-snooping-id", types.YLeaf{"DhcpSnoopingId", pbbCoreDhcpProfile.DhcpSnoopingId})
+
+    pbbCoreDhcpProfile.EntityData.YListKeys = []string {}
+
+    return &(pbbCoreDhcpProfile.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis
+// Bridge Domain EVI Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Domain MPLS EVPN. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi.
+    BridgeDomainEvi []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi
+}
+
+func (bridgeDomainEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis) GetEntityData() *types.CommonEntityData {
+    bridgeDomainEvis.EntityData.YFilter = bridgeDomainEvis.YFilter
+    bridgeDomainEvis.EntityData.YangName = "bridge-domain-evis"
+    bridgeDomainEvis.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainEvis.EntityData.ParentYangName = "bridge-domain"
+    bridgeDomainEvis.EntityData.SegmentPath = "bridge-domain-evis"
+    bridgeDomainEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainEvis.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainEvis.EntityData.Children.Append("bridge-domain-evi", types.YChild{"BridgeDomainEvi", nil})
+    for i := range bridgeDomainEvis.BridgeDomainEvi {
+        bridgeDomainEvis.EntityData.Children.Append(types.GetSegmentPath(bridgeDomainEvis.BridgeDomainEvi[i]), types.YChild{"BridgeDomainEvi", bridgeDomainEvis.BridgeDomainEvi[i]})
+    }
+    bridgeDomainEvis.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainEvis.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainEvis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi
+// Bridge Domain MPLS EVPN
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. MPLS Ethernet VPN-ID. The type is interface{} with
+    // range: 1..65534.
+    VpnId interface{}
+}
+
+func (bridgeDomainEvi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi) GetEntityData() *types.CommonEntityData {
+    bridgeDomainEvi.EntityData.YFilter = bridgeDomainEvi.YFilter
+    bridgeDomainEvi.EntityData.YangName = "bridge-domain-evi"
+    bridgeDomainEvi.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainEvi.EntityData.ParentYangName = "bridge-domain-evis"
+    bridgeDomainEvi.EntityData.SegmentPath = "bridge-domain-evi" + types.AddKeyToken(bridgeDomainEvi.VpnId, "vpn-id")
+    bridgeDomainEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainEvi.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainEvi.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomainEvi.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", bridgeDomainEvi.VpnId})
+
+    bridgeDomainEvi.EntityData.YListKeys = []string {"VpnId"}
+
+    return &(bridgeDomainEvi.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis
+// Specify the access virtual forwarding
+// interface name
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the Acess Virtual Forwarding Interface. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi.
+    AccessVfi []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi
+}
+
+func (accessVfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis) GetEntityData() *types.CommonEntityData {
+    accessVfis.EntityData.YFilter = accessVfis.YFilter
+    accessVfis.EntityData.YangName = "access-vfis"
+    accessVfis.EntityData.BundleName = "cisco_ios_xr"
+    accessVfis.EntityData.ParentYangName = "bridge-domain"
+    accessVfis.EntityData.SegmentPath = "access-vfis"
+    accessVfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfis.EntityData.Children = types.NewOrderedMap()
+    accessVfis.EntityData.Children.Append("access-vfi", types.YChild{"AccessVfi", nil})
+    for i := range accessVfis.AccessVfi {
+        accessVfis.EntityData.Children.Append(types.GetSegmentPath(accessVfis.AccessVfi[i]), types.YChild{"AccessVfi", accessVfis.AccessVfi[i]})
+    }
+    accessVfis.EntityData.Leafs = types.NewOrderedMap()
+
+    accessVfis.EntityData.YListKeys = []string {}
+
+    return &(accessVfis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi
+// Name of the Acess Virtual Forwarding
+// Interface
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the AccessVirtual Forwarding Interface.
+    // The type is string with length: 1..32.
+    Name interface{}
+
+    // shutdown the AccessVfi. The type is interface{}.
+    AccessVfiShutdown interface{}
+
+    // List of pseudowires.
+    AccessVfiPseudowires L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires
+}
+
+func (accessVfi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi) GetEntityData() *types.CommonEntityData {
+    accessVfi.EntityData.YFilter = accessVfi.YFilter
+    accessVfi.EntityData.YangName = "access-vfi"
+    accessVfi.EntityData.BundleName = "cisco_ios_xr"
+    accessVfi.EntityData.ParentYangName = "access-vfis"
+    accessVfi.EntityData.SegmentPath = "access-vfi" + types.AddKeyToken(accessVfi.Name, "name")
+    accessVfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfi.EntityData.Children = types.NewOrderedMap()
+    accessVfi.EntityData.Children.Append("access-vfi-pseudowires", types.YChild{"AccessVfiPseudowires", &accessVfi.AccessVfiPseudowires})
+    accessVfi.EntityData.Leafs = types.NewOrderedMap()
+    accessVfi.EntityData.Leafs.Append("name", types.YLeaf{"Name", accessVfi.Name})
+    accessVfi.EntityData.Leafs.Append("access-vfi-shutdown", types.YLeaf{"AccessVfiShutdown", accessVfi.AccessVfiShutdown})
+
+    accessVfi.EntityData.YListKeys = []string {"Name"}
+
+    return &(accessVfi.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires
+// List of pseudowires
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire.
+    AccessVfiPseudowire []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire
+}
+
+func (accessVfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires) GetEntityData() *types.CommonEntityData {
+    accessVfiPseudowires.EntityData.YFilter = accessVfiPseudowires.YFilter
+    accessVfiPseudowires.EntityData.YangName = "access-vfi-pseudowires"
+    accessVfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
+    accessVfiPseudowires.EntityData.ParentYangName = "access-vfi"
+    accessVfiPseudowires.EntityData.SegmentPath = "access-vfi-pseudowires"
+    accessVfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfiPseudowires.EntityData.Children = types.NewOrderedMap()
+    accessVfiPseudowires.EntityData.Children.Append("access-vfi-pseudowire", types.YChild{"AccessVfiPseudowire", nil})
+    for i := range accessVfiPseudowires.AccessVfiPseudowire {
+        accessVfiPseudowires.EntityData.Children.Append(types.GetSegmentPath(accessVfiPseudowires.AccessVfiPseudowire[i]), types.YChild{"AccessVfiPseudowire", accessVfiPseudowires.AccessVfiPseudowire[i]})
+    }
+    accessVfiPseudowires.EntityData.Leafs = types.NewOrderedMap()
+
+    accessVfiPseudowires.EntityData.YListKeys = []string {}
+
+    return &(accessVfiPseudowires.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire
+// Pseudowire configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Neighbor IP address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Neighbor interface{}
+
+    // This attribute is a key. Pseudowire ID. The type is interface{} with range:
+    // 1..4294967295.
+    PseudowireId interface{}
+
+    // Pseudowire class template name to use for this pseudowire. The type is
+    // string with length: 1..32.
+    AccessVfiPwClass interface{}
+
+    // Static Mac Address Table.
+    AccessVfiPseudowireStaticMacAddresses L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses
+}
+
+func (accessVfiPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire) GetEntityData() *types.CommonEntityData {
+    accessVfiPseudowire.EntityData.YFilter = accessVfiPseudowire.YFilter
+    accessVfiPseudowire.EntityData.YangName = "access-vfi-pseudowire"
+    accessVfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
+    accessVfiPseudowire.EntityData.ParentYangName = "access-vfi-pseudowires"
+    accessVfiPseudowire.EntityData.SegmentPath = "access-vfi-pseudowire" + types.AddKeyToken(accessVfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(accessVfiPseudowire.PseudowireId, "pseudowire-id")
+    accessVfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfiPseudowire.EntityData.Children = types.NewOrderedMap()
+    accessVfiPseudowire.EntityData.Children.Append("access-vfi-pseudowire-static-mac-addresses", types.YChild{"AccessVfiPseudowireStaticMacAddresses", &accessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses})
+    accessVfiPseudowire.EntityData.Leafs = types.NewOrderedMap()
+    accessVfiPseudowire.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", accessVfiPseudowire.Neighbor})
+    accessVfiPseudowire.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", accessVfiPseudowire.PseudowireId})
+    accessVfiPseudowire.EntityData.Leafs.Append("access-vfi-pw-class", types.YLeaf{"AccessVfiPwClass", accessVfiPseudowire.AccessVfiPwClass})
+
+    accessVfiPseudowire.EntityData.YListKeys = []string {"Neighbor", "PseudowireId"}
+
+    return &(accessVfiPseudowire.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses
+// Static Mac Address Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static Mac Address Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress.
+    AccessVfiPseudowireStaticMacAddress []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress
+}
+
+func (accessVfiPseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses) GetEntityData() *types.CommonEntityData {
+    accessVfiPseudowireStaticMacAddresses.EntityData.YFilter = accessVfiPseudowireStaticMacAddresses.YFilter
+    accessVfiPseudowireStaticMacAddresses.EntityData.YangName = "access-vfi-pseudowire-static-mac-addresses"
+    accessVfiPseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
+    accessVfiPseudowireStaticMacAddresses.EntityData.ParentYangName = "access-vfi-pseudowire"
+    accessVfiPseudowireStaticMacAddresses.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-addresses"
+    accessVfiPseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfiPseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfiPseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfiPseudowireStaticMacAddresses.EntityData.Children = types.NewOrderedMap()
+    accessVfiPseudowireStaticMacAddresses.EntityData.Children.Append("access-vfi-pseudowire-static-mac-address", types.YChild{"AccessVfiPseudowireStaticMacAddress", nil})
+    for i := range accessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress {
+        accessVfiPseudowireStaticMacAddresses.EntityData.Children.Append(types.GetSegmentPath(accessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress[i]), types.YChild{"AccessVfiPseudowireStaticMacAddress", accessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress[i]})
+    }
+    accessVfiPseudowireStaticMacAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    accessVfiPseudowireStaticMacAddresses.EntityData.YListKeys = []string {}
+
+    return &(accessVfiPseudowireStaticMacAddresses.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress
+// Static Mac Address Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+}
+
+func (accessVfiPseudowireStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress) GetEntityData() *types.CommonEntityData {
+    accessVfiPseudowireStaticMacAddress.EntityData.YFilter = accessVfiPseudowireStaticMacAddress.YFilter
+    accessVfiPseudowireStaticMacAddress.EntityData.YangName = "access-vfi-pseudowire-static-mac-address"
+    accessVfiPseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    accessVfiPseudowireStaticMacAddress.EntityData.ParentYangName = "access-vfi-pseudowire-static-mac-addresses"
+    accessVfiPseudowireStaticMacAddress.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-address" + types.AddKeyToken(accessVfiPseudowireStaticMacAddress.Address, "address")
+    accessVfiPseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessVfiPseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessVfiPseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessVfiPseudowireStaticMacAddress.EntityData.Children = types.NewOrderedMap()
+    accessVfiPseudowireStaticMacAddress.EntityData.Leafs = types.NewOrderedMap()
+    accessVfiPseudowireStaticMacAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", accessVfiPseudowireStaticMacAddress.Address})
+
+    accessVfiPseudowireStaticMacAddress.EntityData.YListKeys = []string {"Address"}
+
+    return &(accessVfiPseudowireStaticMacAddress.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires
+// List of pseudowires
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire.
+    BdPseudowire []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire
+}
+
+func (bdPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires) GetEntityData() *types.CommonEntityData {
+    bdPseudowires.EntityData.YFilter = bdPseudowires.YFilter
+    bdPseudowires.EntityData.YangName = "bd-pseudowires"
+    bdPseudowires.EntityData.BundleName = "cisco_ios_xr"
+    bdPseudowires.EntityData.ParentYangName = "bridge-domain"
+    bdPseudowires.EntityData.SegmentPath = "bd-pseudowires"
+    bdPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPseudowires.EntityData.Children = types.NewOrderedMap()
+    bdPseudowires.EntityData.Children.Append("bd-pseudowire", types.YChild{"BdPseudowire", nil})
+    for i := range bdPseudowires.BdPseudowire {
+        bdPseudowires.EntityData.Children.Append(types.GetSegmentPath(bdPseudowires.BdPseudowire[i]), types.YChild{"BdPseudowire", bdPseudowires.BdPseudowire[i]})
+    }
+    bdPseudowires.EntityData.Leafs = types.NewOrderedMap()
+
+    bdPseudowires.EntityData.YListKeys = []string {}
+
+    return &(bdPseudowires.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire
+// Pseudowire configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Neighbor IP address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Neighbor interface{}
+
+    // This attribute is a key. Pseudowire ID. The type is interface{} with range:
+    // 1..4294967295.
+    PseudowireId interface{}
+
+    // Attach a MLD Snooping profile. The type is string with length: 1..32.
+    PseudowireMldSnoop interface{}
+
+    // Attach a IGMP Snooping profile. The type is string with length: 1..32.
+    PseudowireIgmpSnoop interface{}
+
+    // Bridge-domain Pseudowire flooding. The type is InterfaceTrafficFlood.
+    PseudowireFlooding interface{}
+
+    // PW class template name to use for this pseudowire. The type is string with
+    // length: 1..32.
+    BdPwClass interface{}
+
+    // Bridge-domain Pseudowire flooding Unknown Unicast. The type is
+    // InterfaceTrafficFlood.
+    PseudowireFloodingUnknownUnicast interface{}
+
+    // Access Pseudowire Dynamic ARP Inspection.
+    PseudowireDai L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai
+
+    // Storm Control.
+    BdpwStormControlTypes L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes
+
+    // Attach a DHCP profile.
+    PseudowireProfile L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireProfile
+
+    // Static Mac Address Table.
+    BdPwStaticMacAddresses L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses
+
+    // IP Source Guard.
+    PseudowireIpSourceGuard L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireIpSourceGuard
+
+    // Bridge-domain Pseudowire MAC configuration commands.
+    PseudowireMac L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac
+
+    // Split Horizon.
+    BdPwSplitHorizon L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon
+
+    // MPLS static labels.
+    BdPwMplsStaticLabels L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwMplsStaticLabels
+
+    // List of pseudowires.
+    BridgeDomainBackupPseudowires L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires
+}
+
+func (bdPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire) GetEntityData() *types.CommonEntityData {
+    bdPseudowire.EntityData.YFilter = bdPseudowire.YFilter
+    bdPseudowire.EntityData.YangName = "bd-pseudowire"
+    bdPseudowire.EntityData.BundleName = "cisco_ios_xr"
+    bdPseudowire.EntityData.ParentYangName = "bd-pseudowires"
+    bdPseudowire.EntityData.SegmentPath = "bd-pseudowire" + types.AddKeyToken(bdPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bdPseudowire.PseudowireId, "pseudowire-id")
+    bdPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPseudowire.EntityData.Children = types.NewOrderedMap()
+    bdPseudowire.EntityData.Children.Append("pseudowire-dai", types.YChild{"PseudowireDai", &bdPseudowire.PseudowireDai})
+    bdPseudowire.EntityData.Children.Append("bdpw-storm-control-types", types.YChild{"BdpwStormControlTypes", &bdPseudowire.BdpwStormControlTypes})
+    bdPseudowire.EntityData.Children.Append("pseudowire-profile", types.YChild{"PseudowireProfile", &bdPseudowire.PseudowireProfile})
+    bdPseudowire.EntityData.Children.Append("bd-pw-static-mac-addresses", types.YChild{"BdPwStaticMacAddresses", &bdPseudowire.BdPwStaticMacAddresses})
+    bdPseudowire.EntityData.Children.Append("pseudowire-ip-source-guard", types.YChild{"PseudowireIpSourceGuard", &bdPseudowire.PseudowireIpSourceGuard})
+    bdPseudowire.EntityData.Children.Append("pseudowire-mac", types.YChild{"PseudowireMac", &bdPseudowire.PseudowireMac})
+    bdPseudowire.EntityData.Children.Append("bd-pw-split-horizon", types.YChild{"BdPwSplitHorizon", &bdPseudowire.BdPwSplitHorizon})
+    bdPseudowire.EntityData.Children.Append("bd-pw-mpls-static-labels", types.YChild{"BdPwMplsStaticLabels", &bdPseudowire.BdPwMplsStaticLabels})
+    bdPseudowire.EntityData.Children.Append("bridge-domain-backup-pseudowires", types.YChild{"BridgeDomainBackupPseudowires", &bdPseudowire.BridgeDomainBackupPseudowires})
+    bdPseudowire.EntityData.Leafs = types.NewOrderedMap()
+    bdPseudowire.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", bdPseudowire.Neighbor})
+    bdPseudowire.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", bdPseudowire.PseudowireId})
+    bdPseudowire.EntityData.Leafs.Append("pseudowire-mld-snoop", types.YLeaf{"PseudowireMldSnoop", bdPseudowire.PseudowireMldSnoop})
+    bdPseudowire.EntityData.Leafs.Append("pseudowire-igmp-snoop", types.YLeaf{"PseudowireIgmpSnoop", bdPseudowire.PseudowireIgmpSnoop})
+    bdPseudowire.EntityData.Leafs.Append("pseudowire-flooding", types.YLeaf{"PseudowireFlooding", bdPseudowire.PseudowireFlooding})
+    bdPseudowire.EntityData.Leafs.Append("bd-pw-class", types.YLeaf{"BdPwClass", bdPseudowire.BdPwClass})
+    bdPseudowire.EntityData.Leafs.Append("pseudowire-flooding-unknown-unicast", types.YLeaf{"PseudowireFloodingUnknownUnicast", bdPseudowire.PseudowireFloodingUnknownUnicast})
+
+    bdPseudowire.EntityData.YListKeys = []string {"Neighbor", "PseudowireId"}
+
+    return &(bdPseudowire.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai
+// Access Pseudowire Dynamic ARP Inspection
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Logging Type. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable Dynamic ARP Inspection. The type is interface{}.
+    Disable interface{}
+
+    // Enable Access Pseudowire Dynamic ARP Inspection. The type is interface{}.
+    Enable interface{}
+
+    // Address Validation.
+    PseudowireDaiAddressValidation L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai_PseudowireDaiAddressValidation
+}
+
+func (pseudowireDai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai) GetEntityData() *types.CommonEntityData {
+    pseudowireDai.EntityData.YFilter = pseudowireDai.YFilter
+    pseudowireDai.EntityData.YangName = "pseudowire-dai"
+    pseudowireDai.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireDai.EntityData.ParentYangName = "bd-pseudowire"
+    pseudowireDai.EntityData.SegmentPath = "pseudowire-dai"
+    pseudowireDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireDai.EntityData.Children = types.NewOrderedMap()
+    pseudowireDai.EntityData.Children.Append("pseudowire-dai-address-validation", types.YChild{"PseudowireDaiAddressValidation", &pseudowireDai.PseudowireDaiAddressValidation})
+    pseudowireDai.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireDai.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pseudowireDai.Logging})
+    pseudowireDai.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pseudowireDai.Disable})
+    pseudowireDai.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireDai.Enable})
+
+    pseudowireDai.EntityData.YListKeys = []string {}
+
+    return &(pseudowireDai.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai_PseudowireDaiAddressValidation
+// Address Validation
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai_PseudowireDaiAddressValidation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 Verification. The type is L2vpnVerification.
+    Ipv4Verification interface{}
+
+    // Destination MAC Verification. The type is L2vpnVerification.
+    DestinationMacVerification interface{}
+
+    // Source MAC Verification. The type is L2vpnVerification.
+    SourceMacVerification interface{}
+}
+
+func (pseudowireDaiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireDai_PseudowireDaiAddressValidation) GetEntityData() *types.CommonEntityData {
+    pseudowireDaiAddressValidation.EntityData.YFilter = pseudowireDaiAddressValidation.YFilter
+    pseudowireDaiAddressValidation.EntityData.YangName = "pseudowire-dai-address-validation"
+    pseudowireDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireDaiAddressValidation.EntityData.ParentYangName = "pseudowire-dai"
+    pseudowireDaiAddressValidation.EntityData.SegmentPath = "pseudowire-dai-address-validation"
+    pseudowireDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireDaiAddressValidation.EntityData.Children = types.NewOrderedMap()
+    pseudowireDaiAddressValidation.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireDaiAddressValidation.EntityData.Leafs.Append("ipv4-verification", types.YLeaf{"Ipv4Verification", pseudowireDaiAddressValidation.Ipv4Verification})
+    pseudowireDaiAddressValidation.EntityData.Leafs.Append("destination-mac-verification", types.YLeaf{"DestinationMacVerification", pseudowireDaiAddressValidation.DestinationMacVerification})
+    pseudowireDaiAddressValidation.EntityData.Leafs.Append("source-mac-verification", types.YLeaf{"SourceMacVerification", pseudowireDaiAddressValidation.SourceMacVerification})
+
+    pseudowireDaiAddressValidation.EntityData.YListKeys = []string {}
+
+    return &(pseudowireDaiAddressValidation.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes
+// Storm Control
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Storm Control Type. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType.
+    BdpwStormControlType []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType
+}
+
+func (bdpwStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes) GetEntityData() *types.CommonEntityData {
+    bdpwStormControlTypes.EntityData.YFilter = bdpwStormControlTypes.YFilter
+    bdpwStormControlTypes.EntityData.YangName = "bdpw-storm-control-types"
+    bdpwStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
+    bdpwStormControlTypes.EntityData.ParentYangName = "bd-pseudowire"
+    bdpwStormControlTypes.EntityData.SegmentPath = "bdpw-storm-control-types"
+    bdpwStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdpwStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdpwStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdpwStormControlTypes.EntityData.Children = types.NewOrderedMap()
+    bdpwStormControlTypes.EntityData.Children.Append("bdpw-storm-control-type", types.YChild{"BdpwStormControlType", nil})
+    for i := range bdpwStormControlTypes.BdpwStormControlType {
+        bdpwStormControlTypes.EntityData.Children.Append(types.GetSegmentPath(bdpwStormControlTypes.BdpwStormControlType[i]), types.YChild{"BdpwStormControlType", bdpwStormControlTypes.BdpwStormControlType[i]})
+    }
+    bdpwStormControlTypes.EntityData.Leafs = types.NewOrderedMap()
+
+    bdpwStormControlTypes.EntityData.YListKeys = []string {}
+
+    return &(bdpwStormControlTypes.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType
+// Storm Control Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Storm Control Type. The type is StormControl.
+    Sctype interface{}
+
+    // Specify units for Storm Control Configuration.
+    StormControlUnit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType_StormControlUnit
+}
+
+func (bdpwStormControlType *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType) GetEntityData() *types.CommonEntityData {
+    bdpwStormControlType.EntityData.YFilter = bdpwStormControlType.YFilter
+    bdpwStormControlType.EntityData.YangName = "bdpw-storm-control-type"
+    bdpwStormControlType.EntityData.BundleName = "cisco_ios_xr"
+    bdpwStormControlType.EntityData.ParentYangName = "bdpw-storm-control-types"
+    bdpwStormControlType.EntityData.SegmentPath = "bdpw-storm-control-type" + types.AddKeyToken(bdpwStormControlType.Sctype, "sctype")
+    bdpwStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdpwStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdpwStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdpwStormControlType.EntityData.Children = types.NewOrderedMap()
+    bdpwStormControlType.EntityData.Children.Append("storm-control-unit", types.YChild{"StormControlUnit", &bdpwStormControlType.StormControlUnit})
+    bdpwStormControlType.EntityData.Leafs = types.NewOrderedMap()
+    bdpwStormControlType.EntityData.Leafs.Append("sctype", types.YLeaf{"Sctype", bdpwStormControlType.Sctype})
+
+    bdpwStormControlType.EntityData.YListKeys = []string {"Sctype"}
+
+    return &(bdpwStormControlType.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType_StormControlUnit
+// Specify units for Storm Control Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType_StormControlUnit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 64..1280000. Units are
+    // kbit/s.
+    KbitsPerSec interface{}
+
+    // Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 1..160000. Units are
+    // packet/s.
+    PktsPerSec interface{}
+}
+
+func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType_StormControlUnit) GetEntityData() *types.CommonEntityData {
+    stormControlUnit.EntityData.YFilter = stormControlUnit.YFilter
+    stormControlUnit.EntityData.YangName = "storm-control-unit"
+    stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
+    stormControlUnit.EntityData.ParentYangName = "bdpw-storm-control-type"
+    stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stormControlUnit.EntityData.Children = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs.Append("kbits-per-sec", types.YLeaf{"KbitsPerSec", stormControlUnit.KbitsPerSec})
+    stormControlUnit.EntityData.Leafs.Append("pkts-per-sec", types.YLeaf{"PktsPerSec", stormControlUnit.PktsPerSec})
+
+    stormControlUnit.EntityData.YListKeys = []string {}
+
+    return &(stormControlUnit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireProfile
+// Attach a DHCP profile
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireProfile struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the snooping profile. The type is InterfaceProfile.
+    ProfileId interface{}
+
+    // Disable DHCP snooping. The type is string.
+    DhcpSnoopingId interface{}
+}
+
+func (pseudowireProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireProfile) GetEntityData() *types.CommonEntityData {
+    pseudowireProfile.EntityData.YFilter = pseudowireProfile.YFilter
+    pseudowireProfile.EntityData.YangName = "pseudowire-profile"
+    pseudowireProfile.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireProfile.EntityData.ParentYangName = "bd-pseudowire"
+    pseudowireProfile.EntityData.SegmentPath = "pseudowire-profile"
+    pseudowireProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireProfile.EntityData.Children = types.NewOrderedMap()
+    pseudowireProfile.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireProfile.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", pseudowireProfile.ProfileId})
+    pseudowireProfile.EntityData.Leafs.Append("dhcp-snooping-id", types.YLeaf{"DhcpSnoopingId", pseudowireProfile.DhcpSnoopingId})
+
+    pseudowireProfile.EntityData.YListKeys = []string {}
+
+    return &(pseudowireProfile.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses
+// Static Mac Address Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static Mac Address Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress.
+    BdPwStaticMacAddress []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress
+}
+
+func (bdPwStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses) GetEntityData() *types.CommonEntityData {
+    bdPwStaticMacAddresses.EntityData.YFilter = bdPwStaticMacAddresses.YFilter
+    bdPwStaticMacAddresses.EntityData.YangName = "bd-pw-static-mac-addresses"
+    bdPwStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
+    bdPwStaticMacAddresses.EntityData.ParentYangName = "bd-pseudowire"
+    bdPwStaticMacAddresses.EntityData.SegmentPath = "bd-pw-static-mac-addresses"
+    bdPwStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPwStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPwStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPwStaticMacAddresses.EntityData.Children = types.NewOrderedMap()
+    bdPwStaticMacAddresses.EntityData.Children.Append("bd-pw-static-mac-address", types.YChild{"BdPwStaticMacAddress", nil})
+    for i := range bdPwStaticMacAddresses.BdPwStaticMacAddress {
+        bdPwStaticMacAddresses.EntityData.Children.Append(types.GetSegmentPath(bdPwStaticMacAddresses.BdPwStaticMacAddress[i]), types.YChild{"BdPwStaticMacAddress", bdPwStaticMacAddresses.BdPwStaticMacAddress[i]})
+    }
+    bdPwStaticMacAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    bdPwStaticMacAddresses.EntityData.YListKeys = []string {}
+
+    return &(bdPwStaticMacAddresses.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress
+// Static Mac Address Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+}
+
+func (bdPwStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress) GetEntityData() *types.CommonEntityData {
+    bdPwStaticMacAddress.EntityData.YFilter = bdPwStaticMacAddress.YFilter
+    bdPwStaticMacAddress.EntityData.YangName = "bd-pw-static-mac-address"
+    bdPwStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    bdPwStaticMacAddress.EntityData.ParentYangName = "bd-pw-static-mac-addresses"
+    bdPwStaticMacAddress.EntityData.SegmentPath = "bd-pw-static-mac-address" + types.AddKeyToken(bdPwStaticMacAddress.Address, "address")
+    bdPwStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPwStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPwStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPwStaticMacAddress.EntityData.Children = types.NewOrderedMap()
+    bdPwStaticMacAddress.EntityData.Leafs = types.NewOrderedMap()
+    bdPwStaticMacAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", bdPwStaticMacAddress.Address})
+
+    bdPwStaticMacAddress.EntityData.YListKeys = []string {"Address"}
+
+    return &(bdPwStaticMacAddress.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireIpSourceGuard
+// IP Source Guard
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireIpSourceGuard struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Logging Type. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable Dynamic IP source guard. The type is interface{}.
+    Disable interface{}
+
+    // Enable IP Source Guard. The type is interface{}.
+    Enable interface{}
+}
+
+func (pseudowireIpSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireIpSourceGuard) GetEntityData() *types.CommonEntityData {
+    pseudowireIpSourceGuard.EntityData.YFilter = pseudowireIpSourceGuard.YFilter
+    pseudowireIpSourceGuard.EntityData.YangName = "pseudowire-ip-source-guard"
+    pseudowireIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireIpSourceGuard.EntityData.ParentYangName = "bd-pseudowire"
+    pseudowireIpSourceGuard.EntityData.SegmentPath = "pseudowire-ip-source-guard"
+    pseudowireIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireIpSourceGuard.EntityData.Children = types.NewOrderedMap()
+    pseudowireIpSourceGuard.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireIpSourceGuard.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pseudowireIpSourceGuard.Logging})
+    pseudowireIpSourceGuard.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pseudowireIpSourceGuard.Disable})
+    pseudowireIpSourceGuard.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireIpSourceGuard.Enable})
+
+    pseudowireIpSourceGuard.EntityData.YListKeys = []string {}
+
+    return &(pseudowireIpSourceGuard.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac
+// Bridge-domain Pseudowire MAC configuration
+// commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable/Disable MAC Flush When Port goes down. The type is PortDownFlush.
+    PseudowireMacPortDownFlush interface{}
+
+    // Bridge-domain Pseudowire MAC configuration mode. The type is interface{}.
+    Enable interface{}
+
+    // Enable MAC Learning. The type is MacLearn.
+    PseudowireMacLearning interface{}
+
+    // MAC Secure.
+    PseudowireMacSecure L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure
+
+    // MAC-Aging configuration commands.
+    PseudowireMacAging L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacAging
+
+    // MAC-Limit configuration commands.
+    PseudowireMacLimit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacLimit
+}
+
+func (pseudowireMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac) GetEntityData() *types.CommonEntityData {
+    pseudowireMac.EntityData.YFilter = pseudowireMac.YFilter
+    pseudowireMac.EntityData.YangName = "pseudowire-mac"
+    pseudowireMac.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireMac.EntityData.ParentYangName = "bd-pseudowire"
+    pseudowireMac.EntityData.SegmentPath = "pseudowire-mac"
+    pseudowireMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireMac.EntityData.Children = types.NewOrderedMap()
+    pseudowireMac.EntityData.Children.Append("pseudowire-mac-secure", types.YChild{"PseudowireMacSecure", &pseudowireMac.PseudowireMacSecure})
+    pseudowireMac.EntityData.Children.Append("pseudowire-mac-aging", types.YChild{"PseudowireMacAging", &pseudowireMac.PseudowireMacAging})
+    pseudowireMac.EntityData.Children.Append("pseudowire-mac-limit", types.YChild{"PseudowireMacLimit", &pseudowireMac.PseudowireMacLimit})
+    pseudowireMac.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireMac.EntityData.Leafs.Append("pseudowire-mac-port-down-flush", types.YLeaf{"PseudowireMacPortDownFlush", pseudowireMac.PseudowireMacPortDownFlush})
+    pseudowireMac.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMac.Enable})
+    pseudowireMac.EntityData.Leafs.Append("pseudowire-mac-learning", types.YLeaf{"PseudowireMacLearning", pseudowireMac.PseudowireMacLearning})
+
+    pseudowireMac.EntityData.YListKeys = []string {}
+
+    return &(pseudowireMac.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure
+// MAC Secure
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC Secure Logging. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable L2 Pseudowire MAC Secure. The type is interface{}.
+    Disable interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
+}
+
+func (pseudowireMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure) GetEntityData() *types.CommonEntityData {
+    pseudowireMacSecure.EntityData.YFilter = pseudowireMacSecure.YFilter
+    pseudowireMacSecure.EntityData.YangName = "pseudowire-mac-secure"
+    pseudowireMacSecure.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireMacSecure.EntityData.ParentYangName = "pseudowire-mac"
+    pseudowireMacSecure.EntityData.SegmentPath = "pseudowire-mac-secure"
+    pseudowireMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireMacSecure.EntityData.Children = types.NewOrderedMap()
+    pseudowireMacSecure.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pseudowireMacSecure.Logging})
+    pseudowireMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pseudowireMacSecure.Disable})
+    pseudowireMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pseudowireMacSecure.Action})
+    pseudowireMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMacSecure.Enable})
+
+    pseudowireMacSecure.EntityData.YListKeys = []string {}
+
+    return &(pseudowireMacSecure.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacAging
+// MAC-Aging configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacAging struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC address aging type. The type is MacAging.
+    PseudowireMacAgingType interface{}
+
+    // MAC Aging Time. The type is interface{} with range: 300..30000.
+    PseudowireMacAgingTime interface{}
+}
+
+func (pseudowireMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacAging) GetEntityData() *types.CommonEntityData {
+    pseudowireMacAging.EntityData.YFilter = pseudowireMacAging.YFilter
+    pseudowireMacAging.EntityData.YangName = "pseudowire-mac-aging"
+    pseudowireMacAging.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireMacAging.EntityData.ParentYangName = "pseudowire-mac"
+    pseudowireMacAging.EntityData.SegmentPath = "pseudowire-mac-aging"
+    pseudowireMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireMacAging.EntityData.Children = types.NewOrderedMap()
+    pseudowireMacAging.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireMacAging.EntityData.Leafs.Append("pseudowire-mac-aging-type", types.YLeaf{"PseudowireMacAgingType", pseudowireMacAging.PseudowireMacAgingType})
+    pseudowireMacAging.EntityData.Leafs.Append("pseudowire-mac-aging-time", types.YLeaf{"PseudowireMacAgingTime", pseudowireMacAging.PseudowireMacAgingTime})
+
+    pseudowireMacAging.EntityData.YListKeys = []string {}
+
+    return &(pseudowireMacAging.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacLimit
+// MAC-Limit configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Access Pseudowire MAC address limit enforcement action. The type is
+    // MacLimitAction.
+    PseudowireMacLimitAction interface{}
+
+    // MAC address limit notification action in a Bridge Access Pseudowire. The
+    // type is MacNotification.
+    PseudowireMacLimitNotif interface{}
+
+    // Number of MAC addresses on a Bridge Access Pseudowire after which MAC limit
+    // action is taken. The type is interface{} with range: 0..4294967295.
+    PseudowireMacLimitMax interface{}
+}
+
+func (pseudowireMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacLimit) GetEntityData() *types.CommonEntityData {
+    pseudowireMacLimit.EntityData.YFilter = pseudowireMacLimit.YFilter
+    pseudowireMacLimit.EntityData.YangName = "pseudowire-mac-limit"
+    pseudowireMacLimit.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireMacLimit.EntityData.ParentYangName = "pseudowire-mac"
+    pseudowireMacLimit.EntityData.SegmentPath = "pseudowire-mac-limit"
+    pseudowireMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireMacLimit.EntityData.Children = types.NewOrderedMap()
+    pseudowireMacLimit.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireMacLimit.EntityData.Leafs.Append("pseudowire-mac-limit-action", types.YLeaf{"PseudowireMacLimitAction", pseudowireMacLimit.PseudowireMacLimitAction})
+    pseudowireMacLimit.EntityData.Leafs.Append("pseudowire-mac-limit-notif", types.YLeaf{"PseudowireMacLimitNotif", pseudowireMacLimit.PseudowireMacLimitNotif})
+    pseudowireMacLimit.EntityData.Leafs.Append("pseudowire-mac-limit-max", types.YLeaf{"PseudowireMacLimitMax", pseudowireMacLimit.PseudowireMacLimitMax})
+
+    pseudowireMacLimit.EntityData.YListKeys = []string {}
+
+    return &(pseudowireMacLimit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon
+// Split Horizon
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Split Horizon Group.
+    BdPwSplitHorizonGroup L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon_BdPwSplitHorizonGroup
+}
+
+func (bdPwSplitHorizon *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon) GetEntityData() *types.CommonEntityData {
+    bdPwSplitHorizon.EntityData.YFilter = bdPwSplitHorizon.YFilter
+    bdPwSplitHorizon.EntityData.YangName = "bd-pw-split-horizon"
+    bdPwSplitHorizon.EntityData.BundleName = "cisco_ios_xr"
+    bdPwSplitHorizon.EntityData.ParentYangName = "bd-pseudowire"
+    bdPwSplitHorizon.EntityData.SegmentPath = "bd-pw-split-horizon"
+    bdPwSplitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPwSplitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPwSplitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPwSplitHorizon.EntityData.Children = types.NewOrderedMap()
+    bdPwSplitHorizon.EntityData.Children.Append("bd-pw-split-horizon-group", types.YChild{"BdPwSplitHorizonGroup", &bdPwSplitHorizon.BdPwSplitHorizonGroup})
+    bdPwSplitHorizon.EntityData.Leafs = types.NewOrderedMap()
+
+    bdPwSplitHorizon.EntityData.YListKeys = []string {}
+
+    return &(bdPwSplitHorizon.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon_BdPwSplitHorizonGroup
+// Split Horizon Group
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon_BdPwSplitHorizonGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable split horizon group. The type is interface{}.
+    Enable interface{}
+}
+
+func (bdPwSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwSplitHorizon_BdPwSplitHorizonGroup) GetEntityData() *types.CommonEntityData {
+    bdPwSplitHorizonGroup.EntityData.YFilter = bdPwSplitHorizonGroup.YFilter
+    bdPwSplitHorizonGroup.EntityData.YangName = "bd-pw-split-horizon-group"
+    bdPwSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
+    bdPwSplitHorizonGroup.EntityData.ParentYangName = "bd-pw-split-horizon"
+    bdPwSplitHorizonGroup.EntityData.SegmentPath = "bd-pw-split-horizon-group"
+    bdPwSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPwSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPwSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPwSplitHorizonGroup.EntityData.Children = types.NewOrderedMap()
+    bdPwSplitHorizonGroup.EntityData.Leafs = types.NewOrderedMap()
+    bdPwSplitHorizonGroup.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bdPwSplitHorizonGroup.Enable})
+
+    bdPwSplitHorizonGroup.EntityData.YListKeys = []string {}
+
+    return &(bdPwSplitHorizonGroup.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwMplsStaticLabels
+// MPLS static labels
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwMplsStaticLabels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire local static label. The type is interface{} with range:
+    // 16..1048575.
+    LocalStaticLabel interface{}
+
+    // Pseudowire remote static label. The type is interface{} with range:
+    // 16..1048575.
+    RemoteStaticLabel interface{}
+}
+
+func (bdPwMplsStaticLabels *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwMplsStaticLabels) GetEntityData() *types.CommonEntityData {
+    bdPwMplsStaticLabels.EntityData.YFilter = bdPwMplsStaticLabels.YFilter
+    bdPwMplsStaticLabels.EntityData.YangName = "bd-pw-mpls-static-labels"
+    bdPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
+    bdPwMplsStaticLabels.EntityData.ParentYangName = "bd-pseudowire"
+    bdPwMplsStaticLabels.EntityData.SegmentPath = "bd-pw-mpls-static-labels"
+    bdPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPwMplsStaticLabels.EntityData.Children = types.NewOrderedMap()
+    bdPwMplsStaticLabels.EntityData.Leafs = types.NewOrderedMap()
+    bdPwMplsStaticLabels.EntityData.Leafs.Append("local-static-label", types.YLeaf{"LocalStaticLabel", bdPwMplsStaticLabels.LocalStaticLabel})
+    bdPwMplsStaticLabels.EntityData.Leafs.Append("remote-static-label", types.YLeaf{"RemoteStaticLabel", bdPwMplsStaticLabels.RemoteStaticLabel})
+
+    bdPwMplsStaticLabels.EntityData.YListKeys = []string {}
+
+    return &(bdPwMplsStaticLabels.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires
+// List of pseudowires
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Backup pseudowire configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire.
+    BridgeDomainBackupPseudowire []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire
+}
+
+func (bridgeDomainBackupPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires) GetEntityData() *types.CommonEntityData {
+    bridgeDomainBackupPseudowires.EntityData.YFilter = bridgeDomainBackupPseudowires.YFilter
+    bridgeDomainBackupPseudowires.EntityData.YangName = "bridge-domain-backup-pseudowires"
+    bridgeDomainBackupPseudowires.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainBackupPseudowires.EntityData.ParentYangName = "bd-pseudowire"
+    bridgeDomainBackupPseudowires.EntityData.SegmentPath = "bridge-domain-backup-pseudowires"
+    bridgeDomainBackupPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainBackupPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainBackupPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainBackupPseudowires.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainBackupPseudowires.EntityData.Children.Append("bridge-domain-backup-pseudowire", types.YChild{"BridgeDomainBackupPseudowire", nil})
+    for i := range bridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire {
+        bridgeDomainBackupPseudowires.EntityData.Children.Append(types.GetSegmentPath(bridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire[i]), types.YChild{"BridgeDomainBackupPseudowire", bridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire[i]})
+    }
+    bridgeDomainBackupPseudowires.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainBackupPseudowires.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainBackupPseudowires.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire
+// Backup pseudowire configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Neighbor IP address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Neighbor interface{}
+
+    // This attribute is a key. Pseudowire ID. The type is interface{} with range:
+    // 1..4294967295.
+    PseudowireId interface{}
+
+    // PW class template name to use for this pseudowire. The type is string with
+    // length: 1..32.
+    BridgeDomainBackupPwClass interface{}
+}
+
+func (bridgeDomainBackupPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire) GetEntityData() *types.CommonEntityData {
+    bridgeDomainBackupPseudowire.EntityData.YFilter = bridgeDomainBackupPseudowire.YFilter
+    bridgeDomainBackupPseudowire.EntityData.YangName = "bridge-domain-backup-pseudowire"
+    bridgeDomainBackupPseudowire.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainBackupPseudowire.EntityData.ParentYangName = "bridge-domain-backup-pseudowires"
+    bridgeDomainBackupPseudowire.EntityData.SegmentPath = "bridge-domain-backup-pseudowire" + types.AddKeyToken(bridgeDomainBackupPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bridgeDomainBackupPseudowire.PseudowireId, "pseudowire-id")
+    bridgeDomainBackupPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainBackupPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainBackupPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainBackupPseudowire.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainBackupPseudowire.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomainBackupPseudowire.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", bridgeDomainBackupPseudowire.Neighbor})
+    bridgeDomainBackupPseudowire.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", bridgeDomainBackupPseudowire.PseudowireId})
+    bridgeDomainBackupPseudowire.EntityData.Leafs.Append("bridge-domain-backup-pw-class", types.YLeaf{"BridgeDomainBackupPwClass", bridgeDomainBackupPseudowire.BridgeDomainBackupPwClass})
+
+    bridgeDomainBackupPseudowire.EntityData.YListKeys = []string {"Neighbor", "PseudowireId"}
+
+    return &(bridgeDomainBackupPseudowire.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis
+// Specify the virtual forwarding interface name
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the Virtual Forwarding Interface. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi.
+    Vfi []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi
+}
+
+func (vfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis) GetEntityData() *types.CommonEntityData {
+    vfis.EntityData.YFilter = vfis.YFilter
+    vfis.EntityData.YangName = "vfis"
+    vfis.EntityData.BundleName = "cisco_ios_xr"
+    vfis.EntityData.ParentYangName = "bridge-domain"
+    vfis.EntityData.SegmentPath = "vfis"
+    vfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfis.EntityData.Children = types.NewOrderedMap()
+    vfis.EntityData.Children.Append("vfi", types.YChild{"Vfi", nil})
+    for i := range vfis.Vfi {
+        vfis.EntityData.Children.Append(types.GetSegmentPath(vfis.Vfi[i]), types.YChild{"Vfi", vfis.Vfi[i]})
+    }
+    vfis.EntityData.Leafs = types.NewOrderedMap()
+
+    vfis.EntityData.YListKeys = []string {}
+
+    return &(vfis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi
+// Name of the Virtual Forwarding Interface
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the Virtual Forwarding Interface. The type
+    // is string with length: 1..32.
+    Name interface{}
+
+    // Enabling Shutdown. The type is interface{}.
+    VfiShutdown interface{}
+
+    // VPN Identifier. The type is interface{} with range: 1..4294967295.
+    Vpnid interface{}
+
+    // Enable Multicast P2MP in this VFI.
+    MulticastP2mp L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp
+
+    // List of pseudowires.
+    VfiPseudowires L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires
+
+    // Enable Autodiscovery BGP in this VFI.
+    BgpAutoDiscovery L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery
+}
+
+func (vfi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi) GetEntityData() *types.CommonEntityData {
+    vfi.EntityData.YFilter = vfi.YFilter
+    vfi.EntityData.YangName = "vfi"
+    vfi.EntityData.BundleName = "cisco_ios_xr"
+    vfi.EntityData.ParentYangName = "vfis"
+    vfi.EntityData.SegmentPath = "vfi" + types.AddKeyToken(vfi.Name, "name")
+    vfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfi.EntityData.Children = types.NewOrderedMap()
+    vfi.EntityData.Children.Append("multicast-p2mp", types.YChild{"MulticastP2mp", &vfi.MulticastP2mp})
+    vfi.EntityData.Children.Append("vfi-pseudowires", types.YChild{"VfiPseudowires", &vfi.VfiPseudowires})
+    vfi.EntityData.Children.Append("bgp-auto-discovery", types.YChild{"BgpAutoDiscovery", &vfi.BgpAutoDiscovery})
+    vfi.EntityData.Leafs = types.NewOrderedMap()
+    vfi.EntityData.Leafs.Append("name", types.YLeaf{"Name", vfi.Name})
+    vfi.EntityData.Leafs.Append("vfi-shutdown", types.YLeaf{"VfiShutdown", vfi.VfiShutdown})
+    vfi.EntityData.Leafs.Append("vpnid", types.YLeaf{"Vpnid", vfi.Vpnid})
+
+    vfi.EntityData.YListKeys = []string {"Name"}
+
+    return &(vfi.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp
+// Enable Multicast P2MP in this VFI
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Autodiscovery P2MP. The type is interface{}.
+    Enable interface{}
+
+    // Multicast P2MP Transport.
+    Transports L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports
+
+    // Multicast P2MP Signaling Type.
+    Signalings L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings
+}
+
+func (multicastP2mp *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp) GetEntityData() *types.CommonEntityData {
+    multicastP2mp.EntityData.YFilter = multicastP2mp.YFilter
+    multicastP2mp.EntityData.YangName = "multicast-p2mp"
+    multicastP2mp.EntityData.BundleName = "cisco_ios_xr"
+    multicastP2mp.EntityData.ParentYangName = "vfi"
+    multicastP2mp.EntityData.SegmentPath = "multicast-p2mp"
+    multicastP2mp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastP2mp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastP2mp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    multicastP2mp.EntityData.Children = types.NewOrderedMap()
+    multicastP2mp.EntityData.Children.Append("transports", types.YChild{"Transports", &multicastP2mp.Transports})
+    multicastP2mp.EntityData.Children.Append("signalings", types.YChild{"Signalings", &multicastP2mp.Signalings})
+    multicastP2mp.EntityData.Leafs = types.NewOrderedMap()
+    multicastP2mp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", multicastP2mp.Enable})
+
+    multicastP2mp.EntityData.YListKeys = []string {}
+
+    return &(multicastP2mp.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports
+// Multicast P2MP Transport
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multicast P2MP Transport Type. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport.
+    Transport []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport
+}
+
+func (transports *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports) GetEntityData() *types.CommonEntityData {
+    transports.EntityData.YFilter = transports.YFilter
+    transports.EntityData.YangName = "transports"
+    transports.EntityData.BundleName = "cisco_ios_xr"
+    transports.EntityData.ParentYangName = "multicast-p2mp"
+    transports.EntityData.SegmentPath = "transports"
+    transports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    transports.EntityData.Children = types.NewOrderedMap()
+    transports.EntityData.Children.Append("transport", types.YChild{"Transport", nil})
+    for i := range transports.Transport {
+        transports.EntityData.Children.Append(types.GetSegmentPath(transports.Transport[i]), types.YChild{"Transport", transports.Transport[i]})
+    }
+    transports.EntityData.Leafs = types.NewOrderedMap()
+
+    transports.EntityData.YListKeys = []string {}
+
+    return &(transports.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport
+// Multicast P2MP Transport Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Transport Type. The type is string with pattern:
+    // (RSVP_TE).
+    TransportName interface{}
+
+    // Multicast P2MP TE Attribute Set Name. The type is string with length:
+    // 1..64.
+    AttributeSetName interface{}
+}
+
+func (transport *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport) GetEntityData() *types.CommonEntityData {
+    transport.EntityData.YFilter = transport.YFilter
+    transport.EntityData.YangName = "transport"
+    transport.EntityData.BundleName = "cisco_ios_xr"
+    transport.EntityData.ParentYangName = "transports"
+    transport.EntityData.SegmentPath = "transport" + types.AddKeyToken(transport.TransportName, "transport-name")
+    transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    transport.EntityData.Children = types.NewOrderedMap()
+    transport.EntityData.Leafs = types.NewOrderedMap()
+    transport.EntityData.Leafs.Append("transport-name", types.YLeaf{"TransportName", transport.TransportName})
+    transport.EntityData.Leafs.Append("attribute-set-name", types.YLeaf{"AttributeSetName", transport.AttributeSetName})
+
+    transport.EntityData.YListKeys = []string {"TransportName"}
+
+    return &(transport.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings
+// Multicast P2MP Signaling Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multicast P2MP Signaling Type. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling.
+    Signaling []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling
+}
+
+func (signalings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings) GetEntityData() *types.CommonEntityData {
+    signalings.EntityData.YFilter = signalings.YFilter
+    signalings.EntityData.YangName = "signalings"
+    signalings.EntityData.BundleName = "cisco_ios_xr"
+    signalings.EntityData.ParentYangName = "multicast-p2mp"
+    signalings.EntityData.SegmentPath = "signalings"
+    signalings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    signalings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    signalings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    signalings.EntityData.Children = types.NewOrderedMap()
+    signalings.EntityData.Children.Append("signaling", types.YChild{"Signaling", nil})
+    for i := range signalings.Signaling {
+        signalings.EntityData.Children.Append(types.GetSegmentPath(signalings.Signaling[i]), types.YChild{"Signaling", signalings.Signaling[i]})
+    }
+    signalings.EntityData.Leafs = types.NewOrderedMap()
+
+    signalings.EntityData.YListKeys = []string {}
+
+    return &(signalings.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling
+// Multicast P2MP Signaling Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Signaling Type. The type is string with pattern:
+    // (BGP).
+    SignalingName interface{}
+}
+
+func (signaling *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling) GetEntityData() *types.CommonEntityData {
+    signaling.EntityData.YFilter = signaling.YFilter
+    signaling.EntityData.YangName = "signaling"
+    signaling.EntityData.BundleName = "cisco_ios_xr"
+    signaling.EntityData.ParentYangName = "signalings"
+    signaling.EntityData.SegmentPath = "signaling" + types.AddKeyToken(signaling.SignalingName, "signaling-name")
+    signaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    signaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    signaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    signaling.EntityData.Children = types.NewOrderedMap()
+    signaling.EntityData.Leafs = types.NewOrderedMap()
+    signaling.EntityData.Leafs.Append("signaling-name", types.YLeaf{"SignalingName", signaling.SignalingName})
+
+    signaling.EntityData.YListKeys = []string {"SignalingName"}
+
+    return &(signaling.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires
+// List of pseudowires
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire.
+    VfiPseudowire []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire
+}
+
+func (vfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires) GetEntityData() *types.CommonEntityData {
+    vfiPseudowires.EntityData.YFilter = vfiPseudowires.YFilter
+    vfiPseudowires.EntityData.YangName = "vfi-pseudowires"
+    vfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
+    vfiPseudowires.EntityData.ParentYangName = "vfi"
+    vfiPseudowires.EntityData.SegmentPath = "vfi-pseudowires"
+    vfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfiPseudowires.EntityData.Children = types.NewOrderedMap()
+    vfiPseudowires.EntityData.Children.Append("vfi-pseudowire", types.YChild{"VfiPseudowire", nil})
+    for i := range vfiPseudowires.VfiPseudowire {
+        vfiPseudowires.EntityData.Children.Append(types.GetSegmentPath(vfiPseudowires.VfiPseudowire[i]), types.YChild{"VfiPseudowire", vfiPseudowires.VfiPseudowire[i]})
+    }
+    vfiPseudowires.EntityData.Leafs = types.NewOrderedMap()
+
+    vfiPseudowires.EntityData.YListKeys = []string {}
+
+    return &(vfiPseudowires.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire
+// Pseudowire configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Neighbor IP address. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Neighbor interface{}
+
+    // This attribute is a key. Pseudowire ID. The type is interface{} with range:
+    // 1..4294967295.
+    PseudowireId interface{}
+
+    // PW class template name to use for this pseudowire. The type is string with
+    // length: 1..32.
+    VfiPwClass interface{}
+
+    // Attach a IGMP Snooping profile. The type is string with length: 1..32.
+    VfiPwIgmpSnoop interface{}
+
+    // Attach a MLD Snooping profile. The type is string with length: 1..32.
+    VfiPwMldSnoop interface{}
+
+    // Attach a DHCP Snooping profile.
+    VfiPwDhcpSnoop L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwDhcpSnoop
+
+    // MPLS static labels.
+    VfiPwMplsStaticLabels L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwMplsStaticLabels
+
+    // Static Mac Address Table.
+    PseudowireStaticMacAddresses L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses
+}
+
+func (vfiPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire) GetEntityData() *types.CommonEntityData {
+    vfiPseudowire.EntityData.YFilter = vfiPseudowire.YFilter
+    vfiPseudowire.EntityData.YangName = "vfi-pseudowire"
+    vfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
+    vfiPseudowire.EntityData.ParentYangName = "vfi-pseudowires"
+    vfiPseudowire.EntityData.SegmentPath = "vfi-pseudowire" + types.AddKeyToken(vfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(vfiPseudowire.PseudowireId, "pseudowire-id")
+    vfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfiPseudowire.EntityData.Children = types.NewOrderedMap()
+    vfiPseudowire.EntityData.Children.Append("vfi-pw-dhcp-snoop", types.YChild{"VfiPwDhcpSnoop", &vfiPseudowire.VfiPwDhcpSnoop})
+    vfiPseudowire.EntityData.Children.Append("vfi-pw-mpls-static-labels", types.YChild{"VfiPwMplsStaticLabels", &vfiPseudowire.VfiPwMplsStaticLabels})
+    vfiPseudowire.EntityData.Children.Append("pseudowire-static-mac-addresses", types.YChild{"PseudowireStaticMacAddresses", &vfiPseudowire.PseudowireStaticMacAddresses})
+    vfiPseudowire.EntityData.Leafs = types.NewOrderedMap()
+    vfiPseudowire.EntityData.Leafs.Append("neighbor", types.YLeaf{"Neighbor", vfiPseudowire.Neighbor})
+    vfiPseudowire.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", vfiPseudowire.PseudowireId})
+    vfiPseudowire.EntityData.Leafs.Append("vfi-pw-class", types.YLeaf{"VfiPwClass", vfiPseudowire.VfiPwClass})
+    vfiPseudowire.EntityData.Leafs.Append("vfi-pw-igmp-snoop", types.YLeaf{"VfiPwIgmpSnoop", vfiPseudowire.VfiPwIgmpSnoop})
+    vfiPseudowire.EntityData.Leafs.Append("vfi-pw-mld-snoop", types.YLeaf{"VfiPwMldSnoop", vfiPseudowire.VfiPwMldSnoop})
+
+    vfiPseudowire.EntityData.YListKeys = []string {"Neighbor", "PseudowireId"}
+
+    return &(vfiPseudowire.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwDhcpSnoop
+// Attach a DHCP Snooping profile
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwDhcpSnoop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the snooping profile. The type is InterfaceProfile.
+    ProfileId interface{}
+
+    // Disable DHCP snooping. The type is string.
+    DhcpSnoopingId interface{}
+}
+
+func (vfiPwDhcpSnoop *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwDhcpSnoop) GetEntityData() *types.CommonEntityData {
+    vfiPwDhcpSnoop.EntityData.YFilter = vfiPwDhcpSnoop.YFilter
+    vfiPwDhcpSnoop.EntityData.YangName = "vfi-pw-dhcp-snoop"
+    vfiPwDhcpSnoop.EntityData.BundleName = "cisco_ios_xr"
+    vfiPwDhcpSnoop.EntityData.ParentYangName = "vfi-pseudowire"
+    vfiPwDhcpSnoop.EntityData.SegmentPath = "vfi-pw-dhcp-snoop"
+    vfiPwDhcpSnoop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfiPwDhcpSnoop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfiPwDhcpSnoop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfiPwDhcpSnoop.EntityData.Children = types.NewOrderedMap()
+    vfiPwDhcpSnoop.EntityData.Leafs = types.NewOrderedMap()
+    vfiPwDhcpSnoop.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", vfiPwDhcpSnoop.ProfileId})
+    vfiPwDhcpSnoop.EntityData.Leafs.Append("dhcp-snooping-id", types.YLeaf{"DhcpSnoopingId", vfiPwDhcpSnoop.DhcpSnoopingId})
+
+    vfiPwDhcpSnoop.EntityData.YListKeys = []string {}
+
+    return &(vfiPwDhcpSnoop.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwMplsStaticLabels
+// MPLS static labels
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwMplsStaticLabels struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire local static label. The type is interface{} with range:
+    // 16..1048575.
+    LocalStaticLabel interface{}
+
+    // Pseudowire remote static label. The type is interface{} with range:
+    // 16..1048575.
+    RemoteStaticLabel interface{}
+}
+
+func (vfiPwMplsStaticLabels *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_VfiPwMplsStaticLabels) GetEntityData() *types.CommonEntityData {
+    vfiPwMplsStaticLabels.EntityData.YFilter = vfiPwMplsStaticLabels.YFilter
+    vfiPwMplsStaticLabels.EntityData.YangName = "vfi-pw-mpls-static-labels"
+    vfiPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
+    vfiPwMplsStaticLabels.EntityData.ParentYangName = "vfi-pseudowire"
+    vfiPwMplsStaticLabels.EntityData.SegmentPath = "vfi-pw-mpls-static-labels"
+    vfiPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vfiPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vfiPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vfiPwMplsStaticLabels.EntityData.Children = types.NewOrderedMap()
+    vfiPwMplsStaticLabels.EntityData.Leafs = types.NewOrderedMap()
+    vfiPwMplsStaticLabels.EntityData.Leafs.Append("local-static-label", types.YLeaf{"LocalStaticLabel", vfiPwMplsStaticLabels.LocalStaticLabel})
+    vfiPwMplsStaticLabels.EntityData.Leafs.Append("remote-static-label", types.YLeaf{"RemoteStaticLabel", vfiPwMplsStaticLabels.RemoteStaticLabel})
+
+    vfiPwMplsStaticLabels.EntityData.YListKeys = []string {}
+
+    return &(vfiPwMplsStaticLabels.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses
+// Static Mac Address Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static Mac Address Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress.
+    PseudowireStaticMacAddress []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress
+}
+
+func (pseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses) GetEntityData() *types.CommonEntityData {
+    pseudowireStaticMacAddresses.EntityData.YFilter = pseudowireStaticMacAddresses.YFilter
+    pseudowireStaticMacAddresses.EntityData.YangName = "pseudowire-static-mac-addresses"
+    pseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireStaticMacAddresses.EntityData.ParentYangName = "vfi-pseudowire"
+    pseudowireStaticMacAddresses.EntityData.SegmentPath = "pseudowire-static-mac-addresses"
+    pseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireStaticMacAddresses.EntityData.Children = types.NewOrderedMap()
+    pseudowireStaticMacAddresses.EntityData.Children.Append("pseudowire-static-mac-address", types.YChild{"PseudowireStaticMacAddress", nil})
+    for i := range pseudowireStaticMacAddresses.PseudowireStaticMacAddress {
+        pseudowireStaticMacAddresses.EntityData.Children.Append(types.GetSegmentPath(pseudowireStaticMacAddresses.PseudowireStaticMacAddress[i]), types.YChild{"PseudowireStaticMacAddress", pseudowireStaticMacAddresses.PseudowireStaticMacAddress[i]})
+    }
+    pseudowireStaticMacAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    pseudowireStaticMacAddresses.EntityData.YListKeys = []string {}
+
+    return &(pseudowireStaticMacAddresses.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress
+// Static Mac Address Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+}
+
+func (pseudowireStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress) GetEntityData() *types.CommonEntityData {
+    pseudowireStaticMacAddress.EntityData.YFilter = pseudowireStaticMacAddress.YFilter
+    pseudowireStaticMacAddress.EntityData.YangName = "pseudowire-static-mac-address"
+    pseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireStaticMacAddress.EntityData.ParentYangName = "pseudowire-static-mac-addresses"
+    pseudowireStaticMacAddress.EntityData.SegmentPath = "pseudowire-static-mac-address" + types.AddKeyToken(pseudowireStaticMacAddress.Address, "address")
+    pseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireStaticMacAddress.EntityData.Children = types.NewOrderedMap()
+    pseudowireStaticMacAddress.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireStaticMacAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", pseudowireStaticMacAddress.Address})
+
+    pseudowireStaticMacAddress.EntityData.YListKeys = []string {"Address"}
+
+    return &(pseudowireStaticMacAddress.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery
+// Enable Autodiscovery BGP in this VFI
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table Policy for installation of forwarding data to L2FIB. The type is
+    // string.
+    TablePolicy interface{}
+
+    // Enable control-word for this VFI. The type is interface{}.
+    AdControlWord interface{}
+
+    // Enable Autodiscovery BGP. The type is interface{}.
+    Enable interface{}
+
+    // Signaling Protocol LDP in this VFI configuration.
+    LdpSignalingProtocol L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol
+
+    // Route policy.
+    BgpRoutePolicy L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpRoutePolicy
+
+    // Route Distinguisher.
+    RouteDistinguisher L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteDistinguisher
+
+    // Enable Signaling Protocol BGP in this VFI.
+    BgpSignalingProtocol L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol
+
+    // Route Target.
+    RouteTargets L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets
+}
+
+func (bgpAutoDiscovery *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery) GetEntityData() *types.CommonEntityData {
+    bgpAutoDiscovery.EntityData.YFilter = bgpAutoDiscovery.YFilter
+    bgpAutoDiscovery.EntityData.YangName = "bgp-auto-discovery"
+    bgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
+    bgpAutoDiscovery.EntityData.ParentYangName = "vfi"
+    bgpAutoDiscovery.EntityData.SegmentPath = "bgp-auto-discovery"
+    bgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgpAutoDiscovery.EntityData.Children = types.NewOrderedMap()
+    bgpAutoDiscovery.EntityData.Children.Append("ldp-signaling-protocol", types.YChild{"LdpSignalingProtocol", &bgpAutoDiscovery.LdpSignalingProtocol})
+    bgpAutoDiscovery.EntityData.Children.Append("bgp-route-policy", types.YChild{"BgpRoutePolicy", &bgpAutoDiscovery.BgpRoutePolicy})
+    bgpAutoDiscovery.EntityData.Children.Append("route-distinguisher", types.YChild{"RouteDistinguisher", &bgpAutoDiscovery.RouteDistinguisher})
+    bgpAutoDiscovery.EntityData.Children.Append("bgp-signaling-protocol", types.YChild{"BgpSignalingProtocol", &bgpAutoDiscovery.BgpSignalingProtocol})
+    bgpAutoDiscovery.EntityData.Children.Append("route-targets", types.YChild{"RouteTargets", &bgpAutoDiscovery.RouteTargets})
+    bgpAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
+    bgpAutoDiscovery.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", bgpAutoDiscovery.TablePolicy})
+    bgpAutoDiscovery.EntityData.Leafs.Append("ad-control-word", types.YLeaf{"AdControlWord", bgpAutoDiscovery.AdControlWord})
+    bgpAutoDiscovery.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bgpAutoDiscovery.Enable})
+
+    bgpAutoDiscovery.EntityData.YListKeys = []string {}
+
+    return &(bgpAutoDiscovery.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol
+// Signaling Protocol LDP in this VFI
+// configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable LDP as Signaling Protocol.Deletion of this object also causes
+    // deletion of all objects under LDPSignalingProtocol. The type is
+    // interface{}.
+    Enable interface{}
+
+    // VPLS ID.
+    VplsId L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_VplsId
+
+    // Enable Flow Label based load balancing.
+    FlowLabelLoadBalance L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_FlowLabelLoadBalance
+}
+
+func (ldpSignalingProtocol *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol) GetEntityData() *types.CommonEntityData {
+    ldpSignalingProtocol.EntityData.YFilter = ldpSignalingProtocol.YFilter
+    ldpSignalingProtocol.EntityData.YangName = "ldp-signaling-protocol"
+    ldpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
+    ldpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
+    ldpSignalingProtocol.EntityData.SegmentPath = "ldp-signaling-protocol"
+    ldpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ldpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ldpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ldpSignalingProtocol.EntityData.Children = types.NewOrderedMap()
+    ldpSignalingProtocol.EntityData.Children.Append("vpls-id", types.YChild{"VplsId", &ldpSignalingProtocol.VplsId})
+    ldpSignalingProtocol.EntityData.Children.Append("flow-label-load-balance", types.YChild{"FlowLabelLoadBalance", &ldpSignalingProtocol.FlowLabelLoadBalance})
+    ldpSignalingProtocol.EntityData.Leafs = types.NewOrderedMap()
+    ldpSignalingProtocol.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ldpSignalingProtocol.Enable})
+
+    ldpSignalingProtocol.EntityData.YListKeys = []string {}
+
+    return &(ldpSignalingProtocol.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_VplsId
+// VPLS ID
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_VplsId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VPLS-ID Type. The type is LdpVplsId.
+    Type interface{}
+
+    // Two byte AS number. The type is interface{} with range: 1..65535.
+    As interface{}
+
+    // AS index. The type is interface{} with range: 0..4294967295.
+    AsIndex interface{}
+
+    // IPV4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Address index. The type is interface{} with range: 0..32767.
+    AddressIndex interface{}
+}
+
+func (vplsId *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_VplsId) GetEntityData() *types.CommonEntityData {
+    vplsId.EntityData.YFilter = vplsId.YFilter
+    vplsId.EntityData.YangName = "vpls-id"
+    vplsId.EntityData.BundleName = "cisco_ios_xr"
+    vplsId.EntityData.ParentYangName = "ldp-signaling-protocol"
+    vplsId.EntityData.SegmentPath = "vpls-id"
+    vplsId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vplsId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vplsId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vplsId.EntityData.Children = types.NewOrderedMap()
+    vplsId.EntityData.Leafs = types.NewOrderedMap()
+    vplsId.EntityData.Leafs.Append("type", types.YLeaf{"Type", vplsId.Type})
+    vplsId.EntityData.Leafs.Append("as", types.YLeaf{"As", vplsId.As})
+    vplsId.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", vplsId.AsIndex})
+    vplsId.EntityData.Leafs.Append("address", types.YLeaf{"Address", vplsId.Address})
+    vplsId.EntityData.Leafs.Append("address-index", types.YLeaf{"AddressIndex", vplsId.AddressIndex})
+
+    vplsId.EntityData.YListKeys = []string {}
+
+    return &(vplsId.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_FlowLabelLoadBalance
+// Enable Flow Label based load balancing
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_FlowLabelLoadBalance struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Flow Label load balance type. The type is FlowLabelLoadBalance.
+    FlowLabel interface{}
+
+    // Static Flow Label. The type is interface{}.
+    Static interface{}
+}
+
+func (flowLabelLoadBalance *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_LdpSignalingProtocol_FlowLabelLoadBalance) GetEntityData() *types.CommonEntityData {
+    flowLabelLoadBalance.EntityData.YFilter = flowLabelLoadBalance.YFilter
+    flowLabelLoadBalance.EntityData.YangName = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
+    flowLabelLoadBalance.EntityData.ParentYangName = "ldp-signaling-protocol"
+    flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flowLabelLoadBalance.EntityData.Children = types.NewOrderedMap()
+    flowLabelLoadBalance.EntityData.Leafs = types.NewOrderedMap()
+    flowLabelLoadBalance.EntityData.Leafs.Append("flow-label", types.YLeaf{"FlowLabel", flowLabelLoadBalance.FlowLabel})
+    flowLabelLoadBalance.EntityData.Leafs.Append("static", types.YLeaf{"Static", flowLabelLoadBalance.Static})
+
+    flowLabelLoadBalance.EntityData.YListKeys = []string {}
+
+    return &(flowLabelLoadBalance.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpRoutePolicy
+// Route policy
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpRoutePolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Export route policy. The type is string.
+    Export interface{}
+}
+
+func (bgpRoutePolicy *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpRoutePolicy) GetEntityData() *types.CommonEntityData {
+    bgpRoutePolicy.EntityData.YFilter = bgpRoutePolicy.YFilter
+    bgpRoutePolicy.EntityData.YangName = "bgp-route-policy"
+    bgpRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
+    bgpRoutePolicy.EntityData.ParentYangName = "bgp-auto-discovery"
+    bgpRoutePolicy.EntityData.SegmentPath = "bgp-route-policy"
+    bgpRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgpRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgpRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgpRoutePolicy.EntityData.Children = types.NewOrderedMap()
+    bgpRoutePolicy.EntityData.Leafs = types.NewOrderedMap()
+    bgpRoutePolicy.EntityData.Leafs.Append("export", types.YLeaf{"Export", bgpRoutePolicy.Export})
+
+    bgpRoutePolicy.EntityData.YListKeys = []string {}
+
+    return &(bgpRoutePolicy.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteDistinguisher
+// Route Distinguisher
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteDistinguisher struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Router Distinguisher Type. The type is BgpRouteDistinguisher.
+    Type interface{}
+
+    // Two byte or 4 byte AS number. The type is interface{} with range:
+    // 1..4294967295.
+    As interface{}
+
+    // AS:nn (hex or decimal format). The type is interface{} with range:
+    // 0..4294967295.
+    AsIndex interface{}
+
+    // IPV4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Addr index. The type is interface{} with range: 0..65535.
+    AddrIndex interface{}
+}
+
+func (routeDistinguisher *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteDistinguisher) GetEntityData() *types.CommonEntityData {
+    routeDistinguisher.EntityData.YFilter = routeDistinguisher.YFilter
+    routeDistinguisher.EntityData.YangName = "route-distinguisher"
+    routeDistinguisher.EntityData.BundleName = "cisco_ios_xr"
+    routeDistinguisher.EntityData.ParentYangName = "bgp-auto-discovery"
+    routeDistinguisher.EntityData.SegmentPath = "route-distinguisher"
+    routeDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routeDistinguisher.EntityData.Children = types.NewOrderedMap()
+    routeDistinguisher.EntityData.Leafs = types.NewOrderedMap()
+    routeDistinguisher.EntityData.Leafs.Append("type", types.YLeaf{"Type", routeDistinguisher.Type})
+    routeDistinguisher.EntityData.Leafs.Append("as", types.YLeaf{"As", routeDistinguisher.As})
+    routeDistinguisher.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", routeDistinguisher.AsIndex})
+    routeDistinguisher.EntityData.Leafs.Append("address", types.YLeaf{"Address", routeDistinguisher.Address})
+    routeDistinguisher.EntityData.Leafs.Append("addr-index", types.YLeaf{"AddrIndex", routeDistinguisher.AddrIndex})
+
+    routeDistinguisher.EntityData.YListKeys = []string {}
+
+    return &(routeDistinguisher.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol
+// Enable Signaling Protocol BGP in this VFI
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Local Virtual Edge Block Configurable Range. The type is interface{} with
+    // range: 11..100.
+    VeRange interface{}
+
+    // Local Virtual Edge Identifier. The type is interface{} with range:
+    // 1..16384.
+    Veid interface{}
+
+    // Enable BGP as Signaling Protocol. The type is interface{}.
+    Enable interface{}
+
+    // Enable Flow Label based load balancing.
+    FlowLabelLoadBalance L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol_FlowLabelLoadBalance
+}
+
+func (bgpSignalingProtocol *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol) GetEntityData() *types.CommonEntityData {
+    bgpSignalingProtocol.EntityData.YFilter = bgpSignalingProtocol.YFilter
+    bgpSignalingProtocol.EntityData.YangName = "bgp-signaling-protocol"
+    bgpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
+    bgpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
+    bgpSignalingProtocol.EntityData.SegmentPath = "bgp-signaling-protocol"
+    bgpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bgpSignalingProtocol.EntityData.Children = types.NewOrderedMap()
+    bgpSignalingProtocol.EntityData.Children.Append("flow-label-load-balance", types.YChild{"FlowLabelLoadBalance", &bgpSignalingProtocol.FlowLabelLoadBalance})
+    bgpSignalingProtocol.EntityData.Leafs = types.NewOrderedMap()
+    bgpSignalingProtocol.EntityData.Leafs.Append("ve-range", types.YLeaf{"VeRange", bgpSignalingProtocol.VeRange})
+    bgpSignalingProtocol.EntityData.Leafs.Append("veid", types.YLeaf{"Veid", bgpSignalingProtocol.Veid})
+    bgpSignalingProtocol.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", bgpSignalingProtocol.Enable})
+
+    bgpSignalingProtocol.EntityData.YListKeys = []string {}
+
+    return &(bgpSignalingProtocol.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol_FlowLabelLoadBalance
+// Enable Flow Label based load balancing
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol_FlowLabelLoadBalance struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Flow Label load balance type. The type is FlowLabelLoadBalance.
+    FlowLabel interface{}
+
+    // Static Flow Label. The type is interface{}.
+    Static interface{}
+}
+
+func (flowLabelLoadBalance *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_BgpSignalingProtocol_FlowLabelLoadBalance) GetEntityData() *types.CommonEntityData {
+    flowLabelLoadBalance.EntityData.YFilter = flowLabelLoadBalance.YFilter
+    flowLabelLoadBalance.EntityData.YangName = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
+    flowLabelLoadBalance.EntityData.ParentYangName = "bgp-signaling-protocol"
+    flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flowLabelLoadBalance.EntityData.Children = types.NewOrderedMap()
+    flowLabelLoadBalance.EntityData.Leafs = types.NewOrderedMap()
+    flowLabelLoadBalance.EntityData.Leafs.Append("flow-label", types.YLeaf{"FlowLabel", flowLabelLoadBalance.FlowLabel})
+    flowLabelLoadBalance.EntityData.Leafs.Append("static", types.YLeaf{"Static", flowLabelLoadBalance.Static})
+
+    flowLabelLoadBalance.EntityData.YListKeys = []string {}
+
+    return &(flowLabelLoadBalance.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets
+// Route Target
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the Route Target. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget.
+    RouteTarget []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget
+}
+
+func (routeTargets *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets) GetEntityData() *types.CommonEntityData {
+    routeTargets.EntityData.YFilter = routeTargets.YFilter
+    routeTargets.EntityData.YangName = "route-targets"
+    routeTargets.EntityData.BundleName = "cisco_ios_xr"
+    routeTargets.EntityData.ParentYangName = "bgp-auto-discovery"
+    routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routeTargets.EntityData.Children = types.NewOrderedMap()
+    routeTargets.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
+    for i := range routeTargets.RouteTarget {
+        routeTargets.EntityData.Children.Append(types.GetSegmentPath(routeTargets.RouteTarget[i]), types.YChild{"RouteTarget", routeTargets.RouteTarget[i]})
+    }
+    routeTargets.EntityData.Leafs = types.NewOrderedMap()
+
+    routeTargets.EntityData.YListKeys = []string {}
+
+    return &(routeTargets.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget
+// Name of the Route Target
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Role of the router target type. The type is
+    // BgpRouteTargetRole.
+    Role interface{}
+
+    // This attribute is a key. Format of the route target. The type is
+    // BgpRouteTargetFormat.
+    Format interface{}
+
+    // two byte as or four byte as. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs.
+    TwoByteAsOrFourByteAs []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs
+
+    // ipv4 address. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address.
+    Ipv4Address []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address
+}
+
+func (routeTarget *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget) GetEntityData() *types.CommonEntityData {
+    routeTarget.EntityData.YFilter = routeTarget.YFilter
+    routeTarget.EntityData.YangName = "route-target"
+    routeTarget.EntityData.BundleName = "cisco_ios_xr"
+    routeTarget.EntityData.ParentYangName = "route-targets"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddKeyToken(routeTarget.Role, "role") + types.AddKeyToken(routeTarget.Format, "format")
+    routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routeTarget.EntityData.Children = types.NewOrderedMap()
+    routeTarget.EntityData.Children.Append("two-byte-as-or-four-byte-as", types.YChild{"TwoByteAsOrFourByteAs", nil})
+    for i := range routeTarget.TwoByteAsOrFourByteAs {
+        routeTarget.EntityData.Children.Append(types.GetSegmentPath(routeTarget.TwoByteAsOrFourByteAs[i]), types.YChild{"TwoByteAsOrFourByteAs", routeTarget.TwoByteAsOrFourByteAs[i]})
+    }
+    routeTarget.EntityData.Children.Append("ipv4-address", types.YChild{"Ipv4Address", nil})
+    for i := range routeTarget.Ipv4Address {
+        routeTarget.EntityData.Children.Append(types.GetSegmentPath(routeTarget.Ipv4Address[i]), types.YChild{"Ipv4Address", routeTarget.Ipv4Address[i]})
+    }
+    routeTarget.EntityData.Leafs = types.NewOrderedMap()
+    routeTarget.EntityData.Leafs.Append("role", types.YLeaf{"Role", routeTarget.Role})
+    routeTarget.EntityData.Leafs.Append("format", types.YLeaf{"Format", routeTarget.Format})
+
+    routeTarget.EntityData.YListKeys = []string {"Role", "Format"}
+
+    return &(routeTarget.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs
+// two byte as or four byte as
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Two byte or 4 byte AS number. The type is
+    // interface{} with range: 1..4294967295.
+    As interface{}
+
+    // This attribute is a key. AS:nn (hex or decimal format). The type is
+    // interface{} with range: 0..4294967295.
+    AsIndex interface{}
+}
+
+func (twoByteAsOrFourByteAs *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs) GetEntityData() *types.CommonEntityData {
+    twoByteAsOrFourByteAs.EntityData.YFilter = twoByteAsOrFourByteAs.YFilter
+    twoByteAsOrFourByteAs.EntityData.YangName = "two-byte-as-or-four-byte-as"
+    twoByteAsOrFourByteAs.EntityData.BundleName = "cisco_ios_xr"
+    twoByteAsOrFourByteAs.EntityData.ParentYangName = "route-target"
+    twoByteAsOrFourByteAs.EntityData.SegmentPath = "two-byte-as-or-four-byte-as" + types.AddKeyToken(twoByteAsOrFourByteAs.As, "as") + types.AddKeyToken(twoByteAsOrFourByteAs.AsIndex, "as-index")
+    twoByteAsOrFourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    twoByteAsOrFourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    twoByteAsOrFourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    twoByteAsOrFourByteAs.EntityData.Children = types.NewOrderedMap()
+    twoByteAsOrFourByteAs.EntityData.Leafs = types.NewOrderedMap()
+    twoByteAsOrFourByteAs.EntityData.Leafs.Append("as", types.YLeaf{"As", twoByteAsOrFourByteAs.As})
+    twoByteAsOrFourByteAs.EntityData.Leafs.Append("as-index", types.YLeaf{"AsIndex", twoByteAsOrFourByteAs.AsIndex})
+
+    twoByteAsOrFourByteAs.EntityData.YListKeys = []string {"As", "AsIndex"}
+
+    return &(twoByteAsOrFourByteAs.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address
+// ipv4 address
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. IPV4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // This attribute is a key. Addr index. The type is interface{} with range:
+    // 0..65535.
+    AddrIndex interface{}
+}
+
+func (ipv4Address *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address) GetEntityData() *types.CommonEntityData {
+    ipv4Address.EntityData.YFilter = ipv4Address.YFilter
+    ipv4Address.EntityData.YangName = "ipv4-address"
+    ipv4Address.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Address.EntityData.ParentYangName = "route-target"
+    ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.Address, "address") + types.AddKeyToken(ipv4Address.AddrIndex, "addr-index")
+    ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Address.EntityData.Children = types.NewOrderedMap()
+    ipv4Address.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Address.EntityData.Leafs.Append("address", types.YLeaf{"Address", ipv4Address.Address})
+    ipv4Address.EntityData.Leafs.Append("addr-index", types.YLeaf{"AddrIndex", ipv4Address.AddrIndex})
+
+    ipv4Address.EntityData.YListKeys = []string {"Address", "AddrIndex"}
+
+    return &(ipv4Address.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis
+// Bridge Domain EVPN VxLAN Network Identifier
+// Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Domain VxLAN EVPN. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni.
+    BridgeDomainvni []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni
+}
+
+func (bridgeDomainvnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis) GetEntityData() *types.CommonEntityData {
+    bridgeDomainvnis.EntityData.YFilter = bridgeDomainvnis.YFilter
+    bridgeDomainvnis.EntityData.YangName = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainvnis.EntityData.ParentYangName = "bridge-domain"
+    bridgeDomainvnis.EntityData.SegmentPath = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainvnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainvnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainvnis.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainvnis.EntityData.Children.Append("bridge-domainvni", types.YChild{"BridgeDomainvni", nil})
+    for i := range bridgeDomainvnis.BridgeDomainvni {
+        bridgeDomainvnis.EntityData.Children.Append(types.GetSegmentPath(bridgeDomainvnis.BridgeDomainvni[i]), types.YChild{"BridgeDomainvni", bridgeDomainvnis.BridgeDomainvni[i]})
+    }
+    bridgeDomainvnis.EntityData.Leafs = types.NewOrderedMap()
+
+    bridgeDomainvnis.EntityData.YListKeys = []string {}
+
+    return &(bridgeDomainvnis.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni
+// Bridge Domain VxLAN EVPN
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. VxLAN Ethernet VPN-ID. The type is interface{}
+    // with range: 1..16777215.
+    VpnId interface{}
+}
+
+func (bridgeDomainvni *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni) GetEntityData() *types.CommonEntityData {
+    bridgeDomainvni.EntityData.YFilter = bridgeDomainvni.YFilter
+    bridgeDomainvni.EntityData.YangName = "bridge-domainvni"
+    bridgeDomainvni.EntityData.BundleName = "cisco_ios_xr"
+    bridgeDomainvni.EntityData.ParentYangName = "bridge-domainvnis"
+    bridgeDomainvni.EntityData.SegmentPath = "bridge-domainvni" + types.AddKeyToken(bridgeDomainvni.VpnId, "vpn-id")
+    bridgeDomainvni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bridgeDomainvni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bridgeDomainvni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bridgeDomainvni.EntityData.Children = types.NewOrderedMap()
+    bridgeDomainvni.EntityData.Leafs = types.NewOrderedMap()
+    bridgeDomainvni.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", bridgeDomainvni.VpnId})
+
+    bridgeDomainvni.EntityData.YListKeys = []string {"VpnId"}
+
+    return &(bridgeDomainvni.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits
+// Attachment Circuit table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the Attachment Circuit. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit.
+    BdAttachmentCircuit []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit
+}
+
+func (bdAttachmentCircuits *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits) GetEntityData() *types.CommonEntityData {
+    bdAttachmentCircuits.EntityData.YFilter = bdAttachmentCircuits.YFilter
+    bdAttachmentCircuits.EntityData.YangName = "bd-attachment-circuits"
+    bdAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
+    bdAttachmentCircuits.EntityData.ParentYangName = "bridge-domain"
+    bdAttachmentCircuits.EntityData.SegmentPath = "bd-attachment-circuits"
+    bdAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdAttachmentCircuits.EntityData.Children = types.NewOrderedMap()
+    bdAttachmentCircuits.EntityData.Children.Append("bd-attachment-circuit", types.YChild{"BdAttachmentCircuit", nil})
+    for i := range bdAttachmentCircuits.BdAttachmentCircuit {
+        bdAttachmentCircuits.EntityData.Children.Append(types.GetSegmentPath(bdAttachmentCircuits.BdAttachmentCircuit[i]), types.YChild{"BdAttachmentCircuit", bdAttachmentCircuits.BdAttachmentCircuit[i]})
+    }
+    bdAttachmentCircuits.EntityData.Leafs = types.NewOrderedMap()
+
+    bdAttachmentCircuits.EntityData.YListKeys = []string {}
+
+    return &(bdAttachmentCircuits.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit
+// Name of the Attachment Circuit
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The name of the Attachment Circuit. The type is
+    // string with pattern: [a-zA-Z0-9._/-]+.
+    Name interface{}
+
+    // Enable or Disable Flooding. The type is InterfaceTrafficFlood.
+    InterfaceFlooding interface{}
+
+    // Attach a IGMP Snooping profile. The type is string with length: 1..32.
+    InterfaceIgmpSnoop interface{}
+
+    // Enable or Disable Unknown Unicast Flooding. The type is
+    // InterfaceTrafficFlood.
+    InterfaceFloodingUnknownUnicast interface{}
+
+    // Attach a MLD Snooping profile. The type is string with length: 1..32.
+    InterfaceMldSnoop interface{}
+
+    // IP Source Guard.
+    InterfaceIpSourceGuard L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceIpSourceGuard
+
+    // L2 Interface Dynamic ARP Inspection.
+    InterfaceDai L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai
+
+    // Attach a DHCP profile.
+    InterfaceProfile L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceProfile
+
+    // Storm Control.
+    BdacStormControlTypes L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes
+
+    // Split Horizon.
+    SplitHorizon L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon
+
+    // Static Mac Address Table.
+    StaticMacAddresses L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses
+
+    // MAC configuration commands.
+    InterfaceMac L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac
+}
+
+func (bdAttachmentCircuit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit) GetEntityData() *types.CommonEntityData {
+    bdAttachmentCircuit.EntityData.YFilter = bdAttachmentCircuit.YFilter
+    bdAttachmentCircuit.EntityData.YangName = "bd-attachment-circuit"
+    bdAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
+    bdAttachmentCircuit.EntityData.ParentYangName = "bd-attachment-circuits"
+    bdAttachmentCircuit.EntityData.SegmentPath = "bd-attachment-circuit" + types.AddKeyToken(bdAttachmentCircuit.Name, "name")
+    bdAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdAttachmentCircuit.EntityData.Children = types.NewOrderedMap()
+    bdAttachmentCircuit.EntityData.Children.Append("interface-ip-source-guard", types.YChild{"InterfaceIpSourceGuard", &bdAttachmentCircuit.InterfaceIpSourceGuard})
+    bdAttachmentCircuit.EntityData.Children.Append("interface-dai", types.YChild{"InterfaceDai", &bdAttachmentCircuit.InterfaceDai})
+    bdAttachmentCircuit.EntityData.Children.Append("interface-profile", types.YChild{"InterfaceProfile", &bdAttachmentCircuit.InterfaceProfile})
+    bdAttachmentCircuit.EntityData.Children.Append("bdac-storm-control-types", types.YChild{"BdacStormControlTypes", &bdAttachmentCircuit.BdacStormControlTypes})
+    bdAttachmentCircuit.EntityData.Children.Append("split-horizon", types.YChild{"SplitHorizon", &bdAttachmentCircuit.SplitHorizon})
+    bdAttachmentCircuit.EntityData.Children.Append("static-mac-addresses", types.YChild{"StaticMacAddresses", &bdAttachmentCircuit.StaticMacAddresses})
+    bdAttachmentCircuit.EntityData.Children.Append("interface-mac", types.YChild{"InterfaceMac", &bdAttachmentCircuit.InterfaceMac})
+    bdAttachmentCircuit.EntityData.Leafs = types.NewOrderedMap()
+    bdAttachmentCircuit.EntityData.Leafs.Append("name", types.YLeaf{"Name", bdAttachmentCircuit.Name})
+    bdAttachmentCircuit.EntityData.Leafs.Append("interface-flooding", types.YLeaf{"InterfaceFlooding", bdAttachmentCircuit.InterfaceFlooding})
+    bdAttachmentCircuit.EntityData.Leafs.Append("interface-igmp-snoop", types.YLeaf{"InterfaceIgmpSnoop", bdAttachmentCircuit.InterfaceIgmpSnoop})
+    bdAttachmentCircuit.EntityData.Leafs.Append("interface-flooding-unknown-unicast", types.YLeaf{"InterfaceFloodingUnknownUnicast", bdAttachmentCircuit.InterfaceFloodingUnknownUnicast})
+    bdAttachmentCircuit.EntityData.Leafs.Append("interface-mld-snoop", types.YLeaf{"InterfaceMldSnoop", bdAttachmentCircuit.InterfaceMldSnoop})
+
+    bdAttachmentCircuit.EntityData.YListKeys = []string {"Name"}
+
+    return &(bdAttachmentCircuit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceIpSourceGuard
+// IP Source Guard
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceIpSourceGuard struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Logging Type. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable L2 Interface Dynamic IP source guard. The type is interface{}.
+    Disable interface{}
+
+    // Enable IP Source Guard. The type is interface{}.
+    Enable interface{}
+}
+
+func (interfaceIpSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceIpSourceGuard) GetEntityData() *types.CommonEntityData {
+    interfaceIpSourceGuard.EntityData.YFilter = interfaceIpSourceGuard.YFilter
+    interfaceIpSourceGuard.EntityData.YangName = "interface-ip-source-guard"
+    interfaceIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
+    interfaceIpSourceGuard.EntityData.ParentYangName = "bd-attachment-circuit"
+    interfaceIpSourceGuard.EntityData.SegmentPath = "interface-ip-source-guard"
+    interfaceIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceIpSourceGuard.EntityData.Children = types.NewOrderedMap()
+    interfaceIpSourceGuard.EntityData.Leafs = types.NewOrderedMap()
+    interfaceIpSourceGuard.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", interfaceIpSourceGuard.Logging})
+    interfaceIpSourceGuard.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", interfaceIpSourceGuard.Disable})
+    interfaceIpSourceGuard.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceIpSourceGuard.Enable})
+
+    interfaceIpSourceGuard.EntityData.YListKeys = []string {}
+
+    return &(interfaceIpSourceGuard.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai
+// L2 Interface Dynamic ARP Inspection
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Logging Type. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable L2 Interface Dynamic ARP Inspection. The type is interface{}.
+    Disable interface{}
+
+    // Enable L2 Interface Dynamic ARP Inspection. The type is interface{}.
+    Enable interface{}
+
+    // Address Validation.
+    InterfaceDaiAddressValidation L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai_InterfaceDaiAddressValidation
+}
+
+func (interfaceDai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai) GetEntityData() *types.CommonEntityData {
+    interfaceDai.EntityData.YFilter = interfaceDai.YFilter
+    interfaceDai.EntityData.YangName = "interface-dai"
+    interfaceDai.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDai.EntityData.ParentYangName = "bd-attachment-circuit"
+    interfaceDai.EntityData.SegmentPath = "interface-dai"
+    interfaceDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceDai.EntityData.Children = types.NewOrderedMap()
+    interfaceDai.EntityData.Children.Append("interface-dai-address-validation", types.YChild{"InterfaceDaiAddressValidation", &interfaceDai.InterfaceDaiAddressValidation})
+    interfaceDai.EntityData.Leafs = types.NewOrderedMap()
+    interfaceDai.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", interfaceDai.Logging})
+    interfaceDai.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", interfaceDai.Disable})
+    interfaceDai.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceDai.Enable})
+
+    interfaceDai.EntityData.YListKeys = []string {}
+
+    return &(interfaceDai.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai_InterfaceDaiAddressValidation
+// Address Validation
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai_InterfaceDaiAddressValidation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 Verification. The type is L2vpnVerification.
+    Ipv4Verification interface{}
+
+    // Destination MAC Verification. The type is L2vpnVerification.
+    DestinationMacVerification interface{}
+
+    // Source MAC Verification. The type is L2vpnVerification.
+    SourceMacVerification interface{}
+
+    // Enable Address Validation. The type is interface{}.
+    Enable interface{}
+}
+
+func (interfaceDaiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceDai_InterfaceDaiAddressValidation) GetEntityData() *types.CommonEntityData {
+    interfaceDaiAddressValidation.EntityData.YFilter = interfaceDaiAddressValidation.YFilter
+    interfaceDaiAddressValidation.EntityData.YangName = "interface-dai-address-validation"
+    interfaceDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDaiAddressValidation.EntityData.ParentYangName = "interface-dai"
+    interfaceDaiAddressValidation.EntityData.SegmentPath = "interface-dai-address-validation"
+    interfaceDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceDaiAddressValidation.EntityData.Children = types.NewOrderedMap()
+    interfaceDaiAddressValidation.EntityData.Leafs = types.NewOrderedMap()
+    interfaceDaiAddressValidation.EntityData.Leafs.Append("ipv4-verification", types.YLeaf{"Ipv4Verification", interfaceDaiAddressValidation.Ipv4Verification})
+    interfaceDaiAddressValidation.EntityData.Leafs.Append("destination-mac-verification", types.YLeaf{"DestinationMacVerification", interfaceDaiAddressValidation.DestinationMacVerification})
+    interfaceDaiAddressValidation.EntityData.Leafs.Append("source-mac-verification", types.YLeaf{"SourceMacVerification", interfaceDaiAddressValidation.SourceMacVerification})
+    interfaceDaiAddressValidation.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceDaiAddressValidation.Enable})
+
+    interfaceDaiAddressValidation.EntityData.YListKeys = []string {}
+
+    return &(interfaceDaiAddressValidation.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceProfile
+// Attach a DHCP profile
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceProfile struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the snooping profile. The type is InterfaceProfile.
+    ProfileId interface{}
+
+    // Disable DHCP snooping. The type is string.
+    DhcpSnoopingId interface{}
+}
+
+func (interfaceProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceProfile) GetEntityData() *types.CommonEntityData {
+    interfaceProfile.EntityData.YFilter = interfaceProfile.YFilter
+    interfaceProfile.EntityData.YangName = "interface-profile"
+    interfaceProfile.EntityData.BundleName = "cisco_ios_xr"
+    interfaceProfile.EntityData.ParentYangName = "bd-attachment-circuit"
+    interfaceProfile.EntityData.SegmentPath = "interface-profile"
+    interfaceProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceProfile.EntityData.Children = types.NewOrderedMap()
+    interfaceProfile.EntityData.Leafs = types.NewOrderedMap()
+    interfaceProfile.EntityData.Leafs.Append("profile-id", types.YLeaf{"ProfileId", interfaceProfile.ProfileId})
+    interfaceProfile.EntityData.Leafs.Append("dhcp-snooping-id", types.YLeaf{"DhcpSnoopingId", interfaceProfile.DhcpSnoopingId})
+
+    interfaceProfile.EntityData.YListKeys = []string {}
+
+    return &(interfaceProfile.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes
+// Storm Control
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Storm Control Type. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType.
+    BdacStormControlType []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType
+}
+
+func (bdacStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes) GetEntityData() *types.CommonEntityData {
+    bdacStormControlTypes.EntityData.YFilter = bdacStormControlTypes.YFilter
+    bdacStormControlTypes.EntityData.YangName = "bdac-storm-control-types"
+    bdacStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
+    bdacStormControlTypes.EntityData.ParentYangName = "bd-attachment-circuit"
+    bdacStormControlTypes.EntityData.SegmentPath = "bdac-storm-control-types"
+    bdacStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdacStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdacStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdacStormControlTypes.EntityData.Children = types.NewOrderedMap()
+    bdacStormControlTypes.EntityData.Children.Append("bdac-storm-control-type", types.YChild{"BdacStormControlType", nil})
+    for i := range bdacStormControlTypes.BdacStormControlType {
+        bdacStormControlTypes.EntityData.Children.Append(types.GetSegmentPath(bdacStormControlTypes.BdacStormControlType[i]), types.YChild{"BdacStormControlType", bdacStormControlTypes.BdacStormControlType[i]})
+    }
+    bdacStormControlTypes.EntityData.Leafs = types.NewOrderedMap()
+
+    bdacStormControlTypes.EntityData.YListKeys = []string {}
+
+    return &(bdacStormControlTypes.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType
+// Storm Control Type
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Storm Control Type. The type is StormControl.
+    Sctype interface{}
+
+    // Specify units for Storm Control Configuration.
+    StormControlUnit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType_StormControlUnit
+}
+
+func (bdacStormControlType *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType) GetEntityData() *types.CommonEntityData {
+    bdacStormControlType.EntityData.YFilter = bdacStormControlType.YFilter
+    bdacStormControlType.EntityData.YangName = "bdac-storm-control-type"
+    bdacStormControlType.EntityData.BundleName = "cisco_ios_xr"
+    bdacStormControlType.EntityData.ParentYangName = "bdac-storm-control-types"
+    bdacStormControlType.EntityData.SegmentPath = "bdac-storm-control-type" + types.AddKeyToken(bdacStormControlType.Sctype, "sctype")
+    bdacStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdacStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdacStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdacStormControlType.EntityData.Children = types.NewOrderedMap()
+    bdacStormControlType.EntityData.Children.Append("storm-control-unit", types.YChild{"StormControlUnit", &bdacStormControlType.StormControlUnit})
+    bdacStormControlType.EntityData.Leafs = types.NewOrderedMap()
+    bdacStormControlType.EntityData.Leafs.Append("sctype", types.YLeaf{"Sctype", bdacStormControlType.Sctype})
+
+    bdacStormControlType.EntityData.YListKeys = []string {"Sctype"}
+
+    return &(bdacStormControlType.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType_StormControlUnit
+// Specify units for Storm Control Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType_StormControlUnit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 64..1280000. Units are
+    // kbit/s.
+    KbitsPerSec interface{}
+
+    // Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured
+    // together. The type is interface{} with range: 1..160000. Units are
+    // packet/s.
+    PktsPerSec interface{}
+}
+
+func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType_StormControlUnit) GetEntityData() *types.CommonEntityData {
+    stormControlUnit.EntityData.YFilter = stormControlUnit.YFilter
+    stormControlUnit.EntityData.YangName = "storm-control-unit"
+    stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
+    stormControlUnit.EntityData.ParentYangName = "bdac-storm-control-type"
+    stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stormControlUnit.EntityData.Children = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs = types.NewOrderedMap()
+    stormControlUnit.EntityData.Leafs.Append("kbits-per-sec", types.YLeaf{"KbitsPerSec", stormControlUnit.KbitsPerSec})
+    stormControlUnit.EntityData.Leafs.Append("pkts-per-sec", types.YLeaf{"PktsPerSec", stormControlUnit.PktsPerSec})
+
+    stormControlUnit.EntityData.YListKeys = []string {}
+
+    return &(stormControlUnit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon
+// Split Horizon
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Split Horizon Group ID.
+    SplitHorizonGroupId L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon_SplitHorizonGroupId
+}
+
+func (splitHorizon *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon) GetEntityData() *types.CommonEntityData {
+    splitHorizon.EntityData.YFilter = splitHorizon.YFilter
+    splitHorizon.EntityData.YangName = "split-horizon"
+    splitHorizon.EntityData.BundleName = "cisco_ios_xr"
+    splitHorizon.EntityData.ParentYangName = "bd-attachment-circuit"
+    splitHorizon.EntityData.SegmentPath = "split-horizon"
+    splitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    splitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    splitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    splitHorizon.EntityData.Children = types.NewOrderedMap()
+    splitHorizon.EntityData.Children.Append("split-horizon-group-id", types.YChild{"SplitHorizonGroupId", &splitHorizon.SplitHorizonGroupId})
+    splitHorizon.EntityData.Leafs = types.NewOrderedMap()
+
+    splitHorizon.EntityData.YListKeys = []string {}
+
+    return &(splitHorizon.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon_SplitHorizonGroupId
+// Split Horizon Group ID
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon_SplitHorizonGroupId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable split horizon group. The type is interface{}.
+    Enable interface{}
+}
+
+func (splitHorizonGroupId *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_SplitHorizon_SplitHorizonGroupId) GetEntityData() *types.CommonEntityData {
+    splitHorizonGroupId.EntityData.YFilter = splitHorizonGroupId.YFilter
+    splitHorizonGroupId.EntityData.YangName = "split-horizon-group-id"
+    splitHorizonGroupId.EntityData.BundleName = "cisco_ios_xr"
+    splitHorizonGroupId.EntityData.ParentYangName = "split-horizon"
+    splitHorizonGroupId.EntityData.SegmentPath = "split-horizon-group-id"
+    splitHorizonGroupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    splitHorizonGroupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    splitHorizonGroupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    splitHorizonGroupId.EntityData.Children = types.NewOrderedMap()
+    splitHorizonGroupId.EntityData.Leafs = types.NewOrderedMap()
+    splitHorizonGroupId.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", splitHorizonGroupId.Enable})
+
+    splitHorizonGroupId.EntityData.YListKeys = []string {}
+
+    return &(splitHorizonGroupId.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses
+// Static Mac Address Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static Mac Address Configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress.
+    StaticMacAddress []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress
+}
+
+func (staticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses) GetEntityData() *types.CommonEntityData {
+    staticMacAddresses.EntityData.YFilter = staticMacAddresses.YFilter
+    staticMacAddresses.EntityData.YangName = "static-mac-addresses"
+    staticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
+    staticMacAddresses.EntityData.ParentYangName = "bd-attachment-circuit"
+    staticMacAddresses.EntityData.SegmentPath = "static-mac-addresses"
+    staticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    staticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    staticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    staticMacAddresses.EntityData.Children = types.NewOrderedMap()
+    staticMacAddresses.EntityData.Children.Append("static-mac-address", types.YChild{"StaticMacAddress", nil})
+    for i := range staticMacAddresses.StaticMacAddress {
+        staticMacAddresses.EntityData.Children.Append(types.GetSegmentPath(staticMacAddresses.StaticMacAddress[i]), types.YChild{"StaticMacAddress", staticMacAddresses.StaticMacAddress[i]})
+    }
+    staticMacAddresses.EntityData.Leafs = types.NewOrderedMap()
+
+    staticMacAddresses.EntityData.YListKeys = []string {}
+
+    return &(staticMacAddresses.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress
+// Static Mac Address Configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Static MAC address. The type is string with
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    Address interface{}
+}
+
+func (staticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress) GetEntityData() *types.CommonEntityData {
+    staticMacAddress.EntityData.YFilter = staticMacAddress.YFilter
+    staticMacAddress.EntityData.YangName = "static-mac-address"
+    staticMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    staticMacAddress.EntityData.ParentYangName = "static-mac-addresses"
+    staticMacAddress.EntityData.SegmentPath = "static-mac-address" + types.AddKeyToken(staticMacAddress.Address, "address")
+    staticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    staticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    staticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    staticMacAddress.EntityData.Children = types.NewOrderedMap()
+    staticMacAddress.EntityData.Leafs = types.NewOrderedMap()
+    staticMacAddress.EntityData.Leafs.Append("address", types.YLeaf{"Address", staticMacAddress.Address})
+
+    staticMacAddress.EntityData.YListKeys = []string {"Address"}
+
+    return &(staticMacAddress.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac
+// MAC configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable/Disable MAC Flush When Port goes down. The type is PortDownFlush.
+    InterfaceMacPortDownFlush interface{}
+
+    // Enable Mac Learning. The type is MacLearn.
+    InterfaceMacLearning interface{}
+
+    // MAC-Aging configuration commands.
+    InterfaceMacAging L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacAging
+
+    // MAC Secure.
+    InterfaceMacSecure L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure
+
+    // MAC-Limit configuration commands.
+    InterfaceMacLimit L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacLimit
+}
+
+func (interfaceMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac) GetEntityData() *types.CommonEntityData {
+    interfaceMac.EntityData.YFilter = interfaceMac.YFilter
+    interfaceMac.EntityData.YangName = "interface-mac"
+    interfaceMac.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMac.EntityData.ParentYangName = "bd-attachment-circuit"
+    interfaceMac.EntityData.SegmentPath = "interface-mac"
+    interfaceMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceMac.EntityData.Children = types.NewOrderedMap()
+    interfaceMac.EntityData.Children.Append("interface-mac-aging", types.YChild{"InterfaceMacAging", &interfaceMac.InterfaceMacAging})
+    interfaceMac.EntityData.Children.Append("interface-mac-secure", types.YChild{"InterfaceMacSecure", &interfaceMac.InterfaceMacSecure})
+    interfaceMac.EntityData.Children.Append("interface-mac-limit", types.YChild{"InterfaceMacLimit", &interfaceMac.InterfaceMacLimit})
+    interfaceMac.EntityData.Leafs = types.NewOrderedMap()
+    interfaceMac.EntityData.Leafs.Append("interface-mac-port-down-flush", types.YLeaf{"InterfaceMacPortDownFlush", interfaceMac.InterfaceMacPortDownFlush})
+    interfaceMac.EntityData.Leafs.Append("interface-mac-learning", types.YLeaf{"InterfaceMacLearning", interfaceMac.InterfaceMacLearning})
+
+    interfaceMac.EntityData.YListKeys = []string {}
+
+    return &(interfaceMac.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacAging
+// MAC-Aging configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacAging struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mac Aging Time. The type is interface{} with range: 300..30000.
+    InterfaceMacAgingTime interface{}
+
+    // MAC address aging type. The type is MacAging.
+    InterfaceMacAgingType interface{}
+}
+
+func (interfaceMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacAging) GetEntityData() *types.CommonEntityData {
+    interfaceMacAging.EntityData.YFilter = interfaceMacAging.YFilter
+    interfaceMacAging.EntityData.YangName = "interface-mac-aging"
+    interfaceMacAging.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMacAging.EntityData.ParentYangName = "interface-mac"
+    interfaceMacAging.EntityData.SegmentPath = "interface-mac-aging"
+    interfaceMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceMacAging.EntityData.Children = types.NewOrderedMap()
+    interfaceMacAging.EntityData.Leafs = types.NewOrderedMap()
+    interfaceMacAging.EntityData.Leafs.Append("interface-mac-aging-time", types.YLeaf{"InterfaceMacAgingTime", interfaceMacAging.InterfaceMacAgingTime})
+    interfaceMacAging.EntityData.Leafs.Append("interface-mac-aging-type", types.YLeaf{"InterfaceMacAgingType", interfaceMacAging.InterfaceMacAgingType})
+
+    interfaceMacAging.EntityData.YListKeys = []string {}
+
+    return &(interfaceMacAging.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure
+// MAC Secure
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MAC Secure Logging. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable L2 Interface MAC Secure. The type is interface{}.
+    Disable interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
+}
+
+func (interfaceMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure) GetEntityData() *types.CommonEntityData {
+    interfaceMacSecure.EntityData.YFilter = interfaceMacSecure.YFilter
+    interfaceMacSecure.EntityData.YangName = "interface-mac-secure"
+    interfaceMacSecure.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMacSecure.EntityData.ParentYangName = "interface-mac"
+    interfaceMacSecure.EntityData.SegmentPath = "interface-mac-secure"
+    interfaceMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceMacSecure.EntityData.Children = types.NewOrderedMap()
+    interfaceMacSecure.EntityData.Leafs = types.NewOrderedMap()
+    interfaceMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", interfaceMacSecure.Logging})
+    interfaceMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", interfaceMacSecure.Disable})
+    interfaceMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", interfaceMacSecure.Action})
+    interfaceMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceMacSecure.Enable})
+
+    interfaceMacSecure.EntityData.YListKeys = []string {}
+
+    return &(interfaceMacSecure.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacLimit
+// MAC-Limit configuration commands
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of MAC addresses on an Interface after which MAC limit action is
+    // taken. The type is interface{} with range: 0..4294967295.
+    InterfaceMacLimitMax interface{}
+
+    // MAC address limit notification action in a Interface. The type is
+    // MacNotification.
+    InterfaceMacLimitNotif interface{}
+
+    // Interface MAC address limit enforcement action. The type is MacLimitAction.
+    InterfaceMacLimitAction interface{}
+}
+
+func (interfaceMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacLimit) GetEntityData() *types.CommonEntityData {
+    interfaceMacLimit.EntityData.YFilter = interfaceMacLimit.YFilter
+    interfaceMacLimit.EntityData.YangName = "interface-mac-limit"
+    interfaceMacLimit.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMacLimit.EntityData.ParentYangName = "interface-mac"
+    interfaceMacLimit.EntityData.SegmentPath = "interface-mac-limit"
+    interfaceMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceMacLimit.EntityData.Children = types.NewOrderedMap()
+    interfaceMacLimit.EntityData.Leafs = types.NewOrderedMap()
+    interfaceMacLimit.EntityData.Leafs.Append("interface-mac-limit-max", types.YLeaf{"InterfaceMacLimitMax", interfaceMacLimit.InterfaceMacLimitMax})
+    interfaceMacLimit.EntityData.Leafs.Append("interface-mac-limit-notif", types.YLeaf{"InterfaceMacLimitNotif", interfaceMacLimit.InterfaceMacLimitNotif})
+    interfaceMacLimit.EntityData.Leafs.Append("interface-mac-limit-action", types.YLeaf{"InterfaceMacLimitAction", interfaceMacLimit.InterfaceMacLimitAction})
+
+    interfaceMacLimit.EntityData.YListKeys = []string {}
+
+    return &(interfaceMacLimit.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns
+// List of EVPN pseudowires
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EVPN Pseudowire configuration. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn.
+    BdPseudowireEvpn []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn
+}
+
+func (bdPseudowireEvpns *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns) GetEntityData() *types.CommonEntityData {
+    bdPseudowireEvpns.EntityData.YFilter = bdPseudowireEvpns.YFilter
+    bdPseudowireEvpns.EntityData.YangName = "bd-pseudowire-evpns"
+    bdPseudowireEvpns.EntityData.BundleName = "cisco_ios_xr"
+    bdPseudowireEvpns.EntityData.ParentYangName = "bridge-domain"
+    bdPseudowireEvpns.EntityData.SegmentPath = "bd-pseudowire-evpns"
+    bdPseudowireEvpns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPseudowireEvpns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPseudowireEvpns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPseudowireEvpns.EntityData.Children = types.NewOrderedMap()
+    bdPseudowireEvpns.EntityData.Children.Append("bd-pseudowire-evpn", types.YChild{"BdPseudowireEvpn", nil})
+    for i := range bdPseudowireEvpns.BdPseudowireEvpn {
+        bdPseudowireEvpns.EntityData.Children.Append(types.GetSegmentPath(bdPseudowireEvpns.BdPseudowireEvpn[i]), types.YChild{"BdPseudowireEvpn", bdPseudowireEvpns.BdPseudowireEvpn[i]})
+    }
+    bdPseudowireEvpns.EntityData.Leafs = types.NewOrderedMap()
+
+    bdPseudowireEvpns.EntityData.YListKeys = []string {}
+
+    return &(bdPseudowireEvpns.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn
+// EVPN Pseudowire configuration
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Ethernet VPN ID. The type is interface{} with
+    // range: 1..65534.
+    Eviid interface{}
+
+    // This attribute is a key. AC ID. The type is interface{} with range:
+    // 1..4294967295.
+    Acid interface{}
+}
+
+func (bdPseudowireEvpn *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn) GetEntityData() *types.CommonEntityData {
+    bdPseudowireEvpn.EntityData.YFilter = bdPseudowireEvpn.YFilter
+    bdPseudowireEvpn.EntityData.YangName = "bd-pseudowire-evpn"
+    bdPseudowireEvpn.EntityData.BundleName = "cisco_ios_xr"
+    bdPseudowireEvpn.EntityData.ParentYangName = "bd-pseudowire-evpns"
+    bdPseudowireEvpn.EntityData.SegmentPath = "bd-pseudowire-evpn" + types.AddKeyToken(bdPseudowireEvpn.Eviid, "eviid") + types.AddKeyToken(bdPseudowireEvpn.Acid, "acid")
+    bdPseudowireEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdPseudowireEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdPseudowireEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bdPseudowireEvpn.EntityData.Children = types.NewOrderedMap()
+    bdPseudowireEvpn.EntityData.Leafs = types.NewOrderedMap()
+    bdPseudowireEvpn.EntityData.Leafs.Append("eviid", types.YLeaf{"Eviid", bdPseudowireEvpn.Eviid})
+    bdPseudowireEvpn.EntityData.Leafs.Append("acid", types.YLeaf{"Acid", bdPseudowireEvpn.Acid})
+
+    bdPseudowireEvpn.EntityData.YListKeys = []string {"Eviid", "Acid"}
+
+    return &(bdPseudowireEvpn.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_IpSourceGuard
+// IP Source Guard
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_IpSourceGuard struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Logging. The type is interface{}.
+    Logging interface{}
+
+    // Enable IP Source Guard. The type is interface{}.
+    Enable interface{}
+}
+
+func (ipSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_IpSourceGuard) GetEntityData() *types.CommonEntityData {
+    ipSourceGuard.EntityData.YFilter = ipSourceGuard.YFilter
+    ipSourceGuard.EntityData.YangName = "ip-source-guard"
+    ipSourceGuard.EntityData.BundleName = "cisco_ios_xr"
+    ipSourceGuard.EntityData.ParentYangName = "bridge-domain"
+    ipSourceGuard.EntityData.SegmentPath = "ip-source-guard"
+    ipSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSourceGuard.EntityData.Children = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs = types.NewOrderedMap()
+    ipSourceGuard.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", ipSourceGuard.Logging})
+    ipSourceGuard.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ipSourceGuard.Enable})
+
+    ipSourceGuard.EntityData.YListKeys = []string {}
+
+    return &(ipSourceGuard.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai
+// Dynamic ARP Inspection
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Logging. The type is interface{}.
+    Logging interface{}
+
+    // Enable Dynamic ARP Inspection. The type is interface{}.
+    Enable interface{}
+
+    // Address Validation.
+    DaiAddressValidation L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai_DaiAddressValidation
+}
+
+func (dai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai) GetEntityData() *types.CommonEntityData {
+    dai.EntityData.YFilter = dai.YFilter
+    dai.EntityData.YangName = "dai"
+    dai.EntityData.BundleName = "cisco_ios_xr"
+    dai.EntityData.ParentYangName = "bridge-domain"
+    dai.EntityData.SegmentPath = "dai"
+    dai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dai.EntityData.Children = types.NewOrderedMap()
+    dai.EntityData.Children.Append("dai-address-validation", types.YChild{"DaiAddressValidation", &dai.DaiAddressValidation})
+    dai.EntityData.Leafs = types.NewOrderedMap()
+    dai.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", dai.Logging})
+    dai.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", dai.Enable})
+
+    dai.EntityData.YListKeys = []string {}
+
+    return &(dai.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai_DaiAddressValidation
+// Address Validation
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai_DaiAddressValidation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable IPv4 Verification. The type is interface{}.
+    Ipv4Verification interface{}
+
+    // Enable Destination MAC Verification. The type is interface{}.
+    DestinationMacVerification interface{}
+
+    // Enable Source MAC Verification. The type is interface{}.
+    SourceMacVerification interface{}
+
+    // Enable Address Validation. The type is interface{}.
+    Enable interface{}
+}
+
+func (daiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai_DaiAddressValidation) GetEntityData() *types.CommonEntityData {
+    daiAddressValidation.EntityData.YFilter = daiAddressValidation.YFilter
+    daiAddressValidation.EntityData.YangName = "dai-address-validation"
+    daiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
+    daiAddressValidation.EntityData.ParentYangName = "dai"
+    daiAddressValidation.EntityData.SegmentPath = "dai-address-validation"
+    daiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    daiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    daiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    daiAddressValidation.EntityData.Children = types.NewOrderedMap()
+    daiAddressValidation.EntityData.Leafs = types.NewOrderedMap()
+    daiAddressValidation.EntityData.Leafs.Append("ipv4-verification", types.YLeaf{"Ipv4Verification", daiAddressValidation.Ipv4Verification})
+    daiAddressValidation.EntityData.Leafs.Append("destination-mac-verification", types.YLeaf{"DestinationMacVerification", daiAddressValidation.DestinationMacVerification})
+    daiAddressValidation.EntityData.Leafs.Append("source-mac-verification", types.YLeaf{"SourceMacVerification", daiAddressValidation.SourceMacVerification})
+    daiAddressValidation.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", daiAddressValidation.Enable})
+
+    daiAddressValidation.EntityData.YListKeys = []string {}
+
+    return &(daiAddressValidation.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces
+// Bridge Domain Routed Interface Table
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bridge Domain Routed Interface. The type is slice of
+    // L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface.
+    RoutedInterface []*L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface
+}
+
+func (routedInterfaces *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces) GetEntityData() *types.CommonEntityData {
+    routedInterfaces.EntityData.YFilter = routedInterfaces.YFilter
+    routedInterfaces.EntityData.YangName = "routed-interfaces"
+    routedInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    routedInterfaces.EntityData.ParentYangName = "bridge-domain"
+    routedInterfaces.EntityData.SegmentPath = "routed-interfaces"
+    routedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routedInterfaces.EntityData.Children = types.NewOrderedMap()
+    routedInterfaces.EntityData.Children.Append("routed-interface", types.YChild{"RoutedInterface", nil})
+    for i := range routedInterfaces.RoutedInterface {
+        routedInterfaces.EntityData.Children.Append(types.GetSegmentPath(routedInterfaces.RoutedInterface[i]), types.YChild{"RoutedInterface", routedInterfaces.RoutedInterface[i]})
+    }
+    routedInterfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    routedInterfaces.EntityData.YListKeys = []string {}
+
+    return &(routedInterfaces.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface
+// Bridge Domain Routed Interface
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The name of the Routed Interface. The type is
+    // string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+
+    // Routed interface split horizon group.
+    RoutedInterfaceSplitHorizonGroup L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface_RoutedInterfaceSplitHorizonGroup
+}
+
+func (routedInterface *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface) GetEntityData() *types.CommonEntityData {
+    routedInterface.EntityData.YFilter = routedInterface.YFilter
+    routedInterface.EntityData.YangName = "routed-interface"
+    routedInterface.EntityData.BundleName = "cisco_ios_xr"
+    routedInterface.EntityData.ParentYangName = "routed-interfaces"
+    routedInterface.EntityData.SegmentPath = "routed-interface" + types.AddKeyToken(routedInterface.InterfaceName, "interface-name")
+    routedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routedInterface.EntityData.Children = types.NewOrderedMap()
+    routedInterface.EntityData.Children.Append("routed-interface-split-horizon-group", types.YChild{"RoutedInterfaceSplitHorizonGroup", &routedInterface.RoutedInterfaceSplitHorizonGroup})
+    routedInterface.EntityData.Leafs = types.NewOrderedMap()
+    routedInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", routedInterface.InterfaceName})
+
+    routedInterface.EntityData.YListKeys = []string {"InterfaceName"}
+
+    return &(routedInterface.EntityData)
+}
+
+// L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface_RoutedInterfaceSplitHorizonGroup
+// Routed interface split horizon group
+type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface_RoutedInterfaceSplitHorizonGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure BVI under SHG 1. The type is interface{}.
+    RoutedInterfaceSplitHorizonGroupCore interface{}
+}
+
+func (routedInterfaceSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface_RoutedInterfaceSplitHorizonGroup) GetEntityData() *types.CommonEntityData {
+    routedInterfaceSplitHorizonGroup.EntityData.YFilter = routedInterfaceSplitHorizonGroup.YFilter
+    routedInterfaceSplitHorizonGroup.EntityData.YangName = "routed-interface-split-horizon-group"
+    routedInterfaceSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
+    routedInterfaceSplitHorizonGroup.EntityData.ParentYangName = "routed-interface"
+    routedInterfaceSplitHorizonGroup.EntityData.SegmentPath = "routed-interface-split-horizon-group"
+    routedInterfaceSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routedInterfaceSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routedInterfaceSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    routedInterfaceSplitHorizonGroup.EntityData.Children = types.NewOrderedMap()
+    routedInterfaceSplitHorizonGroup.EntityData.Leafs = types.NewOrderedMap()
+    routedInterfaceSplitHorizonGroup.EntityData.Leafs.Append("routed-interface-split-horizon-group-core", types.YLeaf{"RoutedInterfaceSplitHorizonGroupCore", routedInterfaceSplitHorizonGroup.RoutedInterfaceSplitHorizonGroupCore})
+
+    routedInterfaceSplitHorizonGroup.EntityData.YListKeys = []string {}
+
+    return &(routedInterfaceSplitHorizonGroup.EntityData)
+}
+
 // L2vpn_Database_FlexibleXconnectServiceTable
 // List of Flexible XConnect Services
 type L2vpn_Database_FlexibleXconnectServiceTable struct {
@@ -8466,7 +13381,7 @@ type L2vpn_Database_FlexibleXconnectServiceTable_VlanUnawareFlexibleXconnectServ
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: [a-zA-Z0-9./-]+.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 }
 
@@ -8664,7 +13579,7 @@ type L2vpn_Database_FlexibleXconnectServiceTable_VlanAwareFlexibleXconnectServic
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: [a-zA-Z0-9./-]+.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 }
 
@@ -8833,7 +13748,7 @@ type L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedundancyGroup_IccpInte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Secondary VLAN range, in the form of 1-3,5 ,8-11. The type is string.
@@ -9296,7 +14211,7 @@ type GenericInterfaceLists_GenericInterfaceList_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable interface. The type is interface{}.
@@ -9366,7 +14281,7 @@ type Evpn_EvpnTables struct {
     EviCostOut interface{}
 
     // Configure EVPN router-id implicitly through Loopback Interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     EvpnSourceInterface interface{}
 
     // Cost-in node after given time (seconds) on startup timer. The type is
@@ -9637,6 +14552,9 @@ type Evpn_EvpnTables_EvpnEvis_EvpnEvi struct {
     // Enable Autodiscovery BGP in EVPN Instance.
     EvpnEviBgpAutoDiscovery Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery
 
+    // Enter Multicast configuration submode.
+    EviMulticast Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviMulticast
+
     // Enter Advertise local MAC-only routes configuration submode.
     EviAdvertiseMac Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviAdvertiseMac
 }
@@ -9654,6 +14572,7 @@ func (evpnEvi *Evpn_EvpnTables_EvpnEvis_EvpnEvi) GetEntityData() *types.CommonEn
     evpnEvi.EntityData.Children = types.NewOrderedMap()
     evpnEvi.EntityData.Children.Append("evi-load-balancing", types.YChild{"EviLoadBalancing", &evpnEvi.EviLoadBalancing})
     evpnEvi.EntityData.Children.Append("evpn-evi-bgp-auto-discovery", types.YChild{"EvpnEviBgpAutoDiscovery", &evpnEvi.EvpnEviBgpAutoDiscovery})
+    evpnEvi.EntityData.Children.Append("evi-multicast", types.YChild{"EviMulticast", &evpnEvi.EviMulticast})
     evpnEvi.EntityData.Children.Append("evi-advertise-mac", types.YChild{"EviAdvertiseMac", &evpnEvi.EviAdvertiseMac})
     evpnEvi.EntityData.Leafs = types.NewOrderedMap()
     evpnEvi.EntityData.Leafs.Append("eviid", types.YLeaf{"Eviid", evpnEvi.Eviid})
@@ -9981,6 +14900,39 @@ func (evpnRouteTargetIpv4Address *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAut
     return &(evpnRouteTargetIpv4Address.EntityData)
 }
 
+// Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviMulticast
+// Enter Multicast configuration submode
+type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviMulticast struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Multicast. The type is interface{}.
+    Enable interface{}
+
+    // Enable Multicast source connectivity. The type is interface{}.
+    EviMcastSourceConnected interface{}
+}
+
+func (eviMulticast *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviMulticast) GetEntityData() *types.CommonEntityData {
+    eviMulticast.EntityData.YFilter = eviMulticast.YFilter
+    eviMulticast.EntityData.YangName = "evi-multicast"
+    eviMulticast.EntityData.BundleName = "cisco_ios_xr"
+    eviMulticast.EntityData.ParentYangName = "evpn-evi"
+    eviMulticast.EntityData.SegmentPath = "evi-multicast"
+    eviMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    eviMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    eviMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    eviMulticast.EntityData.Children = types.NewOrderedMap()
+    eviMulticast.EntityData.Leafs = types.NewOrderedMap()
+    eviMulticast.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", eviMulticast.Enable})
+    eviMulticast.EntityData.Leafs.Append("evi-mcast-source-connected", types.YLeaf{"EviMcastSourceConnected", eviMulticast.EviMcastSourceConnected})
+
+    eviMulticast.EntityData.YListKeys = []string {}
+
+    return &(eviMulticast.EntityData)
+}
+
 // Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviAdvertiseMac
 // Enter Advertise local MAC-only routes
 // configuration submode
@@ -10144,6 +15096,10 @@ type Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_EvpnVirtualEther
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
+    // Ethernet-Segment Service Carving mode. The type is
+    // EthernetSegmentServiceCarving.
+    ServiceCarvingType interface{}
+
     // Ethernet segment identifier.
     Identifier Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_EvpnVirtualEthernetSegment_Identifier
 
@@ -10167,6 +15123,7 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirt
     evpnVirtualEthernetSegment.EntityData.Leafs = types.NewOrderedMap()
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnVirtualEthernetSegment.Enable})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", evpnVirtualEthernetSegment.EsImportRouteTarget})
+    evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", evpnVirtualEthernetSegment.ServiceCarvingType})
 
     evpnVirtualEthernetSegment.EntityData.YListKeys = []string {}
 
@@ -10518,7 +15475,7 @@ type Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCoreInterfaces_EvpnGroupCoreI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the EVPN Group core interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10581,8 +15538,8 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. EVPN Instance ID. The type is interface{} with
-    // range: 1..65534.
-    Eviid interface{}
+    // range: 1..4294967295.
+    VpnId interface{}
 
     // This attribute is a key. EVPN Instance Encapsulation. The type is
     // EvpnEncapsulation.
@@ -10616,6 +15573,9 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance struct {
     // Enter Advertise local MAC-only routes configuration submode.
     EvpnInstanceAdvertiseMac Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceAdvertiseMac
 
+    // Enter Multicast configuration submode.
+    EvpnInstanceMulticast Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceMulticast
+
     // Enter Loadbalancing configuration submode.
     EvpnInstanceLoadBalancing Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceLoadBalancing
 }
@@ -10625,7 +15585,7 @@ func (evpnInstance *Evpn_EvpnTables_EvpnInstances_EvpnInstance) GetEntityData() 
     evpnInstance.EntityData.YangName = "evpn-instance"
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "evpn-instances"
-    evpnInstance.EntityData.SegmentPath = "evpn-instance" + types.AddKeyToken(evpnInstance.Eviid, "eviid") + types.AddKeyToken(evpnInstance.Encapsulation, "encapsulation") + types.AddKeyToken(evpnInstance.Side, "side")
+    evpnInstance.EntityData.SegmentPath = "evpn-instance" + types.AddKeyToken(evpnInstance.VpnId, "vpn-id") + types.AddKeyToken(evpnInstance.Encapsulation, "encapsulation") + types.AddKeyToken(evpnInstance.Side, "side")
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10633,9 +15593,10 @@ func (evpnInstance *Evpn_EvpnTables_EvpnInstances_EvpnInstance) GetEntityData() 
     evpnInstance.EntityData.Children = types.NewOrderedMap()
     evpnInstance.EntityData.Children.Append("evpn-instance-bgp-auto-discovery", types.YChild{"EvpnInstanceBgpAutoDiscovery", &evpnInstance.EvpnInstanceBgpAutoDiscovery})
     evpnInstance.EntityData.Children.Append("evpn-instance-advertise-mac", types.YChild{"EvpnInstanceAdvertiseMac", &evpnInstance.EvpnInstanceAdvertiseMac})
+    evpnInstance.EntityData.Children.Append("evpn-instance-multicast", types.YChild{"EvpnInstanceMulticast", &evpnInstance.EvpnInstanceMulticast})
     evpnInstance.EntityData.Children.Append("evpn-instance-load-balancing", types.YChild{"EvpnInstanceLoadBalancing", &evpnInstance.EvpnInstanceLoadBalancing})
     evpnInstance.EntityData.Leafs = types.NewOrderedMap()
-    evpnInstance.EntityData.Leafs.Append("eviid", types.YLeaf{"Eviid", evpnInstance.Eviid})
+    evpnInstance.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", evpnInstance.VpnId})
     evpnInstance.EntityData.Leafs.Append("encapsulation", types.YLeaf{"Encapsulation", evpnInstance.Encapsulation})
     evpnInstance.EntityData.Leafs.Append("side", types.YLeaf{"Side", evpnInstance.Side})
     evpnInstance.EntityData.Leafs.Append("evi-reorig-disable", types.YLeaf{"EviReorigDisable", evpnInstance.EviReorigDisable})
@@ -10645,7 +15606,7 @@ func (evpnInstance *Evpn_EvpnTables_EvpnInstances_EvpnInstance) GetEntityData() 
     evpnInstance.EntityData.Leafs.Append("evi-unknown-unicast-flooding-disable", types.YLeaf{"EviUnknownUnicastFloodingDisable", evpnInstance.EviUnknownUnicastFloodingDisable})
     evpnInstance.EntityData.Leafs.Append("evpn-evi-cw-disable", types.YLeaf{"EvpnEviCwDisable", evpnInstance.EvpnEviCwDisable})
 
-    evpnInstance.EntityData.YListKeys = []string {"Eviid", "Encapsulation", "Side"}
+    evpnInstance.EntityData.YListKeys = []string {"VpnId", "Encapsulation", "Side"}
 
     return &(evpnInstance.EntityData)
 }
@@ -10963,6 +15924,39 @@ func (evpnInstanceAdvertiseMac *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnI
     return &(evpnInstanceAdvertiseMac.EntityData)
 }
 
+// Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceMulticast
+// Enter Multicast configuration submode
+type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceMulticast struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable Multicast. The type is interface{}.
+    Enable interface{}
+
+    // Enable Multicast source connectivity. The type is interface{}.
+    EviMcastSourceConnected interface{}
+}
+
+func (evpnInstanceMulticast *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceMulticast) GetEntityData() *types.CommonEntityData {
+    evpnInstanceMulticast.EntityData.YFilter = evpnInstanceMulticast.YFilter
+    evpnInstanceMulticast.EntityData.YangName = "evpn-instance-multicast"
+    evpnInstanceMulticast.EntityData.BundleName = "cisco_ios_xr"
+    evpnInstanceMulticast.EntityData.ParentYangName = "evpn-instance"
+    evpnInstanceMulticast.EntityData.SegmentPath = "evpn-instance-multicast"
+    evpnInstanceMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    evpnInstanceMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    evpnInstanceMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    evpnInstanceMulticast.EntityData.Children = types.NewOrderedMap()
+    evpnInstanceMulticast.EntityData.Leafs = types.NewOrderedMap()
+    evpnInstanceMulticast.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnInstanceMulticast.Enable})
+    evpnInstanceMulticast.EntityData.Leafs.Append("evi-mcast-source-connected", types.YLeaf{"EviMcastSourceConnected", evpnInstanceMulticast.EviMcastSourceConnected})
+
+    evpnInstanceMulticast.EntityData.YListKeys = []string {}
+
+    return &(evpnInstanceMulticast.EntityData)
+}
+
 // Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceLoadBalancing
 // Enter Loadbalancing configuration submode
 type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceLoadBalancing struct {
@@ -11069,7 +16063,7 @@ type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: [a-zA-Z0-9./-]+.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter EVPN Core Isolation Group ID. The type is interface{} with range:
@@ -11178,6 +16172,10 @@ type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment struct {
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
+    // Ethernet-Segment Service Carving mode. The type is
+    // EthernetSegmentServiceCarving.
+    ServiceCarvingType interface{}
+
     // Ethernet segment identifier.
     Identifier Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment_Identifier
 
@@ -11204,6 +16202,7 @@ func (ethernetSegment *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegm
     ethernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ethernetSegment.Enable})
     ethernetSegment.EntityData.Leafs.Append("backbone-source-mac", types.YLeaf{"BackboneSourceMac", ethernetSegment.BackboneSourceMac})
     ethernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", ethernetSegment.EsImportRouteTarget})
+    ethernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", ethernetSegment.ServiceCarvingType})
 
     ethernetSegment.EntityData.YListKeys = []string {}
 
@@ -11469,6 +16468,10 @@ type Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_EvpnVirtualEtherne
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
+    // Ethernet-Segment Service Carving mode. The type is
+    // EthernetSegmentServiceCarving.
+    ServiceCarvingType interface{}
+
     // Ethernet segment identifier.
     Identifier Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_EvpnVirtualEthernetSegment_Identifier
 
@@ -11492,6 +16495,7 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtu
     evpnVirtualEthernetSegment.EntityData.Leafs = types.NewOrderedMap()
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnVirtualEthernetSegment.Enable})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", evpnVirtualEthernetSegment.EsImportRouteTarget})
+    evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", evpnVirtualEthernetSegment.ServiceCarvingType})
 
     evpnVirtualEthernetSegment.EntityData.YListKeys = []string {}
 

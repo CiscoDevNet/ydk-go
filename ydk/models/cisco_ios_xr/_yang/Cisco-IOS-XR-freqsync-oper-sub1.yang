@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR freqsync package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-20 {
@@ -177,6 +177,12 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
       "Clock-interface class";
   }
 
+  typedef Fsync-bag-optional-string {
+    type string;
+    description
+      "Fsync bag optional string";
+  }
+
   typedef Fsync-bag-source-state {
     type enumeration {
       enum "source-state-unknown" {
@@ -193,6 +199,11 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
         value 2;
         description
           "Down";
+      }
+      enum "source-state-unavailable" {
+        value 3;
+        description
+          "Unvailable";
       }
     }
     description
@@ -580,12 +591,6 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
     type uint8;
     description
       "Fsync selection point type";
-  }
-
-  typedef Fsync-bag-optional-string {
-    type string;
-    description
-      "Fsync bag optional string";
   }
 
   typedef Fsync-bag-source-class {
@@ -1640,7 +1645,9 @@ submodule Cisco-IOS-XR-freqsync-oper-sub1 {
          number for GNSS receiver)";
     }
     leaf clock-name {
-      type Fsync-bag-optional-string;
+      type string {
+        length "0..144";
+      }
       description
         "Name";
     }

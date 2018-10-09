@@ -30,7 +30,7 @@ module Cisco-IOS-XR-cdp-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-08-16 {
@@ -61,7 +61,7 @@ module Cisco-IOS-XR-cdp-cfg {
       "Global CDP configuration data";
     leaf timer {
       type uint32 {
-        range "5..255";
+        range "5..254";
       }
       default "60";
       description

@@ -6,7 +6,7 @@
 //   mpls-lsd-nodes: Location MPLS LSD operational data
 //   mpls-lsd: mpls lsd
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_lsd_oper
 
@@ -107,8 +107,14 @@ const (
     // Demand Matrix Traffic-Collector
     MgmtLsdMoi_mgmt_lsd_moi_type_dmtc_ext_intf MgmtLsdMoi = "mgmt-lsd-moi-type-dmtc-ext-intf"
 
-    // IPv4 Next-Next-Hop
+    // IPv4 Neighbor-Next-Hop
     MgmtLsdMoi_mgmt_lsd_moi_type_ipv4_nnh_stack MgmtLsdMoi = "mgmt-lsd-moi-type-ipv4-nnh-stack"
+
+    // IPv6 Neighbor-Next-Hop
+    MgmtLsdMoi_mgmt_lsd_moi_type_ipv6_nnh_stack MgmtLsdMoi = "mgmt-lsd-moi-type-ipv6-nnh-stack"
+
+    // Label Range Opaque Message Data
+    MgmtLsdMoi_mgmt_lsd_moi_type_label_range MgmtLsdMoi = "mgmt-lsd-moi-type-label-range"
 )
 
 // MgmtLsdFpi represents Mgmt lsd fpi
@@ -135,6 +141,9 @@ const (
 
     // DMTC External Interface
     MgmtLsdFpi_mgmt_lsd_fpi_type_dmtc_ext_intf MgmtLsdFpi = "mgmt-lsd-fpi-type-dmtc-ext-intf"
+
+    // Label Range Opaque Message Key
+    MgmtLsdFpi_mgmt_lsd_fpi_type_label_range MgmtLsdFpi = "mgmt-lsd-fpi-type-label-range"
 )
 
 // MgmtLsdLblCtx represents Mgmt lsd lbl ctx
@@ -1414,7 +1423,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PseudowireData struc
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -1494,7 +1503,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_IpSubData struct {
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -1626,7 +1635,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PseudowireHeadEndDat
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -1712,7 +1721,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_GenericRoutingEncaps
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -1742,7 +1751,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6GenericRoutingEn
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -1780,6 +1789,9 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_EvpnData struct {
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -1797,6 +1809,7 @@ func (evpnData *MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_EvpnData)
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -1809,7 +1822,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv4blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -1843,7 +1856,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -2037,7 +2050,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_SrAdjSegmentIpv4 str
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -2079,7 +2092,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_SrAdjSegmentIpv6 str
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -2356,7 +2369,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint struct 
     // 0..4294967295.
     Label interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -2515,7 +2528,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -2525,7 +2538,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -2595,10 +2608,10 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -2757,7 +2770,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -2767,7 +2780,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct 
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -2883,7 +2896,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_SummaryProtectedInterfaces_SummaryProt
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -3023,6 +3036,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Table of Label Range Counters.
+    RewriteLabelRangeCnts MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts
+
     // Table of Rewrites.
     RewritePws MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws
 
@@ -3047,6 +3063,7 @@ func (rewrite *MplsLsdNodes_MplsLsdNode_Rewrite) GetEntityData() *types.CommonEn
     rewrite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     rewrite.EntityData.Children = types.NewOrderedMap()
+    rewrite.EntityData.Children.Append("rewrite-label-range-cnts", types.YChild{"RewriteLabelRangeCnts", &rewrite.RewriteLabelRangeCnts})
     rewrite.EntityData.Children.Append("rewrite-pws", types.YChild{"RewritePws", &rewrite.RewritePws})
     rewrite.EntityData.Children.Append("rewrite-ipv4s", types.YChild{"RewriteIpv4s", &rewrite.RewriteIpv4s})
     rewrite.EntityData.Children.Append("rewrite-tes", types.YChild{"RewriteTes", &rewrite.RewriteTes})
@@ -3056,6 +3073,4443 @@ func (rewrite *MplsLsdNodes_MplsLsdNode_Rewrite) GetEntityData() *types.CommonEn
     rewrite.EntityData.YListKeys = []string {}
 
     return &(rewrite.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts
+// Table of Label Range Counters
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Counters. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt.
+    RewriteLabelRangeCnt []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
+}
+
+func (rewriteLabelRangeCnts *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts) GetEntityData() *types.CommonEntityData {
+    rewriteLabelRangeCnts.EntityData.YFilter = rewriteLabelRangeCnts.YFilter
+    rewriteLabelRangeCnts.EntityData.YangName = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnts.EntityData.BundleName = "cisco_ios_xr"
+    rewriteLabelRangeCnts.EntityData.ParentYangName = "rewrite"
+    rewriteLabelRangeCnts.EntityData.SegmentPath = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteLabelRangeCnts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteLabelRangeCnts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteLabelRangeCnts.EntityData.Children = types.NewOrderedMap()
+    rewriteLabelRangeCnts.EntityData.Children.Append("rewrite-label-range-cnt", types.YChild{"RewriteLabelRangeCnt", nil})
+    for i := range rewriteLabelRangeCnts.RewriteLabelRangeCnt {
+        rewriteLabelRangeCnts.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnts.RewriteLabelRangeCnt[i]), types.YChild{"RewriteLabelRangeCnt", rewriteLabelRangeCnts.RewriteLabelRangeCnt[i]})
+    }
+    rewriteLabelRangeCnts.EntityData.Leafs = types.NewOrderedMap()
+
+    rewriteLabelRangeCnts.EntityData.YListKeys = []string {}
+
+    return &(rewriteLabelRangeCnts.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
+// Label Range Counters
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..4294967295.
+    LabelRangeType interface{}
+
+    // Label Range Index. The type is interface{} with range: 0..4294967295.
+    LabelRangeIndex interface{}
+
+    // Rewrite version. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RewriteVersion interface{}
+
+    // BCDL Priority. The type is interface{} with range: 0..255.
+    BcdlPriority interface{}
+
+    // LSD queue. The type is interface{} with range: 0..255.
+    LsdQueue interface{}
+
+    // Rewrite install timestamp. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RwInstallTime interface{}
+
+    // Rewrite install age. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RwInstallAge interface{}
+
+    // Is rewrite ever updated. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwUpdated interface{}
+
+    // Is rewrite's BCDL priority updated. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PriorityUpdated interface{}
+
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
+    // fpi key.
+    FpiKey MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey
+
+    // Rewrite ID.
+    RewriteId MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId
+
+    // Associated FPI. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi.
+    AssociatedFpi []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi
+
+    // IPv4 RPF neighbors. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf.
+    V4Rpf []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf
+
+    // IPv6 RPF neighbors. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf.
+    V6Rpf []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf
+
+    // Mois. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois.
+    Mois []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois
+}
+
+func (rewriteLabelRangeCnt *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt) GetEntityData() *types.CommonEntityData {
+    rewriteLabelRangeCnt.EntityData.YFilter = rewriteLabelRangeCnt.YFilter
+    rewriteLabelRangeCnt.EntityData.YangName = "rewrite-label-range-cnt"
+    rewriteLabelRangeCnt.EntityData.BundleName = "cisco_ios_xr"
+    rewriteLabelRangeCnt.EntityData.ParentYangName = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnt.EntityData.SegmentPath = "rewrite-label-range-cnt"
+    rewriteLabelRangeCnt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteLabelRangeCnt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteLabelRangeCnt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteLabelRangeCnt.EntityData.Children = types.NewOrderedMap()
+    rewriteLabelRangeCnt.EntityData.Children.Append("fpi-key", types.YChild{"FpiKey", &rewriteLabelRangeCnt.FpiKey})
+    rewriteLabelRangeCnt.EntityData.Children.Append("rewrite-id", types.YChild{"RewriteId", &rewriteLabelRangeCnt.RewriteId})
+    rewriteLabelRangeCnt.EntityData.Children.Append("associated-fpi", types.YChild{"AssociatedFpi", nil})
+    for i := range rewriteLabelRangeCnt.AssociatedFpi {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.AssociatedFpi[i]), types.YChild{"AssociatedFpi", rewriteLabelRangeCnt.AssociatedFpi[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("v4-rpf", types.YChild{"V4Rpf", nil})
+    for i := range rewriteLabelRangeCnt.V4Rpf {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.V4Rpf[i]), types.YChild{"V4Rpf", rewriteLabelRangeCnt.V4Rpf[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("v6-rpf", types.YChild{"V6Rpf", nil})
+    for i := range rewriteLabelRangeCnt.V6Rpf {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.V6Rpf[i]), types.YChild{"V6Rpf", rewriteLabelRangeCnt.V6Rpf[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("mois", types.YChild{"Mois", nil})
+    for i := range rewriteLabelRangeCnt.Mois {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.Mois[i]), types.YChild{"Mois", rewriteLabelRangeCnt.Mois[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Leafs = types.NewOrderedMap()
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("label-range-type", types.YLeaf{"LabelRangeType", rewriteLabelRangeCnt.LabelRangeType})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("label-range-index", types.YLeaf{"LabelRangeIndex", rewriteLabelRangeCnt.LabelRangeIndex})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rewrite-version", types.YLeaf{"RewriteVersion", rewriteLabelRangeCnt.RewriteVersion})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("bcdl-priority", types.YLeaf{"BcdlPriority", rewriteLabelRangeCnt.BcdlPriority})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("lsd-queue", types.YLeaf{"LsdQueue", rewriteLabelRangeCnt.LsdQueue})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-install-time", types.YLeaf{"RwInstallTime", rewriteLabelRangeCnt.RwInstallTime})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteLabelRangeCnt.RwInstallAge})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteLabelRangeCnt.RwUpdated})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteLabelRangeCnt.PriorityUpdated})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteLabelRangeCnt.RwRedist})
+
+    rewriteLabelRangeCnt.EntityData.YListKeys = []string {}
+
+    return &(rewriteLabelRangeCnt.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey
+// fpi key
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPI.
+    Fpi MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi
+
+    // Application owner instance. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner.
+    ApplicationOwner []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner
+}
+
+func (fpiKey *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey) GetEntityData() *types.CommonEntityData {
+    fpiKey.EntityData.YFilter = fpiKey.YFilter
+    fpiKey.EntityData.YangName = "fpi-key"
+    fpiKey.EntityData.BundleName = "cisco_ios_xr"
+    fpiKey.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    fpiKey.EntityData.SegmentPath = "fpi-key"
+    fpiKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpiKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpiKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpiKey.EntityData.Children = types.NewOrderedMap()
+    fpiKey.EntityData.Children.Append("fpi", types.YChild{"Fpi", &fpiKey.Fpi})
+    fpiKey.EntityData.Children.Append("application-owner", types.YChild{"ApplicationOwner", nil})
+    for i := range fpiKey.ApplicationOwner {
+        fpiKey.EntityData.Children.Append(types.GetSegmentPath(fpiKey.ApplicationOwner[i]), types.YChild{"ApplicationOwner", fpiKey.ApplicationOwner[i]})
+    }
+    fpiKey.EntityData.Leafs = types.NewOrderedMap()
+
+    fpiKey.EntityData.YListKeys = []string {}
+
+    return &(fpiKey.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi
+// FPI
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPIType. The type is MgmtLsdFpi.
+    FpiType interface{}
+
+    // label data.
+    LabelData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData
+
+    // te data.
+    TeData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData
+
+    // ipv4 data.
+    Ipv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data
+
+    // pw list data.
+    PwListData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData
+
+    // dmtc ext intf data.
+    DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange
+}
+
+func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
+    fpi.EntityData.YFilter = fpi.YFilter
+    fpi.EntityData.YangName = "fpi"
+    fpi.EntityData.BundleName = "cisco_ios_xr"
+    fpi.EntityData.ParentYangName = "fpi-key"
+    fpi.EntityData.SegmentPath = "fpi"
+    fpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpi.EntityData.Children = types.NewOrderedMap()
+    fpi.EntityData.Children.Append("label-data", types.YChild{"LabelData", &fpi.LabelData})
+    fpi.EntityData.Children.Append("te-data", types.YChild{"TeData", &fpi.TeData})
+    fpi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &fpi.Ipv4Data})
+    fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
+    fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
+    fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
+    fpi.EntityData.Leafs = types.NewOrderedMap()
+    fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
+
+    fpi.EntityData.YListKeys = []string {}
+
+    return &(fpi.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData
+// label data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label value. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // ELC. The type is interface{} with range: -2147483648..2147483647.
+    Elc interface{}
+}
+
+func (labelData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "fpi"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("label", types.YLeaf{"Label", labelData.Label})
+    labelData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", labelData.SecurityId})
+    labelData.EntityData.Leafs.Append("elc", types.YLeaf{"Elc", labelData.Elc})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData
+// te data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Local label. The type is interface{} with range: 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (teData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData) GetEntityData() *types.CommonEntityData {
+    teData.EntityData.YFilter = teData.YFilter
+    teData.EntityData.YangName = "te-data"
+    teData.EntityData.BundleName = "cisco_ios_xr"
+    teData.EntityData.ParentYangName = "fpi"
+    teData.EntityData.SegmentPath = "te-data"
+    teData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teData.EntityData.Children = types.NewOrderedMap()
+    teData.EntityData.Leafs = types.NewOrderedMap()
+    teData.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", teData.TunnelInterface})
+    teData.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", teData.LocalLabel})
+
+    teData.EntityData.YListKeys = []string {}
+
+    return &(teData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data
+// ipv4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix Length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+
+    // SR related Local label. The type is interface{} with range: 0..4294967295.
+    SrLocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "fpi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv4Data.Version})
+    ipv4Data.EntityData.Leafs.Append("sr-local-label", types.YLeaf{"SrLocalLabel", ipv4Data.SrLocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data
+// ipv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Route flags. The type is interface{} with range: 0..4294967295.
+    RouterFlags interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLen interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+}
+
+func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "fpi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("router-flags", types.YLeaf{"RouterFlags", ipv6Data.RouterFlags})
+    ipv6Data.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", ipv6Data.PrefixLen})
+    ipv6Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv6Data.Version})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData
+// pw list data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire List Identifier. The type is interface{} with range: 0..65535.
+    PwheListId interface{}
+}
+
+func (pwListData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "fpi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("pwhe-list-id", types.YLeaf{"PwheListId", pwListData.PwheListId})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData
+// dmtc ext intf data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData) GetEntityData() *types.CommonEntityData {
+    dmtcExtIntfData.EntityData.YFilter = dmtcExtIntfData.YFilter
+    dmtcExtIntfData.EntityData.YangName = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcExtIntfData.EntityData.ParentYangName = "fpi"
+    dmtcExtIntfData.EntityData.SegmentPath = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcExtIntfData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcExtIntfData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcExtIntfData.EntityData.Children = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcExtIntfData.DmtcExtIfh})
+
+    dmtcExtIntfData.EntityData.YListKeys = []string {}
+
+    return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner
+// Application owner instance
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationOwner *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner) GetEntityData() *types.CommonEntityData {
+    applicationOwner.EntityData.YFilter = applicationOwner.YFilter
+    applicationOwner.EntityData.YangName = "application-owner"
+    applicationOwner.EntityData.BundleName = "cisco_ios_xr"
+    applicationOwner.EntityData.ParentYangName = "fpi-key"
+    applicationOwner.EntityData.SegmentPath = "application-owner"
+    applicationOwner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationOwner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationOwner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationOwner.EntityData.Children = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationOwner.ApplicationName})
+    applicationOwner.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationOwner.ApplicationType})
+    applicationOwner.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationOwner.ApplicationRolePrimary})
+    applicationOwner.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationOwner.ApplicationInstance})
+    applicationOwner.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationOwner.ResourceState})
+
+    applicationOwner.EntityData.YListKeys = []string {}
+
+    return &(applicationOwner.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId
+// Rewrite ID
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Rewrite ID.
+    RewriteId MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId
+}
+
+func (rewriteId *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId) GetEntityData() *types.CommonEntityData {
+    rewriteId.EntityData.YFilter = rewriteId.YFilter
+    rewriteId.EntityData.YangName = "rewrite-id"
+    rewriteId.EntityData.BundleName = "cisco_ios_xr"
+    rewriteId.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    rewriteId.EntityData.SegmentPath = "rewrite-id"
+    rewriteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteId.EntityData.Children = types.NewOrderedMap()
+    rewriteId.EntityData.Children.Append("rewrite-id", types.YChild{"RewriteId", &rewriteId.RewriteId})
+    rewriteId.EntityData.Leafs = types.NewOrderedMap()
+
+    rewriteId.EntityData.YListKeys = []string {}
+
+    return &(rewriteId.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId
+// Rewrite ID
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RewriteIDType. The type is MgmtLsdRwId.
+    RewriteIdType interface{}
+
+    // Label context.
+    LabelContext MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext
+
+    // Local label rewrite information.
+    LocalLabelRewrite MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite
+}
+
+func (rewriteId *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId) GetEntityData() *types.CommonEntityData {
+    rewriteId.EntityData.YFilter = rewriteId.YFilter
+    rewriteId.EntityData.YangName = "rewrite-id"
+    rewriteId.EntityData.BundleName = "cisco_ios_xr"
+    rewriteId.EntityData.ParentYangName = "rewrite-id"
+    rewriteId.EntityData.SegmentPath = "rewrite-id"
+    rewriteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteId.EntityData.Children = types.NewOrderedMap()
+    rewriteId.EntityData.Children.Append("label-context", types.YChild{"LabelContext", &rewriteId.LabelContext})
+    rewriteId.EntityData.Children.Append("local-label-rewrite", types.YChild{"LocalLabelRewrite", &rewriteId.LocalLabelRewrite})
+    rewriteId.EntityData.Leafs = types.NewOrderedMap()
+    rewriteId.EntityData.Leafs.Append("rewrite-id-type", types.YLeaf{"RewriteIdType", rewriteId.RewriteIdType})
+
+    rewriteId.EntityData.YListKeys = []string {}
+
+    return &(rewriteId.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext
+// Label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // LabelContextType. The type is MgmtLsdLblCtx.
+    LabelContextType interface{}
+
+    // IPv4 label context.
+    Ipv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data
+
+    // IPv6 label context.
+    Ipv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data
+
+    // TEv4 label context.
+    Tev4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data
+
+    // L3VPN IPv4 label context.
+    Ipv4l3vpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData
+
+    // L3VPN IPv6 label context.
+    Ipv6l3vpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData
+
+    // L3VPN VRF label context.
+    VrfL3vpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData
+
+    // L3VPN CEv4 label context.
+    Cev4l3vpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData
+
+    // L3VPN CEv6 label context.
+    Cev6l3vpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData
+
+    // Pseudowire label context.
+    PseudowireData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData
+
+    // Label block context.
+    LabelBlockData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData
+
+    // IP Subscriber context.
+    IpSubData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData
+
+    // TEv4 P2MP context.
+    Tev4p2mpData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData
+
+    // MLDPv4 LSM-ID context.
+    MldPv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data
+
+    // Pseudowire Head-end label context.
+    PseudowireHeadEndData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData
+
+    // TP context.
+    TpData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData
+
+    // Generic routing encapsulation context.
+    GenericRoutingEncapsulation MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation
+
+    // Generic routing encapsulation context.
+    Ipv6GenericRoutingEncapsulation MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation
+
+    // EVPN context.
+    EvpnData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData
+
+    // BFD BLB label context.
+    Ipv4blbData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData
+
+    // BFD BLB label context.
+    Ipv6blbData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData
+
+    // PIM I-PMSI label conext.
+    PiMiPmsiData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData
+
+    // PIM S-PMSI label conext.
+    PiMsPmsiData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData
+
+    // L3VPN NH SET label context.
+    NextHopSetL3vpn MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn
+
+    // SR Prefix Segment context.
+    SrPrefixSegment MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment
+
+    // SR Adj Segment ipv4 context.
+    SrAdjSegmentIpv4 MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4
+
+    // SR Adj Segment ipv6 context.
+    SrAdjSegmentIpv6 MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6
+
+    // Label block SRGB context.
+    LabelBlockSrgbData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData
+
+    // MPLS TE tunnel binding context.
+    TeBinding MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding
+
+    // Label block SRLB context.
+    LabelBlockSrlbData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData
+}
+
+func (labelContext *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext) GetEntityData() *types.CommonEntityData {
+    labelContext.EntityData.YFilter = labelContext.YFilter
+    labelContext.EntityData.YangName = "label-context"
+    labelContext.EntityData.BundleName = "cisco_ios_xr"
+    labelContext.EntityData.ParentYangName = "rewrite-id"
+    labelContext.EntityData.SegmentPath = "label-context"
+    labelContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelContext.EntityData.Children = types.NewOrderedMap()
+    labelContext.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &labelContext.Ipv4Data})
+    labelContext.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &labelContext.Ipv6Data})
+    labelContext.EntityData.Children.Append("tev4-data", types.YChild{"Tev4Data", &labelContext.Tev4Data})
+    labelContext.EntityData.Children.Append("ipv4l3vpn-data", types.YChild{"Ipv4l3vpnData", &labelContext.Ipv4l3vpnData})
+    labelContext.EntityData.Children.Append("ipv6l3vpn-data", types.YChild{"Ipv6l3vpnData", &labelContext.Ipv6l3vpnData})
+    labelContext.EntityData.Children.Append("vrf-l3vpn-data", types.YChild{"VrfL3vpnData", &labelContext.VrfL3vpnData})
+    labelContext.EntityData.Children.Append("cev4l3vpn-data", types.YChild{"Cev4l3vpnData", &labelContext.Cev4l3vpnData})
+    labelContext.EntityData.Children.Append("cev6l3vpn-data", types.YChild{"Cev6l3vpnData", &labelContext.Cev6l3vpnData})
+    labelContext.EntityData.Children.Append("pseudowire-data", types.YChild{"PseudowireData", &labelContext.PseudowireData})
+    labelContext.EntityData.Children.Append("label-block-data", types.YChild{"LabelBlockData", &labelContext.LabelBlockData})
+    labelContext.EntityData.Children.Append("ip-sub-data", types.YChild{"IpSubData", &labelContext.IpSubData})
+    labelContext.EntityData.Children.Append("tev4p2mp-data", types.YChild{"Tev4p2mpData", &labelContext.Tev4p2mpData})
+    labelContext.EntityData.Children.Append("mld-pv4-data", types.YChild{"MldPv4Data", &labelContext.MldPv4Data})
+    labelContext.EntityData.Children.Append("pseudowire-head-end-data", types.YChild{"PseudowireHeadEndData", &labelContext.PseudowireHeadEndData})
+    labelContext.EntityData.Children.Append("tp-data", types.YChild{"TpData", &labelContext.TpData})
+    labelContext.EntityData.Children.Append("generic-routing-encapsulation", types.YChild{"GenericRoutingEncapsulation", &labelContext.GenericRoutingEncapsulation})
+    labelContext.EntityData.Children.Append("ipv6-generic-routing-encapsulation", types.YChild{"Ipv6GenericRoutingEncapsulation", &labelContext.Ipv6GenericRoutingEncapsulation})
+    labelContext.EntityData.Children.Append("evpn-data", types.YChild{"EvpnData", &labelContext.EvpnData})
+    labelContext.EntityData.Children.Append("ipv4blb-data", types.YChild{"Ipv4blbData", &labelContext.Ipv4blbData})
+    labelContext.EntityData.Children.Append("ipv6blb-data", types.YChild{"Ipv6blbData", &labelContext.Ipv6blbData})
+    labelContext.EntityData.Children.Append("pi-mi-pmsi-data", types.YChild{"PiMiPmsiData", &labelContext.PiMiPmsiData})
+    labelContext.EntityData.Children.Append("pi-ms-pmsi-data", types.YChild{"PiMsPmsiData", &labelContext.PiMsPmsiData})
+    labelContext.EntityData.Children.Append("next-hop-set-l3vpn", types.YChild{"NextHopSetL3vpn", &labelContext.NextHopSetL3vpn})
+    labelContext.EntityData.Children.Append("sr-prefix-segment", types.YChild{"SrPrefixSegment", &labelContext.SrPrefixSegment})
+    labelContext.EntityData.Children.Append("sr-adj-segment-ipv4", types.YChild{"SrAdjSegmentIpv4", &labelContext.SrAdjSegmentIpv4})
+    labelContext.EntityData.Children.Append("sr-adj-segment-ipv6", types.YChild{"SrAdjSegmentIpv6", &labelContext.SrAdjSegmentIpv6})
+    labelContext.EntityData.Children.Append("label-block-srgb-data", types.YChild{"LabelBlockSrgbData", &labelContext.LabelBlockSrgbData})
+    labelContext.EntityData.Children.Append("te-binding", types.YChild{"TeBinding", &labelContext.TeBinding})
+    labelContext.EntityData.Children.Append("label-block-srlb-data", types.YChild{"LabelBlockSrlbData", &labelContext.LabelBlockSrlbData})
+    labelContext.EntityData.Leafs = types.NewOrderedMap()
+    labelContext.EntityData.Leafs.Append("label-context-type", types.YLeaf{"LabelContextType", labelContext.LabelContextType})
+
+    labelContext.EntityData.YListKeys = []string {}
+
+    return &(labelContext.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data
+// IPv4 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // IPv4 prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // VRF Name. The type is string with length: 0..33.
+    VrfName interface{}
+}
+
+func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "label-context"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", ipv4Data.SecurityId})
+    ipv4Data.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4Data.VrfName})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data
+// IPv6 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // VRF Name. The type is string with length: 0..33.
+    VrfName interface{}
+}
+
+func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "label-context"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6Data.PrefixLength})
+    ipv6Data.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", ipv6Data.SecurityId})
+    ipv6Data.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6Data.VrfName})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data
+// TEv4 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Tunnel source. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelSource interface{}
+
+    // Tunnel destination. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelDest interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelId interface{}
+
+    // Extended tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelIdExtension interface{}
+
+    // Tunnel LSP ID. The type is interface{} with range: 0..4294967295.
+    TunnelLspId interface{}
+
+    // Is this an SRTE head tunnel. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSrte interface{}
+}
+
+func (tev4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data) GetEntityData() *types.CommonEntityData {
+    tev4Data.EntityData.YFilter = tev4Data.YFilter
+    tev4Data.EntityData.YangName = "tev4-data"
+    tev4Data.EntityData.BundleName = "cisco_ios_xr"
+    tev4Data.EntityData.ParentYangName = "label-context"
+    tev4Data.EntityData.SegmentPath = "tev4-data"
+    tev4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4Data.EntityData.Children = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4Data.TableId})
+    tev4Data.EntityData.Leafs.Append("tunnel-source", types.YLeaf{"TunnelSource", tev4Data.TunnelSource})
+    tev4Data.EntityData.Leafs.Append("tunnel-dest", types.YLeaf{"TunnelDest", tev4Data.TunnelDest})
+    tev4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", tev4Data.TunnelId})
+    tev4Data.EntityData.Leafs.Append("tunnel-id-extension", types.YLeaf{"TunnelIdExtension", tev4Data.TunnelIdExtension})
+    tev4Data.EntityData.Leafs.Append("tunnel-lsp-id", types.YLeaf{"TunnelLspId", tev4Data.TunnelLspId})
+    tev4Data.EntityData.Leafs.Append("is-srte", types.YLeaf{"IsSrte", tev4Data.IsSrte})
+
+    tev4Data.EntityData.YListKeys = []string {}
+
+    return &(tev4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData
+// L3VPN IPv4 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Route distinguisher. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RouteDistinguisher interface{}
+}
+
+func (ipv4l3vpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData) GetEntityData() *types.CommonEntityData {
+    ipv4l3vpnData.EntityData.YFilter = ipv4l3vpnData.YFilter
+    ipv4l3vpnData.EntityData.YangName = "ipv4l3vpn-data"
+    ipv4l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    ipv4l3vpnData.EntityData.ParentYangName = "label-context"
+    ipv4l3vpnData.EntityData.SegmentPath = "ipv4l3vpn-data"
+    ipv4l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4l3vpnData.EntityData.Children = types.NewOrderedMap()
+    ipv4l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    ipv4l3vpnData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4l3vpnData.Prefix})
+    ipv4l3vpnData.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4l3vpnData.PrefixLength})
+    ipv4l3vpnData.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", ipv4l3vpnData.RouteDistinguisher})
+
+    ipv4l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(ipv4l3vpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData
+// L3VPN IPv6 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Route distinguisher. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RouteDistinguisher interface{}
+}
+
+func (ipv6l3vpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData) GetEntityData() *types.CommonEntityData {
+    ipv6l3vpnData.EntityData.YFilter = ipv6l3vpnData.YFilter
+    ipv6l3vpnData.EntityData.YangName = "ipv6l3vpn-data"
+    ipv6l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    ipv6l3vpnData.EntityData.ParentYangName = "label-context"
+    ipv6l3vpnData.EntityData.SegmentPath = "ipv6l3vpn-data"
+    ipv6l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6l3vpnData.EntityData.Children = types.NewOrderedMap()
+    ipv6l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    ipv6l3vpnData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6l3vpnData.Prefix})
+    ipv6l3vpnData.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6l3vpnData.PrefixLength})
+    ipv6l3vpnData.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", ipv6l3vpnData.RouteDistinguisher})
+
+    ipv6l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(ipv6l3vpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData
+// L3VPN VRF label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (vrfL3vpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData) GetEntityData() *types.CommonEntityData {
+    vrfL3vpnData.EntityData.YFilter = vrfL3vpnData.YFilter
+    vrfL3vpnData.EntityData.YangName = "vrf-l3vpn-data"
+    vrfL3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    vrfL3vpnData.EntityData.ParentYangName = "label-context"
+    vrfL3vpnData.EntityData.SegmentPath = "vrf-l3vpn-data"
+    vrfL3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfL3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfL3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfL3vpnData.EntityData.Children = types.NewOrderedMap()
+    vrfL3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    vrfL3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", vrfL3vpnData.TableId})
+    vrfL3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", vrfL3vpnData.SecurityId})
+
+    vrfL3vpnData.EntityData.YListKeys = []string {}
+
+    return &(vrfL3vpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData
+// L3VPN CEv4 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (cev4l3vpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData) GetEntityData() *types.CommonEntityData {
+    cev4l3vpnData.EntityData.YFilter = cev4l3vpnData.YFilter
+    cev4l3vpnData.EntityData.YangName = "cev4l3vpn-data"
+    cev4l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    cev4l3vpnData.EntityData.ParentYangName = "label-context"
+    cev4l3vpnData.EntityData.SegmentPath = "cev4l3vpn-data"
+    cev4l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cev4l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cev4l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cev4l3vpnData.EntityData.Children = types.NewOrderedMap()
+    cev4l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    cev4l3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", cev4l3vpnData.TableId})
+    cev4l3vpnData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", cev4l3vpnData.Ipv4NextHop})
+    cev4l3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", cev4l3vpnData.SecurityId})
+
+    cev4l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(cev4l3vpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData
+// L3VPN CEv6 label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (cev6l3vpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData) GetEntityData() *types.CommonEntityData {
+    cev6l3vpnData.EntityData.YFilter = cev6l3vpnData.YFilter
+    cev6l3vpnData.EntityData.YangName = "cev6l3vpn-data"
+    cev6l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    cev6l3vpnData.EntityData.ParentYangName = "label-context"
+    cev6l3vpnData.EntityData.SegmentPath = "cev6l3vpn-data"
+    cev6l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cev6l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cev6l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cev6l3vpnData.EntityData.Children = types.NewOrderedMap()
+    cev6l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    cev6l3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", cev6l3vpnData.TableId})
+    cev6l3vpnData.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", cev6l3vpnData.Ipv6NextHop})
+    cev6l3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", cev6l3vpnData.SecurityId})
+
+    cev6l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(cev6l3vpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData
+// Pseudowire label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Address prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Pseudo-wire ID. The type is interface{} with range:
+    // 0..18446744073709551615.
+    PseudowireId interface{}
+
+    // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
+    RemoteL2RouterId interface{}
+
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Subinterface interface{}
+}
+
+func (pseudowireData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData) GetEntityData() *types.CommonEntityData {
+    pseudowireData.EntityData.YFilter = pseudowireData.YFilter
+    pseudowireData.EntityData.YangName = "pseudowire-data"
+    pseudowireData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireData.EntityData.ParentYangName = "label-context"
+    pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireData.EntityData.Children = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", pseudowireData.Prefix})
+    pseudowireData.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", pseudowireData.PseudowireId})
+    pseudowireData.EntityData.Leafs.Append("remote-l2-router-id", types.YLeaf{"RemoteL2RouterId", pseudowireData.RemoteL2RouterId})
+    pseudowireData.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", pseudowireData.Subinterface})
+
+    pseudowireData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData
+// Label block context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service. The type is interface{} with range: 0..255.
+    Service interface{}
+
+    // VPN ID. The type is interface{} with range: 0..65535.
+    VpnId interface{}
+
+    // Edge ID. The type is interface{} with range: 0..65535.
+    EdgeId interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData) GetEntityData() *types.CommonEntityData {
+    labelBlockData.EntityData.YFilter = labelBlockData.YFilter
+    labelBlockData.EntityData.YangName = "label-block-data"
+    labelBlockData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockData.EntityData.ParentYangName = "label-context"
+    labelBlockData.EntityData.SegmentPath = "label-block-data"
+    labelBlockData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockData.EntityData.Children = types.NewOrderedMap()
+    labelBlockData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockData.EntityData.Leafs.Append("service", types.YLeaf{"Service", labelBlockData.Service})
+    labelBlockData.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", labelBlockData.VpnId})
+    labelBlockData.EntityData.Leafs.Append("edge-id", types.YLeaf{"EdgeId", labelBlockData.EdgeId})
+    labelBlockData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockData.Offset})
+    labelBlockData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockData.Size})
+
+    labelBlockData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData
+// IP Subscriber context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table Id. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    ParentInterface interface{}
+}
+
+func (ipSubData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData) GetEntityData() *types.CommonEntityData {
+    ipSubData.EntityData.YFilter = ipSubData.YFilter
+    ipSubData.EntityData.YangName = "ip-sub-data"
+    ipSubData.EntityData.BundleName = "cisco_ios_xr"
+    ipSubData.EntityData.ParentYangName = "label-context"
+    ipSubData.EntityData.SegmentPath = "ip-sub-data"
+    ipSubData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubData.EntityData.Children = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipSubData.TableId})
+    ipSubData.EntityData.Leafs.Append("parent-interface", types.YLeaf{"ParentInterface", ipSubData.ParentInterface})
+
+    ipSubData.EntityData.YListKeys = []string {}
+
+    return &(ipSubData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData
+// TEv4 P2MP context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Tunnel source. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelSource interface{}
+
+    // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
+    P2mpId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelId interface{}
+
+    // Tunnel ID extension. The type is interface{} with range: 0..4294967295.
+    TunnelIdExtension interface{}
+
+    // Tunnel LSP ID. The type is interface{} with range: 0..4294967295.
+    TunnelLspId interface{}
+
+    // Previous hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    PreviousHop interface{}
+}
+
+func (tev4p2mpData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData) GetEntityData() *types.CommonEntityData {
+    tev4p2mpData.EntityData.YFilter = tev4p2mpData.YFilter
+    tev4p2mpData.EntityData.YangName = "tev4p2mp-data"
+    tev4p2mpData.EntityData.BundleName = "cisco_ios_xr"
+    tev4p2mpData.EntityData.ParentYangName = "label-context"
+    tev4p2mpData.EntityData.SegmentPath = "tev4p2mp-data"
+    tev4p2mpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4p2mpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4p2mpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4p2mpData.EntityData.Children = types.NewOrderedMap()
+    tev4p2mpData.EntityData.Leafs = types.NewOrderedMap()
+    tev4p2mpData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4p2mpData.TableId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-source", types.YLeaf{"TunnelSource", tev4p2mpData.TunnelSource})
+    tev4p2mpData.EntityData.Leafs.Append("p2mp-id", types.YLeaf{"P2mpId", tev4p2mpData.P2mpId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", tev4p2mpData.TunnelId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-id-extension", types.YLeaf{"TunnelIdExtension", tev4p2mpData.TunnelIdExtension})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-lsp-id", types.YLeaf{"TunnelLspId", tev4p2mpData.TunnelLspId})
+    tev4p2mpData.EntityData.Leafs.Append("previous-hop", types.YLeaf{"PreviousHop", tev4p2mpData.PreviousHop})
+
+    tev4p2mpData.EntityData.YListKeys = []string {}
+
+    return &(tev4p2mpData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data
+// MLDPv4 LSM-ID context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // LSM ID Type. The type is interface{} with range: 0..65535.
+    Type interface{}
+
+    // LSM ID. The type is interface{} with range: 0..4294967295.
+    LsmId interface{}
+
+    // Peer LSR Id. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    PeerLsrid interface{}
+
+    // Peer Label Space Id. The type is interface{} with range: 0..65535.
+    PeerLabelSpaceId interface{}
+}
+
+func (mldPv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data) GetEntityData() *types.CommonEntityData {
+    mldPv4Data.EntityData.YFilter = mldPv4Data.YFilter
+    mldPv4Data.EntityData.YangName = "mld-pv4-data"
+    mldPv4Data.EntityData.BundleName = "cisco_ios_xr"
+    mldPv4Data.EntityData.ParentYangName = "label-context"
+    mldPv4Data.EntityData.SegmentPath = "mld-pv4-data"
+    mldPv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mldPv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mldPv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mldPv4Data.EntityData.Children = types.NewOrderedMap()
+    mldPv4Data.EntityData.Leafs = types.NewOrderedMap()
+    mldPv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", mldPv4Data.TableId})
+    mldPv4Data.EntityData.Leafs.Append("type", types.YLeaf{"Type", mldPv4Data.Type})
+    mldPv4Data.EntityData.Leafs.Append("lsm-id", types.YLeaf{"LsmId", mldPv4Data.LsmId})
+    mldPv4Data.EntityData.Leafs.Append("peer-lsrid", types.YLeaf{"PeerLsrid", mldPv4Data.PeerLsrid})
+    mldPv4Data.EntityData.Leafs.Append("peer-label-space-id", types.YLeaf{"PeerLabelSpaceId", mldPv4Data.PeerLabelSpaceId})
+
+    mldPv4Data.EntityData.YListKeys = []string {}
+
+    return &(mldPv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData
+// Pseudowire Head-end label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudo-wire Head-end interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    PwheIntf interface{}
+}
+
+func (pseudowireHeadEndData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData) GetEntityData() *types.CommonEntityData {
+    pseudowireHeadEndData.EntityData.YFilter = pseudowireHeadEndData.YFilter
+    pseudowireHeadEndData.EntityData.YangName = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireHeadEndData.EntityData.ParentYangName = "label-context"
+    pseudowireHeadEndData.EntityData.SegmentPath = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireHeadEndData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireHeadEndData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireHeadEndData.EntityData.Children = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs.Append("pwhe-intf", types.YLeaf{"PwheIntf", pseudowireHeadEndData.PwheIntf})
+
+    pseudowireHeadEndData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireHeadEndData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData
+// TP context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TP source global ID. The type is interface{} with range: 0..4294967295.
+    SourceGlobalId interface{}
+
+    // TP source node ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    SourceNodeId interface{}
+
+    // TP destination global ID. The type is interface{} with range:
+    // 0..4294967295.
+    DestGlobalId interface{}
+
+    // TP destination node ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    DestNodeId interface{}
+
+    // TP source tunnel ID. The type is interface{} with range: 0..65535.
+    SourceTunnelId interface{}
+
+    // TP destination tunnel ID. The type is interface{} with range: 0..65535.
+    DestTunnelId interface{}
+
+    // TP LSP ID. The type is interface{} with range: 0..65535.
+    LspId interface{}
+}
+
+func (tpData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData) GetEntityData() *types.CommonEntityData {
+    tpData.EntityData.YFilter = tpData.YFilter
+    tpData.EntityData.YangName = "tp-data"
+    tpData.EntityData.BundleName = "cisco_ios_xr"
+    tpData.EntityData.ParentYangName = "label-context"
+    tpData.EntityData.SegmentPath = "tp-data"
+    tpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tpData.EntityData.Children = types.NewOrderedMap()
+    tpData.EntityData.Leafs = types.NewOrderedMap()
+    tpData.EntityData.Leafs.Append("source-global-id", types.YLeaf{"SourceGlobalId", tpData.SourceGlobalId})
+    tpData.EntityData.Leafs.Append("source-node-id", types.YLeaf{"SourceNodeId", tpData.SourceNodeId})
+    tpData.EntityData.Leafs.Append("dest-global-id", types.YLeaf{"DestGlobalId", tpData.DestGlobalId})
+    tpData.EntityData.Leafs.Append("dest-node-id", types.YLeaf{"DestNodeId", tpData.DestNodeId})
+    tpData.EntityData.Leafs.Append("source-tunnel-id", types.YLeaf{"SourceTunnelId", tpData.SourceTunnelId})
+    tpData.EntityData.Leafs.Append("dest-tunnel-id", types.YLeaf{"DestTunnelId", tpData.DestTunnelId})
+    tpData.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", tpData.LspId})
+
+    tpData.EntityData.YListKeys = []string {}
+
+    return &(tpData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation
+// Generic routing encapsulation context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Generic routing encapsulation interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    GreInterface interface{}
+}
+
+func (genericRoutingEncapsulation *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation) GetEntityData() *types.CommonEntityData {
+    genericRoutingEncapsulation.EntityData.YFilter = genericRoutingEncapsulation.YFilter
+    genericRoutingEncapsulation.EntityData.YangName = "generic-routing-encapsulation"
+    genericRoutingEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    genericRoutingEncapsulation.EntityData.ParentYangName = "label-context"
+    genericRoutingEncapsulation.EntityData.SegmentPath = "generic-routing-encapsulation"
+    genericRoutingEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    genericRoutingEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    genericRoutingEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    genericRoutingEncapsulation.EntityData.Children = types.NewOrderedMap()
+    genericRoutingEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    genericRoutingEncapsulation.EntityData.Leafs.Append("gre-interface", types.YLeaf{"GreInterface", genericRoutingEncapsulation.GreInterface})
+
+    genericRoutingEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(genericRoutingEncapsulation.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation
+// Generic routing encapsulation context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Generic routing encapsulation IPv6 interface. The type is string with
+    // pattern: [a-zA-Z0-9._/-]+.
+    Greipv6Interface interface{}
+}
+
+func (ipv6GenericRoutingEncapsulation *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation) GetEntityData() *types.CommonEntityData {
+    ipv6GenericRoutingEncapsulation.EntityData.YFilter = ipv6GenericRoutingEncapsulation.YFilter
+    ipv6GenericRoutingEncapsulation.EntityData.YangName = "ipv6-generic-routing-encapsulation"
+    ipv6GenericRoutingEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    ipv6GenericRoutingEncapsulation.EntityData.ParentYangName = "label-context"
+    ipv6GenericRoutingEncapsulation.EntityData.SegmentPath = "ipv6-generic-routing-encapsulation"
+    ipv6GenericRoutingEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6GenericRoutingEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6GenericRoutingEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6GenericRoutingEncapsulation.EntityData.Children = types.NewOrderedMap()
+    ipv6GenericRoutingEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    ipv6GenericRoutingEncapsulation.EntityData.Leafs.Append("greipv6-interface", types.YLeaf{"Greipv6Interface", ipv6GenericRoutingEncapsulation.Greipv6Interface})
+
+    ipv6GenericRoutingEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(ipv6GenericRoutingEncapsulation.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData
+// EVPN context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EVPN ID. The type is interface{} with range: 0..4294967295.
+    EvpnId interface{}
+
+    // EVPN TAG. The type is interface{} with range: 0..4294967295.
+    EvpnTag interface{}
+
+    // Ethernet Segment ID. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
+}
+
+func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
+    evpnData.EntityData.YFilter = evpnData.YFilter
+    evpnData.EntityData.YangName = "evpn-data"
+    evpnData.EntityData.BundleName = "cisco_ios_xr"
+    evpnData.EntityData.ParentYangName = "label-context"
+    evpnData.EntityData.SegmentPath = "evpn-data"
+    evpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    evpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    evpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    evpnData.EntityData.Children = types.NewOrderedMap()
+    evpnData.EntityData.Leafs = types.NewOrderedMap()
+    evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
+    evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
+    evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
+
+    evpnData.EntityData.YListKeys = []string {}
+
+    return &(evpnData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData
+// BFD BLB label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BlbIntf interface{}
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+}
+
+func (ipv4blbData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData) GetEntityData() *types.CommonEntityData {
+    ipv4blbData.EntityData.YFilter = ipv4blbData.YFilter
+    ipv4blbData.EntityData.YangName = "ipv4blb-data"
+    ipv4blbData.EntityData.BundleName = "cisco_ios_xr"
+    ipv4blbData.EntityData.ParentYangName = "label-context"
+    ipv4blbData.EntityData.SegmentPath = "ipv4blb-data"
+    ipv4blbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4blbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4blbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4blbData.EntityData.Children = types.NewOrderedMap()
+    ipv4blbData.EntityData.Leafs = types.NewOrderedMap()
+    ipv4blbData.EntityData.Leafs.Append("blb-intf", types.YLeaf{"BlbIntf", ipv4blbData.BlbIntf})
+    ipv4blbData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4blbData.Prefix})
+
+    ipv4blbData.EntityData.YListKeys = []string {}
+
+    return &(ipv4blbData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData
+// BFD BLB label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BlbIntf interface{}
+
+    // IPv6 prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+}
+
+func (ipv6blbData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData) GetEntityData() *types.CommonEntityData {
+    ipv6blbData.EntityData.YFilter = ipv6blbData.YFilter
+    ipv6blbData.EntityData.YangName = "ipv6blb-data"
+    ipv6blbData.EntityData.BundleName = "cisco_ios_xr"
+    ipv6blbData.EntityData.ParentYangName = "label-context"
+    ipv6blbData.EntityData.SegmentPath = "ipv6blb-data"
+    ipv6blbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6blbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6blbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6blbData.EntityData.Children = types.NewOrderedMap()
+    ipv6blbData.EntityData.Leafs = types.NewOrderedMap()
+    ipv6blbData.EntityData.Leafs.Append("blb-intf", types.YLeaf{"BlbIntf", ipv6blbData.BlbIntf})
+    ipv6blbData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6blbData.Prefix})
+
+    ipv6blbData.EntityData.YListKeys = []string {}
+
+    return &(ipv6blbData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData
+// PIM I-PMSI label conext
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF ID. The type is interface{} with range: 0..4294967295.
+    VrfId interface{}
+
+    // Head. The type is interface{} with range: -2147483648..2147483647.
+    Head interface{}
+
+    // PIM6. The type is interface{} with range: -2147483648..2147483647.
+    V6 interface{}
+}
+
+func (piMiPmsiData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData) GetEntityData() *types.CommonEntityData {
+    piMiPmsiData.EntityData.YFilter = piMiPmsiData.YFilter
+    piMiPmsiData.EntityData.YangName = "pi-mi-pmsi-data"
+    piMiPmsiData.EntityData.BundleName = "cisco_ios_xr"
+    piMiPmsiData.EntityData.ParentYangName = "label-context"
+    piMiPmsiData.EntityData.SegmentPath = "pi-mi-pmsi-data"
+    piMiPmsiData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piMiPmsiData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piMiPmsiData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    piMiPmsiData.EntityData.Children = types.NewOrderedMap()
+    piMiPmsiData.EntityData.Leafs = types.NewOrderedMap()
+    piMiPmsiData.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", piMiPmsiData.VrfId})
+    piMiPmsiData.EntityData.Leafs.Append("head", types.YLeaf{"Head", piMiPmsiData.Head})
+    piMiPmsiData.EntityData.Leafs.Append("v6", types.YLeaf{"V6", piMiPmsiData.V6})
+
+    piMiPmsiData.EntityData.YListKeys = []string {}
+
+    return &(piMiPmsiData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData
+// PIM S-PMSI label conext
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF ID. The type is interface{} with range: 0..4294967295.
+    VrfId interface{}
+
+    // Originating Router. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Source interface{}
+
+    // Head. The type is interface{} with range: -2147483648..2147483647.
+    Head interface{}
+
+    // PIM6. The type is interface{} with range: -2147483648..2147483647.
+    V6 interface{}
+
+    // Head LSM-ID. The type is interface{} with range: 0..4294967295.
+    Hli interface{}
+
+    // Segmented Multicast. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Seg interface{}
+}
+
+func (piMsPmsiData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData) GetEntityData() *types.CommonEntityData {
+    piMsPmsiData.EntityData.YFilter = piMsPmsiData.YFilter
+    piMsPmsiData.EntityData.YangName = "pi-ms-pmsi-data"
+    piMsPmsiData.EntityData.BundleName = "cisco_ios_xr"
+    piMsPmsiData.EntityData.ParentYangName = "label-context"
+    piMsPmsiData.EntityData.SegmentPath = "pi-ms-pmsi-data"
+    piMsPmsiData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piMsPmsiData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piMsPmsiData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    piMsPmsiData.EntityData.Children = types.NewOrderedMap()
+    piMsPmsiData.EntityData.Leafs = types.NewOrderedMap()
+    piMsPmsiData.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", piMsPmsiData.VrfId})
+    piMsPmsiData.EntityData.Leafs.Append("source", types.YLeaf{"Source", piMsPmsiData.Source})
+    piMsPmsiData.EntityData.Leafs.Append("head", types.YLeaf{"Head", piMsPmsiData.Head})
+    piMsPmsiData.EntityData.Leafs.Append("v6", types.YLeaf{"V6", piMsPmsiData.V6})
+    piMsPmsiData.EntityData.Leafs.Append("hli", types.YLeaf{"Hli", piMsPmsiData.Hli})
+    piMsPmsiData.EntityData.Leafs.Append("seg", types.YLeaf{"Seg", piMsPmsiData.Seg})
+
+    piMsPmsiData.EntityData.YListKeys = []string {}
+
+    return &(piMsPmsiData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn
+// L3VPN NH SET label context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Next Hop Set ID. The type is interface{} with range: 0..4294967295.
+    NextHopSetId interface{}
+}
+
+func (nextHopSetL3vpn *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn) GetEntityData() *types.CommonEntityData {
+    nextHopSetL3vpn.EntityData.YFilter = nextHopSetL3vpn.YFilter
+    nextHopSetL3vpn.EntityData.YangName = "next-hop-set-l3vpn"
+    nextHopSetL3vpn.EntityData.BundleName = "cisco_ios_xr"
+    nextHopSetL3vpn.EntityData.ParentYangName = "label-context"
+    nextHopSetL3vpn.EntityData.SegmentPath = "next-hop-set-l3vpn"
+    nextHopSetL3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHopSetL3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHopSetL3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextHopSetL3vpn.EntityData.Children = types.NewOrderedMap()
+    nextHopSetL3vpn.EntityData.Leafs = types.NewOrderedMap()
+    nextHopSetL3vpn.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nextHopSetL3vpn.TableId})
+    nextHopSetL3vpn.EntityData.Leafs.Append("next-hop-set-id", types.YLeaf{"NextHopSetId", nextHopSetL3vpn.NextHopSetId})
+
+    nextHopSetL3vpn.EntityData.YListKeys = []string {}
+
+    return &(nextHopSetL3vpn.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment
+// SR Prefix Segment context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix Segment ID. The type is interface{} with range: 0..4294967295.
+    SegmentId interface{}
+}
+
+func (srPrefixSegment *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment) GetEntityData() *types.CommonEntityData {
+    srPrefixSegment.EntityData.YFilter = srPrefixSegment.YFilter
+    srPrefixSegment.EntityData.YangName = "sr-prefix-segment"
+    srPrefixSegment.EntityData.BundleName = "cisco_ios_xr"
+    srPrefixSegment.EntityData.ParentYangName = "label-context"
+    srPrefixSegment.EntityData.SegmentPath = "sr-prefix-segment"
+    srPrefixSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPrefixSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPrefixSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPrefixSegment.EntityData.Children = types.NewOrderedMap()
+    srPrefixSegment.EntityData.Leafs = types.NewOrderedMap()
+    srPrefixSegment.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", srPrefixSegment.TableId})
+    srPrefixSegment.EntityData.Leafs.Append("segment-id", types.YLeaf{"SegmentId", srPrefixSegment.SegmentId})
+
+    srPrefixSegment.EntityData.YListKeys = []string {}
+
+    return &(srPrefixSegment.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4
+// SR Adj Segment ipv4 context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Adjacency index. The type is interface{} with range: 0..4294967295.
+    Index interface{}
+
+    // Adjacency type. The type is interface{} with range: 0..4294967295.
+    Type interface{}
+
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Intf interface{}
+
+    // Adjacency nexthop IPv4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+}
+
+func (srAdjSegmentIpv4 *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4) GetEntityData() *types.CommonEntityData {
+    srAdjSegmentIpv4.EntityData.YFilter = srAdjSegmentIpv4.YFilter
+    srAdjSegmentIpv4.EntityData.YangName = "sr-adj-segment-ipv4"
+    srAdjSegmentIpv4.EntityData.BundleName = "cisco_ios_xr"
+    srAdjSegmentIpv4.EntityData.ParentYangName = "label-context"
+    srAdjSegmentIpv4.EntityData.SegmentPath = "sr-adj-segment-ipv4"
+    srAdjSegmentIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srAdjSegmentIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srAdjSegmentIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srAdjSegmentIpv4.EntityData.Children = types.NewOrderedMap()
+    srAdjSegmentIpv4.EntityData.Leafs = types.NewOrderedMap()
+    srAdjSegmentIpv4.EntityData.Leafs.Append("index", types.YLeaf{"Index", srAdjSegmentIpv4.Index})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("type", types.YLeaf{"Type", srAdjSegmentIpv4.Type})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("intf", types.YLeaf{"Intf", srAdjSegmentIpv4.Intf})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", srAdjSegmentIpv4.Addr})
+
+    srAdjSegmentIpv4.EntityData.YListKeys = []string {}
+
+    return &(srAdjSegmentIpv4.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6
+// SR Adj Segment ipv6 context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Adjacency index. The type is interface{} with range: 0..4294967295.
+    Index interface{}
+
+    // Adjacency type. The type is interface{} with range: 0..4294967295.
+    Type interface{}
+
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Intf interface{}
+
+    // Adjacency nexthop IPv6 address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+}
+
+func (srAdjSegmentIpv6 *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6) GetEntityData() *types.CommonEntityData {
+    srAdjSegmentIpv6.EntityData.YFilter = srAdjSegmentIpv6.YFilter
+    srAdjSegmentIpv6.EntityData.YangName = "sr-adj-segment-ipv6"
+    srAdjSegmentIpv6.EntityData.BundleName = "cisco_ios_xr"
+    srAdjSegmentIpv6.EntityData.ParentYangName = "label-context"
+    srAdjSegmentIpv6.EntityData.SegmentPath = "sr-adj-segment-ipv6"
+    srAdjSegmentIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srAdjSegmentIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srAdjSegmentIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srAdjSegmentIpv6.EntityData.Children = types.NewOrderedMap()
+    srAdjSegmentIpv6.EntityData.Leafs = types.NewOrderedMap()
+    srAdjSegmentIpv6.EntityData.Leafs.Append("index", types.YLeaf{"Index", srAdjSegmentIpv6.Index})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("type", types.YLeaf{"Type", srAdjSegmentIpv6.Type})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("intf", types.YLeaf{"Intf", srAdjSegmentIpv6.Intf})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", srAdjSegmentIpv6.Addr})
+
+    srAdjSegmentIpv6.EntityData.YListKeys = []string {}
+
+    return &(srAdjSegmentIpv6.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData
+// Label block SRGB context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start Label. The type is interface{} with range: 0..4294967295.
+    StartLabel interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockSrgbData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData) GetEntityData() *types.CommonEntityData {
+    labelBlockSrgbData.EntityData.YFilter = labelBlockSrgbData.YFilter
+    labelBlockSrgbData.EntityData.YangName = "label-block-srgb-data"
+    labelBlockSrgbData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockSrgbData.EntityData.ParentYangName = "label-context"
+    labelBlockSrgbData.EntityData.SegmentPath = "label-block-srgb-data"
+    labelBlockSrgbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockSrgbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockSrgbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockSrgbData.EntityData.Children = types.NewOrderedMap()
+    labelBlockSrgbData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockSrgbData.EntityData.Leafs.Append("start-label", types.YLeaf{"StartLabel", labelBlockSrgbData.StartLabel})
+    labelBlockSrgbData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockSrgbData.Offset})
+    labelBlockSrgbData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockSrgbData.Size})
+
+    labelBlockSrgbData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockSrgbData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding
+// MPLS TE tunnel binding context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MPLS Traffic Engineering Tunnel or Group ID. The type is interface{} with
+    // range: 0..4294967295.
+    TeIdentifier interface{}
+
+    // Type of identifier for the binding. The type is MgmtLsdTeBinding.
+    TeType interface{}
+}
+
+func (teBinding *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding) GetEntityData() *types.CommonEntityData {
+    teBinding.EntityData.YFilter = teBinding.YFilter
+    teBinding.EntityData.YangName = "te-binding"
+    teBinding.EntityData.BundleName = "cisco_ios_xr"
+    teBinding.EntityData.ParentYangName = "label-context"
+    teBinding.EntityData.SegmentPath = "te-binding"
+    teBinding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teBinding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teBinding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teBinding.EntityData.Children = types.NewOrderedMap()
+    teBinding.EntityData.Leafs = types.NewOrderedMap()
+    teBinding.EntityData.Leafs.Append("te-identifier", types.YLeaf{"TeIdentifier", teBinding.TeIdentifier})
+    teBinding.EntityData.Leafs.Append("te-type", types.YLeaf{"TeType", teBinding.TeType})
+
+    teBinding.EntityData.YListKeys = []string {}
+
+    return &(teBinding.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData
+// Label block SRLB context
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start Label. The type is interface{} with range: 0..4294967295.
+    StartLabel interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockSrlbData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData) GetEntityData() *types.CommonEntityData {
+    labelBlockSrlbData.EntityData.YFilter = labelBlockSrlbData.YFilter
+    labelBlockSrlbData.EntityData.YangName = "label-block-srlb-data"
+    labelBlockSrlbData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockSrlbData.EntityData.ParentYangName = "label-context"
+    labelBlockSrlbData.EntityData.SegmentPath = "label-block-srlb-data"
+    labelBlockSrlbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockSrlbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockSrlbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockSrlbData.EntityData.Children = types.NewOrderedMap()
+    labelBlockSrlbData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockSrlbData.EntityData.Leafs.Append("start-label", types.YLeaf{"StartLabel", labelBlockSrlbData.StartLabel})
+    labelBlockSrlbData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockSrlbData.Offset})
+    labelBlockSrlbData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockSrlbData.Size})
+
+    labelBlockSrlbData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockSrlbData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite
+// Local label rewrite information
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // label data. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData.
+    LabelData []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData
+}
+
+func (localLabelRewrite *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite) GetEntityData() *types.CommonEntityData {
+    localLabelRewrite.EntityData.YFilter = localLabelRewrite.YFilter
+    localLabelRewrite.EntityData.YangName = "local-label-rewrite"
+    localLabelRewrite.EntityData.BundleName = "cisco_ios_xr"
+    localLabelRewrite.EntityData.ParentYangName = "rewrite-id"
+    localLabelRewrite.EntityData.SegmentPath = "local-label-rewrite"
+    localLabelRewrite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localLabelRewrite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localLabelRewrite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localLabelRewrite.EntityData.Children = types.NewOrderedMap()
+    localLabelRewrite.EntityData.Children.Append("label-data", types.YChild{"LabelData", nil})
+    for i := range localLabelRewrite.LabelData {
+        localLabelRewrite.EntityData.Children.Append(types.GetSegmentPath(localLabelRewrite.LabelData[i]), types.YChild{"LabelData", localLabelRewrite.LabelData[i]})
+    }
+    localLabelRewrite.EntityData.Leafs = types.NewOrderedMap()
+
+    localLabelRewrite.EntityData.YListKeys = []string {}
+
+    return &(localLabelRewrite.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData
+// label data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (labelData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "local-label-rewrite"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", labelData.Entry})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi
+// Associated FPI
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPI.
+    Fpi MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi
+
+    // Application owner instance. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner.
+    ApplicationOwner []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner
+}
+
+func (associatedFpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi) GetEntityData() *types.CommonEntityData {
+    associatedFpi.EntityData.YFilter = associatedFpi.YFilter
+    associatedFpi.EntityData.YangName = "associated-fpi"
+    associatedFpi.EntityData.BundleName = "cisco_ios_xr"
+    associatedFpi.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    associatedFpi.EntityData.SegmentPath = "associated-fpi"
+    associatedFpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    associatedFpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    associatedFpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    associatedFpi.EntityData.Children = types.NewOrderedMap()
+    associatedFpi.EntityData.Children.Append("fpi", types.YChild{"Fpi", &associatedFpi.Fpi})
+    associatedFpi.EntityData.Children.Append("application-owner", types.YChild{"ApplicationOwner", nil})
+    for i := range associatedFpi.ApplicationOwner {
+        associatedFpi.EntityData.Children.Append(types.GetSegmentPath(associatedFpi.ApplicationOwner[i]), types.YChild{"ApplicationOwner", associatedFpi.ApplicationOwner[i]})
+    }
+    associatedFpi.EntityData.Leafs = types.NewOrderedMap()
+
+    associatedFpi.EntityData.YListKeys = []string {}
+
+    return &(associatedFpi.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi
+// FPI
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPIType. The type is MgmtLsdFpi.
+    FpiType interface{}
+
+    // label data.
+    LabelData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData
+
+    // te data.
+    TeData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData
+
+    // ipv4 data.
+    Ipv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data
+
+    // pw list data.
+    PwListData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData
+
+    // dmtc ext intf data.
+    DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange
+}
+
+func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
+    fpi.EntityData.YFilter = fpi.YFilter
+    fpi.EntityData.YangName = "fpi"
+    fpi.EntityData.BundleName = "cisco_ios_xr"
+    fpi.EntityData.ParentYangName = "associated-fpi"
+    fpi.EntityData.SegmentPath = "fpi"
+    fpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpi.EntityData.Children = types.NewOrderedMap()
+    fpi.EntityData.Children.Append("label-data", types.YChild{"LabelData", &fpi.LabelData})
+    fpi.EntityData.Children.Append("te-data", types.YChild{"TeData", &fpi.TeData})
+    fpi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &fpi.Ipv4Data})
+    fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
+    fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
+    fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
+    fpi.EntityData.Leafs = types.NewOrderedMap()
+    fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
+
+    fpi.EntityData.YListKeys = []string {}
+
+    return &(fpi.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData
+// label data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label value. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // ELC. The type is interface{} with range: -2147483648..2147483647.
+    Elc interface{}
+}
+
+func (labelData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "fpi"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("label", types.YLeaf{"Label", labelData.Label})
+    labelData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", labelData.SecurityId})
+    labelData.EntityData.Leafs.Append("elc", types.YLeaf{"Elc", labelData.Elc})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData
+// te data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Local label. The type is interface{} with range: 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (teData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData) GetEntityData() *types.CommonEntityData {
+    teData.EntityData.YFilter = teData.YFilter
+    teData.EntityData.YangName = "te-data"
+    teData.EntityData.BundleName = "cisco_ios_xr"
+    teData.EntityData.ParentYangName = "fpi"
+    teData.EntityData.SegmentPath = "te-data"
+    teData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teData.EntityData.Children = types.NewOrderedMap()
+    teData.EntityData.Leafs = types.NewOrderedMap()
+    teData.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", teData.TunnelInterface})
+    teData.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", teData.LocalLabel})
+
+    teData.EntityData.YListKeys = []string {}
+
+    return &(teData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data
+// ipv4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix Length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+
+    // SR related Local label. The type is interface{} with range: 0..4294967295.
+    SrLocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "fpi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv4Data.Version})
+    ipv4Data.EntityData.Leafs.Append("sr-local-label", types.YLeaf{"SrLocalLabel", ipv4Data.SrLocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data
+// ipv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Route flags. The type is interface{} with range: 0..4294967295.
+    RouterFlags interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLen interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+}
+
+func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "fpi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("router-flags", types.YLeaf{"RouterFlags", ipv6Data.RouterFlags})
+    ipv6Data.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", ipv6Data.PrefixLen})
+    ipv6Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv6Data.Version})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData
+// pw list data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire List Identifier. The type is interface{} with range: 0..65535.
+    PwheListId interface{}
+}
+
+func (pwListData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "fpi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("pwhe-list-id", types.YLeaf{"PwheListId", pwListData.PwheListId})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData
+// dmtc ext intf data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData) GetEntityData() *types.CommonEntityData {
+    dmtcExtIntfData.EntityData.YFilter = dmtcExtIntfData.YFilter
+    dmtcExtIntfData.EntityData.YangName = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcExtIntfData.EntityData.ParentYangName = "fpi"
+    dmtcExtIntfData.EntityData.SegmentPath = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcExtIntfData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcExtIntfData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcExtIntfData.EntityData.Children = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcExtIntfData.DmtcExtIfh})
+
+    dmtcExtIntfData.EntityData.YListKeys = []string {}
+
+    return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner
+// Application owner instance
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationOwner *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner) GetEntityData() *types.CommonEntityData {
+    applicationOwner.EntityData.YFilter = applicationOwner.YFilter
+    applicationOwner.EntityData.YangName = "application-owner"
+    applicationOwner.EntityData.BundleName = "cisco_ios_xr"
+    applicationOwner.EntityData.ParentYangName = "associated-fpi"
+    applicationOwner.EntityData.SegmentPath = "application-owner"
+    applicationOwner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationOwner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationOwner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationOwner.EntityData.Children = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationOwner.ApplicationName})
+    applicationOwner.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationOwner.ApplicationType})
+    applicationOwner.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationOwner.ApplicationRolePrimary})
+    applicationOwner.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationOwner.ApplicationInstance})
+    applicationOwner.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationOwner.ResourceState})
+
+    applicationOwner.EntityData.YListKeys = []string {}
+
+    return &(applicationOwner.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf
+// IPv4 RPF neighbors
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // V4 RPF Neighbor. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    V4RpfNeighbor interface{}
+}
+
+func (v4Rpf *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf) GetEntityData() *types.CommonEntityData {
+    v4Rpf.EntityData.YFilter = v4Rpf.YFilter
+    v4Rpf.EntityData.YangName = "v4-rpf"
+    v4Rpf.EntityData.BundleName = "cisco_ios_xr"
+    v4Rpf.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    v4Rpf.EntityData.SegmentPath = "v4-rpf"
+    v4Rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    v4Rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    v4Rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    v4Rpf.EntityData.Children = types.NewOrderedMap()
+    v4Rpf.EntityData.Leafs = types.NewOrderedMap()
+    v4Rpf.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", v4Rpf.TableId})
+    v4Rpf.EntityData.Leafs.Append("v4-rpf-neighbor", types.YLeaf{"V4RpfNeighbor", v4Rpf.V4RpfNeighbor})
+
+    v4Rpf.EntityData.YListKeys = []string {}
+
+    return &(v4Rpf.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf
+// IPv6 RPF neighbors
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // V6 RPF Neighbor. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    V6RpfNeighbor interface{}
+}
+
+func (v6Rpf *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf) GetEntityData() *types.CommonEntityData {
+    v6Rpf.EntityData.YFilter = v6Rpf.YFilter
+    v6Rpf.EntityData.YangName = "v6-rpf"
+    v6Rpf.EntityData.BundleName = "cisco_ios_xr"
+    v6Rpf.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    v6Rpf.EntityData.SegmentPath = "v6-rpf"
+    v6Rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    v6Rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    v6Rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    v6Rpf.EntityData.Children = types.NewOrderedMap()
+    v6Rpf.EntityData.Leafs = types.NewOrderedMap()
+    v6Rpf.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", v6Rpf.TableId})
+    v6Rpf.EntityData.Leafs.Append("v6-rpf-neighbor", types.YLeaf{"V6RpfNeighbor", v6Rpf.V6RpfNeighbor})
+
+    v6Rpf.EntityData.YListKeys = []string {}
+
+    return &(v6Rpf.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois
+// Mois
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application state.
+    ApplicationResource MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource
+
+    // moi array. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray.
+    MoiArray []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray
+}
+
+func (mois *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois) GetEntityData() *types.CommonEntityData {
+    mois.EntityData.YFilter = mois.YFilter
+    mois.EntityData.YangName = "mois"
+    mois.EntityData.BundleName = "cisco_ios_xr"
+    mois.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    mois.EntityData.SegmentPath = "mois"
+    mois.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mois.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mois.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mois.EntityData.Children = types.NewOrderedMap()
+    mois.EntityData.Children.Append("application-resource", types.YChild{"ApplicationResource", &mois.ApplicationResource})
+    mois.EntityData.Children.Append("moi-array", types.YChild{"MoiArray", nil})
+    for i := range mois.MoiArray {
+        mois.EntityData.Children.Append(types.GetSegmentPath(mois.MoiArray[i]), types.YChild{"MoiArray", mois.MoiArray[i]})
+    }
+    mois.EntityData.Leafs = types.NewOrderedMap()
+
+    mois.EntityData.YListKeys = []string {}
+
+    return &(mois.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource
+// Application state
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationResource *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource) GetEntityData() *types.CommonEntityData {
+    applicationResource.EntityData.YFilter = applicationResource.YFilter
+    applicationResource.EntityData.YangName = "application-resource"
+    applicationResource.EntityData.BundleName = "cisco_ios_xr"
+    applicationResource.EntityData.ParentYangName = "mois"
+    applicationResource.EntityData.SegmentPath = "application-resource"
+    applicationResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationResource.EntityData.Children = types.NewOrderedMap()
+    applicationResource.EntityData.Leafs = types.NewOrderedMap()
+    applicationResource.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationResource.ApplicationName})
+    applicationResource.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationResource.ApplicationType})
+    applicationResource.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationResource.ApplicationRolePrimary})
+    applicationResource.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationResource.ApplicationInstance})
+    applicationResource.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationResource.ResourceState})
+
+    applicationResource.EntityData.YListKeys = []string {}
+
+    return &(applicationResource.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray
+// moi array
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Moi.
+    Moi MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi
+}
+
+func (moiArray *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray) GetEntityData() *types.CommonEntityData {
+    moiArray.EntityData.YFilter = moiArray.YFilter
+    moiArray.EntityData.YangName = "moi-array"
+    moiArray.EntityData.BundleName = "cisco_ios_xr"
+    moiArray.EntityData.ParentYangName = "mois"
+    moiArray.EntityData.SegmentPath = "moi-array"
+    moiArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moiArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moiArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moiArray.EntityData.Children = types.NewOrderedMap()
+    moiArray.EntityData.Children.Append("moi", types.YChild{"Moi", &moiArray.Moi})
+    moiArray.EntityData.Leafs = types.NewOrderedMap()
+
+    moiArray.EntityData.YListKeys = []string {}
+
+    return &(moiArray.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi
+// Moi
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MoiType. The type is MgmtLsdMoi.
+    MoiType interface{}
+
+    // pop and lookup ipv4.
+    PopAndLookupIpv4 MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4
+
+    // pop and lookup tp.
+    PopAndLookupTp MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp
+
+    // pop and lookup ipv6.
+    PopAndLookupIpv6 MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6
+
+    // ipv4 data.
+    Ipv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data
+
+    // tev4 data.
+    Tev4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data
+
+    // pseudowire data.
+    PseudowireData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData
+
+    // ip sub data.
+    IpSubData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData
+
+    // pseudowire head end data.
+    PseudowireHeadEndData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData
+
+    // pw list data.
+    PwListData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData
+
+    // stackv4 data.
+    Stackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data
+
+    // stackv6 data.
+    Stackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data
+
+    // te head data.
+    TeHeadData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData
+
+    // dmtc data.
+    DmtcData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData
+
+    // nnh stackv4 data.
+    NnhStackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange
+}
+
+func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
+    moi.EntityData.YFilter = moi.YFilter
+    moi.EntityData.YangName = "moi"
+    moi.EntityData.BundleName = "cisco_ios_xr"
+    moi.EntityData.ParentYangName = "moi-array"
+    moi.EntityData.SegmentPath = "moi"
+    moi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moi.EntityData.Children = types.NewOrderedMap()
+    moi.EntityData.Children.Append("pop-and-lookup-ipv4", types.YChild{"PopAndLookupIpv4", &moi.PopAndLookupIpv4})
+    moi.EntityData.Children.Append("pop-and-lookup-tp", types.YChild{"PopAndLookupTp", &moi.PopAndLookupTp})
+    moi.EntityData.Children.Append("pop-and-lookup-ipv6", types.YChild{"PopAndLookupIpv6", &moi.PopAndLookupIpv6})
+    moi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &moi.Ipv4Data})
+    moi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &moi.Ipv6Data})
+    moi.EntityData.Children.Append("tev4-data", types.YChild{"Tev4Data", &moi.Tev4Data})
+    moi.EntityData.Children.Append("pseudowire-data", types.YChild{"PseudowireData", &moi.PseudowireData})
+    moi.EntityData.Children.Append("ip-sub-data", types.YChild{"IpSubData", &moi.IpSubData})
+    moi.EntityData.Children.Append("pseudowire-head-end-data", types.YChild{"PseudowireHeadEndData", &moi.PseudowireHeadEndData})
+    moi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &moi.PwListData})
+    moi.EntityData.Children.Append("stackv4-data", types.YChild{"Stackv4Data", &moi.Stackv4Data})
+    moi.EntityData.Children.Append("stackv6-data", types.YChild{"Stackv6Data", &moi.Stackv6Data})
+    moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
+    moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
+    moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
+    moi.EntityData.Leafs = types.NewOrderedMap()
+    moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
+
+    moi.EntityData.YListKeys = []string {}
+
+    return &(moi.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4
+// pop and lookup ipv4
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (popAndLookupIpv4 *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4) GetEntityData() *types.CommonEntityData {
+    popAndLookupIpv4.EntityData.YFilter = popAndLookupIpv4.YFilter
+    popAndLookupIpv4.EntityData.YangName = "pop-and-lookup-ipv4"
+    popAndLookupIpv4.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupIpv4.EntityData.ParentYangName = "moi"
+    popAndLookupIpv4.EntityData.SegmentPath = "pop-and-lookup-ipv4"
+    popAndLookupIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupIpv4.EntityData.Children = types.NewOrderedMap()
+    popAndLookupIpv4.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupIpv4.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupIpv4.TableId})
+    popAndLookupIpv4.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupIpv4.TableName})
+    popAndLookupIpv4.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupIpv4.PathFlagsDecode})
+
+    popAndLookupIpv4.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupIpv4.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp
+// pop and lookup tp
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+}
+
+func (popAndLookupTp *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp) GetEntityData() *types.CommonEntityData {
+    popAndLookupTp.EntityData.YFilter = popAndLookupTp.YFilter
+    popAndLookupTp.EntityData.YangName = "pop-and-lookup-tp"
+    popAndLookupTp.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupTp.EntityData.ParentYangName = "moi"
+    popAndLookupTp.EntityData.SegmentPath = "pop-and-lookup-tp"
+    popAndLookupTp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupTp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupTp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupTp.EntityData.Children = types.NewOrderedMap()
+    popAndLookupTp.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupTp.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupTp.TableId})
+    popAndLookupTp.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupTp.TableName})
+    popAndLookupTp.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupTp.PathFlagsDecode})
+    popAndLookupTp.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", popAndLookupTp.OutLabel})
+
+    popAndLookupTp.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupTp.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6
+// pop and lookup ipv6
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (popAndLookupIpv6 *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6) GetEntityData() *types.CommonEntityData {
+    popAndLookupIpv6.EntityData.YFilter = popAndLookupIpv6.YFilter
+    popAndLookupIpv6.EntityData.YangName = "pop-and-lookup-ipv6"
+    popAndLookupIpv6.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupIpv6.EntityData.ParentYangName = "moi"
+    popAndLookupIpv6.EntityData.SegmentPath = "pop-and-lookup-ipv6"
+    popAndLookupIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupIpv6.EntityData.Children = types.NewOrderedMap()
+    popAndLookupIpv6.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupIpv6.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupIpv6.TableId})
+    popAndLookupIpv6.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupIpv6.TableName})
+    popAndLookupIpv6.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupIpv6.PathFlagsDecode})
+
+    popAndLookupIpv6.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupIpv6.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data
+// ipv4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "moi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipv4Data.TableName})
+    ipv4Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipv4Data.PathFlagsDecode})
+    ipv4Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipv4Data.OutInterface})
+    ipv4Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv4Data.OutInterfaceParent})
+    ipv4Data.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", ipv4Data.Ipv4NextHop})
+    ipv4Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv4Data.PathId})
+    ipv4Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv4Data.BackupPathId})
+    ipv4Data.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", ipv4Data.LoadMetric})
+    ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
+    ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
+    ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
+    ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
+    ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data
+// ipv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "moi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipv6Data.TableName})
+    ipv6Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipv6Data.PathFlagsDecode})
+    ipv6Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipv6Data.OutInterface})
+    ipv6Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv6Data.OutLabel})
+    ipv6Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv6Data.OutLabelName})
+    ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
+    ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
+    ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
+    ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
+    ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data
+// tev4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BackupInterface interface{}
+
+    // Backup IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    BackupIpv4NextHop interface{}
+
+    // Merge point label. The type is interface{} with range: 0..4294967295.
+    MergePointLabel interface{}
+
+    // Backup local label. The type is interface{} with range: 0..4294967295.
+    BackupLocalLabel interface{}
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Tunnel weight. The type is interface{} with range: 0..4294967295.
+    TunnelWeight interface{}
+
+    // Outgoing data parent interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    DataOutParentInterface interface{}
+
+    // Tunnel class. The type is interface{} with range: 0..4294967295.
+    TunnelClass interface{}
+
+    // IPv4 next nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextNextHop interface{}
+}
+
+func (tev4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data) GetEntityData() *types.CommonEntityData {
+    tev4Data.EntityData.YFilter = tev4Data.YFilter
+    tev4Data.EntityData.YangName = "tev4-data"
+    tev4Data.EntityData.BundleName = "cisco_ios_xr"
+    tev4Data.EntityData.ParentYangName = "moi"
+    tev4Data.EntityData.SegmentPath = "tev4-data"
+    tev4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4Data.EntityData.Children = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4Data.TableId})
+    tev4Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", tev4Data.TableName})
+    tev4Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", tev4Data.PathFlagsDecode})
+    tev4Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", tev4Data.OutInterface})
+    tev4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", tev4Data.OutLabel})
+    tev4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", tev4Data.OutLabelName})
+    tev4Data.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", tev4Data.Ipv4NextHop})
+    tev4Data.EntityData.Leafs.Append("backup-interface", types.YLeaf{"BackupInterface", tev4Data.BackupInterface})
+    tev4Data.EntityData.Leafs.Append("backup-ipv4-next-hop", types.YLeaf{"BackupIpv4NextHop", tev4Data.BackupIpv4NextHop})
+    tev4Data.EntityData.Leafs.Append("merge-point-label", types.YLeaf{"MergePointLabel", tev4Data.MergePointLabel})
+    tev4Data.EntityData.Leafs.Append("backup-local-label", types.YLeaf{"BackupLocalLabel", tev4Data.BackupLocalLabel})
+    tev4Data.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", tev4Data.TunnelInterface})
+    tev4Data.EntityData.Leafs.Append("tunnel-weight", types.YLeaf{"TunnelWeight", tev4Data.TunnelWeight})
+    tev4Data.EntityData.Leafs.Append("data-out-parent-interface", types.YLeaf{"DataOutParentInterface", tev4Data.DataOutParentInterface})
+    tev4Data.EntityData.Leafs.Append("tunnel-class", types.YLeaf{"TunnelClass", tev4Data.TunnelClass})
+    tev4Data.EntityData.Leafs.Append("ipv4-next-next-hop", types.YLeaf{"Ipv4NextNextHop", tev4Data.Ipv4NextNextHop})
+
+    tev4Data.EntityData.YListKeys = []string {}
+
+    return &(tev4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData
+// pseudowire data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Cross-connect ID. The type is interface{} with range: 0..4294967295.
+    CrossConnectId interface{}
+
+    // PseudoWire Cross-connect ID. The type is interface{} with range:
+    // 0..4294967295.
+    PseuodoWireConnectId interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Bridge ID. The type is interface{} with range: 0..4294967295.
+    BridgeId interface{}
+
+    // Split horizon group ID. The type is interface{} with range: 0..4294967295.
+    SplitHorizonId interface{}
+}
+
+func (pseudowireData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData) GetEntityData() *types.CommonEntityData {
+    pseudowireData.EntityData.YFilter = pseudowireData.YFilter
+    pseudowireData.EntityData.YangName = "pseudowire-data"
+    pseudowireData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireData.EntityData.ParentYangName = "moi"
+    pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireData.EntityData.Children = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pseudowireData.TableId})
+    pseudowireData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pseudowireData.TableName})
+    pseudowireData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pseudowireData.PathFlagsDecode})
+    pseudowireData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", pseudowireData.OutInterface})
+    pseudowireData.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", pseudowireData.OutLabel})
+    pseudowireData.EntityData.Leafs.Append("cross-connect-id", types.YLeaf{"CrossConnectId", pseudowireData.CrossConnectId})
+    pseudowireData.EntityData.Leafs.Append("pseuodo-wire-connect-id", types.YLeaf{"PseuodoWireConnectId", pseudowireData.PseuodoWireConnectId})
+    pseudowireData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", pseudowireData.Ipv4NextHop})
+    pseudowireData.EntityData.Leafs.Append("bridge-id", types.YLeaf{"BridgeId", pseudowireData.BridgeId})
+    pseudowireData.EntityData.Leafs.Append("split-horizon-id", types.YLeaf{"SplitHorizonId", pseudowireData.SplitHorizonId})
+
+    pseudowireData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData
+// ip sub data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (ipSubData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData) GetEntityData() *types.CommonEntityData {
+    ipSubData.EntityData.YFilter = ipSubData.YFilter
+    ipSubData.EntityData.YangName = "ip-sub-data"
+    ipSubData.EntityData.BundleName = "cisco_ios_xr"
+    ipSubData.EntityData.ParentYangName = "moi"
+    ipSubData.EntityData.SegmentPath = "ip-sub-data"
+    ipSubData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubData.EntityData.Children = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipSubData.TableId})
+    ipSubData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipSubData.TableName})
+    ipSubData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipSubData.OutInterface})
+    ipSubData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipSubData.PathFlagsDecode})
+
+    ipSubData.EntityData.YListKeys = []string {}
+
+    return &(ipSubData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData
+// pseudowire head end data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Is control word present. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ControlWord interface{}
+
+    // Is PWHE IMposition. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Imposition interface{}
+
+    // Virtual Circuit Type. The type is interface{} with range: 0..255.
+    Vctype interface{}
+
+    // Pseudo-wire List Identifier. The type is interface{} with range: 0..65535.
+    PwListId interface{}
+
+    // Pseudo-wire Head-end interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    PwheInterface interface{}
+}
+
+func (pseudowireHeadEndData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData) GetEntityData() *types.CommonEntityData {
+    pseudowireHeadEndData.EntityData.YFilter = pseudowireHeadEndData.YFilter
+    pseudowireHeadEndData.EntityData.YangName = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireHeadEndData.EntityData.ParentYangName = "moi"
+    pseudowireHeadEndData.EntityData.SegmentPath = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireHeadEndData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireHeadEndData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireHeadEndData.EntityData.Children = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pseudowireHeadEndData.TableId})
+    pseudowireHeadEndData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pseudowireHeadEndData.TableName})
+    pseudowireHeadEndData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pseudowireHeadEndData.PathFlagsDecode})
+    pseudowireHeadEndData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", pseudowireHeadEndData.OutInterface})
+    pseudowireHeadEndData.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", pseudowireHeadEndData.OutLabel})
+    pseudowireHeadEndData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", pseudowireHeadEndData.Ipv4NextHop})
+    pseudowireHeadEndData.EntityData.Leafs.Append("control-word", types.YLeaf{"ControlWord", pseudowireHeadEndData.ControlWord})
+    pseudowireHeadEndData.EntityData.Leafs.Append("imposition", types.YLeaf{"Imposition", pseudowireHeadEndData.Imposition})
+    pseudowireHeadEndData.EntityData.Leafs.Append("vctype", types.YLeaf{"Vctype", pseudowireHeadEndData.Vctype})
+    pseudowireHeadEndData.EntityData.Leafs.Append("pw-list-id", types.YLeaf{"PwListId", pseudowireHeadEndData.PwListId})
+    pseudowireHeadEndData.EntityData.Leafs.Append("pwhe-interface", types.YLeaf{"PwheInterface", pseudowireHeadEndData.PwheInterface})
+
+    pseudowireHeadEndData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireHeadEndData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData
+// pw list data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Pseudo-wire Layer 3 interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    L3Interface interface{}
+
+    // Pseudo-wire Layer 2 interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    L2Interface interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (pwListData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "moi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pwListData.TableId})
+    pwListData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pwListData.TableName})
+    pwListData.EntityData.Leafs.Append("l3-interface", types.YLeaf{"L3Interface", pwListData.L3Interface})
+    pwListData.EntityData.Leafs.Append("l2-interface", types.YLeaf{"L2Interface", pwListData.L2Interface})
+    pwListData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pwListData.PathFlagsDecode})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data
+// stackv4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Owner application type. The type is MgmtLsdApp.
+    OwnerApplicationType interface{}
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack
+}
+
+func (stackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data) GetEntityData() *types.CommonEntityData {
+    stackv4Data.EntityData.YFilter = stackv4Data.YFilter
+    stackv4Data.EntityData.YangName = "stackv4-data"
+    stackv4Data.EntityData.BundleName = "cisco_ios_xr"
+    stackv4Data.EntityData.ParentYangName = "moi"
+    stackv4Data.EntityData.SegmentPath = "stackv4-data"
+    stackv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stackv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stackv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stackv4Data.EntityData.Children = types.NewOrderedMap()
+    stackv4Data.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &stackv4Data.Nexthop})
+    stackv4Data.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &stackv4Data.InnerStack})
+    stackv4Data.EntityData.Leafs = types.NewOrderedMap()
+    stackv4Data.EntityData.Leafs.Append("owner-application-type", types.YLeaf{"OwnerApplicationType", stackv4Data.OwnerApplicationType})
+
+    stackv4Data.EntityData.YListKeys = []string {}
+
+    return &(stackv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "stackv4-data"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+    nexthop.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", nexthop.Ipv4NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", nexthop.LoadMetric})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "stackv4-data"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data
+// stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack
+}
+
+func (stackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data) GetEntityData() *types.CommonEntityData {
+    stackv6Data.EntityData.YFilter = stackv6Data.YFilter
+    stackv6Data.EntityData.YangName = "stackv6-data"
+    stackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    stackv6Data.EntityData.ParentYangName = "moi"
+    stackv6Data.EntityData.SegmentPath = "stackv6-data"
+    stackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stackv6Data.EntityData.Children = types.NewOrderedMap()
+    stackv6Data.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &stackv6Data.Nexthop})
+    stackv6Data.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &stackv6Data.InnerStack})
+    stackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    stackv6Data.EntityData.YListKeys = []string {}
+
+    return &(stackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "stackv6-data"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "stackv6-data"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData
+// te head data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Tunnel local label. The type is interface{} with range: 0..4294967295.
+    TunnelLocalLabel interface{}
+
+    // Tunnel local label stringified. The type is string.
+    TunnelLocalLabelStr interface{}
+
+    // Tunnel forwarding class. The type is interface{} with range: 0..255.
+    TunnelFwdClass interface{}
+
+    // Tunnel Load metric. The type is interface{} with range: 0..4294967295.
+    TunnelLoadMetric interface{}
+
+    // Flags decoded string. The type is string.
+    FlagsDecode interface{}
+}
+
+func (teHeadData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData) GetEntityData() *types.CommonEntityData {
+    teHeadData.EntityData.YFilter = teHeadData.YFilter
+    teHeadData.EntityData.YangName = "te-head-data"
+    teHeadData.EntityData.BundleName = "cisco_ios_xr"
+    teHeadData.EntityData.ParentYangName = "moi"
+    teHeadData.EntityData.SegmentPath = "te-head-data"
+    teHeadData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teHeadData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teHeadData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teHeadData.EntityData.Children = types.NewOrderedMap()
+    teHeadData.EntityData.Leafs = types.NewOrderedMap()
+    teHeadData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", teHeadData.TableId})
+    teHeadData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", teHeadData.TableName})
+    teHeadData.EntityData.Leafs.Append("tunnel-local-label", types.YLeaf{"TunnelLocalLabel", teHeadData.TunnelLocalLabel})
+    teHeadData.EntityData.Leafs.Append("tunnel-local-label-str", types.YLeaf{"TunnelLocalLabelStr", teHeadData.TunnelLocalLabelStr})
+    teHeadData.EntityData.Leafs.Append("tunnel-fwd-class", types.YLeaf{"TunnelFwdClass", teHeadData.TunnelFwdClass})
+    teHeadData.EntityData.Leafs.Append("tunnel-load-metric", types.YLeaf{"TunnelLoadMetric", teHeadData.TunnelLoadMetric})
+    teHeadData.EntityData.Leafs.Append("flags-decode", types.YLeaf{"FlagsDecode", teHeadData.FlagsDecode})
+
+    teHeadData.EntityData.YListKeys = []string {}
+
+    return &(teHeadData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData
+// dmtc data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData) GetEntityData() *types.CommonEntityData {
+    dmtcData.EntityData.YFilter = dmtcData.YFilter
+    dmtcData.EntityData.YangName = "dmtc-data"
+    dmtcData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcData.EntityData.ParentYangName = "moi"
+    dmtcData.EntityData.SegmentPath = "dmtc-data"
+    dmtcData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcData.EntityData.Children = types.NewOrderedMap()
+    dmtcData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcData.DmtcExtIfh})
+
+    dmtcData.EntityData.YListKeys = []string {}
+
+    return &(dmtcData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data
+// nnh stackv4 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 stack.
+    Ipv4Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+}
+
+func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv4Data.EntityData.YFilter = nnhStackv4Data.YFilter
+    nnhStackv4Data.EntityData.YangName = "nnh-stackv4-data"
+    nnhStackv4Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv4Data.EntityData.ParentYangName = "moi"
+    nnhStackv4Data.EntityData.SegmentPath = "nnh-stackv4-data"
+    nnhStackv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
+    }
+    nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv4Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv4Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
+// IPv4 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Owner application type. The type is MgmtLsdApp.
+    OwnerApplicationType interface{}
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack
+}
+
+func (ipv4Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack) GetEntityData() *types.CommonEntityData {
+    ipv4Stack.EntityData.YFilter = ipv4Stack.YFilter
+    ipv4Stack.EntityData.YangName = "ipv4-stack"
+    ipv4Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Stack.EntityData.ParentYangName = "nnh-stackv4-data"
+    ipv4Stack.EntityData.SegmentPath = "ipv4-stack"
+    ipv4Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Stack.EntityData.Children = types.NewOrderedMap()
+    ipv4Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv4Stack.Nexthop})
+    ipv4Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv4Stack.InnerStack})
+    ipv4Stack.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Stack.EntityData.Leafs.Append("owner-application-type", types.YLeaf{"OwnerApplicationType", ipv4Stack.OwnerApplicationType})
+
+    ipv4Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv4Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv4-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+    nexthop.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", nexthop.Ipv4NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", nexthop.LoadMetric})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv4-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws
@@ -3127,6 +7581,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey
 
@@ -3188,6 +7646,7 @@ func (rewritePw *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw) GetEntit
     rewritePw.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewritePw.RwInstallAge})
     rewritePw.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewritePw.RwUpdated})
     rewritePw.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewritePw.PriorityUpdated})
+    rewritePw.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewritePw.RwRedist})
 
     rewritePw.EntityData.YListKeys = []string {"PwListId"}
 
@@ -3257,6 +7716,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -3276,6 +7738,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi) Get
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -3327,7 +7790,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_TeData str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -3481,7 +7944,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtInt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -3502,6 +7965,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Fpi
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_ApplicationOwner
@@ -4113,7 +8609,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -4193,7 +8689,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -4325,7 +8821,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -4411,7 +8907,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -4441,7 +8937,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -4479,6 +8975,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -4496,6 +8995,7 @@ func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -4508,7 +9008,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -4542,7 +9042,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -4736,7 +9236,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -4778,7 +9278,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -5041,6 +9541,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi str
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -5060,6 +9563,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_F
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -5111,7 +9615,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_TeD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -5265,7 +9769,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -5286,6 +9790,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Ass
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_ApplicationOwner
@@ -5567,6 +10104,12 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi str
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -5595,6 +10138,8 @@ func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_M
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -5733,11 +10278,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -5762,6 +10307,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -5795,6 +10343,7 @@ func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiAr
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -5818,7 +10367,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -5837,11 +10386,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -5866,6 +10421,8 @@ func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiAr
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -5889,7 +10446,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -5902,7 +10459,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -5915,14 +10472,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -5982,7 +10539,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -6046,7 +10603,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_IpS
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -6090,7 +10647,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -6115,7 +10672,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -6161,11 +10718,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PwL
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -6247,11 +10804,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -6276,6 +10833,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -6309,6 +10869,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -6478,7 +11039,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -6497,11 +11058,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -6526,6 +11093,8 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -6706,7 +11275,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -6738,9 +11307,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     // IPv4 stack.
     Ipv4Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -6755,9 +11324,9 @@ func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -6818,11 +11387,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -6847,6 +11416,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -6880,6 +11452,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -7001,9 +11574,9 @@ func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray
     return &(label.EntityData)
 }
 
-// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7014,29 +11587,363 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s
@@ -7117,6 +12024,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4 struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey
 
@@ -7181,6 +12092,7 @@ func (rewriteIpv4 *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4) Ge
     rewriteIpv4.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteIpv4.RwInstallAge})
     rewriteIpv4.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteIpv4.RwUpdated})
     rewriteIpv4.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteIpv4.PriorityUpdated})
+    rewriteIpv4.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteIpv4.RwRedist})
 
     rewriteIpv4.EntityData.YListKeys = []string {}
 
@@ -7250,6 +12162,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi struct
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -7269,6 +12184,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi)
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -7320,7 +12236,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_TeData
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -7474,7 +12390,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcEx
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -7495,6 +12411,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_ApplicationOwner
@@ -8106,7 +13055,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -8186,7 +13135,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -8318,7 +13267,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -8404,7 +13353,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -8434,7 +13383,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -8472,6 +13421,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -8489,6 +13441,7 @@ func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Rewrit
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -8501,7 +13454,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -8535,7 +13488,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -8729,7 +13682,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -8771,7 +13724,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -9034,6 +13987,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -9053,6 +14009,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedF
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -9104,7 +14061,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -9258,7 +14215,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -9279,6 +14236,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_ApplicationOwner
@@ -9560,6 +14550,12 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -9588,6 +14584,8 @@ func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArr
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -9726,11 +14724,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -9755,6 +14753,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -9788,6 +14789,7 @@ func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_M
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -9811,7 +14813,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -9830,11 +14832,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -9859,6 +14867,8 @@ func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_M
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -9882,7 +14892,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -9895,7 +14905,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -9908,14 +14918,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -9975,7 +14985,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -10039,7 +15049,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -10083,7 +15093,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -10108,7 +15118,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -10154,11 +15164,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -10240,11 +15250,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -10269,6 +15279,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -10302,6 +15315,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_Mo
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -10471,7 +15485,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -10490,11 +15504,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -10519,6 +15539,8 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_Mo
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -10699,7 +15721,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -10731,9 +15753,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // IPv4 stack.
     Ipv4Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -10748,9 +15770,9 @@ func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -10811,11 +15833,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -10840,6 +15862,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -10873,6 +15898,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_Mo
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -10994,9 +16020,9 @@ func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiA
     return &(label.EntityData)
 }
 
-// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -11007,29 +16033,363 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes
@@ -11072,7 +16432,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Rewrite version. The type is interface{} with range:
@@ -11100,6 +16460,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe struct {
     // Is rewrite's BCDL priority updated. The type is interface{} with range:
     // -2147483648..2147483647.
     PriorityUpdated interface{}
+
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
 
     // fpi key.
     FpiKey MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey
@@ -11162,6 +16526,7 @@ func (rewriteTe *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe) GetEntit
     rewriteTe.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteTe.RwInstallAge})
     rewriteTe.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteTe.RwUpdated})
     rewriteTe.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteTe.PriorityUpdated})
+    rewriteTe.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteTe.RwRedist})
 
     rewriteTe.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -11231,6 +16596,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -11250,6 +16618,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi) Get
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -11301,7 +16670,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_TeData str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -11455,7 +16824,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtInt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -11476,6 +16845,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Fpi
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_ApplicationOwner
@@ -12087,7 +17489,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -12167,7 +17569,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -12299,7 +17701,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -12385,7 +17787,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -12415,7 +17817,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -12453,6 +17855,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -12470,6 +17875,7 @@ func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -12482,7 +17888,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -12516,7 +17922,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -12710,7 +18116,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -12752,7 +18158,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -13015,6 +18421,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi str
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -13034,6 +18443,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_F
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -13085,7 +18495,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_TeD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -13239,7 +18649,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -13260,6 +18670,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Ass
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_ApplicationOwner
@@ -13541,6 +18984,12 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi str
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -13569,6 +19018,8 @@ func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_M
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -13707,11 +19158,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -13736,6 +19187,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -13769,6 +19223,7 @@ func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiAr
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -13792,7 +19247,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -13811,11 +19266,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -13840,6 +19301,8 @@ func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiAr
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -13863,7 +19326,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -13876,7 +19339,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -13889,14 +19352,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -13956,7 +19419,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -14020,7 +19483,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_IpS
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -14064,7 +19527,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -14089,7 +19552,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -14135,11 +19598,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PwL
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -14221,11 +19684,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -14250,6 +19713,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -14283,6 +19749,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -14452,7 +19919,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -14471,11 +19938,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -14500,6 +19973,8 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -14680,7 +20155,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -14712,9 +20187,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     // IPv4 stack.
     Ipv4Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -14729,9 +20204,9 @@ func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -14792,11 +20267,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -14821,6 +20296,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -14854,6 +20332,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArr
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -14975,9 +20454,9 @@ func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray
     return &(label.EntityData)
 }
 
-// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14988,29 +20467,363 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels
@@ -15082,6 +20895,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey
 
@@ -15143,6 +20960,7 @@ func (rewriteLabel *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel)
     rewriteLabel.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteLabel.RwInstallAge})
     rewriteLabel.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteLabel.RwUpdated})
     rewriteLabel.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteLabel.PriorityUpdated})
+    rewriteLabel.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteLabel.RwRedist})
 
     rewriteLabel.EntityData.YListKeys = []string {"LabelId"}
 
@@ -15212,6 +21030,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi stru
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -15231,6 +21052,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fp
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -15282,7 +21104,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_TeDa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -15436,7 +21258,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Dmtc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -15457,6 +21279,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLab
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_ApplicationOwner
@@ -16068,7 +21923,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -16148,7 +22003,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -16280,7 +22135,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -16366,7 +22221,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -16396,7 +22251,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -16434,6 +22289,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -16451,6 +22309,7 @@ func (evpnData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Rewr
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -16463,7 +22322,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -16497,7 +22356,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -16691,7 +22550,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -16733,7 +22592,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -16996,6 +22855,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -17015,6 +22877,7 @@ func (fpi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Associate
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -17066,7 +22929,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -17220,7 +23083,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -17241,6 +23104,39 @@ func (dmtcExtIntfData *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLab
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_ApplicationOwner
@@ -17522,6 +23418,12 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -17550,6 +23452,8 @@ func (moi *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiA
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -17688,11 +23592,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -17717,6 +23621,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -17750,6 +23657,7 @@ func (ipv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -17773,7 +23681,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -17792,11 +23700,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -17821,6 +23735,8 @@ func (ipv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -17844,7 +23760,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -17857,7 +23773,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -17870,14 +23786,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -17937,7 +23853,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -18001,7 +23917,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -18045,7 +23961,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -18070,7 +23986,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -18116,11 +24032,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -18202,11 +24118,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -18231,6 +24147,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -18264,6 +24183,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -18433,7 +24353,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -18452,11 +24372,17 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -18481,6 +24407,8 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -18661,7 +24589,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -18693,9 +24621,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // IPv4 stack.
     Ipv4Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -18710,9 +24638,9 @@ func (nnhStackv4Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabe
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -18773,11 +24701,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -18802,6 +24730,9 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -18835,6 +24766,7 @@ func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -18956,9 +24888,9 @@ func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_Mo
     return &(label.EntityData)
 }
 
-// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -18969,29 +24901,363 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsdNodes_MplsLsdNode_RewriteSummary
@@ -19017,6 +25283,10 @@ type MplsLsdNodes_MplsLsdNode_RewriteSummary struct {
 
     // Number of DMTC FPI. The type is interface{} with range: 0..4294967295.
     NumDmtctefpi interface{}
+
+    // Number of Label Range FPI. The type is interface{} with range:
+    // 0..4294967295.
+    NumLabelRange interface{}
 
     // Number of rewrites. The type is interface{} with range: 0..4294967295.
     NumRewrite interface{}
@@ -19064,6 +25334,10 @@ type MplsLsdNodes_MplsLsdNode_RewriteSummary struct {
     // range: 0..4294967295.
     TotalDmtcIntf interface{}
 
+    // Total number of Label Ranges. The type is interface{} with range:
+    // 0..4294967295.
+    TotalLabelRange interface{}
+
     // VRF Name. The type is string.
     VrfNameXr interface{}
 
@@ -19094,6 +25368,7 @@ func (rewriteSummary *MplsLsdNodes_MplsLsdNode_RewriteSummary) GetEntityData() *
     rewriteSummary.EntityData.Leafs.Append("num-ipv6fpi", types.YLeaf{"NumIpv6fpi", rewriteSummary.NumIpv6fpi})
     rewriteSummary.EntityData.Leafs.Append("num-pw-list-tefpi", types.YLeaf{"NumPwListTefpi", rewriteSummary.NumPwListTefpi})
     rewriteSummary.EntityData.Leafs.Append("num-dmtctefpi", types.YLeaf{"NumDmtctefpi", rewriteSummary.NumDmtctefpi})
+    rewriteSummary.EntityData.Leafs.Append("num-label-range", types.YLeaf{"NumLabelRange", rewriteSummary.NumLabelRange})
     rewriteSummary.EntityData.Leafs.Append("num-rewrite", types.YLeaf{"NumRewrite", rewriteSummary.NumRewrite})
     rewriteSummary.EntityData.Leafs.Append("total-forward-update", types.YLeaf{"TotalForwardUpdate", rewriteSummary.TotalForwardUpdate})
     rewriteSummary.EntityData.Leafs.Append("total-forwad-update-message", types.YLeaf{"TotalForwadUpdateMessage", rewriteSummary.TotalForwadUpdateMessage})
@@ -19106,6 +25381,7 @@ func (rewriteSummary *MplsLsdNodes_MplsLsdNode_RewriteSummary) GetEntityData() *
     rewriteSummary.EntityData.Leafs.Append("total-ipv6rpf-neighbors", types.YLeaf{"TotalIpv6rpfNeighbors", rewriteSummary.TotalIpv6rpfNeighbors})
     rewriteSummary.EntityData.Leafs.Append("num-rewrite-rpf-neighbors", types.YLeaf{"NumRewriteRpfNeighbors", rewriteSummary.NumRewriteRpfNeighbors})
     rewriteSummary.EntityData.Leafs.Append("total-dmtc-intf", types.YLeaf{"TotalDmtcIntf", rewriteSummary.TotalDmtcIntf})
+    rewriteSummary.EntityData.Leafs.Append("total-label-range", types.YLeaf{"TotalLabelRange", rewriteSummary.TotalLabelRange})
     rewriteSummary.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", rewriteSummary.VrfNameXr})
 
     rewriteSummary.EntityData.YListKeys = []string {}
@@ -19743,6 +26019,10 @@ type MplsLsdNodes_MplsLsdNode_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     // Number of DMTC FPI. The type is interface{} with range: 0..4294967295.
     NumDmtctefpi interface{}
 
+    // Number of Label Range FPI. The type is interface{} with range:
+    // 0..4294967295.
+    NumLabelRange interface{}
+
     // Number of rewrites. The type is interface{} with range: 0..4294967295.
     NumRewrite interface{}
 
@@ -19789,6 +26069,10 @@ type MplsLsdNodes_MplsLsdNode_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     // range: 0..4294967295.
     TotalDmtcIntf interface{}
 
+    // Total number of Label Ranges. The type is interface{} with range:
+    // 0..4294967295.
+    TotalLabelRange interface{}
+
     // VRF Name. The type is string.
     VrfNameXr interface{}
 
@@ -19820,6 +26104,7 @@ func (rewriteSummaryVrf *MplsLsdNodes_MplsLsdNode_RewriteSummaryVrfs_RewriteSumm
     rewriteSummaryVrf.EntityData.Leafs.Append("num-ipv6fpi", types.YLeaf{"NumIpv6fpi", rewriteSummaryVrf.NumIpv6fpi})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-pw-list-tefpi", types.YLeaf{"NumPwListTefpi", rewriteSummaryVrf.NumPwListTefpi})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-dmtctefpi", types.YLeaf{"NumDmtctefpi", rewriteSummaryVrf.NumDmtctefpi})
+    rewriteSummaryVrf.EntityData.Leafs.Append("num-label-range", types.YLeaf{"NumLabelRange", rewriteSummaryVrf.NumLabelRange})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-rewrite", types.YLeaf{"NumRewrite", rewriteSummaryVrf.NumRewrite})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-forward-update", types.YLeaf{"TotalForwardUpdate", rewriteSummaryVrf.TotalForwardUpdate})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-forwad-update-message", types.YLeaf{"TotalForwadUpdateMessage", rewriteSummaryVrf.TotalForwadUpdateMessage})
@@ -19832,6 +26117,7 @@ func (rewriteSummaryVrf *MplsLsdNodes_MplsLsdNode_RewriteSummaryVrfs_RewriteSumm
     rewriteSummaryVrf.EntityData.Leafs.Append("total-ipv6rpf-neighbors", types.YLeaf{"TotalIpv6rpfNeighbors", rewriteSummaryVrf.TotalIpv6rpfNeighbors})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-rewrite-rpf-neighbors", types.YLeaf{"NumRewriteRpfNeighbors", rewriteSummaryVrf.NumRewriteRpfNeighbors})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-dmtc-intf", types.YLeaf{"TotalDmtcIntf", rewriteSummaryVrf.TotalDmtcIntf})
+    rewriteSummaryVrf.EntityData.Leafs.Append("total-label-range", types.YLeaf{"TotalLabelRange", rewriteSummaryVrf.TotalLabelRange})
     rewriteSummaryVrf.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", rewriteSummaryVrf.VrfNameXr})
 
     rewriteSummaryVrf.EntityData.YListKeys = []string {"VrfName"}
@@ -19979,10 +26265,10 @@ type MplsLsdNodes_MplsLsdNode_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface state. The type is MgmtLsdIntfState.
@@ -21040,7 +27326,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PseudowireData struct {
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -21120,7 +27406,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_IpSubData struct {
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -21252,7 +27538,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PseudowireHeadEndData struct {
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -21338,7 +27624,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_GenericRoutingEncapsulation struct {
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -21368,7 +27654,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6GenericRoutingEncapsulation struc
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -21406,6 +27692,9 @@ type MplsLsd_Labels_Label_LabelContext_Key_EvpnData struct {
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsd_Labels_Label_LabelContext_Key_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -21423,6 +27712,7 @@ func (evpnData *MplsLsd_Labels_Label_LabelContext_Key_EvpnData) GetEntityData() 
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -21435,7 +27725,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv4blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -21469,7 +27759,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -21663,7 +27953,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_SrAdjSegmentIpv4 struct {
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -21705,7 +27995,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_SrAdjSegmentIpv6 struct {
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -21982,7 +28272,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint struct {
     // 0..4294967295.
     Label interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -22141,7 +28431,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -22151,7 +28441,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -22221,10 +28511,10 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -22383,7 +28673,7 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -22393,7 +28683,7 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -22509,7 +28799,7 @@ type MplsLsd_FrrDatabase_SummaryProtectedInterfaces_SummaryProtectedInterface st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -22649,6 +28939,9 @@ type MplsLsd_Rewrite struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Table of Label Range Counters.
+    RewriteLabelRangeCnts MplsLsd_Rewrite_RewriteLabelRangeCnts
+
     // Table of Rewrites.
     RewritePws MplsLsd_Rewrite_RewritePws
 
@@ -22673,6 +28966,7 @@ func (rewrite *MplsLsd_Rewrite) GetEntityData() *types.CommonEntityData {
     rewrite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     rewrite.EntityData.Children = types.NewOrderedMap()
+    rewrite.EntityData.Children.Append("rewrite-label-range-cnts", types.YChild{"RewriteLabelRangeCnts", &rewrite.RewriteLabelRangeCnts})
     rewrite.EntityData.Children.Append("rewrite-pws", types.YChild{"RewritePws", &rewrite.RewritePws})
     rewrite.EntityData.Children.Append("rewrite-ipv4s", types.YChild{"RewriteIpv4s", &rewrite.RewriteIpv4s})
     rewrite.EntityData.Children.Append("rewrite-tes", types.YChild{"RewriteTes", &rewrite.RewriteTes})
@@ -22682,6 +28976,4443 @@ func (rewrite *MplsLsd_Rewrite) GetEntityData() *types.CommonEntityData {
     rewrite.EntityData.YListKeys = []string {}
 
     return &(rewrite.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts
+// Table of Label Range Counters
+type MplsLsd_Rewrite_RewriteLabelRangeCnts struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Counters. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt.
+    RewriteLabelRangeCnt []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
+}
+
+func (rewriteLabelRangeCnts *MplsLsd_Rewrite_RewriteLabelRangeCnts) GetEntityData() *types.CommonEntityData {
+    rewriteLabelRangeCnts.EntityData.YFilter = rewriteLabelRangeCnts.YFilter
+    rewriteLabelRangeCnts.EntityData.YangName = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnts.EntityData.BundleName = "cisco_ios_xr"
+    rewriteLabelRangeCnts.EntityData.ParentYangName = "rewrite"
+    rewriteLabelRangeCnts.EntityData.SegmentPath = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteLabelRangeCnts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteLabelRangeCnts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteLabelRangeCnts.EntityData.Children = types.NewOrderedMap()
+    rewriteLabelRangeCnts.EntityData.Children.Append("rewrite-label-range-cnt", types.YChild{"RewriteLabelRangeCnt", nil})
+    for i := range rewriteLabelRangeCnts.RewriteLabelRangeCnt {
+        rewriteLabelRangeCnts.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnts.RewriteLabelRangeCnt[i]), types.YChild{"RewriteLabelRangeCnt", rewriteLabelRangeCnts.RewriteLabelRangeCnt[i]})
+    }
+    rewriteLabelRangeCnts.EntityData.Leafs = types.NewOrderedMap()
+
+    rewriteLabelRangeCnts.EntityData.YListKeys = []string {}
+
+    return &(rewriteLabelRangeCnts.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
+// Label Range Counters
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..4294967295.
+    LabelRangeType interface{}
+
+    // Label Range Index. The type is interface{} with range: 0..4294967295.
+    LabelRangeIndex interface{}
+
+    // Rewrite version. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RewriteVersion interface{}
+
+    // BCDL Priority. The type is interface{} with range: 0..255.
+    BcdlPriority interface{}
+
+    // LSD queue. The type is interface{} with range: 0..255.
+    LsdQueue interface{}
+
+    // Rewrite install timestamp. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RwInstallTime interface{}
+
+    // Rewrite install age. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RwInstallAge interface{}
+
+    // Is rewrite ever updated. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwUpdated interface{}
+
+    // Is rewrite's BCDL priority updated. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PriorityUpdated interface{}
+
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
+    // fpi key.
+    FpiKey MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey
+
+    // Rewrite ID.
+    RewriteId MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId
+
+    // Associated FPI. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi.
+    AssociatedFpi []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi
+
+    // IPv4 RPF neighbors. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf.
+    V4Rpf []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf
+
+    // IPv6 RPF neighbors. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf.
+    V6Rpf []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf
+
+    // Mois. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois.
+    Mois []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois
+}
+
+func (rewriteLabelRangeCnt *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt) GetEntityData() *types.CommonEntityData {
+    rewriteLabelRangeCnt.EntityData.YFilter = rewriteLabelRangeCnt.YFilter
+    rewriteLabelRangeCnt.EntityData.YangName = "rewrite-label-range-cnt"
+    rewriteLabelRangeCnt.EntityData.BundleName = "cisco_ios_xr"
+    rewriteLabelRangeCnt.EntityData.ParentYangName = "rewrite-label-range-cnts"
+    rewriteLabelRangeCnt.EntityData.SegmentPath = "rewrite-label-range-cnt"
+    rewriteLabelRangeCnt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteLabelRangeCnt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteLabelRangeCnt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteLabelRangeCnt.EntityData.Children = types.NewOrderedMap()
+    rewriteLabelRangeCnt.EntityData.Children.Append("fpi-key", types.YChild{"FpiKey", &rewriteLabelRangeCnt.FpiKey})
+    rewriteLabelRangeCnt.EntityData.Children.Append("rewrite-id", types.YChild{"RewriteId", &rewriteLabelRangeCnt.RewriteId})
+    rewriteLabelRangeCnt.EntityData.Children.Append("associated-fpi", types.YChild{"AssociatedFpi", nil})
+    for i := range rewriteLabelRangeCnt.AssociatedFpi {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.AssociatedFpi[i]), types.YChild{"AssociatedFpi", rewriteLabelRangeCnt.AssociatedFpi[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("v4-rpf", types.YChild{"V4Rpf", nil})
+    for i := range rewriteLabelRangeCnt.V4Rpf {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.V4Rpf[i]), types.YChild{"V4Rpf", rewriteLabelRangeCnt.V4Rpf[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("v6-rpf", types.YChild{"V6Rpf", nil})
+    for i := range rewriteLabelRangeCnt.V6Rpf {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.V6Rpf[i]), types.YChild{"V6Rpf", rewriteLabelRangeCnt.V6Rpf[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Children.Append("mois", types.YChild{"Mois", nil})
+    for i := range rewriteLabelRangeCnt.Mois {
+        rewriteLabelRangeCnt.EntityData.Children.Append(types.GetSegmentPath(rewriteLabelRangeCnt.Mois[i]), types.YChild{"Mois", rewriteLabelRangeCnt.Mois[i]})
+    }
+    rewriteLabelRangeCnt.EntityData.Leafs = types.NewOrderedMap()
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("label-range-type", types.YLeaf{"LabelRangeType", rewriteLabelRangeCnt.LabelRangeType})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("label-range-index", types.YLeaf{"LabelRangeIndex", rewriteLabelRangeCnt.LabelRangeIndex})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rewrite-version", types.YLeaf{"RewriteVersion", rewriteLabelRangeCnt.RewriteVersion})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("bcdl-priority", types.YLeaf{"BcdlPriority", rewriteLabelRangeCnt.BcdlPriority})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("lsd-queue", types.YLeaf{"LsdQueue", rewriteLabelRangeCnt.LsdQueue})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-install-time", types.YLeaf{"RwInstallTime", rewriteLabelRangeCnt.RwInstallTime})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteLabelRangeCnt.RwInstallAge})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteLabelRangeCnt.RwUpdated})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteLabelRangeCnt.PriorityUpdated})
+    rewriteLabelRangeCnt.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteLabelRangeCnt.RwRedist})
+
+    rewriteLabelRangeCnt.EntityData.YListKeys = []string {}
+
+    return &(rewriteLabelRangeCnt.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey
+// fpi key
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPI.
+    Fpi MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi
+
+    // Application owner instance. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner.
+    ApplicationOwner []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner
+}
+
+func (fpiKey *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey) GetEntityData() *types.CommonEntityData {
+    fpiKey.EntityData.YFilter = fpiKey.YFilter
+    fpiKey.EntityData.YangName = "fpi-key"
+    fpiKey.EntityData.BundleName = "cisco_ios_xr"
+    fpiKey.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    fpiKey.EntityData.SegmentPath = "fpi-key"
+    fpiKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpiKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpiKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpiKey.EntityData.Children = types.NewOrderedMap()
+    fpiKey.EntityData.Children.Append("fpi", types.YChild{"Fpi", &fpiKey.Fpi})
+    fpiKey.EntityData.Children.Append("application-owner", types.YChild{"ApplicationOwner", nil})
+    for i := range fpiKey.ApplicationOwner {
+        fpiKey.EntityData.Children.Append(types.GetSegmentPath(fpiKey.ApplicationOwner[i]), types.YChild{"ApplicationOwner", fpiKey.ApplicationOwner[i]})
+    }
+    fpiKey.EntityData.Leafs = types.NewOrderedMap()
+
+    fpiKey.EntityData.YListKeys = []string {}
+
+    return &(fpiKey.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi
+// FPI
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPIType. The type is MgmtLsdFpi.
+    FpiType interface{}
+
+    // label data.
+    LabelData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData
+
+    // te data.
+    TeData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData
+
+    // ipv4 data.
+    Ipv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data
+
+    // pw list data.
+    PwListData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData
+
+    // dmtc ext intf data.
+    DmtcExtIntfData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange
+}
+
+func (fpi *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
+    fpi.EntityData.YFilter = fpi.YFilter
+    fpi.EntityData.YangName = "fpi"
+    fpi.EntityData.BundleName = "cisco_ios_xr"
+    fpi.EntityData.ParentYangName = "fpi-key"
+    fpi.EntityData.SegmentPath = "fpi"
+    fpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpi.EntityData.Children = types.NewOrderedMap()
+    fpi.EntityData.Children.Append("label-data", types.YChild{"LabelData", &fpi.LabelData})
+    fpi.EntityData.Children.Append("te-data", types.YChild{"TeData", &fpi.TeData})
+    fpi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &fpi.Ipv4Data})
+    fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
+    fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
+    fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
+    fpi.EntityData.Leafs = types.NewOrderedMap()
+    fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
+
+    fpi.EntityData.YListKeys = []string {}
+
+    return &(fpi.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData
+// label data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label value. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // ELC. The type is interface{} with range: -2147483648..2147483647.
+    Elc interface{}
+}
+
+func (labelData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "fpi"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("label", types.YLeaf{"Label", labelData.Label})
+    labelData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", labelData.SecurityId})
+    labelData.EntityData.Leafs.Append("elc", types.YLeaf{"Elc", labelData.Elc})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData
+// te data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Local label. The type is interface{} with range: 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (teData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeData) GetEntityData() *types.CommonEntityData {
+    teData.EntityData.YFilter = teData.YFilter
+    teData.EntityData.YangName = "te-data"
+    teData.EntityData.BundleName = "cisco_ios_xr"
+    teData.EntityData.ParentYangName = "fpi"
+    teData.EntityData.SegmentPath = "te-data"
+    teData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teData.EntityData.Children = types.NewOrderedMap()
+    teData.EntityData.Leafs = types.NewOrderedMap()
+    teData.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", teData.TunnelInterface})
+    teData.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", teData.LocalLabel})
+
+    teData.EntityData.YListKeys = []string {}
+
+    return &(teData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data
+// ipv4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix Length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+
+    // SR related Local label. The type is interface{} with range: 0..4294967295.
+    SrLocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "fpi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv4Data.Version})
+    ipv4Data.EntityData.Leafs.Append("sr-local-label", types.YLeaf{"SrLocalLabel", ipv4Data.SrLocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data
+// ipv6 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Route flags. The type is interface{} with range: 0..4294967295.
+    RouterFlags interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLen interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+}
+
+func (ipv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "fpi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("router-flags", types.YLeaf{"RouterFlags", ipv6Data.RouterFlags})
+    ipv6Data.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", ipv6Data.PrefixLen})
+    ipv6Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv6Data.Version})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData
+// pw list data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire List Identifier. The type is interface{} with range: 0..65535.
+    PwheListId interface{}
+}
+
+func (pwListData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "fpi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("pwhe-list-id", types.YLeaf{"PwheListId", pwListData.PwheListId})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData
+// dmtc ext intf data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcExtIntfData) GetEntityData() *types.CommonEntityData {
+    dmtcExtIntfData.EntityData.YFilter = dmtcExtIntfData.YFilter
+    dmtcExtIntfData.EntityData.YangName = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcExtIntfData.EntityData.ParentYangName = "fpi"
+    dmtcExtIntfData.EntityData.SegmentPath = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcExtIntfData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcExtIntfData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcExtIntfData.EntityData.Children = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcExtIntfData.DmtcExtIfh})
+
+    dmtcExtIntfData.EntityData.YListKeys = []string {}
+
+    return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner
+// Application owner instance
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationOwner *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_ApplicationOwner) GetEntityData() *types.CommonEntityData {
+    applicationOwner.EntityData.YFilter = applicationOwner.YFilter
+    applicationOwner.EntityData.YangName = "application-owner"
+    applicationOwner.EntityData.BundleName = "cisco_ios_xr"
+    applicationOwner.EntityData.ParentYangName = "fpi-key"
+    applicationOwner.EntityData.SegmentPath = "application-owner"
+    applicationOwner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationOwner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationOwner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationOwner.EntityData.Children = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationOwner.ApplicationName})
+    applicationOwner.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationOwner.ApplicationType})
+    applicationOwner.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationOwner.ApplicationRolePrimary})
+    applicationOwner.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationOwner.ApplicationInstance})
+    applicationOwner.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationOwner.ResourceState})
+
+    applicationOwner.EntityData.YListKeys = []string {}
+
+    return &(applicationOwner.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId
+// Rewrite ID
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Rewrite ID.
+    RewriteId MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId
+}
+
+func (rewriteId *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId) GetEntityData() *types.CommonEntityData {
+    rewriteId.EntityData.YFilter = rewriteId.YFilter
+    rewriteId.EntityData.YangName = "rewrite-id"
+    rewriteId.EntityData.BundleName = "cisco_ios_xr"
+    rewriteId.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    rewriteId.EntityData.SegmentPath = "rewrite-id"
+    rewriteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteId.EntityData.Children = types.NewOrderedMap()
+    rewriteId.EntityData.Children.Append("rewrite-id", types.YChild{"RewriteId", &rewriteId.RewriteId})
+    rewriteId.EntityData.Leafs = types.NewOrderedMap()
+
+    rewriteId.EntityData.YListKeys = []string {}
+
+    return &(rewriteId.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId
+// Rewrite ID
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RewriteIDType. The type is MgmtLsdRwId.
+    RewriteIdType interface{}
+
+    // Label context.
+    LabelContext MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext
+
+    // Local label rewrite information.
+    LocalLabelRewrite MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite
+}
+
+func (rewriteId *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId) GetEntityData() *types.CommonEntityData {
+    rewriteId.EntityData.YFilter = rewriteId.YFilter
+    rewriteId.EntityData.YangName = "rewrite-id"
+    rewriteId.EntityData.BundleName = "cisco_ios_xr"
+    rewriteId.EntityData.ParentYangName = "rewrite-id"
+    rewriteId.EntityData.SegmentPath = "rewrite-id"
+    rewriteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rewriteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rewriteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rewriteId.EntityData.Children = types.NewOrderedMap()
+    rewriteId.EntityData.Children.Append("label-context", types.YChild{"LabelContext", &rewriteId.LabelContext})
+    rewriteId.EntityData.Children.Append("local-label-rewrite", types.YChild{"LocalLabelRewrite", &rewriteId.LocalLabelRewrite})
+    rewriteId.EntityData.Leafs = types.NewOrderedMap()
+    rewriteId.EntityData.Leafs.Append("rewrite-id-type", types.YLeaf{"RewriteIdType", rewriteId.RewriteIdType})
+
+    rewriteId.EntityData.YListKeys = []string {}
+
+    return &(rewriteId.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext
+// Label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // LabelContextType. The type is MgmtLsdLblCtx.
+    LabelContextType interface{}
+
+    // IPv4 label context.
+    Ipv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data
+
+    // IPv6 label context.
+    Ipv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data
+
+    // TEv4 label context.
+    Tev4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data
+
+    // L3VPN IPv4 label context.
+    Ipv4l3vpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData
+
+    // L3VPN IPv6 label context.
+    Ipv6l3vpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData
+
+    // L3VPN VRF label context.
+    VrfL3vpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData
+
+    // L3VPN CEv4 label context.
+    Cev4l3vpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData
+
+    // L3VPN CEv6 label context.
+    Cev6l3vpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData
+
+    // Pseudowire label context.
+    PseudowireData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData
+
+    // Label block context.
+    LabelBlockData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData
+
+    // IP Subscriber context.
+    IpSubData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData
+
+    // TEv4 P2MP context.
+    Tev4p2mpData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData
+
+    // MLDPv4 LSM-ID context.
+    MldPv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data
+
+    // Pseudowire Head-end label context.
+    PseudowireHeadEndData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData
+
+    // TP context.
+    TpData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData
+
+    // Generic routing encapsulation context.
+    GenericRoutingEncapsulation MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation
+
+    // Generic routing encapsulation context.
+    Ipv6GenericRoutingEncapsulation MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation
+
+    // EVPN context.
+    EvpnData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData
+
+    // BFD BLB label context.
+    Ipv4blbData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData
+
+    // BFD BLB label context.
+    Ipv6blbData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData
+
+    // PIM I-PMSI label conext.
+    PiMiPmsiData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData
+
+    // PIM S-PMSI label conext.
+    PiMsPmsiData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData
+
+    // L3VPN NH SET label context.
+    NextHopSetL3vpn MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn
+
+    // SR Prefix Segment context.
+    SrPrefixSegment MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment
+
+    // SR Adj Segment ipv4 context.
+    SrAdjSegmentIpv4 MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4
+
+    // SR Adj Segment ipv6 context.
+    SrAdjSegmentIpv6 MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6
+
+    // Label block SRGB context.
+    LabelBlockSrgbData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData
+
+    // MPLS TE tunnel binding context.
+    TeBinding MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding
+
+    // Label block SRLB context.
+    LabelBlockSrlbData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData
+}
+
+func (labelContext *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext) GetEntityData() *types.CommonEntityData {
+    labelContext.EntityData.YFilter = labelContext.YFilter
+    labelContext.EntityData.YangName = "label-context"
+    labelContext.EntityData.BundleName = "cisco_ios_xr"
+    labelContext.EntityData.ParentYangName = "rewrite-id"
+    labelContext.EntityData.SegmentPath = "label-context"
+    labelContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelContext.EntityData.Children = types.NewOrderedMap()
+    labelContext.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &labelContext.Ipv4Data})
+    labelContext.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &labelContext.Ipv6Data})
+    labelContext.EntityData.Children.Append("tev4-data", types.YChild{"Tev4Data", &labelContext.Tev4Data})
+    labelContext.EntityData.Children.Append("ipv4l3vpn-data", types.YChild{"Ipv4l3vpnData", &labelContext.Ipv4l3vpnData})
+    labelContext.EntityData.Children.Append("ipv6l3vpn-data", types.YChild{"Ipv6l3vpnData", &labelContext.Ipv6l3vpnData})
+    labelContext.EntityData.Children.Append("vrf-l3vpn-data", types.YChild{"VrfL3vpnData", &labelContext.VrfL3vpnData})
+    labelContext.EntityData.Children.Append("cev4l3vpn-data", types.YChild{"Cev4l3vpnData", &labelContext.Cev4l3vpnData})
+    labelContext.EntityData.Children.Append("cev6l3vpn-data", types.YChild{"Cev6l3vpnData", &labelContext.Cev6l3vpnData})
+    labelContext.EntityData.Children.Append("pseudowire-data", types.YChild{"PseudowireData", &labelContext.PseudowireData})
+    labelContext.EntityData.Children.Append("label-block-data", types.YChild{"LabelBlockData", &labelContext.LabelBlockData})
+    labelContext.EntityData.Children.Append("ip-sub-data", types.YChild{"IpSubData", &labelContext.IpSubData})
+    labelContext.EntityData.Children.Append("tev4p2mp-data", types.YChild{"Tev4p2mpData", &labelContext.Tev4p2mpData})
+    labelContext.EntityData.Children.Append("mld-pv4-data", types.YChild{"MldPv4Data", &labelContext.MldPv4Data})
+    labelContext.EntityData.Children.Append("pseudowire-head-end-data", types.YChild{"PseudowireHeadEndData", &labelContext.PseudowireHeadEndData})
+    labelContext.EntityData.Children.Append("tp-data", types.YChild{"TpData", &labelContext.TpData})
+    labelContext.EntityData.Children.Append("generic-routing-encapsulation", types.YChild{"GenericRoutingEncapsulation", &labelContext.GenericRoutingEncapsulation})
+    labelContext.EntityData.Children.Append("ipv6-generic-routing-encapsulation", types.YChild{"Ipv6GenericRoutingEncapsulation", &labelContext.Ipv6GenericRoutingEncapsulation})
+    labelContext.EntityData.Children.Append("evpn-data", types.YChild{"EvpnData", &labelContext.EvpnData})
+    labelContext.EntityData.Children.Append("ipv4blb-data", types.YChild{"Ipv4blbData", &labelContext.Ipv4blbData})
+    labelContext.EntityData.Children.Append("ipv6blb-data", types.YChild{"Ipv6blbData", &labelContext.Ipv6blbData})
+    labelContext.EntityData.Children.Append("pi-mi-pmsi-data", types.YChild{"PiMiPmsiData", &labelContext.PiMiPmsiData})
+    labelContext.EntityData.Children.Append("pi-ms-pmsi-data", types.YChild{"PiMsPmsiData", &labelContext.PiMsPmsiData})
+    labelContext.EntityData.Children.Append("next-hop-set-l3vpn", types.YChild{"NextHopSetL3vpn", &labelContext.NextHopSetL3vpn})
+    labelContext.EntityData.Children.Append("sr-prefix-segment", types.YChild{"SrPrefixSegment", &labelContext.SrPrefixSegment})
+    labelContext.EntityData.Children.Append("sr-adj-segment-ipv4", types.YChild{"SrAdjSegmentIpv4", &labelContext.SrAdjSegmentIpv4})
+    labelContext.EntityData.Children.Append("sr-adj-segment-ipv6", types.YChild{"SrAdjSegmentIpv6", &labelContext.SrAdjSegmentIpv6})
+    labelContext.EntityData.Children.Append("label-block-srgb-data", types.YChild{"LabelBlockSrgbData", &labelContext.LabelBlockSrgbData})
+    labelContext.EntityData.Children.Append("te-binding", types.YChild{"TeBinding", &labelContext.TeBinding})
+    labelContext.EntityData.Children.Append("label-block-srlb-data", types.YChild{"LabelBlockSrlbData", &labelContext.LabelBlockSrlbData})
+    labelContext.EntityData.Leafs = types.NewOrderedMap()
+    labelContext.EntityData.Leafs.Append("label-context-type", types.YLeaf{"LabelContextType", labelContext.LabelContextType})
+
+    labelContext.EntityData.YListKeys = []string {}
+
+    return &(labelContext.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data
+// IPv4 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // IPv4 prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // VRF Name. The type is string with length: 0..33.
+    VrfName interface{}
+}
+
+func (ipv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "label-context"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", ipv4Data.SecurityId})
+    ipv4Data.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4Data.VrfName})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data
+// IPv6 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // VRF Name. The type is string with length: 0..33.
+    VrfName interface{}
+}
+
+func (ipv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "label-context"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6Data.PrefixLength})
+    ipv6Data.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", ipv6Data.SecurityId})
+    ipv6Data.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv6Data.VrfName})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data
+// TEv4 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Tunnel source. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelSource interface{}
+
+    // Tunnel destination. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelDest interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelId interface{}
+
+    // Extended tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelIdExtension interface{}
+
+    // Tunnel LSP ID. The type is interface{} with range: 0..4294967295.
+    TunnelLspId interface{}
+
+    // Is this an SRTE head tunnel. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSrte interface{}
+}
+
+func (tev4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4Data) GetEntityData() *types.CommonEntityData {
+    tev4Data.EntityData.YFilter = tev4Data.YFilter
+    tev4Data.EntityData.YangName = "tev4-data"
+    tev4Data.EntityData.BundleName = "cisco_ios_xr"
+    tev4Data.EntityData.ParentYangName = "label-context"
+    tev4Data.EntityData.SegmentPath = "tev4-data"
+    tev4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4Data.EntityData.Children = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4Data.TableId})
+    tev4Data.EntityData.Leafs.Append("tunnel-source", types.YLeaf{"TunnelSource", tev4Data.TunnelSource})
+    tev4Data.EntityData.Leafs.Append("tunnel-dest", types.YLeaf{"TunnelDest", tev4Data.TunnelDest})
+    tev4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", tev4Data.TunnelId})
+    tev4Data.EntityData.Leafs.Append("tunnel-id-extension", types.YLeaf{"TunnelIdExtension", tev4Data.TunnelIdExtension})
+    tev4Data.EntityData.Leafs.Append("tunnel-lsp-id", types.YLeaf{"TunnelLspId", tev4Data.TunnelLspId})
+    tev4Data.EntityData.Leafs.Append("is-srte", types.YLeaf{"IsSrte", tev4Data.IsSrte})
+
+    tev4Data.EntityData.YListKeys = []string {}
+
+    return &(tev4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData
+// L3VPN IPv4 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Route distinguisher. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RouteDistinguisher interface{}
+}
+
+func (ipv4l3vpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4l3vpnData) GetEntityData() *types.CommonEntityData {
+    ipv4l3vpnData.EntityData.YFilter = ipv4l3vpnData.YFilter
+    ipv4l3vpnData.EntityData.YangName = "ipv4l3vpn-data"
+    ipv4l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    ipv4l3vpnData.EntityData.ParentYangName = "label-context"
+    ipv4l3vpnData.EntityData.SegmentPath = "ipv4l3vpn-data"
+    ipv4l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4l3vpnData.EntityData.Children = types.NewOrderedMap()
+    ipv4l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    ipv4l3vpnData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4l3vpnData.Prefix})
+    ipv4l3vpnData.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4l3vpnData.PrefixLength})
+    ipv4l3vpnData.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", ipv4l3vpnData.RouteDistinguisher})
+
+    ipv4l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(ipv4l3vpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData
+// L3VPN IPv6 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Route distinguisher. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RouteDistinguisher interface{}
+}
+
+func (ipv6l3vpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6l3vpnData) GetEntityData() *types.CommonEntityData {
+    ipv6l3vpnData.EntityData.YFilter = ipv6l3vpnData.YFilter
+    ipv6l3vpnData.EntityData.YangName = "ipv6l3vpn-data"
+    ipv6l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    ipv6l3vpnData.EntityData.ParentYangName = "label-context"
+    ipv6l3vpnData.EntityData.SegmentPath = "ipv6l3vpn-data"
+    ipv6l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6l3vpnData.EntityData.Children = types.NewOrderedMap()
+    ipv6l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    ipv6l3vpnData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6l3vpnData.Prefix})
+    ipv6l3vpnData.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv6l3vpnData.PrefixLength})
+    ipv6l3vpnData.EntityData.Leafs.Append("route-distinguisher", types.YLeaf{"RouteDistinguisher", ipv6l3vpnData.RouteDistinguisher})
+
+    ipv6l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(ipv6l3vpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData
+// L3VPN VRF label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (vrfL3vpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_VrfL3vpnData) GetEntityData() *types.CommonEntityData {
+    vrfL3vpnData.EntityData.YFilter = vrfL3vpnData.YFilter
+    vrfL3vpnData.EntityData.YangName = "vrf-l3vpn-data"
+    vrfL3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    vrfL3vpnData.EntityData.ParentYangName = "label-context"
+    vrfL3vpnData.EntityData.SegmentPath = "vrf-l3vpn-data"
+    vrfL3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfL3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfL3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfL3vpnData.EntityData.Children = types.NewOrderedMap()
+    vrfL3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    vrfL3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", vrfL3vpnData.TableId})
+    vrfL3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", vrfL3vpnData.SecurityId})
+
+    vrfL3vpnData.EntityData.YListKeys = []string {}
+
+    return &(vrfL3vpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData
+// L3VPN CEv4 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (cev4l3vpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev4l3vpnData) GetEntityData() *types.CommonEntityData {
+    cev4l3vpnData.EntityData.YFilter = cev4l3vpnData.YFilter
+    cev4l3vpnData.EntityData.YangName = "cev4l3vpn-data"
+    cev4l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    cev4l3vpnData.EntityData.ParentYangName = "label-context"
+    cev4l3vpnData.EntityData.SegmentPath = "cev4l3vpn-data"
+    cev4l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cev4l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cev4l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cev4l3vpnData.EntityData.Children = types.NewOrderedMap()
+    cev4l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    cev4l3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", cev4l3vpnData.TableId})
+    cev4l3vpnData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", cev4l3vpnData.Ipv4NextHop})
+    cev4l3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", cev4l3vpnData.SecurityId})
+
+    cev4l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(cev4l3vpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData
+// L3VPN CEv6 label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+}
+
+func (cev6l3vpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Cev6l3vpnData) GetEntityData() *types.CommonEntityData {
+    cev6l3vpnData.EntityData.YFilter = cev6l3vpnData.YFilter
+    cev6l3vpnData.EntityData.YangName = "cev6l3vpn-data"
+    cev6l3vpnData.EntityData.BundleName = "cisco_ios_xr"
+    cev6l3vpnData.EntityData.ParentYangName = "label-context"
+    cev6l3vpnData.EntityData.SegmentPath = "cev6l3vpn-data"
+    cev6l3vpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cev6l3vpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cev6l3vpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    cev6l3vpnData.EntityData.Children = types.NewOrderedMap()
+    cev6l3vpnData.EntityData.Leafs = types.NewOrderedMap()
+    cev6l3vpnData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", cev6l3vpnData.TableId})
+    cev6l3vpnData.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", cev6l3vpnData.Ipv6NextHop})
+    cev6l3vpnData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", cev6l3vpnData.SecurityId})
+
+    cev6l3vpnData.EntityData.YListKeys = []string {}
+
+    return &(cev6l3vpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData
+// Pseudowire label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Address prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Pseudo-wire ID. The type is interface{} with range:
+    // 0..18446744073709551615.
+    PseudowireId interface{}
+
+    // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
+    RemoteL2RouterId interface{}
+
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Subinterface interface{}
+}
+
+func (pseudowireData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireData) GetEntityData() *types.CommonEntityData {
+    pseudowireData.EntityData.YFilter = pseudowireData.YFilter
+    pseudowireData.EntityData.YangName = "pseudowire-data"
+    pseudowireData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireData.EntityData.ParentYangName = "label-context"
+    pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireData.EntityData.Children = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", pseudowireData.Prefix})
+    pseudowireData.EntityData.Leafs.Append("pseudowire-id", types.YLeaf{"PseudowireId", pseudowireData.PseudowireId})
+    pseudowireData.EntityData.Leafs.Append("remote-l2-router-id", types.YLeaf{"RemoteL2RouterId", pseudowireData.RemoteL2RouterId})
+    pseudowireData.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", pseudowireData.Subinterface})
+
+    pseudowireData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData
+// Label block context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Service. The type is interface{} with range: 0..255.
+    Service interface{}
+
+    // VPN ID. The type is interface{} with range: 0..65535.
+    VpnId interface{}
+
+    // Edge ID. The type is interface{} with range: 0..65535.
+    EdgeId interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockData) GetEntityData() *types.CommonEntityData {
+    labelBlockData.EntityData.YFilter = labelBlockData.YFilter
+    labelBlockData.EntityData.YangName = "label-block-data"
+    labelBlockData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockData.EntityData.ParentYangName = "label-context"
+    labelBlockData.EntityData.SegmentPath = "label-block-data"
+    labelBlockData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockData.EntityData.Children = types.NewOrderedMap()
+    labelBlockData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockData.EntityData.Leafs.Append("service", types.YLeaf{"Service", labelBlockData.Service})
+    labelBlockData.EntityData.Leafs.Append("vpn-id", types.YLeaf{"VpnId", labelBlockData.VpnId})
+    labelBlockData.EntityData.Leafs.Append("edge-id", types.YLeaf{"EdgeId", labelBlockData.EdgeId})
+    labelBlockData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockData.Offset})
+    labelBlockData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockData.Size})
+
+    labelBlockData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData
+// IP Subscriber context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table Id. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    ParentInterface interface{}
+}
+
+func (ipSubData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_IpSubData) GetEntityData() *types.CommonEntityData {
+    ipSubData.EntityData.YFilter = ipSubData.YFilter
+    ipSubData.EntityData.YangName = "ip-sub-data"
+    ipSubData.EntityData.BundleName = "cisco_ios_xr"
+    ipSubData.EntityData.ParentYangName = "label-context"
+    ipSubData.EntityData.SegmentPath = "ip-sub-data"
+    ipSubData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubData.EntityData.Children = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipSubData.TableId})
+    ipSubData.EntityData.Leafs.Append("parent-interface", types.YLeaf{"ParentInterface", ipSubData.ParentInterface})
+
+    ipSubData.EntityData.YListKeys = []string {}
+
+    return &(ipSubData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData
+// TEv4 P2MP context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Tunnel source. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    TunnelSource interface{}
+
+    // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
+    P2mpId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..4294967295.
+    TunnelId interface{}
+
+    // Tunnel ID extension. The type is interface{} with range: 0..4294967295.
+    TunnelIdExtension interface{}
+
+    // Tunnel LSP ID. The type is interface{} with range: 0..4294967295.
+    TunnelLspId interface{}
+
+    // Previous hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    PreviousHop interface{}
+}
+
+func (tev4p2mpData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Tev4p2mpData) GetEntityData() *types.CommonEntityData {
+    tev4p2mpData.EntityData.YFilter = tev4p2mpData.YFilter
+    tev4p2mpData.EntityData.YangName = "tev4p2mp-data"
+    tev4p2mpData.EntityData.BundleName = "cisco_ios_xr"
+    tev4p2mpData.EntityData.ParentYangName = "label-context"
+    tev4p2mpData.EntityData.SegmentPath = "tev4p2mp-data"
+    tev4p2mpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4p2mpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4p2mpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4p2mpData.EntityData.Children = types.NewOrderedMap()
+    tev4p2mpData.EntityData.Leafs = types.NewOrderedMap()
+    tev4p2mpData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4p2mpData.TableId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-source", types.YLeaf{"TunnelSource", tev4p2mpData.TunnelSource})
+    tev4p2mpData.EntityData.Leafs.Append("p2mp-id", types.YLeaf{"P2mpId", tev4p2mpData.P2mpId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", tev4p2mpData.TunnelId})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-id-extension", types.YLeaf{"TunnelIdExtension", tev4p2mpData.TunnelIdExtension})
+    tev4p2mpData.EntityData.Leafs.Append("tunnel-lsp-id", types.YLeaf{"TunnelLspId", tev4p2mpData.TunnelLspId})
+    tev4p2mpData.EntityData.Leafs.Append("previous-hop", types.YLeaf{"PreviousHop", tev4p2mpData.PreviousHop})
+
+    tev4p2mpData.EntityData.YListKeys = []string {}
+
+    return &(tev4p2mpData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data
+// MLDPv4 LSM-ID context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // LSM ID Type. The type is interface{} with range: 0..65535.
+    Type interface{}
+
+    // LSM ID. The type is interface{} with range: 0..4294967295.
+    LsmId interface{}
+
+    // Peer LSR Id. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    PeerLsrid interface{}
+
+    // Peer Label Space Id. The type is interface{} with range: 0..65535.
+    PeerLabelSpaceId interface{}
+}
+
+func (mldPv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_MldPv4Data) GetEntityData() *types.CommonEntityData {
+    mldPv4Data.EntityData.YFilter = mldPv4Data.YFilter
+    mldPv4Data.EntityData.YangName = "mld-pv4-data"
+    mldPv4Data.EntityData.BundleName = "cisco_ios_xr"
+    mldPv4Data.EntityData.ParentYangName = "label-context"
+    mldPv4Data.EntityData.SegmentPath = "mld-pv4-data"
+    mldPv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mldPv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mldPv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mldPv4Data.EntityData.Children = types.NewOrderedMap()
+    mldPv4Data.EntityData.Leafs = types.NewOrderedMap()
+    mldPv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", mldPv4Data.TableId})
+    mldPv4Data.EntityData.Leafs.Append("type", types.YLeaf{"Type", mldPv4Data.Type})
+    mldPv4Data.EntityData.Leafs.Append("lsm-id", types.YLeaf{"LsmId", mldPv4Data.LsmId})
+    mldPv4Data.EntityData.Leafs.Append("peer-lsrid", types.YLeaf{"PeerLsrid", mldPv4Data.PeerLsrid})
+    mldPv4Data.EntityData.Leafs.Append("peer-label-space-id", types.YLeaf{"PeerLabelSpaceId", mldPv4Data.PeerLabelSpaceId})
+
+    mldPv4Data.EntityData.YListKeys = []string {}
+
+    return &(mldPv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData
+// Pseudowire Head-end label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudo-wire Head-end interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    PwheIntf interface{}
+}
+
+func (pseudowireHeadEndData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PseudowireHeadEndData) GetEntityData() *types.CommonEntityData {
+    pseudowireHeadEndData.EntityData.YFilter = pseudowireHeadEndData.YFilter
+    pseudowireHeadEndData.EntityData.YangName = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireHeadEndData.EntityData.ParentYangName = "label-context"
+    pseudowireHeadEndData.EntityData.SegmentPath = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireHeadEndData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireHeadEndData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireHeadEndData.EntityData.Children = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs.Append("pwhe-intf", types.YLeaf{"PwheIntf", pseudowireHeadEndData.PwheIntf})
+
+    pseudowireHeadEndData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireHeadEndData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData
+// TP context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TP source global ID. The type is interface{} with range: 0..4294967295.
+    SourceGlobalId interface{}
+
+    // TP source node ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    SourceNodeId interface{}
+
+    // TP destination global ID. The type is interface{} with range:
+    // 0..4294967295.
+    DestGlobalId interface{}
+
+    // TP destination node ID. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    DestNodeId interface{}
+
+    // TP source tunnel ID. The type is interface{} with range: 0..65535.
+    SourceTunnelId interface{}
+
+    // TP destination tunnel ID. The type is interface{} with range: 0..65535.
+    DestTunnelId interface{}
+
+    // TP LSP ID. The type is interface{} with range: 0..65535.
+    LspId interface{}
+}
+
+func (tpData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TpData) GetEntityData() *types.CommonEntityData {
+    tpData.EntityData.YFilter = tpData.YFilter
+    tpData.EntityData.YangName = "tp-data"
+    tpData.EntityData.BundleName = "cisco_ios_xr"
+    tpData.EntityData.ParentYangName = "label-context"
+    tpData.EntityData.SegmentPath = "tp-data"
+    tpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tpData.EntityData.Children = types.NewOrderedMap()
+    tpData.EntityData.Leafs = types.NewOrderedMap()
+    tpData.EntityData.Leafs.Append("source-global-id", types.YLeaf{"SourceGlobalId", tpData.SourceGlobalId})
+    tpData.EntityData.Leafs.Append("source-node-id", types.YLeaf{"SourceNodeId", tpData.SourceNodeId})
+    tpData.EntityData.Leafs.Append("dest-global-id", types.YLeaf{"DestGlobalId", tpData.DestGlobalId})
+    tpData.EntityData.Leafs.Append("dest-node-id", types.YLeaf{"DestNodeId", tpData.DestNodeId})
+    tpData.EntityData.Leafs.Append("source-tunnel-id", types.YLeaf{"SourceTunnelId", tpData.SourceTunnelId})
+    tpData.EntityData.Leafs.Append("dest-tunnel-id", types.YLeaf{"DestTunnelId", tpData.DestTunnelId})
+    tpData.EntityData.Leafs.Append("lsp-id", types.YLeaf{"LspId", tpData.LspId})
+
+    tpData.EntityData.YListKeys = []string {}
+
+    return &(tpData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation
+// Generic routing encapsulation context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Generic routing encapsulation interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    GreInterface interface{}
+}
+
+func (genericRoutingEncapsulation *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_GenericRoutingEncapsulation) GetEntityData() *types.CommonEntityData {
+    genericRoutingEncapsulation.EntityData.YFilter = genericRoutingEncapsulation.YFilter
+    genericRoutingEncapsulation.EntityData.YangName = "generic-routing-encapsulation"
+    genericRoutingEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    genericRoutingEncapsulation.EntityData.ParentYangName = "label-context"
+    genericRoutingEncapsulation.EntityData.SegmentPath = "generic-routing-encapsulation"
+    genericRoutingEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    genericRoutingEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    genericRoutingEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    genericRoutingEncapsulation.EntityData.Children = types.NewOrderedMap()
+    genericRoutingEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    genericRoutingEncapsulation.EntityData.Leafs.Append("gre-interface", types.YLeaf{"GreInterface", genericRoutingEncapsulation.GreInterface})
+
+    genericRoutingEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(genericRoutingEncapsulation.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation
+// Generic routing encapsulation context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Generic routing encapsulation IPv6 interface. The type is string with
+    // pattern: [a-zA-Z0-9._/-]+.
+    Greipv6Interface interface{}
+}
+
+func (ipv6GenericRoutingEncapsulation *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6GenericRoutingEncapsulation) GetEntityData() *types.CommonEntityData {
+    ipv6GenericRoutingEncapsulation.EntityData.YFilter = ipv6GenericRoutingEncapsulation.YFilter
+    ipv6GenericRoutingEncapsulation.EntityData.YangName = "ipv6-generic-routing-encapsulation"
+    ipv6GenericRoutingEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    ipv6GenericRoutingEncapsulation.EntityData.ParentYangName = "label-context"
+    ipv6GenericRoutingEncapsulation.EntityData.SegmentPath = "ipv6-generic-routing-encapsulation"
+    ipv6GenericRoutingEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6GenericRoutingEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6GenericRoutingEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6GenericRoutingEncapsulation.EntityData.Children = types.NewOrderedMap()
+    ipv6GenericRoutingEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    ipv6GenericRoutingEncapsulation.EntityData.Leafs.Append("greipv6-interface", types.YLeaf{"Greipv6Interface", ipv6GenericRoutingEncapsulation.Greipv6Interface})
+
+    ipv6GenericRoutingEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(ipv6GenericRoutingEncapsulation.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData
+// EVPN context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EVPN ID. The type is interface{} with range: 0..4294967295.
+    EvpnId interface{}
+
+    // EVPN TAG. The type is interface{} with range: 0..4294967295.
+    EvpnTag interface{}
+
+    // Ethernet Segment ID. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
+}
+
+func (evpnData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
+    evpnData.EntityData.YFilter = evpnData.YFilter
+    evpnData.EntityData.YangName = "evpn-data"
+    evpnData.EntityData.BundleName = "cisco_ios_xr"
+    evpnData.EntityData.ParentYangName = "label-context"
+    evpnData.EntityData.SegmentPath = "evpn-data"
+    evpnData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    evpnData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    evpnData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    evpnData.EntityData.Children = types.NewOrderedMap()
+    evpnData.EntityData.Leafs = types.NewOrderedMap()
+    evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
+    evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
+    evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
+
+    evpnData.EntityData.YListKeys = []string {}
+
+    return &(evpnData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData
+// BFD BLB label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BlbIntf interface{}
+
+    // IPv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+}
+
+func (ipv4blbData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv4blbData) GetEntityData() *types.CommonEntityData {
+    ipv4blbData.EntityData.YFilter = ipv4blbData.YFilter
+    ipv4blbData.EntityData.YangName = "ipv4blb-data"
+    ipv4blbData.EntityData.BundleName = "cisco_ios_xr"
+    ipv4blbData.EntityData.ParentYangName = "label-context"
+    ipv4blbData.EntityData.SegmentPath = "ipv4blb-data"
+    ipv4blbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4blbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4blbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4blbData.EntityData.Children = types.NewOrderedMap()
+    ipv4blbData.EntityData.Leafs = types.NewOrderedMap()
+    ipv4blbData.EntityData.Leafs.Append("blb-intf", types.YLeaf{"BlbIntf", ipv4blbData.BlbIntf})
+    ipv4blbData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4blbData.Prefix})
+
+    ipv4blbData.EntityData.YListKeys = []string {}
+
+    return &(ipv4blbData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData
+// BFD BLB label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BlbIntf interface{}
+
+    // IPv6 prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+}
+
+func (ipv6blbData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_Ipv6blbData) GetEntityData() *types.CommonEntityData {
+    ipv6blbData.EntityData.YFilter = ipv6blbData.YFilter
+    ipv6blbData.EntityData.YangName = "ipv6blb-data"
+    ipv6blbData.EntityData.BundleName = "cisco_ios_xr"
+    ipv6blbData.EntityData.ParentYangName = "label-context"
+    ipv6blbData.EntityData.SegmentPath = "ipv6blb-data"
+    ipv6blbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6blbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6blbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6blbData.EntityData.Children = types.NewOrderedMap()
+    ipv6blbData.EntityData.Leafs = types.NewOrderedMap()
+    ipv6blbData.EntityData.Leafs.Append("blb-intf", types.YLeaf{"BlbIntf", ipv6blbData.BlbIntf})
+    ipv6blbData.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6blbData.Prefix})
+
+    ipv6blbData.EntityData.YListKeys = []string {}
+
+    return &(ipv6blbData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData
+// PIM I-PMSI label conext
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF ID. The type is interface{} with range: 0..4294967295.
+    VrfId interface{}
+
+    // Head. The type is interface{} with range: -2147483648..2147483647.
+    Head interface{}
+
+    // PIM6. The type is interface{} with range: -2147483648..2147483647.
+    V6 interface{}
+}
+
+func (piMiPmsiData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMiPmsiData) GetEntityData() *types.CommonEntityData {
+    piMiPmsiData.EntityData.YFilter = piMiPmsiData.YFilter
+    piMiPmsiData.EntityData.YangName = "pi-mi-pmsi-data"
+    piMiPmsiData.EntityData.BundleName = "cisco_ios_xr"
+    piMiPmsiData.EntityData.ParentYangName = "label-context"
+    piMiPmsiData.EntityData.SegmentPath = "pi-mi-pmsi-data"
+    piMiPmsiData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piMiPmsiData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piMiPmsiData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    piMiPmsiData.EntityData.Children = types.NewOrderedMap()
+    piMiPmsiData.EntityData.Leafs = types.NewOrderedMap()
+    piMiPmsiData.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", piMiPmsiData.VrfId})
+    piMiPmsiData.EntityData.Leafs.Append("head", types.YLeaf{"Head", piMiPmsiData.Head})
+    piMiPmsiData.EntityData.Leafs.Append("v6", types.YLeaf{"V6", piMiPmsiData.V6})
+
+    piMiPmsiData.EntityData.YListKeys = []string {}
+
+    return &(piMiPmsiData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData
+// PIM S-PMSI label conext
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF ID. The type is interface{} with range: 0..4294967295.
+    VrfId interface{}
+
+    // Originating Router. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Source interface{}
+
+    // Head. The type is interface{} with range: -2147483648..2147483647.
+    Head interface{}
+
+    // PIM6. The type is interface{} with range: -2147483648..2147483647.
+    V6 interface{}
+
+    // Head LSM-ID. The type is interface{} with range: 0..4294967295.
+    Hli interface{}
+
+    // Segmented Multicast. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Seg interface{}
+}
+
+func (piMsPmsiData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_PiMsPmsiData) GetEntityData() *types.CommonEntityData {
+    piMsPmsiData.EntityData.YFilter = piMsPmsiData.YFilter
+    piMsPmsiData.EntityData.YangName = "pi-ms-pmsi-data"
+    piMsPmsiData.EntityData.BundleName = "cisco_ios_xr"
+    piMsPmsiData.EntityData.ParentYangName = "label-context"
+    piMsPmsiData.EntityData.SegmentPath = "pi-ms-pmsi-data"
+    piMsPmsiData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piMsPmsiData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piMsPmsiData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    piMsPmsiData.EntityData.Children = types.NewOrderedMap()
+    piMsPmsiData.EntityData.Leafs = types.NewOrderedMap()
+    piMsPmsiData.EntityData.Leafs.Append("vrf-id", types.YLeaf{"VrfId", piMsPmsiData.VrfId})
+    piMsPmsiData.EntityData.Leafs.Append("source", types.YLeaf{"Source", piMsPmsiData.Source})
+    piMsPmsiData.EntityData.Leafs.Append("head", types.YLeaf{"Head", piMsPmsiData.Head})
+    piMsPmsiData.EntityData.Leafs.Append("v6", types.YLeaf{"V6", piMsPmsiData.V6})
+    piMsPmsiData.EntityData.Leafs.Append("hli", types.YLeaf{"Hli", piMsPmsiData.Hli})
+    piMsPmsiData.EntityData.Leafs.Append("seg", types.YLeaf{"Seg", piMsPmsiData.Seg})
+
+    piMsPmsiData.EntityData.YListKeys = []string {}
+
+    return &(piMsPmsiData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn
+// L3VPN NH SET label context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Next Hop Set ID. The type is interface{} with range: 0..4294967295.
+    NextHopSetId interface{}
+}
+
+func (nextHopSetL3vpn *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_NextHopSetL3vpn) GetEntityData() *types.CommonEntityData {
+    nextHopSetL3vpn.EntityData.YFilter = nextHopSetL3vpn.YFilter
+    nextHopSetL3vpn.EntityData.YangName = "next-hop-set-l3vpn"
+    nextHopSetL3vpn.EntityData.BundleName = "cisco_ios_xr"
+    nextHopSetL3vpn.EntityData.ParentYangName = "label-context"
+    nextHopSetL3vpn.EntityData.SegmentPath = "next-hop-set-l3vpn"
+    nextHopSetL3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHopSetL3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHopSetL3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nextHopSetL3vpn.EntityData.Children = types.NewOrderedMap()
+    nextHopSetL3vpn.EntityData.Leafs = types.NewOrderedMap()
+    nextHopSetL3vpn.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nextHopSetL3vpn.TableId})
+    nextHopSetL3vpn.EntityData.Leafs.Append("next-hop-set-id", types.YLeaf{"NextHopSetId", nextHopSetL3vpn.NextHopSetId})
+
+    nextHopSetL3vpn.EntityData.YListKeys = []string {}
+
+    return &(nextHopSetL3vpn.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment
+// SR Prefix Segment context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix Segment ID. The type is interface{} with range: 0..4294967295.
+    SegmentId interface{}
+}
+
+func (srPrefixSegment *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrPrefixSegment) GetEntityData() *types.CommonEntityData {
+    srPrefixSegment.EntityData.YFilter = srPrefixSegment.YFilter
+    srPrefixSegment.EntityData.YangName = "sr-prefix-segment"
+    srPrefixSegment.EntityData.BundleName = "cisco_ios_xr"
+    srPrefixSegment.EntityData.ParentYangName = "label-context"
+    srPrefixSegment.EntityData.SegmentPath = "sr-prefix-segment"
+    srPrefixSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPrefixSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPrefixSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPrefixSegment.EntityData.Children = types.NewOrderedMap()
+    srPrefixSegment.EntityData.Leafs = types.NewOrderedMap()
+    srPrefixSegment.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", srPrefixSegment.TableId})
+    srPrefixSegment.EntityData.Leafs.Append("segment-id", types.YLeaf{"SegmentId", srPrefixSegment.SegmentId})
+
+    srPrefixSegment.EntityData.YListKeys = []string {}
+
+    return &(srPrefixSegment.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4
+// SR Adj Segment ipv4 context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Adjacency index. The type is interface{} with range: 0..4294967295.
+    Index interface{}
+
+    // Adjacency type. The type is interface{} with range: 0..4294967295.
+    Type interface{}
+
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Intf interface{}
+
+    // Adjacency nexthop IPv4 address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+}
+
+func (srAdjSegmentIpv4 *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv4) GetEntityData() *types.CommonEntityData {
+    srAdjSegmentIpv4.EntityData.YFilter = srAdjSegmentIpv4.YFilter
+    srAdjSegmentIpv4.EntityData.YangName = "sr-adj-segment-ipv4"
+    srAdjSegmentIpv4.EntityData.BundleName = "cisco_ios_xr"
+    srAdjSegmentIpv4.EntityData.ParentYangName = "label-context"
+    srAdjSegmentIpv4.EntityData.SegmentPath = "sr-adj-segment-ipv4"
+    srAdjSegmentIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srAdjSegmentIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srAdjSegmentIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srAdjSegmentIpv4.EntityData.Children = types.NewOrderedMap()
+    srAdjSegmentIpv4.EntityData.Leafs = types.NewOrderedMap()
+    srAdjSegmentIpv4.EntityData.Leafs.Append("index", types.YLeaf{"Index", srAdjSegmentIpv4.Index})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("type", types.YLeaf{"Type", srAdjSegmentIpv4.Type})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("intf", types.YLeaf{"Intf", srAdjSegmentIpv4.Intf})
+    srAdjSegmentIpv4.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", srAdjSegmentIpv4.Addr})
+
+    srAdjSegmentIpv4.EntityData.YListKeys = []string {}
+
+    return &(srAdjSegmentIpv4.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6
+// SR Adj Segment ipv6 context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Adjacency index. The type is interface{} with range: 0..4294967295.
+    Index interface{}
+
+    // Adjacency type. The type is interface{} with range: 0..4294967295.
+    Type interface{}
+
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Intf interface{}
+
+    // Adjacency nexthop IPv6 address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+}
+
+func (srAdjSegmentIpv6 *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_SrAdjSegmentIpv6) GetEntityData() *types.CommonEntityData {
+    srAdjSegmentIpv6.EntityData.YFilter = srAdjSegmentIpv6.YFilter
+    srAdjSegmentIpv6.EntityData.YangName = "sr-adj-segment-ipv6"
+    srAdjSegmentIpv6.EntityData.BundleName = "cisco_ios_xr"
+    srAdjSegmentIpv6.EntityData.ParentYangName = "label-context"
+    srAdjSegmentIpv6.EntityData.SegmentPath = "sr-adj-segment-ipv6"
+    srAdjSegmentIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srAdjSegmentIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srAdjSegmentIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srAdjSegmentIpv6.EntityData.Children = types.NewOrderedMap()
+    srAdjSegmentIpv6.EntityData.Leafs = types.NewOrderedMap()
+    srAdjSegmentIpv6.EntityData.Leafs.Append("index", types.YLeaf{"Index", srAdjSegmentIpv6.Index})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("type", types.YLeaf{"Type", srAdjSegmentIpv6.Type})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("intf", types.YLeaf{"Intf", srAdjSegmentIpv6.Intf})
+    srAdjSegmentIpv6.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", srAdjSegmentIpv6.Addr})
+
+    srAdjSegmentIpv6.EntityData.YListKeys = []string {}
+
+    return &(srAdjSegmentIpv6.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData
+// Label block SRGB context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start Label. The type is interface{} with range: 0..4294967295.
+    StartLabel interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockSrgbData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrgbData) GetEntityData() *types.CommonEntityData {
+    labelBlockSrgbData.EntityData.YFilter = labelBlockSrgbData.YFilter
+    labelBlockSrgbData.EntityData.YangName = "label-block-srgb-data"
+    labelBlockSrgbData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockSrgbData.EntityData.ParentYangName = "label-context"
+    labelBlockSrgbData.EntityData.SegmentPath = "label-block-srgb-data"
+    labelBlockSrgbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockSrgbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockSrgbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockSrgbData.EntityData.Children = types.NewOrderedMap()
+    labelBlockSrgbData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockSrgbData.EntityData.Leafs.Append("start-label", types.YLeaf{"StartLabel", labelBlockSrgbData.StartLabel})
+    labelBlockSrgbData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockSrgbData.Offset})
+    labelBlockSrgbData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockSrgbData.Size})
+
+    labelBlockSrgbData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockSrgbData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding
+// MPLS TE tunnel binding context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MPLS Traffic Engineering Tunnel or Group ID. The type is interface{} with
+    // range: 0..4294967295.
+    TeIdentifier interface{}
+
+    // Type of identifier for the binding. The type is MgmtLsdTeBinding.
+    TeType interface{}
+}
+
+func (teBinding *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_TeBinding) GetEntityData() *types.CommonEntityData {
+    teBinding.EntityData.YFilter = teBinding.YFilter
+    teBinding.EntityData.YangName = "te-binding"
+    teBinding.EntityData.BundleName = "cisco_ios_xr"
+    teBinding.EntityData.ParentYangName = "label-context"
+    teBinding.EntityData.SegmentPath = "te-binding"
+    teBinding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teBinding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teBinding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teBinding.EntityData.Children = types.NewOrderedMap()
+    teBinding.EntityData.Leafs = types.NewOrderedMap()
+    teBinding.EntityData.Leafs.Append("te-identifier", types.YLeaf{"TeIdentifier", teBinding.TeIdentifier})
+    teBinding.EntityData.Leafs.Append("te-type", types.YLeaf{"TeType", teBinding.TeType})
+
+    teBinding.EntityData.YListKeys = []string {}
+
+    return &(teBinding.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData
+// Label block SRLB context
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start Label. The type is interface{} with range: 0..4294967295.
+    StartLabel interface{}
+
+    // Offset. The type is interface{} with range: 0..4294967295.
+    Offset interface{}
+
+    // Number of labels. The type is interface{} with range: 0..4294967295.
+    Size interface{}
+}
+
+func (labelBlockSrlbData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LabelContext_LabelBlockSrlbData) GetEntityData() *types.CommonEntityData {
+    labelBlockSrlbData.EntityData.YFilter = labelBlockSrlbData.YFilter
+    labelBlockSrlbData.EntityData.YangName = "label-block-srlb-data"
+    labelBlockSrlbData.EntityData.BundleName = "cisco_ios_xr"
+    labelBlockSrlbData.EntityData.ParentYangName = "label-context"
+    labelBlockSrlbData.EntityData.SegmentPath = "label-block-srlb-data"
+    labelBlockSrlbData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelBlockSrlbData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelBlockSrlbData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelBlockSrlbData.EntityData.Children = types.NewOrderedMap()
+    labelBlockSrlbData.EntityData.Leafs = types.NewOrderedMap()
+    labelBlockSrlbData.EntityData.Leafs.Append("start-label", types.YLeaf{"StartLabel", labelBlockSrlbData.StartLabel})
+    labelBlockSrlbData.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", labelBlockSrlbData.Offset})
+    labelBlockSrlbData.EntityData.Leafs.Append("size", types.YLeaf{"Size", labelBlockSrlbData.Size})
+
+    labelBlockSrlbData.EntityData.YListKeys = []string {}
+
+    return &(labelBlockSrlbData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite
+// Local label rewrite information
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // label data. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData.
+    LabelData []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData
+}
+
+func (localLabelRewrite *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite) GetEntityData() *types.CommonEntityData {
+    localLabelRewrite.EntityData.YFilter = localLabelRewrite.YFilter
+    localLabelRewrite.EntityData.YangName = "local-label-rewrite"
+    localLabelRewrite.EntityData.BundleName = "cisco_ios_xr"
+    localLabelRewrite.EntityData.ParentYangName = "rewrite-id"
+    localLabelRewrite.EntityData.SegmentPath = "local-label-rewrite"
+    localLabelRewrite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localLabelRewrite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localLabelRewrite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localLabelRewrite.EntityData.Children = types.NewOrderedMap()
+    localLabelRewrite.EntityData.Children.Append("label-data", types.YChild{"LabelData", nil})
+    for i := range localLabelRewrite.LabelData {
+        localLabelRewrite.EntityData.Children.Append(types.GetSegmentPath(localLabelRewrite.LabelData[i]), types.YChild{"LabelData", localLabelRewrite.LabelData[i]})
+    }
+    localLabelRewrite.EntityData.Leafs = types.NewOrderedMap()
+
+    localLabelRewrite.EntityData.YListKeys = []string {}
+
+    return &(localLabelRewrite.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData
+// label data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..4294967295.
+    Entry interface{}
+}
+
+func (labelData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_RewriteId_LocalLabelRewrite_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "local-label-rewrite"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", labelData.Entry})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi
+// Associated FPI
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPI.
+    Fpi MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi
+
+    // Application owner instance. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner.
+    ApplicationOwner []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner
+}
+
+func (associatedFpi *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi) GetEntityData() *types.CommonEntityData {
+    associatedFpi.EntityData.YFilter = associatedFpi.YFilter
+    associatedFpi.EntityData.YangName = "associated-fpi"
+    associatedFpi.EntityData.BundleName = "cisco_ios_xr"
+    associatedFpi.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    associatedFpi.EntityData.SegmentPath = "associated-fpi"
+    associatedFpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    associatedFpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    associatedFpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    associatedFpi.EntityData.Children = types.NewOrderedMap()
+    associatedFpi.EntityData.Children.Append("fpi", types.YChild{"Fpi", &associatedFpi.Fpi})
+    associatedFpi.EntityData.Children.Append("application-owner", types.YChild{"ApplicationOwner", nil})
+    for i := range associatedFpi.ApplicationOwner {
+        associatedFpi.EntityData.Children.Append(types.GetSegmentPath(associatedFpi.ApplicationOwner[i]), types.YChild{"ApplicationOwner", associatedFpi.ApplicationOwner[i]})
+    }
+    associatedFpi.EntityData.Leafs = types.NewOrderedMap()
+
+    associatedFpi.EntityData.YListKeys = []string {}
+
+    return &(associatedFpi.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi
+// FPI
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // FPIType. The type is MgmtLsdFpi.
+    FpiType interface{}
+
+    // label data.
+    LabelData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData
+
+    // te data.
+    TeData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData
+
+    // ipv4 data.
+    Ipv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data
+
+    // pw list data.
+    PwListData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData
+
+    // dmtc ext intf data.
+    DmtcExtIntfData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange
+}
+
+func (fpi *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
+    fpi.EntityData.YFilter = fpi.YFilter
+    fpi.EntityData.YangName = "fpi"
+    fpi.EntityData.BundleName = "cisco_ios_xr"
+    fpi.EntityData.ParentYangName = "associated-fpi"
+    fpi.EntityData.SegmentPath = "fpi"
+    fpi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fpi.EntityData.Children = types.NewOrderedMap()
+    fpi.EntityData.Children.Append("label-data", types.YChild{"LabelData", &fpi.LabelData})
+    fpi.EntityData.Children.Append("te-data", types.YChild{"TeData", &fpi.TeData})
+    fpi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &fpi.Ipv4Data})
+    fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
+    fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
+    fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
+    fpi.EntityData.Leafs = types.NewOrderedMap()
+    fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
+
+    fpi.EntityData.YListKeys = []string {}
+
+    return &(fpi.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData
+// label data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label value. The type is interface{} with range: 0..4294967295.
+    Label interface{}
+
+    // Security ID. The type is interface{} with range: 0..4294967295.
+    SecurityId interface{}
+
+    // ELC. The type is interface{} with range: -2147483648..2147483647.
+    Elc interface{}
+}
+
+func (labelData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelData) GetEntityData() *types.CommonEntityData {
+    labelData.EntityData.YFilter = labelData.YFilter
+    labelData.EntityData.YangName = "label-data"
+    labelData.EntityData.BundleName = "cisco_ios_xr"
+    labelData.EntityData.ParentYangName = "fpi"
+    labelData.EntityData.SegmentPath = "label-data"
+    labelData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelData.EntityData.Children = types.NewOrderedMap()
+    labelData.EntityData.Leafs = types.NewOrderedMap()
+    labelData.EntityData.Leafs.Append("label", types.YLeaf{"Label", labelData.Label})
+    labelData.EntityData.Leafs.Append("security-id", types.YLeaf{"SecurityId", labelData.SecurityId})
+    labelData.EntityData.Leafs.Append("elc", types.YLeaf{"Elc", labelData.Elc})
+
+    labelData.EntityData.YListKeys = []string {}
+
+    return &(labelData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData
+// te data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Local label. The type is interface{} with range: 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (teData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_TeData) GetEntityData() *types.CommonEntityData {
+    teData.EntityData.YFilter = teData.YFilter
+    teData.EntityData.YangName = "te-data"
+    teData.EntityData.BundleName = "cisco_ios_xr"
+    teData.EntityData.ParentYangName = "fpi"
+    teData.EntityData.SegmentPath = "te-data"
+    teData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teData.EntityData.Children = types.NewOrderedMap()
+    teData.EntityData.Leafs = types.NewOrderedMap()
+    teData.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", teData.TunnelInterface})
+    teData.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", teData.LocalLabel})
+
+    teData.EntityData.YListKeys = []string {}
+
+    return &(teData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data
+// ipv4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Prefix Length. The type is interface{} with range: 0..255.
+    PrefixLength interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+
+    // SR related Local label. The type is interface{} with range: 0..4294967295.
+    SrLocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "fpi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4Data.Prefix})
+    ipv4Data.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Data.PrefixLength})
+    ipv4Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv4Data.Version})
+    ipv4Data.EntityData.Leafs.Append("sr-local-label", types.YLeaf{"SrLocalLabel", ipv4Data.SrLocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data
+// ipv6 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // Prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Prefix interface{}
+
+    // Route flags. The type is interface{} with range: 0..4294967295.
+    RouterFlags interface{}
+
+    // Prefix length. The type is interface{} with range: 0..255.
+    PrefixLen interface{}
+
+    // Version. The type is interface{} with range: 0..4294967295.
+    Version interface{}
+}
+
+func (ipv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "fpi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv6Data.Prefix})
+    ipv6Data.EntityData.Leafs.Append("router-flags", types.YLeaf{"RouterFlags", ipv6Data.RouterFlags})
+    ipv6Data.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", ipv6Data.PrefixLen})
+    ipv6Data.EntityData.Leafs.Append("version", types.YLeaf{"Version", ipv6Data.Version})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData
+// pw list data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pseudowire List Identifier. The type is interface{} with range: 0..65535.
+    PwheListId interface{}
+}
+
+func (pwListData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "fpi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("pwhe-list-id", types.YLeaf{"PwheListId", pwListData.PwheListId})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData
+// dmtc ext intf data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_DmtcExtIntfData) GetEntityData() *types.CommonEntityData {
+    dmtcExtIntfData.EntityData.YFilter = dmtcExtIntfData.YFilter
+    dmtcExtIntfData.EntityData.YangName = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcExtIntfData.EntityData.ParentYangName = "fpi"
+    dmtcExtIntfData.EntityData.SegmentPath = "dmtc-ext-intf-data"
+    dmtcExtIntfData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcExtIntfData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcExtIntfData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcExtIntfData.EntityData.Children = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcExtIntfData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcExtIntfData.DmtcExtIfh})
+
+    dmtcExtIntfData.EntityData.YListKeys = []string {}
+
+    return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner
+// Application owner instance
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationOwner *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_ApplicationOwner) GetEntityData() *types.CommonEntityData {
+    applicationOwner.EntityData.YFilter = applicationOwner.YFilter
+    applicationOwner.EntityData.YangName = "application-owner"
+    applicationOwner.EntityData.BundleName = "cisco_ios_xr"
+    applicationOwner.EntityData.ParentYangName = "associated-fpi"
+    applicationOwner.EntityData.SegmentPath = "application-owner"
+    applicationOwner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationOwner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationOwner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationOwner.EntityData.Children = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs = types.NewOrderedMap()
+    applicationOwner.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationOwner.ApplicationName})
+    applicationOwner.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationOwner.ApplicationType})
+    applicationOwner.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationOwner.ApplicationRolePrimary})
+    applicationOwner.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationOwner.ApplicationInstance})
+    applicationOwner.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationOwner.ResourceState})
+
+    applicationOwner.EntityData.YListKeys = []string {}
+
+    return &(applicationOwner.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf
+// IPv4 RPF neighbors
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // V4 RPF Neighbor. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    V4RpfNeighbor interface{}
+}
+
+func (v4Rpf *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf) GetEntityData() *types.CommonEntityData {
+    v4Rpf.EntityData.YFilter = v4Rpf.YFilter
+    v4Rpf.EntityData.YangName = "v4-rpf"
+    v4Rpf.EntityData.BundleName = "cisco_ios_xr"
+    v4Rpf.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    v4Rpf.EntityData.SegmentPath = "v4-rpf"
+    v4Rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    v4Rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    v4Rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    v4Rpf.EntityData.Children = types.NewOrderedMap()
+    v4Rpf.EntityData.Leafs = types.NewOrderedMap()
+    v4Rpf.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", v4Rpf.TableId})
+    v4Rpf.EntityData.Leafs.Append("v4-rpf-neighbor", types.YLeaf{"V4RpfNeighbor", v4Rpf.V4RpfNeighbor})
+
+    v4Rpf.EntityData.YListKeys = []string {}
+
+    return &(v4Rpf.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf
+// IPv6 RPF neighbors
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // V6 RPF Neighbor. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    V6RpfNeighbor interface{}
+}
+
+func (v6Rpf *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf) GetEntityData() *types.CommonEntityData {
+    v6Rpf.EntityData.YFilter = v6Rpf.YFilter
+    v6Rpf.EntityData.YangName = "v6-rpf"
+    v6Rpf.EntityData.BundleName = "cisco_ios_xr"
+    v6Rpf.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    v6Rpf.EntityData.SegmentPath = "v6-rpf"
+    v6Rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    v6Rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    v6Rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    v6Rpf.EntityData.Children = types.NewOrderedMap()
+    v6Rpf.EntityData.Leafs = types.NewOrderedMap()
+    v6Rpf.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", v6Rpf.TableId})
+    v6Rpf.EntityData.Leafs.Append("v6-rpf-neighbor", types.YLeaf{"V6RpfNeighbor", v6Rpf.V6RpfNeighbor})
+
+    v6Rpf.EntityData.YListKeys = []string {}
+
+    return &(v6Rpf.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois
+// Mois
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application state.
+    ApplicationResource MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource
+
+    // moi array. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray.
+    MoiArray []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray
+}
+
+func (mois *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois) GetEntityData() *types.CommonEntityData {
+    mois.EntityData.YFilter = mois.YFilter
+    mois.EntityData.YangName = "mois"
+    mois.EntityData.BundleName = "cisco_ios_xr"
+    mois.EntityData.ParentYangName = "rewrite-label-range-cnt"
+    mois.EntityData.SegmentPath = "mois"
+    mois.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mois.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mois.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mois.EntityData.Children = types.NewOrderedMap()
+    mois.EntityData.Children.Append("application-resource", types.YChild{"ApplicationResource", &mois.ApplicationResource})
+    mois.EntityData.Children.Append("moi-array", types.YChild{"MoiArray", nil})
+    for i := range mois.MoiArray {
+        mois.EntityData.Children.Append(types.GetSegmentPath(mois.MoiArray[i]), types.YChild{"MoiArray", mois.MoiArray[i]})
+    }
+    mois.EntityData.Leafs = types.NewOrderedMap()
+
+    mois.EntityData.YListKeys = []string {}
+
+    return &(mois.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource
+// Application state
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application name. The type is string.
+    ApplicationName interface{}
+
+    // Application type. The type is MgmtLsdApp.
+    ApplicationType interface{}
+
+    // Primary/Backup role. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ApplicationRolePrimary interface{}
+
+    // Application instance Name. The type is string.
+    ApplicationInstance interface{}
+
+    // Application resource state. The type is MgmtLsdAppRsrcState.
+    ResourceState interface{}
+}
+
+func (applicationResource *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_ApplicationResource) GetEntityData() *types.CommonEntityData {
+    applicationResource.EntityData.YFilter = applicationResource.YFilter
+    applicationResource.EntityData.YangName = "application-resource"
+    applicationResource.EntityData.BundleName = "cisco_ios_xr"
+    applicationResource.EntityData.ParentYangName = "mois"
+    applicationResource.EntityData.SegmentPath = "application-resource"
+    applicationResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applicationResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applicationResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applicationResource.EntityData.Children = types.NewOrderedMap()
+    applicationResource.EntityData.Leafs = types.NewOrderedMap()
+    applicationResource.EntityData.Leafs.Append("application-name", types.YLeaf{"ApplicationName", applicationResource.ApplicationName})
+    applicationResource.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", applicationResource.ApplicationType})
+    applicationResource.EntityData.Leafs.Append("application-role-primary", types.YLeaf{"ApplicationRolePrimary", applicationResource.ApplicationRolePrimary})
+    applicationResource.EntityData.Leafs.Append("application-instance", types.YLeaf{"ApplicationInstance", applicationResource.ApplicationInstance})
+    applicationResource.EntityData.Leafs.Append("resource-state", types.YLeaf{"ResourceState", applicationResource.ResourceState})
+
+    applicationResource.EntityData.YListKeys = []string {}
+
+    return &(applicationResource.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray
+// moi array
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Moi.
+    Moi MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi
+}
+
+func (moiArray *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray) GetEntityData() *types.CommonEntityData {
+    moiArray.EntityData.YFilter = moiArray.YFilter
+    moiArray.EntityData.YangName = "moi-array"
+    moiArray.EntityData.BundleName = "cisco_ios_xr"
+    moiArray.EntityData.ParentYangName = "mois"
+    moiArray.EntityData.SegmentPath = "moi-array"
+    moiArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moiArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moiArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moiArray.EntityData.Children = types.NewOrderedMap()
+    moiArray.EntityData.Children.Append("moi", types.YChild{"Moi", &moiArray.Moi})
+    moiArray.EntityData.Leafs = types.NewOrderedMap()
+
+    moiArray.EntityData.YListKeys = []string {}
+
+    return &(moiArray.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi
+// Moi
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MoiType. The type is MgmtLsdMoi.
+    MoiType interface{}
+
+    // pop and lookup ipv4.
+    PopAndLookupIpv4 MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4
+
+    // pop and lookup tp.
+    PopAndLookupTp MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp
+
+    // pop and lookup ipv6.
+    PopAndLookupIpv6 MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6
+
+    // ipv4 data.
+    Ipv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data
+
+    // ipv6 data.
+    Ipv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data
+
+    // tev4 data.
+    Tev4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data
+
+    // pseudowire data.
+    PseudowireData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData
+
+    // ip sub data.
+    IpSubData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData
+
+    // pseudowire head end data.
+    PseudowireHeadEndData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData
+
+    // pw list data.
+    PwListData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData
+
+    // stackv4 data.
+    Stackv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data
+
+    // stackv6 data.
+    Stackv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data
+
+    // te head data.
+    TeHeadData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData
+
+    // dmtc data.
+    DmtcData MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData
+
+    // nnh stackv4 data.
+    NnhStackv4Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange
+}
+
+func (moi *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
+    moi.EntityData.YFilter = moi.YFilter
+    moi.EntityData.YangName = "moi"
+    moi.EntityData.BundleName = "cisco_ios_xr"
+    moi.EntityData.ParentYangName = "moi-array"
+    moi.EntityData.SegmentPath = "moi"
+    moi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moi.EntityData.Children = types.NewOrderedMap()
+    moi.EntityData.Children.Append("pop-and-lookup-ipv4", types.YChild{"PopAndLookupIpv4", &moi.PopAndLookupIpv4})
+    moi.EntityData.Children.Append("pop-and-lookup-tp", types.YChild{"PopAndLookupTp", &moi.PopAndLookupTp})
+    moi.EntityData.Children.Append("pop-and-lookup-ipv6", types.YChild{"PopAndLookupIpv6", &moi.PopAndLookupIpv6})
+    moi.EntityData.Children.Append("ipv4-data", types.YChild{"Ipv4Data", &moi.Ipv4Data})
+    moi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &moi.Ipv6Data})
+    moi.EntityData.Children.Append("tev4-data", types.YChild{"Tev4Data", &moi.Tev4Data})
+    moi.EntityData.Children.Append("pseudowire-data", types.YChild{"PseudowireData", &moi.PseudowireData})
+    moi.EntityData.Children.Append("ip-sub-data", types.YChild{"IpSubData", &moi.IpSubData})
+    moi.EntityData.Children.Append("pseudowire-head-end-data", types.YChild{"PseudowireHeadEndData", &moi.PseudowireHeadEndData})
+    moi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &moi.PwListData})
+    moi.EntityData.Children.Append("stackv4-data", types.YChild{"Stackv4Data", &moi.Stackv4Data})
+    moi.EntityData.Children.Append("stackv6-data", types.YChild{"Stackv6Data", &moi.Stackv6Data})
+    moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
+    moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
+    moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
+    moi.EntityData.Leafs = types.NewOrderedMap()
+    moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
+
+    moi.EntityData.YListKeys = []string {}
+
+    return &(moi.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4
+// pop and lookup ipv4
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (popAndLookupIpv4 *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv4) GetEntityData() *types.CommonEntityData {
+    popAndLookupIpv4.EntityData.YFilter = popAndLookupIpv4.YFilter
+    popAndLookupIpv4.EntityData.YangName = "pop-and-lookup-ipv4"
+    popAndLookupIpv4.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupIpv4.EntityData.ParentYangName = "moi"
+    popAndLookupIpv4.EntityData.SegmentPath = "pop-and-lookup-ipv4"
+    popAndLookupIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupIpv4.EntityData.Children = types.NewOrderedMap()
+    popAndLookupIpv4.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupIpv4.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupIpv4.TableId})
+    popAndLookupIpv4.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupIpv4.TableName})
+    popAndLookupIpv4.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupIpv4.PathFlagsDecode})
+
+    popAndLookupIpv4.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupIpv4.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp
+// pop and lookup tp
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+}
+
+func (popAndLookupTp *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupTp) GetEntityData() *types.CommonEntityData {
+    popAndLookupTp.EntityData.YFilter = popAndLookupTp.YFilter
+    popAndLookupTp.EntityData.YangName = "pop-and-lookup-tp"
+    popAndLookupTp.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupTp.EntityData.ParentYangName = "moi"
+    popAndLookupTp.EntityData.SegmentPath = "pop-and-lookup-tp"
+    popAndLookupTp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupTp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupTp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupTp.EntityData.Children = types.NewOrderedMap()
+    popAndLookupTp.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupTp.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupTp.TableId})
+    popAndLookupTp.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupTp.TableName})
+    popAndLookupTp.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupTp.PathFlagsDecode})
+    popAndLookupTp.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", popAndLookupTp.OutLabel})
+
+    popAndLookupTp.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupTp.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6
+// pop and lookup ipv6
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (popAndLookupIpv6 *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PopAndLookupIpv6) GetEntityData() *types.CommonEntityData {
+    popAndLookupIpv6.EntityData.YFilter = popAndLookupIpv6.YFilter
+    popAndLookupIpv6.EntityData.YangName = "pop-and-lookup-ipv6"
+    popAndLookupIpv6.EntityData.BundleName = "cisco_ios_xr"
+    popAndLookupIpv6.EntityData.ParentYangName = "moi"
+    popAndLookupIpv6.EntityData.SegmentPath = "pop-and-lookup-ipv6"
+    popAndLookupIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    popAndLookupIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    popAndLookupIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    popAndLookupIpv6.EntityData.Children = types.NewOrderedMap()
+    popAndLookupIpv6.EntityData.Leafs = types.NewOrderedMap()
+    popAndLookupIpv6.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", popAndLookupIpv6.TableId})
+    popAndLookupIpv6.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", popAndLookupIpv6.TableName})
+    popAndLookupIpv6.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", popAndLookupIpv6.PathFlagsDecode})
+
+    popAndLookupIpv6.EntityData.YListKeys = []string {}
+
+    return &(popAndLookupIpv6.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data
+// ipv4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (ipv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv4Data) GetEntityData() *types.CommonEntityData {
+    ipv4Data.EntityData.YFilter = ipv4Data.YFilter
+    ipv4Data.EntityData.YangName = "ipv4-data"
+    ipv4Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Data.EntityData.ParentYangName = "moi"
+    ipv4Data.EntityData.SegmentPath = "ipv4-data"
+    ipv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Data.EntityData.Children = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv4Data.TableId})
+    ipv4Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipv4Data.TableName})
+    ipv4Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipv4Data.PathFlagsDecode})
+    ipv4Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipv4Data.OutInterface})
+    ipv4Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv4Data.OutInterfaceParent})
+    ipv4Data.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", ipv4Data.Ipv4NextHop})
+    ipv4Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv4Data.PathId})
+    ipv4Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv4Data.BackupPathId})
+    ipv4Data.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", ipv4Data.LoadMetric})
+    ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
+    ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
+    ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
+    ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
+    ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
+
+    ipv4Data.EntityData.YListKeys = []string {}
+
+    return &(ipv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data
+// ipv6 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (ipv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Ipv6Data) GetEntityData() *types.CommonEntityData {
+    ipv6Data.EntityData.YFilter = ipv6Data.YFilter
+    ipv6Data.EntityData.YangName = "ipv6-data"
+    ipv6Data.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Data.EntityData.ParentYangName = "moi"
+    ipv6Data.EntityData.SegmentPath = "ipv6-data"
+    ipv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Data.EntityData.Children = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs = types.NewOrderedMap()
+    ipv6Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipv6Data.TableId})
+    ipv6Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipv6Data.TableName})
+    ipv6Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipv6Data.PathFlagsDecode})
+    ipv6Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipv6Data.OutInterface})
+    ipv6Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv6Data.OutLabel})
+    ipv6Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv6Data.OutLabelName})
+    ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
+    ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
+    ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
+    ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
+    ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
+
+    ipv6Data.EntityData.YListKeys = []string {}
+
+    return &(ipv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data
+// tev4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    BackupInterface interface{}
+
+    // Backup IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    BackupIpv4NextHop interface{}
+
+    // Merge point label. The type is interface{} with range: 0..4294967295.
+    MergePointLabel interface{}
+
+    // Backup local label. The type is interface{} with range: 0..4294967295.
+    BackupLocalLabel interface{}
+
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    TunnelInterface interface{}
+
+    // Tunnel weight. The type is interface{} with range: 0..4294967295.
+    TunnelWeight interface{}
+
+    // Outgoing data parent interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    DataOutParentInterface interface{}
+
+    // Tunnel class. The type is interface{} with range: 0..4294967295.
+    TunnelClass interface{}
+
+    // IPv4 next nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextNextHop interface{}
+}
+
+func (tev4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Tev4Data) GetEntityData() *types.CommonEntityData {
+    tev4Data.EntityData.YFilter = tev4Data.YFilter
+    tev4Data.EntityData.YangName = "tev4-data"
+    tev4Data.EntityData.BundleName = "cisco_ios_xr"
+    tev4Data.EntityData.ParentYangName = "moi"
+    tev4Data.EntityData.SegmentPath = "tev4-data"
+    tev4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tev4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tev4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tev4Data.EntityData.Children = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs = types.NewOrderedMap()
+    tev4Data.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", tev4Data.TableId})
+    tev4Data.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", tev4Data.TableName})
+    tev4Data.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", tev4Data.PathFlagsDecode})
+    tev4Data.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", tev4Data.OutInterface})
+    tev4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", tev4Data.OutLabel})
+    tev4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", tev4Data.OutLabelName})
+    tev4Data.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", tev4Data.Ipv4NextHop})
+    tev4Data.EntityData.Leafs.Append("backup-interface", types.YLeaf{"BackupInterface", tev4Data.BackupInterface})
+    tev4Data.EntityData.Leafs.Append("backup-ipv4-next-hop", types.YLeaf{"BackupIpv4NextHop", tev4Data.BackupIpv4NextHop})
+    tev4Data.EntityData.Leafs.Append("merge-point-label", types.YLeaf{"MergePointLabel", tev4Data.MergePointLabel})
+    tev4Data.EntityData.Leafs.Append("backup-local-label", types.YLeaf{"BackupLocalLabel", tev4Data.BackupLocalLabel})
+    tev4Data.EntityData.Leafs.Append("tunnel-interface", types.YLeaf{"TunnelInterface", tev4Data.TunnelInterface})
+    tev4Data.EntityData.Leafs.Append("tunnel-weight", types.YLeaf{"TunnelWeight", tev4Data.TunnelWeight})
+    tev4Data.EntityData.Leafs.Append("data-out-parent-interface", types.YLeaf{"DataOutParentInterface", tev4Data.DataOutParentInterface})
+    tev4Data.EntityData.Leafs.Append("tunnel-class", types.YLeaf{"TunnelClass", tev4Data.TunnelClass})
+    tev4Data.EntityData.Leafs.Append("ipv4-next-next-hop", types.YLeaf{"Ipv4NextNextHop", tev4Data.Ipv4NextNextHop})
+
+    tev4Data.EntityData.YListKeys = []string {}
+
+    return &(tev4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData
+// pseudowire data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Cross-connect ID. The type is interface{} with range: 0..4294967295.
+    CrossConnectId interface{}
+
+    // PseudoWire Cross-connect ID. The type is interface{} with range:
+    // 0..4294967295.
+    PseuodoWireConnectId interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Bridge ID. The type is interface{} with range: 0..4294967295.
+    BridgeId interface{}
+
+    // Split horizon group ID. The type is interface{} with range: 0..4294967295.
+    SplitHorizonId interface{}
+}
+
+func (pseudowireData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireData) GetEntityData() *types.CommonEntityData {
+    pseudowireData.EntityData.YFilter = pseudowireData.YFilter
+    pseudowireData.EntityData.YangName = "pseudowire-data"
+    pseudowireData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireData.EntityData.ParentYangName = "moi"
+    pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireData.EntityData.Children = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pseudowireData.TableId})
+    pseudowireData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pseudowireData.TableName})
+    pseudowireData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pseudowireData.PathFlagsDecode})
+    pseudowireData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", pseudowireData.OutInterface})
+    pseudowireData.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", pseudowireData.OutLabel})
+    pseudowireData.EntityData.Leafs.Append("cross-connect-id", types.YLeaf{"CrossConnectId", pseudowireData.CrossConnectId})
+    pseudowireData.EntityData.Leafs.Append("pseuodo-wire-connect-id", types.YLeaf{"PseuodoWireConnectId", pseudowireData.PseuodoWireConnectId})
+    pseudowireData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", pseudowireData.Ipv4NextHop})
+    pseudowireData.EntityData.Leafs.Append("bridge-id", types.YLeaf{"BridgeId", pseudowireData.BridgeId})
+    pseudowireData.EntityData.Leafs.Append("split-horizon-id", types.YLeaf{"SplitHorizonId", pseudowireData.SplitHorizonId})
+
+    pseudowireData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData
+// ip sub data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // VRF table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (ipSubData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_IpSubData) GetEntityData() *types.CommonEntityData {
+    ipSubData.EntityData.YFilter = ipSubData.YFilter
+    ipSubData.EntityData.YangName = "ip-sub-data"
+    ipSubData.EntityData.BundleName = "cisco_ios_xr"
+    ipSubData.EntityData.ParentYangName = "moi"
+    ipSubData.EntityData.SegmentPath = "ip-sub-data"
+    ipSubData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipSubData.EntityData.Children = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs = types.NewOrderedMap()
+    ipSubData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", ipSubData.TableId})
+    ipSubData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", ipSubData.TableName})
+    ipSubData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", ipSubData.OutInterface})
+    ipSubData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", ipSubData.PathFlagsDecode})
+
+    ipSubData.EntityData.YListKeys = []string {}
+
+    return &(ipSubData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData
+// pseudowire head end data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Is control word present. The type is interface{} with range:
+    // -2147483648..2147483647.
+    ControlWord interface{}
+
+    // Is PWHE IMposition. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Imposition interface{}
+
+    // Virtual Circuit Type. The type is interface{} with range: 0..255.
+    Vctype interface{}
+
+    // Pseudo-wire List Identifier. The type is interface{} with range: 0..65535.
+    PwListId interface{}
+
+    // Pseudo-wire Head-end interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    PwheInterface interface{}
+}
+
+func (pseudowireHeadEndData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PseudowireHeadEndData) GetEntityData() *types.CommonEntityData {
+    pseudowireHeadEndData.EntityData.YFilter = pseudowireHeadEndData.YFilter
+    pseudowireHeadEndData.EntityData.YangName = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireHeadEndData.EntityData.ParentYangName = "moi"
+    pseudowireHeadEndData.EntityData.SegmentPath = "pseudowire-head-end-data"
+    pseudowireHeadEndData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireHeadEndData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireHeadEndData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pseudowireHeadEndData.EntityData.Children = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs = types.NewOrderedMap()
+    pseudowireHeadEndData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pseudowireHeadEndData.TableId})
+    pseudowireHeadEndData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pseudowireHeadEndData.TableName})
+    pseudowireHeadEndData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pseudowireHeadEndData.PathFlagsDecode})
+    pseudowireHeadEndData.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", pseudowireHeadEndData.OutInterface})
+    pseudowireHeadEndData.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", pseudowireHeadEndData.OutLabel})
+    pseudowireHeadEndData.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", pseudowireHeadEndData.Ipv4NextHop})
+    pseudowireHeadEndData.EntityData.Leafs.Append("control-word", types.YLeaf{"ControlWord", pseudowireHeadEndData.ControlWord})
+    pseudowireHeadEndData.EntityData.Leafs.Append("imposition", types.YLeaf{"Imposition", pseudowireHeadEndData.Imposition})
+    pseudowireHeadEndData.EntityData.Leafs.Append("vctype", types.YLeaf{"Vctype", pseudowireHeadEndData.Vctype})
+    pseudowireHeadEndData.EntityData.Leafs.Append("pw-list-id", types.YLeaf{"PwListId", pseudowireHeadEndData.PwListId})
+    pseudowireHeadEndData.EntityData.Leafs.Append("pwhe-interface", types.YLeaf{"PwheInterface", pseudowireHeadEndData.PwheInterface})
+
+    pseudowireHeadEndData.EntityData.YListKeys = []string {}
+
+    return &(pseudowireHeadEndData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData
+// pw list data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Pseudo-wire Layer 3 interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    L3Interface interface{}
+
+    // Pseudo-wire Layer 2 interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    L2Interface interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+}
+
+func (pwListData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_PwListData) GetEntityData() *types.CommonEntityData {
+    pwListData.EntityData.YFilter = pwListData.YFilter
+    pwListData.EntityData.YangName = "pw-list-data"
+    pwListData.EntityData.BundleName = "cisco_ios_xr"
+    pwListData.EntityData.ParentYangName = "moi"
+    pwListData.EntityData.SegmentPath = "pw-list-data"
+    pwListData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pwListData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pwListData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pwListData.EntityData.Children = types.NewOrderedMap()
+    pwListData.EntityData.Leafs = types.NewOrderedMap()
+    pwListData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", pwListData.TableId})
+    pwListData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", pwListData.TableName})
+    pwListData.EntityData.Leafs.Append("l3-interface", types.YLeaf{"L3Interface", pwListData.L3Interface})
+    pwListData.EntityData.Leafs.Append("l2-interface", types.YLeaf{"L2Interface", pwListData.L2Interface})
+    pwListData.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", pwListData.PathFlagsDecode})
+
+    pwListData.EntityData.YListKeys = []string {}
+
+    return &(pwListData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data
+// stackv4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Owner application type. The type is MgmtLsdApp.
+    OwnerApplicationType interface{}
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack
+}
+
+func (stackv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data) GetEntityData() *types.CommonEntityData {
+    stackv4Data.EntityData.YFilter = stackv4Data.YFilter
+    stackv4Data.EntityData.YangName = "stackv4-data"
+    stackv4Data.EntityData.BundleName = "cisco_ios_xr"
+    stackv4Data.EntityData.ParentYangName = "moi"
+    stackv4Data.EntityData.SegmentPath = "stackv4-data"
+    stackv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stackv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stackv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stackv4Data.EntityData.Children = types.NewOrderedMap()
+    stackv4Data.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &stackv4Data.Nexthop})
+    stackv4Data.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &stackv4Data.InnerStack})
+    stackv4Data.EntityData.Leafs = types.NewOrderedMap()
+    stackv4Data.EntityData.Leafs.Append("owner-application-type", types.YLeaf{"OwnerApplicationType", stackv4Data.OwnerApplicationType})
+
+    stackv4Data.EntityData.YListKeys = []string {}
+
+    return &(stackv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "stackv4-data"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+    nexthop.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", nexthop.Ipv4NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", nexthop.LoadMetric})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "stackv4-data"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv4Data_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data
+// stackv6 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack
+}
+
+func (stackv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data) GetEntityData() *types.CommonEntityData {
+    stackv6Data.EntityData.YFilter = stackv6Data.YFilter
+    stackv6Data.EntityData.YangName = "stackv6-data"
+    stackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    stackv6Data.EntityData.ParentYangName = "moi"
+    stackv6Data.EntityData.SegmentPath = "stackv6-data"
+    stackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stackv6Data.EntityData.Children = types.NewOrderedMap()
+    stackv6Data.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &stackv6Data.Nexthop})
+    stackv6Data.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &stackv6Data.InnerStack})
+    stackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    stackv6Data.EntityData.YListKeys = []string {}
+
+    return &(stackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "stackv6-data"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "stackv6-data"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_Stackv6Data_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData
+// te head data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Tunnel local label. The type is interface{} with range: 0..4294967295.
+    TunnelLocalLabel interface{}
+
+    // Tunnel local label stringified. The type is string.
+    TunnelLocalLabelStr interface{}
+
+    // Tunnel forwarding class. The type is interface{} with range: 0..255.
+    TunnelFwdClass interface{}
+
+    // Tunnel Load metric. The type is interface{} with range: 0..4294967295.
+    TunnelLoadMetric interface{}
+
+    // Flags decoded string. The type is string.
+    FlagsDecode interface{}
+}
+
+func (teHeadData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_TeHeadData) GetEntityData() *types.CommonEntityData {
+    teHeadData.EntityData.YFilter = teHeadData.YFilter
+    teHeadData.EntityData.YangName = "te-head-data"
+    teHeadData.EntityData.BundleName = "cisco_ios_xr"
+    teHeadData.EntityData.ParentYangName = "moi"
+    teHeadData.EntityData.SegmentPath = "te-head-data"
+    teHeadData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    teHeadData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    teHeadData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    teHeadData.EntityData.Children = types.NewOrderedMap()
+    teHeadData.EntityData.Leafs = types.NewOrderedMap()
+    teHeadData.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", teHeadData.TableId})
+    teHeadData.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", teHeadData.TableName})
+    teHeadData.EntityData.Leafs.Append("tunnel-local-label", types.YLeaf{"TunnelLocalLabel", teHeadData.TunnelLocalLabel})
+    teHeadData.EntityData.Leafs.Append("tunnel-local-label-str", types.YLeaf{"TunnelLocalLabelStr", teHeadData.TunnelLocalLabelStr})
+    teHeadData.EntityData.Leafs.Append("tunnel-fwd-class", types.YLeaf{"TunnelFwdClass", teHeadData.TunnelFwdClass})
+    teHeadData.EntityData.Leafs.Append("tunnel-load-metric", types.YLeaf{"TunnelLoadMetric", teHeadData.TunnelLoadMetric})
+    teHeadData.EntityData.Leafs.Append("flags-decode", types.YLeaf{"FlagsDecode", teHeadData.FlagsDecode})
+
+    teHeadData.EntityData.YListKeys = []string {}
+
+    return &(teHeadData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData
+// dmtc data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    DmtcExtIfh interface{}
+}
+
+func (dmtcData *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_DmtcData) GetEntityData() *types.CommonEntityData {
+    dmtcData.EntityData.YFilter = dmtcData.YFilter
+    dmtcData.EntityData.YangName = "dmtc-data"
+    dmtcData.EntityData.BundleName = "cisco_ios_xr"
+    dmtcData.EntityData.ParentYangName = "moi"
+    dmtcData.EntityData.SegmentPath = "dmtc-data"
+    dmtcData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmtcData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmtcData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dmtcData.EntityData.Children = types.NewOrderedMap()
+    dmtcData.EntityData.Leafs = types.NewOrderedMap()
+    dmtcData.EntityData.Leafs.Append("dmtc-ext-ifh", types.YLeaf{"DmtcExtIfh", dmtcData.DmtcExtIfh})
+
+    dmtcData.EntityData.YListKeys = []string {}
+
+    return &(dmtcData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data
+// nnh stackv4 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv4 stack.
+    Ipv4Stack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+}
+
+func (nnhStackv4Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv4Data.EntityData.YFilter = nnhStackv4Data.YFilter
+    nnhStackv4Data.EntityData.YangName = "nnh-stackv4-data"
+    nnhStackv4Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv4Data.EntityData.ParentYangName = "moi"
+    nnhStackv4Data.EntityData.SegmentPath = "nnh-stackv4-data"
+    nnhStackv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
+    }
+    nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv4Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv4Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
+// IPv4 stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Owner application type. The type is MgmtLsdApp.
+    OwnerApplicationType interface{}
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack
+}
+
+func (ipv4Stack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack) GetEntityData() *types.CommonEntityData {
+    ipv4Stack.EntityData.YFilter = ipv4Stack.YFilter
+    ipv4Stack.EntityData.YangName = "ipv4-stack"
+    ipv4Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Stack.EntityData.ParentYangName = "nnh-stackv4-data"
+    ipv4Stack.EntityData.SegmentPath = "ipv4-stack"
+    ipv4Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4Stack.EntityData.Children = types.NewOrderedMap()
+    ipv4Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv4Stack.Nexthop})
+    ipv4Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv4Stack.InnerStack})
+    ipv4Stack.EntityData.Leafs = types.NewOrderedMap()
+    ipv4Stack.EntityData.Leafs.Append("owner-application-type", types.YLeaf{"OwnerApplicationType", ipv4Stack.OwnerApplicationType})
+
+    ipv4Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv4Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+
+    // IPv4 nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Routing path's load metric. The type is interface{} with range:
+    // 0..4294967295.
+    LoadMetric interface{}
+
+    // Outgoing Label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // TE backup path local label. The type is interface{} with range:
+    // 0..4294967295.
+    LocalLabel interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv4-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+    nexthop.EntityData.Leafs.Append("ipv4-next-hop", types.YLeaf{"Ipv4NextHop", nexthop.Ipv4NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("load-metric", types.YLeaf{"LoadMetric", nexthop.LoadMetric})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv4-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewritePws
@@ -22753,6 +33484,10 @@ type MplsLsd_Rewrite_RewritePws_RewritePw struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey
 
@@ -22813,6 +33548,7 @@ func (rewritePw *MplsLsd_Rewrite_RewritePws_RewritePw) GetEntityData() *types.Co
     rewritePw.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewritePw.RwInstallAge})
     rewritePw.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewritePw.RwUpdated})
     rewritePw.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewritePw.PriorityUpdated})
+    rewritePw.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewritePw.RwRedist})
 
     rewritePw.EntityData.YListKeys = []string {"PwListId"}
 
@@ -22882,6 +33618,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -22901,6 +33640,7 @@ func (fpi *MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi) GetEntityData() *typ
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -22952,7 +33692,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -23106,7 +33846,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtIntfData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -23127,6 +33867,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtIn
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_ApplicationOwner
@@ -23738,7 +34511,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Pseud
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -23818,7 +34591,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_IpSub
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -23950,7 +34723,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -24036,7 +34809,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Gener
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -24066,7 +34839,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -24104,6 +34877,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_EvpnD
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -24121,6 +34897,7 @@ func (evpnData *MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelCo
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -24133,7 +34910,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv4b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -24167,7 +34944,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -24361,7 +35138,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -24403,7 +35180,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -24666,6 +35443,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -24685,6 +35465,7 @@ func (fpi *MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi) GetEntityData
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -24736,7 +35517,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -24890,7 +35671,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_DmtcExtIntfData stru
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -24911,6 +35692,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Dm
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_ApplicationOwner
@@ -25192,6 +36006,12 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi struct {
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -25220,6 +36040,8 @@ func (moi *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi) GetEntityData
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -25358,11 +36180,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -25387,6 +36209,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv4Data struct {
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -25420,6 +36245,7 @@ func (ipv4Data *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv4Data)
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -25443,7 +36269,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -25462,11 +36288,17 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data struct {
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -25491,6 +36323,8 @@ func (ipv6Data *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data)
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -25514,7 +36348,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -25527,7 +36361,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -25540,14 +36374,14 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -25607,7 +36441,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireData struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -25671,7 +36505,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_IpSubData struct {
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -25715,7 +36549,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireHeadEndDat
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -25740,7 +36574,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireHeadEndDat
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -25786,11 +36620,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PwListData struct {
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -25872,11 +36706,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -25901,6 +36735,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -25934,6 +36771,7 @@ func (nexthop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv4Dat
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -26103,7 +36941,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -26122,11 +36960,17 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -26151,6 +36995,8 @@ func (nexthop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Dat
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -26331,7 +37177,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_DmtcData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -26363,9 +37209,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data struc
     // IPv4 stack.
     Ipv4Stack MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -26380,9 +37226,9 @@ func (nnhStackv4Data *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -26443,11 +37289,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -26472,6 +37318,9 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -26505,6 +37354,7 @@ func (nexthop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -26626,9 +37476,9 @@ func (label *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Da
     return &(label.EntityData)
 }
 
-// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -26639,29 +37489,363 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextN
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteIpv4s
@@ -26742,6 +37926,10 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4 struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey
 
@@ -26805,6 +37993,7 @@ func (rewriteIpv4 *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4) GetEntityData() *ty
     rewriteIpv4.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteIpv4.RwInstallAge})
     rewriteIpv4.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteIpv4.RwUpdated})
     rewriteIpv4.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteIpv4.PriorityUpdated})
+    rewriteIpv4.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteIpv4.RwRedist})
 
     rewriteIpv4.EntityData.YListKeys = []string {}
 
@@ -26874,6 +38063,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -26893,6 +38085,7 @@ func (fpi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi) GetEntityData() 
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -26944,7 +38137,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -27098,7 +38291,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcExtIntfData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -27119,6 +38312,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcE
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_ApplicationOwner
@@ -27730,7 +38956,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -27810,7 +39036,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -27942,7 +39168,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -28028,7 +39254,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -28058,7 +39284,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -28096,6 +39322,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_E
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -28113,6 +39342,7 @@ func (evpnData *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_Lab
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -28125,7 +39355,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -28159,7 +39389,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -28353,7 +39583,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_S
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -28395,7 +39625,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_S
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -28658,6 +39888,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -28677,6 +39910,7 @@ func (fpi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi) GetEntity
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -28728,7 +39962,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -28882,7 +40116,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_DmtcExtIntfData 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -28903,6 +40137,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fp
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_ApplicationOwner
@@ -29184,6 +40451,12 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi struct {
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -29212,6 +40485,8 @@ func (moi *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi) GetEntity
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -29350,11 +40625,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv4Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -29379,6 +40654,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv4Data struct 
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -29412,6 +40690,7 @@ func (ipv4Data *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv4D
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -29435,7 +40714,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -29454,11 +40733,17 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6Data struct 
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -29483,6 +40768,8 @@ func (ipv6Data *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6D
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -29506,7 +40793,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -29519,7 +40806,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -29532,14 +40819,14 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -29599,7 +40886,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireData s
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -29663,7 +40950,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_IpSubData struct
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -29707,7 +40994,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireHeadEn
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -29732,7 +41019,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireHeadEn
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -29778,11 +41065,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PwListData struc
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -29864,11 +41151,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv4Data_Next
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -29893,6 +41180,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv4Data_Next
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -29926,6 +41216,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -30095,7 +41386,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Next
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -30114,11 +41405,17 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Next
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -30143,6 +41440,8 @@ func (nexthop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -30323,7 +41622,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_DmtcData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -30355,9 +41654,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data s
     // IPv4 stack.
     Ipv4Stack MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -30372,9 +41671,9 @@ func (nnhStackv4Data *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -30435,11 +41734,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_I
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -30464,6 +41763,9 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_I
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -30497,6 +41799,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhSta
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -30618,9 +41921,9 @@ func (label *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStack
     return &(label.EntityData)
 }
 
-// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -30631,29 +41934,363 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_N
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteTes
@@ -30696,7 +42333,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Rewrite version. The type is interface{} with range:
@@ -30724,6 +42361,10 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe struct {
     // Is rewrite's BCDL priority updated. The type is interface{} with range:
     // -2147483648..2147483647.
     PriorityUpdated interface{}
+
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
 
     // fpi key.
     FpiKey MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey
@@ -30785,6 +42426,7 @@ func (rewriteTe *MplsLsd_Rewrite_RewriteTes_RewriteTe) GetEntityData() *types.Co
     rewriteTe.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteTe.RwInstallAge})
     rewriteTe.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteTe.RwUpdated})
     rewriteTe.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteTe.PriorityUpdated})
+    rewriteTe.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteTe.RwRedist})
 
     rewriteTe.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -30854,6 +42496,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -30873,6 +42518,7 @@ func (fpi *MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi) GetEntityData() *typ
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -30924,7 +42570,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -31078,7 +42724,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtIntfData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -31099,6 +42745,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtIn
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_ApplicationOwner
@@ -31710,7 +43389,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Pseud
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -31790,7 +43469,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_IpSub
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -31922,7 +43601,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -32008,7 +43687,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Gener
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -32038,7 +43717,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -32076,6 +43755,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_EvpnD
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -32093,6 +43775,7 @@ func (evpnData *MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelCo
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -32105,7 +43788,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv4b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -32139,7 +43822,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -32333,7 +44016,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -32375,7 +44058,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -32638,6 +44321,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -32657,6 +44343,7 @@ func (fpi *MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi) GetEntityData
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -32708,7 +44395,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -32862,7 +44549,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_DmtcExtIntfData stru
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -32883,6 +44570,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Dm
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_ApplicationOwner
@@ -33164,6 +44884,12 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi struct {
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -33192,6 +44918,8 @@ func (moi *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi) GetEntityData
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -33330,11 +45058,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -33359,6 +45087,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv4Data struct {
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -33392,6 +45123,7 @@ func (ipv4Data *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv4Data)
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -33415,7 +45147,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -33434,11 +45166,17 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data struct {
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -33463,6 +45201,8 @@ func (ipv6Data *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data)
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -33486,7 +45226,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -33499,7 +45239,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -33512,14 +45252,14 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -33579,7 +45319,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireData struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -33643,7 +45383,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_IpSubData struct {
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -33687,7 +45427,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireHeadEndDat
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -33712,7 +45452,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireHeadEndDat
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -33758,11 +45498,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PwListData struct {
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -33844,11 +45584,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -33873,6 +45613,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -33906,6 +45649,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv4Dat
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -34075,7 +45819,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -34094,11 +45838,17 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -34123,6 +45873,8 @@ func (nexthop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Dat
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -34303,7 +46055,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_DmtcData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -34335,9 +46087,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data struc
     // IPv4 stack.
     Ipv4Stack MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -34352,9 +46104,9 @@ func (nnhStackv4Data *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -34415,11 +46167,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -34444,6 +46196,9 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -34477,6 +46232,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -34598,9 +46354,9 @@ func (label *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Da
     return &(label.EntityData)
 }
 
-// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -34611,29 +46367,363 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextN
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteLabels
@@ -34705,6 +46795,10 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel struct {
     // -2147483648..2147483647.
     PriorityUpdated interface{}
 
+    // Is Rewrite redistributed. The type is interface{} with range:
+    // -2147483648..2147483647.
+    RwRedist interface{}
+
     // fpi key.
     FpiKey MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey
 
@@ -34765,6 +46859,7 @@ func (rewriteLabel *MplsLsd_Rewrite_RewriteLabels_RewriteLabel) GetEntityData() 
     rewriteLabel.EntityData.Leafs.Append("rw-install-age", types.YLeaf{"RwInstallAge", rewriteLabel.RwInstallAge})
     rewriteLabel.EntityData.Leafs.Append("rw-updated", types.YLeaf{"RwUpdated", rewriteLabel.RwUpdated})
     rewriteLabel.EntityData.Leafs.Append("priority-updated", types.YLeaf{"PriorityUpdated", rewriteLabel.PriorityUpdated})
+    rewriteLabel.EntityData.Leafs.Append("rw-redist", types.YLeaf{"RwRedist", rewriteLabel.RwRedist})
 
     rewriteLabel.EntityData.YListKeys = []string {"LabelId"}
 
@@ -34834,6 +46929,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi) GetEntityData() *types.CommonEntityData {
@@ -34853,6 +46951,7 @@ func (fpi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi) GetEntityData(
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -34904,7 +47003,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -35058,7 +47157,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_DmtcExtIntfData struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -35079,6 +47178,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Dmt
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_ApplicationOwner
@@ -35690,7 +47822,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -35770,7 +47902,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -35902,7 +48034,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -35988,7 +48120,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -36018,7 +48150,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -36056,6 +48188,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Ethernet Segment ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
+
+    // EVPN Encap. The type is interface{} with range: 0..255.
+    EvpnEncap interface{}
 }
 
 func (evpnData *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext_EvpnData) GetEntityData() *types.CommonEntityData {
@@ -36073,6 +48208,7 @@ func (evpnData *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_L
     evpnData.EntityData.Leafs.Append("evpn-id", types.YLeaf{"EvpnId", evpnData.EvpnId})
     evpnData.EntityData.Leafs.Append("evpn-tag", types.YLeaf{"EvpnTag", evpnData.EvpnTag})
     evpnData.EntityData.Leafs.Append("ethernet-segment", types.YLeaf{"EthernetSegment", evpnData.EthernetSegment})
+    evpnData.EntityData.Leafs.Append("evpn-encap", types.YLeaf{"EvpnEncap", evpnData.EvpnEncap})
 
     evpnData.EntityData.YListKeys = []string {}
 
@@ -36085,7 +48221,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
@@ -36119,7 +48255,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
@@ -36313,7 +48449,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
@@ -36355,7 +48491,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
@@ -36618,6 +48754,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi struct {
 
     // dmtc ext intf data.
     DmtcExtIntfData MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_DmtcExtIntfData
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange
 }
 
 func (fpi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi) GetEntityData() *types.CommonEntityData {
@@ -36637,6 +48776,7 @@ func (fpi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi) GetEnti
     fpi.EntityData.Children.Append("ipv6-data", types.YChild{"Ipv6Data", &fpi.Ipv6Data})
     fpi.EntityData.Children.Append("pw-list-data", types.YChild{"PwListData", &fpi.PwListData})
     fpi.EntityData.Children.Append("dmtc-ext-intf-data", types.YChild{"DmtcExtIntfData", &fpi.DmtcExtIntfData})
+    fpi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &fpi.LabelRange})
     fpi.EntityData.Leafs = types.NewOrderedMap()
     fpi.EntityData.Leafs.Append("fpi-type", types.YLeaf{"FpiType", fpi.FpiType})
 
@@ -36688,7 +48828,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_TeData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -36842,7 +48982,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_DmtcExtIntfDat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -36863,6 +49003,39 @@ func (dmtcExtIntfData *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_
     dmtcExtIntfData.EntityData.YListKeys = []string {}
 
     return &(dmtcExtIntfData.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Label Range Type. The type is interface{} with range: 0..255.
+    Type interface{}
+
+    // Label Ranged Index. The type is interface{} with range: 0..255.
+    Index interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "fpi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("type", types.YLeaf{"Type", labelRange.Type})
+    labelRange.EntityData.Leafs.Append("index", types.YLeaf{"Index", labelRange.Index})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_ApplicationOwner
@@ -37144,6 +49317,12 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi struct {
 
     // nnh stackv4 data.
     NnhStackv4Data MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
+
+    // nnh stackv6 data.
+    NnhStackv6Data MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
+
+    // label range.
+    LabelRange MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange
 }
 
 func (moi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi) GetEntityData() *types.CommonEntityData {
@@ -37172,6 +49351,8 @@ func (moi *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi) GetEnti
     moi.EntityData.Children.Append("te-head-data", types.YChild{"TeHeadData", &moi.TeHeadData})
     moi.EntityData.Children.Append("dmtc-data", types.YChild{"DmtcData", &moi.DmtcData})
     moi.EntityData.Children.Append("nnh-stackv4-data", types.YChild{"NnhStackv4Data", &moi.NnhStackv4Data})
+    moi.EntityData.Children.Append("nnh-stackv6-data", types.YChild{"NnhStackv6Data", &moi.NnhStackv6Data})
+    moi.EntityData.Children.Append("label-range", types.YChild{"LabelRange", &moi.LabelRange})
     moi.EntityData.Leafs = types.NewOrderedMap()
     moi.EntityData.Leafs.Append("moi-type", types.YLeaf{"MoiType", moi.MoiType})
 
@@ -37310,11 +49491,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv4Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -37339,6 +49520,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv4Data struc
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -37372,6 +49556,7 @@ func (ipv4Data *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv
     ipv4Data.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", ipv4Data.OutLabel})
     ipv4Data.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", ipv4Data.OutLabelName})
     ipv4Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv4Data.TunnelId})
+    ipv4Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv4Data.TunnelType})
     ipv4Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv4Data.NextHopId})
     ipv4Data.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", ipv4Data.LocalLabel})
 
@@ -37395,7 +49580,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv6Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -37414,11 +49599,17 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv6Data struc
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -37443,6 +49634,8 @@ func (ipv6Data *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv
     ipv6Data.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", ipv6Data.Ipv6NextHop})
     ipv6Data.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", ipv6Data.PathId})
     ipv6Data.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", ipv6Data.BackupPathId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", ipv6Data.TunnelId})
+    ipv6Data.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", ipv6Data.TunnelType})
     ipv6Data.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", ipv6Data.NextHopId})
     ipv6Data.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", ipv6Data.OutInterfaceParent})
 
@@ -37466,7 +49659,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -37479,7 +49672,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
@@ -37492,14 +49685,14 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
@@ -37559,7 +49752,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireData
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -37623,7 +49816,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_IpSubData stru
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -37667,7 +49860,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireHead
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -37692,7 +49885,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireHead
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -37738,11 +49931,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PwListData str
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -37824,11 +50017,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv4Data_Ne
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -37853,6 +50046,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv4Data_Ne
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -37886,6 +50082,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stac
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -38055,7 +50252,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_Ne
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -38074,11 +50271,17 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_Ne
     // Routing path backup id. The type is interface{} with range: 0..255.
     BackupPathId interface{}
 
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -38103,6 +50306,8 @@ func (nexthop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stac
     nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
     nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
     nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
 
@@ -38283,7 +50488,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_DmtcData struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -38315,9 +50520,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     // IPv4 stack.
     Ipv4Stack MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4Stack
 
-    // List of Next Next Hops. The type is slice of
-    // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop.
-    NextNextHop []*MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
 }
 
 func (nnhStackv4Data *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data) GetEntityData() *types.CommonEntityData {
@@ -38332,9 +50537,9 @@ func (nnhStackv4Data *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
 
     nnhStackv4Data.EntityData.Children = types.NewOrderedMap()
     nnhStackv4Data.EntityData.Children.Append("ipv4-stack", types.YChild{"Ipv4Stack", &nnhStackv4Data.Ipv4Stack})
-    nnhStackv4Data.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
-    for i := range nnhStackv4Data.NextNextHop {
-        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NextNextHop[i]), types.YChild{"NextNextHop", nnhStackv4Data.NextNextHop[i]})
+    nnhStackv4Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv4Data.NeighborNextHop {
+        nnhStackv4Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv4Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv4Data.NeighborNextHop[i]})
     }
     nnhStackv4Data.EntityData.Leafs = types.NewOrderedMap()
 
@@ -38395,11 +50600,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
@@ -38424,6 +50629,9 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
 
     // Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
 
     // Next hop ID. The type is interface{} with range: 0..4294967295.
     NextHopId interface{}
@@ -38457,6 +50665,7 @@ func (nexthop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhS
     nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
     nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
     nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
     nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
     nexthop.EntityData.Leafs.Append("local-label", types.YLeaf{"LocalLabel", nexthop.LocalLabel})
 
@@ -38578,9 +50787,9 @@ func (label *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhSta
     return &(label.EntityData)
 }
 
-// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop
-// List of Next Next Hops
-type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop struct {
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -38591,29 +50800,363 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (nextNextHop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NextNextHop) GetEntityData() *types.CommonEntityData {
-    nextNextHop.EntityData.YFilter = nextNextHop.YFilter
-    nextNextHop.EntityData.YangName = "next-next-hop"
-    nextNextHop.EntityData.BundleName = "cisco_ios_xr"
-    nextNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
-    nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (neighborNextHop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv4-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nextNextHop.EntityData.Children = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", nextNextHop.NnhType})
-    nextNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", nextNextHop.Address})
-    nextNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nextNextHop.InterfaceName})
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
 
-    nextNextHop.EntityData.YListKeys = []string {}
+    neighborNextHop.EntityData.YListKeys = []string {}
 
-    return &(nextNextHop.EntityData)
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
+// nnh stackv6 data
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 stack.
+    Ipv6Stack MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+
+    // List of Neighbor Next Hops. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop.
+    NeighborNextHop []*MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+}
+
+func (nnhStackv6Data *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data) GetEntityData() *types.CommonEntityData {
+    nnhStackv6Data.EntityData.YFilter = nnhStackv6Data.YFilter
+    nnhStackv6Data.EntityData.YangName = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nnhStackv6Data.EntityData.ParentYangName = "moi"
+    nnhStackv6Data.EntityData.SegmentPath = "nnh-stackv6-data"
+    nnhStackv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nnhStackv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nnhStackv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nnhStackv6Data.EntityData.Children = types.NewOrderedMap()
+    nnhStackv6Data.EntityData.Children.Append("ipv6-stack", types.YChild{"Ipv6Stack", &nnhStackv6Data.Ipv6Stack})
+    nnhStackv6Data.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
+    for i := range nnhStackv6Data.NeighborNextHop {
+        nnhStackv6Data.EntityData.Children.Append(types.GetSegmentPath(nnhStackv6Data.NeighborNextHop[i]), types.YChild{"NeighborNextHop", nnhStackv6Data.NeighborNextHop[i]})
+    }
+    nnhStackv6Data.EntityData.Leafs = types.NewOrderedMap()
+
+    nnhStackv6Data.EntityData.YListKeys = []string {}
+
+    return &(nnhStackv6Data.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack
+// IPv6 stack
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Nexthop.
+    Nexthop MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+
+    // Inner stack.
+    InnerStack MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+}
+
+func (ipv6Stack *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack) GetEntityData() *types.CommonEntityData {
+    ipv6Stack.EntityData.YFilter = ipv6Stack.YFilter
+    ipv6Stack.EntityData.YangName = "ipv6-stack"
+    ipv6Stack.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Stack.EntityData.ParentYangName = "nnh-stackv6-data"
+    ipv6Stack.EntityData.SegmentPath = "ipv6-stack"
+    ipv6Stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv6Stack.EntityData.Children = types.NewOrderedMap()
+    ipv6Stack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", &ipv6Stack.Nexthop})
+    ipv6Stack.EntityData.Children.Append("inner-stack", types.YChild{"InnerStack", &ipv6Stack.InnerStack})
+    ipv6Stack.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv6Stack.EntityData.YListKeys = []string {}
+
+    return &(ipv6Stack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop
+// Nexthop
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table ID. The type is interface{} with range: 0..4294967295.
+    TableId interface{}
+
+    // VRF table name. The type is string.
+    TableName interface{}
+
+    // Path flag decoded string. The type is string.
+    PathFlagsDecode interface{}
+
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    OutInterface interface{}
+
+    // Outgoing label. The type is interface{} with range: 0..4294967295.
+    OutLabel interface{}
+
+    // Outgoing label name. The type is string.
+    OutLabelName interface{}
+
+    // IPv6 nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6NextHop interface{}
+
+    // Routing path id. The type is interface{} with range: 0..255.
+    PathId interface{}
+
+    // Routing path backup id. The type is interface{} with range: 0..255.
+    BackupPathId interface{}
+
+    // Tunnel ID. The type is interface{} with range: 0..65535.
+    TunnelId interface{}
+
+    // Tunnel Type. The type is interface{} with range: 0..65535.
+    TunnelType interface{}
+
+    // Next hop ID. The type is interface{} with range: 0..4294967295.
+    NextHopId interface{}
+
+    // Outgoing Interface's parent. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    OutInterfaceParent interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "ipv6-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("table-id", types.YLeaf{"TableId", nexthop.TableId})
+    nexthop.EntityData.Leafs.Append("table-name", types.YLeaf{"TableName", nexthop.TableName})
+    nexthop.EntityData.Leafs.Append("path-flags-decode", types.YLeaf{"PathFlagsDecode", nexthop.PathFlagsDecode})
+    nexthop.EntityData.Leafs.Append("out-interface", types.YLeaf{"OutInterface", nexthop.OutInterface})
+    nexthop.EntityData.Leafs.Append("out-label", types.YLeaf{"OutLabel", nexthop.OutLabel})
+    nexthop.EntityData.Leafs.Append("out-label-name", types.YLeaf{"OutLabelName", nexthop.OutLabelName})
+    nexthop.EntityData.Leafs.Append("ipv6-next-hop", types.YLeaf{"Ipv6NextHop", nexthop.Ipv6NextHop})
+    nexthop.EntityData.Leafs.Append("path-id", types.YLeaf{"PathId", nexthop.PathId})
+    nexthop.EntityData.Leafs.Append("backup-path-id", types.YLeaf{"BackupPathId", nexthop.BackupPathId})
+    nexthop.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", nexthop.TunnelId})
+    nexthop.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", nexthop.TunnelType})
+    nexthop.EntityData.Leafs.Append("next-hop-id", types.YLeaf{"NextHopId", nexthop.NextHopId})
+    nexthop.EntityData.Leafs.Append("out-interface-parent", types.YLeaf{"OutInterfaceParent", nexthop.OutInterfaceParent})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack
+// Inner stack
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of remote nexthop addresses. The type is interface{} with range:
+    // 0..255.
+    NumNexthops interface{}
+
+    // Depth of inner label stack. The type is interface{} with range: 0..255.
+    NumLbls interface{}
+
+    // Remote nexthop addresses. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop.
+    Nexthop []*MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+
+    // Info related to outgoing labels. The type is slice of
+    // MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label.
+    Label []*MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+}
+
+func (innerStack *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack) GetEntityData() *types.CommonEntityData {
+    innerStack.EntityData.YFilter = innerStack.YFilter
+    innerStack.EntityData.YangName = "inner-stack"
+    innerStack.EntityData.BundleName = "cisco_ios_xr"
+    innerStack.EntityData.ParentYangName = "ipv6-stack"
+    innerStack.EntityData.SegmentPath = "inner-stack"
+    innerStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    innerStack.EntityData.Children = types.NewOrderedMap()
+    innerStack.EntityData.Children.Append("nexthop", types.YChild{"Nexthop", nil})
+    for i := range innerStack.Nexthop {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Nexthop[i]), types.YChild{"Nexthop", innerStack.Nexthop[i]})
+    }
+    innerStack.EntityData.Children.Append("label", types.YChild{"Label", nil})
+    for i := range innerStack.Label {
+        innerStack.EntityData.Children.Append(types.GetSegmentPath(innerStack.Label[i]), types.YChild{"Label", innerStack.Label[i]})
+    }
+    innerStack.EntityData.Leafs = types.NewOrderedMap()
+    innerStack.EntityData.Leafs.Append("num-nexthops", types.YLeaf{"NumNexthops", innerStack.NumNexthops})
+    innerStack.EntityData.Leafs.Append("num-lbls", types.YLeaf{"NumLbls", innerStack.NumLbls})
+
+    innerStack.EntityData.YListKeys = []string {}
+
+    return &(innerStack.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop
+// Remote nexthop addresses
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Entry interface{}
+}
+
+func (nexthop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Nexthop) GetEntityData() *types.CommonEntityData {
+    nexthop.EntityData.YFilter = nexthop.YFilter
+    nexthop.EntityData.YangName = "nexthop"
+    nexthop.EntityData.BundleName = "cisco_ios_xr"
+    nexthop.EntityData.ParentYangName = "inner-stack"
+    nexthop.EntityData.SegmentPath = "nexthop"
+    nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nexthop.EntityData.Children = types.NewOrderedMap()
+    nexthop.EntityData.Leafs = types.NewOrderedMap()
+    nexthop.EntityData.Leafs.Append("entry", types.YLeaf{"Entry", nexthop.Entry})
+
+    nexthop.EntityData.YListKeys = []string {}
+
+    return &(nexthop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label
+// Info related to outgoing labels
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Remote Label. The type is interface{} with range: 0..4294967295.
+    OutgoingLabel interface{}
+
+    // Remote Label string. The type is string.
+    OutgoingLabelStr interface{}
+}
+
+func (label *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6Stack_InnerStack_Label) GetEntityData() *types.CommonEntityData {
+    label.EntityData.YFilter = label.YFilter
+    label.EntityData.YangName = "label"
+    label.EntityData.BundleName = "cisco_ios_xr"
+    label.EntityData.ParentYangName = "inner-stack"
+    label.EntityData.SegmentPath = "label"
+    label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    label.EntityData.Children = types.NewOrderedMap()
+    label.EntityData.Leafs = types.NewOrderedMap()
+    label.EntityData.Leafs.Append("outgoing-label", types.YLeaf{"OutgoingLabel", label.OutgoingLabel})
+    label.EntityData.Leafs.Append("outgoing-label-str", types.YLeaf{"OutgoingLabelStr", label.OutgoingLabelStr})
+
+    label.EntityData.YListKeys = []string {}
+
+    return &(label.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop
+// List of Neighbor Next Hops
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // nnh type. The type is MplsLsdNnh.
+    NnhType interface{}
+
+    // IPv4 Address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (neighborNextHop *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data_NeighborNextHop) GetEntityData() *types.CommonEntityData {
+    neighborNextHop.EntityData.YFilter = neighborNextHop.YFilter
+    neighborNextHop.EntityData.YangName = "neighbor-next-hop"
+    neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
+    neighborNextHop.EntityData.ParentYangName = "nnh-stackv6-data"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    neighborNextHop.EntityData.Children = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs = types.NewOrderedMap()
+    neighborNextHop.EntityData.Leafs.Append("nnh-type", types.YLeaf{"NnhType", neighborNextHop.NnhType})
+    neighborNextHop.EntityData.Leafs.Append("address", types.YLeaf{"Address", neighborNextHop.Address})
+    neighborNextHop.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", neighborNextHop.InterfaceName})
+
+    neighborNextHop.EntityData.YListKeys = []string {}
+
+    return &(neighborNextHop.EntityData)
+}
+
+// MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange
+// label range
+type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active Label Range Start. The type is interface{} with range:
+    // 0..4294967295.
+    StartLabelActive interface{}
+
+    // Active Label Range End. The type is interface{} with range: 0..4294967295.
+    EndLabelActive interface{}
+}
+
+func (labelRange *MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "moi"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    labelRange.EntityData.Children = types.NewOrderedMap()
+    labelRange.EntityData.Leafs = types.NewOrderedMap()
+    labelRange.EntityData.Leafs.Append("start-label-active", types.YLeaf{"StartLabelActive", labelRange.StartLabelActive})
+    labelRange.EntityData.Leafs.Append("end-label-active", types.YLeaf{"EndLabelActive", labelRange.EndLabelActive})
+
+    labelRange.EntityData.YListKeys = []string {}
+
+    return &(labelRange.EntityData)
 }
 
 // MplsLsd_RewriteSummary
@@ -38639,6 +51182,10 @@ type MplsLsd_RewriteSummary struct {
 
     // Number of DMTC FPI. The type is interface{} with range: 0..4294967295.
     NumDmtctefpi interface{}
+
+    // Number of Label Range FPI. The type is interface{} with range:
+    // 0..4294967295.
+    NumLabelRange interface{}
 
     // Number of rewrites. The type is interface{} with range: 0..4294967295.
     NumRewrite interface{}
@@ -38686,6 +51233,10 @@ type MplsLsd_RewriteSummary struct {
     // range: 0..4294967295.
     TotalDmtcIntf interface{}
 
+    // Total number of Label Ranges. The type is interface{} with range:
+    // 0..4294967295.
+    TotalLabelRange interface{}
+
     // VRF Name. The type is string.
     VrfNameXr interface{}
 
@@ -38716,6 +51267,7 @@ func (rewriteSummary *MplsLsd_RewriteSummary) GetEntityData() *types.CommonEntit
     rewriteSummary.EntityData.Leafs.Append("num-ipv6fpi", types.YLeaf{"NumIpv6fpi", rewriteSummary.NumIpv6fpi})
     rewriteSummary.EntityData.Leafs.Append("num-pw-list-tefpi", types.YLeaf{"NumPwListTefpi", rewriteSummary.NumPwListTefpi})
     rewriteSummary.EntityData.Leafs.Append("num-dmtctefpi", types.YLeaf{"NumDmtctefpi", rewriteSummary.NumDmtctefpi})
+    rewriteSummary.EntityData.Leafs.Append("num-label-range", types.YLeaf{"NumLabelRange", rewriteSummary.NumLabelRange})
     rewriteSummary.EntityData.Leafs.Append("num-rewrite", types.YLeaf{"NumRewrite", rewriteSummary.NumRewrite})
     rewriteSummary.EntityData.Leafs.Append("total-forward-update", types.YLeaf{"TotalForwardUpdate", rewriteSummary.TotalForwardUpdate})
     rewriteSummary.EntityData.Leafs.Append("total-forwad-update-message", types.YLeaf{"TotalForwadUpdateMessage", rewriteSummary.TotalForwadUpdateMessage})
@@ -38728,6 +51280,7 @@ func (rewriteSummary *MplsLsd_RewriteSummary) GetEntityData() *types.CommonEntit
     rewriteSummary.EntityData.Leafs.Append("total-ipv6rpf-neighbors", types.YLeaf{"TotalIpv6rpfNeighbors", rewriteSummary.TotalIpv6rpfNeighbors})
     rewriteSummary.EntityData.Leafs.Append("num-rewrite-rpf-neighbors", types.YLeaf{"NumRewriteRpfNeighbors", rewriteSummary.NumRewriteRpfNeighbors})
     rewriteSummary.EntityData.Leafs.Append("total-dmtc-intf", types.YLeaf{"TotalDmtcIntf", rewriteSummary.TotalDmtcIntf})
+    rewriteSummary.EntityData.Leafs.Append("total-label-range", types.YLeaf{"TotalLabelRange", rewriteSummary.TotalLabelRange})
     rewriteSummary.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", rewriteSummary.VrfNameXr})
 
     rewriteSummary.EntityData.YListKeys = []string {}
@@ -39365,6 +51918,10 @@ type MplsLsd_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     // Number of DMTC FPI. The type is interface{} with range: 0..4294967295.
     NumDmtctefpi interface{}
 
+    // Number of Label Range FPI. The type is interface{} with range:
+    // 0..4294967295.
+    NumLabelRange interface{}
+
     // Number of rewrites. The type is interface{} with range: 0..4294967295.
     NumRewrite interface{}
 
@@ -39411,6 +51968,10 @@ type MplsLsd_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     // range: 0..4294967295.
     TotalDmtcIntf interface{}
 
+    // Total number of Label Ranges. The type is interface{} with range:
+    // 0..4294967295.
+    TotalLabelRange interface{}
+
     // VRF Name. The type is string.
     VrfNameXr interface{}
 
@@ -39442,6 +52003,7 @@ func (rewriteSummaryVrf *MplsLsd_RewriteSummaryVrfs_RewriteSummaryVrf) GetEntity
     rewriteSummaryVrf.EntityData.Leafs.Append("num-ipv6fpi", types.YLeaf{"NumIpv6fpi", rewriteSummaryVrf.NumIpv6fpi})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-pw-list-tefpi", types.YLeaf{"NumPwListTefpi", rewriteSummaryVrf.NumPwListTefpi})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-dmtctefpi", types.YLeaf{"NumDmtctefpi", rewriteSummaryVrf.NumDmtctefpi})
+    rewriteSummaryVrf.EntityData.Leafs.Append("num-label-range", types.YLeaf{"NumLabelRange", rewriteSummaryVrf.NumLabelRange})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-rewrite", types.YLeaf{"NumRewrite", rewriteSummaryVrf.NumRewrite})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-forward-update", types.YLeaf{"TotalForwardUpdate", rewriteSummaryVrf.TotalForwardUpdate})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-forwad-update-message", types.YLeaf{"TotalForwadUpdateMessage", rewriteSummaryVrf.TotalForwadUpdateMessage})
@@ -39454,6 +52016,7 @@ func (rewriteSummaryVrf *MplsLsd_RewriteSummaryVrfs_RewriteSummaryVrf) GetEntity
     rewriteSummaryVrf.EntityData.Leafs.Append("total-ipv6rpf-neighbors", types.YLeaf{"TotalIpv6rpfNeighbors", rewriteSummaryVrf.TotalIpv6rpfNeighbors})
     rewriteSummaryVrf.EntityData.Leafs.Append("num-rewrite-rpf-neighbors", types.YLeaf{"NumRewriteRpfNeighbors", rewriteSummaryVrf.NumRewriteRpfNeighbors})
     rewriteSummaryVrf.EntityData.Leafs.Append("total-dmtc-intf", types.YLeaf{"TotalDmtcIntf", rewriteSummaryVrf.TotalDmtcIntf})
+    rewriteSummaryVrf.EntityData.Leafs.Append("total-label-range", types.YLeaf{"TotalLabelRange", rewriteSummaryVrf.TotalLabelRange})
     rewriteSummaryVrf.EntityData.Leafs.Append("vrf-name-xr", types.YLeaf{"VrfNameXr", rewriteSummaryVrf.VrfNameXr})
 
     rewriteSummaryVrf.EntityData.YListKeys = []string {"VrfName"}
@@ -39600,10 +52163,10 @@ type MplsLsd_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface state. The type is MgmtLsdIntfState.

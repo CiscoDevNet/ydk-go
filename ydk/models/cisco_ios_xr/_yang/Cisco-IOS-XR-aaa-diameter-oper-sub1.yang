@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR aaa-diameter package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -205,6 +205,21 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
       type uint32;
       description
         "Gx Retry count";
+    }
+    leaf service-count {
+      type uint32;
+      description
+        " Gx Plus Service Count";
+    }
+    leaf gx-plus-services {
+      type string;
+      description
+        "Gx Plus Services";
+    }
+    leaf reavalidation-time {
+      type string;
+      description
+        "Revalidation Time";
     }
   }
 

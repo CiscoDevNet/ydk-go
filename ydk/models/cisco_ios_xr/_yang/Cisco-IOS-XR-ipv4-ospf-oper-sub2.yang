@@ -29,9 +29,13 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-ospf package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-18 {
+    description
+      "Added keychain name to be displayed in show ospf interface bag";
+  }
   revision 2017-10-26 {
     description
       "Fixed some field name and values for better interpretation";
@@ -100,6 +104,10 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       enum "mgmt-ospf-opq-ri-tlv-type-node-msd" {
         description
           "Node MSD (Max SID Depth)";
+      }
+      enum "mgmt-ospf-opq-ri-tlv-type-srlb" {
+        description
+          "Segment Routing Local Block";
       }
     }
     description
@@ -407,6 +415,28 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
        minute timer table";
   }
 
+  typedef Ospf-srlb-status {
+    type enumeration {
+      enum "unknown" {
+        value 0;
+        description
+          "Unknown";
+      }
+      enum "not-allocated" {
+        value 1;
+        description
+          "Not allocated";
+      }
+      enum "allocated" {
+        value 2;
+        description
+          "Allocated";
+      }
+    }
+    description
+      "Ospf srlb status";
+  }
+
   typedef Ospf-srgb-status {
     type enumeration {
       enum "not-allocated" {
@@ -677,13 +707,18 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         description
           "SRLG disjoint";
       }
-      enum "tunnel" {
+      enum "interface-disjoint" {
         value 7;
+        description
+          "Interface disjoint";
+      }
+      enum "tunnel" {
+        value 8;
         description
           "Tunnel";
       }
       enum "post-convergence" {
-        value 8;
+        value 9;
         description
           "Post Convergence";
       }
@@ -739,6 +774,73 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
     description
       "Interface state";
+  }
+
+  typedef Ospf-crytographic-algo {
+    type enumeration {
+      enum "mgmt-not-configured" {
+        value 0;
+        description
+          "Not configured";
+      }
+      enum "mgmt-aes-128-cmac-96" {
+        value 1;
+        description
+          "AES 128 CMAC 96";
+      }
+      enum "mgmt-hmac-sha1-12" {
+        value 2;
+        description
+          "HAMC SHA1 12";
+      }
+      enum "mgmt-md5-16" {
+        value 3;
+        description
+          "MD5 16";
+      }
+      enum "mgmt-sha1-20" {
+        value 4;
+        description
+          "SHA1 20";
+      }
+      enum "mgmt-hmac-md5-16" {
+        value 5;
+        description
+          "HMAC MD5 16";
+      }
+      enum "mgmt-hmac-sha1-20" {
+        value 6;
+        description
+          "HMAC SHA1 20";
+      }
+      enum "mgmt-aes-128-cmac" {
+        value 7;
+        description
+          "AES 128 CMAC";
+      }
+      enum "mgmt-aes-256-cmac" {
+        value 8;
+        description
+          "AES 256 CMAC";
+      }
+      enum "mgmt-hmac-sha1-96" {
+        value 9;
+        description
+          "HMAC SHA1 96";
+      }
+      enum "mgmt-hmac-sha-256" {
+        value 10;
+        description
+          "HMAC SHA 256";
+      }
+      enum "mgmt-hmac-sha1" {
+        value 11;
+        description
+          "HMAC SHA1";
+      }
+    }
+    description
+      "Cryptographic algorithm";
   }
 
   typedef Authentication {
@@ -1711,6 +1813,26 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
     }
   }
 
+  grouping OSPF-SH-OPQ-RI-SRLB-TLV {
+    description
+      "OSPF SRLB TLV";
+    container sidtlv {
+      description
+        "SID sub-TLV";
+      uses OSPF-SH-SR-SID-STLV;
+    }
+    leaf srlbtlv-length {
+      type uint16;
+      description
+        "Length of TLV";
+    }
+    leaf srlb-range-size {
+      type uint32;
+      description
+        "SRLB Range Size";
+    }
+  }
+
   grouping OSPF-SH-OPQ-RI-MSD-SUBTYPE {
     description
       "OSPF MSD Subtype";
@@ -2060,6 +2182,16 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Node MSD TLV";
       uses OSPF-SH-OPQ-RI-NODE-MSD-TLV;
+    }
+    container srlbtlv {
+      when "../ritlv-internal-type = 'mgmt-ospf-opq-ri-tlv-type-srlb'" {
+        description
+          "../RITLVInternalType =
+           'MGMT_OSPF_OPQ_RI_TLV_TYPE_SRLB'";
+      }
+      description
+        "SRLB Range TLV";
+      uses OSPF-SH-OPQ-RI-SRLB-TLV;
     }
     leaf ritlv-internal-type {
       type Ospf-sh-opq-ri-tlv-types;
@@ -2888,10 +3020,27 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Number of neighbors still using the old key
          (rollover in progress)";
     }
+    leaf keychain-name {
+      type string {
+        length "0..255";
+      }
+      description
+        "Sham Link Keychain Name";
+    }
+    leaf sham-link-keychain-key-conf {
+      type boolean;
+      description
+        "If true, Keychain key is configured";
+    }
     leaf sham-link-keychain-id {
       type uint64;
       description
         "Sham Link Keychain ID";
+    }
+    leaf sham-link-keychain-alg {
+      type Ospf-crytographic-algo;
+      description
+        "Sham Link Keychain Alg";
     }
     leaf sham-link-nsf-enabled {
       type boolean;
@@ -3487,6 +3636,21 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "True if Segment Routing Strict-SPF capable";
     }
+    leaf srlb-start {
+      type uint32;
+      description
+        "Segment Routing Local Block start label value";
+    }
+    leaf srlb-end {
+      type uint32;
+      description
+        "Segment Routing Local Block end label value";
+    }
+    leaf srlb-status {
+      type Ospf-srlb-status;
+      description
+        "Segment Routing Local Block allocation status";
+    }
     list maximum-metric {
       description
         "Max-metric list";
@@ -4055,10 +4219,27 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Youngest MD key ID";
     }
+    leaf keychain-name {
+      type string {
+        length "0..255";
+      }
+      description
+        "Keychain Name";
+    }
+    leaf keychain-key-conf {
+      type boolean;
+      description
+        "If true, Keychain key is configured";
+    }
     leaf keychain-id {
       type uint64;
       description
         "Keychain ID";
+    }
+    leaf keychain-alg {
+      type Ospf-crytographic-algo;
+      description
+        "Keychain Alg";
     }
     list md-keys {
       description
@@ -4736,10 +4917,27 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
         "Number of neighbors still using the old key
          (rollover in progress)";
     }
+    leaf keychain-name {
+      type string {
+        length "0..255";
+      }
+      description
+        "Virtual Link Keychain Name";
+    }
+    leaf virtual-link-keychain-key-conf {
+      type boolean;
+      description
+        "If true, Keychain key is configured";
+    }
     leaf virtual-link-keychain-id {
       type uint64;
       description
         "Virtual Link Keychain ID";
+    }
+    leaf virtual-link-keychain-alg {
+      type Ospf-crytographic-algo;
+      description
+        "Virtual Link Keychain Alg";
     }
     leaf virtual-link-nsf-enabled {
       type boolean;
@@ -5063,6 +5261,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       description
         "Next hop Interface";
     }
+    leaf route-interface-snmp-index {
+      type uint32;
+      description
+        " Interface snmp index";
+    }
     leaf route-next-hop-address {
       type inet:ipv4-address;
       description
@@ -5354,6 +5557,11 @@ submodule Cisco-IOS-XR-ipv4-ospf-oper-sub2 {
       type xr:Interface-name;
       description
         "Next hop Interface";
+    }
+    leaf route-interface-snmp-index {
+      type uint32;
+      description
+        " Interface snmp index";
     }
     leaf route-next-hop-address {
       type inet:ipv4-address;

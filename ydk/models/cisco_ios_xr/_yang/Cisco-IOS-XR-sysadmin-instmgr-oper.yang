@@ -146,6 +146,7 @@ module Cisco-IOS-XR-sysadmin-instmgr-oper {
     config false;
     tailf:callpoint "install_show";
     tailf:display-status-name "";
+    tailf:info "Show system install information";
     tailf:cli-incomplete-show-path {
       tailf:cli-min-keys "1";
     }
@@ -270,6 +271,18 @@ module Cisco-IOS-XR-sysadmin-instmgr-oper {
       tailf:info "Shows superseded package(s).";
       tailf:cli-show-template "$(si_superseded_output|show:noalign)";
       tailf:display-status-name "";
+      container summary {
+        description
+          "shows summary information of the show install superseded";
+        tailf:info "Shows summary information about superseded packages";
+        tailf:cli-show-template "$(si_superseded_summary_output|show:noalign)";
+        leaf-list si_superseded_summary_output {
+          type string;
+          tailf:cli-drop-node-name;
+          tailf:cli-list-syntax;
+          tailf:display-column-name "";
+        }
+      }
       leaf-list si_superseded_output {
         type string;
         tailf:cli-drop-node-name;
@@ -630,6 +643,13 @@ module Cisco-IOS-XR-sysadmin-instmgr-oper {
               description
                 "IDs of add operations whose packages are to be deactivated";
               tailf:cli-full-command;
+            }
+          }
+          case superseded_choice {
+            leaf superseded {
+              type empty;
+              description
+                "Remove Sysadmin superseded packages";
             }
           }
         }

@@ -23,9 +23,21 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR clns-isis package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-07 {
+    description
+      "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";
+  }
+  revision 2018-01-24 {
+    description
+      "Added SRLG TILFA operation CLI.";
+  }
+  revision 2017-12-06 {
+    description
+      "Add segment-routing srv6";
+  }
   revision 2017-08-08 {
     description
       "Add openconfig network instance model isis telemetry EDM function support.";

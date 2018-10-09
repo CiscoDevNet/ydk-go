@@ -5,7 +5,7 @@
 // for the following management objects:
 //   redundancy: Redundancy show information
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_rmf_oper
 

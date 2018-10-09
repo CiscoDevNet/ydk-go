@@ -9,7 +9,7 @@
 //     a Layer 2 instance such as a virtual switch instance (VSI).
 //     Mixed Layer 2 and Layer 3 instances are also supported.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ocni_intfbase_oper
 

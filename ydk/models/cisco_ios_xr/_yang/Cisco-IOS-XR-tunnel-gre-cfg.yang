@@ -32,7 +32,7 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -150,6 +150,57 @@ module Cisco-IOS-XR-tunnel-gre-cfg {
           }
           description
             "Number of retries (default 3)";
+        }
+      }
+      container bfd {
+        description
+          "Configure BFD for tunnel";
+        container destination {
+          description
+            "Configure BFD destination for tunnel";
+          leaf type {
+            type uint32;
+            description
+              "1 for IPv4 Address, 2 for IPv6 Address";
+          }
+          leaf address {
+            type inet:ipv4-address-no-zone;
+            description
+              "IPV4 address of the BFD destination";
+          }
+          leaf ipv6-address {
+            type string;
+            description
+              "IPV6 address of the BFD destination";
+          }
+        }
+        leaf minimum-interval {
+          type uint32 {
+            range "150..30000";
+          }
+          description
+            "Configure minimum interval for BFD";
+        }
+        leaf keepalive-period {
+          type uint32 {
+            range "1..32767";
+          }
+          description
+            "Keepalive period in seconds";
+        }
+        leaf retry {
+          type uint32 {
+            range "1..255";
+          }
+          description
+            "Configure Number of retries for BFD Keepalive";
+        }
+        leaf multiplier {
+          type uint32 {
+            range "3..50";
+          }
+          description
+            "Configure BFD multiplier";
         }
       }
       container destination {

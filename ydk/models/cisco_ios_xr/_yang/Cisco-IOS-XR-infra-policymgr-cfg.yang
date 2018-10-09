@@ -25,7 +25,11 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
      Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-12-12 {
+  revision 2018-03-02 {
+    description
+      "IOS XR 6.5.1 revision.";
+  }
+  revision 2017-12-11 {
     description
       "IOS XR 6.4.1 revision.";
   }
@@ -2253,6 +2257,30 @@ module Cisco-IOS-XR-infra-policymgr-cfg {
           type string;
           description
             "Service function path metadata name.";
+        }
+      }
+      container http-enrichment {
+        description
+          "HTTP Enrichment action";
+        leaf subscribermac {
+          type empty;
+          description
+            "Subscriber Mac";
+        }
+        leaf subscriberip {
+          type empty;
+          description
+            "Subscriber IP";
+        }
+        leaf hostname {
+          type empty;
+          description
+            "Hostname";
+        }
+        leaf bngidentifierinterface {
+          type empty;
+          description
+            "Bng Identifier Interface";
         }
       }
     }

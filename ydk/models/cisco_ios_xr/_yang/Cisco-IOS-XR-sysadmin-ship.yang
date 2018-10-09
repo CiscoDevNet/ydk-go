@@ -43,6 +43,7 @@ module Cisco-IOS-XR-sysadmin-ship {
     description
       "SHIP Info";
     tailf:alt-name "System-statistics";
+    tailf:info "Display system statistics";
     tailf:callpoint "ship_show_comp";
     list ship_comp {
       key "comp-name";

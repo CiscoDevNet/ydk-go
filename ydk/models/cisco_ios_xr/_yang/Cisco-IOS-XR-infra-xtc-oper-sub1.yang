@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR infra-xtc package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -547,6 +547,16 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping PCE-PFX-ENTRY {
+    description
+      "PCE prefix etnry";
+    container ip {
+      description
+        "Prefix IP address";
+      uses PCE-IP-ADDR-TYPE;
+    }
+  }
+
   grouping PCE-PFX-BAG {
     description
       "PCE Prefix Information";
@@ -563,7 +573,7 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     list address {
       description
         "Prefix address";
-      uses PCE-IP-ADDR-TYPE;
+      uses PCE-PFX-ENTRY;
     }
   }
 
@@ -675,6 +685,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Max Reservable bandwidth";
     }
+    leaf administrative-groups {
+      type uint32;
+      description
+        "Link admin-groups";
+    }
     leaf-list srlgs {
       type uint32;
       description
@@ -704,11 +719,6 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "MPLS Label";
-    }
-    leaf domain-identifier {
-      type uint64;
-      description
-        "Domain identifier";
     }
     leaf rflag {
       type boolean;
@@ -742,13 +752,33 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
+  grouping PCE-PREFIX-BAG {
+    description
+      "PCE Prefix bag";
+    container pfx-sid {
+      description
+        "Prefix SID";
+      uses PCE-SID-BAG;
+    }
+    container node-id {
+      description
+        "Link-state node identifier";
+      uses PCE-NODE-ID-BAG;
+    }
+    leaf domain-identifier {
+      type uint64;
+      description
+        "Domain identifier";
+    }
+  }
+
   grouping PCE-SRGB-INFO-BAG {
     description
       "PCE SRGB information bag";
-    container igp-srgb {
+    container node-id {
       description
-        "IGP-specific information";
-      uses PCE-IGP-INFO-TYPE;
+        "Link-state node identifier";
+      uses PCE-NODE-ID-BAG;
     }
     leaf start {
       type uint32;
@@ -759,6 +789,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type uint32;
       description
         "SRGB size";
+    }
+    leaf domain-identifier {
+      type uint64;
+      description
+        "Domain identifier";
     }
   }
 
@@ -844,23 +879,38 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
     }
   }
 
-  grouping PCE-IGP-INFO-BAG {
+  grouping PCE-NODE-ID-BAG {
     description
-      "PCE IGP information bag";
+      "PCE Node ID information";
     container igp {
       description
         "IGP-specific information";
       uses PCE-IGP-INFO-TYPE;
     }
-    leaf domain-identifier {
-      type uint64;
-      description
-        "Domain identifier";
-    }
     leaf autonomous-system-number {
       type uint32;
       description
         "Autonomous System Number";
+    }
+    leaf ls-identifier {
+      type uint32;
+      description
+        "Link-State identifier";
+    }
+  }
+
+  grouping PCE-IGP-INFO-BAG {
+    description
+      "PCE IGP information bag";
+    container node-id {
+      description
+        "Link-state node identifier";
+      uses PCE-NODE-ID-BAG;
+    }
+    leaf domain-identifier {
+      type uint64;
+      description
+        "Domain identifier";
     }
   }
 
@@ -922,10 +972,10 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Node Overload Bit";
     }
-    list prefix-sid {
+    list prefixe {
       description
-        "Prefix SIDs";
-      uses PCE-SID-BAG;
+        "Prefixes";
+      uses PCE-PREFIX-BAG;
     }
     list ipv4-link {
       description
@@ -1292,6 +1342,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Maximum dead interval for the peer";
     }
+    leaf max-sid-depth {
+      type uint8;
+      description
+        "Maximum number of labels the peer can impose";
+    }
   }
 
   grouping PCE-PEER-DETAIL-BAG {
@@ -1312,11 +1367,21 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       description
         "Protocol between PCE and peer";
     }
+    leaf max-sid-depth {
+      type uint32;
+      description
+        "Maximum SID Depth";
+    }
   }
 
   grouping PCE-EVENT-INFO {
     description
       "PCE Event information";
+    leaf event-id {
+      type uint32;
+      description
+        "Event ID in range 1 - 0xFFFFFFFF. 0 is invalid.";
+    }
     leaf event-message {
       type string;
       description
@@ -1801,6 +1866,11 @@ submodule Cisco-IOS-XR-infra-xtc-oper-sub1 {
       type Lsp-state;
       description
         "Admin state";
+    }
+    leaf msd {
+      type uint32;
+      description
+        "Maximum SID Depth";
     }
   }
 

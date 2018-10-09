@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package controller_otu_cfg
 
@@ -175,6 +175,12 @@ const (
 
     // EnhancedHG7 Fec
     OtuForwardErrorCorrection_enhanced_hg7 OtuForwardErrorCorrection = "enhanced-hg7"
+
+    // EnhancedSD15 Fec
+    OtuForwardErrorCorrection_enhanced_sd15 OtuForwardErrorCorrection = "enhanced-sd15"
+
+    // EnhancedSD27 Fec
+    OtuForwardErrorCorrection_enhanced_sd27 OtuForwardErrorCorrection = "enhanced-sd27"
 )
 
 // OtnExpTtiTypeDapi represents Otn exp tti type dapi

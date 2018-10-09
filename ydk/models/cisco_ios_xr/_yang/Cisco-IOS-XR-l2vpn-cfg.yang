@@ -45,7 +45,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-06-26 {
@@ -115,6 +115,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
 
   typedef Evpn-side {
     type enumeration {
+      enum "evpn-side-regular" {
+        value 1;
+        description
+          "EVPN Instance side defined as regular";
+      }
       enum "evpn-side-stitching" {
         value 2;
         description
@@ -317,6 +322,14 @@ module Cisco-IOS-XR-l2vpn-cfg {
       "Type of service mode";
   }
 
+  typedef L2vpn-vs-vlan-tag {
+    type uint32 {
+      range "1..4094";
+    }
+    description
+      "L2vpn vs vlan tag";
+  }
+
   typedef Pseudowire-tag-range {
     type uint32 {
       range "1..4094";
@@ -347,11 +360,6 @@ module Cisco-IOS-XR-l2vpn-cfg {
         value 1;
         description
           "Single Active";
-      }
-      enum "port-active" {
-        value 2;
-        description
-          "Port Active";
       }
     }
     description
@@ -558,7 +566,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
       enum "stitching" {
         value 1;
         description
-          "RT is for stitching (Golf-L2)";
+          "RT is for stitching (Golf-L2) (DEPRECATED)";
       }
     }
     description
@@ -696,6 +704,18 @@ module Cisco-IOS-XR-l2vpn-cfg {
     }
     description
       "L2tp session id range";
+  }
+
+  typedef Ethernet-segment-service-carving {
+    type enumeration {
+      enum "hrw" {
+        value 2;
+        description
+          "HRW";
+      }
+    }
+    description
+      "Ethernet segment service carving";
   }
 
   typedef Mac-learn {
@@ -1331,7 +1351,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
       enum "both" {
         value 3;
         description
-          "Insert/Delete  Flow Label on transmit/receive
+          "Insert/Delete Flow Label on transmit/receive
            side";
       }
     }
@@ -1384,6 +1404,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
           "Packets Per Second, PktsPerSec and KbitsPerSec
            cannot be configured together";
       }
+    }
+  }
+
+  grouping EVI-MCAST-SOURCE-CONNECTED {
+    description
+      "Common node of evi-multicast,
+       evpn-instance-multicast";
+    leaf evi-mcast-source-connected {
+      type empty;
+      description
+        "Enable Multicast source connectivity";
     }
   }
 
@@ -1496,6 +1527,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
           "Enable Ethernet Segment";
       }
       uses ES-IMPORT-ROUTE-TARGET;
+      uses SERVICE-CARVING-TYPE;
       uses IDENTIFIER;
       uses MANUAL-SERVICE-CARVING;
     }
@@ -1509,6 +1541,17 @@ module Cisco-IOS-XR-l2vpn-cfg {
       type yang:mac-address;
       description
         "ES-Import Route Target";
+    }
+  }
+
+  grouping SERVICE-CARVING-TYPE {
+    description
+      "Common node of ethernet-segment,
+       evpn-virtual-ethernet-segment";
+    leaf service-carving-type {
+      type Ethernet-segment-service-carving;
+      description
+        "Ethernet-Segment Service Carving mode";
     }
   }
 
@@ -1676,6 +1719,1632 @@ module Cisco-IOS-XR-l2vpn-cfg {
           description
             "whether RT is Stitching RT";
           xr:xr-xml-map "l2vpn_cfg:Stitching";
+        }
+      }
+    }
+  }
+
+  grouping BRIDGE-DOMAIN-TABLE {
+    description
+      "Common node of bridge-domain-group, vlan-switch";
+    container bridge-domains {
+      description
+        "List of Bridge Domain";
+      list bridge-domain {
+        key "name";
+        description
+          "bridge domain";
+        container bd-storm-controls {
+          description
+            "Storm Control";
+          list bd-storm-control {
+            must "storm-control-unit";
+            key "sctype";
+            description
+              "Storm Control Type";
+            leaf sctype {
+              type Storm-control;
+              description
+                "Storm Control Type";
+            }
+            uses STORM-CONTROL-UNIT;
+          }
+        }
+        container member-vnis {
+          description
+            "Bridge Domain VxLAN Network Identifier Table";
+          list member-vni {
+            key "vni";
+            description
+              "Bridge Domain Member VxLAN Network Identifier";
+            container member-vni-static-mac-addresses {
+              description
+                "Static Mac Address Table";
+              list member-vni-static-mac-address {
+                key "mac-address";
+                description
+                  "Static Mac Address Configuration";
+                leaf next-hop-ip {
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "Enable Static Mac Address Configuration";
+                }
+                leaf mac-address {
+                  type yang:mac-address;
+                  description
+                    "Static MAC address";
+                }
+              }
+            }
+            leaf vni {
+              type uint32 {
+                range "1..16777215";
+              }
+              description
+                "VxLAN Network Identifier number";
+            }
+          }
+        }
+        container bridge-domain-mac {
+          description
+            "MAC configuration commands";
+          container bd-mac-limit {
+            description
+              "MAC-Limit configuration commands";
+            leaf bd-mac-limit-action {
+              type Mac-limit-action;
+              description
+                "MAC address limit enforcement action";
+            }
+            leaf bd-mac-limit-notif {
+              type Mac-notification;
+              description
+                "Mac Address Limit Notification";
+            }
+            leaf bd-mac-limit-max {
+              type Mac-limit-range;
+              description
+                "Number of MAC addresses after which MAC
+                 limit action is taken";
+            }
+          }
+          container bd-mac-filters {
+            description
+              "Filter Mac Address";
+            list bd-mac-filter {
+              key "address";
+              description
+                "Static MAC address";
+              leaf drop {
+                type empty;
+                description
+                  "MAC address for filtering";
+              }
+              leaf address {
+                type yang:mac-address;
+                description
+                  "Static MAC address";
+              }
+            }
+          }
+          container mac-secure {
+            description
+              "MAC Secure";
+            leaf logging {
+              type empty;
+              description
+                "MAC Secure Logging";
+            }
+            leaf action {
+              type Mac-secure-action;
+              description
+                "MAC secure enforcement action";
+            }
+            leaf enable {
+              type empty;
+              description
+                "Enable MAC Secure";
+            }
+            leaf threshold {
+              type empty;
+              description
+                "MAC Secure Threshold";
+            }
+          }
+          container bd-mac-aging {
+            description
+              "MAC-Aging configuration commands";
+            leaf bd-mac-aging-type {
+              type Mac-aging;
+              description
+                "MAC address aging type";
+            }
+            leaf bd-mac-aging-time {
+              type Mac-aging-range;
+              description
+                "Mac Aging Time";
+            }
+          }
+          leaf bd-mac-withdraw-relay {
+            type empty;
+            description
+              "Mac withdraw sent from access PW to access PW";
+          }
+          leaf bd-mac-withdraw-access-pw-disable {
+            type empty;
+            description
+              "MAC withdraw on Access PW";
+          }
+          leaf bd-mac-port-down-flush {
+            type empty;
+            description
+              "Disable MAC Flush when Port goes Down";
+          }
+          leaf bd-mac-withdraw {
+            type empty;
+            description
+              "Disable Mac Withdraw";
+          }
+          leaf bd-mac-withdraw-behavior {
+            type Mac-withdraw-behavior;
+            description
+              "MAC withdraw sent on bridge port down";
+          }
+          leaf bd-mac-learn {
+            type Bdmac-learn;
+            description
+              "Mac Learning Type";
+          }
+        }
+        container nv-satellite {
+          description
+            "nV Satellite";
+          leaf offload-ipv4-multicast-enable {
+            type empty;
+            description
+              "Enable IPv4 Multicast Offload to Satellite
+               Nodes";
+          }
+          leaf enable {
+            type empty;
+            description
+              "Enable nV Satellite Settings";
+          }
+        }
+        container bridge-domain-pbb {
+          description
+            "Bridge Domain PBB";
+          container pbb-edges {
+            description
+              "PBB Edge";
+            list pbb-edge {
+              key "isid core-bd-name";
+              description
+                "Configure BD as PBB Edge with ISID and
+                 associated PBB Core BD";
+              container pbb-edge-split-horizon-group {
+                description
+                  "Split Horizon Group";
+                leaf disable {
+                  type empty;
+                  description
+                    "Disable split horizon group";
+                }
+              }
+              container pbb-static-mac-mappings {
+                description
+                  "PBB Static Mac Address Mapping Table";
+                list pbb-static-mac-mapping {
+                  key "address";
+                  description
+                    "PBB Static Mac Address Mapping
+                     Configuration";
+                  leaf pbb-static-mac-mapping-bmac {
+                    type yang:mac-address;
+                    description
+                      "Static backbone MAC address to map with";
+                  }
+                  leaf address {
+                    type yang:mac-address;
+                    description
+                      "Static MAC address";
+                  }
+                }
+              }
+              container pbb-edge-dhcp-profile {
+                description
+                  "Attach a DHCP profile";
+                leaf profile-id {
+                  type Interface-profile;
+                  description
+                    "Set the snooping profile";
+                }
+                leaf dhcp-snooping-id {
+                  type string;
+                  description
+                    "Disable DHCP snooping";
+                }
+              }
+              container pbb-edge-mac {
+                description
+                  "MAC configuration commands";
+                container pbb-edge-mac-limit {
+                  description
+                    "MAC-Limit configuration commands";
+                  leaf pbb-edge-mac-limit-action {
+                    type Mac-limit-action;
+                    description
+                      "MAC address limit enforcement action";
+                  }
+                  leaf pbb-edge-mac-limit-max {
+                    type Mac-limit-range;
+                    description
+                      "Number of MAC addresses after which MAC
+                       limit action is taken";
+                  }
+                  leaf pbb-edge-mac-limit-notif {
+                    type Mac-notification;
+                    description
+                      "MAC address limit notification action";
+                  }
+                }
+                container pbb-edge-mac-aging {
+                  description
+                    "MAC-Aging configuration commands";
+                  leaf pbb-edge-mac-aging-type {
+                    type Mac-aging;
+                    description
+                      "MAC address aging type";
+                  }
+                  leaf pbb-edge-mac-aging-time {
+                    type Mac-aging-range;
+                    description
+                      "Mac Aging Time";
+                  }
+                }
+                container pbb-edge-mac-secure {
+                  description
+                    "MAC Secure";
+                  leaf logging {
+                    type L2vpn-logging;
+                    description
+                      "MAC Secure Logging";
+                  }
+                  leaf disable {
+                    type empty;
+                    description
+                      "Disable Virtual instance port MAC Secure";
+                  }
+                  leaf action {
+                    type Mac-secure-action;
+                    description
+                      "MAC secure enforcement action";
+                  }
+                  leaf enable {
+                    type empty;
+                    description
+                      "Enable MAC Secure";
+                  }
+                  leaf accept-shutdown {
+                    type empty;
+                    description
+                      "Accept Virtual instance port to be
+                       shutdown on mac violation";
+                  }
+                }
+                leaf pbb-edge-mac-learning {
+                  type Mac-learn;
+                  description
+                    "Enable Mac Learning";
+                }
+              }
+              leaf pbb-edge-igmp-profile {
+                type xr:Cisco-ios-xr-string {
+                  length "1..32";
+                }
+                description
+                  "Attach a IGMP Snooping profile";
+              }
+              leaf unknown-unicast-bmac {
+                type yang:mac-address;
+                description
+                  "Configure Unknown Unicast BMAC address for
+                   PBB Edge Port";
+              }
+              leaf isid {
+                type Pbbisid-range;
+                description
+                  "ISID";
+              }
+              leaf core-bd-name {
+                type xr:Cisco-ios-xr-string {
+                  length "1..27";
+                }
+                description
+                  "Core BD Name";
+              }
+            }
+          }
+          container pbb-core {
+            description
+              "PBB Core";
+            container pbb-core-mac {
+              description
+                "MAC configuration commands";
+              container pbb-core-mac-aging {
+                description
+                  "MAC-Aging configuration commands";
+                leaf pbb-core-mac-aging-type {
+                  type Mac-aging;
+                  description
+                    "MAC address aging type";
+                }
+                leaf pbb-core-mac-aging-time {
+                  type Mac-aging-range;
+                  description
+                    "Mac Aging Time";
+                }
+              }
+              container pbb-core-mac-limit {
+                description
+                  "MAC-Limit configuration commands";
+                leaf pbb-core-mac-limit-max {
+                  type Mac-limit-range;
+                  description
+                    "Number of MAC addresses after which MAC
+                     limit action is taken";
+                }
+                leaf pbb-core-mac-limit-notif {
+                  type Mac-notification;
+                  description
+                    "MAC address limit notification action";
+                }
+                leaf pbb-core-mac-limit-action {
+                  type Mac-limit-action;
+                  description
+                    "MAC address limit enforcement action";
+                }
+              }
+              leaf pbb-core-mac-learning {
+                type Mac-learn;
+                description
+                  "Enable Mac Learning";
+              }
+            }
+            container pbb-core-evis {
+              description
+                "PBB Core EVI Table";
+              list pbb-core-evi {
+                key "eviid";
+                description
+                  "PBB Core EVI";
+                leaf eviid {
+                  type Vpnid-range;
+                  description
+                    "Ethernet VPN ID";
+                }
+              }
+            }
+            container pbb-core-dhcp-profile {
+              description
+                "Attach a DHCP profile";
+              leaf profile-id {
+                type Interface-profile;
+                description
+                  "Set the snooping profile";
+              }
+              leaf dhcp-snooping-id {
+                type string;
+                description
+                  "Disable DHCP snooping";
+              }
+            }
+            leaf pbb-core-mmrp-flood-optimization {
+              type empty;
+              description
+                "Enabling MMRP PBB-VPLS Flood Optimization";
+            }
+            leaf vlan-id {
+              type Pbbvid-range;
+              description
+                "VLAN ID to push";
+            }
+            leaf pbb-core-igmp-profile {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Attach a IGMP Snooping profile";
+            }
+            leaf enable {
+              type empty;
+              description
+                "Enable Bridge Domain PBB Core Configuration";
+            }
+          }
+        }
+        container bridge-domain-evis {
+          description
+            "Bridge Domain EVI Table";
+          list bridge-domain-evi {
+            key "vpn-id";
+            description
+              "Bridge Domain MPLS EVPN";
+            leaf vpn-id {
+              type Evpnvpnid-range;
+              description
+                "MPLS Ethernet VPN-ID";
+            }
+          }
+        }
+        container access-vfis {
+          description
+            "Specify the access virtual forwarding
+             interface name";
+          list access-vfi {
+            key "name";
+            description
+              "Name of the Acess Virtual Forwarding
+               Interface";
+            container access-vfi-pseudowires {
+              description
+                "List of pseudowires";
+              list access-vfi-pseudowire {
+                key "neighbor pseudowire-id";
+                description
+                  "Pseudowire configuration";
+                container access-vfi-pseudowire-static-mac-addresses {
+                  description
+                    "Static Mac Address Table";
+                  list access-vfi-pseudowire-static-mac-address {
+                    key "address";
+                    description
+                      "Static Mac Address Configuration";
+                    leaf address {
+                      type yang:mac-address;
+                      description
+                        "Static MAC address";
+                    }
+                  }
+                }
+                leaf access-vfi-pw-class {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
+                  description
+                    "Pseudowire class template name to use for
+                     this pseudowire";
+                }
+                leaf neighbor {
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "Neighbor IP address";
+                }
+                leaf pseudowire-id {
+                  type Pseudowire-id-range;
+                  description
+                    "Pseudowire ID";
+                }
+              }
+            }
+            leaf access-vfi-shutdown {
+              type empty;
+              description
+                "shutdown the AccessVfi";
+            }
+            leaf name {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Name of the AccessVirtual Forwarding
+                 Interface";
+            }
+          }
+        }
+        container bd-pseudowires {
+          description
+            "List of pseudowires";
+          list bd-pseudowire {
+            key "neighbor pseudowire-id";
+            description
+              "Pseudowire configuration";
+            container pseudowire-dai {
+              description
+                "Access Pseudowire Dynamic ARP Inspection";
+              container pseudowire-dai-address-validation {
+                description
+                  "Address Validation";
+                leaf ipv4-verification {
+                  type L2vpn-verification;
+                  description
+                    "IPv4 Verification";
+                }
+                leaf destination-mac-verification {
+                  type L2vpn-verification;
+                  description
+                    "Destination MAC Verification";
+                }
+                leaf source-mac-verification {
+                  type L2vpn-verification;
+                  description
+                    "Source MAC Verification";
+                }
+              }
+              leaf logging {
+                type L2vpn-logging;
+                description
+                  "Logging Type";
+              }
+              leaf disable {
+                type empty;
+                description
+                  "Disable Dynamic ARP Inspection";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable Access Pseudowire Dynamic ARP
+                   Inspection";
+              }
+            }
+            container bdpw-storm-control-types {
+              description
+                "Storm Control";
+              list bdpw-storm-control-type {
+                must "storm-control-unit";
+                key "sctype";
+                description
+                  "Storm Control Type";
+                leaf sctype {
+                  type Storm-control;
+                  description
+                    "Storm Control Type";
+                }
+                uses STORM-CONTROL-UNIT;
+              }
+            }
+            container pseudowire-profile {
+              description
+                "Attach a DHCP profile";
+              leaf profile-id {
+                type Interface-profile;
+                description
+                  "Set the snooping profile";
+              }
+              leaf dhcp-snooping-id {
+                type string;
+                description
+                  "Disable DHCP snooping";
+              }
+            }
+            container bd-pw-static-mac-addresses {
+              description
+                "Static Mac Address Table";
+              list bd-pw-static-mac-address {
+                key "address";
+                description
+                  "Static Mac Address Configuration";
+                leaf address {
+                  type yang:mac-address;
+                  description
+                    "Static MAC address";
+                }
+              }
+            }
+            container pseudowire-ip-source-guard {
+              description
+                "IP Source Guard";
+              leaf logging {
+                type L2vpn-logging;
+                description
+                  "Logging Type";
+              }
+              leaf disable {
+                type empty;
+                description
+                  "Disable Dynamic IP source guard";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable IP Source Guard";
+              }
+            }
+            container pseudowire-mac {
+              description
+                "Bridge-domain Pseudowire MAC configuration
+                 commands";
+              container pseudowire-mac-secure {
+                description
+                  "MAC Secure";
+                leaf logging {
+                  type L2vpn-logging;
+                  description
+                    "MAC Secure Logging";
+                }
+                leaf disable {
+                  type empty;
+                  description
+                    "Disable L2 Pseudowire MAC Secure";
+                }
+                leaf action {
+                  type Mac-secure-action;
+                  description
+                    "MAC secure enforcement action";
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable MAC Secure";
+                }
+              }
+              container pseudowire-mac-aging {
+                description
+                  "MAC-Aging configuration commands";
+                leaf pseudowire-mac-aging-type {
+                  type Mac-aging;
+                  description
+                    "MAC address aging type";
+                }
+                leaf pseudowire-mac-aging-time {
+                  type Mac-aging-range;
+                  description
+                    "MAC Aging Time";
+                }
+              }
+              container pseudowire-mac-limit {
+                description
+                  "MAC-Limit configuration commands";
+                leaf pseudowire-mac-limit-action {
+                  type Mac-limit-action;
+                  description
+                    "Bridge Access Pseudowire MAC address limit
+                     enforcement action";
+                }
+                leaf pseudowire-mac-limit-notif {
+                  type Mac-notification;
+                  description
+                    "MAC address limit notification action in a
+                     Bridge Access Pseudowire";
+                }
+                leaf pseudowire-mac-limit-max {
+                  type Mac-limit-range;
+                  description
+                    "Number of MAC addresses on a Bridge Access
+                     Pseudowire after which MAC limit action is
+                     taken";
+                }
+              }
+              leaf pseudowire-mac-port-down-flush {
+                type Port-down-flush;
+                description
+                  "Enable/Disable MAC Flush When Port goes
+                   down";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Bridge-domain Pseudowire MAC configuration
+                   mode";
+              }
+              leaf pseudowire-mac-learning {
+                type Mac-learn;
+                description
+                  "Enable MAC Learning";
+              }
+            }
+            container bd-pw-split-horizon {
+              description
+                "Split Horizon";
+              container bd-pw-split-horizon-group {
+                description
+                  "Split Horizon Group";
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable split horizon group";
+                }
+              }
+            }
+            container bd-pw-mpls-static-labels {
+              description
+                "MPLS static labels";
+              leaf local-static-label {
+                type Pseudowire-label-range;
+                description
+                  "Pseudowire local static label";
+              }
+              leaf remote-static-label {
+                type Pseudowire-label-range;
+                description
+                  "Pseudowire remote static label";
+              }
+            }
+            container bridge-domain-backup-pseudowires {
+              description
+                "List of pseudowires";
+              list bridge-domain-backup-pseudowire {
+                key "neighbor pseudowire-id";
+                description
+                  "Backup pseudowire configuration";
+                leaf bridge-domain-backup-pw-class {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
+                  description
+                    "PW class template name to use for this
+                     pseudowire";
+                }
+                leaf neighbor {
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "Neighbor IP address";
+                }
+                leaf pseudowire-id {
+                  type Pseudowire-id-range;
+                  description
+                    "Pseudowire ID";
+                }
+              }
+            }
+            leaf pseudowire-mld-snoop {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Attach a MLD Snooping profile";
+            }
+            leaf pseudowire-igmp-snoop {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Attach a IGMP Snooping profile";
+            }
+            leaf pseudowire-flooding {
+              type Interface-traffic-flood;
+              description
+                "Bridge-domain Pseudowire flooding";
+            }
+            leaf bd-pw-class {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "PW class template name to use for this
+                 pseudowire";
+            }
+            leaf pseudowire-flooding-unknown-unicast {
+              type Interface-traffic-flood;
+              description
+                "Bridge-domain Pseudowire flooding Unknown
+                 Unicast";
+            }
+            leaf neighbor {
+              type inet:ipv4-address-no-zone;
+              description
+                "Neighbor IP address";
+            }
+            leaf pseudowire-id {
+              type Pseudowire-id-range;
+              description
+                "Pseudowire ID";
+            }
+          }
+        }
+        container vfis {
+          description
+            "Specify the virtual forwarding interface name";
+          list vfi {
+            key "name";
+            description
+              "Name of the Virtual Forwarding Interface";
+            container multicast-p2mp {
+              description
+                "Enable Multicast P2MP in this VFI";
+              container transports {
+                description
+                  "Multicast P2MP Transport";
+                list transport {
+                  key "transport-name";
+                  description
+                    "Multicast P2MP Transport Type";
+                  leaf attribute-set-name {
+                    type xr:Cisco-ios-xr-string {
+                      length "1..64";
+                    }
+                    description
+                      "Multicast P2MP TE Attribute Set Name";
+                  }
+                  leaf transport-name {
+                    type Multicast-p2mp-transport;
+                    description
+                      "Transport Type";
+                  }
+                }
+              }
+              container signalings {
+                description
+                  "Multicast P2MP Signaling Type";
+                list signaling {
+                  key "signaling-name";
+                  description
+                    "Multicast P2MP Signaling Type";
+                  leaf signaling-name {
+                    type Multicast-p2mp-signaling;
+                    description
+                      "Signaling Type";
+                  }
+                }
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable Autodiscovery P2MP";
+              }
+            }
+            container vfi-pseudowires {
+              description
+                "List of pseudowires";
+              list vfi-pseudowire {
+                key "neighbor pseudowire-id";
+                description
+                  "Pseudowire configuration";
+                container vfi-pw-dhcp-snoop {
+                  description
+                    "Attach a DHCP Snooping profile";
+                  leaf profile-id {
+                    type Interface-profile;
+                    description
+                      "Set the snooping profile";
+                  }
+                  leaf dhcp-snooping-id {
+                    type string;
+                    description
+                      "Disable DHCP snooping";
+                  }
+                }
+                container vfi-pw-mpls-static-labels {
+                  description
+                    "MPLS static labels";
+                  leaf local-static-label {
+                    type Pseudowire-label-range;
+                    description
+                      "Pseudowire local static label";
+                  }
+                  leaf remote-static-label {
+                    type Pseudowire-label-range;
+                    description
+                      "Pseudowire remote static label";
+                  }
+                }
+                container pseudowire-static-mac-addresses {
+                  description
+                    "Static Mac Address Table";
+                  list pseudowire-static-mac-address {
+                    key "address";
+                    description
+                      "Static Mac Address Configuration";
+                    leaf address {
+                      type yang:mac-address;
+                      description
+                        "Static MAC address";
+                    }
+                  }
+                }
+                leaf vfi-pw-class {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
+                  description
+                    "PW class template name to use for this
+                     pseudowire";
+                }
+                leaf vfi-pw-igmp-snoop {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
+                  description
+                    "Attach a IGMP Snooping profile";
+                }
+                leaf vfi-pw-mld-snoop {
+                  type xr:Cisco-ios-xr-string {
+                    length "1..32";
+                  }
+                  description
+                    "Attach a MLD Snooping profile";
+                }
+                leaf neighbor {
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "Neighbor IP address";
+                }
+                leaf pseudowire-id {
+                  type Pseudowire-id-range;
+                  description
+                    "Pseudowire ID";
+                }
+              }
+            }
+            container bgp-auto-discovery {
+              description
+                "Enable Autodiscovery BGP in this VFI";
+              container ldp-signaling-protocol {
+                description
+                  "Signaling Protocol LDP in this VFI
+                   configuration";
+                container vpls-id {
+                  description
+                    "VPLS ID";
+                  leaf type {
+                    type Ldp-vpls-id;
+                    description
+                      "VPLS-ID Type";
+                  }
+                  leaf as {
+                    when "../type = 'two-byte-as'" {
+                      description
+                        "../Type = TwoByteAS";
+                    }
+                    type Vpls-id-as-range;
+                    description
+                      "Two byte AS number";
+                  }
+                  leaf as-index {
+                    when "../type = 'two-byte-as'" {
+                      description
+                        "../Type = TwoByteAS";
+                    }
+                    type Vpls-id-as-index;
+                    description
+                      "AS index";
+                  }
+                  leaf address {
+                    when "../type = 'ipv4-address'" {
+                      description
+                        "../Type = IPV4Address";
+                    }
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "IPV4 address";
+                  }
+                  leaf address-index {
+                    when "../type = 'ipv4-address'" {
+                      description
+                        "../Type = IPV4Address";
+                    }
+                    type Vpls-id-addr-index;
+                    description
+                      "Address index";
+                  }
+                }
+                container flow-label-load-balance {
+                  description
+                    "Enable Flow Label based load balancing";
+                  leaf flow-label {
+                    type Flow-label-load-balance;
+                    description
+                      "Flow Label load balance type";
+                  }
+                  leaf static {
+                    type empty;
+                    description
+                      "Static Flow Label";
+                  }
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable LDP as Signaling Protocol.Deletion
+                     of this object also causes deletion of all
+                     objects under LDPSignalingProtocol.";
+                }
+              }
+              container bgp-route-policy {
+                description
+                  "Route policy";
+                leaf export {
+                  type string;
+                  description
+                    "Export route policy";
+                }
+              }
+              container route-distinguisher {
+                description
+                  "Route Distinguisher";
+                leaf type {
+                  type Bgp-route-distinguisher;
+                  description
+                    "Router Distinguisher Type";
+                }
+                leaf as {
+                  when "../type = 'two-byte-as' or ../type = 'four-byte-as'" {
+                    description
+                      "../Type = TwoByteAS or ../Type =
+                       FourByteAS";
+                  }
+                  type Rdas-range;
+                  description
+                    "Two byte or 4 byte AS number";
+                }
+                leaf as-index {
+                  when "../type = 'two-byte-as' or ../type = 'four-byte-as'" {
+                    description
+                      "../Type = TwoByteAS or ../Type =
+                       FourByteAS";
+                  }
+                  type Rdas-index;
+                  description
+                    "AS:nn (hex or decimal format)";
+                }
+                leaf address {
+                  when "../type = 'ipv4-address'" {
+                    description
+                      "../Type = IPV4Address";
+                  }
+                  type inet:ipv4-address-no-zone;
+                  description
+                    "IPV4 address";
+                }
+                leaf addr-index {
+                  when "../type = 'ipv4-address'" {
+                    description
+                      "../Type = IPV4Address";
+                  }
+                  type Rd-addr-index;
+                  description
+                    "Addr index";
+                }
+              }
+              container bgp-signaling-protocol {
+                description
+                  "Enable Signaling Protocol BGP in this VFI";
+                container flow-label-load-balance {
+                  description
+                    "Enable Flow Label based load balancing";
+                  leaf flow-label {
+                    type Flow-label-load-balance;
+                    description
+                      "Flow Label load balance type";
+                  }
+                  leaf static {
+                    type empty;
+                    description
+                      "Static Flow Label";
+                  }
+                }
+                leaf ve-range {
+                  type Vedge-range;
+                  description
+                    "Local Virtual Edge Block Configurable
+                     Range";
+                }
+                leaf veid {
+                  type Veid-range;
+                  description
+                    "Local Virtual Edge Identifier";
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable BGP as Signaling Protocol";
+                }
+              }
+              container route-targets {
+                description
+                  "Route Target";
+                list route-target {
+                  must "two-byte-as-or-four-byte-as or ipv4-address" {
+                    description
+                      "TwoByteAS-or-FourbyteAS or IPV4Address
+                       must be present.";
+                  }
+                  key "role format";
+                  description
+                    "Name of the Route Target";
+                  leaf role {
+                    type Bgp-route-target-role;
+                    description
+                      "Role of the router target type";
+                  }
+                  leaf format {
+                    type Bgp-route-target-format;
+                    description
+                      "Format of the route target";
+                  }
+                  list two-byte-as-or-four-byte-as {
+                    when "../format = 'two-byte-as' or ../format = 'four-byte-as'" {
+                      description
+                        "../Format = TwoByteAS or ../Format =
+                         FourbyteAS";
+                    }
+                    key "as as-index";
+                    description
+                      "two byte as or four byte as";
+                    leaf as {
+                      type Rdas-range;
+                      description
+                        "Two byte or 4 byte AS number";
+                    }
+                    leaf as-index {
+                      type Rdas-index;
+                      description
+                        "AS:nn (hex or decimal format)";
+                    }
+                  }
+                  list ipv4-address {
+                    when "../format = 'ipv4-address'" {
+                      description
+                        "../Format = IPV4Address";
+                    }
+                    key "address addr-index";
+                    description
+                      "ipv4 address";
+                    leaf address {
+                      type inet:ipv4-address-no-zone;
+                      description
+                        "IPV4 address";
+                    }
+                    leaf addr-index {
+                      type Rd-addr-index;
+                      description
+                        "Addr index";
+                    }
+                  }
+                }
+              }
+              leaf table-policy {
+                type string;
+                description
+                  "Table Policy for installation of forwarding
+                   data to L2FIB";
+              }
+              leaf ad-control-word {
+                type empty;
+                description
+                  "Enable control-word for this VFI";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable Autodiscovery BGP";
+              }
+            }
+            leaf vfi-shutdown {
+              type empty;
+              description
+                "Enabling Shutdown";
+            }
+            leaf vpnid {
+              type Vpnid-range;
+              description
+                "VPN Identifier";
+            }
+            leaf name {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Name of the Virtual Forwarding Interface";
+            }
+          }
+        }
+        container bridge-domainvnis {
+          description
+            "Bridge Domain EVPN VxLAN Network Identifier
+             Table";
+          list bridge-domainvni {
+            key "vpn-id";
+            description
+              "Bridge Domain VxLAN EVPN";
+            leaf vpn-id {
+              type uint32 {
+                range "1..16777215";
+              }
+              description
+                "VxLAN Ethernet VPN-ID";
+            }
+          }
+        }
+        container bd-attachment-circuits {
+          description
+            "Attachment Circuit table";
+          list bd-attachment-circuit {
+            key "name";
+            description
+              "Name of the Attachment Circuit";
+            container interface-ip-source-guard {
+              description
+                "IP Source Guard";
+              leaf logging {
+                type L2vpn-logging;
+                description
+                  "Logging Type";
+              }
+              leaf disable {
+                type empty;
+                description
+                  "Disable L2 Interface Dynamic IP source
+                   guard";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable IP Source Guard";
+              }
+            }
+            container interface-dai {
+              description
+                "L2 Interface Dynamic ARP Inspection";
+              container interface-dai-address-validation {
+                description
+                  "Address Validation";
+                leaf ipv4-verification {
+                  type L2vpn-verification;
+                  description
+                    "IPv4 Verification";
+                }
+                leaf destination-mac-verification {
+                  type L2vpn-verification;
+                  description
+                    "Destination MAC Verification";
+                }
+                leaf source-mac-verification {
+                  type L2vpn-verification;
+                  description
+                    "Source MAC Verification";
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable Address Validation";
+                }
+              }
+              leaf logging {
+                type L2vpn-logging;
+                description
+                  "Logging Type";
+              }
+              leaf disable {
+                type empty;
+                description
+                  "Disable L2 Interface Dynamic ARP Inspection";
+              }
+              leaf enable {
+                type empty;
+                description
+                  "Enable L2 Interface Dynamic ARP Inspection";
+              }
+            }
+            container interface-profile {
+              description
+                "Attach a DHCP profile";
+              leaf profile-id {
+                type Interface-profile;
+                description
+                  "Set the snooping profile";
+              }
+              leaf dhcp-snooping-id {
+                type string;
+                description
+                  "Disable DHCP snooping";
+              }
+            }
+            container bdac-storm-control-types {
+              description
+                "Storm Control";
+              list bdac-storm-control-type {
+                must "storm-control-unit";
+                key "sctype";
+                description
+                  "Storm Control Type";
+                leaf sctype {
+                  type Storm-control;
+                  description
+                    "Storm Control Type";
+                }
+                uses STORM-CONTROL-UNIT;
+              }
+            }
+            container split-horizon {
+              description
+                "Split Horizon";
+              container split-horizon-group-id {
+                description
+                  "Split Horizon Group ID";
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable split horizon group";
+                }
+              }
+            }
+            container static-mac-addresses {
+              description
+                "Static Mac Address Table";
+              list static-mac-address {
+                key "address";
+                description
+                  "Static Mac Address Configuration";
+                leaf address {
+                  type yang:mac-address;
+                  description
+                    "Static MAC address";
+                }
+              }
+            }
+            container interface-mac {
+              description
+                "MAC configuration commands";
+              container interface-mac-aging {
+                description
+                  "MAC-Aging configuration commands";
+                leaf interface-mac-aging-time {
+                  type Mac-aging-range;
+                  description
+                    "Mac Aging Time";
+                }
+                leaf interface-mac-aging-type {
+                  type Mac-aging;
+                  description
+                    "MAC address aging type";
+                }
+              }
+              container interface-mac-secure {
+                description
+                  "MAC Secure";
+                leaf logging {
+                  type L2vpn-logging;
+                  description
+                    "MAC Secure Logging";
+                }
+                leaf disable {
+                  type empty;
+                  description
+                    "Disable L2 Interface MAC Secure";
+                }
+                leaf action {
+                  type Mac-secure-action;
+                  description
+                    "MAC secure enforcement action";
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable MAC Secure";
+                }
+              }
+              container interface-mac-limit {
+                description
+                  "MAC-Limit configuration commands";
+                leaf interface-mac-limit-max {
+                  type Mac-limit-range;
+                  description
+                    "Number of MAC addresses on an Interface
+                     after which MAC limit action is taken";
+                }
+                leaf interface-mac-limit-notif {
+                  type Mac-notification;
+                  description
+                    "MAC address limit notification action in a
+                     Interface";
+                }
+                leaf interface-mac-limit-action {
+                  type Mac-limit-action;
+                  description
+                    "Interface MAC address limit enforcement
+                     action";
+                }
+              }
+              leaf interface-mac-port-down-flush {
+                type Port-down-flush;
+                description
+                  "Enable/Disable MAC Flush When Port goes
+                   down";
+              }
+              leaf interface-mac-learning {
+                type Mac-learn;
+                description
+                  "Enable Mac Learning";
+              }
+            }
+            leaf interface-flooding {
+              type Interface-traffic-flood;
+              description
+                "Enable or Disable Flooding";
+            }
+            leaf interface-igmp-snoop {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Attach a IGMP Snooping profile";
+            }
+            leaf interface-flooding-unknown-unicast {
+              type Interface-traffic-flood;
+              description
+                "Enable or Disable Unknown Unicast Flooding";
+            }
+            leaf interface-mld-snoop {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Attach a MLD Snooping profile";
+            }
+            leaf name {
+              type xr:Interface-name;
+              description
+                "The name of the Attachment Circuit";
+            }
+          }
+        }
+        container bd-pseudowire-evpns {
+          description
+            "List of EVPN pseudowires";
+          list bd-pseudowire-evpn {
+            key "eviid acid";
+            description
+              "EVPN Pseudowire configuration";
+            leaf eviid {
+              type Evpnvpnid-range;
+              description
+                "Ethernet VPN ID";
+            }
+            leaf acid {
+              type Pseudowire-acid-range;
+              description
+                "AC ID";
+            }
+          }
+        }
+        container ip-source-guard {
+          description
+            "IP Source Guard";
+          leaf logging {
+            type empty;
+            description
+              "Enable Logging";
+          }
+          leaf enable {
+            type empty;
+            description
+              "Enable IP Source Guard";
+          }
+        }
+        container dai {
+          description
+            "Dynamic ARP Inspection";
+          container dai-address-validation {
+            description
+              "Address Validation";
+            leaf ipv4-verification {
+              type empty;
+              description
+                "Enable IPv4 Verification";
+            }
+            leaf destination-mac-verification {
+              type empty;
+              description
+                "Enable Destination MAC Verification";
+            }
+            leaf source-mac-verification {
+              type empty;
+              description
+                "Enable Source MAC Verification";
+            }
+            leaf enable {
+              type empty;
+              description
+                "Enable Address Validation";
+            }
+          }
+          leaf logging {
+            type empty;
+            description
+              "Enable Logging";
+          }
+          leaf enable {
+            type empty;
+            description
+              "Enable Dynamic ARP Inspection";
+          }
+        }
+        container routed-interfaces {
+          description
+            "Bridge Domain Routed Interface Table";
+          list routed-interface {
+            key "interface-name";
+            description
+              "Bridge Domain Routed Interface";
+            container routed-interface-split-horizon-group {
+              description
+                "Routed interface split horizon group";
+              leaf routed-interface-split-horizon-group-core {
+                type empty;
+                description
+                  "Configure BVI under SHG 1";
+              }
+            }
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "The name of the Routed Interface";
+            }
+          }
+        }
+        leaf coupled-mode {
+          type empty;
+          description
+            "Coupled-mode configuration";
+        }
+        leaf shutdown {
+          type empty;
+          description
+            "shutdown the Bridge Domain";
+        }
+        leaf flooding-unknown-unicast {
+          type empty;
+          description
+            "Disable Unknown Unicast flooding";
+        }
+        leaf igmp-snooping-disable {
+          type empty;
+          description
+            "Disable IGMP Snooping";
+        }
+        leaf transport-mode {
+          type Bridge-domain-transport-mode;
+          description
+            "Bridge Domain Transport mode";
+        }
+        leaf mld-snooping {
+          type xr:Cisco-ios-xr-string {
+            length "1..32";
+          }
+          description
+            "Attach MLD Snooping Profile Name";
+        }
+        leaf bridge-domain-mtu {
+          type Bridge-bd-mtu-range;
+          units "byte";
+          description
+            "Maximum transmission unit for this Bridge
+             Domain";
+        }
+        leaf dhcp {
+          type string {
+            length "1..32";
+          }
+          description
+            "DHCPv4 Snooping profile name";
+        }
+        leaf bridge-description {
+          type string {
+            length "1..64";
+          }
+          description
+            "Bridge-domain description Name";
+        }
+        leaf igmp-snooping {
+          type xr:Cisco-ios-xr-string {
+            length "1..32";
+          }
+          description
+            "Attach IGMP Snooping Profile Name";
+        }
+        leaf flooding {
+          type empty;
+          description
+            "Disable flooding";
+        }
+        leaf name {
+          type xr:Cisco-ios-xr-string {
+            length "1..27";
+          }
+          description
+            "Name of the bridge domain";
         }
       }
     }
@@ -2733,1627 +4402,11 @@ module Cisco-IOS-XR-l2vpn-cfg {
       }
       container bridge-domain-groups {
         description
-          "List of bridge  groups";
+          "List of bridge groups";
         list bridge-domain-group {
           key "name";
           description
             "Bridge group";
-          container bridge-domains {
-            description
-              "List of Bridge Domain";
-            list bridge-domain {
-              key "name";
-              description
-                "bridge domain";
-              container bd-storm-controls {
-                description
-                  "Storm Control";
-                list bd-storm-control {
-                  must "storm-control-unit";
-                  key "sctype";
-                  description
-                    "Storm Control Type";
-                  leaf sctype {
-                    type Storm-control;
-                    description
-                      "Storm Control Type";
-                  }
-                  uses STORM-CONTROL-UNIT;
-                }
-              }
-              container member-vnis {
-                description
-                  "Bridge Domain VxLAN Network Identifier
-                   Table";
-                list member-vni {
-                  key "vni";
-                  description
-                    "Bridge Domain Member VxLAN Network
-                     Identifier ";
-                  container member-vni-static-mac-addresses {
-                    description
-                      "Static Mac Address Table";
-                    list member-vni-static-mac-address {
-                      key "mac-address";
-                      description
-                        "Static Mac Address Configuration";
-                      leaf next-hop-ip {
-                        type inet:ipv4-address-no-zone;
-                        description
-                          "Enable Static Mac Address Configuration";
-                      }
-                      leaf mac-address {
-                        type yang:mac-address;
-                        description
-                          "Static MAC address";
-                      }
-                    }
-                  }
-                  leaf vni {
-                    type uint32 {
-                      range "1..16777215";
-                    }
-                    description
-                      "VxLAN Network Identifier number";
-                  }
-                }
-              }
-              container bridge-domain-mac {
-                description
-                  "MAC configuration commands";
-                container bd-mac-limit {
-                  description
-                    "MAC-Limit configuration commands";
-                  leaf bd-mac-limit-action {
-                    type Mac-limit-action;
-                    description
-                      "MAC address limit enforcement action";
-                  }
-                  leaf bd-mac-limit-notif {
-                    type Mac-notification;
-                    description
-                      "Mac Address Limit Notification";
-                  }
-                  leaf bd-mac-limit-max {
-                    type Mac-limit-range;
-                    description
-                      "Number of MAC addresses after which MAC
-                       limit action is taken";
-                  }
-                }
-                container bd-mac-filters {
-                  description
-                    "Filter Mac Address";
-                  list bd-mac-filter {
-                    key "address";
-                    description
-                      "Static MAC address";
-                    leaf drop {
-                      type empty;
-                      description
-                        "MAC address for filtering";
-                    }
-                    leaf address {
-                      type yang:mac-address;
-                      description
-                        "Static MAC address";
-                    }
-                  }
-                }
-                container mac-secure {
-                  description
-                    "MAC Secure";
-                  leaf logging {
-                    type empty;
-                    description
-                      "MAC Secure Logging";
-                  }
-                  leaf action {
-                    type Mac-secure-action;
-                    description
-                      "MAC secure enforcement action";
-                  }
-                  leaf enable {
-                    type empty;
-                    description
-                      "Enable MAC Secure";
-                  }
-                  leaf threshold {
-                    type empty;
-                    description
-                      "MAC Secure Threshold";
-                  }
-                }
-                container bd-mac-aging {
-                  description
-                    "MAC-Aging configuration commands";
-                  leaf bd-mac-aging-type {
-                    type Mac-aging;
-                    description
-                      "MAC address aging type";
-                  }
-                  leaf bd-mac-aging-time {
-                    type Mac-aging-range;
-                    description
-                      "Mac Aging Time";
-                  }
-                }
-                leaf bd-mac-withdraw-relay {
-                  type empty;
-                  description
-                    "Mac withdraw sent from access PW to access
-                     PW";
-                }
-                leaf bd-mac-withdraw-access-pw-disable {
-                  type empty;
-                  description
-                    "MAC withdraw on Access PW";
-                }
-                leaf bd-mac-port-down-flush {
-                  type empty;
-                  description
-                    "Disable MAC Flush when Port goes Down";
-                }
-                leaf bd-mac-withdraw {
-                  type empty;
-                  description
-                    "Disable Mac Withdraw";
-                }
-                leaf bd-mac-withdraw-behavior {
-                  type Mac-withdraw-behavior;
-                  description
-                    "MAC withdraw sent on bridge port down";
-                }
-                leaf bd-mac-learn {
-                  type Bdmac-learn;
-                  description
-                    "Mac Learning Type";
-                }
-              }
-              container nv-satellite {
-                description
-                  "nV Satellite";
-                leaf offload-ipv4-multicast-enable {
-                  type empty;
-                  description
-                    "Enable IPv4 Multicast Offload to Satellite
-                     Nodes";
-                }
-                leaf enable {
-                  type empty;
-                  description
-                    "Enable nV Satellite Settings";
-                }
-              }
-              container bridge-domain-pbb {
-                description
-                  "Bridge Domain PBB";
-                container pbb-edges {
-                  description
-                    "PBB Edge";
-                  list pbb-edge {
-                    key "isid core-bd-name";
-                    description
-                      "Configure BD as PBB Edge with ISID and
-                       associated PBB Core BD";
-                    container pbb-edge-split-horizon-group {
-                      description
-                        "Split Horizon Group";
-                      leaf disable {
-                        type empty;
-                        description
-                          "Disable split horizon group";
-                      }
-                    }
-                    container pbb-static-mac-mappings {
-                      description
-                        "PBB Static Mac Address Mapping Table";
-                      list pbb-static-mac-mapping {
-                        key "address";
-                        description
-                          "PBB Static Mac Address Mapping
-                           Configuration";
-                        leaf pbb-static-mac-mapping-bmac {
-                          type yang:mac-address;
-                          description
-                            "Static backbone MAC address to map
-                             with";
-                        }
-                        leaf address {
-                          type yang:mac-address;
-                          description
-                            "Static MAC address";
-                        }
-                      }
-                    }
-                    container pbb-edge-dhcp-profile {
-                      description
-                        "Attach a DHCP profile";
-                      leaf profile-id {
-                        type Interface-profile;
-                        description
-                          "Set the snooping profile";
-                      }
-                      leaf dhcp-snooping-id {
-                        type string;
-                        description
-                          "Disable DHCP snooping";
-                      }
-                    }
-                    container pbb-edge-mac {
-                      description
-                        "MAC configuration commands";
-                      container pbb-edge-mac-limit {
-                        description
-                          "MAC-Limit configuration commands";
-                        leaf pbb-edge-mac-limit-action {
-                          type Mac-limit-action;
-                          description
-                            "MAC address limit enforcement action";
-                        }
-                        leaf pbb-edge-mac-limit-max {
-                          type Mac-limit-range;
-                          description
-                            "Number of MAC addresses after which
-                             MAC limit action is taken";
-                        }
-                        leaf pbb-edge-mac-limit-notif {
-                          type Mac-notification;
-                          description
-                            "MAC address limit notification action";
-                        }
-                      }
-                      container pbb-edge-mac-aging {
-                        description
-                          "MAC-Aging configuration commands";
-                        leaf pbb-edge-mac-aging-type {
-                          type Mac-aging;
-                          description
-                            "MAC address aging type";
-                        }
-                        leaf pbb-edge-mac-aging-time {
-                          type Mac-aging-range;
-                          description
-                            "Mac Aging Time";
-                        }
-                      }
-                      container pbb-edge-mac-secure {
-                        description
-                          "MAC Secure";
-                        leaf logging {
-                          type L2vpn-logging;
-                          description
-                            "MAC Secure Logging";
-                        }
-                        leaf disable {
-                          type empty;
-                          description
-                            "Disable Virtual instance port MAC
-                             Secure";
-                        }
-                        leaf action {
-                          type Mac-secure-action;
-                          description
-                            "MAC secure enforcement action";
-                        }
-                        leaf enable {
-                          type empty;
-                          description
-                            "Enable MAC Secure";
-                        }
-                        leaf accept-shutdown {
-                          type empty;
-                          description
-                            "Accept Virtual instance port to be
-                             shutdown on mac violation";
-                        }
-                      }
-                      leaf pbb-edge-mac-learning {
-                        type Mac-learn;
-                        description
-                          "Enable Mac Learning";
-                      }
-                    }
-                    leaf pbb-edge-igmp-profile {
-                      type xr:Cisco-ios-xr-string {
-                        length "1..32";
-                      }
-                      description
-                        "Attach a IGMP Snooping profile";
-                    }
-                    leaf unknown-unicast-bmac {
-                      type yang:mac-address;
-                      description
-                        "Configure Unknown Unicast BMAC address
-                         for PBB Edge Port";
-                    }
-                    leaf isid {
-                      type Pbbisid-range;
-                      description
-                        "ISID";
-                    }
-                    leaf core-bd-name {
-                      type xr:Cisco-ios-xr-string {
-                        length "1..27";
-                      }
-                      description
-                        "Core BD Name";
-                    }
-                  }
-                }
-                container pbb-core {
-                  description
-                    "PBB Core";
-                  container pbb-core-mac {
-                    description
-                      "MAC configuration commands";
-                    container pbb-core-mac-aging {
-                      description
-                        "MAC-Aging configuration commands";
-                      leaf pbb-core-mac-aging-type {
-                        type Mac-aging;
-                        description
-                          "MAC address aging type";
-                      }
-                      leaf pbb-core-mac-aging-time {
-                        type Mac-aging-range;
-                        description
-                          "Mac Aging Time";
-                      }
-                    }
-                    container pbb-core-mac-limit {
-                      description
-                        "MAC-Limit configuration commands";
-                      leaf pbb-core-mac-limit-max {
-                        type Mac-limit-range;
-                        description
-                          "Number of MAC addresses after which MAC
-                           limit action is taken";
-                      }
-                      leaf pbb-core-mac-limit-notif {
-                        type Mac-notification;
-                        description
-                          "MAC address limit notification action";
-                      }
-                      leaf pbb-core-mac-limit-action {
-                        type Mac-limit-action;
-                        description
-                          "MAC address limit enforcement action";
-                      }
-                    }
-                    leaf pbb-core-mac-learning {
-                      type Mac-learn;
-                      description
-                        "Enable Mac Learning";
-                    }
-                  }
-                  container pbb-core-evis {
-                    description
-                      "PBB Core EVI Table";
-                    list pbb-core-evi {
-                      key "eviid";
-                      description
-                        "PBB Core EVI";
-                      leaf eviid {
-                        type Vpnid-range;
-                        description
-                          "Ethernet VPN ID";
-                      }
-                    }
-                  }
-                  container pbb-core-dhcp-profile {
-                    description
-                      "Attach a DHCP profile";
-                    leaf profile-id {
-                      type Interface-profile;
-                      description
-                        "Set the snooping profile";
-                    }
-                    leaf dhcp-snooping-id {
-                      type string;
-                      description
-                        "Disable DHCP snooping";
-                    }
-                  }
-                  leaf pbb-core-mmrp-flood-optimization {
-                    type empty;
-                    description
-                      "Enabling MMRP PBB-VPLS Flood Optimization";
-                  }
-                  leaf vlan-id {
-                    type Pbbvid-range;
-                    description
-                      "VLAN ID to push";
-                  }
-                  leaf pbb-core-igmp-profile {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Attach a IGMP Snooping profile";
-                  }
-                  leaf enable {
-                    type empty;
-                    description
-                      "Enable Bridge Domain PBB Core
-                       Configuration";
-                  }
-                }
-              }
-              container bridge-domain-evis {
-                description
-                  "Bridge Domain EVI Table";
-                list bridge-domain-evi {
-                  key "eviid";
-                  description
-                    "Bridge Domain EVI";
-                  leaf eviid {
-                    type Evpnvpnid-range;
-                    description
-                      "Ethernet VPN ID";
-                  }
-                }
-              }
-              container access-vfis {
-                description
-                  "Specify the access virtual forwarding
-                   interface name";
-                list access-vfi {
-                  key "name";
-                  description
-                    "Name of the Acess Virtual Forwarding
-                     Interface";
-                  container access-vfi-pseudowires {
-                    description
-                      "List of pseudowires";
-                    list access-vfi-pseudowire {
-                      key "neighbor pseudowire-id";
-                      description
-                        "Pseudowire configuration";
-                      container access-vfi-pseudowire-static-mac-addresses {
-                        description
-                          "Static Mac Address Table";
-                        list access-vfi-pseudowire-static-mac-address {
-                          key "address";
-                          description
-                            "Static Mac Address Configuration";
-                          leaf address {
-                            type yang:mac-address;
-                            description
-                              "Static MAC address";
-                          }
-                        }
-                      }
-                      leaf access-vfi-pw-class {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..32";
-                        }
-                        description
-                          "Pseudowire class template name to use
-                           for this pseudowire";
-                      }
-                      leaf neighbor {
-                        type inet:ipv4-address-no-zone;
-                        description
-                          "Neighbor IP address";
-                      }
-                      leaf pseudowire-id {
-                        type Pseudowire-id-range;
-                        description
-                          "Pseudowire ID";
-                      }
-                    }
-                  }
-                  leaf access-vfi-shutdown {
-                    type empty;
-                    description
-                      "shutdown the AccessVfi";
-                  }
-                  leaf name {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Name of the AccessVirtual Forwarding
-                       Interface";
-                  }
-                }
-              }
-              container bd-pseudowires {
-                description
-                  "List of pseudowires";
-                list bd-pseudowire {
-                  key "neighbor pseudowire-id";
-                  description
-                    "Pseudowire configuration";
-                  container pseudowire-dai {
-                    description
-                      "Access Pseudowire Dynamic ARP Inspection";
-                    container pseudowire-dai-address-validation {
-                      description
-                        "Address Validation";
-                      leaf ipv4-verification {
-                        type L2vpn-verification;
-                        description
-                          "IPv4 Verification";
-                      }
-                      leaf destination-mac-verification {
-                        type L2vpn-verification;
-                        description
-                          "Destination MAC Verification";
-                      }
-                      leaf source-mac-verification {
-                        type L2vpn-verification;
-                        description
-                          "Source MAC Verification";
-                      }
-                    }
-                    leaf logging {
-                      type L2vpn-logging;
-                      description
-                        "Logging Type";
-                    }
-                    leaf disable {
-                      type empty;
-                      description
-                        "Disable Dynamic ARP Inspection";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable Access Pseudowire Dynamic ARP
-                         Inspection";
-                    }
-                  }
-                  container bdpw-storm-control-types {
-                    description
-                      "Storm Control";
-                    list bdpw-storm-control-type {
-                      must "storm-control-unit";
-                      key "sctype";
-                      description
-                        "Storm Control Type";
-                      leaf sctype {
-                        type Storm-control;
-                        description
-                          "Storm Control Type";
-                      }
-                      uses STORM-CONTROL-UNIT;
-                    }
-                  }
-                  container pseudowire-profile {
-                    description
-                      "Attach a DHCP profile";
-                    leaf profile-id {
-                      type Interface-profile;
-                      description
-                        "Set the snooping profile";
-                    }
-                    leaf dhcp-snooping-id {
-                      type string;
-                      description
-                        "Disable DHCP snooping";
-                    }
-                  }
-                  container bd-pw-static-mac-addresses {
-                    description
-                      "Static Mac Address Table";
-                    list bd-pw-static-mac-address {
-                      key "address";
-                      description
-                        "Static Mac Address Configuration";
-                      leaf address {
-                        type yang:mac-address;
-                        description
-                          "Static MAC address";
-                      }
-                    }
-                  }
-                  container pseudowire-ip-source-guard {
-                    description
-                      "IP Source Guard";
-                    leaf logging {
-                      type L2vpn-logging;
-                      description
-                        "Logging Type";
-                    }
-                    leaf disable {
-                      type empty;
-                      description
-                        "Disable Dynamic IP source guard";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable IP Source Guard";
-                    }
-                  }
-                  container pseudowire-mac {
-                    description
-                      "Bridge-domain Pseudowire MAC
-                       configuration commands";
-                    container pseudowire-mac-secure {
-                      description
-                        "MAC Secure";
-                      leaf logging {
-                        type L2vpn-logging;
-                        description
-                          "MAC Secure Logging";
-                      }
-                      leaf disable {
-                        type empty;
-                        description
-                          "Disable L2 Pseudowire MAC Secure";
-                      }
-                      leaf action {
-                        type Mac-secure-action;
-                        description
-                          "MAC secure enforcement action";
-                      }
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable MAC Secure";
-                      }
-                    }
-                    container pseudowire-mac-aging {
-                      description
-                        "MAC-Aging configuration commands";
-                      leaf pseudowire-mac-aging-type {
-                        type Mac-aging;
-                        description
-                          "MAC address aging type";
-                      }
-                      leaf pseudowire-mac-aging-time {
-                        type Mac-aging-range;
-                        description
-                          "MAC Aging Time";
-                      }
-                    }
-                    container pseudowire-mac-limit {
-                      description
-                        "MAC-Limit configuration commands";
-                      leaf pseudowire-mac-limit-action {
-                        type Mac-limit-action;
-                        description
-                          "Bridge Access Pseudowire MAC address
-                           limit enforcement action";
-                      }
-                      leaf pseudowire-mac-limit-notif {
-                        type Mac-notification;
-                        description
-                          "MAC address limit notification action
-                           in a Bridge Access Pseudowire";
-                      }
-                      leaf pseudowire-mac-limit-max {
-                        type Mac-limit-range;
-                        description
-                          "Number of MAC addresses on a Bridge
-                           Access Pseudowire after which MAC limit
-                           action is taken";
-                      }
-                    }
-                    leaf pseudowire-mac-port-down-flush {
-                      type Port-down-flush;
-                      description
-                        "Enable/Disable MAC Flush When Port goes
-                         down";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Bridge-domain Pseudowire MAC
-                         configuration mode";
-                    }
-                    leaf pseudowire-mac-learning {
-                      type Mac-learn;
-                      description
-                        "Enable MAC Learning";
-                    }
-                  }
-                  container bd-pw-split-horizon {
-                    description
-                      "Split Horizon";
-                    container bd-pw-split-horizon-group {
-                      description
-                        "Split Horizon Group";
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable split horizon group";
-                      }
-                    }
-                  }
-                  container bd-pw-mpls-static-labels {
-                    description
-                      "MPLS static labels";
-                    leaf local-static-label {
-                      type Pseudowire-label-range;
-                      description
-                        "Pseudowire local static label";
-                    }
-                    leaf remote-static-label {
-                      type Pseudowire-label-range;
-                      description
-                        "Pseudowire remote static label";
-                    }
-                  }
-                  container bridge-domain-backup-pseudowires {
-                    description
-                      "List of pseudowires";
-                    list bridge-domain-backup-pseudowire {
-                      key "neighbor pseudowire-id";
-                      description
-                        "Backup pseudowire configuration";
-                      leaf bridge-domain-backup-pw-class {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..32";
-                        }
-                        description
-                          "PW class template name to use for this
-                           pseudowire";
-                      }
-                      leaf neighbor {
-                        type inet:ipv4-address-no-zone;
-                        description
-                          "Neighbor IP address";
-                      }
-                      leaf pseudowire-id {
-                        type Pseudowire-id-range;
-                        description
-                          "Pseudowire ID";
-                      }
-                    }
-                  }
-                  leaf pseudowire-mld-snoop {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Attach a MLD Snooping profile";
-                  }
-                  leaf pseudowire-igmp-snoop {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Attach a IGMP Snooping profile";
-                  }
-                  leaf pseudowire-flooding {
-                    type Interface-traffic-flood;
-                    description
-                      "Bridge-domain Pseudowire flooding";
-                  }
-                  leaf bd-pw-class {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "PW class template name to use for this
-                       pseudowire";
-                  }
-                  leaf pseudowire-flooding-unknown-unicast {
-                    type Interface-traffic-flood;
-                    description
-                      "Bridge-domain Pseudowire flooding Unknown
-                       Unicast";
-                  }
-                  leaf neighbor {
-                    type inet:ipv4-address-no-zone;
-                    description
-                      "Neighbor IP address";
-                  }
-                  leaf pseudowire-id {
-                    type Pseudowire-id-range;
-                    description
-                      "Pseudowire ID";
-                  }
-                }
-              }
-              container vfis {
-                description
-                  "Specify the virtual forwarding interface
-                   name";
-                list vfi {
-                  key "name";
-                  description
-                    "Name of the Virtual Forwarding Interface";
-                  container multicast-p2mp {
-                    description
-                      "Enable Multicast P2MP in this VFI";
-                    container transports {
-                      description
-                        "Multicast P2MP Transport";
-                      list transport {
-                        key "transport-name";
-                        description
-                          "Multicast P2MP Transport Type";
-                        leaf attribute-set-name {
-                          type xr:Cisco-ios-xr-string {
-                            length "1..64";
-                          }
-                          description
-                            "Multicast P2MP TE Attribute Set Name";
-                        }
-                        leaf transport-name {
-                          type Multicast-p2mp-transport;
-                          description
-                            "Transport Type";
-                        }
-                      }
-                    }
-                    container signalings {
-                      description
-                        "Multicast P2MP Signaling Type";
-                      list signaling {
-                        key "signaling-name";
-                        description
-                          "Multicast P2MP Signaling Type";
-                        leaf signaling-name {
-                          type Multicast-p2mp-signaling;
-                          description
-                            "Signaling Type";
-                        }
-                      }
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable Autodiscovery P2MP";
-                    }
-                  }
-                  container vfi-pseudowires {
-                    description
-                      "List of pseudowires";
-                    list vfi-pseudowire {
-                      key "neighbor pseudowire-id";
-                      description
-                        "Pseudowire configuration";
-                      container vfi-pw-dhcp-snoop {
-                        description
-                          "Attach a DHCP Snooping profile";
-                        leaf profile-id {
-                          type Interface-profile;
-                          description
-                            "Set the snooping profile";
-                        }
-                        leaf dhcp-snooping-id {
-                          type string;
-                          description
-                            "Disable DHCP snooping";
-                        }
-                      }
-                      container vfi-pw-mpls-static-labels {
-                        description
-                          "MPLS static labels";
-                        leaf local-static-label {
-                          type Pseudowire-label-range;
-                          description
-                            "Pseudowire local static label";
-                        }
-                        leaf remote-static-label {
-                          type Pseudowire-label-range;
-                          description
-                            "Pseudowire remote static label";
-                        }
-                      }
-                      container pseudowire-static-mac-addresses {
-                        description
-                          "Static Mac Address Table";
-                        list pseudowire-static-mac-address {
-                          key "address";
-                          description
-                            "Static Mac Address Configuration";
-                          leaf address {
-                            type yang:mac-address;
-                            description
-                              "Static MAC address";
-                          }
-                        }
-                      }
-                      leaf vfi-pw-class {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..32";
-                        }
-                        description
-                          "PW class template name to use for this
-                           pseudowire";
-                      }
-                      leaf vfi-pw-igmp-snoop {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..32";
-                        }
-                        description
-                          "Attach a IGMP Snooping profile";
-                      }
-                      leaf vfi-pw-mld-snoop {
-                        type xr:Cisco-ios-xr-string {
-                          length "1..32";
-                        }
-                        description
-                          "Attach a MLD Snooping profile";
-                      }
-                      leaf neighbor {
-                        type inet:ipv4-address-no-zone;
-                        description
-                          "Neighbor IP address";
-                      }
-                      leaf pseudowire-id {
-                        type Pseudowire-id-range;
-                        description
-                          "Pseudowire ID";
-                      }
-                    }
-                  }
-                  container bgp-auto-discovery {
-                    description
-                      "Enable Autodiscovery BGP in this VFI";
-                    container ldp-signaling-protocol {
-                      description
-                        "Signaling Protocol LDP in this VFI
-                         configuration";
-                      container vpls-id {
-                        description
-                          "VPLS ID";
-                        leaf type {
-                          type Ldp-vpls-id;
-                          description
-                            "VPLS-ID Type";
-                        }
-                        leaf as {
-                          when "../type = 'two-byte-as'" {
-                            description
-                              "../Type = TwoByteAS";
-                          }
-                          type Vpls-id-as-range;
-                          description
-                            "Two byte AS number";
-                        }
-                        leaf as-index {
-                          when "../type = 'two-byte-as'" {
-                            description
-                              "../Type = TwoByteAS";
-                          }
-                          type Vpls-id-as-index;
-                          description
-                            "AS index";
-                        }
-                        leaf address {
-                          when "../type = 'ipv4-address'" {
-                            description
-                              "../Type = IPV4Address";
-                          }
-                          type inet:ipv4-address-no-zone;
-                          description
-                            "IPV4 address";
-                        }
-                        leaf address-index {
-                          when "../type = 'ipv4-address'" {
-                            description
-                              "../Type = IPV4Address";
-                          }
-                          type Vpls-id-addr-index;
-                          description
-                            "Address index";
-                        }
-                      }
-                      container flow-label-load-balance {
-                        description
-                          "Enable Flow Label based load balancing";
-                        leaf flow-label {
-                          type Flow-label-load-balance;
-                          description
-                            "Flow Label load balance type";
-                        }
-                        leaf static {
-                          type empty;
-                          description
-                            "Static Flow Label";
-                        }
-                      }
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable LDP as Signaling Protocol
-                           .Deletion of this object also causes
-                           deletion of all objects under
-                           LDPSignalingProtocol.";
-                      }
-                    }
-                    container bgp-route-policy {
-                      description
-                        "Route policy";
-                      leaf export {
-                        type string;
-                        description
-                          "Export route policy";
-                      }
-                    }
-                    container route-distinguisher {
-                      description
-                        "Route Distinguisher";
-                      leaf type {
-                        type Bgp-route-distinguisher;
-                        description
-                          "Router Distinguisher Type";
-                      }
-                      leaf as {
-                        when "../type = 'two-byte-as' or ../type = 'four-byte-as'" {
-                          description
-                            "../Type = TwoByteAS or ../Type =
-                             FourByteAS";
-                        }
-                        type Rdas-range;
-                        description
-                          "Two byte or 4 byte AS number";
-                      }
-                      leaf as-index {
-                        when "../type = 'two-byte-as' or ../type = 'four-byte-as'" {
-                          description
-                            "../Type = TwoByteAS or ../Type =
-                             FourByteAS";
-                        }
-                        type Rdas-index;
-                        description
-                          "AS:nn (hex or decimal format)";
-                      }
-                      leaf address {
-                        when "../type = 'ipv4-address'" {
-                          description
-                            "../Type = IPV4Address";
-                        }
-                        type inet:ipv4-address-no-zone;
-                        description
-                          "IPV4 address";
-                      }
-                      leaf addr-index {
-                        when "../type = 'ipv4-address'" {
-                          description
-                            "../Type = IPV4Address";
-                        }
-                        type Rd-addr-index;
-                        description
-                          "Addr index";
-                      }
-                    }
-                    container bgp-signaling-protocol {
-                      description
-                        "Enable Signaling Protocol BGP in this
-                         VFI";
-                      container flow-label-load-balance {
-                        description
-                          "Enable Flow Label based load balancing";
-                        leaf flow-label {
-                          type Flow-label-load-balance;
-                          description
-                            "Flow Label load balance type";
-                        }
-                        leaf static {
-                          type empty;
-                          description
-                            "Static Flow Label";
-                        }
-                      }
-                      leaf ve-range {
-                        type Vedge-range;
-                        description
-                          "Local Virtual Edge Block Configurable
-                           Range";
-                      }
-                      leaf veid {
-                        type Veid-range;
-                        description
-                          "Local Virtual Edge Identifier";
-                      }
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable BGP as Signaling Protocol";
-                      }
-                    }
-                    container route-targets {
-                      description
-                        "Route Target";
-                      list route-target {
-                        must "two-byte-as-or-four-byte-as or ipv4-address" {
-                          description
-                            "TwoByteAS-or-FourbyteAS or IPV4Address
-                             must be present.";
-                        }
-                        key "role format";
-                        description
-                          "Name of the Route Target";
-                        leaf role {
-                          type Bgp-route-target-role;
-                          description
-                            "Role of the router target type";
-                        }
-                        leaf format {
-                          type Bgp-route-target-format;
-                          description
-                            "Format of the route target";
-                        }
-                        list two-byte-as-or-four-byte-as {
-                          when "../format = 'two-byte-as' or ../format = 'four-byte-as'" {
-                            description
-                              "../Format = TwoByteAS or ../Format =
-                               FourbyteAS";
-                          }
-                          key "as as-index";
-                          description
-                            "two byte as or four byte as";
-                          leaf as {
-                            type Rdas-range;
-                            description
-                              "Two byte or 4 byte AS number";
-                          }
-                          leaf as-index {
-                            type Rdas-index;
-                            description
-                              "AS:nn (hex or decimal format)";
-                          }
-                        }
-                        list ipv4-address {
-                          when "../format = 'ipv4-address'" {
-                            description
-                              "../Format = IPV4Address";
-                          }
-                          key "address addr-index";
-                          description
-                            "ipv4 address";
-                          leaf address {
-                            type inet:ipv4-address-no-zone;
-                            description
-                              "IPV4 address";
-                          }
-                          leaf addr-index {
-                            type Rd-addr-index;
-                            description
-                              "Addr index";
-                          }
-                        }
-                      }
-                    }
-                    leaf table-policy {
-                      type string;
-                      description
-                        "Table Policy for installation of
-                         forwarding data to L2FIB";
-                    }
-                    leaf ad-control-word {
-                      type empty;
-                      description
-                        "Enable control-word for this VFI";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable Autodiscovery BGP";
-                    }
-                  }
-                  leaf vfi-shutdown {
-                    type empty;
-                    description
-                      "Enabling Shutdown";
-                  }
-                  leaf vpnid {
-                    type Vpnid-range;
-                    description
-                      "VPN Identifier";
-                  }
-                  leaf name {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Name of the Virtual Forwarding Interface";
-                  }
-                }
-              }
-              container bd-attachment-circuits {
-                description
-                  "Attachment Circuit table";
-                list bd-attachment-circuit {
-                  key "name";
-                  description
-                    "Name of the Attachment Circuit";
-                  container interface-ip-source-guard {
-                    description
-                      "IP Source Guard";
-                    leaf logging {
-                      type L2vpn-logging;
-                      description
-                        "Logging Type";
-                    }
-                    leaf disable {
-                      type empty;
-                      description
-                        "Disable L2 Interface Dynamic IP source
-                         guard";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable IP Source Guard";
-                    }
-                  }
-                  container interface-dai {
-                    description
-                      "L2 Interface Dynamic ARP Inspection";
-                    container interface-dai-address-validation {
-                      description
-                        "Address Validation";
-                      leaf ipv4-verification {
-                        type L2vpn-verification;
-                        description
-                          "IPv4 Verification";
-                      }
-                      leaf destination-mac-verification {
-                        type L2vpn-verification;
-                        description
-                          "Destination MAC Verification";
-                      }
-                      leaf source-mac-verification {
-                        type L2vpn-verification;
-                        description
-                          "Source MAC Verification";
-                      }
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable Address Validation";
-                      }
-                    }
-                    leaf logging {
-                      type L2vpn-logging;
-                      description
-                        "Logging Type";
-                    }
-                    leaf disable {
-                      type empty;
-                      description
-                        "Disable L2 Interface Dynamic ARP
-                         Inspection";
-                    }
-                    leaf enable {
-                      type empty;
-                      description
-                        "Enable L2 Interface Dynamic ARP
-                         Inspection";
-                    }
-                  }
-                  container interface-profile {
-                    description
-                      "Attach a DHCP profile";
-                    leaf profile-id {
-                      type Interface-profile;
-                      description
-                        "Set the snooping profile";
-                    }
-                    leaf dhcp-snooping-id {
-                      type string;
-                      description
-                        "Disable DHCP snooping";
-                    }
-                  }
-                  container bdac-storm-control-types {
-                    description
-                      "Storm Control";
-                    list bdac-storm-control-type {
-                      must "storm-control-unit";
-                      key "sctype";
-                      description
-                        "Storm Control Type";
-                      leaf sctype {
-                        type Storm-control;
-                        description
-                          "Storm Control Type";
-                      }
-                      uses STORM-CONTROL-UNIT;
-                    }
-                  }
-                  container split-horizon {
-                    description
-                      "Split Horizon";
-                    container split-horizon-group-id {
-                      description
-                        "Split Horizon Group ID";
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable split horizon group";
-                      }
-                    }
-                  }
-                  container static-mac-addresses {
-                    description
-                      "Static Mac Address Table";
-                    list static-mac-address {
-                      key "address";
-                      description
-                        "Static Mac Address Configuration";
-                      leaf address {
-                        type yang:mac-address;
-                        description
-                          "Static MAC address";
-                      }
-                    }
-                  }
-                  container interface-mac {
-                    description
-                      "MAC configuration commands";
-                    container interface-mac-aging {
-                      description
-                        "MAC-Aging configuration commands";
-                      leaf interface-mac-aging-time {
-                        type Mac-aging-range;
-                        description
-                          "Mac Aging Time";
-                      }
-                      leaf interface-mac-aging-type {
-                        type Mac-aging;
-                        description
-                          "MAC address aging type";
-                      }
-                    }
-                    container interface-mac-secure {
-                      description
-                        "MAC Secure";
-                      leaf logging {
-                        type L2vpn-logging;
-                        description
-                          "MAC Secure Logging";
-                      }
-                      leaf disable {
-                        type empty;
-                        description
-                          "Disable L2 Interface MAC Secure";
-                      }
-                      leaf action {
-                        type Mac-secure-action;
-                        description
-                          "MAC secure enforcement action";
-                      }
-                      leaf enable {
-                        type empty;
-                        description
-                          "Enable MAC Secure";
-                      }
-                    }
-                    container interface-mac-limit {
-                      description
-                        "MAC-Limit configuration commands";
-                      leaf interface-mac-limit-max {
-                        type Mac-limit-range;
-                        description
-                          "Number of MAC addresses on an Interface
-                           after which MAC limit action is taken";
-                      }
-                      leaf interface-mac-limit-notif {
-                        type Mac-notification;
-                        description
-                          "MAC address limit notification action
-                           in a Interface";
-                      }
-                      leaf interface-mac-limit-action {
-                        type Mac-limit-action;
-                        description
-                          "Interface MAC address limit enforcement
-                           action";
-                      }
-                    }
-                    leaf interface-mac-port-down-flush {
-                      type Port-down-flush;
-                      description
-                        "Enable/Disable MAC Flush When Port goes
-                         down";
-                    }
-                    leaf interface-mac-learning {
-                      type Mac-learn;
-                      description
-                        "Enable Mac Learning";
-                    }
-                  }
-                  leaf interface-flooding {
-                    type Interface-traffic-flood;
-                    description
-                      "Enable or Disable Flooding";
-                  }
-                  leaf interface-igmp-snoop {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Attach a IGMP Snooping profile";
-                  }
-                  leaf interface-flooding-unknown-unicast {
-                    type Interface-traffic-flood;
-                    description
-                      "Enable or Disable Unknown Unicast
-                       Flooding";
-                  }
-                  leaf interface-mld-snoop {
-                    type xr:Cisco-ios-xr-string {
-                      length "1..32";
-                    }
-                    description
-                      "Attach a MLD Snooping profile";
-                  }
-                  leaf name {
-                    type xr:Interface-name;
-                    description
-                      "The name of the Attachment Circuit";
-                  }
-                }
-              }
-              container bd-pseudowire-evpns {
-                description
-                  "List of EVPN pseudowires";
-                list bd-pseudowire-evpn {
-                  key "eviid acid";
-                  description
-                    "EVPN Pseudowire configuration";
-                  leaf eviid {
-                    type Evpnvpnid-range;
-                    description
-                      "Ethernet VPN ID";
-                  }
-                  leaf acid {
-                    type Pseudowire-acid-range;
-                    description
-                      "AC ID";
-                  }
-                }
-              }
-              container ip-source-guard {
-                description
-                  "IP Source Guard";
-                leaf logging {
-                  type empty;
-                  description
-                    "Enable Logging";
-                }
-                leaf enable {
-                  type empty;
-                  description
-                    "Enable IP Source Guard";
-                }
-              }
-              container dai {
-                description
-                  "Dynamic ARP Inspection";
-                container dai-address-validation {
-                  description
-                    "Address Validation";
-                  leaf ipv4-verification {
-                    type empty;
-                    description
-                      "Enable IPv4 Verification";
-                  }
-                  leaf destination-mac-verification {
-                    type empty;
-                    description
-                      "Enable Destination MAC Verification";
-                  }
-                  leaf source-mac-verification {
-                    type empty;
-                    description
-                      "Enable Source MAC Verification";
-                  }
-                  leaf enable {
-                    type empty;
-                    description
-                      "Enable Address Validation";
-                  }
-                }
-                leaf logging {
-                  type empty;
-                  description
-                    "Enable Logging";
-                }
-                leaf enable {
-                  type empty;
-                  description
-                    "Enable Dynamic ARP Inspection";
-                }
-              }
-              container routed-interfaces {
-                description
-                  "Bridge Domain Routed Interface Table";
-                list routed-interface {
-                  key "interface-name";
-                  description
-                    "Bridge Domain Routed Interface";
-                  container routed-interface-split-horizon-group {
-                    description
-                      "Routed interface split horizon group";
-                    leaf routed-interface-split-horizon-group-core {
-                      type empty;
-                      description
-                        "Configure BVI under SHG 1";
-                    }
-                  }
-                  leaf interface-name {
-                    type xr:Interface-name;
-                    description
-                      "The name of the Routed Interface";
-                  }
-                }
-              }
-              leaf coupled-mode {
-                type empty;
-                description
-                  "Coupled-mode configuration";
-              }
-              leaf shutdown {
-                type empty;
-                description
-                  "shutdown the Bridge Domain";
-              }
-              leaf flooding-unknown-unicast {
-                type empty;
-                description
-                  "Disable Unknown Unicast flooding";
-              }
-              leaf igmp-snooping-disable {
-                type empty;
-                description
-                  "Disable IGMP Snooping";
-              }
-              leaf transport-mode {
-                type Bridge-domain-transport-mode;
-                description
-                  "Bridge Domain Transport mode";
-              }
-              leaf mld-snooping {
-                type xr:Cisco-ios-xr-string {
-                  length "1..32";
-                }
-                description
-                  "Attach MLD Snooping Profile Name";
-              }
-              leaf bridge-domain-mtu {
-                type Bridge-bd-mtu-range;
-                units "byte";
-                description
-                  "Maximum transmission unit for this Bridge
-                   Domain";
-              }
-              leaf dhcp {
-                type string {
-                  length "1..32";
-                }
-                description
-                  "DHCPv4 Snooping profile name";
-              }
-              leaf bridge-description {
-                type string {
-                  length "1..64";
-                }
-                description
-                  "Bridge-domain description Name";
-              }
-              leaf igmp-snooping {
-                type xr:Cisco-ios-xr-string {
-                  length "1..32";
-                }
-                description
-                  "Attach IGMP Snooping Profile Name";
-              }
-              leaf flooding {
-                type empty;
-                description
-                  "Disable flooding";
-              }
-              leaf name {
-                type xr:Cisco-ios-xr-string {
-                  length "1..27";
-                }
-                description
-                  "Name of the bridge domain";
-              }
-            }
-          }
           leaf name {
             type xr:Cisco-ios-xr-string {
               length "1..32";
@@ -4361,6 +4414,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
             description
               "Name of the Bridge group";
           }
+          uses BRIDGE-DOMAIN-TABLE;
         }
       }
       container pseudowire-classes {
@@ -4651,6 +4705,321 @@ module Cisco-IOS-XR-l2vpn-cfg {
             description
               "Name of the pseudowire class";
           }
+        }
+      }
+      container vlan-switches {
+        description
+          "List of VLAN Switches";
+        list vlan-switch {
+          key "name";
+          description
+            "VLAN Switch";
+          container vlan-switch-ports {
+            description
+              "List of VLAN Switched Ports";
+            list vlan-switch-port {
+              key "interface-name";
+              description
+                "VLAN Switched Port";
+              leaf interface-name {
+                type xr:Interface-name;
+                description
+                  "Interface name";
+              }
+            }
+          }
+          container vni-ranges {
+            description
+              "Configure VLAN Switch VxLAN Ethernet VPN-ID
+               ranges";
+            leaf vni-range1-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #1";
+            }
+            leaf vni-range1-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #1";
+            }
+            leaf vni-range2-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #2";
+            }
+            leaf vni-range2-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #2";
+            }
+            leaf vni-range3-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #3";
+            }
+            leaf vni-range3-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #3";
+            }
+            leaf vni-range4-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #4";
+            }
+            leaf vni-range4-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #4";
+            }
+            leaf vni-range5-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #5";
+            }
+            leaf vni-range5-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #5";
+            }
+            leaf vni-range6-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #6";
+            }
+            leaf vni-range6-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #6";
+            }
+            leaf vni-range7-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #7";
+            }
+            leaf vni-range7-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #7";
+            }
+            leaf vni-range8-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #8";
+            }
+            leaf vni-range8-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #8";
+            }
+            leaf vni-range9-min {
+              type uint32;
+              description
+                "Minimum value of VNI range #9";
+            }
+            leaf vni-range9-max {
+              type uint32;
+              description
+                "Maximum value of VNI range #9";
+            }
+          }
+          container vlan-ranges {
+            description
+              "Configure VLAN Switch VLAN ranges";
+            leaf vlan-range1-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #1";
+            }
+            leaf vlan-range1-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #1";
+            }
+            leaf vlan-range2-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #2";
+            }
+            leaf vlan-range2-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #2";
+            }
+            leaf vlan-range3-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #3";
+            }
+            leaf vlan-range3-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #3";
+            }
+            leaf vlan-range4-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #4";
+            }
+            leaf vlan-range4-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #4";
+            }
+            leaf vlan-range5-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #5";
+            }
+            leaf vlan-range5-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #5";
+            }
+            leaf vlan-range6-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #6";
+            }
+            leaf vlan-range6-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #6";
+            }
+            leaf vlan-range7-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #7";
+            }
+            leaf vlan-range7-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #7";
+            }
+            leaf vlan-range8-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #8";
+            }
+            leaf vlan-range8-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #8";
+            }
+            leaf vlan-range9-min {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Minimum value of VLAN range #9";
+            }
+            leaf vlan-range9-max {
+              type L2vpn-vs-vlan-tag;
+              description
+                "Maximum value of VLAN range #9";
+            }
+          }
+          container routed-interface-ranges {
+            description
+              "Configure VLAN Switch Routed BVI Interface
+               ranges";
+            leaf interface-range1-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #1";
+            }
+            leaf interface-range1-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #1";
+            }
+            leaf interface-range2-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #2";
+            }
+            leaf interface-range2-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #2";
+            }
+            leaf interface-range3-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #3";
+            }
+            leaf interface-range3-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #3";
+            }
+            leaf interface-range4-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #4";
+            }
+            leaf interface-range4-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #4";
+            }
+            leaf interface-range5-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #5";
+            }
+            leaf interface-range5-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #5";
+            }
+            leaf interface-range6-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #6";
+            }
+            leaf interface-range6-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #6";
+            }
+            leaf interface-range7-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #7";
+            }
+            leaf interface-range7-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #7";
+            }
+            leaf interface-range8-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #8";
+            }
+            leaf interface-range8-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #8";
+            }
+            leaf interface-range9-min {
+              type uint32;
+              description
+                "Minimum value of Interface range #9";
+            }
+            leaf interface-range9-max {
+              type uint32;
+              description
+                "Maximum value of Interface range #9";
+            }
+          }
+          leaf name {
+            type xr:Cisco-ios-xr-string {
+              length "1..32";
+            }
+            description
+              "Name of the VLAN Switch";
+          }
+          uses BRIDGE-DOMAIN-TABLE;
         }
       }
       container flexible-xconnect-service-table {
@@ -5112,6 +5481,16 @@ module Cisco-IOS-XR-l2vpn-cfg {
             uses EVPN-ROUTE-DISTINGUISHER;
             uses EVPN-ROUTE-TARGET-TABLE;
           }
+          container evi-multicast {
+            description
+              "Enter Multicast configuration submode";
+            leaf enable {
+              type empty;
+              description
+                "Enable Multicast";
+            }
+            uses EVI-MCAST-SOURCE-CONNECTED;
+          }
           container evi-advertise-mac {
             description
               "Enter Advertise local MAC-only routes
@@ -5246,7 +5625,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
         description
           "Enter EVPN Instance configuration submode";
         list evpn-instance {
-          key "eviid encapsulation side";
+          key "vpn-id encapsulation side";
           description
             "Enter EVPN Instance configuration submode";
           container evpn-instance-bgp-auto-discovery {
@@ -5272,6 +5651,16 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             uses EVI-ADVERTISE-MAC-BVI;
           }
+          container evpn-instance-multicast {
+            description
+              "Enter Multicast configuration submode";
+            leaf enable {
+              type empty;
+              description
+                "Enable Multicast";
+            }
+            uses EVI-MCAST-SOURCE-CONNECTED;
+          }
           container evpn-instance-load-balancing {
             description
               "Enter Loadbalancing configuration submode";
@@ -5282,8 +5671,8 @@ module Cisco-IOS-XR-l2vpn-cfg {
             }
             uses EVI-STATIC-FLOW-LABEL;
           }
-          leaf eviid {
-            type Evpnvpnid-range;
+          leaf vpn-id {
+            type Vpnid-range;
             description
               "EVPN Instance ID";
           }
@@ -5385,6 +5774,7 @@ module Cisco-IOS-XR-l2vpn-cfg {
                 "Backbone Source MAC";
             }
             uses ES-IMPORT-ROUTE-TARGET;
+            uses SERVICE-CARVING-TYPE;
             uses IDENTIFIER;
             uses MANUAL-SERVICE-CARVING;
           }

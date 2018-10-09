@@ -29,12 +29,16 @@ submodule Cisco-IOS-XR-ip-tcp-oper-sub4 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-tcp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";
+  }
+  revision 2018-02-14 {
+    description
+      "Added support for TCP-AO feature.";
   }
   revision 2017-05-01 {
     description

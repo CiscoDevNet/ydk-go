@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv6-acl-and-prefix-list: IPv6 ACL configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_acl_cfg
 
@@ -28,9 +28,6 @@ func init() {
 type NextHopType string
 
 const (
-    // None next-hop.
-    NextHopType_none_next_hop NextHopType = "none-next-hop"
-
     // Regular next-hop.
     NextHopType_regular_next_hop NextHopType = "regular-next-hop"
 
@@ -802,13 +799,11 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     TcpBitsMatchOperator interface{}
 
     // TCP bits to match. Leave unspecified if  comparison of TCP bits is not
-    // required. The type is one of the following types: enumeration
-    // Ipv6AclTcpBitsNumber, or int with range: 0..63.
+    // required. The type is map[string]bool.
     TcpBits interface{}
 
     // TCP bits mask to use for flexible TCP matching. Leave unspecified if it is
-    // not required. The type is one of the following types: enumeration
-    // Ipv6AclTcpBitsNumber, or int with range: 0..63.
+    // not required. The type is map[string]bool.
     TcpBitsMask interface{}
 }
 

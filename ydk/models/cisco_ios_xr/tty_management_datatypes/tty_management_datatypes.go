@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tty_management_datatypes
 

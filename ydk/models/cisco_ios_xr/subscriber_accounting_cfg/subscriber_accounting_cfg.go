@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_accounting_cfg
 
@@ -105,7 +105,7 @@ type SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration struct {
     Password interface{}
 
     // Threshold at which to send prepaid volume quota request. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     VolumeThreshold interface{}
 
     // Method list to be used when placing prepaid accounting requests. The type
@@ -113,7 +113,7 @@ type SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration struct {
     AccountingMethodList interface{}
 
     // Idle Threshold for which prepaid quota is valid. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     TimeHold interface{}
 
     // Method list to be used when placing prepaid (re)authorization requests. The
@@ -124,11 +124,11 @@ type SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration struct {
     TrafficDirection interface{}
 
     // Threshold at which to send prepaid time quota request. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     TimeThreshold interface{}
 
     // Threshold for which prepaid quota is valid. The type is interface{} with
-    // range: -2147483648..2147483647.
+    // range: 0..4294967295.
     TimeValid interface{}
 }
 

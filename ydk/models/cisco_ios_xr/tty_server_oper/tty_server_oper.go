@@ -5,7 +5,7 @@
 // for the following management objects:
 //   tty: TTY Line Configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tty_server_oper
 
@@ -613,7 +613,7 @@ type Tty_ConsoleNodes_ConsoleNode_ConsoleLine_Configuration_ConnectionConfigurat
     // Transport protocol2. The type is TtyTransportProtocol.
     Protocol2 interface{}
 
-    // Not used. The type is interface{} with range: -2147483648..2147483647.
+    // Not used. The type is interface{} with range: 0..4294967295.
     None interface{}
 }
 
@@ -678,7 +678,7 @@ type Tty_VtyLines_VtyLine struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. VTY Line number. The type is interface{} with
-    // range: -2147483648..2147483647.
+    // range: 0..4294967295.
     LineNumber interface{}
 
     // Statistics of the VTY line.
@@ -1104,7 +1104,7 @@ type Tty_VtyLines_VtyLine_Configuration_ConnectionConfiguration_TransportInput s
     // Transport protocol2. The type is TtyTransportProtocol.
     Protocol2 interface{}
 
-    // Not used. The type is interface{} with range: -2147483648..2147483647.
+    // Not used. The type is interface{} with range: 0..4294967295.
     None interface{}
 }
 
@@ -1770,7 +1770,7 @@ type Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Configuration_ConnectionConf
     // Transport protocol2. The type is TtyTransportProtocol.
     Protocol2 interface{}
 
-    // Not used. The type is interface{} with range: -2147483648..2147483647.
+    // Not used. The type is interface{} with range: 0..4294967295.
     None interface{}
 }
 

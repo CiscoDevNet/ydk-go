@@ -8,9 +8,6 @@ module Cisco-IOS-XR-mpls-te-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
-  include Cisco-IOS-XR-mpls-te-oper-sub9 {
-    revision-date 2017-09-07;
-  }
   include Cisco-IOS-XR-mpls-te-oper-sub8 {
     revision-date 2017-09-07;
   }
@@ -62,7 +59,7 @@ module Cisco-IOS-XR-mpls-te-oper {
        mpls-tp: mpls tp
        mpls-te-standby: mpls te standby
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -97,6 +94,11 @@ module Cisco-IOS-XR-mpls-te-oper {
         value 2;
         description
           "TE Metric";
+      }
+      enum "delay" {
+        value 4;
+        description
+          "DELAY Metric";
       }
     }
     description
@@ -138,28 +140,6 @@ module Cisco-IOS-XR-mpls-te-oper {
     }
     description
       "Mpls te path";
-  }
-
-  typedef Oc-mpls-te-tunnel {
-    type enumeration {
-      enum "unknown" {
-        value 0;
-        description
-          "UNKNOWN";
-      }
-      enum "p2p" {
-        value 1;
-        description
-          "P2P";
-      }
-      enum "p2mp" {
-        value 2;
-        description
-          "P2MP";
-      }
-    }
-    description
-      "Oc mpls te tunnel";
   }
 
   typedef Mpls-te-node {
@@ -620,6 +600,11 @@ module Cisco-IOS-XR-mpls-te-oper {
           "MPLS TE ISSU counters";
         uses MPLS-TE-SYNC-COUNT-INFO;
       }
+      container fsm-unexpected-event-stats {
+        description
+          "TE S2L FSM unexpected event stats";
+        uses TE-FSM-UNEXPECTED-EVENT-STATS;
+      }
       container head-signalling-counters {
         description
           "Sig Head Table TE counters";
@@ -754,55 +739,6 @@ module Cisco-IOS-XR-mpls-te-oper {
         description
           "Send-Recv count summary for TE Signaling";
         uses TE-STATS-SIG;
-      }
-    }
-  }
-
-  grouping OPEN-CONFIG {
-    description
-      "Common node of mpls-te, mpls-te-standby";
-    container open-config {
-      description
-        "OpenConfig MPLS TE operational data";
-      container lsp-states {
-        description
-          "Table of LSP State Info";
-        list lsp-state {
-          key "tunnel-name tunnel-type";
-          description
-            "MPLS TE LSP State Info";
-          leaf tunnel-name {
-            type xr:Cisco-ios-xr-string;
-            description
-              "Tunnel Name";
-          }
-          leaf tunnel-type {
-            type Oc-mpls-te-tunnel;
-            description
-              "Tunnel Type";
-          }
-          uses OC-MPLS-TE-LSP-STATE;
-        }
-      }
-      container lsp-counters {
-        description
-          "Table of LSP Counters";
-        list lsp-counter {
-          key "tunnel-name tunnel-type";
-          description
-            "MPLS TE LSP Counters";
-          leaf tunnel-name {
-            type xr:Cisco-ios-xr-string;
-            description
-              "Tunnel Name";
-          }
-          leaf tunnel-type {
-            type Oc-mpls-te-tunnel;
-            description
-              "Tunnel Type";
-          }
-          uses OC-MPLS-TE-LSP-COUNTERS;
-        }
       }
     }
   }
@@ -2301,7 +2237,7 @@ module Cisco-IOS-XR-mpls-te-oper {
       "MPLS Traffic Engineering operational data";
     container segment-routing {
       description
-        "The Segment Routing database in MPLS-TE";
+        "Deprecated";
       container srigp-area-infos {
         description
           "Segment-Routing information about IGP areas";
@@ -2465,7 +2401,6 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses PATH-PROTECTION;
     uses FIB-NEXT-HOP-LABEL-ROUTE-TABLE;
     uses P2MP;
-    uses OPEN-CONFIG;
     uses LSP-OUT-OF-RESOURCES;
     uses BFD;
     uses NSR;
@@ -2687,7 +2622,6 @@ module Cisco-IOS-XR-mpls-te-oper {
     uses PATH-PROTECTION;
     uses FIB-NEXT-HOP-LABEL-ROUTE-TABLE;
     uses P2MP;
-    uses OPEN-CONFIG;
     uses LSP-OUT-OF-RESOURCES;
     uses BFD;
     uses NSR;

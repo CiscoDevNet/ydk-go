@@ -5,7 +5,7 @@
 // for the following management objects:
 //   keychain: Keychain operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lib_keychain_oper
 
@@ -42,6 +42,9 @@ const (
     // Not configured
     CrytoAlgo_not_configured CrytoAlgo = "not-configured"
 
+    // CMAC AES 12 bytes
+    CrytoAlgo_aes_128_cmac_96 CrytoAlgo = "aes-128-cmac-96"
+
     // HMAC SHA1 12 bytes
     CrytoAlgo_hmac_sha1_12 CrytoAlgo = "hmac-sha1-12"
 
@@ -62,6 +65,12 @@ const (
 
     // CMAC AES 64 bytes
     CrytoAlgo_aes_256_cmac CrytoAlgo = "aes-256-cmac"
+
+    // HMAC SHA1 12 bytes
+    CrytoAlgo_hmac_sha1_96 CrytoAlgo = "hmac-sha1-96"
+
+    // HMAC SHA256 32 bytes
+    CrytoAlgo_hmac_sha_256 CrytoAlgo = "hmac-sha-256"
 )
 
 // Keychain
@@ -71,7 +80,7 @@ type Keychain struct {
     YFilter yfilter.YFilter
 
     // List of configured key names.
-    Keies Keychain_Keies
+    Keys Keychain_Keys
 }
 
 func (keychain *Keychain) GetEntityData() *types.CommonEntityData {
@@ -85,7 +94,7 @@ func (keychain *Keychain) GetEntityData() *types.CommonEntityData {
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     keychain.EntityData.Children = types.NewOrderedMap()
-    keychain.EntityData.Children.Append("keies", types.YChild{"Keies", &keychain.Keies})
+    keychain.EntityData.Children.Append("keys", types.YChild{"Keys", &keychain.Keys})
     keychain.EntityData.Leafs = types.NewOrderedMap()
 
     keychain.EntityData.YListKeys = []string {}
@@ -93,41 +102,41 @@ func (keychain *Keychain) GetEntityData() *types.CommonEntityData {
     return &(keychain.EntityData)
 }
 
-// Keychain_Keies
+// Keychain_Keys
 // List of configured key names
-type Keychain_Keies struct {
+type Keychain_Keys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configured key name. The type is slice of Keychain_Keies_Key.
-    Key []*Keychain_Keies_Key
+    // Configured key name. The type is slice of Keychain_Keys_Key.
+    Key []*Keychain_Keys_Key
 }
 
-func (keies *Keychain_Keies) GetEntityData() *types.CommonEntityData {
-    keies.EntityData.YFilter = keies.YFilter
-    keies.EntityData.YangName = "keies"
-    keies.EntityData.BundleName = "cisco_ios_xr"
-    keies.EntityData.ParentYangName = "keychain"
-    keies.EntityData.SegmentPath = "keies"
-    keies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (keys *Keychain_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "keychain"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keies.EntityData.Children = types.NewOrderedMap()
-    keies.EntityData.Children.Append("key", types.YChild{"Key", nil})
-    for i := range keies.Key {
-        keies.EntityData.Children.Append(types.GetSegmentPath(keies.Key[i]), types.YChild{"Key", keies.Key[i]})
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Children.Append("key", types.YChild{"Key", nil})
+    for i := range keys.Key {
+        keys.EntityData.Children.Append(types.GetSegmentPath(keys.Key[i]), types.YChild{"Key", keys.Key[i]})
     }
-    keies.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs = types.NewOrderedMap()
 
-    keies.EntityData.YListKeys = []string {}
+    keys.EntityData.YListKeys = []string {}
 
-    return &(keies.EntityData)
+    return &(keys.EntityData)
 }
 
-// Keychain_Keies_Key
+// Keychain_Keys_Key
 // Configured key name
-type Keychain_Keies_Key struct {
+type Keychain_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -139,14 +148,14 @@ type Keychain_Keies_Key struct {
     AcceptTolerance interface{}
 
     // Key properties.
-    Key Keychain_Keies_Key_Key
+    Key Keychain_Keys_Key_Key
 }
 
-func (key *Keychain_Keies_Key) GetEntityData() *types.CommonEntityData {
+func (key *Keychain_Keys_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.YFilter = key.YFilter
     key.EntityData.YangName = "key"
     key.EntityData.BundleName = "cisco_ios_xr"
-    key.EntityData.ParentYangName = "keies"
+    key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyName, "key-name")
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -163,17 +172,17 @@ func (key *Keychain_Keies_Key) GetEntityData() *types.CommonEntityData {
     return &(key.EntityData)
 }
 
-// Keychain_Keies_Key_Key
+// Keychain_Keys_Key_Key
 // Key properties
-type Keychain_Keies_Key_Key struct {
+type Keychain_Keys_Key_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // key id. The type is slice of Keychain_Keies_Key_Key_KeyId.
-    KeyId []*Keychain_Keies_Key_Key_KeyId
+    // key id. The type is slice of Keychain_Keys_Key_Key_KeyId.
+    KeyId []*Keychain_Keys_Key_Key_KeyId
 }
 
-func (key *Keychain_Keies_Key_Key) GetEntityData() *types.CommonEntityData {
+func (key *Keychain_Keys_Key_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.YFilter = key.YFilter
     key.EntityData.YangName = "key"
     key.EntityData.BundleName = "cisco_ios_xr"
@@ -195,9 +204,9 @@ func (key *Keychain_Keies_Key_Key) GetEntityData() *types.CommonEntityData {
     return &(key.EntityData)
 }
 
-// Keychain_Keies_Key_Key_KeyId
+// Keychain_Keys_Key_Key_KeyId
 // key id
-type Keychain_Keies_Key_Key_KeyId struct {
+type Keychain_Keys_Key_Key_KeyId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -214,16 +223,16 @@ type Keychain_Keies_Key_Key_KeyId struct {
     CryptographicAlgorithm interface{}
 
     // To check if it's a macsec key.
-    Macsec Keychain_Keies_Key_Key_KeyId_Macsec
+    Macsec Keychain_Keys_Key_Key_KeyId_Macsec
 
     // Lifetime of the key.
-    SendLifetime Keychain_Keies_Key_Key_KeyId_SendLifetime
+    SendLifetime Keychain_Keys_Key_Key_KeyId_SendLifetime
 
     // Accept Lifetime of the key.
-    AcceptLifetime Keychain_Keies_Key_Key_KeyId_AcceptLifetime
+    AcceptLifetime Keychain_Keys_Key_Key_KeyId_AcceptLifetime
 }
 
-func (keyId *Keychain_Keies_Key_Key_KeyId) GetEntityData() *types.CommonEntityData {
+func (keyId *Keychain_Keys_Key_Key_KeyId) GetEntityData() *types.CommonEntityData {
     keyId.EntityData.YFilter = keyId.YFilter
     keyId.EntityData.YangName = "key-id"
     keyId.EntityData.BundleName = "cisco_ios_xr"
@@ -248,9 +257,9 @@ func (keyId *Keychain_Keies_Key_Key_KeyId) GetEntityData() *types.CommonEntityDa
     return &(keyId.EntityData)
 }
 
-// Keychain_Keies_Key_Key_KeyId_Macsec
+// Keychain_Keys_Key_Key_KeyId_Macsec
 // To check if it's a macsec key
-type Keychain_Keies_Key_Key_KeyId_Macsec struct {
+type Keychain_Keys_Key_Key_KeyId_Macsec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -258,7 +267,7 @@ type Keychain_Keies_Key_Key_KeyId_Macsec struct {
     IsMacsecKey interface{}
 }
 
-func (macsec *Keychain_Keies_Key_Key_KeyId_Macsec) GetEntityData() *types.CommonEntityData {
+func (macsec *Keychain_Keys_Key_Key_KeyId_Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.YFilter = macsec.YFilter
     macsec.EntityData.YangName = "macsec"
     macsec.EntityData.BundleName = "cisco_ios_xr"
@@ -277,9 +286,9 @@ func (macsec *Keychain_Keies_Key_Key_KeyId_Macsec) GetEntityData() *types.Common
     return &(macsec.EntityData)
 }
 
-// Keychain_Keies_Key_Key_KeyId_SendLifetime
+// Keychain_Keys_Key_Key_KeyId_SendLifetime
 // Lifetime of the key
-type Keychain_Keies_Key_Key_KeyId_SendLifetime struct {
+type Keychain_Keys_Key_Key_KeyId_SendLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -303,7 +312,7 @@ type Keychain_Keies_Key_Key_KeyId_SendLifetime struct {
     IsValidNow interface{}
 }
 
-func (sendLifetime *Keychain_Keies_Key_Key_KeyId_SendLifetime) GetEntityData() *types.CommonEntityData {
+func (sendLifetime *Keychain_Keys_Key_Key_KeyId_SendLifetime) GetEntityData() *types.CommonEntityData {
     sendLifetime.EntityData.YFilter = sendLifetime.YFilter
     sendLifetime.EntityData.YangName = "send-lifetime"
     sendLifetime.EntityData.BundleName = "cisco_ios_xr"
@@ -326,9 +335,9 @@ func (sendLifetime *Keychain_Keies_Key_Key_KeyId_SendLifetime) GetEntityData() *
     return &(sendLifetime.EntityData)
 }
 
-// Keychain_Keies_Key_Key_KeyId_AcceptLifetime
+// Keychain_Keys_Key_Key_KeyId_AcceptLifetime
 // Accept Lifetime of the key
-type Keychain_Keies_Key_Key_KeyId_AcceptLifetime struct {
+type Keychain_Keys_Key_Key_KeyId_AcceptLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -352,7 +361,7 @@ type Keychain_Keies_Key_Key_KeyId_AcceptLifetime struct {
     IsValidNow interface{}
 }
 
-func (acceptLifetime *Keychain_Keies_Key_Key_KeyId_AcceptLifetime) GetEntityData() *types.CommonEntityData {
+func (acceptLifetime *Keychain_Keys_Key_Key_KeyId_AcceptLifetime) GetEntityData() *types.CommonEntityData {
     acceptLifetime.EntityData.YFilter = acceptLifetime.YFilter
     acceptLifetime.EntityData.YangName = "accept-lifetime"
     acceptLifetime.EntityData.BundleName = "cisco_ios_xr"

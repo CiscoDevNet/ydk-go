@@ -6,7 +6,7 @@
 //   ip-tcp: Global IP TCP configuration
 //   ip: ip
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_tcp_cfg
 
@@ -70,6 +70,9 @@ type IpTcp struct {
     // Throttle TCP receive buffer (in percentage).
     Throttle IpTcp_Throttle
 
+    // TCP authentication option configuration mode.
+    Ao IpTcp_Ao
+
     // TCP InQueue and OutQueue threads.
     NumThread IpTcp_NumThread
 }
@@ -87,6 +90,7 @@ func (ipTcp *IpTcp) GetEntityData() *types.CommonEntityData {
     ipTcp.EntityData.Children = types.NewOrderedMap()
     ipTcp.EntityData.Children.Append("directory", types.YChild{"Directory", &ipTcp.Directory})
     ipTcp.EntityData.Children.Append("throttle", types.YChild{"Throttle", &ipTcp.Throttle})
+    ipTcp.EntityData.Children.Append("ao", types.YChild{"Ao", &ipTcp.Ao})
     ipTcp.EntityData.Children.Append("num-thread", types.YChild{"NumThread", &ipTcp.NumThread})
     ipTcp.EntityData.Leafs = types.NewOrderedMap()
     ipTcp.EntityData.Leafs.Append("accept-rate", types.YLeaf{"AcceptRate", ipTcp.AcceptRate})
@@ -179,6 +183,181 @@ func (throttle *IpTcp_Throttle) GetEntityData() *types.CommonEntityData {
     throttle.EntityData.YListKeys = []string {}
 
     return &(throttle.EntityData)
+}
+
+// IpTcp_Ao
+// TCP authentication option configuration mode
+type IpTcp_Ao struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Create TCP-AO submode. The type is interface{}.
+    Enable interface{}
+
+    // Configure a Key Chain.
+    Keychains IpTcp_Ao_Keychains
+}
+
+func (ao *IpTcp_Ao) GetEntityData() *types.CommonEntityData {
+    ao.EntityData.YFilter = ao.YFilter
+    ao.EntityData.YangName = "ao"
+    ao.EntityData.BundleName = "cisco_ios_xr"
+    ao.EntityData.ParentYangName = "ip-tcp"
+    ao.EntityData.SegmentPath = "ao"
+    ao.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ao.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ao.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ao.EntityData.Children = types.NewOrderedMap()
+    ao.EntityData.Children.Append("keychains", types.YChild{"Keychains", &ao.Keychains})
+    ao.EntityData.Leafs = types.NewOrderedMap()
+    ao.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ao.Enable})
+
+    ao.EntityData.YListKeys = []string {}
+
+    return &(ao.EntityData)
+}
+
+// IpTcp_Ao_Keychains
+// Configure a Key Chain
+type IpTcp_Ao_Keychains struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the key chain. The type is slice of IpTcp_Ao_Keychains_Keychain.
+    Keychain []*IpTcp_Ao_Keychains_Keychain
+}
+
+func (keychains *IpTcp_Ao_Keychains) GetEntityData() *types.CommonEntityData {
+    keychains.EntityData.YFilter = keychains.YFilter
+    keychains.EntityData.YangName = "keychains"
+    keychains.EntityData.BundleName = "cisco_ios_xr"
+    keychains.EntityData.ParentYangName = "ao"
+    keychains.EntityData.SegmentPath = "keychains"
+    keychains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keychains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keychains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keychains.EntityData.Children = types.NewOrderedMap()
+    keychains.EntityData.Children.Append("keychain", types.YChild{"Keychain", nil})
+    for i := range keychains.Keychain {
+        keychains.EntityData.Children.Append(types.GetSegmentPath(keychains.Keychain[i]), types.YChild{"Keychain", keychains.Keychain[i]})
+    }
+    keychains.EntityData.Leafs = types.NewOrderedMap()
+
+    keychains.EntityData.YListKeys = []string {}
+
+    return &(keychains.EntityData)
+}
+
+// IpTcp_Ao_Keychains_Keychain
+// Name of the key chain
+type IpTcp_Ao_Keychains_Keychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the key chain. The type is string with
+    // length: 1..32.
+    Name interface{}
+
+    // Create keychain. The type is interface{}.
+    Create interface{}
+
+    // Configure a Key.
+    Keys IpTcp_Ao_Keychains_Keychain_Keys
+}
+
+func (keychain *IpTcp_Ao_Keychains_Keychain) GetEntityData() *types.CommonEntityData {
+    keychain.EntityData.YFilter = keychain.YFilter
+    keychain.EntityData.YangName = "keychain"
+    keychain.EntityData.BundleName = "cisco_ios_xr"
+    keychain.EntityData.ParentYangName = "keychains"
+    keychain.EntityData.SegmentPath = "keychain" + types.AddKeyToken(keychain.Name, "name")
+    keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Children.Append("keys", types.YChild{"Keys", &keychain.Keys})
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("name", types.YLeaf{"Name", keychain.Name})
+    keychain.EntityData.Leafs.Append("create", types.YLeaf{"Create", keychain.Create})
+
+    keychain.EntityData.YListKeys = []string {"Name"}
+
+    return &(keychain.EntityData)
+}
+
+// IpTcp_Ao_Keychains_Keychain_Keys
+// Configure a Key
+type IpTcp_Ao_Keychains_Keychain_Keys struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is slice of IpTcp_Ao_Keychains_Keychain_Keys_Key.
+    Key []*IpTcp_Ao_Keychains_Keychain_Keys_Key
+}
+
+func (keys *IpTcp_Ao_Keychains_Keychain_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "keychain"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Children.Append("key", types.YChild{"Key", nil})
+    for i := range keys.Key {
+        keys.EntityData.Children.Append(types.GetSegmentPath(keys.Key[i]), types.YChild{"Key", keys.Key[i]})
+    }
+    keys.EntityData.Leafs = types.NewOrderedMap()
+
+    keys.EntityData.YListKeys = []string {}
+
+    return &(keys.EntityData)
+}
+
+// IpTcp_Ao_Keychains_Keychain_Keys_Key
+// Key identifier
+type IpTcp_Ao_Keychains_Keychain_Keys_Key struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. 48-bit Key identifier in range [0 -
+    // 281474976710655]. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    KeyId interface{}
+
+    // Send ID. The type is interface{} with range: 0..255. This attribute is
+    // mandatory.
+    SendId interface{}
+
+    // Receive ID. The type is interface{} with range: 0..255. This attribute is
+    // mandatory.
+    ReceiveId interface{}
+}
+
+func (key *IpTcp_Ao_Keychains_Keychain_Keys_Key) GetEntityData() *types.CommonEntityData {
+    key.EntityData.YFilter = key.YFilter
+    key.EntityData.YangName = "key"
+    key.EntityData.BundleName = "cisco_ios_xr"
+    key.EntityData.ParentYangName = "keys"
+    key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyId, "key-id")
+    key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    key.EntityData.Children = types.NewOrderedMap()
+    key.EntityData.Leafs = types.NewOrderedMap()
+    key.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", key.KeyId})
+    key.EntityData.Leafs.Append("send-id", types.YLeaf{"SendId", key.SendId})
+    key.EntityData.Leafs.Append("receive-id", types.YLeaf{"ReceiveId", key.ReceiveId})
+
+    key.EntityData.YListKeys = []string {"KeyId"}
+
+    return &(key.EntityData)
 }
 
 // IpTcp_NumThread

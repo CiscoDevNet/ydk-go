@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub7 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -156,6 +156,16 @@ submodule Cisco-IOS-XR-fib-common-oper-sub7 {
       type uint64;
       description
         "Drops for the packets with multi[le labels";
+    }
+    leaf unreachable-sr-label-drops {
+      type uint64;
+      description
+        "No route or unresolved route of MPLS SR labels";
+    }
+    leaf ttl-expired-sr-label-drops {
+      type uint64;
+      description
+        "TTL expired drops of MPLS SR labels";
     }
   }
 }

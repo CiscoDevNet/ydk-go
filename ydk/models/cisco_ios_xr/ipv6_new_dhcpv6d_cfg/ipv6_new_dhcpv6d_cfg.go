@@ -5,7 +5,7 @@
 // for the following management objects:
 //   dhcpv6: None
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_new_dhcpv6d_cfg
 
@@ -48,6 +48,9 @@ const (
 
     // Insert received Interface ID value from SADB
     Insert_pppoe Insert = "pppoe"
+
+    // No default Interface ID
+    Insert_received_nodefault Insert = "received-nodefault"
 )
 
 // LinkLayerAddr represents Link layer addr
@@ -263,7 +266,7 @@ type Dhcpv6_Profiles_Profile_Relay struct {
     YPresence bool
 
     // Relay profile Source Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
@@ -272,6 +275,9 @@ type Dhcpv6_Profiles_Profile_Relay struct {
 
     // Enable route addition for IANA. The type is interface{}.
     IanaRouteAdd interface{}
+
+    // RouteDisable. The type is interface{}.
+    RelayRouteAddDisable interface{}
 
     // Table of HelperAddress.
     HelperAddresses Dhcpv6_Profiles_Profile_Relay_HelperAddresses
@@ -297,6 +303,7 @@ func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityD
     relay.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", relay.SrcIntfName})
     relay.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", relay.Enable})
     relay.EntityData.Leafs.Append("iana-route-add", types.YLeaf{"IanaRouteAdd", relay.IanaRouteAdd})
+    relay.EntityData.Leafs.Append("relay-route-add-disable", types.YLeaf{"RelayRouteAddDisable", relay.RelayRouteAddDisable})
 
     relay.EntityData.YListKeys = []string {}
 
@@ -354,7 +361,7 @@ type Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress struct {
     Enable interface{}
 
     // Helper-address Specific Source Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SrcIntfName interface{}
 }
 
@@ -681,7 +688,7 @@ type Dhcpv6_Profiles_Profile_Proxy struct {
     LinkAddress interface{}
 
     // Create or enter proxy profile Source Interface Name. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SrcIntfName interface{}
 
     // Enable None. Deletion of this object also causes deletion of all associated
@@ -776,7 +783,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Physical interface ID. The type is string.
@@ -1019,7 +1026,7 @@ type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress struct
     HelperAddress interface{}
 
     // DHCPv6 HelperAddress Specific Output Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // DHCPv6 HelperAddress Output Interface. The type is interface{}.
@@ -1670,7 +1677,7 @@ type Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease struct {
     // Hours. The type is interface{} with range: 0..23. Units are hour.
     Hours interface{}
 
-    // Minutes. The type is interface{} with range: 1..59. Units are minute.
+    // Minutes. The type is interface{} with range: 0..59. Units are minute.
     Minutes interface{}
 }
 
@@ -1708,7 +1715,7 @@ type Dhcpv6_Profiles_Profile_Server_Lease struct {
     // Hours. The type is interface{} with range: 0..23. Units are hour.
     Hours interface{}
 
-    // Minutes. The type is interface{} with range: 1..59. Units are minute.
+    // Minutes. The type is interface{} with range: 0..59. Units are minute.
     Minutes interface{}
 
     // Set string. The type is string.
@@ -2188,7 +2195,7 @@ type Dhcpv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // PPPoE subscriber interface.

@@ -33,7 +33,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
        Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-30 {
@@ -861,7 +861,6 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               range "0..10000";
             }
             units "millisecond";
-            mandatory true;
             description
               "Configure PADO delay dependent on the
                received Circuit ID";
@@ -871,7 +870,6 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg {
               range "0..10000";
             }
             units "millisecond";
-            mandatory true;
             description
               "Configure PADO delay dependent on the
                received Remote ID";

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   rip: RIP configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_rip_cfg
 
@@ -805,7 +805,7 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.
@@ -1850,7 +1850,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.

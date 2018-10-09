@@ -32,7 +32,7 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pfi-im-cmd package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-06-26 {
@@ -1462,6 +1462,28 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
     }
     description
       "Ppp fsm state";
+  }
+
+  typedef Vlan-switched-mode {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "Disabled";
+      }
+      enum "trunk-port" {
+        value 1;
+        description
+          "Trunk port";
+      }
+      enum "access-port" {
+        value 2;
+        description
+          "Access port";
+      }
+    }
+    description
+      "VLAN-Switched mode";
   }
 
   typedef Mac-address {
@@ -3607,6 +3629,106 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
         description
           "im attr media 10gbase acu10m";
       }
+      enum "im-attr-media-4x10g-base-lr" {
+        value 362;
+        description
+          "im attr media 4x10g base lr";
+      }
+      enum "im-attr-media-10gbase-cu1-5m" {
+        value 363;
+        description
+          "im attr media 10gbase cu1 5m";
+      }
+      enum "im-attr-media-10gbase-cu2m" {
+        value 364;
+        description
+          "im attr media 10gbase cu2m";
+      }
+      enum "im-attr-media-10gbase-cu2-5m" {
+        value 365;
+        description
+          "im attr media 10gbase cu2 5m";
+      }
+      enum "im-attr-media-10gbase-aoc1m" {
+        value 366;
+        description
+          "im attr media 10gbase aoc1m";
+      }
+      enum "im-attr-media-10gbase-aoc2m" {
+        value 367;
+        description
+          "im attr media 10gbase aoc2m";
+      }
+      enum "im-attr-media-10gbase-aoc3m" {
+        value 368;
+        description
+          "im attr media 10gbase aoc3m";
+      }
+      enum "im-attr-media-10gbase-aoc5m" {
+        value 369;
+        description
+          "im attr media 10gbase aoc5m";
+      }
+      enum "im-attr-media-10gbase-aoc7m" {
+        value 370;
+        description
+          "im attr media 10gbase aoc7m";
+      }
+      enum "im-attr-media-10gbase-aoc10m" {
+        value 371;
+        description
+          "im attr media 10gbase aoc10m";
+      }
+      enum "im-attr-media-40gbase-acu1m" {
+        value 372;
+        description
+          "im attr media 40gbase acu1m";
+      }
+      enum "im-attr-media-40gbase-acu3m" {
+        value 373;
+        description
+          "im attr media 40gbase acu3m";
+      }
+      enum "im-attr-media-40gbase-acu5m" {
+        value 374;
+        description
+          "im attr media 40gbase acu5m";
+      }
+      enum "im-attr-media-40gbase-acu7m" {
+        value 375;
+        description
+          "im attr media 40gbase acu7m";
+      }
+      enum "im-attr-media-40gbase-acu10m" {
+        value 376;
+        description
+          "im attr media 40gbase acu10m";
+      }
+      enum "im-attr-media-25gbase-cu1m" {
+        value 377;
+        description
+          "im attr media 25gbase cu1m";
+      }
+      enum "im-attr-media-25gbase-cu2m" {
+        value 378;
+        description
+          "im attr media 25gbase cu2m";
+      }
+      enum "im-attr-media-25gbase-cu3m" {
+        value 379;
+        description
+          "im attr media 25gbase cu3m";
+      }
+      enum "im-attr-media-25gbase-cu5m" {
+        value 380;
+        description
+          "im attr media 25gbase cu5m";
+      }
+      enum "im-attr-media-100gbase-sm-sr" {
+        value 381;
+        description
+          "im attr media 100gbase sm sr";
+      }
     }
     description
       "Im attr media";
@@ -5441,6 +5563,26 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
     }
   }
 
+  grouping VLAN-SWITCHED-INFO {
+    description
+      "VLAN-Switched information";
+    container trunk-vlan-ranges {
+      description
+        "VLAN-Switched Trunk VLAN ranges";
+      uses EFP-DESCRIPTION;
+    }
+    leaf mode {
+      type Vlan-switched-mode;
+      description
+        "VLAN-Switched mode";
+    }
+    leaf access-vlan {
+      type Vlan-tag-value;
+      description
+        "VLAN-Switched Access VLAN";
+    }
+  }
+
   grouping EFP-TAG-LOCAL-TRAFFIC-STACK {
     description
       "EFP TAG LOCAL TRAFFIC STACK";
@@ -5672,6 +5814,11 @@ submodule Cisco-IOS-XR-pfi-im-cmd-oper-sub1 {
       description
         "Encapsulation type and tag stack";
       uses VLAN-TAG-STACK-TYPE;
+    }
+    container vlan-switched {
+      description
+        "VLAN-Switched information";
+      uses VLAN-SWITCHED-INFO;
     }
   }
 

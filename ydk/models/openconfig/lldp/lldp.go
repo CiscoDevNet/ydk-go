@@ -71,9 +71,9 @@ type Lldp_Config struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
-    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
-    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
+    // transmitted by the local agent. The type is slice of ['SYSTEMNAME',
+    // 'PORTDESCRIPTION', 'SYSTEMDESCRIPTION', 'CHASSISID', 'SYSTEMCAPABILITIES',
+    // 'MANAGEMENTADDRESS', 'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -144,9 +144,9 @@ type Lldp_State struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
-    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
-    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
+    // transmitted by the local agent. The type is slice of ['SYSTEMNAME',
+    // 'PORTDESCRIPTION', 'SYSTEMDESCRIPTION', 'CHASSISID', 'SYSTEMCAPABILITIES',
+    // 'MANAGEMENTADDRESS', 'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates

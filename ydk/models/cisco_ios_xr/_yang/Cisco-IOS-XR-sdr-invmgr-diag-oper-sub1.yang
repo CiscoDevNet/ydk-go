@@ -19,9 +19,13 @@ submodule Cisco-IOS-XR-sdr-invmgr-diag-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR sdr-invmgr-diag package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -469,6 +473,13 @@ submodule Cisco-IOS-XR-sdr-invmgr-diag-oper-sub1 {
       }
       description
         "RMA Code";
+    }
+    leaf eci-alpha-number {
+      type string {
+        length "0..255";
+      }
+      description
+        "AlphaNumeric Equipment Catalog Item (ECI) number";
     }
   }
 }

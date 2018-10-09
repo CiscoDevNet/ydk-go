@@ -29,7 +29,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
      for the following management objects:
        dhcpv6: None
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-12 {
@@ -70,6 +70,11 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
         value 2;
         description
           "Insert received Interface ID value from SADB";
+      }
+      enum "received-nodefault" {
+        value 3;
+        description
+          "No default Interface ID";
       }
     }
     description
@@ -259,6 +264,11 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
             type empty;
             description
               "Enable route addition for IANA";
+          }
+          leaf relay-route-add-disable {
+            type empty;
+            description
+              "RouteDisable";
           }
         }
         container base {
@@ -612,7 +622,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
                 }
                 leaf minutes {
                   type uint32 {
-                    range "1..59";
+                    range "0..59";
                   }
                   units "minute";
                   description
@@ -677,7 +687,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg {
             }
             leaf minutes {
               type uint32 {
-                range "1..59";
+                range "0..59";
               }
               units "minute";
               description

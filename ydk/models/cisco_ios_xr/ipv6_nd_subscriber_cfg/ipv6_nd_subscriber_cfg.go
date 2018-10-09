@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_nd_subscriber_cfg
 

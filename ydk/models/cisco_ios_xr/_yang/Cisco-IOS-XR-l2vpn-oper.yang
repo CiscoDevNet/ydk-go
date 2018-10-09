@@ -11,6 +11,9 @@ module Cisco-IOS-XR-l2vpn-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
+  include Cisco-IOS-XR-l2vpn-oper-sub4 {
+    revision-date 2017-09-07;
+  }
   include Cisco-IOS-XR-l2vpn-oper-sub3 {
     revision-date 2017-09-07;
   }
@@ -43,7 +46,7 @@ module Cisco-IOS-XR-l2vpn-oper {
        l2vpnv2: l2vpnv2
        generic-interface-list-v2: generic interface list v2
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -238,6 +241,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       description
         "XConnect MP2MP Table";
       list xconnect-mp2mp {
+        key "group-name mp2-mp-name";
         description
           "XConnect MP2MP information";
         leaf group-name {
@@ -704,7 +708,7 @@ module Cisco-IOS-XR-l2vpn-oper {
           description
             "Remote CE ID";
         }
-        uses L2VPN-XC-CE2CE;
+        uses L2VPN-XC;
       }
     }
   }
@@ -792,6 +796,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       description
         "XConnect Table";
       list xconnect {
+        key "group-name xconnect-name";
         description
           "XConnect information";
         leaf group-name {
@@ -830,6 +835,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       description
         "Bridge Domain Information";
       list bridge-domain {
+        key "bridge-domain-group-name bridge-domain-name";
         description
           "Bridge Domain Information";
         container bridge-access-vfi-table {
@@ -1037,6 +1043,35 @@ module Cisco-IOS-XR-l2vpn-oper {
     }
   }
 
+  grouping PSEUDOWIRE-HEADEND {
+    description
+      "Common node of active, standby, node";
+    container pseudowire-headend {
+      description
+        "Pseudowire Headend related operational data";
+      container detail-interfaces {
+        description
+          "PW-HE Interfaces";
+        list detail-interface {
+          key "interface-name";
+          description
+            "PW-HE Interface detail";
+          leaf interface-name {
+            type xr:Interface-name;
+            description
+              "PWHE Interface name";
+          }
+          uses L2VPN-PWHE-DETAIL;
+        }
+      }
+      container summary {
+        description
+          "PW-HE interface summary";
+        uses L2VPN-PWHE-SUMMARY;
+      }
+    }
+  }
+
   grouping MVRP {
     description
       "Common node of active, standby, node";
@@ -1097,13 +1132,19 @@ module Cisco-IOS-XR-l2vpn-oper {
             "The L2VPN forwarding Local LC XConnect Detail
              Table";
           list l2fibx-con-local {
-            key "interface-name";
             description
               "Specify Sub Ifh";
             leaf interface-name {
               type xr:Interface-name;
               description
                 "Interface Name";
+            }
+            leaf vsp-vlan-id {
+              type uint32 {
+                range "0..4094";
+              }
+              description
+                "VLAN-Switched Port VLAN ID";
             }
             uses L2FIB-XCON-INFO;
           }
@@ -1437,6 +1478,11 @@ module Cisco-IOS-XR-l2vpn-oper {
               description
                 "Parent interface context";
             }
+            leaf main-interface-type {
+              type Evpn-main-interface;
+              description
+                "Main port interface type";
+            }
             leaf msti {
               type uint32;
               description
@@ -1483,13 +1529,19 @@ module Cisco-IOS-XR-l2vpn-oper {
             "The L2VPN forwarding XConnect L2TPv2 Detail
              Table";
           list l2fibx-con-l2tpv2 {
-            key "interface-name";
             description
               "Specify Sub Ifh";
             leaf interface-name {
               type xr:Interface-name;
               description
                 "Interface Name";
+            }
+            leaf vsp-vlan-id {
+              type uint32 {
+                range "0..4094";
+              }
+              description
+                "VLAN-Switched Port VLAN ID";
             }
             uses L2FIB-XCON-INFO;
           }
@@ -1791,6 +1843,11 @@ module Cisco-IOS-XR-l2vpn-oper {
               type xr:Interface-name;
               description
                 "Parent interface context";
+            }
+            leaf main-interface-type {
+              type Evpn-main-interface;
+              description
+                "Main port interface type";
             }
             leaf msti {
               type uint32;
@@ -2160,6 +2217,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       uses BRIDGE-SUMMARY;
       uses NSR;
       uses PREFERRED-PATH-TABLE;
+      uses PSEUDOWIRE-HEADEND;
       uses GLOBAL-SETTINGS;
       uses PWR;
       uses XCONNECT-MP2MP-CE2CE-TABLE;
@@ -2194,6 +2252,7 @@ module Cisco-IOS-XR-l2vpn-oper {
       uses BRIDGE-SUMMARY;
       uses NSR;
       uses PREFERRED-PATH-TABLE;
+      uses PSEUDOWIRE-HEADEND;
       uses GLOBAL-SETTINGS;
       uses PWR;
       uses XCONNECT-MP2MP-CE2CE-TABLE;
@@ -2238,6 +2297,7 @@ module Cisco-IOS-XR-l2vpn-oper {
         uses BRIDGE-SUMMARY;
         uses NSR;
         uses PREFERRED-PATH-TABLE;
+        uses PSEUDOWIRE-HEADEND;
         uses GLOBAL-SETTINGS;
         uses PWR;
         uses XCONNECT-MP2MP-CE2CE-TABLE;

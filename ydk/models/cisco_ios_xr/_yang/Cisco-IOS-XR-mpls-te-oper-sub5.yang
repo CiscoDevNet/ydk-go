@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-te package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -1456,6 +1456,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
           "Termination case must have source and
            destination valid ifindex";
       }
+      enum "mtunnel-fail-reason-termination-has-invalid-payload-type" {
+        description
+          "Termination payload type has to be valid for
+           configured bandwidth";
+      }
     }
     description
       "Reason for tunnel being down";
@@ -1689,6 +1694,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         description
           "Segment-Routing IGP Area SPF Support Change
            Trigger";
+      }
+      enum "path-protection-non-revertive-config-change" {
+        description
+          "Path Protection Non-revertive Configuration
+           changed";
       }
       enum "trigger-not-used" {
         description
@@ -1953,14 +1963,20 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
           "Reopt LSP is signalled  because the path delay
            limit is crossed";
       }
-      enum "intra-area" {
+      enum "lockout-metric" {
         value 42;
+        description
+          "Reopt LSP is signalled  because one of the
+           links is locked out";
+      }
+      enum "intra-area" {
+        value 43;
         description
           "Reopt LSP is signalled because it has better
            intra-areaness";
       }
       enum "not-used" {
-        value 43;
+        value 44;
         description
           "Not used, must be last entry";
       }
@@ -7337,6 +7353,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "tunnel id xr";
     }
+    leaf tunnel-name {
+      type string;
+      description
+        "Tunnel name";
+    }
     list tunnel-autoroute-dest {
       description
         "tunnel autoroute dest";
@@ -10318,6 +10339,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
   grouping MPLS-TE-TUNNEL-STATIC-UNI-INFO {
     description
       "static UNI info for both head and tail";
+    container term-interface-srlg {
+      description
+        "Termination Interface SRLG";
+      uses TE-TERM-INTERFACE-SRLG-CB;
+    }
     leaf client-port {
       type string;
       description
@@ -11262,6 +11288,125 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     }
   }
 
+  grouping MPLS-TE-AUTOCAPACITY-CLONE {
+    description
+      "Brief information about a clone tunnel";
+    leaf name {
+      type string;
+      description
+        "Name of the clone";
+    }
+    leaf creation-timestamp {
+      type uint32;
+      description
+        "The timestamp when this clone was created
+         relative to Jan 1, 1970";
+    }
+    leaf state {
+      type Mte-tunnel-oper-state;
+      description
+        "The interface state of the cloned tunnel";
+    }
+    leaf signaled-bandwidth {
+      type uint32;
+      units "kbit/s";
+      description
+        "The signaled bandwidth (kbps) of the clone";
+    }
+    leaf current-bandwidth-demand {
+      type uint32;
+      units "kbit/s";
+      description
+        "The current demand (kbps) read from the traffic
+         stats for the clone";
+    }
+  }
+
+  grouping MPLS-TE-AUTOCAPACITY-STATS {
+    description
+      "Statistics for auto-capacity";
+    leaf splits {
+      type uint32;
+      description
+        "Count of splits events";
+    }
+    leaf merges {
+      type uint32;
+      description
+        "Count of merges events";
+    }
+    leaf total-clones-created {
+      type uint32;
+      description
+        "Total clones created";
+    }
+    leaf total-clones-deleted {
+      type uint32;
+      description
+        "Total clones deleted";
+    }
+    leaf high-watermark-clones {
+      type uint32;
+      description
+        "Highest number of clones reached at any point in
+         time";
+    }
+  }
+
+  grouping MPLS-TE-AUTOCAPACITY-CONFIG {
+    description
+      "Configured properties of auto-capacity";
+    leaf minimum-clones {
+      type uint32;
+      description
+        "The minimum number of clones";
+    }
+    leaf maximum-clones {
+      type uint32;
+      description
+        "The maximum number of clones";
+    }
+    leaf merge-bandwidth {
+      type uint32;
+      units "kbit/s";
+      description
+        "The merge bandwidth in kbps";
+    }
+    leaf split-bandwidth {
+      type uint32;
+      units "kbit/s";
+      description
+        "The split bandwidth in kbps";
+    }
+    leaf nominal-bandwidth {
+      type uint32;
+      units "kbit/s";
+      description
+        "The optimal or nominal bandwidth for the clones
+         in kbps";
+    }
+  }
+
+  grouping MPLS-TE-AUTOCAPACITY {
+    description
+      "Auto-capacity information for TE tunnels";
+    container auto-capacity-configuration {
+      description
+        "The configured properties of auto-capacity";
+      uses MPLS-TE-AUTOCAPACITY-CONFIG;
+    }
+    container auto-capacity-stats {
+      description
+        "The statistic of auto-capacity";
+      uses MPLS-TE-AUTOCAPACITY-STATS;
+    }
+    list clone {
+      description
+        "Table of clones";
+      uses MPLS-TE-AUTOCAPACITY-CLONE;
+    }
+  }
+
   grouping MPLS-TE-TUNNELS-AUTOBW-OPER {
     description
       "MPLS TE Tunnel AutoBandwidth Operational
@@ -11359,6 +11504,13 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "Current application reject reason";
     }
+    leaf resignal-last-bandwidth-expire-time {
+      type uint32;
+      description
+        "Timestamp when the resignal last bandwidth will
+         expire and tunnel will use configured bandwidth
+         to setup";
+    }
   }
 
   grouping MPLS-TE-TUNNELS-AUTOBW-CONFIG {
@@ -11442,6 +11594,18 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
         "Limit of consecutive collections exceeding
          threshold to trigger an immediate underflow
          bandwidth adjustment";
+    }
+    leaf resignal-last-bandwidth-enabled {
+      type boolean;
+      description
+        "TRUE if resignal last bandwidth is enabled";
+    }
+    leaf resignal-last-bandwidth-timeout {
+      type uint32;
+      units "second";
+      description
+        "The configured time-out value in seconds for
+         resignal  last bandwidth after tunnel down";
     }
   }
 
@@ -11625,6 +11789,61 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
     }
   }
 
+  grouping MPLS-TE-TUNNEL-LOGGING {
+    description
+      "Tunnel Logging Attributes";
+    leaf all {
+      type boolean;
+      description
+        "All tunnel logging enabled";
+    }
+    leaf reoptimize {
+      type boolean;
+      description
+        "Reoptimization Logging";
+    }
+    leaf state {
+      type boolean;
+      description
+        "State Logging";
+    }
+    leaf reroute {
+      type boolean;
+      description
+        "Reroute logging";
+    }
+    leaf bandwidth-change {
+      type boolean;
+      description
+        "Bandwidth change logging";
+    }
+    leaf switchover {
+      type boolean;
+      description
+        "Path protection switchover logging";
+    }
+    leaf record-route {
+      type boolean;
+      description
+        "Record route logging";
+    }
+    leaf path-calculation-failure {
+      type boolean;
+      description
+        "Path calculation failure logging";
+    }
+    leaf reoptimization-attempt {
+      type boolean;
+      description
+        "Reoptimization attempt logging";
+    }
+    leaf insufficient-bandwidth {
+      type boolean;
+      description
+        "Insufficient bandwidth logging";
+    }
+  }
+
   grouping MPLS-TE-AUTOROUTE-DESTINATION-BAG {
     description
       "An Autoroute destination";
@@ -11802,6 +12021,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "BFD Configuration Information";
       uses MPLS-TE-TUNNEL-BFD-CONFIG-INFO;
+    }
+    container logging {
+      description
+        "Logging configuration";
+      uses MPLS-TE-TUNNEL-LOGGING;
     }
     leaf tunnel-name {
       type string;
@@ -12045,6 +12269,11 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "P2P specific info";
       uses MPLS-TE-P2P-INFO-BAG;
+    }
+    container auto-capacity {
+      description
+        "Auto-capacity Info";
+      uses MPLS-TE-AUTOCAPACITY;
     }
     container history {
       description
@@ -12452,6 +12681,26 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "Destinations array";
       uses MPLS-TE-P2MP-DEST;
+    }
+  }
+
+  grouping MPLS-TE-PATH-METRICS {
+    description
+      "Path metrics info";
+    leaf te-metric {
+      type uint64;
+      description
+        "Path TE Metric";
+    }
+    leaf igp-metric {
+      type uint64;
+      description
+        "Path IGP Metric";
+    }
+    leaf delay-metric {
+      type uint64;
+      description
+        "Path Delay Metric";
     }
   }
 
@@ -15036,6 +15285,16 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub5 {
       description
         "S2L Diversity Information";
       uses MPLS-TE-S2L-DIVERSITY-INFO;
+    }
+    container accumulated-path-metrics {
+      description
+        "Accumulated Path Metrics";
+      uses MPLS-TE-PATH-METRICS;
+    }
+    container accumulated-reverse-path-metrics {
+      description
+        "Accumulated Reverse Path Metrics";
+      uses MPLS-TE-PATH-METRICS;
     }
     leaf pcalc-area {
       type string;

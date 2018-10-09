@@ -22,7 +22,7 @@ module Cisco-IOS-XR-mpls-te-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -407,6 +407,11 @@ module Cisco-IOS-XR-mpls-te-datatypes {
         description
           "TE Metric";
       }
+      enum "delay" {
+        value 4;
+        description
+          "DELAY Metric";
+      }
     }
     description
       "Mpls te path selection metric";
@@ -442,7 +447,7 @@ module Cisco-IOS-XR-mpls-te-datatypes {
       enum "sr" {
         value 6;
         description
-          "Segment routing";
+          "Deprecated";
       }
     }
     description

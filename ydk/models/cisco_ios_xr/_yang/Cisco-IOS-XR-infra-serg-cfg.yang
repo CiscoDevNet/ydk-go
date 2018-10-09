@@ -29,9 +29,13 @@ module Cisco-IOS-XR-infra-serg-cfg {
      for the following management objects:
        session-redundancy: Session Redundancy configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Added pool-name support.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -192,6 +196,31 @@ module Cisco-IOS-XR-infra-serg-cfg {
                Deletion of this object also causes deletion
                of all associated objects under InterfaceList
                .";
+          }
+        }
+        container pool-list {
+          description
+            "List of Pool-names for this Group";
+          container pool-names {
+            description
+              "Table of PoolName";
+            list pool-name {
+              key "pool-name";
+              description
+                "Address Pool Name";
+              leaf pool-name {
+                type xr:Cisco-ios-xr-string;
+                description
+                  "Pool name";
+              }
+            }
+          }
+          leaf enable {
+            type empty;
+            description
+              "Enable List of Pool-names for this Group.
+               Deletion of this object also causes deletion
+               of all associated objects under PoolList.";
           }
         }
         leaf core-tracking-object {

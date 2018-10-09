@@ -18,7 +18,7 @@ module Cisco-IOS-XR-freqsync-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -91,6 +91,21 @@ module Cisco-IOS-XR-freqsync-datatypes {
         value 4;
         description
           "QZSS constellation";
+      }
+      enum "glonass" {
+        value 5;
+        description
+          "GLONASS constellation";
+      }
+      enum "sbas" {
+        value 6;
+        description
+          "SBAS constellation";
+      }
+      enum "irnss" {
+        value 7;
+        description
+          "IRNSS constellation";
       }
     }
     description

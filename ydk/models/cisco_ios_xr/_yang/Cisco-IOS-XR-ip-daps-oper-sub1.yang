@@ -23,12 +23,31 @@ submodule Cisco-IOS-XR-ip-daps-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-daps package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Daps-serg-role {
+    type enumeration {
+      enum "none" {
+        description
+          "Role None";
+      }
+      enum "master" {
+        description
+          "Role Master";
+      }
+      enum "slave" {
+        description
+          "Role Slave";
+      }
+    }
+    description
+      "DAPS SERG role";
   }
 
   typedef Daps-client {
@@ -203,9 +222,34 @@ submodule Cisco-IOS-XR-ip-daps-oper-sub1 {
     }
   }
 
+  grouping DAPS-POOL-SERG-INFO {
+    description
+      "SERG info";
+    leaf preferred-role {
+      type Daps-serg-role;
+      description
+        "SERG PreferredRole";
+    }
+    leaf peer-down {
+      type boolean;
+      description
+        "Peer Down";
+    }
+    leaf verify-pend {
+      type boolean;
+      description
+        "Verify Pending";
+    }
+  }
+
   grouping IP-DAPS-SHOW-POOL-CFG {
     description
       "IP DAPS pool configuration";
+    container serg-info {
+      description
+        "SERG Info";
+      uses DAPS-POOL-SERG-INFO;
+    }
     leaf pool-name {
       type string {
         length "0..64";

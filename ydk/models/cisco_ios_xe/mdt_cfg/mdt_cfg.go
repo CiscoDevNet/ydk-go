@@ -1,6 +1,6 @@
 // This module contains a collection of YANG 
 // definitions for configuration of streaming telemetry.
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mdt_cfg
 
@@ -15,8 +15,8 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package mdt_cfg"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-mdt-cfg mdt-subscriptions}", reflect.TypeOf(MdtSubscriptions{}))
-    ydk.RegisterEntity("Cisco-IOS-XE-mdt-cfg:mdt-subscriptions", reflect.TypeOf(MdtSubscriptions{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-mdt-cfg mdt-config-data}", reflect.TypeOf(MdtConfigData{}))
+    ydk.RegisterEntity("Cisco-IOS-XE-mdt-cfg:mdt-config-data", reflect.TypeOf(MdtConfigData{}))
 }
 
 // MdtXfrmOperator represents Supported operator types
@@ -83,52 +83,54 @@ const (
 
     // Indicates that mandatory filter is set.
     MdtXfrmAttrType_mandatory MdtXfrmAttrType = "mandatory"
+
+    // Indicates that primary filter is set.
+    MdtXfrmAttrType_primary MdtXfrmAttrType = "primary"
 )
 
-// MdtSubscriptions
-// Subscription configuration
-type MdtSubscriptions struct {
+// MdtConfigData
+// MDT configuration data
+type MdtConfigData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of subscriptions. The type is slice of
-    // MdtSubscriptions_MdtSubscription.
-    MdtSubscription []*MdtSubscriptions_MdtSubscription
+    // List of subscriptions. The type is slice of MdtConfigData_MdtSubscription.
+    MdtSubscription []*MdtConfigData_MdtSubscription
 
     // List of subscription transforms. The type is slice of
-    // MdtSubscriptions_MdtXfrm.
-    MdtXfrm []*MdtSubscriptions_MdtXfrm
+    // MdtConfigData_MdtXfrm.
+    MdtXfrm []*MdtConfigData_MdtXfrm
 }
 
-func (mdtSubscriptions *MdtSubscriptions) GetEntityData() *types.CommonEntityData {
-    mdtSubscriptions.EntityData.YFilter = mdtSubscriptions.YFilter
-    mdtSubscriptions.EntityData.YangName = "mdt-subscriptions"
-    mdtSubscriptions.EntityData.BundleName = "cisco_ios_xe"
-    mdtSubscriptions.EntityData.ParentYangName = "Cisco-IOS-XE-mdt-cfg"
-    mdtSubscriptions.EntityData.SegmentPath = "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions"
-    mdtSubscriptions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    mdtSubscriptions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    mdtSubscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (mdtConfigData *MdtConfigData) GetEntityData() *types.CommonEntityData {
+    mdtConfigData.EntityData.YFilter = mdtConfigData.YFilter
+    mdtConfigData.EntityData.YangName = "mdt-config-data"
+    mdtConfigData.EntityData.BundleName = "cisco_ios_xe"
+    mdtConfigData.EntityData.ParentYangName = "Cisco-IOS-XE-mdt-cfg"
+    mdtConfigData.EntityData.SegmentPath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data"
+    mdtConfigData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtConfigData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtConfigData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    mdtSubscriptions.EntityData.Children = types.NewOrderedMap()
-    mdtSubscriptions.EntityData.Children.Append("mdt-subscription", types.YChild{"MdtSubscription", nil})
-    for i := range mdtSubscriptions.MdtSubscription {
-        mdtSubscriptions.EntityData.Children.Append(types.GetSegmentPath(mdtSubscriptions.MdtSubscription[i]), types.YChild{"MdtSubscription", mdtSubscriptions.MdtSubscription[i]})
+    mdtConfigData.EntityData.Children = types.NewOrderedMap()
+    mdtConfigData.EntityData.Children.Append("mdt-subscription", types.YChild{"MdtSubscription", nil})
+    for i := range mdtConfigData.MdtSubscription {
+        mdtConfigData.EntityData.Children.Append(types.GetSegmentPath(mdtConfigData.MdtSubscription[i]), types.YChild{"MdtSubscription", mdtConfigData.MdtSubscription[i]})
     }
-    mdtSubscriptions.EntityData.Children.Append("mdt-xfrm", types.YChild{"MdtXfrm", nil})
-    for i := range mdtSubscriptions.MdtXfrm {
-        mdtSubscriptions.EntityData.Children.Append(types.GetSegmentPath(mdtSubscriptions.MdtXfrm[i]), types.YChild{"MdtXfrm", mdtSubscriptions.MdtXfrm[i]})
+    mdtConfigData.EntityData.Children.Append("mdt-xfrm", types.YChild{"MdtXfrm", nil})
+    for i := range mdtConfigData.MdtXfrm {
+        mdtConfigData.EntityData.Children.Append(types.GetSegmentPath(mdtConfigData.MdtXfrm[i]), types.YChild{"MdtXfrm", mdtConfigData.MdtXfrm[i]})
     }
-    mdtSubscriptions.EntityData.Leafs = types.NewOrderedMap()
+    mdtConfigData.EntityData.Leafs = types.NewOrderedMap()
 
-    mdtSubscriptions.EntityData.YListKeys = []string {}
+    mdtConfigData.EntityData.YListKeys = []string {}
 
-    return &(mdtSubscriptions.EntityData)
+    return &(mdtConfigData.EntityData)
 }
 
-// MdtSubscriptions_MdtSubscription
+// MdtConfigData_MdtSubscription
 // List of subscriptions
-type MdtSubscriptions_MdtSubscription struct {
+type MdtConfigData_MdtSubscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -137,18 +139,18 @@ type MdtSubscriptions_MdtSubscription struct {
     SubscriptionId interface{}
 
     // Common subscription information.
-    Base MdtSubscriptions_MdtSubscription_Base
+    Base MdtConfigData_MdtSubscription_Base
 
     // Configuration of receivers of configured  subscriptions. The type is slice
-    // of MdtSubscriptions_MdtSubscription_MdtReceivers.
-    MdtReceivers []*MdtSubscriptions_MdtSubscription_MdtReceivers
+    // of MdtConfigData_MdtSubscription_MdtReceivers.
+    MdtReceivers []*MdtConfigData_MdtSubscription_MdtReceivers
 }
 
-func (mdtSubscription *MdtSubscriptions_MdtSubscription) GetEntityData() *types.CommonEntityData {
+func (mdtSubscription *MdtConfigData_MdtSubscription) GetEntityData() *types.CommonEntityData {
     mdtSubscription.EntityData.YFilter = mdtSubscription.YFilter
     mdtSubscription.EntityData.YangName = "mdt-subscription"
     mdtSubscription.EntityData.BundleName = "cisco_ios_xe"
-    mdtSubscription.EntityData.ParentYangName = "mdt-subscriptions"
+    mdtSubscription.EntityData.ParentYangName = "mdt-config-data"
     mdtSubscription.EntityData.SegmentPath = "mdt-subscription" + types.AddKeyToken(mdtSubscription.SubscriptionId, "subscription-id")
     mdtSubscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtSubscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
@@ -168,9 +170,9 @@ func (mdtSubscription *MdtSubscriptions_MdtSubscription) GetEntityData() *types.
     return &(mdtSubscription.EntityData)
 }
 
-// MdtSubscriptions_MdtSubscription_Base
+// MdtConfigData_MdtSubscription_Base
 // Common subscription information.
-type MdtSubscriptions_MdtSubscription_Base struct {
+type MdtConfigData_MdtSubscription_Base struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -223,7 +225,7 @@ type MdtSubscriptions_MdtSubscription_Base struct {
     TransformName interface{}
 }
 
-func (base *MdtSubscriptions_MdtSubscription_Base) GetEntityData() *types.CommonEntityData {
+func (base *MdtConfigData_MdtSubscription_Base) GetEntityData() *types.CommonEntityData {
     base.EntityData.YFilter = base.YFilter
     base.EntityData.YangName = "base"
     base.EntityData.BundleName = "cisco_ios_xe"
@@ -252,10 +254,10 @@ func (base *MdtSubscriptions_MdtSubscription_Base) GetEntityData() *types.Common
     return &(base.EntityData)
 }
 
-// MdtSubscriptions_MdtSubscription_MdtReceivers
+// MdtConfigData_MdtSubscription_MdtReceivers
 // Configuration of receivers of configured 
 // subscriptions.
-type MdtSubscriptions_MdtSubscription_MdtReceivers struct {
+type MdtConfigData_MdtSubscription_MdtReceivers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -275,11 +277,11 @@ type MdtSubscriptions_MdtSubscription_MdtReceivers struct {
     // netconf.
     Protocol interface{}
 
-    // Receiver security profile. The type is string.
-    SecurityProfile interface{}
+    // Name of protocol profile used by receiver. The type is string.
+    Profile interface{}
 }
 
-func (mdtReceivers *MdtSubscriptions_MdtSubscription_MdtReceivers) GetEntityData() *types.CommonEntityData {
+func (mdtReceivers *MdtConfigData_MdtSubscription_MdtReceivers) GetEntityData() *types.CommonEntityData {
     mdtReceivers.EntityData.YFilter = mdtReceivers.YFilter
     mdtReceivers.EntityData.YangName = "mdt-receivers"
     mdtReceivers.EntityData.BundleName = "cisco_ios_xe"
@@ -294,16 +296,16 @@ func (mdtReceivers *MdtSubscriptions_MdtSubscription_MdtReceivers) GetEntityData
     mdtReceivers.EntityData.Leafs.Append("address", types.YLeaf{"Address", mdtReceivers.Address})
     mdtReceivers.EntityData.Leafs.Append("port", types.YLeaf{"Port", mdtReceivers.Port})
     mdtReceivers.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", mdtReceivers.Protocol})
-    mdtReceivers.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile})
+    mdtReceivers.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", mdtReceivers.Profile})
 
     mdtReceivers.EntityData.YListKeys = []string {"Address", "Port"}
 
     return &(mdtReceivers.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm
+// MdtConfigData_MdtXfrm
 // List of subscription transforms
-type MdtSubscriptions_MdtXfrm struct {
+type MdtConfigData_MdtXfrm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -315,19 +317,19 @@ type MdtSubscriptions_MdtXfrm struct {
     FullySpecify interface{}
 
     // Transform input information. The type is slice of
-    // MdtSubscriptions_MdtXfrm_MdtXfrmInput.
-    MdtXfrmInput []*MdtSubscriptions_MdtXfrm_MdtXfrmInput
+    // MdtConfigData_MdtXfrm_MdtXfrmInput.
+    MdtXfrmInput []*MdtConfigData_MdtXfrm_MdtXfrmInput
 
     // Transform operations information. The type is slice of
-    // MdtSubscriptions_MdtXfrm_MdtXfrmOp.
-    MdtXfrmOp []*MdtSubscriptions_MdtXfrm_MdtXfrmOp
+    // MdtConfigData_MdtXfrm_MdtXfrmOp.
+    MdtXfrmOp []*MdtConfigData_MdtXfrm_MdtXfrmOp
 }
 
-func (mdtXfrm *MdtSubscriptions_MdtXfrm) GetEntityData() *types.CommonEntityData {
+func (mdtXfrm *MdtConfigData_MdtXfrm) GetEntityData() *types.CommonEntityData {
     mdtXfrm.EntityData.YFilter = mdtXfrm.YFilter
     mdtXfrm.EntityData.YangName = "mdt-xfrm"
     mdtXfrm.EntityData.BundleName = "cisco_ios_xe"
-    mdtXfrm.EntityData.ParentYangName = "mdt-subscriptions"
+    mdtXfrm.EntityData.ParentYangName = "mdt-config-data"
     mdtXfrm.EntityData.SegmentPath = "mdt-xfrm" + types.AddKeyToken(mdtXfrm.Name, "name")
     mdtXfrm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
@@ -351,9 +353,9 @@ func (mdtXfrm *MdtSubscriptions_MdtXfrm) GetEntityData() *types.CommonEntityData
     return &(mdtXfrm.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmInput
+// MdtConfigData_MdtXfrm_MdtXfrmInput
 // Transform input information
-type MdtSubscriptions_MdtXfrm_MdtXfrmInput struct {
+type MdtConfigData_MdtXfrm_MdtXfrmInput struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -375,11 +377,11 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmInput struct {
     Lop interface{}
 
     // Transform input URI table fields. The type is slice of
-    // MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField.
-    MdtXfrmInputField []*MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
+    // MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField.
+    MdtXfrmInputField []*MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
 }
 
-func (mdtXfrmInput *MdtSubscriptions_MdtXfrm_MdtXfrmInput) GetEntityData() *types.CommonEntityData {
+func (mdtXfrmInput *MdtConfigData_MdtXfrm_MdtXfrmInput) GetEntityData() *types.CommonEntityData {
     mdtXfrmInput.EntityData.YFilter = mdtXfrmInput.YFilter
     mdtXfrmInput.EntityData.YangName = "mdt-xfrm-input"
     mdtXfrmInput.EntityData.BundleName = "cisco_ios_xe"
@@ -406,9 +408,9 @@ func (mdtXfrmInput *MdtSubscriptions_MdtXfrm_MdtXfrmInput) GetEntityData() *type
     return &(mdtXfrmInput.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
+// MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
 // Transform input URI table fields
-type MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField struct {
+type MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -417,7 +419,7 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField struct {
     Field interface{}
 }
 
-func (mdtXfrmInputField *MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField) GetEntityData() *types.CommonEntityData {
+func (mdtXfrmInputField *MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField) GetEntityData() *types.CommonEntityData {
     mdtXfrmInputField.EntityData.YFilter = mdtXfrmInputField.YFilter
     mdtXfrmInputField.EntityData.YangName = "mdt-xfrm-input-field"
     mdtXfrmInputField.EntityData.BundleName = "cisco_ios_xe"
@@ -436,9 +438,9 @@ func (mdtXfrmInputField *MdtSubscriptions_MdtXfrm_MdtXfrmInput_MdtXfrmInputField
     return &(mdtXfrmInputField.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmOp
+// MdtConfigData_MdtXfrm_MdtXfrmOp
 // Transform operations information
-type MdtSubscriptions_MdtXfrm_MdtXfrmOp struct {
+type MdtConfigData_MdtXfrm_MdtXfrmOp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -448,16 +450,16 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp struct {
 
     // Transform operation filters.  These are evaluated before performing
     // transform action (e.g. subrecord)  on the response record. The type is
-    // slice of MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters.
-    MdtXfrmOpFilters []*MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
+    // slice of MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters.
+    MdtXfrmOpFilters []*MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
 
     // Transform operation fields.  Default operation is subrecord. It is
     // performed on each field. The type is slice of
-    // MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields.
-    MdtXfrmOpFields []*MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
+    // MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields.
+    MdtXfrmOpFields []*MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
 }
 
-func (mdtXfrmOp *MdtSubscriptions_MdtXfrm_MdtXfrmOp) GetEntityData() *types.CommonEntityData {
+func (mdtXfrmOp *MdtConfigData_MdtXfrm_MdtXfrmOp) GetEntityData() *types.CommonEntityData {
     mdtXfrmOp.EntityData.YFilter = mdtXfrmOp.YFilter
     mdtXfrmOp.EntityData.YangName = "mdt-xfrm-op"
     mdtXfrmOp.EntityData.BundleName = "cisco_ios_xe"
@@ -484,12 +486,12 @@ func (mdtXfrmOp *MdtSubscriptions_MdtXfrm_MdtXfrmOp) GetEntityData() *types.Comm
     return &(mdtXfrmOp.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
+// MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters
 // Transform operation filters. 
 // These are evaluated before performing
 // transform action (e.g. subrecord) 
 // on the response record
-type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters struct {
+type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -507,13 +509,13 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters struct {
     NextLop interface{}
 
     // Transform operation event flag (e.g. onchange).
-    OpEvent MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent
+    OpEvent MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent
 
     // Per field condition (e.g. f1 eq 'name').
-    Condition MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition
+    Condition MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition
 }
 
-func (mdtXfrmOpFilters *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters) GetEntityData() *types.CommonEntityData {
+func (mdtXfrmOpFilters *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters) GetEntityData() *types.CommonEntityData {
     mdtXfrmOpFilters.EntityData.YFilter = mdtXfrmOpFilters.YFilter
     mdtXfrmOpFilters.EntityData.YangName = "mdt-xfrm-op-filters"
     mdtXfrmOpFilters.EntityData.BundleName = "cisco_ios_xe"
@@ -537,9 +539,9 @@ func (mdtXfrmOpFilters *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters) Get
     return &(mdtXfrmOpFilters.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent
+// MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent
 // Transform operation event flag (e.g. onchange)
-type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent struct {
+type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -547,7 +549,7 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent struct {
     Onchange interface{}
 }
 
-func (opEvent *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent) GetEntityData() *types.CommonEntityData {
+func (opEvent *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent) GetEntityData() *types.CommonEntityData {
     opEvent.EntityData.YFilter = opEvent.YFilter
     opEvent.EntityData.YangName = "op-event"
     opEvent.EntityData.BundleName = "cisco_ios_xe"
@@ -566,9 +568,9 @@ func (opEvent *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent) GetE
     return &(opEvent.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition
+// MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition
 // Per field condition (e.g. f1 eq 'name')
-type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition struct {
+type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -579,7 +581,7 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition struct {
     Value interface{}
 }
 
-func (condition *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) GetEntityData() *types.CommonEntityData {
+func (condition *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) GetEntityData() *types.CommonEntityData {
     condition.EntityData.YFilter = condition.YFilter
     condition.EntityData.YangName = "condition"
     condition.EntityData.BundleName = "cisco_ios_xe"
@@ -599,11 +601,11 @@ func (condition *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) 
     return &(condition.EntityData)
 }
 
-// MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
+// MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields
 // Transform operation fields. 
 // Default operation is subrecord.
 // It is performed on each field
-type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields struct {
+type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -620,7 +622,7 @@ type MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields struct {
     OpType interface{}
 }
 
-func (mdtXfrmOpFields *MdtSubscriptions_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields) GetEntityData() *types.CommonEntityData {
+func (mdtXfrmOpFields *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields) GetEntityData() *types.CommonEntityData {
     mdtXfrmOpFields.EntityData.YFilter = mdtXfrmOpFields.YFilter
     mdtXfrmOpFields.EntityData.YangName = "mdt-xfrm-op-fields"
     mdtXfrmOpFields.EntityData.BundleName = "cisco_ios_xe"

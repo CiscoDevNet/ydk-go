@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions for
 // monitoring the operation of ospf protocol in a Network Element.
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ospf_oper
 
@@ -48,12 +48,60 @@ const (
     NbrStateType_ospf_nbr_full NbrStateType = "ospf-nbr-full"
 )
 
-// OspfOperationMode represents OSPF operational mode
-type OspfOperationMode string
+// Ospfv2IntfState represents The possible states that an interface can be in
+type Ospfv2IntfState string
 
 const (
-    // Ships-in-the-night operation mode in which each OSPF instance carries only one address family
-    OspfOperationMode_ospf_ships_in_the_night OspfOperationMode = "ospf-ships-in-the-night"
+    // The interface is in the down state
+    Ospfv2IntfState_ospfv2_interface_state_down Ospfv2IntfState = "ospfv2-interface-state-down"
+
+    // The interface is in loopback state
+    Ospfv2IntfState_ospfv2_interface_state_loopback Ospfv2IntfState = "ospfv2-interface-state-loopback"
+
+    // The interface is in waiting state
+    Ospfv2IntfState_ospfv2_interface_state_waiting Ospfv2IntfState = "ospfv2-interface-state-waiting"
+
+    // The interface is in point-to-multipoint state
+    Ospfv2IntfState_ospfv2_interface_state_point_to_mpoint Ospfv2IntfState = "ospfv2-interface-state-point-to-mpoint"
+
+    // The interface is in point-to-point state
+    Ospfv2IntfState_ospfv2_interface_state_point_to_point Ospfv2IntfState = "ospfv2-interface-state-point-to-point"
+
+    // The interface is in the designated router state
+    Ospfv2IntfState_ospfv2_interface_state_dr Ospfv2IntfState = "ospfv2-interface-state-dr"
+
+    // The interface is providing backup for another 
+    // interface
+    Ospfv2IntfState_ospfv2_interface_state_backup Ospfv2IntfState = "ospfv2-interface-state-backup"
+
+    // The interface is in a state other than the ones
+    // nummerated in this list
+    Ospfv2IntfState_ospfv2_interface_state_other Ospfv2IntfState = "ospfv2-interface-state-other"
+)
+
+// Ospfv2LsaType represents Link State Advertisement type
+type Ospfv2LsaType string
+
+const (
+    Ospfv2LsaType_ospfv2_lsa_type_unsupported_lsa_type Ospfv2LsaType = "ospfv2-lsa-type-unsupported-lsa-type"
+
+    Ospfv2LsaType_ospfv2_lsa_type_router Ospfv2LsaType = "ospfv2-lsa-type-router"
+
+    Ospfv2LsaType_ospfv2_lsa_type_network Ospfv2LsaType = "ospfv2-lsa-type-network"
+
+    Ospfv2LsaType_ospfv2_lsa_type_summary_net Ospfv2LsaType = "ospfv2-lsa-type-summary-net"
+
+    Ospfv2LsaType_ospfv2_lsa_type_summary_router Ospfv2LsaType = "ospfv2-lsa-type-summary-router"
+
+    Ospfv2LsaType_ospfv2_lsa_type_as_external Ospfv2LsaType = "ospfv2-lsa-type-as-external"
+
+    Ospfv2LsaType_ospfv2_lsa_type_nssa Ospfv2LsaType = "ospfv2-lsa-type-nssa"
+
+    Ospfv2LsaType_ospfv2_lsa_type_link_scope_opaque Ospfv2LsaType = "ospfv2-lsa-type-link-scope-opaque"
+
+    Ospfv2LsaType_ospfv2_lsa_type_area_scope_opaque Ospfv2LsaType = "ospfv2-lsa-type-area-scope-opaque"
+
+    Ospfv2LsaType_ospfv2_lsa_type_as_scope_opaque Ospfv2LsaType = "ospfv2-lsa-type-as-scope-opaque"
 )
 
 // OspfNetworkType represents OSPF network type
@@ -73,6 +121,18 @@ const (
     OspfNetworkType_ospf_point_to_point OspfNetworkType = "ospf-point-to-point"
 )
 
+// Ospfv2CryptoAlgorithm represents The algorithm in use
+type Ospfv2CryptoAlgorithm string
+
+const (
+    // The OSPFv2 authentication is sent as cleartext
+    Ospfv2CryptoAlgorithm_ospfv2_crypto_cleartest Ospfv2CryptoAlgorithm = "ospfv2-crypto-cleartest"
+
+    // The OSPFv2 authentication is encrypted using 
+    // Message Digest 5
+    Ospfv2CryptoAlgorithm_ospfv2_crypto_md5 Ospfv2CryptoAlgorithm = "ospfv2-crypto-md5"
+)
+
 // OspfAuthType represents OSPF Authentication type
 type OspfAuthType string
 
@@ -86,6 +146,23 @@ const (
     OspfAuthType_ospf_auth_type_none OspfAuthType = "ospf-auth-type-none"
 )
 
+// OspfExternalMetricType represents External metric type
+type OspfExternalMetricType string
+
+const (
+    OspfExternalMetricType_ospf_ext_metric_type_1 OspfExternalMetricType = "ospf-ext-metric-type-1"
+
+    OspfExternalMetricType_ospf_ext_metric_type_2 OspfExternalMetricType = "ospf-ext-metric-type-2"
+)
+
+// OspfOperationMode represents OSPF operational mode
+type OspfOperationMode string
+
+const (
+    // Ships-in-the-night operation mode in which each OSPF instance carries only one address family
+    OspfOperationMode_ospf_ships_in_the_night OspfOperationMode = "ospf-ships-in-the-night"
+)
+
 // AddressFamily represents Address family type
 type AddressFamily string
 
@@ -93,6 +170,20 @@ const (
     AddressFamily_address_family_ipv4 AddressFamily = "address-family-ipv4"
 
     AddressFamily_address_family_ipv6 AddressFamily = "address-family-ipv6"
+)
+
+// Ospfv2AuthTypeSelection represents The authentication type
+type Ospfv2AuthTypeSelection string
+
+const (
+    // No authentication configured
+    Ospfv2AuthTypeSelection_ospfv2_auth_none Ospfv2AuthTypeSelection = "ospfv2-auth-none"
+
+    // Authentication uses the trailer key
+    Ospfv2AuthTypeSelection_ospfv2_auth_trailer_key Ospfv2AuthTypeSelection = "ospfv2-auth-trailer-key"
+
+    // Authentication uses a trailer key chain
+    Ospfv2AuthTypeSelection_ospfv2_auth_trailer_key_chain Ospfv2AuthTypeSelection = "ospfv2-auth-trailer-key-chain"
 )
 
 // OspfOperData
@@ -103,6 +194,9 @@ type OspfOperData struct {
 
     // OSPF operational state.
     OspfState OspfOperData_OspfState
+
+    // The OSPF instance. The type is slice of OspfOperData_Ospfv2Instance.
+    Ospfv2Instance []*OspfOperData_Ospfv2Instance
 }
 
 func (ospfOperData *OspfOperData) GetEntityData() *types.CommonEntityData {
@@ -117,6 +211,10 @@ func (ospfOperData *OspfOperData) GetEntityData() *types.CommonEntityData {
 
     ospfOperData.EntityData.Children = types.NewOrderedMap()
     ospfOperData.EntityData.Children.Append("ospf-state", types.YChild{"OspfState", &ospfOperData.OspfState})
+    ospfOperData.EntityData.Children.Append("ospfv2-instance", types.YChild{"Ospfv2Instance", nil})
+    for i := range ospfOperData.Ospfv2Instance {
+        ospfOperData.EntityData.Children.Append(types.GetSegmentPath(ospfOperData.Ospfv2Instance[i]), types.YChild{"Ospfv2Instance", ospfOperData.Ospfv2Instance[i]})
+    }
     ospfOperData.EntityData.Leafs = types.NewOrderedMap()
 
     ospfOperData.EntityData.YListKeys = []string {}
@@ -177,6 +275,10 @@ type OspfOperData_OspfState_OspfInstance struct {
     // identifies the router. The type is interface{} with range: 0..4294967295.
     RouterId interface{}
 
+    // The process identifier used to refer to this instance. The type is
+    // interface{} with range: 0..65535.
+    ProcessId interface{}
+
     // List of ospf areas. The type is slice of
     // OspfOperData_OspfState_OspfInstance_OspfArea.
     OspfArea []*OspfOperData_OspfState_OspfInstance_OspfArea
@@ -216,6 +318,7 @@ func (ospfInstance *OspfOperData_OspfState_OspfInstance) GetEntityData() *types.
     ospfInstance.EntityData.Leafs = types.NewOrderedMap()
     ospfInstance.EntityData.Leafs.Append("af", types.YLeaf{"Af", ospfInstance.Af})
     ospfInstance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", ospfInstance.RouterId})
+    ospfInstance.EntityData.Leafs.Append("process-id", types.YLeaf{"ProcessId", ospfInstance.ProcessId})
 
     ospfInstance.EntityData.YListKeys = []string {"Af", "RouterId"}
 
@@ -7233,5 +7336,1656 @@ func (multiTopology *OspfOperData_OspfState_OspfInstance_MultiTopology) GetEntit
     multiTopology.EntityData.YListKeys = []string {"Name"}
 
     return &(multiTopology.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance
+// The OSPF instance
+type OspfOperData_Ospfv2Instance struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The routing instance identifier assigned to the
+    // OSPF instance. The type is interface{} with range: 0..4294967295.
+    InstanceId interface{}
+
+    // The name of the Virtual Routing and Forwarding instance that the OSPF
+    // instance is operating within. The type is string.
+    VrfName interface{}
+
+    // The router identifer assigned to the OSPF instance. The type is interface{}
+    // with range: 0..4294967295.
+    RouterId interface{}
+
+    // The OSPF area information. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area.
+    Ospfv2Area []*OspfOperData_Ospfv2Instance_Ospfv2Area
+
+    // The external LSDB information. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal.
+    Ospfv2LsdbExternal []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal
+}
+
+func (ospfv2Instance *OspfOperData_Ospfv2Instance) GetEntityData() *types.CommonEntityData {
+    ospfv2Instance.EntityData.YFilter = ospfv2Instance.YFilter
+    ospfv2Instance.EntityData.YangName = "ospfv2-instance"
+    ospfv2Instance.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2Instance.EntityData.ParentYangName = "ospf-oper-data"
+    ospfv2Instance.EntityData.SegmentPath = "ospfv2-instance" + types.AddKeyToken(ospfv2Instance.InstanceId, "instance-id")
+    ospfv2Instance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2Instance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2Instance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2Instance.EntityData.Children = types.NewOrderedMap()
+    ospfv2Instance.EntityData.Children.Append("ospfv2-area", types.YChild{"Ospfv2Area", nil})
+    for i := range ospfv2Instance.Ospfv2Area {
+        ospfv2Instance.EntityData.Children.Append(types.GetSegmentPath(ospfv2Instance.Ospfv2Area[i]), types.YChild{"Ospfv2Area", ospfv2Instance.Ospfv2Area[i]})
+    }
+    ospfv2Instance.EntityData.Children.Append("ospfv2-lsdb-external", types.YChild{"Ospfv2LsdbExternal", nil})
+    for i := range ospfv2Instance.Ospfv2LsdbExternal {
+        ospfv2Instance.EntityData.Children.Append(types.GetSegmentPath(ospfv2Instance.Ospfv2LsdbExternal[i]), types.YChild{"Ospfv2LsdbExternal", ospfv2Instance.Ospfv2LsdbExternal[i]})
+    }
+    ospfv2Instance.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Instance.EntityData.Leafs.Append("instance-id", types.YLeaf{"InstanceId", ospfv2Instance.InstanceId})
+    ospfv2Instance.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ospfv2Instance.VrfName})
+    ospfv2Instance.EntityData.Leafs.Append("router-id", types.YLeaf{"RouterId", ospfv2Instance.RouterId})
+
+    ospfv2Instance.EntityData.YListKeys = []string {"InstanceId"}
+
+    return &(ospfv2Instance.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area
+// The OSPF area information
+type OspfOperData_Ospfv2Instance_Ospfv2Area struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The area identifier. The type is interface{} with
+    // range: 0..4294967295.
+    AreaId interface{}
+
+    // The OSPF Link State Database information for this area. The type is slice
+    // of OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea.
+    Ospfv2LsdbArea []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea
+
+    // A list of interfaces that belong to the area. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface.
+    Ospfv2Interface []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface
+}
+
+func (ospfv2Area *OspfOperData_Ospfv2Instance_Ospfv2Area) GetEntityData() *types.CommonEntityData {
+    ospfv2Area.EntityData.YFilter = ospfv2Area.YFilter
+    ospfv2Area.EntityData.YangName = "ospfv2-area"
+    ospfv2Area.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2Area.EntityData.ParentYangName = "ospfv2-instance"
+    ospfv2Area.EntityData.SegmentPath = "ospfv2-area" + types.AddKeyToken(ospfv2Area.AreaId, "area-id")
+    ospfv2Area.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2Area.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2Area.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2Area.EntityData.Children = types.NewOrderedMap()
+    ospfv2Area.EntityData.Children.Append("ospfv2-lsdb-area", types.YChild{"Ospfv2LsdbArea", nil})
+    for i := range ospfv2Area.Ospfv2LsdbArea {
+        ospfv2Area.EntityData.Children.Append(types.GetSegmentPath(ospfv2Area.Ospfv2LsdbArea[i]), types.YChild{"Ospfv2LsdbArea", ospfv2Area.Ospfv2LsdbArea[i]})
+    }
+    ospfv2Area.EntityData.Children.Append("ospfv2-interface", types.YChild{"Ospfv2Interface", nil})
+    for i := range ospfv2Area.Ospfv2Interface {
+        ospfv2Area.EntityData.Children.Append(types.GetSegmentPath(ospfv2Area.Ospfv2Interface[i]), types.YChild{"Ospfv2Interface", ospfv2Area.Ospfv2Interface[i]})
+    }
+    ospfv2Area.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Area.EntityData.Leafs.Append("area-id", types.YLeaf{"AreaId", ospfv2Area.AreaId})
+
+    ospfv2Area.EntityData.YListKeys = []string {"AreaId"}
+
+    return &(ospfv2Area.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea
+// The OSPF Link State Database information for this area
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Link State Advertisement type. The type is
+    // interface{} with range: 0..255.
+    LsaType interface{}
+
+    // This attribute is a key. Link State Advertisement Identifer. The type is
+    // interface{} with range: 0..4294967295.
+    LsaId interface{}
+
+    // This attribute is a key. Advertising router. The type is interface{} with
+    // range: 0..4294967295.
+    AdvertisingRouter interface{}
+
+    // The age of the Link State Advertisement. The type is interface{} with
+    // range: 0..65535.
+    LsaAge interface{}
+
+    // The options of the Link State Advertisement. The type is map[string]bool.
+    LsaOptions interface{}
+
+    // The sequence number for the Link State Advertisement. The type is
+    // interface{} with range: 0..4294967295.
+    LsaSeqNumber interface{}
+
+    // The checksum of the Link State Advertisement. The type is interface{} with
+    // range: 0..65535.
+    LsaChecksum interface{}
+
+    // The length, in bytes, of the Link State Advertisement. The type is
+    // interface{} with range: 0..65535.
+    LsaLength interface{}
+
+    // The router Link State Advertisement links. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks.
+    Ospfv2RouterLsaLinks []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks
+
+    // The unsupported Link State Advertisements.
+    UnsupportedLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_UnsupportedLsa
+
+    // The router Link State Advertisements.
+    RouterLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterLsa
+
+    // The network Link State Advertisements.
+    NetworkLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkLsa
+
+    // The network summary Link State Advertisements.
+    NetworkSummaryLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa
+
+    // The router summary Link State Advertisements.
+    RouterSummaryLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa
+
+    // The external Link State Advertisements.
+    ExternalLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa
+
+    // The Not So Stubby Area Link state advertisements.
+    NssaLsa OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa
+}
+
+func (ospfv2LsdbArea *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea) GetEntityData() *types.CommonEntityData {
+    ospfv2LsdbArea.EntityData.YFilter = ospfv2LsdbArea.YFilter
+    ospfv2LsdbArea.EntityData.YangName = "ospfv2-lsdb-area"
+    ospfv2LsdbArea.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2LsdbArea.EntityData.ParentYangName = "ospfv2-area"
+    ospfv2LsdbArea.EntityData.SegmentPath = "ospfv2-lsdb-area" + types.AddKeyToken(ospfv2LsdbArea.LsaType, "lsa-type") + types.AddKeyToken(ospfv2LsdbArea.LsaId, "lsa-id") + types.AddKeyToken(ospfv2LsdbArea.AdvertisingRouter, "advertising-router")
+    ospfv2LsdbArea.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2LsdbArea.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2LsdbArea.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2LsdbArea.EntityData.Children = types.NewOrderedMap()
+    ospfv2LsdbArea.EntityData.Children.Append("ospfv2-router-lsa-links", types.YChild{"Ospfv2RouterLsaLinks", nil})
+    for i := range ospfv2LsdbArea.Ospfv2RouterLsaLinks {
+        ospfv2LsdbArea.EntityData.Children.Append(types.GetSegmentPath(ospfv2LsdbArea.Ospfv2RouterLsaLinks[i]), types.YChild{"Ospfv2RouterLsaLinks", ospfv2LsdbArea.Ospfv2RouterLsaLinks[i]})
+    }
+    ospfv2LsdbArea.EntityData.Children.Append("unsupported-lsa", types.YChild{"UnsupportedLsa", &ospfv2LsdbArea.UnsupportedLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("router-lsa", types.YChild{"RouterLsa", &ospfv2LsdbArea.RouterLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("network-lsa", types.YChild{"NetworkLsa", &ospfv2LsdbArea.NetworkLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("network-summary-lsa", types.YChild{"NetworkSummaryLsa", &ospfv2LsdbArea.NetworkSummaryLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("router-summary-lsa", types.YChild{"RouterSummaryLsa", &ospfv2LsdbArea.RouterSummaryLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("external-lsa", types.YChild{"ExternalLsa", &ospfv2LsdbArea.ExternalLsa})
+    ospfv2LsdbArea.EntityData.Children.Append("nssa-lsa", types.YChild{"NssaLsa", &ospfv2LsdbArea.NssaLsa})
+    ospfv2LsdbArea.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-type", types.YLeaf{"LsaType", ospfv2LsdbArea.LsaType})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", ospfv2LsdbArea.LsaId})
+    ospfv2LsdbArea.EntityData.Leafs.Append("advertising-router", types.YLeaf{"AdvertisingRouter", ospfv2LsdbArea.AdvertisingRouter})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-age", types.YLeaf{"LsaAge", ospfv2LsdbArea.LsaAge})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-options", types.YLeaf{"LsaOptions", ospfv2LsdbArea.LsaOptions})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-seq-number", types.YLeaf{"LsaSeqNumber", ospfv2LsdbArea.LsaSeqNumber})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-checksum", types.YLeaf{"LsaChecksum", ospfv2LsdbArea.LsaChecksum})
+    ospfv2LsdbArea.EntityData.Leafs.Append("lsa-length", types.YLeaf{"LsaLength", ospfv2LsdbArea.LsaLength})
+
+    ospfv2LsdbArea.EntityData.YListKeys = []string {"LsaType", "LsaId", "AdvertisingRouter"}
+
+    return &(ospfv2LsdbArea.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks
+// The router Link State Advertisement links
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Link Type. The type is interface{} with range:
+    // 0..255.
+    LinkType interface{}
+
+    // This attribute is a key. link Identifier. The type is interface{} with
+    // range: 0..4294967295.
+    LinkId interface{}
+
+    // This attribute is a key. link data. The type is interface{} with range:
+    // 0..4294967295.
+    LinkData interface{}
+
+    // Link topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo.
+    LinkTopo []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo
+}
+
+func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks) GetEntityData() *types.CommonEntityData {
+    ospfv2RouterLsaLinks.EntityData.YFilter = ospfv2RouterLsaLinks.YFilter
+    ospfv2RouterLsaLinks.EntityData.YangName = "ospfv2-router-lsa-links"
+    ospfv2RouterLsaLinks.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2RouterLsaLinks.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    ospfv2RouterLsaLinks.EntityData.SegmentPath = "ospfv2-router-lsa-links" + types.AddKeyToken(ospfv2RouterLsaLinks.LinkType, "link-type") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkId, "link-id") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkData, "link-data")
+    ospfv2RouterLsaLinks.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2RouterLsaLinks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2RouterLsaLinks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2RouterLsaLinks.EntityData.Children = types.NewOrderedMap()
+    ospfv2RouterLsaLinks.EntityData.Children.Append("link-topo", types.YChild{"LinkTopo", nil})
+    for i := range ospfv2RouterLsaLinks.LinkTopo {
+        ospfv2RouterLsaLinks.EntityData.Children.Append(types.GetSegmentPath(ospfv2RouterLsaLinks.LinkTopo[i]), types.YChild{"LinkTopo", ospfv2RouterLsaLinks.LinkTopo[i]})
+    }
+    ospfv2RouterLsaLinks.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", ospfv2RouterLsaLinks.LinkType})
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", ospfv2RouterLsaLinks.LinkId})
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-data", types.YLeaf{"LinkData", ospfv2RouterLsaLinks.LinkData})
+
+    ospfv2RouterLsaLinks.EntityData.YListKeys = []string {"LinkType", "LinkId", "LinkData"}
+
+    return &(ospfv2RouterLsaLinks.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo
+// Link topology
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology metric. The type is interface{} with range: 0..65535.
+    TopoMetric interface{}
+}
+
+func (linkTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_Ospfv2RouterLsaLinks_LinkTopo) GetEntityData() *types.CommonEntityData {
+    linkTopo.EntityData.YFilter = linkTopo.YFilter
+    linkTopo.EntityData.YangName = "link-topo"
+    linkTopo.EntityData.BundleName = "cisco_ios_xe"
+    linkTopo.EntityData.ParentYangName = "ospfv2-router-lsa-links"
+    linkTopo.EntityData.SegmentPath = "link-topo"
+    linkTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    linkTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    linkTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    linkTopo.EntityData.Children = types.NewOrderedMap()
+    linkTopo.EntityData.Leafs = types.NewOrderedMap()
+    linkTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", linkTopo.MtId})
+    linkTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", linkTopo.TopoMetric})
+
+    linkTopo.EntityData.YListKeys = []string {}
+
+    return &(linkTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_UnsupportedLsa
+// The unsupported Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_UnsupportedLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Link State Advertisement data. The type is slice of interface{} with range:
+    // 0..255.
+    LsaData []interface{}
+}
+
+func (unsupportedLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_UnsupportedLsa) GetEntityData() *types.CommonEntityData {
+    unsupportedLsa.EntityData.YFilter = unsupportedLsa.YFilter
+    unsupportedLsa.EntityData.YangName = "unsupported-lsa"
+    unsupportedLsa.EntityData.BundleName = "cisco_ios_xe"
+    unsupportedLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    unsupportedLsa.EntityData.SegmentPath = "unsupported-lsa"
+    unsupportedLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    unsupportedLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    unsupportedLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    unsupportedLsa.EntityData.Children = types.NewOrderedMap()
+    unsupportedLsa.EntityData.Leafs = types.NewOrderedMap()
+    unsupportedLsa.EntityData.Leafs.Append("lsa-data", types.YLeaf{"LsaData", unsupportedLsa.LsaData})
+
+    unsupportedLsa.EntityData.YListKeys = []string {}
+
+    return &(unsupportedLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterLsa
+// The router Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Router Link State Advertisement bits. The type is map[string]bool.
+    RouterLsaBits interface{}
+
+    // Router Link State Advertisement number of links. The type is interface{}
+    // with range: 0..65535.
+    RouterLsaNumberLinks interface{}
+}
+
+func (routerLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterLsa) GetEntityData() *types.CommonEntityData {
+    routerLsa.EntityData.YFilter = routerLsa.YFilter
+    routerLsa.EntityData.YangName = "router-lsa"
+    routerLsa.EntityData.BundleName = "cisco_ios_xe"
+    routerLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    routerLsa.EntityData.SegmentPath = "router-lsa"
+    routerLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routerLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    routerLsa.EntityData.Children = types.NewOrderedMap()
+    routerLsa.EntityData.Leafs = types.NewOrderedMap()
+    routerLsa.EntityData.Leafs.Append("router-lsa-bits", types.YLeaf{"RouterLsaBits", routerLsa.RouterLsaBits})
+    routerLsa.EntityData.Leafs.Append("router-lsa-number-links", types.YLeaf{"RouterLsaNumberLinks", routerLsa.RouterLsaNumberLinks})
+
+    routerLsa.EntityData.YListKeys = []string {}
+
+    return &(routerLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkLsa
+// The network Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Network Link State Advertisement mask. The type is interface{} with range:
+    // 0..4294967295.
+    NetworkLsaMask interface{}
+
+    // Network attached routers. The type is slice of interface{} with range:
+    // 0..4294967295.
+    NetworkAttachedRouters []interface{}
+}
+
+func (networkLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkLsa) GetEntityData() *types.CommonEntityData {
+    networkLsa.EntityData.YFilter = networkLsa.YFilter
+    networkLsa.EntityData.YangName = "network-lsa"
+    networkLsa.EntityData.BundleName = "cisco_ios_xe"
+    networkLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    networkLsa.EntityData.SegmentPath = "network-lsa"
+    networkLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    networkLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    networkLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    networkLsa.EntityData.Children = types.NewOrderedMap()
+    networkLsa.EntityData.Leafs = types.NewOrderedMap()
+    networkLsa.EntityData.Leafs.Append("network-lsa-mask", types.YLeaf{"NetworkLsaMask", networkLsa.NetworkLsaMask})
+    networkLsa.EntityData.Leafs.Append("network-attached-routers", types.YLeaf{"NetworkAttachedRouters", networkLsa.NetworkAttachedRouters})
+
+    networkLsa.EntityData.YListKeys = []string {}
+
+    return &(networkLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa
+// The network summary Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The summary Link State Advertisement mask. The type is interface{} with
+    // range: 0..4294967295.
+    SummaryLsaMask interface{}
+
+    // The summary topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo.
+    SummaryTopo []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo
+}
+
+func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa) GetEntityData() *types.CommonEntityData {
+    networkSummaryLsa.EntityData.YFilter = networkSummaryLsa.YFilter
+    networkSummaryLsa.EntityData.YangName = "network-summary-lsa"
+    networkSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
+    networkSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    networkSummaryLsa.EntityData.SegmentPath = "network-summary-lsa"
+    networkSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    networkSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    networkSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    networkSummaryLsa.EntityData.Children = types.NewOrderedMap()
+    networkSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
+    for i := range networkSummaryLsa.SummaryTopo {
+        networkSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(networkSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", networkSummaryLsa.SummaryTopo[i]})
+    }
+    networkSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
+    networkSummaryLsa.EntityData.Leafs.Append("summary-lsa-mask", types.YLeaf{"SummaryLsaMask", networkSummaryLsa.SummaryLsaMask})
+
+    networkSummaryLsa.EntityData.YListKeys = []string {}
+
+    return &(networkSummaryLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo
+// The summary topology
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology Metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+}
+
+func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NetworkSummaryLsa_SummaryTopo) GetEntityData() *types.CommonEntityData {
+    summaryTopo.EntityData.YFilter = summaryTopo.YFilter
+    summaryTopo.EntityData.YangName = "summary-topo"
+    summaryTopo.EntityData.BundleName = "cisco_ios_xe"
+    summaryTopo.EntityData.ParentYangName = "network-summary-lsa"
+    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    summaryTopo.EntityData.Children = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", summaryTopo.MtId})
+    summaryTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", summaryTopo.TopoMetric})
+
+    summaryTopo.EntityData.YListKeys = []string {}
+
+    return &(summaryTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa
+// The router summary Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The summary Link State Advertisement mask. The type is interface{} with
+    // range: 0..4294967295.
+    SummaryLsaMask interface{}
+
+    // The summary topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo.
+    SummaryTopo []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo
+}
+
+func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa) GetEntityData() *types.CommonEntityData {
+    routerSummaryLsa.EntityData.YFilter = routerSummaryLsa.YFilter
+    routerSummaryLsa.EntityData.YangName = "router-summary-lsa"
+    routerSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
+    routerSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    routerSummaryLsa.EntityData.SegmentPath = "router-summary-lsa"
+    routerSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routerSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routerSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    routerSummaryLsa.EntityData.Children = types.NewOrderedMap()
+    routerSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
+    for i := range routerSummaryLsa.SummaryTopo {
+        routerSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(routerSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", routerSummaryLsa.SummaryTopo[i]})
+    }
+    routerSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
+    routerSummaryLsa.EntityData.Leafs.Append("summary-lsa-mask", types.YLeaf{"SummaryLsaMask", routerSummaryLsa.SummaryLsaMask})
+
+    routerSummaryLsa.EntityData.YListKeys = []string {}
+
+    return &(routerSummaryLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo
+// The summary topology
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology Metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+}
+
+func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_RouterSummaryLsa_SummaryTopo) GetEntityData() *types.CommonEntityData {
+    summaryTopo.EntityData.YFilter = summaryTopo.YFilter
+    summaryTopo.EntityData.YangName = "summary-topo"
+    summaryTopo.EntityData.BundleName = "cisco_ios_xe"
+    summaryTopo.EntityData.ParentYangName = "router-summary-lsa"
+    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    summaryTopo.EntityData.Children = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", summaryTopo.MtId})
+    summaryTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", summaryTopo.TopoMetric})
+
+    summaryTopo.EntityData.YListKeys = []string {}
+
+    return &(summaryTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa
+// The external Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The mask for the external Link State Advertisement. The type is interface{}
+    // with range: 0..4294967295.
+    ExternalLsaMask interface{}
+
+    // The external topology Link State Advertisement. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo.
+    ExternalTopo []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo
+}
+
+func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa) GetEntityData() *types.CommonEntityData {
+    externalLsa.EntityData.YFilter = externalLsa.YFilter
+    externalLsa.EntityData.YangName = "external-lsa"
+    externalLsa.EntityData.BundleName = "cisco_ios_xe"
+    externalLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    externalLsa.EntityData.SegmentPath = "external-lsa"
+    externalLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalLsa.EntityData.Children = types.NewOrderedMap()
+    externalLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
+    for i := range externalLsa.ExternalTopo {
+        externalLsa.EntityData.Children.Append(types.GetSegmentPath(externalLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", externalLsa.ExternalTopo[i]})
+    }
+    externalLsa.EntityData.Leafs = types.NewOrderedMap()
+    externalLsa.EntityData.Leafs.Append("external-lsa-mask", types.YLeaf{"ExternalLsaMask", externalLsa.ExternalLsaMask})
+
+    externalLsa.EntityData.YListKeys = []string {}
+
+    return &(externalLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo
+// The external topology Link State Advertisement
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // The topoligy metric type associated with the  Link State Advertisement. The
+    // type is OspfExternalMetricType.
+    TopoMetricType interface{}
+
+    // The topology metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+
+    // The topology forwarding address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    TopoForwardingAddress interface{}
+
+    // The topology route tag. The type is interface{} with range: 0..4294967295.
+    TopoRouteTag interface{}
+}
+
+func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_ExternalLsa_ExternalTopo) GetEntityData() *types.CommonEntityData {
+    externalTopo.EntityData.YFilter = externalTopo.YFilter
+    externalTopo.EntityData.YangName = "external-topo"
+    externalTopo.EntityData.BundleName = "cisco_ios_xe"
+    externalTopo.EntityData.ParentYangName = "external-lsa"
+    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalTopo.EntityData.Children = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", externalTopo.MtId})
+    externalTopo.EntityData.Leafs.Append("topo-metric-type", types.YLeaf{"TopoMetricType", externalTopo.TopoMetricType})
+    externalTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", externalTopo.TopoMetric})
+    externalTopo.EntityData.Leafs.Append("topo-forwarding-address", types.YLeaf{"TopoForwardingAddress", externalTopo.TopoForwardingAddress})
+    externalTopo.EntityData.Leafs.Append("topo-route-tag", types.YLeaf{"TopoRouteTag", externalTopo.TopoRouteTag})
+
+    externalTopo.EntityData.YListKeys = []string {}
+
+    return &(externalTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa
+// The Not So Stubby Area Link state advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The mask for the external Link State Advertisement. The type is interface{}
+    // with range: 0..4294967295.
+    ExternalLsaMask interface{}
+
+    // The external topology Link State Advertisement. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo.
+    ExternalTopo []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo
+}
+
+func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa) GetEntityData() *types.CommonEntityData {
+    nssaLsa.EntityData.YFilter = nssaLsa.YFilter
+    nssaLsa.EntityData.YangName = "nssa-lsa"
+    nssaLsa.EntityData.BundleName = "cisco_ios_xe"
+    nssaLsa.EntityData.ParentYangName = "ospfv2-lsdb-area"
+    nssaLsa.EntityData.SegmentPath = "nssa-lsa"
+    nssaLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nssaLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nssaLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nssaLsa.EntityData.Children = types.NewOrderedMap()
+    nssaLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
+    for i := range nssaLsa.ExternalTopo {
+        nssaLsa.EntityData.Children.Append(types.GetSegmentPath(nssaLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", nssaLsa.ExternalTopo[i]})
+    }
+    nssaLsa.EntityData.Leafs = types.NewOrderedMap()
+    nssaLsa.EntityData.Leafs.Append("external-lsa-mask", types.YLeaf{"ExternalLsaMask", nssaLsa.ExternalLsaMask})
+
+    nssaLsa.EntityData.YListKeys = []string {}
+
+    return &(nssaLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo
+// The external topology Link State Advertisement
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // The topoligy metric type associated with the  Link State Advertisement. The
+    // type is OspfExternalMetricType.
+    TopoMetricType interface{}
+
+    // The topology metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+
+    // The topology forwarding address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    TopoForwardingAddress interface{}
+
+    // The topology route tag. The type is interface{} with range: 0..4294967295.
+    TopoRouteTag interface{}
+}
+
+func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2LsdbArea_NssaLsa_ExternalTopo) GetEntityData() *types.CommonEntityData {
+    externalTopo.EntityData.YFilter = externalTopo.YFilter
+    externalTopo.EntityData.YangName = "external-topo"
+    externalTopo.EntityData.BundleName = "cisco_ios_xe"
+    externalTopo.EntityData.ParentYangName = "nssa-lsa"
+    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalTopo.EntityData.Children = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", externalTopo.MtId})
+    externalTopo.EntityData.Leafs.Append("topo-metric-type", types.YLeaf{"TopoMetricType", externalTopo.TopoMetricType})
+    externalTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", externalTopo.TopoMetric})
+    externalTopo.EntityData.Leafs.Append("topo-forwarding-address", types.YLeaf{"TopoForwardingAddress", externalTopo.TopoForwardingAddress})
+    externalTopo.EntityData.Leafs.Append("topo-route-tag", types.YLeaf{"TopoRouteTag", externalTopo.TopoRouteTag})
+
+    externalTopo.EntityData.YListKeys = []string {}
+
+    return &(externalTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface
+// A list of interfaces that belong to the area
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Name of the interface. The type is string.
+    Name interface{}
+
+    // Network type. The type is OspfNetworkType.
+    NetworkType interface{}
+
+    // If the interface is enabled. The type is bool.
+    Enable interface{}
+
+    // If the interface is in passive mode. The type is bool.
+    Passive interface{}
+
+    // If this is a demand circuit. The type is bool.
+    DemandCircuit interface{}
+
+    // If the MTU is being ignored. The type is bool.
+    MtuIgnore interface{}
+
+    // If prefix suppression is enabled. The type is bool.
+    PrefixSuppresion interface{}
+
+    // The OSPFv2 cost. The type is interface{} with range: 0..65535.
+    Cost interface{}
+
+    // The hello interval in seconds. The type is interface{} with range:
+    // 0..65535.
+    HelloInterval interface{}
+
+    // The dead interval in seconds. The type is interface{} with range: 0..65535.
+    DeadInterval interface{}
+
+    // The retransmit interval in seconds. The type is interface{} with range:
+    // 0..65535.
+    RetransmitInterval interface{}
+
+    // The delay before transmitting a keepalive in seconds. The type is
+    // interface{} with range: 0..65535.
+    TransmitDelay interface{}
+
+    // The current hello timer in seconds. The type is interface{} with range:
+    // 0..4294967295.
+    HelloTimer interface{}
+
+    // The wait timer in seconds. The type is interface{} with range:
+    // 0..4294967295.
+    WaitTimer interface{}
+
+    // The designated router identifier. The type is interface{} with range:
+    // 0..4294967295.
+    Dr interface{}
+
+    // The backup designated router identifier. The type is interface{} with
+    // range: 0..4294967295.
+    Bdr interface{}
+
+    // The address of the designated router. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    DrIp interface{}
+
+    // The address of the backup designated router. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    BdrIp interface{}
+
+    // The current state of the interface. The type is Ospfv2IntfState.
+    State interface{}
+
+    // The TTL security information.
+    TtlSecurityVal OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_TtlSecurityVal
+
+    // The authentication information.
+    AuthVal OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal
+
+    // All the neighbors on the interface. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor.
+    Ospfv2Neighbor []*OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor
+}
+
+func (ospfv2Interface *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface) GetEntityData() *types.CommonEntityData {
+    ospfv2Interface.EntityData.YFilter = ospfv2Interface.YFilter
+    ospfv2Interface.EntityData.YangName = "ospfv2-interface"
+    ospfv2Interface.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2Interface.EntityData.ParentYangName = "ospfv2-area"
+    ospfv2Interface.EntityData.SegmentPath = "ospfv2-interface" + types.AddKeyToken(ospfv2Interface.Name, "name")
+    ospfv2Interface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2Interface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2Interface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2Interface.EntityData.Children = types.NewOrderedMap()
+    ospfv2Interface.EntityData.Children.Append("ttl-security-val", types.YChild{"TtlSecurityVal", &ospfv2Interface.TtlSecurityVal})
+    ospfv2Interface.EntityData.Children.Append("auth-val", types.YChild{"AuthVal", &ospfv2Interface.AuthVal})
+    ospfv2Interface.EntityData.Children.Append("ospfv2-neighbor", types.YChild{"Ospfv2Neighbor", nil})
+    for i := range ospfv2Interface.Ospfv2Neighbor {
+        ospfv2Interface.EntityData.Children.Append(types.GetSegmentPath(ospfv2Interface.Ospfv2Neighbor[i]), types.YChild{"Ospfv2Neighbor", ospfv2Interface.Ospfv2Neighbor[i]})
+    }
+    ospfv2Interface.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Interface.EntityData.Leafs.Append("name", types.YLeaf{"Name", ospfv2Interface.Name})
+    ospfv2Interface.EntityData.Leafs.Append("network-type", types.YLeaf{"NetworkType", ospfv2Interface.NetworkType})
+    ospfv2Interface.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ospfv2Interface.Enable})
+    ospfv2Interface.EntityData.Leafs.Append("passive", types.YLeaf{"Passive", ospfv2Interface.Passive})
+    ospfv2Interface.EntityData.Leafs.Append("demand-circuit", types.YLeaf{"DemandCircuit", ospfv2Interface.DemandCircuit})
+    ospfv2Interface.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", ospfv2Interface.MtuIgnore})
+    ospfv2Interface.EntityData.Leafs.Append("prefix-suppresion", types.YLeaf{"PrefixSuppresion", ospfv2Interface.PrefixSuppresion})
+    ospfv2Interface.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", ospfv2Interface.Cost})
+    ospfv2Interface.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", ospfv2Interface.HelloInterval})
+    ospfv2Interface.EntityData.Leafs.Append("dead-interval", types.YLeaf{"DeadInterval", ospfv2Interface.DeadInterval})
+    ospfv2Interface.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", ospfv2Interface.RetransmitInterval})
+    ospfv2Interface.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", ospfv2Interface.TransmitDelay})
+    ospfv2Interface.EntityData.Leafs.Append("hello-timer", types.YLeaf{"HelloTimer", ospfv2Interface.HelloTimer})
+    ospfv2Interface.EntityData.Leafs.Append("wait-timer", types.YLeaf{"WaitTimer", ospfv2Interface.WaitTimer})
+    ospfv2Interface.EntityData.Leafs.Append("dr", types.YLeaf{"Dr", ospfv2Interface.Dr})
+    ospfv2Interface.EntityData.Leafs.Append("bdr", types.YLeaf{"Bdr", ospfv2Interface.Bdr})
+    ospfv2Interface.EntityData.Leafs.Append("dr-ip", types.YLeaf{"DrIp", ospfv2Interface.DrIp})
+    ospfv2Interface.EntityData.Leafs.Append("bdr-ip", types.YLeaf{"BdrIp", ospfv2Interface.BdrIp})
+    ospfv2Interface.EntityData.Leafs.Append("state", types.YLeaf{"State", ospfv2Interface.State})
+
+    ospfv2Interface.EntityData.YListKeys = []string {"Name"}
+
+    return &(ospfv2Interface.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_TtlSecurityVal
+// The TTL security information
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_TtlSecurityVal struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Indicates whether time to live security is enabled. The type is bool.
+    Enable interface{}
+
+    // Number of hops for time to live security. The type is interface{} with
+    // range: -2147483648..2147483647.
+    Hops interface{}
+}
+
+func (ttlSecurityVal *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_TtlSecurityVal) GetEntityData() *types.CommonEntityData {
+    ttlSecurityVal.EntityData.YFilter = ttlSecurityVal.YFilter
+    ttlSecurityVal.EntityData.YangName = "ttl-security-val"
+    ttlSecurityVal.EntityData.BundleName = "cisco_ios_xe"
+    ttlSecurityVal.EntityData.ParentYangName = "ospfv2-interface"
+    ttlSecurityVal.EntityData.SegmentPath = "ttl-security-val"
+    ttlSecurityVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ttlSecurityVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ttlSecurityVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ttlSecurityVal.EntityData.Children = types.NewOrderedMap()
+    ttlSecurityVal.EntityData.Leafs = types.NewOrderedMap()
+    ttlSecurityVal.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ttlSecurityVal.Enable})
+    ttlSecurityVal.EntityData.Leafs.Append("hops", types.YLeaf{"Hops", ttlSecurityVal.Hops})
+
+    ttlSecurityVal.EntityData.YListKeys = []string {}
+
+    return &(ttlSecurityVal.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal
+// The authentication information
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // No authentication in use. The type is interface{} with range:
+    // 0..4294967295.
+    NoAuth interface{}
+
+    // Trailer key chain information.
+    AuthKey OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_AuthKey
+
+    // Trailer key information.
+    KeyChain OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_KeyChain
+}
+
+func (authVal *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal) GetEntityData() *types.CommonEntityData {
+    authVal.EntityData.YFilter = authVal.YFilter
+    authVal.EntityData.YangName = "auth-val"
+    authVal.EntityData.BundleName = "cisco_ios_xe"
+    authVal.EntityData.ParentYangName = "ospfv2-interface"
+    authVal.EntityData.SegmentPath = "auth-val"
+    authVal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    authVal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    authVal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    authVal.EntityData.Children = types.NewOrderedMap()
+    authVal.EntityData.Children.Append("auth-key", types.YChild{"AuthKey", &authVal.AuthKey})
+    authVal.EntityData.Children.Append("key-chain", types.YChild{"KeyChain", &authVal.KeyChain})
+    authVal.EntityData.Leafs = types.NewOrderedMap()
+    authVal.EntityData.Leafs.Append("no-auth", types.YLeaf{"NoAuth", authVal.NoAuth})
+
+    authVal.EntityData.YListKeys = []string {}
+
+    return &(authVal.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_AuthKey
+// Trailer key chain information
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_AuthKey struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The key identifier. The type is interface{} with range: 0..255.
+    KeyId interface{}
+
+    // The key string. The type is slice of interface{} with range: 0..255.
+    KeyString []interface{}
+
+    // The algorithm in use. The type is Ospfv2CryptoAlgorithm.
+    CryptoAlgo interface{}
+}
+
+func (authKey *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_AuthKey) GetEntityData() *types.CommonEntityData {
+    authKey.EntityData.YFilter = authKey.YFilter
+    authKey.EntityData.YangName = "auth-key"
+    authKey.EntityData.BundleName = "cisco_ios_xe"
+    authKey.EntityData.ParentYangName = "auth-val"
+    authKey.EntityData.SegmentPath = "auth-key"
+    authKey.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    authKey.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    authKey.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    authKey.EntityData.Children = types.NewOrderedMap()
+    authKey.EntityData.Leafs = types.NewOrderedMap()
+    authKey.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", authKey.KeyId})
+    authKey.EntityData.Leafs.Append("key-string", types.YLeaf{"KeyString", authKey.KeyString})
+    authKey.EntityData.Leafs.Append("crypto-algo", types.YLeaf{"CryptoAlgo", authKey.CryptoAlgo})
+
+    authKey.EntityData.YListKeys = []string {}
+
+    return &(authKey.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_KeyChain
+// Trailer key information
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_KeyChain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The key chain. The type is slice of interface{} with range: 0..255.
+    KeyChain []interface{}
+}
+
+func (keyChain *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_AuthVal_KeyChain) GetEntityData() *types.CommonEntityData {
+    keyChain.EntityData.YFilter = keyChain.YFilter
+    keyChain.EntityData.YangName = "key-chain"
+    keyChain.EntityData.BundleName = "cisco_ios_xe"
+    keyChain.EntityData.ParentYangName = "auth-val"
+    keyChain.EntityData.SegmentPath = "key-chain"
+    keyChain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    keyChain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    keyChain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    keyChain.EntityData.Children = types.NewOrderedMap()
+    keyChain.EntityData.Leafs = types.NewOrderedMap()
+    keyChain.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", keyChain.KeyChain})
+
+    keyChain.EntityData.YListKeys = []string {}
+
+    return &(keyChain.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor
+// All the neighbors on the interface
+type OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The neighbor identifier. The type is interface{}
+    // with range: 0..4294967295.
+    NbrId interface{}
+
+    // Neighbor address. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Address interface{}
+
+    // The neighbor's Designated Router indentifier . The type is interface{} with
+    // range: 0..4294967295.
+    Dr interface{}
+
+    // The neighbor's Backup Designated Router identifier. The type is interface{}
+    // with range: 0..4294967295.
+    Bdr interface{}
+
+    // The designated routers' IP address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    DrIp interface{}
+
+    // The backup designated routers' IP address. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    BdrIp interface{}
+
+    // A count of neighbor events. The type is interface{} with range:
+    // 0..4294967295.
+    EventCount interface{}
+
+    // A count of the retransmission events. The type is interface{} with range:
+    // 0..4294967295.
+    RetransCount interface{}
+
+    // The current neighbor state. The type is NbrStateType.
+    State interface{}
+
+    // The dead timer in seconds. The type is interface{} with range:
+    // 0..4294967295.
+    DeadTimer interface{}
+}
+
+func (ospfv2Neighbor *OspfOperData_Ospfv2Instance_Ospfv2Area_Ospfv2Interface_Ospfv2Neighbor) GetEntityData() *types.CommonEntityData {
+    ospfv2Neighbor.EntityData.YFilter = ospfv2Neighbor.YFilter
+    ospfv2Neighbor.EntityData.YangName = "ospfv2-neighbor"
+    ospfv2Neighbor.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2Neighbor.EntityData.ParentYangName = "ospfv2-interface"
+    ospfv2Neighbor.EntityData.SegmentPath = "ospfv2-neighbor" + types.AddKeyToken(ospfv2Neighbor.NbrId, "nbr-id")
+    ospfv2Neighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2Neighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2Neighbor.EntityData.Children = types.NewOrderedMap()
+    ospfv2Neighbor.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2Neighbor.EntityData.Leafs.Append("nbr-id", types.YLeaf{"NbrId", ospfv2Neighbor.NbrId})
+    ospfv2Neighbor.EntityData.Leafs.Append("address", types.YLeaf{"Address", ospfv2Neighbor.Address})
+    ospfv2Neighbor.EntityData.Leafs.Append("dr", types.YLeaf{"Dr", ospfv2Neighbor.Dr})
+    ospfv2Neighbor.EntityData.Leafs.Append("bdr", types.YLeaf{"Bdr", ospfv2Neighbor.Bdr})
+    ospfv2Neighbor.EntityData.Leafs.Append("dr-ip", types.YLeaf{"DrIp", ospfv2Neighbor.DrIp})
+    ospfv2Neighbor.EntityData.Leafs.Append("bdr-ip", types.YLeaf{"BdrIp", ospfv2Neighbor.BdrIp})
+    ospfv2Neighbor.EntityData.Leafs.Append("event-count", types.YLeaf{"EventCount", ospfv2Neighbor.EventCount})
+    ospfv2Neighbor.EntityData.Leafs.Append("retrans-count", types.YLeaf{"RetransCount", ospfv2Neighbor.RetransCount})
+    ospfv2Neighbor.EntityData.Leafs.Append("state", types.YLeaf{"State", ospfv2Neighbor.State})
+    ospfv2Neighbor.EntityData.Leafs.Append("dead-timer", types.YLeaf{"DeadTimer", ospfv2Neighbor.DeadTimer})
+
+    ospfv2Neighbor.EntityData.YListKeys = []string {"NbrId"}
+
+    return &(ospfv2Neighbor.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal
+// The external LSDB information
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Link State Advertisement type. The type is
+    // interface{} with range: 0..255.
+    LsaType interface{}
+
+    // This attribute is a key. Link State Advertisement Identifer. The type is
+    // interface{} with range: 0..4294967295.
+    LsaId interface{}
+
+    // This attribute is a key. Advertising router. The type is interface{} with
+    // range: 0..4294967295.
+    AdvertisingRouter interface{}
+
+    // The age of the Link State Advertisement. The type is interface{} with
+    // range: 0..65535.
+    LsaAge interface{}
+
+    // The options of the Link State Advertisement. The type is map[string]bool.
+    LsaOptions interface{}
+
+    // The sequence number for the Link State Advertisement. The type is
+    // interface{} with range: 0..4294967295.
+    LsaSeqNumber interface{}
+
+    // The checksum of the Link State Advertisement. The type is interface{} with
+    // range: 0..65535.
+    LsaChecksum interface{}
+
+    // The length, in bytes, of the Link State Advertisement. The type is
+    // interface{} with range: 0..65535.
+    LsaLength interface{}
+
+    // The router Link State Advertisement links. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks.
+    Ospfv2RouterLsaLinks []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks
+
+    // The unsupported Link State Advertisements.
+    UnsupportedLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_UnsupportedLsa
+
+    // The router Link State Advertisements.
+    RouterLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterLsa
+
+    // The network Link State Advertisements.
+    NetworkLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkLsa
+
+    // The network summary Link State Advertisements.
+    NetworkSummaryLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa
+
+    // The router summary Link State Advertisements.
+    RouterSummaryLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa
+
+    // The external Link State Advertisements.
+    ExternalLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa
+
+    // The Not So Stubby Area Link state advertisements.
+    NssaLsa OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa
+}
+
+func (ospfv2LsdbExternal *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal) GetEntityData() *types.CommonEntityData {
+    ospfv2LsdbExternal.EntityData.YFilter = ospfv2LsdbExternal.YFilter
+    ospfv2LsdbExternal.EntityData.YangName = "ospfv2-lsdb-external"
+    ospfv2LsdbExternal.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2LsdbExternal.EntityData.ParentYangName = "ospfv2-instance"
+    ospfv2LsdbExternal.EntityData.SegmentPath = "ospfv2-lsdb-external" + types.AddKeyToken(ospfv2LsdbExternal.LsaType, "lsa-type") + types.AddKeyToken(ospfv2LsdbExternal.LsaId, "lsa-id") + types.AddKeyToken(ospfv2LsdbExternal.AdvertisingRouter, "advertising-router")
+    ospfv2LsdbExternal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2LsdbExternal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2LsdbExternal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2LsdbExternal.EntityData.Children = types.NewOrderedMap()
+    ospfv2LsdbExternal.EntityData.Children.Append("ospfv2-router-lsa-links", types.YChild{"Ospfv2RouterLsaLinks", nil})
+    for i := range ospfv2LsdbExternal.Ospfv2RouterLsaLinks {
+        ospfv2LsdbExternal.EntityData.Children.Append(types.GetSegmentPath(ospfv2LsdbExternal.Ospfv2RouterLsaLinks[i]), types.YChild{"Ospfv2RouterLsaLinks", ospfv2LsdbExternal.Ospfv2RouterLsaLinks[i]})
+    }
+    ospfv2LsdbExternal.EntityData.Children.Append("unsupported-lsa", types.YChild{"UnsupportedLsa", &ospfv2LsdbExternal.UnsupportedLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("router-lsa", types.YChild{"RouterLsa", &ospfv2LsdbExternal.RouterLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("network-lsa", types.YChild{"NetworkLsa", &ospfv2LsdbExternal.NetworkLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("network-summary-lsa", types.YChild{"NetworkSummaryLsa", &ospfv2LsdbExternal.NetworkSummaryLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("router-summary-lsa", types.YChild{"RouterSummaryLsa", &ospfv2LsdbExternal.RouterSummaryLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("external-lsa", types.YChild{"ExternalLsa", &ospfv2LsdbExternal.ExternalLsa})
+    ospfv2LsdbExternal.EntityData.Children.Append("nssa-lsa", types.YChild{"NssaLsa", &ospfv2LsdbExternal.NssaLsa})
+    ospfv2LsdbExternal.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-type", types.YLeaf{"LsaType", ospfv2LsdbExternal.LsaType})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-id", types.YLeaf{"LsaId", ospfv2LsdbExternal.LsaId})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("advertising-router", types.YLeaf{"AdvertisingRouter", ospfv2LsdbExternal.AdvertisingRouter})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-age", types.YLeaf{"LsaAge", ospfv2LsdbExternal.LsaAge})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-options", types.YLeaf{"LsaOptions", ospfv2LsdbExternal.LsaOptions})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-seq-number", types.YLeaf{"LsaSeqNumber", ospfv2LsdbExternal.LsaSeqNumber})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-checksum", types.YLeaf{"LsaChecksum", ospfv2LsdbExternal.LsaChecksum})
+    ospfv2LsdbExternal.EntityData.Leafs.Append("lsa-length", types.YLeaf{"LsaLength", ospfv2LsdbExternal.LsaLength})
+
+    ospfv2LsdbExternal.EntityData.YListKeys = []string {"LsaType", "LsaId", "AdvertisingRouter"}
+
+    return &(ospfv2LsdbExternal.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks
+// The router Link State Advertisement links
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Link Type. The type is interface{} with range:
+    // 0..255.
+    LinkType interface{}
+
+    // This attribute is a key. link Identifier. The type is interface{} with
+    // range: 0..4294967295.
+    LinkId interface{}
+
+    // This attribute is a key. link data. The type is interface{} with range:
+    // 0..4294967295.
+    LinkData interface{}
+
+    // Link topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo.
+    LinkTopo []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo
+}
+
+func (ospfv2RouterLsaLinks *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks) GetEntityData() *types.CommonEntityData {
+    ospfv2RouterLsaLinks.EntityData.YFilter = ospfv2RouterLsaLinks.YFilter
+    ospfv2RouterLsaLinks.EntityData.YangName = "ospfv2-router-lsa-links"
+    ospfv2RouterLsaLinks.EntityData.BundleName = "cisco_ios_xe"
+    ospfv2RouterLsaLinks.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    ospfv2RouterLsaLinks.EntityData.SegmentPath = "ospfv2-router-lsa-links" + types.AddKeyToken(ospfv2RouterLsaLinks.LinkType, "link-type") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkId, "link-id") + types.AddKeyToken(ospfv2RouterLsaLinks.LinkData, "link-data")
+    ospfv2RouterLsaLinks.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfv2RouterLsaLinks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfv2RouterLsaLinks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ospfv2RouterLsaLinks.EntityData.Children = types.NewOrderedMap()
+    ospfv2RouterLsaLinks.EntityData.Children.Append("link-topo", types.YChild{"LinkTopo", nil})
+    for i := range ospfv2RouterLsaLinks.LinkTopo {
+        ospfv2RouterLsaLinks.EntityData.Children.Append(types.GetSegmentPath(ospfv2RouterLsaLinks.LinkTopo[i]), types.YChild{"LinkTopo", ospfv2RouterLsaLinks.LinkTopo[i]})
+    }
+    ospfv2RouterLsaLinks.EntityData.Leafs = types.NewOrderedMap()
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-type", types.YLeaf{"LinkType", ospfv2RouterLsaLinks.LinkType})
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-id", types.YLeaf{"LinkId", ospfv2RouterLsaLinks.LinkId})
+    ospfv2RouterLsaLinks.EntityData.Leafs.Append("link-data", types.YLeaf{"LinkData", ospfv2RouterLsaLinks.LinkData})
+
+    ospfv2RouterLsaLinks.EntityData.YListKeys = []string {"LinkType", "LinkId", "LinkData"}
+
+    return &(ospfv2RouterLsaLinks.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo
+// Link topology
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology metric. The type is interface{} with range: 0..65535.
+    TopoMetric interface{}
+}
+
+func (linkTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_Ospfv2RouterLsaLinks_LinkTopo) GetEntityData() *types.CommonEntityData {
+    linkTopo.EntityData.YFilter = linkTopo.YFilter
+    linkTopo.EntityData.YangName = "link-topo"
+    linkTopo.EntityData.BundleName = "cisco_ios_xe"
+    linkTopo.EntityData.ParentYangName = "ospfv2-router-lsa-links"
+    linkTopo.EntityData.SegmentPath = "link-topo"
+    linkTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    linkTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    linkTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    linkTopo.EntityData.Children = types.NewOrderedMap()
+    linkTopo.EntityData.Leafs = types.NewOrderedMap()
+    linkTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", linkTopo.MtId})
+    linkTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", linkTopo.TopoMetric})
+
+    linkTopo.EntityData.YListKeys = []string {}
+
+    return &(linkTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_UnsupportedLsa
+// The unsupported Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_UnsupportedLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Link State Advertisement data. The type is slice of interface{} with range:
+    // 0..255.
+    LsaData []interface{}
+}
+
+func (unsupportedLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_UnsupportedLsa) GetEntityData() *types.CommonEntityData {
+    unsupportedLsa.EntityData.YFilter = unsupportedLsa.YFilter
+    unsupportedLsa.EntityData.YangName = "unsupported-lsa"
+    unsupportedLsa.EntityData.BundleName = "cisco_ios_xe"
+    unsupportedLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    unsupportedLsa.EntityData.SegmentPath = "unsupported-lsa"
+    unsupportedLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    unsupportedLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    unsupportedLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    unsupportedLsa.EntityData.Children = types.NewOrderedMap()
+    unsupportedLsa.EntityData.Leafs = types.NewOrderedMap()
+    unsupportedLsa.EntityData.Leafs.Append("lsa-data", types.YLeaf{"LsaData", unsupportedLsa.LsaData})
+
+    unsupportedLsa.EntityData.YListKeys = []string {}
+
+    return &(unsupportedLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterLsa
+// The router Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Router Link State Advertisement bits. The type is map[string]bool.
+    RouterLsaBits interface{}
+
+    // Router Link State Advertisement number of links. The type is interface{}
+    // with range: 0..65535.
+    RouterLsaNumberLinks interface{}
+}
+
+func (routerLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterLsa) GetEntityData() *types.CommonEntityData {
+    routerLsa.EntityData.YFilter = routerLsa.YFilter
+    routerLsa.EntityData.YangName = "router-lsa"
+    routerLsa.EntityData.BundleName = "cisco_ios_xe"
+    routerLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    routerLsa.EntityData.SegmentPath = "router-lsa"
+    routerLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routerLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routerLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    routerLsa.EntityData.Children = types.NewOrderedMap()
+    routerLsa.EntityData.Leafs = types.NewOrderedMap()
+    routerLsa.EntityData.Leafs.Append("router-lsa-bits", types.YLeaf{"RouterLsaBits", routerLsa.RouterLsaBits})
+    routerLsa.EntityData.Leafs.Append("router-lsa-number-links", types.YLeaf{"RouterLsaNumberLinks", routerLsa.RouterLsaNumberLinks})
+
+    routerLsa.EntityData.YListKeys = []string {}
+
+    return &(routerLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkLsa
+// The network Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Network Link State Advertisement mask. The type is interface{} with range:
+    // 0..4294967295.
+    NetworkLsaMask interface{}
+
+    // Network attached routers. The type is slice of interface{} with range:
+    // 0..4294967295.
+    NetworkAttachedRouters []interface{}
+}
+
+func (networkLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkLsa) GetEntityData() *types.CommonEntityData {
+    networkLsa.EntityData.YFilter = networkLsa.YFilter
+    networkLsa.EntityData.YangName = "network-lsa"
+    networkLsa.EntityData.BundleName = "cisco_ios_xe"
+    networkLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    networkLsa.EntityData.SegmentPath = "network-lsa"
+    networkLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    networkLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    networkLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    networkLsa.EntityData.Children = types.NewOrderedMap()
+    networkLsa.EntityData.Leafs = types.NewOrderedMap()
+    networkLsa.EntityData.Leafs.Append("network-lsa-mask", types.YLeaf{"NetworkLsaMask", networkLsa.NetworkLsaMask})
+    networkLsa.EntityData.Leafs.Append("network-attached-routers", types.YLeaf{"NetworkAttachedRouters", networkLsa.NetworkAttachedRouters})
+
+    networkLsa.EntityData.YListKeys = []string {}
+
+    return &(networkLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa
+// The network summary Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The summary Link State Advertisement mask. The type is interface{} with
+    // range: 0..4294967295.
+    SummaryLsaMask interface{}
+
+    // The summary topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo.
+    SummaryTopo []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo
+}
+
+func (networkSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa) GetEntityData() *types.CommonEntityData {
+    networkSummaryLsa.EntityData.YFilter = networkSummaryLsa.YFilter
+    networkSummaryLsa.EntityData.YangName = "network-summary-lsa"
+    networkSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
+    networkSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    networkSummaryLsa.EntityData.SegmentPath = "network-summary-lsa"
+    networkSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    networkSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    networkSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    networkSummaryLsa.EntityData.Children = types.NewOrderedMap()
+    networkSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
+    for i := range networkSummaryLsa.SummaryTopo {
+        networkSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(networkSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", networkSummaryLsa.SummaryTopo[i]})
+    }
+    networkSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
+    networkSummaryLsa.EntityData.Leafs.Append("summary-lsa-mask", types.YLeaf{"SummaryLsaMask", networkSummaryLsa.SummaryLsaMask})
+
+    networkSummaryLsa.EntityData.YListKeys = []string {}
+
+    return &(networkSummaryLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo
+// The summary topology
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology Metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+}
+
+func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NetworkSummaryLsa_SummaryTopo) GetEntityData() *types.CommonEntityData {
+    summaryTopo.EntityData.YFilter = summaryTopo.YFilter
+    summaryTopo.EntityData.YangName = "summary-topo"
+    summaryTopo.EntityData.BundleName = "cisco_ios_xe"
+    summaryTopo.EntityData.ParentYangName = "network-summary-lsa"
+    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    summaryTopo.EntityData.Children = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", summaryTopo.MtId})
+    summaryTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", summaryTopo.TopoMetric})
+
+    summaryTopo.EntityData.YListKeys = []string {}
+
+    return &(summaryTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa
+// The router summary Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The summary Link State Advertisement mask. The type is interface{} with
+    // range: 0..4294967295.
+    SummaryLsaMask interface{}
+
+    // The summary topology. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo.
+    SummaryTopo []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo
+}
+
+func (routerSummaryLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa) GetEntityData() *types.CommonEntityData {
+    routerSummaryLsa.EntityData.YFilter = routerSummaryLsa.YFilter
+    routerSummaryLsa.EntityData.YangName = "router-summary-lsa"
+    routerSummaryLsa.EntityData.BundleName = "cisco_ios_xe"
+    routerSummaryLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    routerSummaryLsa.EntityData.SegmentPath = "router-summary-lsa"
+    routerSummaryLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routerSummaryLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routerSummaryLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    routerSummaryLsa.EntityData.Children = types.NewOrderedMap()
+    routerSummaryLsa.EntityData.Children.Append("summary-topo", types.YChild{"SummaryTopo", nil})
+    for i := range routerSummaryLsa.SummaryTopo {
+        routerSummaryLsa.EntityData.Children.Append(types.GetSegmentPath(routerSummaryLsa.SummaryTopo[i]), types.YChild{"SummaryTopo", routerSummaryLsa.SummaryTopo[i]})
+    }
+    routerSummaryLsa.EntityData.Leafs = types.NewOrderedMap()
+    routerSummaryLsa.EntityData.Leafs.Append("summary-lsa-mask", types.YLeaf{"SummaryLsaMask", routerSummaryLsa.SummaryLsaMask})
+
+    routerSummaryLsa.EntityData.YListKeys = []string {}
+
+    return &(routerSummaryLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo
+// The summary topology
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // Topology Metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+}
+
+func (summaryTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_RouterSummaryLsa_SummaryTopo) GetEntityData() *types.CommonEntityData {
+    summaryTopo.EntityData.YFilter = summaryTopo.YFilter
+    summaryTopo.EntityData.YangName = "summary-topo"
+    summaryTopo.EntityData.BundleName = "cisco_ios_xe"
+    summaryTopo.EntityData.ParentYangName = "router-summary-lsa"
+    summaryTopo.EntityData.SegmentPath = "summary-topo"
+    summaryTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    summaryTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    summaryTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    summaryTopo.EntityData.Children = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs = types.NewOrderedMap()
+    summaryTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", summaryTopo.MtId})
+    summaryTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", summaryTopo.TopoMetric})
+
+    summaryTopo.EntityData.YListKeys = []string {}
+
+    return &(summaryTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa
+// The external Link State Advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The mask for the external Link State Advertisement. The type is interface{}
+    // with range: 0..4294967295.
+    ExternalLsaMask interface{}
+
+    // The external topology Link State Advertisement. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo.
+    ExternalTopo []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo
+}
+
+func (externalLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa) GetEntityData() *types.CommonEntityData {
+    externalLsa.EntityData.YFilter = externalLsa.YFilter
+    externalLsa.EntityData.YangName = "external-lsa"
+    externalLsa.EntityData.BundleName = "cisco_ios_xe"
+    externalLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    externalLsa.EntityData.SegmentPath = "external-lsa"
+    externalLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalLsa.EntityData.Children = types.NewOrderedMap()
+    externalLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
+    for i := range externalLsa.ExternalTopo {
+        externalLsa.EntityData.Children.Append(types.GetSegmentPath(externalLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", externalLsa.ExternalTopo[i]})
+    }
+    externalLsa.EntityData.Leafs = types.NewOrderedMap()
+    externalLsa.EntityData.Leafs.Append("external-lsa-mask", types.YLeaf{"ExternalLsaMask", externalLsa.ExternalLsaMask})
+
+    externalLsa.EntityData.YListKeys = []string {}
+
+    return &(externalLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo
+// The external topology Link State Advertisement
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // The topoligy metric type associated with the  Link State Advertisement. The
+    // type is OspfExternalMetricType.
+    TopoMetricType interface{}
+
+    // The topology metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+
+    // The topology forwarding address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    TopoForwardingAddress interface{}
+
+    // The topology route tag. The type is interface{} with range: 0..4294967295.
+    TopoRouteTag interface{}
+}
+
+func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_ExternalLsa_ExternalTopo) GetEntityData() *types.CommonEntityData {
+    externalTopo.EntityData.YFilter = externalTopo.YFilter
+    externalTopo.EntityData.YangName = "external-topo"
+    externalTopo.EntityData.BundleName = "cisco_ios_xe"
+    externalTopo.EntityData.ParentYangName = "external-lsa"
+    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalTopo.EntityData.Children = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", externalTopo.MtId})
+    externalTopo.EntityData.Leafs.Append("topo-metric-type", types.YLeaf{"TopoMetricType", externalTopo.TopoMetricType})
+    externalTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", externalTopo.TopoMetric})
+    externalTopo.EntityData.Leafs.Append("topo-forwarding-address", types.YLeaf{"TopoForwardingAddress", externalTopo.TopoForwardingAddress})
+    externalTopo.EntityData.Leafs.Append("topo-route-tag", types.YLeaf{"TopoRouteTag", externalTopo.TopoRouteTag})
+
+    externalTopo.EntityData.YListKeys = []string {}
+
+    return &(externalTopo.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa
+// The Not So Stubby Area Link state advertisements
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The mask for the external Link State Advertisement. The type is interface{}
+    // with range: 0..4294967295.
+    ExternalLsaMask interface{}
+
+    // The external topology Link State Advertisement. The type is slice of
+    // OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo.
+    ExternalTopo []*OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo
+}
+
+func (nssaLsa *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa) GetEntityData() *types.CommonEntityData {
+    nssaLsa.EntityData.YFilter = nssaLsa.YFilter
+    nssaLsa.EntityData.YangName = "nssa-lsa"
+    nssaLsa.EntityData.BundleName = "cisco_ios_xe"
+    nssaLsa.EntityData.ParentYangName = "ospfv2-lsdb-external"
+    nssaLsa.EntityData.SegmentPath = "nssa-lsa"
+    nssaLsa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nssaLsa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nssaLsa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nssaLsa.EntityData.Children = types.NewOrderedMap()
+    nssaLsa.EntityData.Children.Append("external-topo", types.YChild{"ExternalTopo", nil})
+    for i := range nssaLsa.ExternalTopo {
+        nssaLsa.EntityData.Children.Append(types.GetSegmentPath(nssaLsa.ExternalTopo[i]), types.YChild{"ExternalTopo", nssaLsa.ExternalTopo[i]})
+    }
+    nssaLsa.EntityData.Leafs = types.NewOrderedMap()
+    nssaLsa.EntityData.Leafs.Append("external-lsa-mask", types.YLeaf{"ExternalLsaMask", nssaLsa.ExternalLsaMask})
+
+    nssaLsa.EntityData.YListKeys = []string {}
+
+    return &(nssaLsa.EntityData)
+}
+
+// OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo
+// The external topology Link State Advertisement
+type OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The multi topology identifier. The type is interface{} with range: 0..255.
+    MtId interface{}
+
+    // The topoligy metric type associated with the  Link State Advertisement. The
+    // type is OspfExternalMetricType.
+    TopoMetricType interface{}
+
+    // The topology metric. The type is interface{} with range: 0..4294967295.
+    TopoMetric interface{}
+
+    // The topology forwarding address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    TopoForwardingAddress interface{}
+
+    // The topology route tag. The type is interface{} with range: 0..4294967295.
+    TopoRouteTag interface{}
+}
+
+func (externalTopo *OspfOperData_Ospfv2Instance_Ospfv2LsdbExternal_NssaLsa_ExternalTopo) GetEntityData() *types.CommonEntityData {
+    externalTopo.EntityData.YFilter = externalTopo.YFilter
+    externalTopo.EntityData.YangName = "external-topo"
+    externalTopo.EntityData.BundleName = "cisco_ios_xe"
+    externalTopo.EntityData.ParentYangName = "nssa-lsa"
+    externalTopo.EntityData.SegmentPath = "external-topo"
+    externalTopo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    externalTopo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    externalTopo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    externalTopo.EntityData.Children = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs = types.NewOrderedMap()
+    externalTopo.EntityData.Leafs.Append("mt-id", types.YLeaf{"MtId", externalTopo.MtId})
+    externalTopo.EntityData.Leafs.Append("topo-metric-type", types.YLeaf{"TopoMetricType", externalTopo.TopoMetricType})
+    externalTopo.EntityData.Leafs.Append("topo-metric", types.YLeaf{"TopoMetric", externalTopo.TopoMetric})
+    externalTopo.EntityData.Leafs.Append("topo-forwarding-address", types.YLeaf{"TopoForwardingAddress", externalTopo.TopoForwardingAddress})
+    externalTopo.EntityData.Leafs.Append("topo-route-tag", types.YLeaf{"TopoRouteTag", externalTopo.TopoRouteTag})
+
+    externalTopo.EntityData.YListKeys = []string {}
+
+    return &(externalTopo.EntityData)
 }
 

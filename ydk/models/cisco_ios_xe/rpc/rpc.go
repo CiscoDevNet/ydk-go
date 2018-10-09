@@ -1,5 +1,5 @@
 // NED RPC YANG module for IOS
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package rpc
 
@@ -40,6 +40,12 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-rpc:app-hosting", reflect.TypeOf(AppHosting{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-rpc guestshell}", reflect.TypeOf(Guestshell{}))
     ydk.RegisterEntity("Cisco-IOS-XE-rpc:guestshell", reflect.TypeOf(Guestshell{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-rpc start}", reflect.TypeOf(Start{}))
+    ydk.RegisterEntity("Cisco-IOS-XE-rpc:start", reflect.TypeOf(Start{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-rpc stop}", reflect.TypeOf(Stop{}))
+    ydk.RegisterEntity("Cisco-IOS-XE-rpc:stop", reflect.TypeOf(Stop{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-rpc utd}", reflect.TypeOf(Utd{}))
+    ydk.RegisterEntity("Cisco-IOS-XE-rpc:utd", reflect.TypeOf(Utd{}))
 }
 
 // Switch
@@ -318,6 +324,12 @@ type Clear_Input struct {
 
     // Clear AAA values.
     Aaa Clear_Input_Aaa
+
+    // Clear platform information.
+    Platform Clear_Input_Platform
+
+    // Clear zone-pair.
+    ZonePair Clear_Input_ZonePair
 }
 
 func (input *Clear_Input) GetEntityData() *types.CommonEntityData {
@@ -335,6 +347,8 @@ func (input *Clear_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.Children.Append("ip", types.YChild{"Ip", &input.Ip})
     input.EntityData.Children.Append("arp-cache", types.YChild{"ArpCache", &input.ArpCache})
     input.EntityData.Children.Append("aaa", types.YChild{"Aaa", &input.Aaa})
+    input.EntityData.Children.Append("platform", types.YChild{"Platform", &input.Platform})
+    input.EntityData.Children.Append("zone-pair", types.YChild{"ZonePair", &input.ZonePair})
     input.EntityData.Leafs = types.NewOrderedMap()
     input.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", input.Interface})
     input.EntityData.Leafs.Append("count", types.YLeaf{"Count", input.Count})
@@ -802,6 +816,209 @@ func (lockout *Clear_Input_Aaa_Local_User_Lockout) GetEntityData() *types.Common
     return &(lockout.EntityData)
 }
 
+// Clear_Input_Platform
+// Clear platform information
+type Clear_Input_Platform struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clear platform hardware information.
+    Hardware Clear_Input_Platform_Hardware
+}
+
+func (platform *Clear_Input_Platform) GetEntityData() *types.CommonEntityData {
+    platform.EntityData.YFilter = platform.YFilter
+    platform.EntityData.YangName = "platform"
+    platform.EntityData.BundleName = "cisco_ios_xe"
+    platform.EntityData.ParentYangName = "input"
+    platform.EntityData.SegmentPath = "platform"
+    platform.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    platform.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    platform.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    platform.EntityData.Children = types.NewOrderedMap()
+    platform.EntityData.Children.Append("hardware", types.YChild{"Hardware", &platform.Hardware})
+    platform.EntityData.Leafs = types.NewOrderedMap()
+
+    platform.EntityData.YListKeys = []string {}
+
+    return &(platform.EntityData)
+}
+
+// Clear_Input_Platform_Hardware
+// Clear platform hardware information
+type Clear_Input_Platform_Hardware struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Quantum Flow Processor.
+    Qfp Clear_Input_Platform_Hardware_Qfp
+}
+
+func (hardware *Clear_Input_Platform_Hardware) GetEntityData() *types.CommonEntityData {
+    hardware.EntityData.YFilter = hardware.YFilter
+    hardware.EntityData.YangName = "hardware"
+    hardware.EntityData.BundleName = "cisco_ios_xe"
+    hardware.EntityData.ParentYangName = "platform"
+    hardware.EntityData.SegmentPath = "hardware"
+    hardware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    hardware.EntityData.Children = types.NewOrderedMap()
+    hardware.EntityData.Children.Append("qfp", types.YChild{"Qfp", &hardware.Qfp})
+    hardware.EntityData.Leafs = types.NewOrderedMap()
+
+    hardware.EntityData.YListKeys = []string {}
+
+    return &(hardware.EntityData)
+}
+
+// Clear_Input_Platform_Hardware_Qfp
+// Quantum Flow Processor
+type Clear_Input_Platform_Hardware_Qfp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Active instance.
+    Active Clear_Input_Platform_Hardware_Qfp_Active
+}
+
+func (qfp *Clear_Input_Platform_Hardware_Qfp) GetEntityData() *types.CommonEntityData {
+    qfp.EntityData.YFilter = qfp.YFilter
+    qfp.EntityData.YangName = "qfp"
+    qfp.EntityData.BundleName = "cisco_ios_xe"
+    qfp.EntityData.ParentYangName = "hardware"
+    qfp.EntityData.SegmentPath = "qfp"
+    qfp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qfp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qfp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    qfp.EntityData.Children = types.NewOrderedMap()
+    qfp.EntityData.Children.Append("active", types.YChild{"Active", &qfp.Active})
+    qfp.EntityData.Leafs = types.NewOrderedMap()
+
+    qfp.EntityData.YListKeys = []string {}
+
+    return &(qfp.EntityData)
+}
+
+// Clear_Input_Platform_Hardware_Qfp_Active
+// Active instance
+type Clear_Input_Platform_Hardware_Qfp_Active struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clear features.
+    Feature Clear_Input_Platform_Hardware_Qfp_Active_Feature
+}
+
+func (active *Clear_Input_Platform_Hardware_Qfp_Active) GetEntityData() *types.CommonEntityData {
+    active.EntityData.YFilter = active.YFilter
+    active.EntityData.YangName = "active"
+    active.EntityData.BundleName = "cisco_ios_xe"
+    active.EntityData.ParentYangName = "qfp"
+    active.EntityData.SegmentPath = "active"
+    active.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    active.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    active.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    active.EntityData.Children = types.NewOrderedMap()
+    active.EntityData.Children.Append("feature", types.YChild{"Feature", &active.Feature})
+    active.EntityData.Leafs = types.NewOrderedMap()
+
+    active.EntityData.YListKeys = []string {}
+
+    return &(active.EntityData)
+}
+
+// Clear_Input_Platform_Hardware_Qfp_Active_Feature
+// Clear features
+type Clear_Input_Platform_Hardware_Qfp_Active_Feature struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clear QFP Firewall.
+    Firewall Clear_Input_Platform_Hardware_Qfp_Active_Feature_Firewall
+}
+
+func (feature *Clear_Input_Platform_Hardware_Qfp_Active_Feature) GetEntityData() *types.CommonEntityData {
+    feature.EntityData.YFilter = feature.YFilter
+    feature.EntityData.YangName = "feature"
+    feature.EntityData.BundleName = "cisco_ios_xe"
+    feature.EntityData.ParentYangName = "active"
+    feature.EntityData.SegmentPath = "feature"
+    feature.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    feature.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    feature.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    feature.EntityData.Children = types.NewOrderedMap()
+    feature.EntityData.Children.Append("firewall", types.YChild{"Firewall", &feature.Firewall})
+    feature.EntityData.Leafs = types.NewOrderedMap()
+
+    feature.EntityData.YListKeys = []string {}
+
+    return &(feature.EntityData)
+}
+
+// Clear_Input_Platform_Hardware_Qfp_Active_Feature_Firewall
+// Clear QFP Firewall
+type Clear_Input_Platform_Hardware_Qfp_Active_Feature_Firewall struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clear firewall drop counters. The type is interface{}.
+    Drop interface{}
+}
+
+func (firewall *Clear_Input_Platform_Hardware_Qfp_Active_Feature_Firewall) GetEntityData() *types.CommonEntityData {
+    firewall.EntityData.YFilter = firewall.YFilter
+    firewall.EntityData.YangName = "firewall"
+    firewall.EntityData.BundleName = "cisco_ios_xe"
+    firewall.EntityData.ParentYangName = "feature"
+    firewall.EntityData.SegmentPath = "firewall"
+    firewall.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    firewall.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    firewall.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    firewall.EntityData.Children = types.NewOrderedMap()
+    firewall.EntityData.Leafs = types.NewOrderedMap()
+    firewall.EntityData.Leafs.Append("drop", types.YLeaf{"Drop", firewall.Drop})
+
+    firewall.EntityData.YListKeys = []string {}
+
+    return &(firewall.EntityData)
+}
+
+// Clear_Input_ZonePair
+// Clear zone-pair
+type Clear_Input_ZonePair struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Zone-pair counters. The type is interface{}.
+    Counter interface{}
+}
+
+func (zonePair *Clear_Input_ZonePair) GetEntityData() *types.CommonEntityData {
+    zonePair.EntityData.YFilter = zonePair.YFilter
+    zonePair.EntityData.YangName = "zone-pair"
+    zonePair.EntityData.BundleName = "cisco_ios_xe"
+    zonePair.EntityData.ParentYangName = "input"
+    zonePair.EntityData.SegmentPath = "zone-pair"
+    zonePair.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    zonePair.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    zonePair.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    zonePair.EntityData.Children = types.NewOrderedMap()
+    zonePair.EntityData.Leafs = types.NewOrderedMap()
+    zonePair.EntityData.Leafs.Append("counter", types.YLeaf{"Counter", zonePair.Counter})
+
+    zonePair.EntityData.YListKeys = []string {}
+
+    return &(zonePair.EntityData)
+}
+
 // Clear_Output
 type Clear_Output struct {
     EntityData types.CommonEntityData
@@ -1081,6 +1298,9 @@ type Cellular_Input_Lte struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // The type is interface{}.
+    ModemReset interface{}
+
     
     Technology Cellular_Input_Lte_Technology
 
@@ -1102,6 +1322,7 @@ func (lte *Cellular_Input_Lte) GetEntityData() *types.CommonEntityData {
     lte.EntityData.Children.Append("technology", types.YChild{"Technology", &lte.Technology})
     lte.EntityData.Children.Append("profile", types.YChild{"Profile", &lte.Profile})
     lte.EntityData.Leafs = types.NewOrderedMap()
+    lte.EntityData.Leafs.Append("modem-reset", types.YLeaf{"ModemReset", lte.ModemReset})
 
     lte.EntityData.YListKeys = []string {}
 
@@ -2509,6 +2730,588 @@ func (output *Guestshell_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.YangName = "output"
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "guestshell"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// Start
+// Start system operations
+type Start struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Input Start_Input
+
+    
+    Output Start_Output
+}
+
+func (start *Start) GetEntityData() *types.CommonEntityData {
+    start.EntityData.YFilter = start.YFilter
+    start.EntityData.YangName = "start"
+    start.EntityData.BundleName = "cisco_ios_xe"
+    start.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
+    start.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:start"
+    start.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    start.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    start.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    start.EntityData.Children = types.NewOrderedMap()
+    start.EntityData.Children.Append("input", types.YChild{"Input", &start.Input})
+    start.EntityData.Children.Append("output", types.YChild{"Output", &start.Output})
+    start.EntityData.Leafs = types.NewOrderedMap()
+
+    start.EntityData.YListKeys = []string {}
+
+    return &(start.EntityData)
+}
+
+// Start_Input
+type Start_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // GIR start maintenance mode. The type is interface{}.
+    Maintenance interface{}
+}
+
+func (input *Start_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "start"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("maintenance", types.YLeaf{"Maintenance", input.Maintenance})
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// Start_Output
+type Start_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Output returned by the network element. The type is string.
+    Result interface{}
+}
+
+func (output *Start_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "start"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// Stop
+// Stop system operations
+type Stop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Input Stop_Input
+
+    
+    Output Stop_Output
+}
+
+func (stop *Stop) GetEntityData() *types.CommonEntityData {
+    stop.EntityData.YFilter = stop.YFilter
+    stop.EntityData.YangName = "stop"
+    stop.EntityData.BundleName = "cisco_ios_xe"
+    stop.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
+    stop.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:stop"
+    stop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    stop.EntityData.Children = types.NewOrderedMap()
+    stop.EntityData.Children.Append("input", types.YChild{"Input", &stop.Input})
+    stop.EntityData.Children.Append("output", types.YChild{"Output", &stop.Output})
+    stop.EntityData.Leafs = types.NewOrderedMap()
+
+    stop.EntityData.YListKeys = []string {}
+
+    return &(stop.EntityData)
+}
+
+// Stop_Input
+type Stop_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // GIR stop maintenance mode. The type is interface{}.
+    Maintenance interface{}
+}
+
+func (input *Stop_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "stop"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Leafs = types.NewOrderedMap()
+    input.EntityData.Leafs.Append("maintenance", types.YLeaf{"Maintenance", input.Maintenance})
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// Stop_Output
+type Stop_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Output returned by the network element. The type is string.
+    Result interface{}
+}
+
+func (output *Stop_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "stop"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    output.EntityData.Children = types.NewOrderedMap()
+    output.EntityData.Leafs = types.NewOrderedMap()
+    output.EntityData.Leafs.Append("result", types.YLeaf{"Result", output.Result})
+
+    output.EntityData.YListKeys = []string {}
+
+    return &(output.EntityData)
+}
+
+// Utd
+// Unified Threat Defense commands
+type Utd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Input Utd_Input
+
+    
+    Output Utd_Output
+}
+
+func (utd *Utd) GetEntityData() *types.CommonEntityData {
+    utd.EntityData.YFilter = utd.YFilter
+    utd.EntityData.YangName = "utd"
+    utd.EntityData.BundleName = "cisco_ios_xe"
+    utd.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
+    utd.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:utd"
+    utd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    utd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    utd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    utd.EntityData.Children = types.NewOrderedMap()
+    utd.EntityData.Children.Append("input", types.YChild{"Input", &utd.Input})
+    utd.EntityData.Children.Append("output", types.YChild{"Output", &utd.Output})
+    utd.EntityData.Leafs = types.NewOrderedMap()
+
+    utd.EntityData.YListKeys = []string {}
+
+    return &(utd.EntityData)
+}
+
+// Utd_Input
+type Utd_Input struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPS/IDS related commands.
+    ThreatInspection Utd_Input_ThreatInspection
+}
+
+func (input *Utd_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "utd"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    input.EntityData.Children = types.NewOrderedMap()
+    input.EntityData.Children.Append("threat-inspection", types.YChild{"ThreatInspection", &input.ThreatInspection})
+    input.EntityData.Leafs = types.NewOrderedMap()
+
+    input.EntityData.YListKeys = []string {}
+
+    return &(input.EntityData)
+}
+
+// Utd_Input_ThreatInspection
+// IPS/IDS related commands
+type Utd_Input_ThreatInspection struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Provide actions to be taken for signatures.
+    Signature Utd_Input_ThreatInspection_Signature
+}
+
+func (threatInspection *Utd_Input_ThreatInspection) GetEntityData() *types.CommonEntityData {
+    threatInspection.EntityData.YFilter = threatInspection.YFilter
+    threatInspection.EntityData.YangName = "threat-inspection"
+    threatInspection.EntityData.BundleName = "cisco_ios_xe"
+    threatInspection.EntityData.ParentYangName = "input"
+    threatInspection.EntityData.SegmentPath = "threat-inspection"
+    threatInspection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    threatInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    threatInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    threatInspection.EntityData.Children = types.NewOrderedMap()
+    threatInspection.EntityData.Children.Append("signature", types.YChild{"Signature", &threatInspection.Signature})
+    threatInspection.EntityData.Leafs = types.NewOrderedMap()
+
+    threatInspection.EntityData.YListKeys = []string {}
+
+    return &(threatInspection.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature
+// Provide actions to be taken for signatures
+type Utd_Input_ThreatInspection_Signature struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    _Saved Utd_Input_ThreatInspection_Signature__Saved
+
+    
+    _Manual Utd_Input_ThreatInspection_Signature__Manual
+}
+
+func (signature *Utd_Input_ThreatInspection_Signature) GetEntityData() *types.CommonEntityData {
+    signature.EntityData.YFilter = signature.YFilter
+    signature.EntityData.YangName = "signature"
+    signature.EntityData.BundleName = "cisco_ios_xe"
+    signature.EntityData.ParentYangName = "threat-inspection"
+    signature.EntityData.SegmentPath = "signature"
+    signature.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    signature.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    signature.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    signature.EntityData.Children = types.NewOrderedMap()
+    signature.EntityData.Children.Append("_saved", types.YChild{"_Saved", &signature._Saved})
+    signature.EntityData.Children.Append("_manual", types.YChild{"_Manual", &signature._Manual})
+    signature.EntityData.Leafs = types.NewOrderedMap()
+
+    signature.EntityData.YListKeys = []string {}
+
+    return &(signature.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Saved
+type Utd_Input_ThreatInspection_Signature__Saved struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Update the IPS/IDS signature rules. The type is interface{}. This attribute
+    // is mandatory.
+    Update interface{}
+}
+
+func (_Saved *Utd_Input_ThreatInspection_Signature__Saved) GetEntityData() *types.CommonEntityData {
+    _Saved.EntityData.YFilter = _Saved.YFilter
+    _Saved.EntityData.YangName = "_saved"
+    _Saved.EntityData.BundleName = "cisco_ios_xe"
+    _Saved.EntityData.ParentYangName = "signature"
+    _Saved.EntityData.SegmentPath = "_saved"
+    _Saved.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    _Saved.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    _Saved.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    _Saved.EntityData.Children = types.NewOrderedMap()
+    _Saved.EntityData.Leafs = types.NewOrderedMap()
+    _Saved.EntityData.Leafs.Append("update", types.YLeaf{"Update", _Saved.Update})
+
+    _Saved.EntityData.YListKeys = []string {}
+
+    return &(_Saved.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual
+type Utd_Input_ThreatInspection_Signature__Manual struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Update the IPS/IDS signature rules.
+    Update Utd_Input_ThreatInspection_Signature__Manual_Update
+}
+
+func (_Manual *Utd_Input_ThreatInspection_Signature__Manual) GetEntityData() *types.CommonEntityData {
+    _Manual.EntityData.YFilter = _Manual.YFilter
+    _Manual.EntityData.YangName = "_manual"
+    _Manual.EntityData.BundleName = "cisco_ios_xe"
+    _Manual.EntityData.ParentYangName = "signature"
+    _Manual.EntityData.SegmentPath = "_manual"
+    _Manual.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    _Manual.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    _Manual.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    _Manual.EntityData.Children = types.NewOrderedMap()
+    _Manual.EntityData.Children.Append("update", types.YChild{"Update", &_Manual.Update})
+    _Manual.EntityData.Leafs = types.NewOrderedMap()
+
+    _Manual.EntityData.YListKeys = []string {}
+
+    return &(_Manual.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update
+// Update the IPS/IDS signature rules
+type Utd_Input_ThreatInspection_Signature__Manual_Update struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Provide config options for the signature update server.
+    Server Utd_Input_ThreatInspection_Signature__Manual_Update_Server
+}
+
+func (update *Utd_Input_ThreatInspection_Signature__Manual_Update) GetEntityData() *types.CommonEntityData {
+    update.EntityData.YFilter = update.YFilter
+    update.EntityData.YangName = "update"
+    update.EntityData.BundleName = "cisco_ios_xe"
+    update.EntityData.ParentYangName = "_manual"
+    update.EntityData.SegmentPath = "update"
+    update.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    update.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    update.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    update.EntityData.Children = types.NewOrderedMap()
+    update.EntityData.Children.Append("server", types.YChild{"Server", &update.Server})
+    update.EntityData.Leafs = types.NewOrderedMap()
+
+    update.EntityData.YListKeys = []string {}
+
+    return &(update.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update_Server
+// Provide config options for the signature update server
+type Utd_Input_ThreatInspection_Signature__Manual_Update_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Use Cisco site to provide updates.
+    Cisco Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Cisco
+
+    // Enter the complete URL for the path to the update server.
+    Url Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url
+}
+
+func (server *Utd_Input_ThreatInspection_Signature__Manual_Update_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xe"
+    server.EntityData.ParentYangName = "update"
+    server.EntityData.SegmentPath = "server"
+    server.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Children.Append("cisco", types.YChild{"Cisco", &server.Cisco})
+    server.EntityData.Children.Append("url", types.YChild{"Url", &server.Url})
+    server.EntityData.Leafs = types.NewOrderedMap()
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Cisco
+// Use Cisco site to provide updates
+type Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Cisco struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Provide the username for authentication. The type is string. This attribute
+    // is mandatory.
+    Username interface{}
+
+    // Provide the password for authentication. The type is string. This attribute
+    // is mandatory.
+    Password interface{}
+}
+
+func (cisco *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Cisco) GetEntityData() *types.CommonEntityData {
+    cisco.EntityData.YFilter = cisco.YFilter
+    cisco.EntityData.YangName = "cisco"
+    cisco.EntityData.BundleName = "cisco_ios_xe"
+    cisco.EntityData.ParentYangName = "server"
+    cisco.EntityData.SegmentPath = "cisco"
+    cisco.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cisco.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cisco.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    cisco.EntityData.Children = types.NewOrderedMap()
+    cisco.EntityData.Leafs = types.NewOrderedMap()
+    cisco.EntityData.Leafs.Append("username", types.YLeaf{"Username", cisco.Username})
+    cisco.EntityData.Leafs.Append("password", types.YLeaf{"Password", cisco.Password})
+
+    cisco.EntityData.YListKeys = []string {}
+
+    return &(cisco.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url
+// Enter the complete URL for the path to the update server
+type Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    _Credentials Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__Credentials
+
+    
+    _NoCredentials Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__NoCredentials
+}
+
+func (url *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url) GetEntityData() *types.CommonEntityData {
+    url.EntityData.YFilter = url.YFilter
+    url.EntityData.YangName = "url"
+    url.EntityData.BundleName = "cisco_ios_xe"
+    url.EntityData.ParentYangName = "server"
+    url.EntityData.SegmentPath = "url"
+    url.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    url.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    url.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    url.EntityData.Children = types.NewOrderedMap()
+    url.EntityData.Children.Append("_credentials", types.YChild{"_Credentials", &url._Credentials})
+    url.EntityData.Children.Append("_no-credentials", types.YChild{"_NoCredentials", &url._NoCredentials})
+    url.EntityData.Leafs = types.NewOrderedMap()
+
+    url.EntityData.YListKeys = []string {}
+
+    return &(url.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__Credentials
+type Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__Credentials struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string. This attribute is mandatory.
+    _Url interface{}
+
+    // Provide the username for authentication. The type is string. This attribute
+    // is mandatory.
+    Username interface{}
+
+    // Provide the password for authentication. The type is string. This attribute
+    // is mandatory.
+    Password interface{}
+}
+
+func (_Credentials *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__Credentials) GetEntityData() *types.CommonEntityData {
+    _Credentials.EntityData.YFilter = _Credentials.YFilter
+    _Credentials.EntityData.YangName = "_credentials"
+    _Credentials.EntityData.BundleName = "cisco_ios_xe"
+    _Credentials.EntityData.ParentYangName = "url"
+    _Credentials.EntityData.SegmentPath = "_credentials"
+    _Credentials.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    _Credentials.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    _Credentials.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    _Credentials.EntityData.Children = types.NewOrderedMap()
+    _Credentials.EntityData.Leafs = types.NewOrderedMap()
+    _Credentials.EntityData.Leafs.Append("_url", types.YLeaf{"_Url", _Credentials._Url})
+    _Credentials.EntityData.Leafs.Append("username", types.YLeaf{"Username", _Credentials.Username})
+    _Credentials.EntityData.Leafs.Append("password", types.YLeaf{"Password", _Credentials.Password})
+
+    _Credentials.EntityData.YListKeys = []string {}
+
+    return &(_Credentials.EntityData)
+}
+
+// Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__NoCredentials
+type Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__NoCredentials struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string. This attribute is mandatory.
+    _Url interface{}
+}
+
+func (_NoCredentials *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url__NoCredentials) GetEntityData() *types.CommonEntityData {
+    _NoCredentials.EntityData.YFilter = _NoCredentials.YFilter
+    _NoCredentials.EntityData.YangName = "_no-credentials"
+    _NoCredentials.EntityData.BundleName = "cisco_ios_xe"
+    _NoCredentials.EntityData.ParentYangName = "url"
+    _NoCredentials.EntityData.SegmentPath = "_no-credentials"
+    _NoCredentials.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    _NoCredentials.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    _NoCredentials.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    _NoCredentials.EntityData.Children = types.NewOrderedMap()
+    _NoCredentials.EntityData.Leafs = types.NewOrderedMap()
+    _NoCredentials.EntityData.Leafs.Append("_url", types.YLeaf{"_Url", _NoCredentials._Url})
+
+    _NoCredentials.EntityData.YListKeys = []string {}
+
+    return &(_NoCredentials.EntityData)
+}
+
+// Utd_Output
+type Utd_Output struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Output returned by the network element. The type is string.
+    Result interface{}
+}
+
+func (output *Utd_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "utd"
     output.EntityData.SegmentPath = "output"
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()

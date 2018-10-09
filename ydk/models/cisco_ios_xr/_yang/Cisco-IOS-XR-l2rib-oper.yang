@@ -2,6 +2,12 @@ module Cisco-IOS-XR-l2rib-oper {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XR-l2rib-oper";
   prefix l2rib-oper;
 
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import ietf-yang-types {
+    prefix yang;
+  }
   include Cisco-IOS-XR-l2rib-oper-sub1 {
     revision-date 2015-11-09;
   }
@@ -26,7 +32,7 @@ module Cisco-IOS-XR-l2rib-oper {
      for the following management objects:
        l2rib: L2RIB operational information 
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -146,16 +152,12 @@ module Cisco-IOS-XR-l2rib-oper {
               "Tag ID";
           }
           leaf mac-addr {
-            type string {
-              length "1..15";
-            }
+            type yang:mac-address;
             description
               "MAC IP Address";
           }
           leaf ip-addr {
-            type string {
-              length "1..15";
-            }
+            type inet:ip-address-no-zone;
             description
               "IP Address";
           }
@@ -189,16 +191,12 @@ module Cisco-IOS-XR-l2rib-oper {
               "Tag ID";
           }
           leaf mac-addr {
-            type string {
-              length "1..15";
-            }
+            type yang:mac-address;
             description
               "MAC-IP Address";
           }
           leaf ip-addr {
-            type string {
-              length "1..15";
-            }
+            type inet:ip-address-no-zone;
             description
               "IP Address";
           }
@@ -232,9 +230,7 @@ module Cisco-IOS-XR-l2rib-oper {
               "Tag ID";
           }
           leaf mac-addr {
-            type string {
-              length "1..15";
-            }
+            type yang:mac-address;
             description
               "MAC Address";
           }
@@ -249,6 +245,40 @@ module Cisco-IOS-XR-l2rib-oper {
               "Producer ID";
           }
           uses L2RIB-MAC-ROUTE;
+        }
+      }
+      container imets {
+        description
+          "L2RIB EVPN EVI IMET table";
+        list imet {
+          description
+            "L2RIB EVPN IMET table";
+          leaf evi {
+            type uint32;
+            description
+              "EVPN ID";
+          }
+          leaf tag-id {
+            type uint32;
+            description
+              "Tag ID";
+          }
+          leaf ip-addr {
+            type inet:ip-address-no-zone;
+            description
+              "Originating Router IP Address";
+          }
+          leaf admin-dist {
+            type uint32;
+            description
+              "Admin distance";
+          }
+          leaf prod-id {
+            type uint32;
+            description
+              "Producer ID";
+          }
+          uses L2RIB-IMET-ROUTE;
         }
       }
       container mac-details {
@@ -268,9 +298,7 @@ module Cisco-IOS-XR-l2rib-oper {
               "Tag ID";
           }
           leaf mac-addr {
-            type string {
-              length "1..15";
-            }
+            type yang:mac-address;
             description
               "MAC Address";
           }
@@ -285,6 +313,40 @@ module Cisco-IOS-XR-l2rib-oper {
               "Producer ID";
           }
           uses L2RIB-MAC-ROUTE-DETAIL;
+        }
+      }
+      container imet-details {
+        description
+          "L2RIB EVPN EVI IMET Detail table";
+        list imet-detail {
+          description
+            "L2RIB EVPN IMET Detail table";
+          leaf evi {
+            type uint32;
+            description
+              "EVPN ID";
+          }
+          leaf tag-id {
+            type uint32;
+            description
+              "Tag ID";
+          }
+          leaf ip-addr {
+            type inet:ip-address-no-zone;
+            description
+              "Originating Router IP Address";
+          }
+          leaf admin-dist {
+            type uint32;
+            description
+              "Admin distance";
+          }
+          leaf prod-id {
+            type uint32;
+            description
+              "Producer ID";
+          }
+          uses L2RIB-IMET-ROUTE-DETAIL;
         }
       }
     }

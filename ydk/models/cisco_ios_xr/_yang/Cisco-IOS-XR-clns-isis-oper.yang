@@ -12,13 +12,13 @@ module Cisco-IOS-XR-clns-isis-oper {
     prefix dt1;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub3 {
-    revision-date 2017-08-08;
+    revision-date 2018-04-07;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub2 {
-    revision-date 2017-08-08;
+    revision-date 2018-04-07;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub1 {
-    revision-date 2017-08-08;
+    revision-date 2018-04-07;
   }
 
   organization
@@ -39,16 +39,24 @@ module Cisco-IOS-XR-clns-isis-oper {
      
      This module contains definitions
      for the following management objects:
-       ocni-isis: An OpenConfig description of a network-instance.
-         This may be a Layer 3 forwarding construct such as a virtual
-         routing and forwarding (VRF) instance, or a Layer 2 instance
-         such as a virtual switch instance (VSI). Mixed Layer 2 and
-         Layer 3 instances are also supported.
+       ocni-isis: An OpenConfig description of a network-instance
        isis: isis
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-07 {
+    description
+      "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";
+  }
+  revision 2018-01-24 {
+    description
+      "Added SRLG TILFA operation CLI.";
+  }
+  revision 2017-12-06 {
+    description
+      "Add segment-routing srv6";
+  }
   revision 2017-08-08 {
     description
       "Add openconfig network instance model isis telemetry EDM function support.";
@@ -87,12 +95,7 @@ module Cisco-IOS-XR-clns-isis-oper {
   container ocni-isis {
     config false;
     description
-      "An OpenConfig description of a network-instance.
-       This may be a Layer 3 forwarding construct such
-       as a virtual routing and forwarding (VRF)
-       instance, or a Layer 2 instance such as a virtual
-       switch instance (VSI). Mixed Layer 2 and Layer 3
-       instances are also supported.";
+      "An OpenConfig description of a network-instance";
     container network-instances {
       description
         "Network instances configured on the local system";
@@ -121,14 +124,10 @@ module Cisco-IOS-XR-clns-isis-oper {
         }
         container protocols {
           description
-            "A process (instance) of a routing protocol.
-             Some systems may not support more than one
-             instance of a particular routing protocol";
+            "A process (instance) of a routing protocol";
           list protocol {
             description
-              "A process (instance) of a routing protocol.
-               Some systems may not support more than one
-               instance of a particular routing protocol";
+              "A process (instance) of a routing protocol";
             container protocols-state {
               description
                 "State parameters relating to the routing
@@ -138,22 +137,22 @@ module Cisco-IOS-XR-clns-isis-oper {
             container isis {
               description
                 "This container defines top-level ISIS
-                 configuration and state information.";
+                 configuration and state information";
               container isis-interfaces {
                 description
-                  "This list contains ISIS interfaces.";
+                  "This list contains ISIS interfaces";
                 list isis-interface {
                   key "interface-id";
                   description
-                    "This list contains ISIS interfaces.";
+                    "This list contains ISIS interfaces";
                   container interfaces-afi-safis {
                     description
                       "Address-family/Subsequent Address-family
-                       list.";
+                       list";
                     list interfaces-afi-safi {
                       description
                         "Address-family/Subsequent Address-family
-                         list.";
+                         list";
                       leaf afi-name {
                         type string;
                         description
@@ -171,62 +170,102 @@ module Cisco-IOS-XR-clns-isis-oper {
                   container interfaces-state {
                     description
                       "This container defines state information
-                       for ISIS interfaces.";
+                       for ISIS interfaces";
                     uses OVERLAY-OCNI-ISIS-INTERFACE-STATE;
                   }
                   container interfaces-levels {
                     description
                       "Configuration and operational state
                        parameters related to a particular level
-                       on an IS-IS enabled interface.";
+                       on an IS-IS enabled interface";
                     list interfaces-level {
                       key "level-number";
                       description
                         "Configuration and operational state
                          parameters related to a particular level
-                         on an IS-IS enabled interface.";
+                         on an IS-IS enabled interface";
+                      container hello-authentication {
+                        description
+                          "This container defines ISIS
+                           authentication";
+                        uses OVERLAY-OCNI-ISIS-HELLO-AUTHENTICATION;
+                      }
                       container interfaces-levels-state {
                         description
                           "This container defines interface ISIS
-                           level state information.";
+                           level state information";
                         uses OVERLAY-OCNI-ISIS-LEVELS-LEVEL-STATE;
                       }
                       container packet-counters {
                         description
                           "This container defines ISIS interface
-                           packet counters.";
+                           packet counters";
                         uses OVERLAY-OCNI-ISIS-PACKET-COUNTERS;
                       }
                       container adjacencies {
                         description
                           "List of the local system's IS-IS
-                           adjacencies.";
+                           adjacencies";
                         list adjacency {
                           key "system-id";
                           description
                             "List of the local system's IS-IS
-                             adjacencies.";
+                             adjacencies";
                           leaf system-id {
                             type string;
                             description
-                              "Reference to the IS neighbor.";
+                              "Reference to the IS neighbor";
                           }
                           uses OVERLAY-OCNI-ISIS-ADJACENCY;
                         }
                       }
                       container levels-timers {
                         description
-                          "This container defines ISIS timers.";
+                          "This container defines ISIS timers";
                         uses OVERLAY-OCNI-ISIS-LEVEL-TIMERS;
                       }
                       container levels-afi-safis {
                         description
                           "Address-family/Subsequent
-                           Address-family list.";
+                           Address-family list";
                         list levels-afi-safi {
                           description
                             "Address-family/Subsequent
-                             Address-family list.";
+                             Address-family list";
+                          container afi-safi-state {
+                            description
+                              "This container defines AFI-SAFI State
+                               information";
+                            uses OVERLAY-OCNI-ISIS-AF-STATE;
+                          }
+                          container afi-safi-segment-routing {
+                            description
+                              "Configuration and operatioanl state
+                               parameters relating to segment
+                               routing for an interface within the
+                               IGP";
+                            container segment-routing-prefix-sids {
+                              description
+                                "An IGP prefix that should have a
+                                 segment routing IGP-Prefix SID
+                                 allocated to it";
+                              list segment-routing-prefix-sid {
+                                key "prefix";
+                                description
+                                  "An IGP prefix that should have a
+                                   segment routing IGP-Prefix SID
+                                   allocated to it";
+                                leaf prefix {
+                                  type string;
+                                  description
+                                    "Reference to the prefix for which
+                                     the IGP-Prefix SID is to be
+                                     advertised";
+                                }
+                                uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-PREFIX-SIDS-PREFIX-SID;
+                              }
+                            }
+                          }
                           leaf afi-name {
                             type string;
                             description
@@ -238,21 +277,26 @@ module Cisco-IOS-XR-clns-isis-oper {
                               "Reference to subsequent
                                address-family type";
                           }
-                          uses OVERLAY-OCNI-ISIS-LEVEL-AFI-SAFI-AF;
                         }
                       }
                       leaf level-number {
                         type uint32;
                         description
-                          "Reference to ISIS level-number.";
+                          "Reference to ISIS level-number";
                       }
                     }
                   }
                   container circuit-counters {
                     description
                       "This container defines state information
-                       for ISIS circuit counters.";
+                       for ISIS circuit counters";
                     uses OVERLAY-OCNI-ISIS-CIRCUIT-COUNTERS;
+                  }
+                  container interfaces-authentication {
+                    description
+                      "This container defines ISIS
+                       authentication";
+                    uses OVERLAY-OCNI-ISIS-INTERFACE-AUTHENTICATION;
                   }
                   container interfaces-timers {
                     description
@@ -270,30 +314,36 @@ module Cisco-IOS-XR-clns-isis-oper {
               container global {
                 description
                   "This container defines global ISIS
-                   configuration and state information.";
+                   configuration and state information";
+                container segment-routing {
+                  description
+                    "Configuration and operational state
+                     relating to segment routing";
+                  uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING;
+                }
                 container lsp-bit {
                   description
                     "This container defines ISIS LSP
-                     Operational Bits.";
+                     Operational Bits";
                   container overload-bit {
                     description
                       "This container defines Overload Bit
-                       configuration.";
+                       configuration";
                     container overload-bit-state {
                       description
                         "This container defines state for ISIS
-                         Overload Bit.";
+                         Overload Bit";
                       uses OVERLAY-OCNI-ISIS-OVERLOAD-BIT-STATE;
                     }
                     container reset-triggers {
                       description
                         "This list describes ISIS Overload reset
-                         trigger reasons.";
+                         trigger reasons";
                       list reset-trigger {
                         key "reset-trigger";
                         description
                           "This list describes ISIS Overload reset
-                           trigger reasons.";
+                           trigger reasons";
                         leaf reset-trigger {
                           type string;
                           description
@@ -303,33 +353,44 @@ module Cisco-IOS-XR-clns-isis-oper {
                       }
                     }
                   }
+                  container attached-bit {
+                    description
+                      "This container defines Attached Bit";
+                    uses OVERLAY-OCNI-ISIS-ATTACHED-BIT;
+                  }
                 }
                 container nsr {
                   description
                     "This container defines ISIS Non-Stop
-                     Routing.";
+                     Routing";
                   uses OVERLAY-OCNI-ISIS-NSR;
                 }
                 container graceful-restart {
                   description
                     "This container defines ISIS Graceful
-                     Restart.";
+                     Restart";
                   uses OVERLAY-OCNI-ISIS-GRACEFUL-RESTART;
                 }
                 container global-state {
                   description
                     "This container defines state for ISIS
-                     global router.";
+                     global router";
                   uses OVERLAY-OCNI-ISIS-GLOBAL-STATE;
+                }
+                container inter-level-propagation-policies {
+                  description
+                    "Policies to propagate prefixes between
+                     IS-IS levels";
+                  uses OVERLAY-OCNI-ISIS-INTER-LEVEL-PROPAGATION-POLICIES;
                 }
                 container afi-safis {
                   description
                     "Address-family/Subsequent Address-family
-                     list.";
+                     list";
                   list afi-safi {
                     description
                       "Address-family/Subsequent Address-family
-                       list.";
+                       list";
                     leaf afi-name {
                       type string;
                       description
@@ -346,12 +407,12 @@ module Cisco-IOS-XR-clns-isis-oper {
                 }
                 container timers {
                   description
-                    "This container defines ISIS timers.";
+                    "This container defines ISIS timers";
                   uses OVERLAY-OCNI-ISIS-TIMERS;
                 }
                 container transport {
                   description
-                    "This container defines ISIS transport.";
+                    "This container defines ISIS transport";
                   uses OVERLAY-OCNI-ISIS-TRANSPORT;
                 }
               }
@@ -366,41 +427,55 @@ module Cisco-IOS-XR-clns-isis-oper {
                     "Configuration and operational state
                      parameters related to a particular level
                      within the IS-IS protocol instance";
+                  container route-preference {
+                    description
+                      "This container defines Administrative
+                       Distance (or preference) assigned to ISIS
+                       routes (level1 internal, level2 internal,
+                       level1 external, level2 external)";
+                    uses OVERLAY-OCNI-ISIS-ROUTE-PREFERENCE;
+                  }
                   container levels-state {
                     description
                       "This container defines ISIS level state
-                       information.";
+                       information";
                     uses OVERLAY-OCNI-ISIS-LEVEL-STATE;
                   }
                   container traffic-engineering {
                     description
-                      "This container defines ISIS TE.";
+                      "This container defines ISIS TE";
                     uses OVERLAY-OCNI-ISIS-TRAFFIC-ENGINEERING;
+                  }
+                  container levels-authentication {
+                    description
+                      "This container defines ISIS
+                       authentication";
+                    uses OVERLAY-OCNI-ISIS-LEVEL-AUTHENTICATION;
                   }
                   container system-level-counters {
                     description
                       "This container defines ISIS system level
-                       counters.";
+                       counters";
                     uses OVERLAY-OCNI-ISIS-SYSTEM-LEVEL-COUNTERS;
                   }
                   container link-state-databases {
                     description
-                      "This list describes LSPs in the LSDB.";
+                      "This list describes LSPs in the LSDB";
                     list link-state-database {
                       key "lsp-id";
                       description
-                        "This list describes LSPs in the LSDB.";
+                        "This list describes LSPs in the LSDB";
                       container undefined-tlvs {
                         description
                           "List of TLVs that are not defined
                            within the model, or are not recognised
-                           by the system.";
+                           by the system";
                         list undefined-tlv {
                           key "type";
                           description
                             "List of TLVs that are not defined
                              within the model, or are not
-                             recognised by the system.";
+                             recognised by the system";
                           leaf type {
                             type uint32;
                             description
@@ -411,59 +486,59 @@ module Cisco-IOS-XR-clns-isis-oper {
                       }
                       container link-state-database-state {
                         description
-                          "State parameters of Link State PDU.";
+                          "State parameters of Link State PDU";
                         uses OVERLAY-OCNI-ISIS-LSP-STATE;
                       }
                       container tlvses {
                         description
                           "List of TLV types in the LSDB for the
-                           specified LSP.";
+                           specified LSP";
                         list tlvs {
                           key "type";
                           description
                             "List of TLV types in the LSDB for the
-                             specified LSP.";
+                             specified LSP";
                           container area-address {
                             description
-                              "This container defines TLV 1.";
+                              "This container defines TLV 1";
                             uses OVERLAY-OCNI-ISIS-AREA-ADDRESS;
                           }
                           container authentication {
                             description
                               "This container defines authentication
-                               information of the node.";
+                               information of the node";
                             uses OVERLAY-OCNI-ISIS-AUTHENTICATION;
                           }
                           container ipv4-interface-addresses {
                             description
-                              "This container defines TLV 132.";
+                              "This container defines TLV 132";
                             uses OVERLAY-OCNI-ISIS-IPV4-INTERFACE-ADDRESSES;
                           }
                           container router-capabilities {
                             description
                               "This list describes IS Router
-                               capabilities.";
+                               capabilities";
                             list router-capability {
                               key "instance-number";
                               description
                                 "This list describes IS Router
-                                 capabilities.";
+                                 capabilities";
                               container router-capabilities-state {
                                 description
-                                  "State parameters of TLV 242.";
+                                  "State parameters of TLV 242";
                                 uses OVERLAY-OCNI-ISIS-ROUTER-CAPABILITY-STATE;
                               }
                               container undefined-subtlvs {
                                 description
                                   "Sub-TLVs that are not defined in
                                    the model or not recognised by
-                                   system.";
+                                   system";
                                 list undefined-subtlv {
                                   key "type";
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   leaf type {
                                     type uint32;
                                     description
@@ -492,13 +567,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     description
                                       "List of the segment routing
                                        algorithsm advertised within the
-                                       TLV.";
+                                       TLV";
                                     list segment-routing-algorithm {
                                       key "algorithm";
                                       description
                                         "List of the segment routing
                                          algorithsm advertised within the
-                                         TLV.";
+                                         TLV";
                                       leaf algorithm {
                                         type enumeration {
                                           enum "spf" {
@@ -537,7 +612,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                         }
                                         description
                                           "Reference to the SR algorithm
-                                           that the subTLV describes.";
+                                           that the subTLV describes";
                                       }
                                       uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHM;
                                     }
@@ -545,7 +620,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   container segment-routing-capability {
                                     description
                                       "This container defines SR
-                                       Capability sub-TLV 2.";
+                                       Capability sub-TLV 2";
                                     uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY;
                                   }
                                   leaf type {
@@ -559,7 +634,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 type uint32;
                                 description
                                   "Reference to the instance number of
-                                   the router capability TLV.";
+                                   the router capability TLV";
                               }
                             }
                           }
@@ -567,32 +642,32 @@ module Cisco-IOS-XR-clns-isis-oper {
                             description
                               "This container defines list of IPv4
                                reachability Information in
-                               multi-topology environment.";
+                               multi-topology environment";
                             container mt-ipv4-reachability-prefixes {
                               description
                                 "IPv4 prefixes that are contained
-                                 within MT reachability TLV.";
+                                 within MT reachability TLV";
                               list mt-ipv4-reachability-prefixe {
                                 description
                                   "IPv4 prefixes that are contained
-                                   within MT reachability TLV.";
+                                   within MT reachability TLV";
                                 container mt-ipv4-reachability-prefixes-state {
                                   description
                                     "State parameters of an IPv4
-                                     extended prefix.";
+                                     extended prefix";
                                   uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE;
                                 }
                                 container mt-ipv4-reachability-prefixes-undefined-subtlvs {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list mt-ipv4-reachability-prefixes-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -605,73 +680,58 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 container mt-ipv4-reachability-prefixes-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list mt-ipv4-reachability-prefixes-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container prefixes-subtlvs-tag64 {
                                       description
-                                        "This container defines sub-TLV 2
-                                         .";
+                                        "This container defines sub-TLV 2";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-TAG64;
                                     }
                                     container prefixes-subtlvs-tag {
                                       description
-                                        "This container defines sub-TLV 1
-                                         .";
+                                        "This container defines sub-TLV 1";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-TAG;
                                     }
                                     container mt-ipv4-reachability-prefixes-subtlvs-state {
                                       description
-                                        "State parameters for a prefix.";
+                                        "State parameters for a prefix";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container prefixes-subtlvs-ipv4-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         11.";
+                                         11";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID;
                                     }
                                     container prefixes-subtlvs-ipv6-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID;
                                     }
                                     container prefixes-subtlvs-prefix-sids {
                                       description
-                                        "Prefix Segment-ID list.
-                                         IGP-Prefix Segment is an IGP
-                                         segment attached to an IGP
-                                         prefix. An IGP-Prefix Segment is
-                                         global (unless explicitly
-                                         advertised otherwise) within the
-                                         SR/IGP domain.";
+                                        "Prefix Segment-ID list";
                                       list prefixes-subtlvs-prefix-sid {
                                         key "value";
                                         description
-                                          "Prefix Segment-ID list.
-                                           IGP-Prefix Segment is an IGP
-                                           segment attached to an IGP
-                                           prefix. An IGP-Prefix Segment
-                                           is global (unless explicitly
-                                           advertised otherwise) within
-                                           the SR/IGP domain.";
+                                          "Prefix Segment-ID list";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             prefix SID.";
+                                             prefix SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-SUBTLV-PREFIX-SIDS-PREFIX-SID;
                                       }
                                     }
                                     container prefixes-subtlvs-flags {
                                       description
-                                        "This container defines sub-TLV 4
-                                         .";
+                                        "This container defines sub-TLV 4";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-FLAGS;
                                     }
                                     leaf type {
@@ -686,13 +746,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Reference to the topology ID of
                                      the topology that the prefix is
-                                     within.";
+                                     within";
                                 }
                                 leaf prefix {
                                   type string;
                                   description
                                     "Reference to the prefix to which
-                                     reachability is being advertised.";
+                                     reachability is being advertised";
                                 }
                               }
                             }
@@ -700,75 +760,58 @@ module Cisco-IOS-XR-clns-isis-oper {
                           container mt-isn {
                             description
                               "This container defines list of ISIS
-                               multi-topology neighbors.";
+                               multi-topology neighbors";
                             container mt-isn-neighbors {
                               description
                                 "This container describes IS
-                                 neighbors.";
+                                 neighbors";
                               list mt-isn-neighbor {
                                 description
                                   "This container describes IS
-                                   neighbors.";
+                                   neighbors";
                                 container mt-isn-neighbors-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list mt-isn-neighbors-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container subtlvs-ipv6-neighbor-address {
                                       description
                                         "This container defines sub-TLV
-                                         13.";
+                                         13";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV6-NEIGHBOR-ADDRESS;
                                     }
                                     container subtlvs-ipv4-interface-address {
                                       description
-                                        "This container defines sub-TLV 6
-                                         .";
+                                        "This container defines sub-TLV 6";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV4-INTERFACE-ADDRESS;
                                     }
                                     container subtlvs-max-reservable-link-bandwidth {
                                       description
                                         "This container defines sub-TLV
-                                         10.";
+                                         10";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-MAX-RESERVABLE-LINK-BANDWIDTH;
                                     }
                                     container subtlvs-max-link-bandwidth {
                                       description
-                                        "This container defines sub-TLV 9
-                                         .";
+                                        "This container defines sub-TLV 9";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-MAX-LINK-BANDWIDTH;
                                     }
                                     container subtlvs-adjacency-sids {
                                       description
-                                        "Adjacency Segment-IDs List. An
-                                         IGP-Adjacency Segment is an IGP
-                                         segment attached to a
-                                         unidirectional adjacency or a
-                                         set of unidirectional
-                                         adjacencies. By default, an IGP-
-                                         Adjacency Segment is local to
-                                         the node which advertises it.";
+                                        "Adjacency Segment-IDs List";
                                       list subtlvs-adjacency-sid {
                                         key "value";
                                         description
-                                          "Adjacency Segment-IDs List. An
-                                           IGP-Adjacency Segment is an IGP
-                                           segment attached to a
-                                           unidirectional adjacency or a
-                                           set of unidirectional
-                                           adjacencies. By default, an
-                                           IGP- Adjacency Segment is local
-                                           to the node which advertises it
-                                           .";
+                                          "Adjacency Segment-IDs List";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             Adjacency-SID.";
+                                             Adjacency-SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-ADJACENCY-SIDS-ADJACENCY-SID;
                                       }
@@ -777,37 +820,29 @@ module Cisco-IOS-XR-clns-isis-oper {
                                       description
                                         "List of the Bandwidth
                                          Constraints sub-TLV instances
-                                         present in the TLV.";
+                                         present in the TLV";
                                       list subtlvs-bandwidth-constraint {
                                         key "model-id";
                                         description
                                           "List of the Bandwidth
                                            Constraints sub-TLV instances
-                                           present in the TLV.";
+                                           present in the TLV";
                                         container bandwidth-constraints-constraints {
                                           description
                                             "List of the constraints within
                                              the Bandwidth Constraints
-                                             sub-TLV. The BC0 level is
-                                             indicated by the constraint-id
-                                             leaf being set to 0, with BCN
-                                             being indicated by
-                                             constraint-id N.";
+                                             sub-TLV";
                                           list bandwidth-constraints-constraint {
                                             key "constraint-id";
                                             description
                                               "List of the constraints
                                                within the Bandwidth
-                                               Constraints sub-TLV. The BC0
-                                               level is indicated by the
-                                               constraint-id leaf being set
-                                               to 0, with BCN being
-                                               indicated by constraint-id N.";
+                                               Constraints sub-TLV";
                                             leaf constraint-id {
                                               type uint32;
                                               description
                                                 "Reference to the unique ID
-                                                 for the BCN level.";
+                                                 for the BCN level";
                                             }
                                             uses OVERLAY-OCNI-ISIS-CONSTRAINTS-CONSTRAINT;
                                           }
@@ -816,7 +851,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                           description
                                             "State parameters of IS
                                              Extended Reachability sub-TLV
-                                             22.";
+                                             22";
                                           uses OVERLAY-OCNI-ISIS-BANDWIDTH-CONSTRAINTS-BANDWIDTH-CONSTRAINT-STATE;
                                         }
                                         leaf model-id {
@@ -825,81 +860,64 @@ module Cisco-IOS-XR-clns-isis-oper {
                                             "Reference to the model ID
                                              associated with the instance
                                              of the Bandwidth Constraints
-                                             sub-TLV.";
+                                             sub-TLV";
                                         }
                                       }
                                     }
                                     container subtlvs-unreserved-bandwidths {
                                       description
                                         "Setup priority (0 through 7) for
-                                         unreserved bandwidth.";
+                                         unreserved bandwidth";
                                       list subtlvs-unreserved-bandwidth {
                                         key "priority";
                                         description
                                           "Setup priority (0 through 7)
-                                           for unreserved bandwidth.";
+                                           for unreserved bandwidth";
                                         leaf priority {
                                           type uint32;
                                           description
                                             "Reference to the setup
                                              priority to which the
                                              unreserved bandwidth
-                                             corresponds.";
+                                             corresponds";
                                         }
                                         uses OVERLAY-OCNI-ISIS-UNRESERVED-BANDWIDTH-SETUP-PRIORITY;
                                       }
                                     }
                                     container subtlvs-ipv4-neighbor-address {
                                       description
-                                        "This container defines sub-TLV 8
-                                         .";
+                                        "This container defines sub-TLV 8";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV4-NEIGHBOR-ADDRESS;
                                     }
                                     container subtlvs-te-default-metric {
                                       description
                                         "This container defines sub-TLV
-                                         18.";
+                                         18";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-TE-DEFAULT-METRIC;
                                     }
                                     container subtlvs-ipv6-interface-address {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV6-INTERFACE-ADDRESS;
                                     }
                                     container subtlvs-admin-group {
                                       description
-                                        "This container defines sub-TLV 3
-                                         .";
+                                        "This container defines sub-TLV 3";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-ADMIN-GROUP;
                                     }
                                     container subtlvs-lan-adjacency-sids {
                                       description
-                                        "Adjacency Segment-IDs List. An
-                                         IGP-Adjacency Segment is an IGP
-                                         segment attached to a
-                                         unidirectional adjacency or a
-                                         set of unidirectional
-                                         adjacencies. By default, an IGP-
-                                         Adjacency Segment is local to
-                                         the node which advertises it.";
+                                        "Adjacency Segment-IDs List";
                                       list subtlvs-lan-adjacency-sid {
                                         key "value";
                                         description
-                                          "Adjacency Segment-IDs List. An
-                                           IGP-Adjacency Segment is an IGP
-                                           segment attached to a
-                                           unidirectional adjacency or a
-                                           set of unidirectional
-                                           adjacencies. By default, an
-                                           IGP- Adjacency Segment is local
-                                           to the node which advertises it
-                                           .";
+                                          "Adjacency Segment-IDs List";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             LAN Adjacency-SID.";
+                                             LAN Adjacency-SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-LAN-ADJACENCY-SIDS-LAN-ADJACENCY-SID;
                                       }
@@ -907,32 +925,32 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container subtlvs-extended-admin-group {
                                       description
                                         "This container defines sub-TLV
-                                         14.";
+                                         14";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-EXTENDED-ADMIN-GROUP;
                                     }
                                     leaf type {
                                       type string;
                                       description
-                                        "Reference to the sub-TLV type.";
+                                        "Reference to the sub-TLV type";
                                     }
                                   }
                                 }
                                 container mt-isn-neighbors-state {
                                   description
-                                    "State parameters of MT neighbor.";
+                                    "State parameters of MT neighbor";
                                   uses OVERLAY-OCNI-ISIS-NEIGHBOR-STATE;
                                 }
                                 container mt-isn-neighbors-undefined-subtlvs {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list mt-isn-neighbors-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -946,30 +964,30 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   type uint32;
                                   description
                                     "       Reference to the topology
-                                     that the neighbor is within.";
+                                     that the neighbor is within";
                                 }
                                 leaf system-id {
                                   type string;
                                   description
                                     "Reference to the System ID of the
-                                     neighbor.";
+                                     neighbor";
                                 }
                               }
                             }
                           }
                           container ipv6-srlgs {
                             description
-                              "Instance of the IPv6 SRLG TLV.";
+                              "Instance of the IPv6 SRLG TLV";
                             list ipv6-srlg {
                               key "instance-number";
                               description
-                                "Instance of the IPv6 SRLG TLV.";
+                                "Instance of the IPv6 SRLG TLV";
                               leaf instance-number {
                                 type uint32;
                                 description
                                   "Reference to the instance number of
                                    the IPv6 Shared Risk Link Group
-                                   (SRLG) TLV.";
+                                   (SRLG) TLV";
                               }
                               uses OVERLAY-OCNI-ISIS-IPV6-SRLG;
                             }
@@ -982,28 +1000,27 @@ module Cisco-IOS-XR-clns-isis-oper {
                           }
                           container purge-oi {
                             description
-                              "This container defines ISIS purge TLV
-                               .";
+                              "This container defines ISIS purge TLV";
                             uses OVERLAY-OCNI-ISIS-PURGE-OI;
                           }
                           container host-name {
                             description
-                              "This container defines TLV 137.";
+                              "This container defines TLV 137";
                             uses OVERLAY-OCNI-ISIS-HOSTNAME;
                           }
                           container ipv6-reachability {
                             description
                               "This container defines list of IPv6
-                               reachability information.";
+                               reachability information";
                             container ipv6-reachability-prefixes {
                               description
                                 "This list defines IPv6 extended
-                                 prefix attributes.";
+                                 prefix attributes";
                               list ipv6-reachability-prefixe {
                                 key "prefix";
                                 description
                                   "This list defines IPv6 extended
-                                   prefix attributes.";
+                                   prefix attributes";
                                 container ipv6-reachability-prefixes-state {
                                   description
                                     "State parameters of IPv6 prefix
@@ -1013,48 +1030,34 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 container ipv6-reachability-prefixes-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list ipv6-reachability-prefixes-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container subtlvs-tag {
                                       description
-                                        "This container defines sub-TLV 1
-                                         .";
+                                        "This container defines sub-TLV 1";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-TAG;
                                     }
                                     container subtlvs-tag64 {
                                       description
-                                        "This container defines sub-TLV 2
-                                         .";
+                                        "This container defines sub-TLV 2";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-TAG64;
                                     }
                                     container subtlvs-prefix-sids {
                                       description
-                                        "Prefix Segment-ID list.
-                                         IGP-Prefix Segment is an IGP
-                                         segment attached to an IGP
-                                         prefix. An IGP-Prefix Segment is
-                                         global (unless explicitly
-                                         advertised otherwise) within the
-                                         SR/IGP domain.";
+                                        "Prefix Segment-ID list";
                                       list subtlvs-prefix-sid {
                                         key "value";
                                         description
-                                          "Prefix Segment-ID list.
-                                           IGP-Prefix Segment is an IGP
-                                           segment attached to an IGP
-                                           prefix. An IGP-Prefix Segment
-                                           is global (unless explicitly
-                                           advertised otherwise) within
-                                           the SR/IGP domain.";
+                                          "Prefix Segment-ID list";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             prefix SID.";
+                                             prefix SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-PREFIX-SIDS-PREFIX-SID;
                                       }
@@ -1062,24 +1065,23 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container subtlvs-ipv4-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         11.";
+                                         11";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV4-SOURCE-ROUTER-ID;
                                     }
                                     container ipv6-reachability-prefixes-subtlvs-state {
                                       description
-                                        "State parameters for a prefix.";
+                                        "State parameters for a prefix";
                                       uses OVERLAY-OCNI-ISIS-PREFIXES-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container subtlvs-ipv6-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-IPV6-SOURCE-ROUTER-ID;
                                     }
                                     container subtlvs-flags {
                                       description
-                                        "This container defines sub-TLV 4
-                                         .";
+                                        "This container defines sub-TLV 4";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-FLAGS;
                                     }
                                     leaf type {
@@ -1093,13 +1095,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list ipv6-reachability-prefixes-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -1113,29 +1115,29 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   type string;
                                   description
                                     "Reference to the IPv6 prefix that
-                                     the TLV corresponds to.";
+                                     the TLV corresponds to";
                                 }
                               }
                             }
                           }
                           container ipv6-te-router-id {
                             description
-                              "This container defines TLV 140.";
+                              "This container defines TLV 140";
                             uses OVERLAY-OCNI-ISIS-IPV6-TE-ROUTER-ID;
                           }
                           container ipv4-internal-reachability {
                             description
                               "This container defines list of IPv4
-                               internal reachability information.";
+                               internal reachability information";
                             container prefixes {
                               description
                                 "IPv4 prefixes and internal
-                                 reachability attributes.";
+                                 reachability attributes";
                               list prefixe {
                                 key "prefix";
                                 description
                                   "IPv4 prefixes and internal
-                                   reachability attributes.";
+                                   reachability attributes";
                                 leaf prefix {
                                   type string;
                                   description
@@ -1147,109 +1149,77 @@ module Cisco-IOS-XR-clns-isis-oper {
                           }
                           container ipv6-interface-addresses {
                             description
-                              "This container defines TLV 232.";
+                              "This container defines TLV 232";
                             uses OVERLAY-OCNI-ISIS-IPV6-INTERFACE-ADDRESSES;
                           }
                           container extended-is-reachability {
                             description
                               "This container defines list of ISIS
-                               extended reachability neighbors.";
+                               extended reachability neighbors";
                             container extended-is-reachability-neighbors {
                               description
                                 "This list describes ISIS extended
-                                 neigbors and reachability attributes
-                                 .";
+                                 neigbors and reachability attributes";
                               list extended-is-reachability-neighbor {
                                 key "system-id";
                                 description
                                   "This list describes ISIS extended
                                    neigbors and reachability
-                                   attributes.";
+                                   attributes";
                                 container neighbors-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list neighbors-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container max-link-bandwidth {
                                       description
-                                        "This container defines sub-TLV 9
-                                         .";
+                                        "This container defines sub-TLV 9";
                                       uses OVERLAY-OCNI-ISIS-MAX-LINK-BANDWIDTH;
                                     }
                                     container ipv6-neighbor-address {
                                       description
                                         "This container defines sub-TLV
-                                         13.";
+                                         13";
                                       uses OVERLAY-OCNI-ISIS-IPV6-NEIGHBOR-ADDRESS;
                                     }
                                     container ipv6-interface-address {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-IPV6-INTERFACE-ADDRESS;
                                     }
                                     container lan-adjacency-sids {
                                       description
-                                        "Adjacency Segment-IDs List. An
-                                         IGP-Adjacency Segment is an IGP
-                                         segment attached to a
-                                         unidirectional adjacency or a
-                                         set of unidirectional
-                                         adjacencies. By default, an IGP-
-                                         Adjacency Segment is local to
-                                         the node which advertises it.";
+                                        "Adjacency Segment-IDs List";
                                       list lan-adjacency-sid {
                                         key "value";
                                         description
-                                          "Adjacency Segment-IDs List. An
-                                           IGP-Adjacency Segment is an IGP
-                                           segment attached to a
-                                           unidirectional adjacency or a
-                                           set of unidirectional
-                                           adjacencies. By default, an
-                                           IGP- Adjacency Segment is local
-                                           to the node which advertises it
-                                           .";
+                                          "Adjacency Segment-IDs List";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             LAN Adjacency-SID.";
+                                             LAN Adjacency-SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-LAN-ADJACENCY-SID;
                                       }
                                     }
                                     container adjacency-sids {
                                       description
-                                        "Adjacency Segment-IDs List. An
-                                         IGP-Adjacency Segment is an IGP
-                                         segment attached to a
-                                         unidirectional adjacency or a
-                                         set of unidirectional
-                                         adjacencies. By default, an IGP-
-                                         Adjacency Segment is local to
-                                         the node which advertises it.";
+                                        "Adjacency Segment-IDs List";
                                       list adjacency-sid {
                                         key "value";
                                         description
-                                          "Adjacency Segment-IDs List. An
-                                           IGP-Adjacency Segment is an IGP
-                                           segment attached to a
-                                           unidirectional adjacency or a
-                                           set of unidirectional
-                                           adjacencies. By default, an
-                                           IGP- Adjacency Segment is local
-                                           to the node which advertises it
-                                           .";
+                                          "Adjacency Segment-IDs List";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             Adjacency-SID.";
+                                             Adjacency-SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-ADJACENCY-SID;
                                       }
@@ -1257,94 +1227,83 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container te-default-metric {
                                       description
                                         "This container defines sub-TLV
-                                         18.";
+                                         18";
                                       uses OVERLAY-OCNI-ISIS-TE-DEFAULT-METRIC;
                                     }
                                     container admin-group {
                                       description
-                                        "This container defines sub-TLV 3
-                                         .";
+                                        "This container defines sub-TLV 3";
                                       uses OVERLAY-OCNI-ISIS-ADMIN-GROUP;
                                     }
                                     container max-reservable-link-bandwidth {
                                       description
                                         "This container defines sub-TLV
-                                         10.";
+                                         10";
                                       uses OVERLAY-OCNI-ISIS-MAX-RESERVABLE-LINK-BANDWIDTH;
                                     }
                                     container extended-admin-group {
                                       description
                                         "This container defines sub-TLV
-                                         14.";
+                                         14";
                                       uses OVERLAY-OCNI-ISIS-EXTENDED-ADMIN-GROUP;
                                     }
                                     container unreserved-bandwidths {
                                       description
                                         "Setup priority (0 through 7) for
-                                         unreserved bandwidth.";
+                                         unreserved bandwidth";
                                       list unreserved-bandwidth {
                                         key "priority";
                                         description
                                           "Setup priority (0 through 7)
-                                           for unreserved bandwidth.";
+                                           for unreserved bandwidth";
                                         leaf priority {
                                           type uint32;
                                           description
                                             "Reference to the setup
                                              priority to which the
                                              unreserved bandwidth
-                                             corresponds.";
+                                             corresponds";
                                         }
                                         uses OVERLAY-OCNI-ISIS-SETUP-PRIORITY;
                                       }
                                     }
                                     container ipv4-interface-address {
                                       description
-                                        "This container defines sub-TLV 6
-                                         .";
+                                        "This container defines sub-TLV 6";
                                       uses OVERLAY-OCNI-ISIS-IPV4-INTERFACE-ADDRESS;
                                     }
                                     container ipv4-neighbor-address {
                                       description
-                                        "This container defines sub-TLV 8
-                                         .";
+                                        "This container defines sub-TLV 8";
                                       uses OVERLAY-OCNI-ISIS-IPV4-NEIGHBOR-ADDRESS;
                                     }
                                     container bandwidth-constraints {
                                       description
                                         "List of the Bandwidth
                                          Constraints sub-TLV instances
-                                         present in the TLV.";
+                                         present in the TLV";
                                       list bandwidth-constraint {
                                         key "model-id";
                                         description
                                           "List of the Bandwidth
                                            Constraints sub-TLV instances
-                                           present in the TLV.";
+                                           present in the TLV";
                                         container constraints {
                                           description
                                             "List of the constraints within
                                              the Bandwidth Constraints
-                                             sub-TLV. The BC0 level is
-                                             indicated by the constraint-id
-                                             leaf being set to 0, with BCN
-                                             being indicated by
-                                             constraint-id N.";
+                                             sub-TLV";
                                           list constraint {
                                             key "constraint-id";
                                             description
                                               "List of the constraints
                                                within the Bandwidth
-                                               Constraints sub-TLV. The BC0
-                                               level is indicated by the
-                                               constraint-id leaf being set
-                                               to 0, with BCN being
-                                               indicated by constraint-id N.";
+                                               Constraints sub-TLV";
                                             leaf constraint-id {
                                               type uint32;
                                               description
                                                 "Reference to the unique ID
-                                                 for the BCN level.";
+                                                 for the BCN level";
                                             }
                                             uses OVERLAY-OCNI-ISIS-CONSTRAINT;
                                           }
@@ -1353,7 +1312,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                           description
                                             "State parameters of IS
                                              Extended Reachability sub-TLV
-                                             22.";
+                                             22";
                                           uses OVERLAY-OCNI-ISIS-BANDWIDTH-CONSTRAINT-STATE;
                                         }
                                         leaf model-id {
@@ -1362,14 +1321,14 @@ module Cisco-IOS-XR-clns-isis-oper {
                                             "Reference to the model ID
                                              associated with the instance
                                              of the Bandwidth Constraints
-                                             sub-TLV.";
+                                             sub-TLV";
                                         }
                                       }
                                     }
                                     leaf type {
                                       type string;
                                       description
-                                        "Reference to the sub-TLV type.";
+                                        "Reference to the sub-TLV type";
                                     }
                                   }
                                 }
@@ -1377,13 +1336,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list neighbors-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -1403,7 +1362,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   type string;
                                   description
                                     "Reference to the neighboring
-                                     system's system ID.";
+                                     system's system ID";
                                 }
                               }
                             }
@@ -1411,27 +1370,16 @@ module Cisco-IOS-XR-clns-isis-oper {
                           container instance-ids {
                             description
                               "A list of instance IDs received
-                               within TLV 7 within an IS-IS LSP. In
-                               the case that more than one instance
-                               of TLV 7 is included in the LSP, the
-                               instance IDs specified within the
-                               instances are concatenated within
-                               this list.";
+                               within TLV 7 within an IS-IS LSP";
                             list instance-id {
                               key "instance-id";
                               description
                                 "A list of instance IDs received
-                                 within TLV 7 within an IS-IS LSP. In
-                                 the case that more than one instance
-                                 of TLV 7 is included in the LSP, the
-                                 instance IDs specified within the
-                                 instances are concatenated within
-                                 this list.";
+                                 within TLV 7 within an IS-IS LSP";
                               leaf instance-id {
                                 type uint32;
                                 description
-                                  "Reference to the unique instance ID
-                                   .";
+                                  "Reference to the unique instance ID";
                               }
                               uses OVERLAY-OCNI-ISIS-INSTANCE-ID;
                             }
@@ -1447,7 +1395,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 type uint32;
                                 description
                                   "Reference to the instance number of
-                                   TLV 138.";
+                                   TLV 138";
                               }
                               uses OVERLAY-OCNI-ISIS-IPV4-SRLG;
                             }
@@ -1455,20 +1403,19 @@ module Cisco-IOS-XR-clns-isis-oper {
                           container is-reachability {
                             description
                               "This container describes list of ISIS
-                               neighbors and attributes.";
+                               neighbors and attributes";
                             container neighbors {
                               description
-                                "IS reachability neighbor attributes.";
+                                "IS reachability neighbor attributes";
                               list neighbor {
                                 key "system-id";
                                 description
-                                  "IS reachability neighbor attributes
-                                   .";
+                                  "IS reachability neighbor attributes";
                                 leaf system-id {
                                   type string;
                                   description
                                     "Reference to the system ID of the
-                                     neighbor.";
+                                     neighbor";
                                 }
                                 uses OVERLAY-OCNI-ISIS-NEIGHBORS;
                               }
@@ -1476,101 +1423,86 @@ module Cisco-IOS-XR-clns-isis-oper {
                           }
                           container ipv4-te-router-id {
                             description
-                              "This container defines TLV 134.";
+                              "This container defines TLV 134";
                             uses OVERLAY-OCNI-ISIS-IPV4-TE-ROUTER-ID;
                           }
                           container nlpid {
                             description
-                              "This container defines TLV 129.";
+                              "This container defines TLV 129";
                             uses OVERLAY-OCNI-ISIS-NLPID;
                           }
                           container extended-ipv4-reachability {
                             description
                               "This container defines list of IPv4
-                               extended reachability information.";
+                               extended reachability information";
                             container extended-ipv4-reachability-prefixes {
                               description
                                 "This list describes IPv4 extended
-                                 prefixes and attributes.";
+                                 prefixes and attributes";
                               list extended-ipv4-reachability-prefixe {
                                 key "prefix";
                                 description
                                   "This list describes IPv4 extended
-                                   prefixes and attributes.";
+                                   prefixes and attributes";
                                 container prefixes-state {
                                   description
                                     "State parameters of an IPv4
-                                     extended prefix.";
+                                     extended prefix";
                                   uses OVERLAY-OCNI-ISIS-PREFIX-STATE;
                                 }
                                 container prefixes-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list prefixes-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container tag {
                                       description
-                                        "This container defines sub-TLV 1
-                                         .";
+                                        "This container defines sub-TLV 1";
                                       uses OVERLAY-OCNI-ISIS-TAG;
                                     }
                                     container ipv4-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         11.";
+                                         11";
                                       uses OVERLAY-OCNI-ISIS-IPV4-SOURCE-ROUTER-ID;
                                     }
                                     container ipv6-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-IPV6-SOURCE-ROUTER-ID;
                                     }
                                     container prefixes-subtlvs-state {
                                       description
-                                        "State parameters for a prefix.";
+                                        "State parameters for a prefix";
                                       uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container flags {
                                       description
-                                        "This container defines sub-TLV 4
-                                         .";
+                                        "This container defines sub-TLV 4";
                                       uses OVERLAY-OCNI-ISIS-FLAGS;
                                     }
                                     container tag64 {
                                       description
-                                        "This container defines sub-TLV 2
-                                         .";
+                                        "This container defines sub-TLV 2";
                                       uses OVERLAY-OCNI-ISIS-TAG64;
                                     }
                                     container prefix-sids {
                                       description
-                                        "Prefix Segment-ID list.
-                                         IGP-Prefix Segment is an IGP
-                                         segment attached to an IGP
-                                         prefix. An IGP-Prefix Segment is
-                                         global (unless explicitly
-                                         advertised otherwise) within the
-                                         SR/IGP domain.";
+                                        "Prefix Segment-ID list";
                                       list prefix-sid {
                                         key "value";
                                         description
-                                          "Prefix Segment-ID list.
-                                           IGP-Prefix Segment is an IGP
-                                           segment attached to an IGP
-                                           prefix. An IGP-Prefix Segment
-                                           is global (unless explicitly
-                                           advertised otherwise) within
-                                           the SR/IGP domain.";
+                                          "Prefix Segment-ID list";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             prefix SID.";
+                                             prefix SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-PREFIX-SID;
                                       }
@@ -1586,13 +1518,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list prefixes-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -1607,7 +1539,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Reference to the IPv4 prefix that
                                      the TLV describes the attributes
-                                     of.";
+                                     of";
                                 }
                               }
                             }
@@ -1615,19 +1547,19 @@ module Cisco-IOS-XR-clns-isis-oper {
                           container multi-topology {
                             description
                               "This container defines the topology
-                               supported.";
+                               supported";
                             container topologies {
                               description
-                                "This list describes a topology.";
+                                "This list describes a topology";
                               list topology {
                                 key "mt-id";
                                 description
-                                  "This list describes a topology.";
+                                  "This list describes a topology";
                                 leaf mt-id {
                                   type uint32;
                                   description
                                     "Reference to the multi-topology ID
-                                     being described by the list entry.";
+                                     being described by the list entry";
                                 }
                                 uses OVERLAY-OCNI-ISIS-TOPOLOGY;
                               }
@@ -1636,20 +1568,20 @@ module Cisco-IOS-XR-clns-isis-oper {
                           container ipv4-external-reachability {
                             description
                               "This container defines list of IPv4
-                               external reachability information.";
+                               external reachability information";
                             container ipv4-external-reachability-prefixes {
                               description
                                 "IPv4 external prefixes and
-                                 reachability attributes.";
+                                 reachability attributes";
                               list ipv4-external-reachability-prefixe {
                                 key "prefix";
                                 description
                                   "IPv4 external prefixes and
-                                   reachability attributes.";
+                                   reachability attributes";
                                 leaf prefix {
                                   type string;
                                   description
-                                    "Reference to the IPv4 prefix.";
+                                    "Reference to the IPv4 prefix";
                                 }
                                 uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIXES;
                               }
@@ -1659,15 +1591,15 @@ module Cisco-IOS-XR-clns-isis-oper {
                             description
                               "This container defines list of IPv6
                                reachability information in multi -
-                               topology environment.";
+                               topology environment";
                             container mt-ipv6-reachability-prefixes {
                               description
                                 "List of IPv6 prefixes contained
-                                 within MT reachability TLV.";
+                                 within MT reachability TLV";
                               list mt-ipv6-reachability-prefixe {
                                 description
                                   "List of IPv6 prefixes contained
-                                   within MT reachability TLV.";
+                                   within MT reachability TLV";
                                 container mt-ipv6-reachability-prefixes-state {
                                   description
                                     "State parameters relating an IPv6
@@ -1677,73 +1609,58 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 container mt-ipv6-reachability-prefixes-subtlvs {
                                   description
                                     "List of subTLV types in the LSDB
-                                     for the specified TLV.";
+                                     for the specified TLV";
                                   list mt-ipv6-reachability-prefixes-subtlv {
                                     key "type";
                                     description
                                       "List of subTLV types in the LSDB
-                                       for the specified TLV.";
+                                       for the specified TLV";
                                     container mt-ipv6-reachability-prefixes-subtlvs-prefix-sids {
                                       description
-                                        "Prefix Segment-ID list.
-                                         IGP-Prefix Segment is an IGP
-                                         segment attached to an IGP
-                                         prefix. An IGP-Prefix Segment is
-                                         global (unless explicitly
-                                         advertised otherwise) within the
-                                         SR/IGP domain.";
+                                        "Prefix Segment-ID list";
                                       list mt-ipv6-reachability-prefixes-subtlvs-prefix-sid {
                                         key "value";
                                         description
-                                          "Prefix Segment-ID list.
-                                           IGP-Prefix Segment is an IGP
-                                           segment attached to an IGP
-                                           prefix. An IGP-Prefix Segment
-                                           is global (unless explicitly
-                                           advertised otherwise) within
-                                           the SR/IGP domain.";
+                                          "Prefix Segment-ID list";
                                         leaf value {
                                           type uint32;
                                           description
                                             "Reference to the value of the
-                                             prefix SID.";
+                                             prefix SID";
                                         }
                                         uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-PREFIX-SIDS-PREFIX-SID;
                                       }
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-flags {
                                       description
-                                        "This container defines sub-TLV 4
-                                         .";
+                                        "This container defines sub-TLV 4";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-FLAGS;
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-ipv4-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         11.";
+                                         11";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-IPV4-SOURCE-ROUTER-ID;
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-tag64 {
                                       description
-                                        "This container defines sub-TLV 2
-                                         .";
+                                        "This container defines sub-TLV 2";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-TAG64;
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-ipv6-source-router-id {
                                       description
                                         "This container defines sub-TLV
-                                         12.";
+                                         12";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-IPV6-SOURCE-ROUTER-ID;
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-tag {
                                       description
-                                        "This container defines sub-TLV 1
-                                         .";
+                                        "This container defines sub-TLV 1";
                                       uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-TAG;
                                     }
                                     container mt-ipv6-reachability-prefixes-subtlvs-state {
                                       description
-                                        "State parameters for a prefix.";
+                                        "State parameters for a prefix";
                                       uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE;
                                     }
                                     leaf type {
@@ -1757,13 +1674,13 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Sub-TLVs that are not defined in
                                      the model or not recognised by
-                                     system.";
+                                     system";
                                   list mt-ipv6-reachability-prefixes-undefined-subtlv {
                                     key "type";
                                     description
                                       "Sub-TLVs that are not defined in
                                        the model or not recognised by
-                                       system.";
+                                       system";
                                     leaf type {
                                       type uint32;
                                       description
@@ -1777,13 +1694,12 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   type string;
                                   description
                                     "Reference to the IPv6 prefix
-                                     described by the TLV.";
+                                     described by the TLV";
                                 }
                                 leaf mt-id {
                                   type uint32;
                                   description
-                                    "Reference to the multi-topology ID
-                                     .";
+                                    "Reference to the multi-topology ID";
                                 }
                               }
                             }
@@ -1791,21 +1707,21 @@ module Cisco-IOS-XR-clns-isis-oper {
                           leaf type {
                             type string;
                             description
-                              "Reference to the TLV's type.";
+                              "Reference to the TLV's type";
                           }
                         }
                       }
                       leaf lsp-id {
                         type string;
                         description
-                          "A reference to the Link State PDU ID.";
+                          "A reference to the Link State PDU ID";
                       }
                     }
                   }
                   leaf level-number {
                     type uint32;
                     description
-                      "Reference to ISIS level-number.";
+                      "Reference to ISIS level-number";
                   }
                 }
               }
@@ -1820,8 +1736,7 @@ module Cisco-IOS-XR-clns-isis-oper {
               type string;
               description
                 "An operator-assigned identifier for the
-                 routing or forwarding protocol. For some
-                 processes this leaf may be system defined.";
+                 routing or forwarding protocol";
             }
           }
         }
@@ -1982,11 +1897,59 @@ module Cisco-IOS-XR-clns-isis-oper {
           list topology {
             description
               "Per-topology data";
+            container ipv6-flex-route-tables {
+              description
+                "IPv6 Flex-Algo local route tables";
+              list ipv6-flex-route-table {
+                key "flex-alg";
+                description
+                  "IPv6 Flex-Algo local route table";
+                leaf flex-alg {
+                  type uint32;
+                  description
+                    "Flex Algo";
+                }
+                list ipv6-flex-route {
+                  description
+                    "An IPv6 route known to IS-IS";
+                  leaf prefix {
+                    type inet:ipv6-address-no-zone;
+                    description
+                      "Prefix";
+                  }
+                  leaf prefix-length {
+                    type dt1:Isis-ipv6-prefix-length;
+                    description
+                      "Prefix Length";
+                  }
+                  uses ISIS-SH-IPV6-ROUTE;
+                }
+              }
+            }
             container frr-summary {
               description
                 "FRR summary information for a particular
                  IS-IS topology";
               uses ISIS-SH-FRR-SUMMARY;
+            }
+            container srv6-locators {
+              description
+                "SRv6 Locator Table";
+              list srv6-locator {
+                description
+                  "An SRv6 Locator";
+                leaf prefix {
+                  type inet:ipv6-address-no-zone;
+                  description
+                    "Prefix";
+                }
+                leaf prefix-length {
+                  type dt1:Isis-ipv6-prefix-length;
+                  description
+                    "Prefix Length";
+                }
+                uses ISIS-SH-SRV6-LOCATOR;
+              }
             }
             container topology-levels {
               description
@@ -2135,6 +2098,35 @@ module Cisco-IOS-XR-clns-isis-oper {
                 uses ISIS-SH-IPV4-ROUTE;
               }
             }
+            container ipv4-flex-route-tables {
+              description
+                "IPv4 Flex-Algo local route tables";
+              list ipv4-flex-route-table {
+                key "flex-alg";
+                description
+                  "IPv4 Flex-Algo local route table";
+                leaf flex-alg {
+                  type uint32;
+                  description
+                    "Flex Algo";
+                }
+                list ipv4-flex-route {
+                  description
+                    "An IPv4 route known to IS-IS";
+                  leaf prefix {
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "Prefix";
+                  }
+                  leaf prefix-length {
+                    type dt1:Isis-ipv4-prefix-length;
+                    description
+                      "Prefix Length";
+                  }
+                  uses ISIS-SH-IPV4-ROUTE;
+                }
+              }
+            }
             container ipv4-routes {
               description
                 "IPv4 local route table";
@@ -2213,6 +2205,21 @@ module Cisco-IOS-XR-clns-isis-oper {
                 "Interface name";
             }
             uses ISIS-SH-CHKPT-ADJ;
+          }
+        }
+        container flex-algos {
+          description
+            "Flex-Algo Table";
+          list flex-algo {
+            key "flex-alg";
+            description
+              "Flex-Algo Definition Data";
+            leaf flex-alg {
+              type uint32;
+              description
+                "Flex Algo";
+            }
+            uses ISIS-SH-FLEX-ALGO;
           }
         }
         container srms {

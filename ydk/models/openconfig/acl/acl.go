@@ -1066,8 +1066,8 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_Config struct {
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
-    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
+    // List of TCP flags to match. The type is slice of ['TCPACK', 'TCPSYN',
+    // 'TCPECE', 'TCPFIN', 'TCPRST', 'TCPURG', 'TCPPSH', 'TCPCWR'].
     TcpFlags []interface{}
 }
 
@@ -1110,8 +1110,8 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_State struct {
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
-    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
+    // List of TCP flags to match. The type is slice of ['TCPACK', 'TCPSYN',
+    // 'TCPECE', 'TCPFIN', 'TCPRST', 'TCPURG', 'TCPPSH', 'TCPCWR'].
     TcpFlags []interface{}
 }
 

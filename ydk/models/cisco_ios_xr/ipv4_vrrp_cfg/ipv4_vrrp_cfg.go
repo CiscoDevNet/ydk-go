@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_vrrp_cfg
 
@@ -34,6 +34,9 @@ type Vrrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Enable vrrp process. The type is interface{}.
+    Enable interface{}
+
     // VRRP logging options.
     Logging Vrrp_Logging
 
@@ -55,6 +58,7 @@ func (vrrp *Vrrp) GetEntityData() *types.CommonEntityData {
     vrrp.EntityData.Children.Append("logging", types.YChild{"Logging", &vrrp.Logging})
     vrrp.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &vrrp.Interfaces})
     vrrp.EntityData.Leafs = types.NewOrderedMap()
+    vrrp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrrp.Enable})
 
     vrrp.EntityData.YListKeys = []string {}
 
@@ -130,7 +134,7 @@ type Vrrp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name to configure. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRRP Slave MAC-refresh rate in seconds. The type is interface{} with range:
@@ -453,7 +457,7 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Tracks
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -487,10 +491,6 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Timer 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TRUE - Advertise time configured in milliseconds, FALSE - Advertise time
-    // configured in seconds. The type is bool. The default value is false.
-    InMsec interface{}
-
     // Advertisement time in milliseconds. The type is interface{} with range:
     // 100..40950. Units are millisecond.
     AdvertisementTimeInMsec interface{}
@@ -500,7 +500,7 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Timer 
     AdvertisementTimeInSec interface{}
 
     // TRUE - Force configured timer values to be used, required when configured
-    // in milliseconds. The type is bool. The default value is false.
+    // in milliseconds. The type is interface{}. Units are millisecond.
     Forced interface{}
 }
 
@@ -516,7 +516,6 @@ func (timer *Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRoute
 
     timer.EntityData.Children = types.NewOrderedMap()
     timer.EntityData.Leafs = types.NewOrderedMap()
-    timer.EntityData.Leafs.Append("in-msec", types.YLeaf{"InMsec", timer.InMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-msec", types.YLeaf{"AdvertisementTimeInMsec", timer.AdvertisementTimeInMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-sec", types.YLeaf{"AdvertisementTimeInSec", timer.AdvertisementTimeInSec})
     timer.EntityData.Leafs.Append("forced", types.YLeaf{"Forced", timer.Forced})
@@ -1036,10 +1035,6 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Timer 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TRUE - Advertise time configured in milliseconds, FALSE - Advertise time
-    // configured in seconds. The type is bool. The default value is false.
-    InMsec interface{}
-
     // Advertisement time in milliseconds. The type is interface{} with range:
     // 100..40950. Units are millisecond.
     AdvertisementTimeInMsec interface{}
@@ -1049,7 +1044,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Timer 
     AdvertisementTimeInSec interface{}
 
     // TRUE - Force configured timer values to be used, required when configured
-    // in milliseconds. The type is bool. The default value is false.
+    // in milliseconds. The type is interface{}. Units are millisecond.
     Forced interface{}
 }
 
@@ -1065,7 +1060,6 @@ func (timer *Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRoute
 
     timer.EntityData.Children = types.NewOrderedMap()
     timer.EntityData.Leafs = types.NewOrderedMap()
-    timer.EntityData.Leafs.Append("in-msec", types.YLeaf{"InMsec", timer.InMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-msec", types.YLeaf{"AdvertisementTimeInMsec", timer.AdvertisementTimeInMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-sec", types.YLeaf{"AdvertisementTimeInSec", timer.AdvertisementTimeInSec})
     timer.EntityData.Leafs.Append("forced", types.YLeaf{"Forced", timer.Forced})
@@ -1249,7 +1243,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Tracks
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -1568,10 +1562,6 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Timer 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TRUE - Advertise time configured in milliseconds, FALSE - Advertise time
-    // configured in seconds. The type is bool. The default value is false.
-    InMsec interface{}
-
     // Advertisement time in milliseconds. The type is interface{} with range:
     // 100..40950. Units are millisecond.
     AdvertisementTimeInMsec interface{}
@@ -1581,7 +1571,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Timer 
     AdvertisementTimeInSec interface{}
 
     // TRUE - Force configured timer values to be used, required when configured
-    // in milliseconds. The type is bool. The default value is false.
+    // in milliseconds. The type is interface{}. Units are millisecond.
     Forced interface{}
 }
 
@@ -1597,7 +1587,6 @@ func (timer *Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRoute
 
     timer.EntityData.Children = types.NewOrderedMap()
     timer.EntityData.Leafs = types.NewOrderedMap()
-    timer.EntityData.Leafs.Append("in-msec", types.YLeaf{"InMsec", timer.InMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-msec", types.YLeaf{"AdvertisementTimeInMsec", timer.AdvertisementTimeInMsec})
     timer.EntityData.Leafs.Append("advertisement-time-in-sec", types.YLeaf{"AdvertisementTimeInSec", timer.AdvertisementTimeInSec})
     timer.EntityData.Leafs.Append("forced", types.YLeaf{"Forced", timer.Forced})
@@ -1712,7 +1701,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Tracks
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This

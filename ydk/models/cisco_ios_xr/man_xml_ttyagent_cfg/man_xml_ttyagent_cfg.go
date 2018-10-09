@@ -6,7 +6,7 @@
 //   xr-xml: XML
 //   netconf: netconf
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_xml_ttyagent_cfg
 
@@ -194,7 +194,7 @@ type XrXml_Agent_Default_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -385,7 +385,7 @@ type XrXml_Agent_Tty_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -502,7 +502,7 @@ type XrXml_Agent_Ssl_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
@@ -706,7 +706,7 @@ type Netconf_Agent_Tty_Throttle struct {
     YFilter yfilter.YFilter
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with

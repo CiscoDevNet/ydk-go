@@ -5,7 +5,7 @@
 // for the following management objects:
 //   vservice: configure vservice node
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package vservice_cfg
 
@@ -227,7 +227,7 @@ type Vservice_ServiceFunctionLocator_Names_Name_Node struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4DestinationAddress interface{}
 
-    // VNI. The type is interface{} with range: -2147483648..2147483647.
+    // VNI. The type is interface{} with range: 0..4294967295.
     Vni interface{}
 }
 
@@ -383,7 +383,7 @@ type Vservice_MetadataDispositions_MetadataDisposition_MatchEntry_Node struct {
     NexthopIpv4Address interface{}
 
     // 24-bit tenant id. The type is slice of interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     TenantId []interface{}
 }
 
@@ -528,7 +528,7 @@ type Vservice_ServiceFunctionForwardLocator_Names_Name_Node struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4DestinationAddress interface{}
 
-    // VNI. The type is interface{} with range: -2147483648..2147483647.
+    // VNI. The type is interface{} with range: 0..4294967295.
     Vni interface{}
 }
 

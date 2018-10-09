@@ -6,7 +6,7 @@
 //   router-static: This class represents router static
 //     configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_static_cfg
 
@@ -495,7 +495,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -581,7 +581,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -1087,7 +1087,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -1173,7 +1173,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -1641,7 +1641,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -1727,7 +1727,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -2278,7 +2278,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -2364,7 +2364,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -2870,7 +2870,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -2956,7 +2956,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -3424,7 +3424,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -3510,7 +3510,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -4090,7 +4090,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -4176,7 +4176,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -4682,7 +4682,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -4768,7 +4768,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -5236,7 +5236,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -5322,7 +5322,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -5977,7 +5977,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -6063,7 +6063,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -6569,7 +6569,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -6655,7 +6655,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -7123,7 +7123,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -7209,7 +7209,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -7760,7 +7760,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -7846,7 +7846,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -8352,7 +8352,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -8438,7 +8438,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -8906,7 +8906,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -8992,7 +8992,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -9572,7 +9572,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -9658,7 +9658,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -10164,7 +10164,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -10250,7 +10250,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -10718,7 +10718,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -10804,7 +10804,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -11492,7 +11492,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -11578,7 +11578,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -12084,7 +12084,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -12170,7 +12170,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -12638,7 +12638,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -12724,7 +12724,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -13275,7 +13275,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -13361,7 +13361,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -13867,7 +13867,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -13953,7 +13953,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -14421,7 +14421,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -14507,7 +14507,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefi
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -15087,7 +15087,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -15173,7 +15173,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -15679,7 +15679,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -15765,7 +15765,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -16233,7 +16233,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -16319,7 +16319,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -16974,7 +16974,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -17060,7 +17060,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -17566,7 +17566,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -17652,7 +17652,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -18120,7 +18120,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -18206,7 +18206,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -18757,7 +18757,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -18843,7 +18843,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -19349,7 +19349,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -19435,7 +19435,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -19903,7 +19903,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -19989,7 +19989,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -20569,7 +20569,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -20655,7 +20655,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -21161,7 +21161,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -21247,7 +21247,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -21715,7 +21715,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -21801,7 +21801,7 @@ type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -22551,7 +22551,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -22637,7 +22637,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -23143,7 +23143,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -23229,7 +23229,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -23697,7 +23697,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -23783,7 +23783,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -24334,7 +24334,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -24420,7 +24420,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -24926,7 +24926,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -25012,7 +25012,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -25480,7 +25480,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -25566,7 +25566,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -26146,7 +26146,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -26232,7 +26232,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -26738,7 +26738,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -26824,7 +26824,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -27292,7 +27292,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -27378,7 +27378,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -28033,7 +28033,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -28119,7 +28119,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -28625,7 +28625,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -28711,7 +28711,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -29179,7 +29179,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -29265,7 +29265,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -29816,7 +29816,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -29902,7 +29902,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -30408,7 +30408,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -30494,7 +30494,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -30962,7 +30962,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -31048,7 +31048,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -31628,7 +31628,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -31714,7 +31714,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -32220,7 +32220,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -32306,7 +32306,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -32774,7 +32774,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -32860,7 +32860,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -33548,7 +33548,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -33634,7 +33634,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -34140,7 +34140,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -34226,7 +34226,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -34694,7 +34694,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -34780,7 +34780,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topolog
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -35331,7 +35331,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -35417,7 +35417,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -35923,7 +35923,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -36009,7 +36009,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -36477,7 +36477,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -36563,7 +36563,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPre
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -37143,7 +37143,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -37229,7 +37229,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -37735,7 +37735,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -37821,7 +37821,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -38289,7 +38289,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -38375,7 +38375,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_Vr
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -39030,7 +39030,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -39116,7 +39116,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -39622,7 +39622,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -39708,7 +39708,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -40176,7 +40176,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -40262,7 +40262,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topol
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -40813,7 +40813,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -40899,7 +40899,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -41405,7 +41405,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -41491,7 +41491,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -41959,7 +41959,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -42045,7 +42045,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfP
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -42625,7 +42625,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -42711,7 +42711,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -43217,7 +43217,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -43303,7 +43303,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following
@@ -43771,7 +43771,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If set, bfd is enabled. The type is bool. The default value is false.
@@ -43857,7 +43857,7 @@ type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Forwarding interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Next hop address. The type is one of the following

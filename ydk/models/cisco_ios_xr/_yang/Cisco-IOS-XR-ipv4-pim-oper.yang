@@ -38,7 +38,7 @@ module Cisco-IOS-XR-ipv4-pim-oper {
        ipv6-pim: ipv6 pim
        pim6-ma: pim6 ma
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {

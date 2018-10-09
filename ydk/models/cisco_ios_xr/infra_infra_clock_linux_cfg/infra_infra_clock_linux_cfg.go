@@ -5,7 +5,7 @@
 // for the following management objects:
 //   clock: Configure time-of-day clock
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_infra_clock_linux_cfg
 

@@ -6,7 +6,7 @@
 //   Cisco-IOS-XR-aaa-lib-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package aaa_protocol_radius_cfg
 

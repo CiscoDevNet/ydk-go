@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-wanphy-ui-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR wanphy-ui package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {

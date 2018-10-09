@@ -26,7 +26,7 @@ module Cisco-IOS-XR-controller-otu-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -78,6 +78,16 @@ module Cisco-IOS-XR-controller-otu-cfg {
         value 64;
         description
           "EnhancedHG7 Fec";
+      }
+      enum "enhanced-sd15" {
+        value 512;
+        description
+          "EnhancedSD15 Fec";
+      }
+      enum "enhanced-sd27" {
+        value 1024;
+        description
+          "EnhancedSD27 Fec";
       }
     }
     description

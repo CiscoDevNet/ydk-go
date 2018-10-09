@@ -6,7 +6,7 @@
 //   interface-dampening: Interface dampening data
 //   interface-properties: interface properties
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ifmgr_oper
 
@@ -164,7 +164,7 @@ type InterfaceDampening_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Dampening info for the interface.
@@ -811,7 +811,7 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The number of times the state has changed. The type is interface{} with
@@ -1231,13 +1231,13 @@ type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interface
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -1424,13 +1424,13 @@ type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -1575,13 +1575,13 @@ type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface stru
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.

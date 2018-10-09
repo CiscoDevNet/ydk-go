@@ -5,7 +5,7 @@
 // for the following management objects:
 //   vrrp: VRRP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_vrrp_oper
 
@@ -528,7 +528,7 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -536,10 +536,10 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -625,7 +625,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -1139,7 +1139,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1298,10 +1298,10 @@ type Vrrp_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
@@ -1419,10 +1419,10 @@ type Vrrp_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Invalid checksum. The type is interface{} with range: 0..4294967295.
@@ -1503,7 +1503,7 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -1511,10 +1511,10 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -1600,7 +1600,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -2114,7 +2114,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // IM Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
@@ -2279,7 +2279,7 @@ type Vrrp_MgoSessions_MgoSession struct {
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is VrrpBAf.

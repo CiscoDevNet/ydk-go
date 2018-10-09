@@ -22,30 +22,28 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
      
      E-mail: cs-yang@cisco.com";
   description
-    "This module contains the YANG definitions
+    "This module contains definitions
+     for the Calvados model objects.
+     
+     This module contains the YANG definitions
      for the Cisco IOS-XR SysAdmin
      'clear controller switch' commands.
      
      Copyright(c) 2011-2017 by Cisco Systems, Inc.
+     All rights reserved.
+     
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
     description
       "Namespace change to comply with Cisco guidelines on namespace";
   }
-  revision 2016-07-06 {
-    description
-      "Initial revision with content extracted from esdma_cli.yang.";
-  }
 
   grouping switch-clear-statistics {
     container statistics {
-      tailf:info "Clears the Ethernet switch interface statistics";
-      tailf:callpoint "esdma-clear-switch-location-helper";
       list location {
         key "rack card switch-id";
-        tailf:info "Location for a switch interface statistics clear operation";
-        tailf:cli-key-format "$(1)/$(2)/$(3)";
         leaf rack {
           type esdma_types:esdma-rack-num-enum;
         }
@@ -56,11 +54,6 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
           type esdma_types:esdma-switch-type-enum;
         }
         tailf:action "all" {
-          tailf:info "Clear statistics for all switch ports";
-          tailf:actionpoint "esdma-switch-clear-stats-all";
-          tailf:confirm-text "Clear all switch port statistics ?" {
-            tailf:confirm-default "true";
-          }
           output {
             leaf result {
               type string;
@@ -74,14 +67,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
 
   grouping switch-clear-mlap {
     container mlap {
-      tailf:info "Commands for clearing MLAP statistics";
       container statistics {
-        tailf:info "Clears the MLAP interface statistics";
-        tailf:callpoint "esdma-clear-mlap-location-helper";
         list location {
           key "rack card switch-id";
-          tailf:info "Location for an MLAP statistics clear operation";
-          tailf:cli-key-format "$(1)/$(2)/$(3)";
           leaf rack {
             type esdma_types:esdma-rack-num-enum;
           }
@@ -92,11 +80,6 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
             type esdma_types:esdma-switch-type-enum;
           }
           tailf:action "all" {
-            tailf:info "Clear statistics for all switch ports";
-            tailf:actionpoint "esdma-mlap-clear-stats-all";
-            tailf:confirm-text "Clear all MLAP statistics ?" {
-              tailf:confirm-default "true";
-            }
             output {
               leaf result {
                 type string;
@@ -111,14 +94,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
 
   grouping switch-clear-sdr {
     container sdr {
-      tailf:info "Commands for clearing SDR packet statistics";
       container statistics {
-        tailf:info "Clears the SDR packet statistics";
-        tailf:callpoint "esdma-clear-sdr-location-helper";
         list location {
           key "rack card switch-id";
-          tailf:info "Location for an SDR packet statistics clear operation";
-          tailf:cli-key-format "$(1)/$(2)/$(3)";
           leaf rack {
             type esdma_types:esdma-rack-num-enum;
           }
@@ -129,11 +107,6 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
             type esdma_types:esdma-switch-type-enum;
           }
           tailf:action "all" {
-            tailf:info "Clear packet statistics for all SDRs";
-            tailf:actionpoint "esdma-sdr-clear-stats-all";
-            tailf:confirm-text "Clear all SDR packet statistics ?" {
-              tailf:confirm-default "true";
-            }
             output {
               leaf result {
                 type string;
@@ -148,12 +121,8 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
 
   grouping switch-clear-fdb {
     container fdb {
-      tailf:info "Commands for clearing switch forwarding database";
-      tailf:callpoint "esdma-clear-switch-location-helper";
       list location {
         key "rack card switch-id";
-        tailf:info "Location to clear the switch forwarding database";
-        tailf:cli-key-format "$(1)/$(2)/$(3)";
         leaf rack {
           type esdma_types:esdma-rack-num-enum;
         }
@@ -164,11 +133,6 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
           type esdma_types:esdma-switch-type-enum;
         }
         tailf:action "all" {
-          tailf:info "Clear all dynamic FDB entries";
-          tailf:actionpoint "esdma-fdb-clear-all";
-          tailf:confirm-text "Clear all dynamic FDB entries ?" {
-            tailf:confirm-default "true";
-          }
           output {
             leaf result {
               type string;
@@ -179,5 +143,4 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-clear {
       }
     }
   }
-  tailf:id "http://cisco.com/panini/calvados/esdma/esdma_clear";
 }

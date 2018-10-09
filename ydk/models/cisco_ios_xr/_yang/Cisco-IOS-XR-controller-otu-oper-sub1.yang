@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR controller-otu package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -33,6 +33,28 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Otu-ains-state-et {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "active-running" {
+        value 1;
+        description
+          "Running";
+      }
+      enum "active-pending" {
+        value 2;
+        description
+          "Pending";
+      }
+    }
+    description
+      "Otu ains state et";
   }
 
   typedef Gmpls-otu-tti-mode {
@@ -171,7 +193,7 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         description
           "Maintenance";
       }
-      enum "ais" {
+      enum "ains" {
         value 2;
         description
           "Automatic In Service";
@@ -198,7 +220,7 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         description
           "Maintenance";
       }
-      enum "ais" {
+      enum "ains" {
         value 3;
         description
           "Automatic In Service";
@@ -255,8 +277,18 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
         description
           "Soft-Decision 7";
       }
-      enum "otu-bag-all-fec" {
+      enum "otu-bag-sd15-fec" {
         value 512;
+        description
+          "Soft-Decision 15";
+      }
+      enum "otu-bag-sd27-fec" {
+        value 1024;
+        description
+          "Soft-Decision 27";
+      }
+      enum "otu-bag-all-fec" {
+        value 2048;
         description
           "ALL";
       }
@@ -522,6 +554,28 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
     }
     description
       "Otu prbs test";
+  }
+
+  grouping OTU-AINS-HW-INFO {
+    description
+      "OTU AINS information";
+    leaf ains-state {
+      type Otu-ains-state-et;
+      description
+        "AINS State";
+    }
+    leaf ains-timer-minutes {
+      type uint32;
+      units "minute";
+      description
+        "AINS Timer in Minutes";
+    }
+    leaf ains-remaining-secs {
+      type uint32;
+      units "second";
+      description
+        "AINS Remaining Seconds";
+    }
   }
 
   grouping FEC-OPER-DATA {
@@ -879,6 +933,11 @@ submodule Cisco-IOS-XR-controller-otu-oper-sub1 {
       description
         "OTU FEC Statistics";
       uses FEC-OPER-DATA;
+    }
+    container ains-info {
+      description
+        "AINS information";
+      uses OTU-AINS-HW-INFO;
     }
     leaf state {
       type Otu-state-et;

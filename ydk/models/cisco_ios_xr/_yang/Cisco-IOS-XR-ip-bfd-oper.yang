@@ -32,7 +32,7 @@ module Cisco-IOS-XR-ip-bfd-oper {
      for the following management objects:
        bfd: Bidirectional Forwarding Detection(BFD) operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -88,7 +88,6 @@ module Cisco-IOS-XR-ip-bfd-oper {
         description
           "Table of IPv6 single hop Packet counters";
         list ipv6-single-hop-packet-counter {
-          key "interface-name";
           description
             "Interface IPv6 single hop Packet counters";
           leaf interface-name {
@@ -96,24 +95,33 @@ module Cisco-IOS-XR-ip-bfd-oper {
             description
               "Interface Name";
           }
+          leaf location {
+            type xr:Node-id;
+            description
+              "Location";
+          }
           uses BFD-MGMT-PACKET-COUNT;
         }
       }
     }
     container counters {
       description
-        "Counters";
+        "IPv4 Counters";
       container packet-counters {
         description
-          "Table of Packet counters";
+          "Table of IPv4 Packet counters";
         list packet-counter {
-          key "interface-name";
           description
-            "Interface Packet counters";
+            "Interface IPv4 Packet counters";
           leaf interface-name {
             type xr:Interface-name;
             description
               "Interface Name";
+          }
+          leaf location {
+            type xr:Node-id;
+            description
+              "Location";
           }
           uses BFD-MGMT-PACKET-COUNT;
         }
@@ -600,13 +608,17 @@ module Cisco-IOS-XR-ip-bfd-oper {
         description
           "Table of IPv4 single hop Packet counters";
         list ipv4-single-hop-packet-counter {
-          key "interface-name";
           description
             "Interface IPv4 single hop Packet counters";
           leaf interface-name {
             type xr:Interface-name;
             description
               "Interface Name";
+          }
+          leaf location {
+            type xr:Node-id;
+            description
+              "Location";
           }
           uses BFD-MGMT-PACKET-COUNT;
         }

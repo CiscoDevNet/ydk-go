@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions
 // for NTP operational data.
-// Copyright (c) 2017 by Cisco Systems, Inc.
+// Copyright (c) 2017-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ntp_oper
 
@@ -67,6 +67,174 @@ const (
     KissCodeType_ntp_ref_step KissCodeType = "ntp-ref-step"
 )
 
+// PeerEvent represents Event received by switch or router and sent by peer
+type PeerEvent string
+
+const (
+    // This event is used to allocate resources and 
+    // initialize defaults or values when a NTP association is setup
+    PeerEvent_ntp_peer_event_mobilize PeerEvent = "ntp-peer-event-mobilize"
+
+    // This event is used to tear down the resources
+    // associated with a NTP association
+    PeerEvent_ntp_peer_event_demobilize PeerEvent = "ntp-peer-event-demobilize"
+
+    // This event indicates that the NTP peer is 
+    // unreachable
+    PeerEvent_ntp_peer_event_unreachable PeerEvent = "ntp-peer-event-unreachable"
+
+    // This event indicates that the peer is reachable
+    PeerEvent_ntp_peer_event_reachable PeerEvent = "ntp-peer-event-reachable"
+
+    // Event to indicate that the NTP process restart
+    // is now complete
+    PeerEvent_ntp_peer_event_restart PeerEvent = "ntp-peer-event-restart"
+
+    // NTP peer or server reply event in response to a 
+    // get time request from the client
+    PeerEvent_ntp_peer_event_reply PeerEvent = "ntp-peer-event-reply"
+
+    // This event is used to synchronize the client 
+    // and peer or server through a flow contol mechanism
+    PeerEvent_ntp_peer_event_rate PeerEvent = "ntp-peer-event-rate"
+
+    // Event from peer that indicates denial of access to the 
+    // switch or router
+    PeerEvent_ntp_peer_event_deny PeerEvent = "ntp-peer-event-deny"
+
+    // This event clears or resets the NTP flag after the
+    // leap second event so that the system is now ready to receive the next
+    // leap second event
+    PeerEvent_ntp_peer_disarmed PeerEvent = "ntp-peer-disarmed"
+
+    // Peer event armed means that the event for delaying
+    // the clock increment by one second for a leap year will be scheduled 
+    // next month
+    PeerEvent_ntp_peer_armed PeerEvent = "ntp-peer-armed"
+
+    // New peer added to association
+    PeerEvent_ntp_peer_event_newpeer PeerEvent = "ntp-peer-event-newpeer"
+
+    // This event indicates clock tick errors
+    PeerEvent_ntp_peer_event_clock PeerEvent = "ntp-peer-event-clock"
+
+    // Event indicating status of authenticating switch
+    // or router with peer
+    PeerEvent_ntp_peer_event_auth PeerEvent = "ntp-peer-event-auth"
+
+    // Popcorn event indicates a delayed NTP packet due
+    // to congestion in the network
+    PeerEvent_ntp_peer_event_popcorn PeerEvent = "ntp-peer-event-popcorn"
+
+    // Event for NTP peer or server leaving the 
+    // association
+    PeerEvent_ntp_peer_event_xleave PeerEvent = "ntp-peer-event-xleave"
+
+    // NTP event for an error message received from 
+    // peer or server
+    PeerEvent_ntp_peer_event_xerr PeerEvent = "ntp-peer-event-xerr"
+
+    // Event for incorporating correction for 
+    // International Atomic Time based on offsets from UTC
+    PeerEvent_ntp_peer_event_tai PeerEvent = "ntp-peer-event-tai"
+)
+
+// ServerType represents Status of remote entity whether server or peer
+type ServerType string
+
+const (
+    // Remote entity is a NTP peer
+    ServerType_ntp_peer ServerType = "ntp-peer"
+
+    // Remote NTP is a NTP server
+    ServerType_ntp_server ServerType = "ntp-server"
+
+    // Status of remote entity could not be found
+    ServerType_ntp_unknown_type ServerType = "ntp-unknown-type"
+)
+
+// RefidPktTypeInfo represents The type of information stored in the refid
+type RefidPktTypeInfo string
+
+const (
+    // Kiss of Death code or KOD contains debug or maintenance code. Refid is set to these codes in stratums 0 and 16 (unspec,invalid, unsync)
+    RefidPktTypeInfo_ntp_ref_state_kod RefidPktTypeInfo = "ntp-ref-state-kod"
+
+    // CLK Source type occurs for all primary time servers in stratum 1
+    RefidPktTypeInfo_ntp_ref_state_resolved_with_clk_source RefidPktTypeInfo = "ntp-ref-state-resolved-with-clk-source"
+
+    // IP address occurs for clients in stratums >= 2 and  <=15 
+    RefidPktTypeInfo_ntp_ref_state_resolved_with_ip_addr RefidPktTypeInfo = "ntp-ref-state-resolved-with-ip-addr"
+
+    // Bad state which serves as a default criterion for  a complete mismatch with all cases
+    RefidPktTypeInfo_ntp_ref_state_bad_state RefidPktTypeInfo = "ntp-ref-state-bad-state"
+)
+
+// PeerStatusWord represents Peer status word or crypto of ntp server or ntp peer
+type PeerStatusWord string
+
+const (
+    // In autokey[public key ntp authentication protocol ], this flag is 
+    // set when host certificate is signed by server.This is not implemented/supported as of now 
+    PeerStatusWord_crypto_flag_sig PeerStatusWord = "crypto-flag-sig"
+
+    // In autokey, this flag is set when leap second values
+    // are received and validated
+    PeerStatusWord_crypto_flag_leap PeerStatusWord = "crypto-flag-leap"
+
+    // In autokey,this flag is set when the trusted host identity
+    // credentials are  confirmed 
+    PeerStatusWord_crypto_flag_vrfy PeerStatusWord = "crypto-flag-vrfy"
+
+    // In autokey, this flag is set when the cookie is received  and validated
+    // when set, keylists with  nonzero cookies are generated, 
+    // when reset cookie is zero
+    PeerStatusWord_crypto_flag_cook PeerStatusWord = "crypto-flag-cook"
+
+    // In autokey, this flag is set when autokey values are received and validated,
+    // when set client can validate packets without extension field 
+    // according to the autokey sequence
+    PeerStatusWord_crypto_flag_auto PeerStatusWord = "crypto-flag-auto"
+
+    // In autokey, this flag is set when trusted host certificate and public key are verified
+    PeerStatusWord_crypto_flag_cert PeerStatusWord = "crypto-flag-cert"
+)
+
+// PeerSelectStatus represents Selection status of peer
+type PeerSelectStatus string
+
+const (
+    // The peer is a survivor but not among the first 
+    // six peers
+    PeerSelectStatus_ntp_peer_as_backup PeerSelectStatus = "ntp-peer-as-backup"
+
+    // The peer was rejected due to a loop or due
+    // to becoming unreachable or due to bad synchronization distance
+    PeerSelectStatus_ntp_peer_rejected PeerSelectStatus = "ntp-peer-rejected"
+
+    // The peer or server is discarded due to false tick
+    // or clock errors
+    PeerSelectStatus_ntp_peer_false_ticker PeerSelectStatus = "ntp-peer-false-ticker"
+
+    // The peer is discarded as it is not among the 
+    // first ten peers sorted by synchronization distance
+    PeerSelectStatus_ntp_peer_excess PeerSelectStatus = "ntp-peer-excess"
+
+    // NTP server or peer rejected as outlier
+    PeerSelectStatus_ntp_peer_outlier PeerSelectStatus = "ntp-peer-outlier"
+
+    // Possible candidate for selection as time server
+    PeerSelectStatus_ntp_peer_candidate PeerSelectStatus = "ntp-peer-candidate"
+
+    // Peer or server selected as time server
+    PeerSelectStatus_ntp_peer_sys_peer PeerSelectStatus = "ntp-peer-sys-peer"
+
+    // Peer or server selected as time server. In this 
+    // case the Pulse Per Second signal is used to synchronize the client and
+    // server or peer
+    PeerSelectStatus_ntp_peer_pps_peer PeerSelectStatus = "ntp-peer-pps-peer"
+)
+
 // RefClockSourceType represents Clock source type for NTP
 type RefClockSourceType string
 
@@ -129,21 +297,33 @@ const (
     RefClockSourceType_ntp_ref_ptb RefClockSourceType = "ntp-ref-ptb"
 )
 
-// RefidPktTypeInfo represents The type of information stored in the refid
-type RefidPktTypeInfo string
+// PeerAuthStatus represents Status of authenticating switch with peer or server
+type PeerAuthStatus string
 
 const (
-    // Kiss of Death code or KOD contains debug or maintenance code. Refid is set to these codes in stratums 0 and 16 (unspec,invalid, unsync)
-    RefidPktTypeInfo_ntp_ref_state_kod RefidPktTypeInfo = "ntp-ref-state-kod"
+    // The NTP client or server packet has MAC  
+    // field and authentication succeded
+    PeerAuthStatus_ntp_auth_ok PeerAuthStatus = "ntp-auth-ok"
 
-    // CLK Source type occurs for all primary time servers in stratum 1
-    RefidPktTypeInfo_ntp_ref_state_resolved_with_clk_source RefidPktTypeInfo = "ntp-ref-state-resolved-with-clk-source"
+    // The NTP client or server packet has MAC  
+    // and decryption failed with AUTH_ERROR 
+    PeerAuthStatus_ntp_auth_bad_auth PeerAuthStatus = "ntp-auth-bad-auth"
 
-    // IP address occurs for clients in stratums >= 2 and  <=15 
-    RefidPktTypeInfo_ntp_ref_state_resolved_with_ip_addr RefidPktTypeInfo = "ntp-ref-state-resolved-with-ip-addr"
+    // The NTP client or server is not configured with authenication
+    // with server or client
+    PeerAuthStatus_ntp_auth_auth_not_configured PeerAuthStatus = "ntp-auth-auth-not-configured"
 
-    // Bad state which serves as a default criterion for  a complete mismatch with all cases
-    RefidPktTypeInfo_ntp_ref_state_bad_state RefidPktTypeInfo = "ntp-ref-state-bad-state"
+    // The NTP client or server authentication stautus is not available
+    //  as now
+    PeerAuthStatus_ntp_auth_status_not_available PeerAuthStatus = "ntp-auth-status-not-available"
+
+    // The NTP client or server packet has no MAC  
+    // with server or peer
+    PeerAuthStatus_ntp_auth_none PeerAuthStatus = "ntp-auth-none"
+
+    // crypto-NAK. The MAC has four octets only and could not  
+    // determine authentication status with peer
+    PeerAuthStatus_ntp_auth_crypto PeerAuthStatus = "ntp-auth-crypto"
 )
 
 // NtpOperData
@@ -190,8 +370,8 @@ type NtpOperData_NtpStatusInfo struct {
     // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Reftime interface{}
 
-    // Frequency or periodicity of NTP polling in seconds. The type is interface{}
-    // with range: 0..255.
+    // Frequency or periodicity of NTP polling in seconds expressed as a power of
+    // two as per model and rfc. The type is interface{} with range: 0..255.
     SysPoll interface{}
 
     // How far away the current switch is in term of hops  from the primary time
@@ -392,8 +572,8 @@ type NtpOperData_NtpStatusInfo_NtpAssociations struct {
     // happen ?. The type is interface{} with range: 0..18446744073709551615.
     LastPollTime interface{}
 
-    // Maximum poll time of NTP in seconds. The type is interface{} with range:
-    // 0..4294967295.
+    // Maximum poll time of NTP in seconds expressed as a power of two as per
+    // model and RFC. The type is interface{} with range: 0..4294967295.
     Poll interface{}
 
     // Round trip delay of reaching the peer and returning. The type is string
@@ -410,8 +590,33 @@ type NtpOperData_NtpStatusInfo_NtpAssociations struct {
     // -92233720368547758.08..92233720368547758.07.
     Jitter interface{}
 
+    // Count of number of error events received from peer. The type is interface{}
+    // with range: 0..255.
+    NumEvents interface{}
+
+    // Last event received from peer. The type is PeerEvent.
+    LastPeerEvent interface{}
+
+    // Status of peer selection based on the NTP selection  algorithm. The type is
+    // PeerSelectStatus.
+    PeerSelectionStatus interface{}
+
+    // Status of authentication of switch or router by peer. The type is
+    // PeerAuthStatus.
+    PeerAuthenticationStatus interface{}
+
+    // Whether the remote NTP device is a server or peer. The type is ServerType.
+    ServType interface{}
+
+    // Peer status word of ntp server or peer when authentication configured. The
+    // type is PeerStatusWord.
+    PswCrypto interface{}
+
     // refid refers to either an IP address or a clock source or KOD type code.
     Refid NtpOperData_NtpStatusInfo_NtpAssociations_Refid
+
+    // NTP address consists of an IP address and a VRF name.
+    NtpAddress NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress
 }
 
 func (ntpAssociations *NtpOperData_NtpStatusInfo_NtpAssociations) GetEntityData() *types.CommonEntityData {
@@ -426,6 +631,7 @@ func (ntpAssociations *NtpOperData_NtpStatusInfo_NtpAssociations) GetEntityData(
 
     ntpAssociations.EntityData.Children = types.NewOrderedMap()
     ntpAssociations.EntityData.Children.Append("refid", types.YChild{"Refid", &ntpAssociations.Refid})
+    ntpAssociations.EntityData.Children.Append("ntp-address", types.YChild{"NtpAddress", &ntpAssociations.NtpAddress})
     ntpAssociations.EntityData.Leafs = types.NewOrderedMap()
     ntpAssociations.EntityData.Leafs.Append("assoc-id", types.YLeaf{"AssocId", ntpAssociations.AssocId})
     ntpAssociations.EntityData.Leafs.Append("peer-reach", types.YLeaf{"PeerReach", ntpAssociations.PeerReach})
@@ -436,6 +642,12 @@ func (ntpAssociations *NtpOperData_NtpStatusInfo_NtpAssociations) GetEntityData(
     ntpAssociations.EntityData.Leafs.Append("delay", types.YLeaf{"Delay", ntpAssociations.Delay})
     ntpAssociations.EntityData.Leafs.Append("offset", types.YLeaf{"Offset", ntpAssociations.Offset})
     ntpAssociations.EntityData.Leafs.Append("jitter", types.YLeaf{"Jitter", ntpAssociations.Jitter})
+    ntpAssociations.EntityData.Leafs.Append("num-events", types.YLeaf{"NumEvents", ntpAssociations.NumEvents})
+    ntpAssociations.EntityData.Leafs.Append("last-peer-event", types.YLeaf{"LastPeerEvent", ntpAssociations.LastPeerEvent})
+    ntpAssociations.EntityData.Leafs.Append("peer-selection-status", types.YLeaf{"PeerSelectionStatus", ntpAssociations.PeerSelectionStatus})
+    ntpAssociations.EntityData.Leafs.Append("peer-authentication-status", types.YLeaf{"PeerAuthenticationStatus", ntpAssociations.PeerAuthenticationStatus})
+    ntpAssociations.EntityData.Leafs.Append("serv-type", types.YLeaf{"ServType", ntpAssociations.ServType})
+    ntpAssociations.EntityData.Leafs.Append("psw-crypto", types.YLeaf{"PswCrypto", ntpAssociations.PswCrypto})
 
     ntpAssociations.EntityData.YListKeys = []string {"AssocId"}
 
@@ -547,5 +759,43 @@ func (refClkSrcData *NtpOperData_NtpStatusInfo_NtpAssociations_Refid_RefClkSrcDa
     refClkSrcData.EntityData.YListKeys = []string {}
 
     return &(refClkSrcData.EntityData)
+}
+
+// NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress
+// NTP address consists of an IP address and a VRF name
+type NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP address is the IP address of  the NTP server or peer. The type is one of
+    // the following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    IpAddr interface{}
+
+    // VRF name is the virtual routing instance through which we can find the ntp
+    // server or peer. The type is string.
+    VrfName interface{}
+}
+
+func (ntpAddress *NtpOperData_NtpStatusInfo_NtpAssociations_NtpAddress) GetEntityData() *types.CommonEntityData {
+    ntpAddress.EntityData.YFilter = ntpAddress.YFilter
+    ntpAddress.EntityData.YangName = "ntp-address"
+    ntpAddress.EntityData.BundleName = "cisco_ios_xe"
+    ntpAddress.EntityData.ParentYangName = "ntp-associations"
+    ntpAddress.EntityData.SegmentPath = "ntp-address"
+    ntpAddress.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ntpAddress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ntpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    ntpAddress.EntityData.Children = types.NewOrderedMap()
+    ntpAddress.EntityData.Leafs = types.NewOrderedMap()
+    ntpAddress.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", ntpAddress.IpAddr})
+    ntpAddress.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ntpAddress.VrfName})
+
+    ntpAddress.EntityData.YListKeys = []string {}
+
+    return &(ntpAddress.EntityData)
 }
 

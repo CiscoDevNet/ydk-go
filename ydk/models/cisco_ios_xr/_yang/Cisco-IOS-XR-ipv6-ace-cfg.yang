@@ -31,6 +31,21 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
      Copyright (c) 2013, 2015-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-03 {
+    description
+      "6.5.1 revision.
+       Correct enum value for Next-hop-type";
+  }
+  revision 2018-03-23 {
+    description
+      "6.5.1 revision.
+       Removing none-next-type.";
+  }
+  revision 2018-03-13 {
+    description
+      "6.5.1 revision.
+       Using YANG bit types for tcp flags.";
+  }
   revision 2018-01-03 {
     description
       "6.4.1 revision.
@@ -73,15 +88,13 @@ submodule Cisco-IOS-XR-ipv6-ace-cfg {
 
   typedef Next-hop-type {
     type enumeration {
-      enum "none-next-hop" {
-        description
-          "None next-hop.";
-      }
       enum "regular-next-hop" {
+        value 1;
         description
           "Regular next-hop.";
       }
       enum "default-next-hop" {
+        value 2;
         description
           "Default next-hop.";
       }

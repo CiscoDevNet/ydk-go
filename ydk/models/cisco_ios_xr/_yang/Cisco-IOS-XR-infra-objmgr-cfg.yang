@@ -29,7 +29,7 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
      for the following management objects:
        object-group: Object-group configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -740,12 +740,12 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "Range of host addresses";
                 leaf start-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv6-address-no-zone;
                   description
                     "IPv6 address";
                 }
                 leaf end-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv6-address-no-zone;
                   description
                     "IPv6 address";
                 }
@@ -759,7 +759,7 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "IPv6 address";
                 leaf prefix {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv6-address-no-zone;
                   description
                     "IPv6 prefix x:x::x/y";
                 }
@@ -778,7 +778,7 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "A single host address";
                 leaf host-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv6-address-no-zone;
                   description
                     "host ipv6 address";
                 }
@@ -836,12 +836,12 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "Range of host addresses";
                 leaf start-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv4-address-no-zone;
                   description
                     "IPv4 address";
                 }
                 leaf end-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv4-address-no-zone;
                   description
                     "IPv4 address";
                 }
@@ -855,7 +855,7 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "IPv4 address";
                 leaf prefix {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv4-address-no-zone;
                   description
                     "IPv4 address/prefix";
                 }
@@ -874,7 +874,7 @@ module Cisco-IOS-XR-infra-objmgr-cfg {
                 description
                   "A single host address";
                 leaf host-address {
-                  type inet:ip-address-no-zone;
+                  type inet:ipv4-address-no-zone;
                   description
                     "Host ipv4 address";
                 }

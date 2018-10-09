@@ -5,7 +5,7 @@
 // for the following management objects:
 //   keychains: Configure a Key Chain
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lib_keychain_cfg
 
@@ -155,7 +155,7 @@ type Keychains_Keychain struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the key chain. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // length: 1..32.
     ChainName interface{}
 
     // Accept Tolerance in seconds or infinite.
@@ -165,7 +165,7 @@ type Keychains_Keychain struct {
     MacsecKeychain Keychains_Keychain_MacsecKeychain
 
     // Configure a Key.
-    Keies Keychains_Keychain_Keies
+    Keys Keychains_Keychain_Keys
 }
 
 func (keychain *Keychains_Keychain) GetEntityData() *types.CommonEntityData {
@@ -181,7 +181,7 @@ func (keychain *Keychains_Keychain) GetEntityData() *types.CommonEntityData {
     keychain.EntityData.Children = types.NewOrderedMap()
     keychain.EntityData.Children.Append("accept-tolerance", types.YChild{"AcceptTolerance", &keychain.AcceptTolerance})
     keychain.EntityData.Children.Append("macsec-keychain", types.YChild{"MacsecKeychain", &keychain.MacsecKeychain})
-    keychain.EntityData.Children.Append("keies", types.YChild{"Keies", &keychain.Keies})
+    keychain.EntityData.Children.Append("keys", types.YChild{"Keys", &keychain.Keys})
     keychain.EntityData.Leafs = types.NewOrderedMap()
     keychain.EntityData.Leafs.Append("chain-name", types.YLeaf{"ChainName", keychain.ChainName})
 
@@ -231,7 +231,7 @@ type Keychains_Keychain_MacsecKeychain struct {
     YFilter yfilter.YFilter
 
     // Configure a Key.
-    MacsecKeies Keychains_Keychain_MacsecKeychain_MacsecKeies
+    MacsecKeys Keychains_Keychain_MacsecKeychain_MacsecKeys
 }
 
 func (macsecKeychain *Keychains_Keychain_MacsecKeychain) GetEntityData() *types.CommonEntityData {
@@ -245,7 +245,7 @@ func (macsecKeychain *Keychains_Keychain_MacsecKeychain) GetEntityData() *types.
     macsecKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     macsecKeychain.EntityData.Children = types.NewOrderedMap()
-    macsecKeychain.EntityData.Children.Append("macsec-keies", types.YChild{"MacsecKeies", &macsecKeychain.MacsecKeies})
+    macsecKeychain.EntityData.Children.Append("macsec-keys", types.YChild{"MacsecKeys", &macsecKeychain.MacsecKeys})
     macsecKeychain.EntityData.Leafs = types.NewOrderedMap()
 
     macsecKeychain.EntityData.YListKeys = []string {}
@@ -253,62 +253,63 @@ func (macsecKeychain *Keychains_Keychain_MacsecKeychain) GetEntityData() *types.
     return &(macsecKeychain.EntityData)
 }
 
-// Keychains_Keychain_MacsecKeychain_MacsecKeies
+// Keychains_Keychain_MacsecKeychain_MacsecKeys
 // Configure a Key
-type Keychains_Keychain_MacsecKeychain_MacsecKeies struct {
+type Keychains_Keychain_MacsecKeychain_MacsecKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Key Identifier. The type is slice of
-    // Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey.
-    MacsecKey []*Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey
+    // Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey.
+    MacsecKey []*Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey
 }
 
-func (macsecKeies *Keychains_Keychain_MacsecKeychain_MacsecKeies) GetEntityData() *types.CommonEntityData {
-    macsecKeies.EntityData.YFilter = macsecKeies.YFilter
-    macsecKeies.EntityData.YangName = "macsec-keies"
-    macsecKeies.EntityData.BundleName = "cisco_ios_xr"
-    macsecKeies.EntityData.ParentYangName = "macsec-keychain"
-    macsecKeies.EntityData.SegmentPath = "macsec-keies"
-    macsecKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    macsecKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    macsecKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (macsecKeys *Keychains_Keychain_MacsecKeychain_MacsecKeys) GetEntityData() *types.CommonEntityData {
+    macsecKeys.EntityData.YFilter = macsecKeys.YFilter
+    macsecKeys.EntityData.YangName = "macsec-keys"
+    macsecKeys.EntityData.BundleName = "cisco_ios_xr"
+    macsecKeys.EntityData.ParentYangName = "macsec-keychain"
+    macsecKeys.EntityData.SegmentPath = "macsec-keys"
+    macsecKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsecKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsecKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    macsecKeies.EntityData.Children = types.NewOrderedMap()
-    macsecKeies.EntityData.Children.Append("macsec-key", types.YChild{"MacsecKey", nil})
-    for i := range macsecKeies.MacsecKey {
-        macsecKeies.EntityData.Children.Append(types.GetSegmentPath(macsecKeies.MacsecKey[i]), types.YChild{"MacsecKey", macsecKeies.MacsecKey[i]})
+    macsecKeys.EntityData.Children = types.NewOrderedMap()
+    macsecKeys.EntityData.Children.Append("macsec-key", types.YChild{"MacsecKey", nil})
+    for i := range macsecKeys.MacsecKey {
+        macsecKeys.EntityData.Children.Append(types.GetSegmentPath(macsecKeys.MacsecKey[i]), types.YChild{"MacsecKey", macsecKeys.MacsecKey[i]})
     }
-    macsecKeies.EntityData.Leafs = types.NewOrderedMap()
+    macsecKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    macsecKeies.EntityData.YListKeys = []string {}
+    macsecKeys.EntityData.YListKeys = []string {}
 
-    return &(macsecKeies.EntityData)
+    return &(macsecKeys.EntityData)
 }
 
-// Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey
+// Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey
 // Key Identifier
-type Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey struct {
+type Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. 48-bit Key identifier. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. Enter CKN as non-zero hex string of even length,
+    // length range: <02-64>, i.e 1-32 bytes of MACsec CKN. The type is string
+    // with length: 2..64.
     KeyId interface{}
 
     // Configure a key Lifetime.
-    MacsecLifetime Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecLifetime
+    MacsecLifetime Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecLifetime
 
     // Configure a clear text/encrypted Key string along with cryptographic
     // algorithm.
-    MacsecKeyString Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecKeyString
+    MacsecKeyString Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecKeyString
 }
 
-func (macsecKey *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey) GetEntityData() *types.CommonEntityData {
+func (macsecKey *Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey) GetEntityData() *types.CommonEntityData {
     macsecKey.EntityData.YFilter = macsecKey.YFilter
     macsecKey.EntityData.YangName = "macsec-key"
     macsecKey.EntityData.BundleName = "cisco_ios_xr"
-    macsecKey.EntityData.ParentYangName = "macsec-keies"
+    macsecKey.EntityData.ParentYangName = "macsec-keys"
     macsecKey.EntityData.SegmentPath = "macsec-key" + types.AddKeyToken(macsecKey.KeyId, "key-id")
     macsecKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -325,28 +326,35 @@ func (macsecKey *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey) GetEnt
     return &(macsecKey.EntityData)
 }
 
-// Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecLifetime
+// Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecLifetime
 // Configure a key Lifetime
-type Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecLifetime struct {
+// This type is a presence type.
+type Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
-    // Start Hour. The type is interface{} with range: 0..23.
+    // Start Hour. The type is interface{} with range: 0..23. This attribute is
+    // mandatory.
     StartHour interface{}
 
-    // Start Minutes. The type is interface{} with range: 0..59. Units are minute.
+    // Start Minutes. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are minute.
     StartMinutes interface{}
 
-    // Start Seconds. The type is interface{} with range: 0..59. Units are second.
+    // Start Seconds. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are second.
     StartSeconds interface{}
 
-    // Start Date. The type is interface{} with range: 1..31.
+    // Start Date. The type is interface{} with range: 1..31. This attribute is
+    // mandatory.
     StartDate interface{}
 
-    // Start Month. The type is KeyChainMonth.
+    // Start Month. The type is KeyChainMonth. This attribute is mandatory.
     StartMonth interface{}
 
-    // Start Year. The type is interface{} with range: 1993..2035.
+    // Start Year. The type is interface{} with range: 1993..2035. This attribute
+    // is mandatory.
     StartYear interface{}
 
     // Lifetime duration in seconds. The type is interface{} with range:
@@ -375,7 +383,7 @@ type Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecLifetime stru
     EndYear interface{}
 }
 
-func (macsecLifetime *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecLifetime) GetEntityData() *types.CommonEntityData {
+func (macsecLifetime *Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecLifetime) GetEntityData() *types.CommonEntityData {
     macsecLifetime.EntityData.YFilter = macsecLifetime.YFilter
     macsecLifetime.EntityData.YangName = "macsec-lifetime"
     macsecLifetime.EntityData.BundleName = "cisco_ios_xr"
@@ -407,11 +415,11 @@ func (macsecLifetime *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_Ma
     return &(macsecLifetime.EntityData)
 }
 
-// Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecKeyString
+// Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecKeyString
 // Configure a clear text/encrypted Key string
 // along with cryptographic algorithm
 // This type is a presence type.
-type Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecKeyString struct {
+type Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecKeyString struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YPresence bool
@@ -429,7 +437,7 @@ type Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecKeyString str
     EncryptionType interface{}
 }
 
-func (macsecKeyString *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_MacsecKeyString) GetEntityData() *types.CommonEntityData {
+func (macsecKeyString *Keychains_Keychain_MacsecKeychain_MacsecKeys_MacsecKey_MacsecKeyString) GetEntityData() *types.CommonEntityData {
     macsecKeyString.EntityData.YFilter = macsecKeyString.YFilter
     macsecKeyString.EntityData.YangName = "macsec-key-string"
     macsecKeyString.EntityData.BundleName = "cisco_ios_xr"
@@ -450,41 +458,41 @@ func (macsecKeyString *Keychains_Keychain_MacsecKeychain_MacsecKeies_MacsecKey_M
     return &(macsecKeyString.EntityData)
 }
 
-// Keychains_Keychain_Keies
+// Keychains_Keychain_Keys
 // Configure a Key
-type Keychains_Keychain_Keies struct {
+type Keychains_Keychain_Keys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Key Identifier. The type is slice of Keychains_Keychain_Keies_Key.
-    Key []*Keychains_Keychain_Keies_Key
+    // Key Identifier. The type is slice of Keychains_Keychain_Keys_Key.
+    Key []*Keychains_Keychain_Keys_Key
 }
 
-func (keies *Keychains_Keychain_Keies) GetEntityData() *types.CommonEntityData {
-    keies.EntityData.YFilter = keies.YFilter
-    keies.EntityData.YangName = "keies"
-    keies.EntityData.BundleName = "cisco_ios_xr"
-    keies.EntityData.ParentYangName = "keychain"
-    keies.EntityData.SegmentPath = "keies"
-    keies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (keys *Keychains_Keychain_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "keychain"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keies.EntityData.Children = types.NewOrderedMap()
-    keies.EntityData.Children.Append("key", types.YChild{"Key", nil})
-    for i := range keies.Key {
-        keies.EntityData.Children.Append(types.GetSegmentPath(keies.Key[i]), types.YChild{"Key", keies.Key[i]})
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Children.Append("key", types.YChild{"Key", nil})
+    for i := range keys.Key {
+        keys.EntityData.Children.Append(types.GetSegmentPath(keys.Key[i]), types.YChild{"Key", keys.Key[i]})
     }
-    keies.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs = types.NewOrderedMap()
 
-    keies.EntityData.YListKeys = []string {}
+    keys.EntityData.YListKeys = []string {}
 
-    return &(keies.EntityData)
+    return &(keys.EntityData)
 }
 
-// Keychains_Keychain_Keies_Key
+// Keychains_Keychain_Keys_Key
 // Key Identifier
-type Keychains_Keychain_Keies_Key struct {
+type Keychains_Keychain_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -500,17 +508,17 @@ type Keychains_Keychain_Keies_Key struct {
     CryptographicAlgorithm interface{}
 
     // Configure a key Acceptance Lifetime.
-    AcceptLifetime Keychains_Keychain_Keies_Key_AcceptLifetime
+    AcceptLifetime Keychains_Keychain_Keys_Key_AcceptLifetime
 
     // Configure a Send Lifetime.
-    SendLifetime Keychains_Keychain_Keies_Key_SendLifetime
+    SendLifetime Keychains_Keychain_Keys_Key_SendLifetime
 }
 
-func (key *Keychains_Keychain_Keies_Key) GetEntityData() *types.CommonEntityData {
+func (key *Keychains_Keychain_Keys_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.YFilter = key.YFilter
     key.EntityData.YangName = "key"
     key.EntityData.BundleName = "cisco_ios_xr"
-    key.EntityData.ParentYangName = "keies"
+    key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyId, "key-id")
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -529,28 +537,35 @@ func (key *Keychains_Keychain_Keies_Key) GetEntityData() *types.CommonEntityData
     return &(key.EntityData)
 }
 
-// Keychains_Keychain_Keies_Key_AcceptLifetime
+// Keychains_Keychain_Keys_Key_AcceptLifetime
 // Configure a key Acceptance Lifetime
-type Keychains_Keychain_Keies_Key_AcceptLifetime struct {
+// This type is a presence type.
+type Keychains_Keychain_Keys_Key_AcceptLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
-    // Start Hour. The type is interface{} with range: 0..23.
+    // Start Hour. The type is interface{} with range: 0..23. This attribute is
+    // mandatory.
     StartHour interface{}
 
-    // Start Minutes. The type is interface{} with range: 0..59. Units are minute.
+    // Start Minutes. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are minute.
     StartMinutes interface{}
 
-    // Start Seconds. The type is interface{} with range: 0..59. Units are second.
+    // Start Seconds. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are second.
     StartSeconds interface{}
 
-    // Start Date. The type is interface{} with range: 1..31.
+    // Start Date. The type is interface{} with range: 1..31. This attribute is
+    // mandatory.
     StartDate interface{}
 
-    // Start Month. The type is KeyChainMonth.
+    // Start Month. The type is KeyChainMonth. This attribute is mandatory.
     StartMonth interface{}
 
-    // Start Year. The type is interface{} with range: 1993..2035.
+    // Start Year. The type is interface{} with range: 1993..2035. This attribute
+    // is mandatory.
     StartYear interface{}
 
     // Lifetime duration in seconds. The type is interface{} with range:
@@ -579,7 +594,7 @@ type Keychains_Keychain_Keies_Key_AcceptLifetime struct {
     EndYear interface{}
 }
 
-func (acceptLifetime *Keychains_Keychain_Keies_Key_AcceptLifetime) GetEntityData() *types.CommonEntityData {
+func (acceptLifetime *Keychains_Keychain_Keys_Key_AcceptLifetime) GetEntityData() *types.CommonEntityData {
     acceptLifetime.EntityData.YFilter = acceptLifetime.YFilter
     acceptLifetime.EntityData.YangName = "accept-lifetime"
     acceptLifetime.EntityData.BundleName = "cisco_ios_xr"
@@ -611,28 +626,35 @@ func (acceptLifetime *Keychains_Keychain_Keies_Key_AcceptLifetime) GetEntityData
     return &(acceptLifetime.EntityData)
 }
 
-// Keychains_Keychain_Keies_Key_SendLifetime
+// Keychains_Keychain_Keys_Key_SendLifetime
 // Configure a Send Lifetime
-type Keychains_Keychain_Keies_Key_SendLifetime struct {
+// This type is a presence type.
+type Keychains_Keychain_Keys_Key_SendLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
-    // Start Hour. The type is interface{} with range: 0..23.
+    // Start Hour. The type is interface{} with range: 0..23. This attribute is
+    // mandatory.
     StartHour interface{}
 
-    // Start Minutes. The type is interface{} with range: 0..59. Units are minute.
+    // Start Minutes. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are minute.
     StartMinutes interface{}
 
-    // Start Seconds. The type is interface{} with range: 0..59. Units are second.
+    // Start Seconds. The type is interface{} with range: 0..59. This attribute is
+    // mandatory. Units are second.
     StartSeconds interface{}
 
-    // Start Date. The type is interface{} with range: 1..31.
+    // Start Date. The type is interface{} with range: 1..31. This attribute is
+    // mandatory.
     StartDate interface{}
 
-    // Start Month. The type is KeyChainMonth.
+    // Start Month. The type is KeyChainMonth. This attribute is mandatory.
     StartMonth interface{}
 
-    // Start Year. The type is interface{} with range: 1993..2035.
+    // Start Year. The type is interface{} with range: 1993..2035. This attribute
+    // is mandatory.
     StartYear interface{}
 
     // Lifetime duration in seconds. The type is interface{} with range:
@@ -661,7 +683,7 @@ type Keychains_Keychain_Keies_Key_SendLifetime struct {
     EndYear interface{}
 }
 
-func (sendLifetime *Keychains_Keychain_Keies_Key_SendLifetime) GetEntityData() *types.CommonEntityData {
+func (sendLifetime *Keychains_Keychain_Keys_Key_SendLifetime) GetEntityData() *types.CommonEntityData {
     sendLifetime.EntityData.YFilter = sendLifetime.YFilter
     sendLifetime.EntityData.YangName = "send-lifetime"
     sendLifetime.EntityData.BundleName = "cisco_ios_xr"

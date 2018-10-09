@@ -6,7 +6,7 @@
 //   sbfd: SBFD Configuration ,Seamless-BFD is method for detecting
 //     faultsbetween two different nodes in a network
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_sbfd_cfg
 
@@ -377,7 +377,7 @@ type Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 

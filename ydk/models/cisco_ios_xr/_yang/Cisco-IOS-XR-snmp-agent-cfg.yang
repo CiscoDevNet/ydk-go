@@ -30,9 +30,17 @@ module Cisco-IOS-XR-snmp-agent-cfg {
        snmp: The heirarchy point for all the SNMP configurations
        mib: mib
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-27 {
+    description
+      "Error while configuring snmp-server host via netconf bug CSCvj92659.";
+  }
+  revision 2018-03-12 {
+    description
+      "Yang model support to configure snmp-server timeouts threshold 100000";
+  }
   revision 2017-12-20 {
     description
       "Removed nonstateful class from correlator config";
@@ -636,14 +644,15 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf port {
               type xr:Cisco-ios-xr-port-number;
+              default "162";
               description
                 "UDP port number";
             }
             leaf version {
               type string;
-              mandatory true;
+              default "1";
               description
-                "SNMP Version to be used v1/v2c/v3";
+                "SNMP Version to be used 1/2c/3";
             }
             leaf security-level {
               type Snmp-security-model;
@@ -652,7 +661,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf basic-trap-types {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setBasicTrapTypes is used for
@@ -665,7 +674,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf advanced-trap-types1 {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setUse this for providing
@@ -674,7 +683,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf advanced-trap-types2 {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setvalue should always to set as
@@ -704,14 +713,15 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf port {
                 type xr:Cisco-ios-xr-port-number;
+                default "162";
                 description
                   "UDP port number";
               }
               leaf version {
                 type string;
-                mandatory true;
+                default "2c";
                 description
-                  "SNMP Version to be used v2c/v3";
+                  "SNMP Version to be used 2c/3";
               }
               leaf security-level {
                 type Snmp-security-model;
@@ -720,7 +730,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf basic-trap-types {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setBasicTrapTypes is used for
@@ -733,7 +743,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf advanced-trap-types1 {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setUse this for providing
@@ -742,7 +752,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf advanced-trap-types2 {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setvalue should always to set
@@ -766,14 +776,15 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf port {
                 type xr:Cisco-ios-xr-port-number;
+                default "162";
                 description
                   "UDP port number";
               }
               leaf version {
                 type string;
-                mandatory true;
+                default "2c";
                 description
-                  "SNMP Version to be used v2c/v3";
+                  "SNMP Version to be used 2c/3";
               }
               leaf security-level {
                 type Snmp-security-model;
@@ -782,7 +793,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf basic-trap-types {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setBasicTrapTypes is used for
@@ -795,7 +806,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf advanced-trap-types1 {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setUse this for providing
@@ -804,7 +815,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
               }
               leaf advanced-trap-types2 {
                 type uint32;
-                mandatory true;
+                default "0";
                 description
                   "Number to signify the feature traps that
                    needs to be setvalue should always to set
@@ -831,14 +842,15 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf port {
               type xr:Cisco-ios-xr-port-number;
+              default "162";
               description
                 "UDP port number";
             }
             leaf version {
               type string;
-              mandatory true;
+              default "1";
               description
-                "SNMP Version to be used v1/v2c/v3";
+                "SNMP Version to be used 1/2c/3";
             }
             leaf security-level {
               type Snmp-security-model;
@@ -847,7 +859,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf basic-trap-types {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setBasicTrapTypes is used for
@@ -860,7 +872,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf advanced-trap-types1 {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setUse this for providing
@@ -869,7 +881,7 @@ module Cisco-IOS-XR-snmp-agent-cfg {
             }
             leaf advanced-trap-types2 {
               type uint32;
-              mandatory true;
+              default "0";
               description
                 "Number to signify the feature traps that
                  needs to be setvalue should always to set as
@@ -1754,6 +1766,15 @@ module Cisco-IOS-XR-snmp-agent-cfg {
         default "10";
         description
           "incoming queue drop feature timeout";
+      }
+      leaf threshold {
+        type uint32 {
+          range "0..100000";
+        }
+        units "second";
+        default "50000";
+        description
+          "Threshold request feature timeout";
       }
       leaf subagent {
         type uint32 {

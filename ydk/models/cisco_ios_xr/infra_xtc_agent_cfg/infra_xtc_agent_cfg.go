@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-segment-routing-ms-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_xtc_agent_cfg
 
@@ -91,6 +91,20 @@ const (
 
     // Autoroute constant metric type
     XtcAutoRouteMetric_constant XtcAutoRouteMetric = "constant"
+)
+
+// XtcSteeringApplication represents Xtc steering application
+type XtcSteeringApplication string
+
+const (
+    // BGP as steering client
+    XtcSteeringApplication_bgp XtcSteeringApplication = "bgp"
+
+    // ISIS as steering client
+    XtcSteeringApplication_isis XtcSteeringApplication = "isis"
+
+    // OSPF as steering client
+    XtcSteeringApplication_ospf XtcSteeringApplication = "ospf"
 )
 
 // XtcBindingSid represents Xtc binding sid

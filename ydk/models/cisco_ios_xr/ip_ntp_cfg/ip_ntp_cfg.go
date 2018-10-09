@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_ntp_cfg
 
@@ -425,7 +425,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4_PeerTypeIpv4 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -559,7 +559,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6_PeerTypeIpv6 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -719,8 +719,8 @@ type Ntp_Sources_Source struct {
     // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
-    // Source Interface for NTP. The type is string with pattern: [a-zA-Z0-9./-]+.
-    // This attribute is mandatory.
+    // Source Interface for NTP. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     SourceInterface interface{}
 }
 
@@ -821,10 +821,10 @@ type Ntp_Authentication struct {
     Enable interface{}
 
     // Authentication Key Table.
-    Keies Ntp_Authentication_Keies
+    Keys Ntp_Authentication_Keys
 
     // Key numbers for trusted time sources.
-    TrustedKeies Ntp_Authentication_TrustedKeies
+    TrustedKeys Ntp_Authentication_TrustedKeys
 }
 
 func (authentication *Ntp_Authentication) GetEntityData() *types.CommonEntityData {
@@ -838,8 +838,8 @@ func (authentication *Ntp_Authentication) GetEntityData() *types.CommonEntityDat
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     authentication.EntityData.Children = types.NewOrderedMap()
-    authentication.EntityData.Children.Append("keies", types.YChild{"Keies", &authentication.Keies})
-    authentication.EntityData.Children.Append("trusted-keies", types.YChild{"TrustedKeies", &authentication.TrustedKeies})
+    authentication.EntityData.Children.Append("keys", types.YChild{"Keys", &authentication.Keys})
+    authentication.EntityData.Children.Append("trusted-keys", types.YChild{"TrustedKeys", &authentication.TrustedKeys})
     authentication.EntityData.Leafs = types.NewOrderedMap()
     authentication.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", authentication.Enable})
 
@@ -848,42 +848,42 @@ func (authentication *Ntp_Authentication) GetEntityData() *types.CommonEntityDat
     return &(authentication.EntityData)
 }
 
-// Ntp_Authentication_Keies
+// Ntp_Authentication_Keys
 // Authentication Key Table
-type Ntp_Authentication_Keies struct {
+type Ntp_Authentication_Keys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Authentication key for trusted time sources. The type is slice of
-    // Ntp_Authentication_Keies_Key.
-    Key []*Ntp_Authentication_Keies_Key
+    // Ntp_Authentication_Keys_Key.
+    Key []*Ntp_Authentication_Keys_Key
 }
 
-func (keies *Ntp_Authentication_Keies) GetEntityData() *types.CommonEntityData {
-    keies.EntityData.YFilter = keies.YFilter
-    keies.EntityData.YangName = "keies"
-    keies.EntityData.BundleName = "cisco_ios_xr"
-    keies.EntityData.ParentYangName = "authentication"
-    keies.EntityData.SegmentPath = "keies"
-    keies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    keies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    keies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (keys *Ntp_Authentication_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "authentication"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    keies.EntityData.Children = types.NewOrderedMap()
-    keies.EntityData.Children.Append("key", types.YChild{"Key", nil})
-    for i := range keies.Key {
-        keies.EntityData.Children.Append(types.GetSegmentPath(keies.Key[i]), types.YChild{"Key", keies.Key[i]})
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Children.Append("key", types.YChild{"Key", nil})
+    for i := range keys.Key {
+        keys.EntityData.Children.Append(types.GetSegmentPath(keys.Key[i]), types.YChild{"Key", keys.Key[i]})
     }
-    keies.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs = types.NewOrderedMap()
 
-    keies.EntityData.YListKeys = []string {}
+    keys.EntityData.YListKeys = []string {}
 
-    return &(keies.EntityData)
+    return &(keys.EntityData)
 }
 
-// Ntp_Authentication_Keies_Key
+// Ntp_Authentication_Keys_Key
 // Authentication key for trusted time sources
-type Ntp_Authentication_Keies_Key struct {
+type Ntp_Authentication_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -896,11 +896,11 @@ type Ntp_Authentication_Keies_Key struct {
     AuthenticationKey interface{}
 }
 
-func (key *Ntp_Authentication_Keies_Key) GetEntityData() *types.CommonEntityData {
+func (key *Ntp_Authentication_Keys_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.YFilter = key.YFilter
     key.EntityData.YangName = "key"
     key.EntityData.BundleName = "cisco_ios_xr"
-    key.EntityData.ParentYangName = "keies"
+    key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyNumber, "key-number")
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -916,42 +916,42 @@ func (key *Ntp_Authentication_Keies_Key) GetEntityData() *types.CommonEntityData
     return &(key.EntityData)
 }
 
-// Ntp_Authentication_TrustedKeies
+// Ntp_Authentication_TrustedKeys
 // Key numbers for trusted time sources
-type Ntp_Authentication_TrustedKeies struct {
+type Ntp_Authentication_TrustedKeys struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure NTP trusted key. The type is slice of
-    // Ntp_Authentication_TrustedKeies_TrustedKey.
-    TrustedKey []*Ntp_Authentication_TrustedKeies_TrustedKey
+    // Ntp_Authentication_TrustedKeys_TrustedKey.
+    TrustedKey []*Ntp_Authentication_TrustedKeys_TrustedKey
 }
 
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetEntityData() *types.CommonEntityData {
-    trustedKeies.EntityData.YFilter = trustedKeies.YFilter
-    trustedKeies.EntityData.YangName = "trusted-keies"
-    trustedKeies.EntityData.BundleName = "cisco_ios_xr"
-    trustedKeies.EntityData.ParentYangName = "authentication"
-    trustedKeies.EntityData.SegmentPath = "trusted-keies"
-    trustedKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    trustedKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    trustedKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (trustedKeys *Ntp_Authentication_TrustedKeys) GetEntityData() *types.CommonEntityData {
+    trustedKeys.EntityData.YFilter = trustedKeys.YFilter
+    trustedKeys.EntityData.YangName = "trusted-keys"
+    trustedKeys.EntityData.BundleName = "cisco_ios_xr"
+    trustedKeys.EntityData.ParentYangName = "authentication"
+    trustedKeys.EntityData.SegmentPath = "trusted-keys"
+    trustedKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trustedKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trustedKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    trustedKeies.EntityData.Children = types.NewOrderedMap()
-    trustedKeies.EntityData.Children.Append("trusted-key", types.YChild{"TrustedKey", nil})
-    for i := range trustedKeies.TrustedKey {
-        trustedKeies.EntityData.Children.Append(types.GetSegmentPath(trustedKeies.TrustedKey[i]), types.YChild{"TrustedKey", trustedKeies.TrustedKey[i]})
+    trustedKeys.EntityData.Children = types.NewOrderedMap()
+    trustedKeys.EntityData.Children.Append("trusted-key", types.YChild{"TrustedKey", nil})
+    for i := range trustedKeys.TrustedKey {
+        trustedKeys.EntityData.Children.Append(types.GetSegmentPath(trustedKeys.TrustedKey[i]), types.YChild{"TrustedKey", trustedKeys.TrustedKey[i]})
     }
-    trustedKeies.EntityData.Leafs = types.NewOrderedMap()
+    trustedKeys.EntityData.Leafs = types.NewOrderedMap()
 
-    trustedKeies.EntityData.YListKeys = []string {}
+    trustedKeys.EntityData.YListKeys = []string {}
 
-    return &(trustedKeies.EntityData)
+    return &(trustedKeys.EntityData)
 }
 
-// Ntp_Authentication_TrustedKeies_TrustedKey
+// Ntp_Authentication_TrustedKeys_TrustedKey
 // Configure NTP trusted key
-type Ntp_Authentication_TrustedKeies_TrustedKey struct {
+type Ntp_Authentication_TrustedKeys_TrustedKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -960,11 +960,11 @@ type Ntp_Authentication_TrustedKeies_TrustedKey struct {
     KeyNumber interface{}
 }
 
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetEntityData() *types.CommonEntityData {
+func (trustedKey *Ntp_Authentication_TrustedKeys_TrustedKey) GetEntityData() *types.CommonEntityData {
     trustedKey.EntityData.YFilter = trustedKey.YFilter
     trustedKey.EntityData.YangName = "trusted-key"
     trustedKey.EntityData.BundleName = "cisco_ios_xr"
-    trustedKey.EntityData.ParentYangName = "trusted-keies"
+    trustedKey.EntityData.ParentYangName = "trusted-keys"
     trustedKey.EntityData.SegmentPath = "trusted-key" + types.AddKeyToken(trustedKey.KeyNumber, "key-number")
     trustedKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trustedKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -1086,7 +1086,7 @@ type Ntp_InterfaceTables_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Disable NTP. The type is interface{}.

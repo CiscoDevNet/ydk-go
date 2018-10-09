@@ -5,7 +5,7 @@
 // for the following management objects:
 //   aaa: AAA operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package aaa_locald_oper
 
@@ -57,14 +57,14 @@ type Aaa struct {
     // Specific Usergroup Information.
     CurrentUsergroup Aaa_CurrentUsergroup
 
+    // RADIUS operational data.
+    Radius Aaa_Radius
+
     // TACACS operational data.
     Tacacs Aaa_Tacacs
 
     // Diameter operational data.
     Diameter Aaa_Diameter
-
-    // RADIUS operational data.
-    Radius Aaa_Radius
 }
 
 func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
@@ -87,9 +87,9 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.Children.Append("usergroups", types.YChild{"Usergroups", &aaa.Usergroups})
     aaa.EntityData.Children.Append("authen-method", types.YChild{"AuthenMethod", &aaa.AuthenMethod})
     aaa.EntityData.Children.Append("current-usergroup", types.YChild{"CurrentUsergroup", &aaa.CurrentUsergroup})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", types.YChild{"Radius", &aaa.Radius})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", types.YChild{"Tacacs", &aaa.Tacacs})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-oper:diameter", types.YChild{"Diameter", &aaa.Diameter})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", types.YChild{"Radius", &aaa.Radius})
     aaa.EntityData.Leafs = types.NewOrderedMap()
 
     aaa.EntityData.YListKeys = []string {}
@@ -1252,6 +1252,648 @@ func (currentUsergroup *Aaa_CurrentUsergroup) GetEntityData() *types.CommonEntit
     currentUsergroup.EntityData.YListKeys = []string {}
 
     return &(currentUsergroup.EntityData)
+}
+
+// Aaa_Radius
+// RADIUS operational data
+type Aaa_Radius struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of RADIUS servers configured.
+    Servers Aaa_Radius_Servers
+
+    // RADIUS source interfaces.
+    RadiusSourceInterface Aaa_Radius_RadiusSourceInterface
+
+    // RADIUS Client Information.
+    Global Aaa_Radius_Global
+}
+
+func (radius *Aaa_Radius) GetEntityData() *types.CommonEntityData {
+    radius.EntityData.YFilter = radius.YFilter
+    radius.EntityData.YangName = "radius"
+    radius.EntityData.BundleName = "cisco_ios_xr"
+    radius.EntityData.ParentYangName = "aaa"
+    radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+    radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    radius.EntityData.Children = types.NewOrderedMap()
+    radius.EntityData.Children.Append("servers", types.YChild{"Servers", &radius.Servers})
+    radius.EntityData.Children.Append("radius-source-interface", types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface})
+    radius.EntityData.Children.Append("global", types.YChild{"Global", &radius.Global})
+    radius.EntityData.Leafs = types.NewOrderedMap()
+
+    radius.EntityData.YListKeys = []string {}
+
+    return &(radius.EntityData)
+}
+
+// Aaa_Radius_Servers
+// List of RADIUS servers configured
+type Aaa_Radius_Servers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RADIUS Server. The type is slice of Aaa_Radius_Servers_Server.
+    Server []*Aaa_Radius_Servers_Server
+}
+
+func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
+    servers.EntityData.YFilter = servers.YFilter
+    servers.EntityData.YangName = "servers"
+    servers.EntityData.BundleName = "cisco_ios_xr"
+    servers.EntityData.ParentYangName = "radius"
+    servers.EntityData.SegmentPath = "servers"
+    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servers.EntityData.Children = types.NewOrderedMap()
+    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range servers.Server {
+        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
+    }
+    servers.EntityData.Leafs = types.NewOrderedMap()
+
+    servers.EntityData.YListKeys = []string {}
+
+    return &(servers.EntityData)
+}
+
+// Aaa_Radius_Servers_Server
+// RADIUS Server
+type Aaa_Radius_Servers_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IP address of RADIUS server. The type is one of the following types: string
+    // with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    IpAddress interface{}
+
+    // Authentication Port number (standard port 1645). The type is interface{}
+    // with range: 1..65535.
+    AuthPortNumber interface{}
+
+    // Accounting Port number (standard port 1646). The type is interface{} with
+    // range: 1..65535.
+    AcctPortNumber interface{}
+
+    // IP address of RADIUS server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4Address interface{}
+
+    // A number that indicates the priority             of the server. The type is
+    // interface{} with range: 0..4294967295.
+    Priority interface{}
+
+    // Per-server timeout in seconds. The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    TimeoutXr interface{}
+
+    // Per-server retransmit. The type is interface{} with range: 0..4294967295.
+    Retransmit interface{}
+
+    // Per-server deadtime in minutes. The type is interface{} with range:
+    // 0..4294967295. Units are minute.
+    DeadTime interface{}
+
+    // Per-server dead-detect time in seconds. The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    DeadDetectTime interface{}
+
+    // Per-server dead-detect tries. The type is interface{} with range:
+    // 0..4294967295.
+    DeadDetectTries interface{}
+
+    // Authentication port. The type is interface{} with range: 0..4294967295.
+    AuthenticationPort interface{}
+
+    // Accounting port. The type is interface{} with range: 0..4294967295.
+    AccountingPort interface{}
+
+    // State of the server UP/DOWN. The type is string.
+    State interface{}
+
+    // Elapsed time the server has been in              current state. The type is
+    // interface{} with range: 0..4294967295.
+    CurrentStateDuration interface{}
+
+    // Elapsed time the server was been in              previous state. The type
+    // is interface{} with range: 0..4294967295.
+    PreviousStateDuration interface{}
+
+    // Total number of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PacketsIn interface{}
+
+    // Total number of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PacketsOut interface{}
+
+    // Total number of packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
+    Timeouts interface{}
+
+    // Total number of requests aborted. The type is interface{} with range:
+    // 0..4294967295.
+    Aborts interface{}
+
+    // Number of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // Number of requests redirected. The type is interface{} with range:
+    // 0..4294967295.
+    RedirectedRequests interface{}
+
+    // Round-trip time for authentication               in milliseconds. The type
+    // is interface{} with range: 0..4294967295. Units are millisecond.
+    AuthenticationRtt interface{}
+
+    // Number of access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AccessRequests interface{}
+
+    // Number of retransmitted                          access requests. The type
+    // is interface{} with range: 0..4294967295.
+    AccessRequestRetransmits interface{}
+
+    // Number of access accepts. The type is interface{} with range:
+    // 0..4294967295.
+    AccessAccepts interface{}
+
+    // Number of access rejects. The type is interface{} with range:
+    // 0..4294967295.
+    AccessRejects interface{}
+
+    // Number of access challenges. The type is interface{} with range:
+    // 0..4294967295.
+    AccessChallenges interface{}
+
+    // Number of bad access responses. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccessResponses interface{}
+
+    // Number of bad access authenticators. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccessAuthenticators interface{}
+
+    // Number of pending access requests. The type is interface{} with range:
+    // 0..4294967295.
+    PendingAccessRequests interface{}
+
+    // Number of access packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
+    AccessTimeouts interface{}
+
+    // Number of packets received with unknown          type from authentication
+    // server. The type is interface{} with range: 0..4294967295.
+    UnknownAccessTypes interface{}
+
+    // Number of access responses dropped. The type is interface{} with range:
+    // 0..4294967295.
+    DroppedAccessResponses interface{}
+
+    // No of throttled access reqs stats. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledAccessReqs interface{}
+
+    // No of access reqs that is throttled is timedout. The type is interface{}
+    // with range: 0..4294967295.
+    ThrottledTimedOutReqs interface{}
+
+    // No of discarded access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledDroppedReqs interface{}
+
+    // Max throttled access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    MaxThrottledAccessReqs interface{}
+
+    // No of currently throttled access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    CurrentlyThrottledAccessReqs interface{}
+
+    // Average response time for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenResponseTime interface{}
+
+    // Number of succeeded authentication transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenTransactionSuccessess interface{}
+
+    // Number of failed authentication transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenTransactionFailure interface{}
+
+    // Number of unexpected authentication responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenUnexpectedResponses interface{}
+
+    // Number of server error authentication responses. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenServerErrorResponses interface{}
+
+    // Number of incorrect authentication responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenIncorrectResponses interface{}
+
+    // Number of access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorRequests interface{}
+
+    // Number of access packets timed out. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorRequestTimeouts interface{}
+
+    // Average response time for authorization requests. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorResponseTime interface{}
+
+    // Number of succeeded authorization transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorTransactionSuccessess interface{}
+
+    // Number of failed authorization transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorTransactionFailure interface{}
+
+    // Number of unexpected authorization responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorUnexpectedResponses interface{}
+
+    // Number of server error authorization responses. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorServerErrorResponses interface{}
+
+    // Number of incorrect authorization responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorIncorrectResponses interface{}
+
+    // Round-trip time for accounting                   in milliseconds. The type
+    // is interface{} with range: 0..4294967295. Units are millisecond.
+    AccountingRtt interface{}
+
+    // Number of accounting requests. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingRequests interface{}
+
+    // Number of retransmitted                          accounting requests. The
+    // type is interface{} with range: 0..4294967295.
+    AccountingRetransmits interface{}
+
+    // Number of accounting responses. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingResponses interface{}
+
+    // Number of bad accounting responses. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccountingResponses interface{}
+
+    // Number of bad accounting                         authenticators. The type
+    // is interface{} with range: 0..4294967295.
+    BadAccountingAuthenticators interface{}
+
+    // Number of pending accounting requests. The type is interface{} with range:
+    // 0..4294967295.
+    PendingAccountingRequets interface{}
+
+    // Number of accounting packets                     timed-out. The type is
+    // interface{} with range: 0..4294967295.
+    AccountingTimeouts interface{}
+
+    // Number of packets received with unknown          type from accounting
+    // server. The type is interface{} with range: 0..4294967295.
+    UnknownAccountingTypes interface{}
+
+    // Number of accounting responses                   dropped. The type is
+    // interface{} with range: 0..4294967295.
+    DroppedAccountingResponses interface{}
+
+    // Is a private server. The type is bool.
+    IsAPrivateServer interface{}
+
+    // Total auth test request. The type is interface{} with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Total auth test timeouts. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Total auth test response. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Total auth test pending. The type is interface{} with range: 0..4294967295.
+    TotalTestAuthPending interface{}
+
+    // Total acct test req. The type is interface{} with range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Total acct test timeouts. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Total acct test response. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Total acct test pending. The type is interface{} with range: 0..4294967295.
+    TotalTestAcctPending interface{}
+
+    // No of throttled acct transactions stats. The type is interface{} with
+    // range: 0..4294967295.
+    ThrottledAcctTransactions interface{}
+
+    // No of acct transaction that is throttled is timedout. The type is
+    // interface{} with range: 0..4294967295.
+    ThrottledAcctTimedOutStats interface{}
+
+    // No of acct discarded transaction. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledAcctFailuresStats interface{}
+
+    // Max throttled acct transactions. The type is interface{} with range:
+    // 0..4294967295.
+    MaxAcctThrottled interface{}
+
+    // No of currently throttled acct transactions. The type is interface{} with
+    // range: 0..4294967295.
+    ThrottledaAcctTransactions interface{}
+
+    // Number of unexpected accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctUnexpectedResponses interface{}
+
+    // Number of server error accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctServerErrorResponses interface{}
+
+    // Number of incorrect accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctIncorrectResponses interface{}
+
+    // Average response time for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    AcctResponseTime interface{}
+
+    // Number of succeeded authentication transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AcctTransactionSuccessess interface{}
+
+    // Number of failed authentication transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctTransactionFailure interface{}
+
+    // Total time of Server being in DEAD               state. The type is
+    // interface{} with range: 0..4294967295.
+    TotalDeadtime interface{}
+
+    // Time of Server being in DEAD state,              after last UP. The type is
+    // interface{} with range: 0..4294967295.
+    LastDeadtime interface{}
+
+    // flag to indicate Server is quarantined           or not (Automated TEST in
+    // progress). The type is bool.
+    IsQuarantined interface{}
+
+    // Server group name for private server. The type is string.
+    GroupName interface{}
+
+    // IP address buffer. The type is string.
+    IpAddressXr interface{}
+
+    // IP address Family. The type is string.
+    Family interface{}
+}
+
+func (server *Aaa_Radius_Servers_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "servers"
+    server.EntityData.SegmentPath = "server"
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", server.IpAddress})
+    server.EntityData.Leafs.Append("auth-port-number", types.YLeaf{"AuthPortNumber", server.AuthPortNumber})
+    server.EntityData.Leafs.Append("acct-port-number", types.YLeaf{"AcctPortNumber", server.AcctPortNumber})
+    server.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", server.Ipv4Address})
+    server.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", server.Priority})
+    server.EntityData.Leafs.Append("timeout-xr", types.YLeaf{"TimeoutXr", server.TimeoutXr})
+    server.EntityData.Leafs.Append("retransmit", types.YLeaf{"Retransmit", server.Retransmit})
+    server.EntityData.Leafs.Append("dead-time", types.YLeaf{"DeadTime", server.DeadTime})
+    server.EntityData.Leafs.Append("dead-detect-time", types.YLeaf{"DeadDetectTime", server.DeadDetectTime})
+    server.EntityData.Leafs.Append("dead-detect-tries", types.YLeaf{"DeadDetectTries", server.DeadDetectTries})
+    server.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", server.AuthenticationPort})
+    server.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", server.AccountingPort})
+    server.EntityData.Leafs.Append("state", types.YLeaf{"State", server.State})
+    server.EntityData.Leafs.Append("current-state-duration", types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration})
+    server.EntityData.Leafs.Append("previous-state-duration", types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration})
+    server.EntityData.Leafs.Append("packets-in", types.YLeaf{"PacketsIn", server.PacketsIn})
+    server.EntityData.Leafs.Append("packets-out", types.YLeaf{"PacketsOut", server.PacketsOut})
+    server.EntityData.Leafs.Append("timeouts", types.YLeaf{"Timeouts", server.Timeouts})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", server.RedirectedRequests})
+    server.EntityData.Leafs.Append("authentication-rtt", types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt})
+    server.EntityData.Leafs.Append("access-requests", types.YLeaf{"AccessRequests", server.AccessRequests})
+    server.EntityData.Leafs.Append("access-request-retransmits", types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits})
+    server.EntityData.Leafs.Append("access-accepts", types.YLeaf{"AccessAccepts", server.AccessAccepts})
+    server.EntityData.Leafs.Append("access-rejects", types.YLeaf{"AccessRejects", server.AccessRejects})
+    server.EntityData.Leafs.Append("access-challenges", types.YLeaf{"AccessChallenges", server.AccessChallenges})
+    server.EntityData.Leafs.Append("bad-access-responses", types.YLeaf{"BadAccessResponses", server.BadAccessResponses})
+    server.EntityData.Leafs.Append("bad-access-authenticators", types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators})
+    server.EntityData.Leafs.Append("pending-access-requests", types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests})
+    server.EntityData.Leafs.Append("access-timeouts", types.YLeaf{"AccessTimeouts", server.AccessTimeouts})
+    server.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes})
+    server.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses})
+    server.EntityData.Leafs.Append("throttled-access-reqs", types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs})
+    server.EntityData.Leafs.Append("throttled-timed-out-reqs", types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs})
+    server.EntityData.Leafs.Append("throttled-dropped-reqs", types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs})
+    server.EntityData.Leafs.Append("max-throttled-access-reqs", types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs})
+    server.EntityData.Leafs.Append("currently-throttled-access-reqs", types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs})
+    server.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime})
+    server.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess})
+    server.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure})
+    server.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses})
+    server.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses})
+    server.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses})
+    server.EntityData.Leafs.Append("author-requests", types.YLeaf{"AuthorRequests", server.AuthorRequests})
+    server.EntityData.Leafs.Append("author-request-timeouts", types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts})
+    server.EntityData.Leafs.Append("author-response-time", types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime})
+    server.EntityData.Leafs.Append("author-transaction-successess", types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess})
+    server.EntityData.Leafs.Append("author-transaction-failure", types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure})
+    server.EntityData.Leafs.Append("author-unexpected-responses", types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses})
+    server.EntityData.Leafs.Append("author-server-error-responses", types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses})
+    server.EntityData.Leafs.Append("author-incorrect-responses", types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses})
+    server.EntityData.Leafs.Append("accounting-rtt", types.YLeaf{"AccountingRtt", server.AccountingRtt})
+    server.EntityData.Leafs.Append("accounting-requests", types.YLeaf{"AccountingRequests", server.AccountingRequests})
+    server.EntityData.Leafs.Append("accounting-retransmits", types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits})
+    server.EntityData.Leafs.Append("accounting-responses", types.YLeaf{"AccountingResponses", server.AccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-responses", types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-authenticators", types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators})
+    server.EntityData.Leafs.Append("pending-accounting-requets", types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets})
+    server.EntityData.Leafs.Append("accounting-timeouts", types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts})
+    server.EntityData.Leafs.Append("unknown-accounting-types", types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes})
+    server.EntityData.Leafs.Append("dropped-accounting-responses", types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses})
+    server.EntityData.Leafs.Append("is-a-private-server", types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer})
+    server.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs})
+    server.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts})
+    server.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse})
+    server.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending})
+    server.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs})
+    server.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts})
+    server.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse})
+    server.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending})
+    server.EntityData.Leafs.Append("throttled-acct-transactions", types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions})
+    server.EntityData.Leafs.Append("throttled-acct-timed-out-stats", types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats})
+    server.EntityData.Leafs.Append("throttled-acct-failures-stats", types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats})
+    server.EntityData.Leafs.Append("max-acct-throttled", types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled})
+    server.EntityData.Leafs.Append("throttleda-acct-transactions", types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions})
+    server.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses})
+    server.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses})
+    server.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses})
+    server.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", server.AcctResponseTime})
+    server.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess})
+    server.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure})
+    server.EntityData.Leafs.Append("total-deadtime", types.YLeaf{"TotalDeadtime", server.TotalDeadtime})
+    server.EntityData.Leafs.Append("last-deadtime", types.YLeaf{"LastDeadtime", server.LastDeadtime})
+    server.EntityData.Leafs.Append("is-quarantined", types.YLeaf{"IsQuarantined", server.IsQuarantined})
+    server.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", server.GroupName})
+    server.EntityData.Leafs.Append("ip-address-xr", types.YLeaf{"IpAddressXr", server.IpAddressXr})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Aaa_Radius_RadiusSourceInterface
+// RADIUS source interfaces
+type Aaa_Radius_RadiusSourceInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of source interfaces. The type is slice of
+    // Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface.
+    ListOfSourceInterface []*Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
+}
+
+func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *types.CommonEntityData {
+    radiusSourceInterface.EntityData.YFilter = radiusSourceInterface.YFilter
+    radiusSourceInterface.EntityData.YangName = "radius-source-interface"
+    radiusSourceInterface.EntityData.BundleName = "cisco_ios_xr"
+    radiusSourceInterface.EntityData.ParentYangName = "radius"
+    radiusSourceInterface.EntityData.SegmentPath = "radius-source-interface"
+    radiusSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    radiusSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    radiusSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    radiusSourceInterface.EntityData.Children = types.NewOrderedMap()
+    radiusSourceInterface.EntityData.Children.Append("list-of-source-interface", types.YChild{"ListOfSourceInterface", nil})
+    for i := range radiusSourceInterface.ListOfSourceInterface {
+        radiusSourceInterface.EntityData.Children.Append(types.GetSegmentPath(radiusSourceInterface.ListOfSourceInterface[i]), types.YChild{"ListOfSourceInterface", radiusSourceInterface.ListOfSourceInterface[i]})
+    }
+    radiusSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    radiusSourceInterface.EntityData.YListKeys = []string {}
+
+    return &(radiusSourceInterface.EntityData)
+}
+
+// Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
+// List of source interfaces
+type Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the source interface. The type is string.
+    InterfaceName interface{}
+
+    // IP address buffer. The type is string.
+    Ipaddrv4 interface{}
+
+    // IP address buffer. The type is string.
+    Ipaddrv6 interface{}
+
+    // VRF Id. The type is interface{} with range: 0..4294967295.
+    Vrfid interface{}
+}
+
+func (listOfSourceInterface *Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface) GetEntityData() *types.CommonEntityData {
+    listOfSourceInterface.EntityData.YFilter = listOfSourceInterface.YFilter
+    listOfSourceInterface.EntityData.YangName = "list-of-source-interface"
+    listOfSourceInterface.EntityData.BundleName = "cisco_ios_xr"
+    listOfSourceInterface.EntityData.ParentYangName = "radius-source-interface"
+    listOfSourceInterface.EntityData.SegmentPath = "list-of-source-interface"
+    listOfSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    listOfSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    listOfSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    listOfSourceInterface.EntityData.Children = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv4", types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv6", types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6})
+    listOfSourceInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid})
+
+    listOfSourceInterface.EntityData.YListKeys = []string {}
+
+    return &(listOfSourceInterface.EntityData)
+}
+
+// Aaa_Radius_Global
+// RADIUS Client Information
+type Aaa_Radius_Global struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of RADIUS Access-Responsepackets received from unknownaddresses. The
+    // type is interface{} with range: 0..4294967295.
+    UnknownAuthenticationResponse interface{}
+
+    // NAS-Identifier of the RADIUSauthentication client. The type is string.
+    AuthenticationNasId interface{}
+
+    // Number of RADIUS Accounting-Responsepackets received from unknownaddresses.
+    // The type is interface{} with range: 0..4294967295.
+    UnknownAccountingResponse interface{}
+
+    // NAS-Identifier of the RADIUSaccounting client. The type is string.
+    AccountingNasId interface{}
+}
+
+func (global *Aaa_Radius_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "radius"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("unknown-authentication-response", types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse})
+    global.EntityData.Leafs.Append("authentication-nas-id", types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId})
+    global.EntityData.Leafs.Append("unknown-accounting-response", types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse})
+    global.EntityData.Leafs.Append("accounting-nas-id", types.YLeaf{"AccountingNasId", global.AccountingNasId})
+
+    global.EntityData.YListKeys = []string {}
+
+    return &(global.EntityData)
 }
 
 // Aaa_Tacacs
@@ -3093,6 +3735,15 @@ type Aaa_Diameter_GxSessionIds_GxSessionId struct {
 
     // Gx Retry count. The type is interface{} with range: 0..4294967295.
     RetryCount interface{}
+
+    // Gx Plus Service Count. The type is interface{} with range: 0..4294967295.
+    ServiceCount interface{}
+
+    // Gx Plus Services. The type is string.
+    GxPlusServices interface{}
+
+    // Revalidation Time. The type is string.
+    ReavalidationTime interface{}
 }
 
 func (gxSessionId *Aaa_Diameter_GxSessionIds_GxSessionId) GetEntityData() *types.CommonEntityData {
@@ -3114,6 +3765,9 @@ func (gxSessionId *Aaa_Diameter_GxSessionIds_GxSessionId) GetEntityData() *types
     gxSessionId.EntityData.Leafs.Append("session-state", types.YLeaf{"SessionState", gxSessionId.SessionState})
     gxSessionId.EntityData.Leafs.Append("request-type", types.YLeaf{"RequestType", gxSessionId.RequestType})
     gxSessionId.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", gxSessionId.RetryCount})
+    gxSessionId.EntityData.Leafs.Append("service-count", types.YLeaf{"ServiceCount", gxSessionId.ServiceCount})
+    gxSessionId.EntityData.Leafs.Append("gx-plus-services", types.YLeaf{"GxPlusServices", gxSessionId.GxPlusServices})
+    gxSessionId.EntityData.Leafs.Append("reavalidation-time", types.YLeaf{"ReavalidationTime", gxSessionId.ReavalidationTime})
 
     gxSessionId.EntityData.YListKeys = []string {"SessionId"}
 
@@ -3228,647 +3882,5 @@ func (listOfNas *Aaa_Diameter_NasSession_ListOfNas) GetEntityData() *types.Commo
     listOfNas.EntityData.YListKeys = []string {}
 
     return &(listOfNas.EntityData)
-}
-
-// Aaa_Radius
-// RADIUS operational data
-type Aaa_Radius struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of RADIUS servers configured.
-    Servers Aaa_Radius_Servers
-
-    // RADIUS source interfaces.
-    RadiusSourceInterface Aaa_Radius_RadiusSourceInterface
-
-    // RADIUS Client Information.
-    Global Aaa_Radius_Global
-}
-
-func (radius *Aaa_Radius) GetEntityData() *types.CommonEntityData {
-    radius.EntityData.YFilter = radius.YFilter
-    radius.EntityData.YangName = "radius"
-    radius.EntityData.BundleName = "cisco_ios_xr"
-    radius.EntityData.ParentYangName = "aaa"
-    radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-    radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    radius.EntityData.Children = types.NewOrderedMap()
-    radius.EntityData.Children.Append("servers", types.YChild{"Servers", &radius.Servers})
-    radius.EntityData.Children.Append("radius-source-interface", types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface})
-    radius.EntityData.Children.Append("global", types.YChild{"Global", &radius.Global})
-    radius.EntityData.Leafs = types.NewOrderedMap()
-
-    radius.EntityData.YListKeys = []string {}
-
-    return &(radius.EntityData)
-}
-
-// Aaa_Radius_Servers
-// List of RADIUS servers configured
-type Aaa_Radius_Servers struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // RADIUS Server. The type is slice of Aaa_Radius_Servers_Server.
-    Server []*Aaa_Radius_Servers_Server
-}
-
-func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
-    servers.EntityData.YFilter = servers.YFilter
-    servers.EntityData.YangName = "servers"
-    servers.EntityData.BundleName = "cisco_ios_xr"
-    servers.EntityData.ParentYangName = "radius"
-    servers.EntityData.SegmentPath = "servers"
-    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servers.EntityData.Children = types.NewOrderedMap()
-    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
-    for i := range servers.Server {
-        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
-    }
-    servers.EntityData.Leafs = types.NewOrderedMap()
-
-    servers.EntityData.YListKeys = []string {}
-
-    return &(servers.EntityData)
-}
-
-// Aaa_Radius_Servers_Server
-// RADIUS Server
-type Aaa_Radius_Servers_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IP address of RADIUS server. The type is one of the following types: string
-    // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
-    // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    IpAddress interface{}
-
-    // Authentication Port number (standard port 1645). The type is interface{}
-    // with range: 1..65535.
-    AuthPortNumber interface{}
-
-    // Accounting Port number (standard port 1646). The type is interface{} with
-    // range: 1..65535.
-    AcctPortNumber interface{}
-
-    // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Ipv4Address interface{}
-
-    // A number that indicates the priority             of the server. The type is
-    // interface{} with range: 0..4294967295.
-    Priority interface{}
-
-    // Per-server timeout in seconds. The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    TimeoutXr interface{}
-
-    // Per-server retransmit. The type is interface{} with range: 0..4294967295.
-    Retransmit interface{}
-
-    // Per-server deadtime in minutes. The type is interface{} with range:
-    // 0..4294967295. Units are minute.
-    DeadTime interface{}
-
-    // Per-server dead-detect time in seconds. The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    DeadDetectTime interface{}
-
-    // Per-server dead-detect tries. The type is interface{} with range:
-    // 0..4294967295.
-    DeadDetectTries interface{}
-
-    // Authentication port. The type is interface{} with range: 0..4294967295.
-    AuthenticationPort interface{}
-
-    // Accounting port. The type is interface{} with range: 0..4294967295.
-    AccountingPort interface{}
-
-    // State of the server UP/DOWN. The type is string.
-    State interface{}
-
-    // Elapsed time the server has been in              current state. The type is
-    // interface{} with range: 0..4294967295.
-    CurrentStateDuration interface{}
-
-    // Elapsed time the server was been in              previous state. The type
-    // is interface{} with range: 0..4294967295.
-    PreviousStateDuration interface{}
-
-    // Total number of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PacketsIn interface{}
-
-    // Total number of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PacketsOut interface{}
-
-    // Total number of packets timed-out. The type is interface{} with range:
-    // 0..4294967295.
-    Timeouts interface{}
-
-    // Total number of requests aborted. The type is interface{} with range:
-    // 0..4294967295.
-    Aborts interface{}
-
-    // Number of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // Number of requests redirected. The type is interface{} with range:
-    // 0..4294967295.
-    RedirectedRequests interface{}
-
-    // Round-trip time for authentication               in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
-    AuthenticationRtt interface{}
-
-    // Number of access requests. The type is interface{} with range:
-    // 0..4294967295.
-    AccessRequests interface{}
-
-    // Number of retransmitted                          access requests. The type
-    // is interface{} with range: 0..4294967295.
-    AccessRequestRetransmits interface{}
-
-    // Number of access accepts. The type is interface{} with range:
-    // 0..4294967295.
-    AccessAccepts interface{}
-
-    // Number of access rejects. The type is interface{} with range:
-    // 0..4294967295.
-    AccessRejects interface{}
-
-    // Number of access challenges. The type is interface{} with range:
-    // 0..4294967295.
-    AccessChallenges interface{}
-
-    // Number of bad access responses. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccessResponses interface{}
-
-    // Number of bad access authenticators. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccessAuthenticators interface{}
-
-    // Number of pending access requests. The type is interface{} with range:
-    // 0..4294967295.
-    PendingAccessRequests interface{}
-
-    // Number of access packets timed-out. The type is interface{} with range:
-    // 0..4294967295.
-    AccessTimeouts interface{}
-
-    // Number of packets received with unknown          type from authentication
-    // server. The type is interface{} with range: 0..4294967295.
-    UnknownAccessTypes interface{}
-
-    // Number of access responses dropped. The type is interface{} with range:
-    // 0..4294967295.
-    DroppedAccessResponses interface{}
-
-    // No of throttled access reqs stats. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledAccessReqs interface{}
-
-    // No of access reqs that is throttled is timedout. The type is interface{}
-    // with range: 0..4294967295.
-    ThrottledTimedOutReqs interface{}
-
-    // No of discarded access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledDroppedReqs interface{}
-
-    // Max throttled access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    MaxThrottledAccessReqs interface{}
-
-    // No of currently throttled access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    CurrentlyThrottledAccessReqs interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
-    // Number of succeeded authentication transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenTransactionSuccessess interface{}
-
-    // Number of failed authentication transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenTransactionFailure interface{}
-
-    // Number of unexpected authentication responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenUnexpectedResponses interface{}
-
-    // Number of server error authentication responses. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenServerErrorResponses interface{}
-
-    // Number of incorrect authentication responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenIncorrectResponses interface{}
-
-    // Number of access requests. The type is interface{} with range:
-    // 0..4294967295.
-    AuthorRequests interface{}
-
-    // Number of access packets timed out. The type is interface{} with range:
-    // 0..4294967295.
-    AuthorRequestTimeouts interface{}
-
-    // Average response time for authorization requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorResponseTime interface{}
-
-    // Number of succeeded authorization transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorTransactionSuccessess interface{}
-
-    // Number of failed authorization transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorTransactionFailure interface{}
-
-    // Number of unexpected authorization responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorUnexpectedResponses interface{}
-
-    // Number of server error authorization responses. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorServerErrorResponses interface{}
-
-    // Number of incorrect authorization responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorIncorrectResponses interface{}
-
-    // Round-trip time for accounting                   in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
-    AccountingRtt interface{}
-
-    // Number of accounting requests. The type is interface{} with range:
-    // 0..4294967295.
-    AccountingRequests interface{}
-
-    // Number of retransmitted                          accounting requests. The
-    // type is interface{} with range: 0..4294967295.
-    AccountingRetransmits interface{}
-
-    // Number of accounting responses. The type is interface{} with range:
-    // 0..4294967295.
-    AccountingResponses interface{}
-
-    // Number of bad accounting responses. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccountingResponses interface{}
-
-    // Number of bad accounting                         authenticators. The type
-    // is interface{} with range: 0..4294967295.
-    BadAccountingAuthenticators interface{}
-
-    // Number of pending accounting requests. The type is interface{} with range:
-    // 0..4294967295.
-    PendingAccountingRequets interface{}
-
-    // Number of accounting packets                     timed-out. The type is
-    // interface{} with range: 0..4294967295.
-    AccountingTimeouts interface{}
-
-    // Number of packets received with unknown          type from accounting
-    // server. The type is interface{} with range: 0..4294967295.
-    UnknownAccountingTypes interface{}
-
-    // Number of accounting responses                   dropped. The type is
-    // interface{} with range: 0..4294967295.
-    DroppedAccountingResponses interface{}
-
-    // Is a private server. The type is bool.
-    IsAPrivateServer interface{}
-
-    // Total auth test request. The type is interface{} with range: 0..4294967295.
-    TotalTestAuthReqs interface{}
-
-    // Total auth test timeouts. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAuthTimeouts interface{}
-
-    // Total auth test response. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAuthResponse interface{}
-
-    // Total auth test pending. The type is interface{} with range: 0..4294967295.
-    TotalTestAuthPending interface{}
-
-    // Total acct test req. The type is interface{} with range: 0..4294967295.
-    TotalTestAcctReqs interface{}
-
-    // Total acct test timeouts. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAcctTimeouts interface{}
-
-    // Total acct test response. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAcctResponse interface{}
-
-    // Total acct test pending. The type is interface{} with range: 0..4294967295.
-    TotalTestAcctPending interface{}
-
-    // No of throttled acct transactions stats. The type is interface{} with
-    // range: 0..4294967295.
-    ThrottledAcctTransactions interface{}
-
-    // No of acct transaction that is throttled is timedout. The type is
-    // interface{} with range: 0..4294967295.
-    ThrottledAcctTimedOutStats interface{}
-
-    // No of acct discarded transaction. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledAcctFailuresStats interface{}
-
-    // Max throttled acct transactions. The type is interface{} with range:
-    // 0..4294967295.
-    MaxAcctThrottled interface{}
-
-    // No of currently throttled acct transactions. The type is interface{} with
-    // range: 0..4294967295.
-    ThrottledaAcctTransactions interface{}
-
-    // Number of unexpected accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctUnexpectedResponses interface{}
-
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
-    // Number of succeeded authentication transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AcctTransactionSuccessess interface{}
-
-    // Number of failed authentication transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AcctTransactionFailure interface{}
-
-    // Total time of Server being in DEAD               state. The type is
-    // interface{} with range: 0..4294967295.
-    TotalDeadtime interface{}
-
-    // Time of Server being in DEAD state,              after last UP. The type is
-    // interface{} with range: 0..4294967295.
-    LastDeadtime interface{}
-
-    // flag to indicate Server is quarantined           or not (Automated TEST in
-    // progress). The type is bool.
-    IsQuarantined interface{}
-
-    // Server group name for private server. The type is string.
-    GroupName interface{}
-
-    // IP address buffer. The type is string.
-    IpAddressXr interface{}
-
-    // IP address Family. The type is string.
-    Family interface{}
-}
-
-func (server *Aaa_Radius_Servers_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "servers"
-    server.EntityData.SegmentPath = "server"
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = types.NewOrderedMap()
-    server.EntityData.Leafs = types.NewOrderedMap()
-    server.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", server.IpAddress})
-    server.EntityData.Leafs.Append("auth-port-number", types.YLeaf{"AuthPortNumber", server.AuthPortNumber})
-    server.EntityData.Leafs.Append("acct-port-number", types.YLeaf{"AcctPortNumber", server.AcctPortNumber})
-    server.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", server.Ipv4Address})
-    server.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", server.Priority})
-    server.EntityData.Leafs.Append("timeout-xr", types.YLeaf{"TimeoutXr", server.TimeoutXr})
-    server.EntityData.Leafs.Append("retransmit", types.YLeaf{"Retransmit", server.Retransmit})
-    server.EntityData.Leafs.Append("dead-time", types.YLeaf{"DeadTime", server.DeadTime})
-    server.EntityData.Leafs.Append("dead-detect-time", types.YLeaf{"DeadDetectTime", server.DeadDetectTime})
-    server.EntityData.Leafs.Append("dead-detect-tries", types.YLeaf{"DeadDetectTries", server.DeadDetectTries})
-    server.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", server.AuthenticationPort})
-    server.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", server.AccountingPort})
-    server.EntityData.Leafs.Append("state", types.YLeaf{"State", server.State})
-    server.EntityData.Leafs.Append("current-state-duration", types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration})
-    server.EntityData.Leafs.Append("previous-state-duration", types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration})
-    server.EntityData.Leafs.Append("packets-in", types.YLeaf{"PacketsIn", server.PacketsIn})
-    server.EntityData.Leafs.Append("packets-out", types.YLeaf{"PacketsOut", server.PacketsOut})
-    server.EntityData.Leafs.Append("timeouts", types.YLeaf{"Timeouts", server.Timeouts})
-    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
-    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
-    server.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", server.RedirectedRequests})
-    server.EntityData.Leafs.Append("authentication-rtt", types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt})
-    server.EntityData.Leafs.Append("access-requests", types.YLeaf{"AccessRequests", server.AccessRequests})
-    server.EntityData.Leafs.Append("access-request-retransmits", types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits})
-    server.EntityData.Leafs.Append("access-accepts", types.YLeaf{"AccessAccepts", server.AccessAccepts})
-    server.EntityData.Leafs.Append("access-rejects", types.YLeaf{"AccessRejects", server.AccessRejects})
-    server.EntityData.Leafs.Append("access-challenges", types.YLeaf{"AccessChallenges", server.AccessChallenges})
-    server.EntityData.Leafs.Append("bad-access-responses", types.YLeaf{"BadAccessResponses", server.BadAccessResponses})
-    server.EntityData.Leafs.Append("bad-access-authenticators", types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators})
-    server.EntityData.Leafs.Append("pending-access-requests", types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests})
-    server.EntityData.Leafs.Append("access-timeouts", types.YLeaf{"AccessTimeouts", server.AccessTimeouts})
-    server.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes})
-    server.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses})
-    server.EntityData.Leafs.Append("throttled-access-reqs", types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs})
-    server.EntityData.Leafs.Append("throttled-timed-out-reqs", types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs})
-    server.EntityData.Leafs.Append("throttled-dropped-reqs", types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs})
-    server.EntityData.Leafs.Append("max-throttled-access-reqs", types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs})
-    server.EntityData.Leafs.Append("currently-throttled-access-reqs", types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs})
-    server.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime})
-    server.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess})
-    server.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure})
-    server.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses})
-    server.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses})
-    server.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses})
-    server.EntityData.Leafs.Append("author-requests", types.YLeaf{"AuthorRequests", server.AuthorRequests})
-    server.EntityData.Leafs.Append("author-request-timeouts", types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts})
-    server.EntityData.Leafs.Append("author-response-time", types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime})
-    server.EntityData.Leafs.Append("author-transaction-successess", types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess})
-    server.EntityData.Leafs.Append("author-transaction-failure", types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure})
-    server.EntityData.Leafs.Append("author-unexpected-responses", types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses})
-    server.EntityData.Leafs.Append("author-server-error-responses", types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses})
-    server.EntityData.Leafs.Append("author-incorrect-responses", types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses})
-    server.EntityData.Leafs.Append("accounting-rtt", types.YLeaf{"AccountingRtt", server.AccountingRtt})
-    server.EntityData.Leafs.Append("accounting-requests", types.YLeaf{"AccountingRequests", server.AccountingRequests})
-    server.EntityData.Leafs.Append("accounting-retransmits", types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits})
-    server.EntityData.Leafs.Append("accounting-responses", types.YLeaf{"AccountingResponses", server.AccountingResponses})
-    server.EntityData.Leafs.Append("bad-accounting-responses", types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses})
-    server.EntityData.Leafs.Append("bad-accounting-authenticators", types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators})
-    server.EntityData.Leafs.Append("pending-accounting-requets", types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets})
-    server.EntityData.Leafs.Append("accounting-timeouts", types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts})
-    server.EntityData.Leafs.Append("unknown-accounting-types", types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes})
-    server.EntityData.Leafs.Append("dropped-accounting-responses", types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses})
-    server.EntityData.Leafs.Append("is-a-private-server", types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer})
-    server.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs})
-    server.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts})
-    server.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse})
-    server.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending})
-    server.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs})
-    server.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts})
-    server.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse})
-    server.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending})
-    server.EntityData.Leafs.Append("throttled-acct-transactions", types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions})
-    server.EntityData.Leafs.Append("throttled-acct-timed-out-stats", types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats})
-    server.EntityData.Leafs.Append("throttled-acct-failures-stats", types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats})
-    server.EntityData.Leafs.Append("max-acct-throttled", types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled})
-    server.EntityData.Leafs.Append("throttleda-acct-transactions", types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions})
-    server.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses})
-    server.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses})
-    server.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses})
-    server.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", server.AcctResponseTime})
-    server.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess})
-    server.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure})
-    server.EntityData.Leafs.Append("total-deadtime", types.YLeaf{"TotalDeadtime", server.TotalDeadtime})
-    server.EntityData.Leafs.Append("last-deadtime", types.YLeaf{"LastDeadtime", server.LastDeadtime})
-    server.EntityData.Leafs.Append("is-quarantined", types.YLeaf{"IsQuarantined", server.IsQuarantined})
-    server.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", server.GroupName})
-    server.EntityData.Leafs.Append("ip-address-xr", types.YLeaf{"IpAddressXr", server.IpAddressXr})
-    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
-
-    server.EntityData.YListKeys = []string {}
-
-    return &(server.EntityData)
-}
-
-// Aaa_Radius_RadiusSourceInterface
-// RADIUS source interfaces
-type Aaa_Radius_RadiusSourceInterface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of source interfaces. The type is slice of
-    // Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface.
-    ListOfSourceInterface []*Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
-}
-
-func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *types.CommonEntityData {
-    radiusSourceInterface.EntityData.YFilter = radiusSourceInterface.YFilter
-    radiusSourceInterface.EntityData.YangName = "radius-source-interface"
-    radiusSourceInterface.EntityData.BundleName = "cisco_ios_xr"
-    radiusSourceInterface.EntityData.ParentYangName = "radius"
-    radiusSourceInterface.EntityData.SegmentPath = "radius-source-interface"
-    radiusSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    radiusSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    radiusSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    radiusSourceInterface.EntityData.Children = types.NewOrderedMap()
-    radiusSourceInterface.EntityData.Children.Append("list-of-source-interface", types.YChild{"ListOfSourceInterface", nil})
-    for i := range radiusSourceInterface.ListOfSourceInterface {
-        radiusSourceInterface.EntityData.Children.Append(types.GetSegmentPath(radiusSourceInterface.ListOfSourceInterface[i]), types.YChild{"ListOfSourceInterface", radiusSourceInterface.ListOfSourceInterface[i]})
-    }
-    radiusSourceInterface.EntityData.Leafs = types.NewOrderedMap()
-
-    radiusSourceInterface.EntityData.YListKeys = []string {}
-
-    return &(radiusSourceInterface.EntityData)
-}
-
-// Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
-// List of source interfaces
-type Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Name of the source interface. The type is string.
-    InterfaceName interface{}
-
-    // IP address buffer. The type is string.
-    Ipaddrv4 interface{}
-
-    // IP address buffer. The type is string.
-    Ipaddrv6 interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Vrfid interface{}
-}
-
-func (listOfSourceInterface *Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface) GetEntityData() *types.CommonEntityData {
-    listOfSourceInterface.EntityData.YFilter = listOfSourceInterface.YFilter
-    listOfSourceInterface.EntityData.YangName = "list-of-source-interface"
-    listOfSourceInterface.EntityData.BundleName = "cisco_ios_xr"
-    listOfSourceInterface.EntityData.ParentYangName = "radius-source-interface"
-    listOfSourceInterface.EntityData.SegmentPath = "list-of-source-interface"
-    listOfSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    listOfSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    listOfSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    listOfSourceInterface.EntityData.Children = types.NewOrderedMap()
-    listOfSourceInterface.EntityData.Leafs = types.NewOrderedMap()
-    listOfSourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName})
-    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv4", types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4})
-    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv6", types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6})
-    listOfSourceInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid})
-
-    listOfSourceInterface.EntityData.YListKeys = []string {}
-
-    return &(listOfSourceInterface.EntityData)
-}
-
-// Aaa_Radius_Global
-// RADIUS Client Information
-type Aaa_Radius_Global struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of RADIUS Access-Responsepackets received from unknownaddresses. The
-    // type is interface{} with range: 0..4294967295.
-    UnknownAuthenticationResponse interface{}
-
-    // NAS-Identifier of the RADIUSauthentication client. The type is string.
-    AuthenticationNasId interface{}
-
-    // Number of RADIUS Accounting-Responsepackets received from unknownaddresses.
-    // The type is interface{} with range: 0..4294967295.
-    UnknownAccountingResponse interface{}
-
-    // NAS-Identifier of the RADIUSaccounting client. The type is string.
-    AccountingNasId interface{}
-}
-
-func (global *Aaa_Radius_Global) GetEntityData() *types.CommonEntityData {
-    global.EntityData.YFilter = global.YFilter
-    global.EntityData.YangName = "global"
-    global.EntityData.BundleName = "cisco_ios_xr"
-    global.EntityData.ParentYangName = "radius"
-    global.EntityData.SegmentPath = "global"
-    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    global.EntityData.Children = types.NewOrderedMap()
-    global.EntityData.Leafs = types.NewOrderedMap()
-    global.EntityData.Leafs.Append("unknown-authentication-response", types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse})
-    global.EntityData.Leafs.Append("authentication-nas-id", types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId})
-    global.EntityData.Leafs.Append("unknown-accounting-response", types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse})
-    global.EntityData.Leafs.Append("accounting-nas-id", types.YLeaf{"AccountingNasId", global.AccountingNasId})
-
-    global.EntityData.YListKeys = []string {}
-
-    return &(global.EntityData)
 }
 

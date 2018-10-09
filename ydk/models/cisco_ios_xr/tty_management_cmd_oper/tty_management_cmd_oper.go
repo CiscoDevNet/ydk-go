@@ -5,7 +5,7 @@
 // for the following management objects:
 //   show-users: Show users statistics
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package tty_management_cmd_oper
 
@@ -92,7 +92,7 @@ type ShowUsers_Sessions_Session struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Id. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     SessionId interface{}
 
     // Line Number. The type is string.

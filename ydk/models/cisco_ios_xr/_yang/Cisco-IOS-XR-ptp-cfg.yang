@@ -42,7 +42,7 @@ module Cisco-IOS-XR-ptp-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-02-02 {
@@ -89,6 +89,156 @@ module Cisco-IOS-XR-ptp-cfg {
           default "2";
           description
             "Time Period";
+        }
+      }
+      container interop {
+        description
+          "Table for interop configuration";
+        container egress-conversion {
+          description
+            "Iteroperation configuration to be used on
+             egress";
+          container clock-class-mappings {
+            description
+              "Table for specific mappings for given clock
+               class values";
+            list clock-class-mapping {
+              key "clock-class-from";
+              description
+                "Mapping for a given clock class value";
+              leaf clock-class-from {
+                type uint32 {
+                  range "0..255";
+                }
+                description
+                  "Clock Class to map from";
+              }
+              leaf clock-class-to {
+                type uint32 {
+                  range "0..255";
+                }
+                mandatory true;
+                description
+                  "Clock class to map to";
+              }
+            }
+          }
+          leaf clock-accuracy {
+            type uint32 {
+              range "0..254";
+            }
+            description
+              "Clock Accuracy value to use for the peer
+               clock";
+          }
+          leaf priority2 {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Priority2 value to use for the peer clock";
+          }
+          leaf clock-class-default {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Default clock class to use when a more
+               specific mapping is not available";
+          }
+          leaf offset-scaled-log-variance {
+            type uint32 {
+              range "0..65535";
+            }
+            description
+              "OSLV value to use for the peer clock";
+          }
+          leaf priority1 {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Priority1 value to use for the peer clock";
+          }
+        }
+        container ingress-conversion {
+          description
+            "Iteroperation configuration to be used on
+             ingress";
+          container clock-class-mappings {
+            description
+              "Table for specific mappings for given clock
+               class values";
+            list clock-class-mapping {
+              key "clock-class-from";
+              description
+                "Mapping for a given clock class value";
+              leaf clock-class-from {
+                type uint32 {
+                  range "0..255";
+                }
+                description
+                  "Clock Class to map from";
+              }
+              leaf clock-class-to {
+                type uint32 {
+                  range "0..255";
+                }
+                mandatory true;
+                description
+                  "Clock class to map to";
+              }
+            }
+          }
+          leaf clock-accuracy {
+            type uint32 {
+              range "0..254";
+            }
+            description
+              "Clock Accuracy value to use for the peer
+               clock";
+          }
+          leaf priority2 {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Priority2 value to use for the peer clock";
+          }
+          leaf clock-class-default {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Default clock class to use when a more
+               specific mapping is not available";
+          }
+          leaf offset-scaled-log-variance {
+            type uint32 {
+              range "0..65535";
+            }
+            description
+              "OSLV value to use for the peer clock";
+          }
+          leaf priority1 {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Priority1 value to use for the peer clock";
+          }
+        }
+        leaf profile {
+          type dt1:Ptp-clock-profile;
+          description
+            "Profile to interoperate with";
+        }
+        leaf domain {
+          type uint32 {
+            range "0..255";
+          }
+          description
+            "Domain number of the peer clock";
         }
       }
       container source-ipv4-address {
@@ -376,6 +526,14 @@ module Cisco-IOS-XR-ptp-cfg {
         description
           "COS";
       }
+      leaf ipv4ttl {
+        type uint32 {
+          range "1..255";
+        }
+        default "255";
+        description
+          "IPv4 TTL";
+      }
       leaf port-state {
         type dt1:Ptp-port-state;
         default "any";
@@ -424,6 +582,14 @@ module Cisco-IOS-XR-ptp-cfg {
         default "46";
         description
           "DSCP";
+      }
+      leaf ipv6-hop-limit {
+        type uint32 {
+          range "1..255";
+        }
+        default "255";
+        description
+          "IPv6 Hop Limit";
       }
       leaf general-dscp {
         type uint32 {
@@ -582,6 +748,156 @@ module Cisco-IOS-XR-ptp-cfg {
             default "2";
             description
               "Time Period";
+          }
+        }
+        container interop {
+          description
+            "Table for interop configuration";
+          container egress-conversion {
+            description
+              "Iteroperation configuration to be used on
+               egress";
+            container clock-class-mappings {
+              description
+                "Table for specific mappings for given clock
+                 class values";
+              list clock-class-mapping {
+                key "clock-class-from";
+                description
+                  "Mapping for a given clock class value";
+                leaf clock-class-from {
+                  type uint32 {
+                    range "0..255";
+                  }
+                  description
+                    "Clock Class to map from";
+                }
+                leaf clock-class-to {
+                  type uint32 {
+                    range "0..255";
+                  }
+                  mandatory true;
+                  description
+                    "Clock class to map to";
+                }
+              }
+            }
+            leaf clock-accuracy {
+              type uint32 {
+                range "0..254";
+              }
+              description
+                "Clock Accuracy value to use for the peer
+                 clock";
+            }
+            leaf priority2 {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Priority2 value to use for the peer clock";
+            }
+            leaf clock-class-default {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Default clock class to use when a more
+                 specific mapping is not available";
+            }
+            leaf offset-scaled-log-variance {
+              type uint32 {
+                range "0..65535";
+              }
+              description
+                "OSLV value to use for the peer clock";
+            }
+            leaf priority1 {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Priority1 value to use for the peer clock";
+            }
+          }
+          container ingress-conversion {
+            description
+              "Iteroperation configuration to be used on
+               ingress";
+            container clock-class-mappings {
+              description
+                "Table for specific mappings for given clock
+                 class values";
+              list clock-class-mapping {
+                key "clock-class-from";
+                description
+                  "Mapping for a given clock class value";
+                leaf clock-class-from {
+                  type uint32 {
+                    range "0..255";
+                  }
+                  description
+                    "Clock Class to map from";
+                }
+                leaf clock-class-to {
+                  type uint32 {
+                    range "0..255";
+                  }
+                  mandatory true;
+                  description
+                    "Clock class to map to";
+                }
+              }
+            }
+            leaf clock-accuracy {
+              type uint32 {
+                range "0..254";
+              }
+              description
+                "Clock Accuracy value to use for the peer
+                 clock";
+            }
+            leaf priority2 {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Priority2 value to use for the peer clock";
+            }
+            leaf clock-class-default {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Default clock class to use when a more
+                 specific mapping is not available";
+            }
+            leaf offset-scaled-log-variance {
+              type uint32 {
+                range "0..65535";
+              }
+              description
+                "OSLV value to use for the peer clock";
+            }
+            leaf priority1 {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Priority1 value to use for the peer clock";
+            }
+          }
+          leaf profile {
+            type dt1:Ptp-clock-profile;
+            description
+              "Profile to interoperate with";
+          }
+          leaf domain {
+            type uint32 {
+              range "0..255";
+            }
+            description
+              "Domain number of the peer clock";
           }
         }
         container source-ipv4-address {
@@ -873,6 +1189,14 @@ module Cisco-IOS-XR-ptp-cfg {
           description
             "COS";
         }
+        leaf ipv4ttl {
+          type uint32 {
+            range "1..255";
+          }
+          default "255";
+          description
+            "IPv4 TTL";
+        }
         leaf port-state {
           type dt1:Ptp-port-state;
           default "any";
@@ -913,6 +1237,14 @@ module Cisco-IOS-XR-ptp-cfg {
           default "46";
           description
             "DSCP";
+        }
+        leaf ipv6-hop-limit {
+          type uint32 {
+            range "1..255";
+          }
+          default "255";
+          description
+            "IPv6 Hop Limit";
         }
         leaf general-dscp {
           type uint32 {
@@ -1026,6 +1358,35 @@ module Cisco-IOS-XR-ptp-cfg {
         }
       }
     }
+    leaf uncalibrated-clock-class {
+      type uint32 {
+        range "0..255";
+      }
+      description
+        "Clock class to be used while acquiring
+         phase-lock to a parent clock. Note that
+         this is deprecated and should not be 
+         used.";
+    }
+    container uncalibrated-clock-class2 {
+      presence "Indicates a uncalibrated-clock-class2 node is configured.";
+      description
+        "Clock class to be used while acquiring
+         phase-lock to a parent clock.";
+      leaf clock-class {
+        type uint32 {
+          range "0..255";
+        }
+        mandatory true;
+        description
+          "Clock Class";
+      }
+      leaf unless-from-holdover {
+        type boolean;
+        description
+          "Unless from holdover flag";
+      }
+    }
     container transparent-clock {
       description
         "Transparent clock configuration";
@@ -1043,6 +1404,57 @@ module Cisco-IOS-XR-ptp-cfg {
               "Domain";
           }
         }
+      }
+    }
+    container virtual-port {
+      description
+        "PTP virtual port configuration";
+      leaf clock-accuracy {
+        type uint32 {
+          range "0..254";
+        }
+        description
+          "Virtual port clock accuracy";
+      }
+      leaf enable {
+        type empty;
+        description
+          "Enable the PTP Virtual Port";
+      }
+      leaf priority2 {
+        type uint32 {
+          range "0..255";
+        }
+        description
+          "Virtual port priority2";
+      }
+      leaf local-priority {
+        type uint32 {
+          range "1..255";
+        }
+        description
+          "Virtual port local priority";
+      }
+      leaf offset-scaled-log-variance {
+        type uint32 {
+          range "0..65535";
+        }
+        description
+          "Virtual port OSLV";
+      }
+      leaf priority1 {
+        type uint32 {
+          range "0..255";
+        }
+        description
+          "Virtual port priority1";
+      }
+      leaf clock-class {
+        type uint32 {
+          range "0..255";
+        }
+        description
+          "Virtual port clock class";
       }
     }
     leaf time-of-day-priority {
@@ -1082,13 +1494,11 @@ module Cisco-IOS-XR-ptp-cfg {
          minimum clock class will not be considered for
          selection as a parent clock.";
     }
-    leaf uncalibrated-clock-class {
-      type uint32 {
-        range "0..255";
-      }
+    leaf physical-layer-frequency {
+      type empty;
       description
-        "Clock class to be used while acquiring
-         phase-lock to a parent clock.";
+        "Disable PTP as a source for frequency as only
+         physical layer frequency sources are used";
     }
     leaf freerun-clock-class {
       type uint32 {

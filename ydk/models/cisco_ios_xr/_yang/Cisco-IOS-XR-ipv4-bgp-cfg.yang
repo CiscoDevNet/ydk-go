@@ -46,9 +46,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-18 {
+    description
+      "Added AO option for neighbor";
+  }
   revision 2017-11-05 {
     description
       "Corrected boolean values in when statements.";
@@ -1193,6 +1197,17 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping SRV6-LABEL-ALLOCATION-MODE {
+    description
+      "Common node of global-af, vrf-global-af";
+    leaf srv6-label-allocation-mode {
+      type string;
+      description
+        "Label allocation mode: per-ce  Set per CE label
+         mode,per-vrf Set per VRF label mode";
+    }
+  }
+
   grouping IDLE-WATCH-TIME {
     description
       "Common node of neighbor-group, neighbor,
@@ -1645,7 +1660,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID {
     description
       "Common node of neighbor-group-af, neighbor-af,
-       af-group-af";
+       vrf-neighbor-af, af-group-af";
     leaf rpki-bestpath-origin-as-allow-invalid {
       type empty;
       description
@@ -1656,8 +1671,23 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID {
     description
       "Common node of neighbor-group-af, neighbor-af,
-       af-group-afCommon node of neighbor-group,
-       neighbor, session-group";
+       vrf-neighbor-af, af-group-afCommon node of
+       neighbor-group, neighbor, vrf-neighbor,
+       session-group";
+    leaf rpki-bestpath-origin-as-allow-invalid {
+      type empty;
+      description
+        "RPKI bestpath origin-AS allow invalid";
+    }
+  }
+
+  grouping BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID-MP {
+    description
+      "Common node of neighbor-group-af, neighbor-af,
+       vrf-neighbor-af, af-group-afCommon node of
+       neighbor-group, neighbor, vrf-neighbor,
+       session-groupCommon node of global-af,
+       vrf-global-af";
     leaf rpki-bestpath-origin-as-allow-invalid {
       type empty;
       description
@@ -1835,6 +1865,53 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       type empty;
       description
         "Attribute download configuration";
+    }
+  }
+
+  grouping AO-KEYCHAIN {
+    description
+      "Common node of neighbor-group, neighbor,
+       vrf-neighbor, session-group";
+    container ao-keychain {
+      description
+        "Set or disable AO based authentication";
+      leaf ao-keychain-disable {
+        type boolean;
+        description
+          "TRUE to prevent this entity from having AO
+           keychain based authentication even if the
+           parent has one.FALSE to enable AO keychain
+           based authentication";
+      }
+      leaf ao-keychain-name {
+        when "../ao-keychain-disable = 'false'" {
+          description
+            "../AOKeychainDisable = false";
+        }
+        type string;
+        description
+          "Name of the AO keychain associated with this
+           neighbor";
+      }
+      leaf ao-include-tcp-options {
+        when "../ao-keychain-disable = 'false'" {
+          description
+            "../AOKeychainDisable = false";
+        }
+        type boolean;
+        description
+          "Include TCP options header with AO";
+      }
+      leaf ao-accept-mismatch-connection {
+        when "../ao-keychain-disable = 'false'" {
+          description
+            "../AOKeychainDisable = false";
+        }
+        type boolean;
+        description
+          "Accept new connections even though AO
+           mismatched";
+      }
     }
   }
 
@@ -2181,6 +2258,19 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping NEXT-HOP-RES-ALLOW-DEFAULT {
+    description
+      "Common node of neighbor-group, neighbor,
+       vrf-neighbor, session-groupCommon node of global,
+       vrf-global";
+    leaf next-hop-res-allow-default {
+      type empty;
+      description
+        "Enable path resolution for nexthops using
+         default route";
+    }
+  }
+
   grouping BEST-PATH-AIGP-IGNORE {
     description
       "Common node of global, vrf-global";
@@ -2371,6 +2461,17 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping BEST-PATH-IGP-METRIC-IGNORE {
+    description
+      "Common node of global, vrf-global";
+    leaf best-path-igp-metric-ignore {
+      type empty;
+      description
+        "Change default route selection criteria to
+         ignore IGP Metric ";
+    }
+  }
+
   grouping L2VPN-SIGNALLING {
     description
       "Common node of neighbor-group-af, neighbor-af,
@@ -2558,6 +2659,27 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP {
+    description
+      "Common node of global-af, vrf-global-af";
+    leaf rpki-origin-as-validity-signal-ibgp {
+      type empty;
+      description
+        "RPKI origin-AS validity signal ibgp";
+    }
+  }
+
+  grouping BGP-CFG-RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP {
+    description
+      "Common node of global-af, vrf-global-afCommon
+       node of global, vrf-global";
+    leaf rpki-origin-as-validity-signal-ibgp {
+      type empty;
+      description
+        "RPKI origin-AS validity signal ibgp";
+    }
+  }
+
   grouping IMPORT {
     description
       "Common node of neighbor-group-af, neighbor-af,
@@ -2725,6 +2847,16 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       default "either";
       description
         "TCP mode to be used to establish BGP session";
+    }
+  }
+
+  grouping RPKI-ORIGIN-AS-VALIDATION-ENABLE {
+    description
+      "Common node of global-af, vrf-global-af";
+    leaf rpki-origin-as-validation-enable {
+      type empty;
+      description
+        "RPKI origin-AS validation enable";
     }
   }
 
@@ -3063,6 +3195,11 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
         description
           "Route policy name";
       }
+      leaf un-labeled-path {
+        type boolean;
+        description
+          "Allocate label for unlabeled paths too";
+      }
     }
   }
 
@@ -3238,6 +3375,27 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
            if all ASes in aspath areprivate. FALSE to
            prevent remove-private-ASfrom being inherited.";
       }
+    }
+  }
+
+  grouping RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY {
+    description
+      "Common node of global-af, vrf-global-af";
+    leaf rpki-bestpath-use-origin-as-validity {
+      type empty;
+      description
+        "RPKI bestpath use origin-AS validity";
+    }
+  }
+
+  grouping BGP-CFG-RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY {
+    description
+      "Common node of global-af, vrf-global-afCommon
+       node of global, vrf-global";
+    leaf rpki-bestpath-use-origin-as-validity {
+      type empty;
+      description
+        "RPKI bestpath use origin-AS validity";
     }
   }
 
@@ -3591,7 +3749,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping RPKI-ORIGIN-AS-VALIDATION-DISABLE {
     description
       "Common node of neighbor-group-af, neighbor-af,
-       af-group-af";
+       vrf-neighbor-af, af-group-af";
     leaf rpki-origin-as-validation-disable {
       type empty;
       description
@@ -3602,8 +3760,9 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
   grouping BGP-CFG-RPKI-ORIGIN-AS-VALIDATION-DISABLE {
     description
       "Common node of neighbor-group-af, neighbor-af,
-       af-group-afCommon node of neighbor-group,
-       neighbor, session-group";
+       vrf-neighbor-af, af-group-afCommon node of
+       neighbor-group, neighbor, vrf-neighbor,
+       session-group";
     leaf rpki-origin-as-validation-disable {
       type empty;
       description
@@ -3650,10 +3809,10 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
        'Cisco-IOS-XR-infra-rsi-cfg'";
     container bgp-global {
       description
-        "BGP related VRF GBL config";
+        "BGP related VRF Global config";
       container route-distinguisher {
         description
-          "Global Route distinguisher";
+          "Route distinguisher";
         leaf type {
           type Bgp-global-route-distinguisher;
           description
@@ -4168,6 +4327,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       description
                         "Address family";
                     }
+                    uses RPKI-ORIGIN-AS-VALIDATION-ENABLE;
                     uses AGGREGATE-ADDRESS-TABLE;
                     uses DYNAMIC-MED-INTERVAL;
                     uses OPTIMAL-ROUTE-REFLECTOR-GROUP-TABLE;
@@ -4184,11 +4344,15 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     uses EIGRP-ROUTE-TABLE;
                     uses BEST-EXTERNAL;
                     uses SOURCED-NETWORK-TABLE;
+                    uses RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP;
                     uses CONNECTED-ROUTES;
                     uses ADDITIONAL-PATHS-RECEIVE;
                     uses PERMANENT-NETWORK;
+                    uses RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
+                    uses SRV6-LABEL-ALLOCATION-MODE;
                     uses ALLOCATE-LABEL;
                     uses ADDITIONAL-PATHS-SELECTION;
+                    uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID-MP;
                     uses NEXT-HOP-RESOLUTION-PREFIX-LENGTH-MINIMUM;
                     uses RESET-WEIGHT-ON-IMPORT;
                     uses OSPF-ROUTE-TABLE;
@@ -4217,12 +4381,16 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 uses UNSAFE-EBGP-POLICY;
                 uses DEFAULT-METRIC;
                 uses DEFAULT-INFO-ORIGINATE;
+                uses BGP-CFG-RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP;
+                uses BGP-CFG-RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
                 uses BEST-PATH-CONFEDERATION-PATHS;
                 uses BEST-PATH-AS-MULTIPATH-RELAX;
                 uses MPLS-ACTIVATED-INTERFACE-TABLE;
                 uses DISABLE-AUTO-SOFT-RESET;
                 uses DISABLE-MSG-LOG;
                 uses GLOBAL-TIMERS;
+                uses BEST-PATH-IGP-METRIC-IGNORE;
+                uses NEXT-HOP-RES-ALLOW-DEFAULT;
                 uses NEXT-HOP-MPLS-FWD-IBGP;
                 uses BFD;
                 uses DISABLE-NEIGHBOR-LOGGING;
@@ -4264,10 +4432,12 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses NEXT-HOP-UNCHANGED;
                       uses ADVERTISE-LOCAL-LABELED-ROUTE;
                       uses ADVERTISE-DEF-IMP-DISABLE-V4;
+                      uses RPKI-ORIGIN-AS-VALIDATION-DISABLE;
                       uses FLOWSPEC-VALIDATION;
                       uses ADVERTISE-L2VPN-EVPN;
                       uses ADVERTISE-LOCAL-L2VPN-EVPN;
                       uses ENCAPSULATION-TYPE;
+                      uses RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
                       uses ENFORCE-MULTIPLE-LABELS;
                       uses AS-OVERRIDE;
                       uses MULTIPATH;
@@ -4323,12 +4493,15 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses IDLE-WATCH-TIME;
                   uses TCPMSS;
                   uses SESSION-OPEN-MODE;
+                  uses BGP-CFG-RPKI-ORIGIN-AS-VALIDATION-DISABLE;
                   uses TOS;
                   uses UPDATE-IN-FILTERING;
                   uses EBGP-SEND-DMZ-ENABLE-MODES;
                   uses MSG-LOG-OUT;
                   uses SUPPRESS-ALL-CAPABILITIES;
                   uses MAX-PEERS;
+                  uses AO-KEYCHAIN;
+                  uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
                   uses RECEIVE-BUFFER-SIZE;
                   uses MSG-LOG-IN;
                   uses ADDITIONAL-PATHS-SEND-CAPABILITY;
@@ -4492,6 +4665,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses MSG-LOG-OUT;
                   uses SUPPRESS-ALL-CAPABILITIES;
                   uses MAX-PEERS;
+                  uses AO-KEYCHAIN;
                   uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
                   uses RECEIVE-BUFFER-SIZE;
                   uses MSG-LOG-IN;
@@ -4653,6 +4827,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses MSG-LOG-OUT;
                   uses SUPPRESS-ALL-CAPABILITIES;
                   uses MAX-PEERS;
+                  uses AO-KEYCHAIN;
                   uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
                   uses RECEIVE-BUFFER-SIZE;
                   uses MSG-LOG-IN;
@@ -4811,6 +4986,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses MSG-LOG-OUT;
                   uses SUPPRESS-ALL-CAPABILITIES;
                   uses MAX-PEERS;
+                  uses AO-KEYCHAIN;
                   uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID;
                   uses RECEIVE-BUFFER-SIZE;
                   uses MSG-LOG-IN;
@@ -5256,6 +5432,13 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                         "Enable sourcing of import route-targets 
                          from import-policy";
                     }
+                    leaf srv6-label-allocation-mode {
+                      type string;
+                      description
+                        "Label allocation mode: per-ce  Set per
+                         CE label mode,per-vrf Set per VRF label
+                         mode";
+                    }
                   }
                   container disable-cluster-client-to-client-rrs {
                     description
@@ -5544,15 +5727,16 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       "Configure background scanner interval for
                        this address family";
                   }
+                  leaf source-route-target-policy {
+                    type string;
+                    description
+                      "Route policy name to apply to configure
+                       source route-target";
+                  }
                   leaf rpki-origin-as-validation-disable {
                     type empty;
                     description
                       "RPKI origin-AS validation disable";
-                  }
-                  leaf rpki-origin-as-validity-signal-ibgp {
-                    type empty;
-                    description
-                      "RPKI origin-AS validity signal ibgp";
                   }
                   leaf update-limit-sub-group-ebgp {
                     type uint32 {
@@ -5576,11 +5760,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                        transient memory usage for the
                        address-family";
                   }
-                  leaf rpki-bestpath-use-origin-as-validity {
-                    type empty;
-                    description
-                      "RPKI bestpath use origin-AS validity";
-                  }
                   leaf update-limit-sub-group-ibgp {
                     type uint32 {
                       range "1..512";
@@ -5591,11 +5770,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       "Upper bound on update generation
                        transient memory usage for every IBGP
                        Sub-group";
-                  }
-                  leaf rpki-bestpath-origin-as-allow-invalid {
-                    type empty;
-                    description
-                      "RPKI bestpath origin-AS allow invalid";
                   }
                   leaf disable-client-to-client-rr {
                     type empty;
@@ -5629,6 +5803,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     description
                       "Address family";
                   }
+                  uses RPKI-ORIGIN-AS-VALIDATION-ENABLE;
                   uses AGGREGATE-ADDRESS-TABLE;
                   uses DYNAMIC-MED-INTERVAL;
                   uses OPTIMAL-ROUTE-REFLECTOR-GROUP-TABLE;
@@ -5645,11 +5820,15 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses EIGRP-ROUTE-TABLE;
                   uses BEST-EXTERNAL;
                   uses SOURCED-NETWORK-TABLE;
+                  uses RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP;
                   uses CONNECTED-ROUTES;
                   uses ADDITIONAL-PATHS-RECEIVE;
                   uses PERMANENT-NETWORK;
+                  uses RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
+                  uses SRV6-LABEL-ALLOCATION-MODE;
                   uses ALLOCATE-LABEL;
                   uses ADDITIONAL-PATHS-SELECTION;
+                  uses BGP-CFG-RPKI-BESTPATH-ORIGIN-AS-ALLOW-INVALID-MP;
                   uses NEXT-HOP-RESOLUTION-PREFIX-LENGTH-MINIMUM;
                   uses RESET-WEIGHT-ON-IMPORT;
                   uses OSPF-ROUTE-TABLE;
@@ -5739,11 +5918,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 description
                   "RPKI origin-AS validation disable";
               }
-              leaf rpki-origin-as-validity-signal-ibgp {
-                type empty;
-                description
-                  "RPKI origin-AS validity signal ibgp";
-              }
               leaf global-scan-time {
                 type uint32 {
                   range "5..3600";
@@ -5753,11 +5927,6 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 description
                   "Configure background scanner interval for
                    generic scanner";
-              }
-              leaf rpki-bestpath-use-origin-as-validity {
-                type empty;
-                description
-                  "RPKI bestpath use origin-AS validity";
               }
               leaf rpki-origin-as-validation-time {
                 type uint32 {
@@ -5869,12 +6038,16 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
               uses UNSAFE-EBGP-POLICY;
               uses DEFAULT-METRIC;
               uses DEFAULT-INFO-ORIGINATE;
+              uses BGP-CFG-RPKI-ORIGIN-AS-VALIDITY-SIGNAL-IBGP;
+              uses BGP-CFG-RPKI-BESTPATH-USE-ORIGIN-AS-VALIDITY;
               uses BEST-PATH-CONFEDERATION-PATHS;
               uses BEST-PATH-AS-MULTIPATH-RELAX;
               uses MPLS-ACTIVATED-INTERFACE-TABLE;
               uses DISABLE-AUTO-SOFT-RESET;
               uses DISABLE-MSG-LOG;
               uses GLOBAL-TIMERS;
+              uses BEST-PATH-IGP-METRIC-IGNORE;
+              uses NEXT-HOP-RES-ALLOW-DEFAULT;
               uses NEXT-HOP-MPLS-FWD-IBGP;
               uses BFD;
               uses DISABLE-NEIGHBOR-LOGGING;

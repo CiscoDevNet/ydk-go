@@ -6,7 +6,7 @@
 //   subscriber: Subscriber operational data
 //   iedge-license-manager: iedge license manager
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package iedge4710_oper
 
@@ -5108,6 +5108,10 @@ type Subscriber_Manager_Nodes_Node_Statistics_Srg struct {
     // 0..4294967295.
     TotalMasterEomsPending interface{}
 
+    // Total No of times Master EOMS Pending Cleared. The type is interface{} with
+    // range: 0..4294967295.
+    TotalMasterEomsPendingCleared interface{}
+
     // Amount of time paused during last flow control window. The type is
     // interface{} with range: 0..18446744073709551615.
     LastPausePeriod interface{}
@@ -5185,6 +5189,7 @@ func (srg *Subscriber_Manager_Nodes_Node_Statistics_Srg) GetEntityData() *types.
     srg.EntityData.Leafs.Append("total-dont-send-to-txlist", types.YLeaf{"TotalDontSendToTxlist", srg.TotalDontSendToTxlist})
     srg.EntityData.Leafs.Append("total-srg-not-master", types.YLeaf{"TotalSrgNotMaster", srg.TotalSrgNotMaster})
     srg.EntityData.Leafs.Append("total-master-eoms-pending", types.YLeaf{"TotalMasterEomsPending", srg.TotalMasterEomsPending})
+    srg.EntityData.Leafs.Append("total-master-eoms-pending-cleared", types.YLeaf{"TotalMasterEomsPendingCleared", srg.TotalMasterEomsPendingCleared})
     srg.EntityData.Leafs.Append("last-pause-period", types.YLeaf{"LastPausePeriod", srg.LastPausePeriod})
     srg.EntityData.Leafs.Append("total-pause-time", types.YLeaf{"TotalPauseTime", srg.TotalPauseTime})
     srg.EntityData.Leafs.Append("last-pause-time", types.YLeaf{"LastPauseTime", srg.LastPauseTime})
@@ -6759,7 +6764,7 @@ type Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -9599,7 +9604,7 @@ type Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSumma
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -11026,7 +11031,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     // PPPoE sub type. The type is IedgePppSub.
     PppoeSubType interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string.
@@ -11110,7 +11115,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     TotalSessionIdleTime interface{}
 
     // Access interface name associated with the session. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     AccessInterfaceName interface{}
 
     // Active pending callbacks bitmask. The type is interface{} with range:
@@ -11470,7 +11475,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session_UserProfileAttributes struct
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SecondaryNetBiosServerAddress interface{}
 
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Remote ID. The type is string.

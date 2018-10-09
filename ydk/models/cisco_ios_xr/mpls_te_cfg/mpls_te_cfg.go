@@ -10,7 +10,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_te_cfg
 
@@ -410,7 +410,7 @@ const (
     // No ERO
     MplsTePathOption_no_ero MplsTePathOption = "no-ero"
 
-    // Segment routing
+    // Deprecated
     MplsTePathOption_sr MplsTePathOption = "sr"
 )
 
@@ -556,6 +556,9 @@ const (
 
     // TE Metric
     MplsTePathSelectionMetric_te MplsTePathSelectionMetric = "te"
+
+    // DELAY Metric
+    MplsTePathSelectionMetric_delay MplsTePathSelectionMetric = "delay"
 )
 
 // MplsTePathOptionProtection represents Mpls te path option protection
@@ -964,7 +967,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel name. The type is string with length:
-    // 1..59.
+    // 1..54.
     TunnelName interface{}
 
     // This attribute is a key. Tunnel Type. The type is MplsTeConfigTunnel.
@@ -1048,6 +1051,9 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes struct {
     // Set the affinity flags and mask.
     AffinityMask MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AffinityMask
 
+    // Forwarding adjacency announcement to IGP.
+    ForwardingAdjacency MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_ForwardingAdjacency
+
     // Log tunnel LSP messages.
     Logging MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Logging
 
@@ -1080,6 +1086,7 @@ func (tunnelAttributes *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes) Get
     tunnelAttributes.EntityData.Children.Append("auto-bandwidth", types.YChild{"AutoBandwidth", &tunnelAttributes.AutoBandwidth})
     tunnelAttributes.EntityData.Children.Append("priority", types.YChild{"Priority", &tunnelAttributes.Priority})
     tunnelAttributes.EntityData.Children.Append("affinity-mask", types.YChild{"AffinityMask", &tunnelAttributes.AffinityMask})
+    tunnelAttributes.EntityData.Children.Append("forwarding-adjacency", types.YChild{"ForwardingAdjacency", &tunnelAttributes.ForwardingAdjacency})
     tunnelAttributes.EntityData.Children.Append("logging", types.YChild{"Logging", &tunnelAttributes.Logging})
     tunnelAttributes.EntityData.Children.Append("bandwidth", types.YChild{"Bandwidth", &tunnelAttributes.Bandwidth})
     tunnelAttributes.EntityData.Children.Append("autoroute", types.YChild{"Autoroute", &tunnelAttributes.Autoroute})
@@ -1142,7 +1149,7 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_PathSetup st
     // [\w\-\.:,_@#%$\+=\|;]+.
     PathSetupName interface{}
 
-    // Path preference level. The type is interface{} with range: 0..4294967295.
+    // Path preference level. The type is interface{} with range: 0..255.
     Preference interface{}
 
     // Always set to true. The type is interface{}.
@@ -1230,11 +1237,15 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_TunnelPathSelection str
     // is interface{} with range: 1..255.
     PathSelectionHopLimit interface{}
 
+    // Path selection delay limit (usec) configuration for this specific tunnel.
+    // The type is interface{} with range: 1..4294967295.
+    PathSelectionDelayLimit interface{}
+
     // Path selection cost limit configuration for this specific tunnel. The type
     // is interface{} with range: 1..4294967295.
     PathSelectionCostLimit interface{}
 
-    // Path invalidation configuration for this specific tunnel.
+    // Deprecated.
     Invalidation MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_TunnelPathSelection_Invalidation
 }
 
@@ -1253,6 +1264,7 @@ func (tunnelPathSelection *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_T
     tunnelPathSelection.EntityData.Leafs = types.NewOrderedMap()
     tunnelPathSelection.EntityData.Leafs.Append("tiebreaker", types.YLeaf{"Tiebreaker", tunnelPathSelection.Tiebreaker})
     tunnelPathSelection.EntityData.Leafs.Append("path-selection-hop-limit", types.YLeaf{"PathSelectionHopLimit", tunnelPathSelection.PathSelectionHopLimit})
+    tunnelPathSelection.EntityData.Leafs.Append("path-selection-delay-limit", types.YLeaf{"PathSelectionDelayLimit", tunnelPathSelection.PathSelectionDelayLimit})
     tunnelPathSelection.EntityData.Leafs.Append("path-selection-cost-limit", types.YLeaf{"PathSelectionCostLimit", tunnelPathSelection.PathSelectionCostLimit})
 
     tunnelPathSelection.EntityData.YListKeys = []string {}
@@ -1261,8 +1273,7 @@ func (tunnelPathSelection *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_T
 }
 
 // MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_TunnelPathSelection_Invalidation
-// Path invalidation configuration for this
-// specific tunnel
+// Deprecated
 // This type is a presence type.
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_TunnelPathSelection_Invalidation struct {
     EntityData types.CommonEntityData
@@ -1306,6 +1317,10 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth struct {
     // Enable auto bandwidth underflow detection. The type is bool.
     UnderflowEnable interface{}
 
+    // Set the tunnel auto-bw resignal last bandwidth time-out in seconds. The
+    // type is interface{} with range: 1..3600000. Units are second.
+    ResignalLastBandwidthTimeOut interface{}
+
     // This object is only valid for tunnel interfaces and it controls whether
     // that interface has auto-bw enabled on it or not.The object must be set
     // before any other auto-bw configuration is supplied for the interface, and
@@ -1335,6 +1350,9 @@ type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth struct {
 
     // Set the bandwidth change threshold to trigger adjustment.
     AdjustmentThreshold MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth_AdjustmentThreshold
+
+    // Tunnel auto-capacity configuration data.
+    AutoCapacity MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth_AutoCapacity
 }
 
 func (autoBandwidth *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth) GetEntityData() *types.CommonEntityData {
@@ -1352,8 +1370,10 @@ func (autoBandwidth *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBan
     autoBandwidth.EntityData.Children.Append("overflow", types.YChild{"Overflow", &autoBandwidth.Overflow})
     autoBandwidth.EntityData.Children.Append("bandwidth-limits", types.YChild{"BandwidthLimits", &autoBandwidth.BandwidthLimits})
     autoBandwidth.EntityData.Children.Append("adjustment-threshold", types.YChild{"AdjustmentThreshold", &autoBandwidth.AdjustmentThreshold})
+    autoBandwidth.EntityData.Children.Append("auto-capacity", types.YChild{"AutoCapacity", &autoBandwidth.AutoCapacity})
     autoBandwidth.EntityData.Leafs = types.NewOrderedMap()
     autoBandwidth.EntityData.Leafs.Append("underflow-enable", types.YLeaf{"UnderflowEnable", autoBandwidth.UnderflowEnable})
+    autoBandwidth.EntityData.Leafs.Append("resignal-last-bandwidth-time-out", types.YLeaf{"ResignalLastBandwidthTimeOut", autoBandwidth.ResignalLastBandwidthTimeOut})
     autoBandwidth.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", autoBandwidth.Enabled})
     autoBandwidth.EntityData.Leafs.Append("application-frequency", types.YLeaf{"ApplicationFrequency", autoBandwidth.ApplicationFrequency})
     autoBandwidth.EntityData.Leafs.Append("overflow-enable", types.YLeaf{"OverflowEnable", autoBandwidth.OverflowEnable})
@@ -1527,6 +1547,63 @@ func (adjustmentThreshold *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_A
     return &(adjustmentThreshold.EntityData)
 }
 
+// MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth_AutoCapacity
+// Tunnel auto-capacity configuration data
+type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth_AutoCapacity struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Bandwidth value used to compute the desired number of tunnels for
+    // auto-capacity. The type is interface{} with range: 0..4294967295. Units are
+    // kbit/s.
+    NominalBandwidth interface{}
+
+    // Enable auto-capacityThe object must be set before any other auto capacity
+    // configuration is supplied for the tunnel,and must be the last auto-capacity
+    // configuration object to be removed. The type is bool.
+    Enable interface{}
+
+    // Lower limit on the number of clones can be created for the tunnel. The type
+    // is interface{} with range: 0..63. The default value is 0.
+    ClonesMinimum interface{}
+
+    // Upper bandwidth limit that causes the tunnel to be split. The type is
+    // interface{} with range: 0..4294967295. Units are kbit/s.
+    SplitBandwidth interface{}
+
+    // Lower bandwidth limit that causes the tunnel to be merged. The type is
+    // interface{} with range: 0..4294967295. Units are kbit/s.
+    MergeBandwidth interface{}
+
+    // Upper limit on the number of clones can be created for the tunnel. The type
+    // is interface{} with range: 0..63. The default value is 63.
+    ClonesMaximum interface{}
+}
+
+func (autoCapacity *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidth_AutoCapacity) GetEntityData() *types.CommonEntityData {
+    autoCapacity.EntityData.YFilter = autoCapacity.YFilter
+    autoCapacity.EntityData.YangName = "auto-capacity"
+    autoCapacity.EntityData.BundleName = "cisco_ios_xr"
+    autoCapacity.EntityData.ParentYangName = "auto-bandwidth"
+    autoCapacity.EntityData.SegmentPath = "auto-capacity"
+    autoCapacity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoCapacity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoCapacity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    autoCapacity.EntityData.Children = types.NewOrderedMap()
+    autoCapacity.EntityData.Leafs = types.NewOrderedMap()
+    autoCapacity.EntityData.Leafs.Append("nominal-bandwidth", types.YLeaf{"NominalBandwidth", autoCapacity.NominalBandwidth})
+    autoCapacity.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", autoCapacity.Enable})
+    autoCapacity.EntityData.Leafs.Append("clones-minimum", types.YLeaf{"ClonesMinimum", autoCapacity.ClonesMinimum})
+    autoCapacity.EntityData.Leafs.Append("split-bandwidth", types.YLeaf{"SplitBandwidth", autoCapacity.SplitBandwidth})
+    autoCapacity.EntityData.Leafs.Append("merge-bandwidth", types.YLeaf{"MergeBandwidth", autoCapacity.MergeBandwidth})
+    autoCapacity.EntityData.Leafs.Append("clones-maximum", types.YLeaf{"ClonesMaximum", autoCapacity.ClonesMaximum})
+
+    autoCapacity.EntityData.YListKeys = []string {}
+
+    return &(autoCapacity.EntityData)
+}
+
 // MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Priority
 // Tunnel Setup and Hold Priorities
 // This type is a presence type.
@@ -1599,6 +1676,45 @@ func (affinityMask *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Affinity
     affinityMask.EntityData.YListKeys = []string {}
 
     return &(affinityMask.EntityData)
+}
+
+// MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_ForwardingAdjacency
+// Forwarding adjacency announcement to IGP
+type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_ForwardingAdjacency struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable forwarding adjacency. The type is interface{}.
+    Enable interface{}
+
+    // Specify that the tunnel should be an IPv6 forwarding adjacency also. The
+    // type is interface{}.
+    IncludeIpv6 interface{}
+
+    // Specify the holdtime for the tunnel as forwarding adjacency. The type is
+    // interface{} with range: 0..20000.
+    HoldTime interface{}
+}
+
+func (forwardingAdjacency *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_ForwardingAdjacency) GetEntityData() *types.CommonEntityData {
+    forwardingAdjacency.EntityData.YFilter = forwardingAdjacency.YFilter
+    forwardingAdjacency.EntityData.YangName = "forwarding-adjacency"
+    forwardingAdjacency.EntityData.BundleName = "cisco_ios_xr"
+    forwardingAdjacency.EntityData.ParentYangName = "tunnel-attributes"
+    forwardingAdjacency.EntityData.SegmentPath = "forwarding-adjacency"
+    forwardingAdjacency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    forwardingAdjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    forwardingAdjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    forwardingAdjacency.EntityData.Children = types.NewOrderedMap()
+    forwardingAdjacency.EntityData.Leafs = types.NewOrderedMap()
+    forwardingAdjacency.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", forwardingAdjacency.Enable})
+    forwardingAdjacency.EntityData.Leafs.Append("include-ipv6", types.YLeaf{"IncludeIpv6", forwardingAdjacency.IncludeIpv6})
+    forwardingAdjacency.EntityData.Leafs.Append("hold-time", types.YLeaf{"HoldTime", forwardingAdjacency.HoldTime})
+
+    forwardingAdjacency.EntityData.YListKeys = []string {}
+
+    return &(forwardingAdjacency.EntityData)
 }
 
 // MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Logging
@@ -2881,7 +2997,7 @@ type MplsTe_GmplsUni_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Enable GMPLS-UNI on the link. The type is interface{}.
@@ -4791,11 +4907,15 @@ type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribu
     // Enter path selection configuration. The type is interface{}.
     Enable interface{}
 
+    // Path selection delay limit (usec) configuration for this specific tunnel.
+    // The type is interface{} with range: 1..4294967295.
+    PathSelectionDelayLimit interface{}
+
     // Path selection cost limit configuration for this specific tunnel. The type
     // is interface{} with range: 1..4294967295.
     PathSelectionCostLimit interface{}
 
-    // Path invalidation configuration for this specific tunnel.
+    // Deprecated.
     Invalidation MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_AttPathOptionPathSelection_Invalidation
 }
 
@@ -4814,6 +4934,7 @@ func (attPathOptionPathSelection *MplsTe_GlobalAttributes_AttributeSet_PathOptio
     attPathOptionPathSelection.EntityData.Leafs = types.NewOrderedMap()
     attPathOptionPathSelection.EntityData.Leafs.Append("path-selection-exclude-list", types.YLeaf{"PathSelectionExcludeList", attPathOptionPathSelection.PathSelectionExcludeList})
     attPathOptionPathSelection.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", attPathOptionPathSelection.Enable})
+    attPathOptionPathSelection.EntityData.Leafs.Append("path-selection-delay-limit", types.YLeaf{"PathSelectionDelayLimit", attPathOptionPathSelection.PathSelectionDelayLimit})
     attPathOptionPathSelection.EntityData.Leafs.Append("path-selection-cost-limit", types.YLeaf{"PathSelectionCostLimit", attPathOptionPathSelection.PathSelectionCostLimit})
 
     attPathOptionPathSelection.EntityData.YListKeys = []string {}
@@ -4822,8 +4943,7 @@ func (attPathOptionPathSelection *MplsTe_GlobalAttributes_AttributeSet_PathOptio
 }
 
 // MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_AttPathOptionPathSelection_Invalidation
-// Path invalidation configuration for this
-// specific tunnel
+// Deprecated
 // This type is a presence type.
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_AttPathOptionPathSelection_Invalidation struct {
     EntityData types.CommonEntityData
@@ -6947,10 +7067,10 @@ type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSel
     // Enter path selection configuration. The type is interface{}.
     Enable interface{}
 
-    // Path selection segment routing prepend configuration.
+    // Deprecated.
     SegmentRoutingPrepend MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_SegmentRoutingPrepend
 
-    // Path selection invalidation configuration.
+    // Deprecated.
     Invalidation MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_Invalidation
 }
 
@@ -6978,8 +7098,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeA
 }
 
 // MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_SegmentRoutingPrepend
-// Path selection segment routing prepend
-// configuration
+// Deprecated
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_SegmentRoutingPrepend struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -7085,7 +7204,7 @@ func (index *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute
 }
 
 // MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_Invalidation
-// Path selection invalidation configuration
+// Deprecated
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_Invalidation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -11177,7 +11296,7 @@ type MplsTe_GlobalAttributes_PceAttributes struct {
     // PCE speaker entity identifier. The type is string with length: 1..256.
     SpeakerEntityId interface{}
 
-    // PCE segment routing capability. The type is interface{}.
+    // Always set to true. The type is interface{}.
     SegmentRouting interface{}
 
     // MD5 password. The type is string with pattern: (!.+)|([^!].+).
@@ -11254,6 +11373,10 @@ type MplsTe_GlobalAttributes_PceAttributes_PceStateful struct {
     // Delegate all statically configured tunnels. The type is interface{}.
     Delegation interface{}
 
+    // Enable autoroute announce for PCE instantiated tunnels. The type is
+    // interface{}.
+    AutorouteAnnounce interface{}
+
     // Report all statically configured tunnels. The type is interface{}.
     Report interface{}
 
@@ -11281,6 +11404,7 @@ func (pceStateful *MplsTe_GlobalAttributes_PceAttributes_PceStateful) GetEntityD
     pceStateful.EntityData.Leafs.Append("instantiation", types.YLeaf{"Instantiation", pceStateful.Instantiation})
     pceStateful.EntityData.Leafs.Append("cisco-extension", types.YLeaf{"CiscoExtension", pceStateful.CiscoExtension})
     pceStateful.EntityData.Leafs.Append("delegation", types.YLeaf{"Delegation", pceStateful.Delegation})
+    pceStateful.EntityData.Leafs.Append("autoroute-announce", types.YLeaf{"AutorouteAnnounce", pceStateful.AutorouteAnnounce})
     pceStateful.EntityData.Leafs.Append("report", types.YLeaf{"Report", pceStateful.Report})
     pceStateful.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pceStateful.Enable})
 
@@ -11722,10 +11846,14 @@ type MplsTe_GlobalAttributes_PathSelection struct {
     // Use only the IGP instance of the incoming interface. The type is bool.
     LooseDomainMatch interface{}
 
+    // Path selection delay limit configuration for p2p tunnels (usec). The type
+    // is interface{} with range: 1..4294967295.
+    DelayLimit interface{}
+
     // Path selection Loose ERO Metric Class configuration.
     LooseMetrics MplsTe_GlobalAttributes_PathSelection_LooseMetrics
 
-    // Path invalidation configuration for all tunnels.
+    // Deprecated.
     Invalidation MplsTe_GlobalAttributes_PathSelection_Invalidation
 
     // Path selection to ignore overload node during CSPF.
@@ -11755,6 +11883,7 @@ func (pathSelection *MplsTe_GlobalAttributes_PathSelection) GetEntityData() *typ
     pathSelection.EntityData.Leafs.Append("tiebreaker", types.YLeaf{"Tiebreaker", pathSelection.Tiebreaker})
     pathSelection.EntityData.Leafs.Append("metric", types.YLeaf{"Metric", pathSelection.Metric})
     pathSelection.EntityData.Leafs.Append("loose-domain-match", types.YLeaf{"LooseDomainMatch", pathSelection.LooseDomainMatch})
+    pathSelection.EntityData.Leafs.Append("delay-limit", types.YLeaf{"DelayLimit", pathSelection.DelayLimit})
 
     pathSelection.EntityData.YListKeys = []string {}
 
@@ -11831,8 +11960,7 @@ func (looseMetric *MplsTe_GlobalAttributes_PathSelection_LooseMetrics_LooseMetri
 }
 
 // MplsTe_GlobalAttributes_PathSelection_Invalidation
-// Path invalidation configuration for all
-// tunnels
+// Deprecated
 type MplsTe_GlobalAttributes_PathSelection_Invalidation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -12788,7 +12916,7 @@ type MplsTe_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MPLS transport profile capable link.
@@ -13408,7 +13536,7 @@ type MplsTe_Interfaces_Interface_GlobalAttributes_BackupTunnels_BackupTunnel str
     YFilter yfilter.YFilter
 
     // This attribute is a key. Tunnel name. The type is string with length:
-    // 1..59.
+    // 1..54.
     TunnelName interface{}
 }
 
@@ -13800,7 +13928,7 @@ type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Controllers_Cont
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Set administrative weight for the interface. The type is interface{} with
@@ -13984,7 +14112,7 @@ type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr_Controllers_C
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Set administrative weight for the interface. The type is interface{} with
@@ -14141,6 +14269,9 @@ type MplsTe_GmplsNni_TunnelHeads_TunnelHead struct {
     // has been enabled. The type is interface{}.
     Enable interface{}
 
+    // Announce SRLG on term interface for the tunnel. The type is interface{}.
+    AnnounceSrlg interface{}
+
     // The existence of this configuration indicates the restore LSP of tunnel is
     // shutdown. The type is interface{}.
     RestoreLspShutdown interface{}
@@ -14218,6 +14349,7 @@ func (tunnelHead *MplsTe_GmplsNni_TunnelHeads_TunnelHead) GetEntityData() *types
     tunnelHead.EntityData.Leafs = types.NewOrderedMap()
     tunnelHead.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", tunnelHead.TunnelId})
     tunnelHead.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", tunnelHead.Enable})
+    tunnelHead.EntityData.Leafs.Append("announce-srlg", types.YLeaf{"AnnounceSrlg", tunnelHead.AnnounceSrlg})
     tunnelHead.EntityData.Leafs.Append("restore-lsp-shutdown", types.YLeaf{"RestoreLspShutdown", tunnelHead.RestoreLspShutdown})
     tunnelHead.EntityData.Leafs.Append("current-lsp-shutdown", types.YLeaf{"CurrentLspShutdown", tunnelHead.CurrentLspShutdown})
     tunnelHead.EntityData.Leafs.Append("path-selection-metric", types.YLeaf{"PathSelectionMetric", tunnelHead.PathSelectionMetric})

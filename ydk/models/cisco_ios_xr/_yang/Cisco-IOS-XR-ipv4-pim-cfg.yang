@@ -32,7 +32,7 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
      for the following management objects:
        pim: PIM configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-15 {
@@ -1368,6 +1368,11 @@ module Cisco-IOS-XR-ipv4-pim-cfg {
         description
           "Disable RPF Vector origination over iBGP
            sessions";
+      }
+      leaf use-standard-encoding {
+        type empty;
+        description
+          "Use RPF Vector RFC compliant encoding";
       }
     }
   }

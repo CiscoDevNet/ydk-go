@@ -5,7 +5,7 @@
 // for the following management objects:
 //   processes-memory: Process statistics
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package procmem_oper
 
@@ -171,25 +171,30 @@ type ProcessesMemory_Nodes_Node_ProcessIds_ProcessId struct {
     // Process ID. The type is interface{} with range: 0..4294967295.
     Pid interface{}
 
-    // Text Segment Size. The type is interface{} with range: 0..4294967295.
+    // Text Segment Size in KB. The type is interface{} with range: 0..4294967295.
     TextSegSize interface{}
 
-    // Data Segment Size. The type is interface{} with range: 0..4294967295.
+    // Data Segment Size in KB. The type is interface{} with range: 0..4294967295.
     DataSegSize interface{}
 
-    // Stack Segment Size. The type is interface{} with range: 0..4294967295.
+    // Stack Segment Size in KB. The type is interface{} with range:
+    // 0..4294967295.
     StackSegSize interface{}
 
-    // Malloced Memory Size. The type is interface{} with range: 0..4294967295.
+    // Malloced Memory Size in KB. The type is interface{} with range:
+    // 0..4294967295.
     MallocSize interface{}
 
-    // Dynamic memory limit. The type is interface{} with range: 0..4294967295.
+    // Dynamic memory limit in KB (4294967295 for RLIM_INFINITY). The type is
+    // interface{} with range: 0..4294967295.
     DynLimit interface{}
 
-    // Shared memory size. The type is interface{} with range: 0..4294967295.
+    // Shared memory size in KB. The type is interface{} with range:
+    // 0..4294967295.
     SharedMem interface{}
 
-    // Physical memory size. The type is interface{} with range: 0..4294967295.
+    // Physical memory size in KB. The type is interface{} with range:
+    // 0..4294967295.
     PhysicalMem interface{}
 }
 

@@ -27,7 +27,7 @@ module Cisco-IOS-XR-dot1x-cfg {
        dot1x: Global Dot1x Configuration
        eap: eap
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -95,6 +95,13 @@ module Cisco-IOS-XR-dot1x-cfg {
                  configuration in box";
             }
           }
+        }
+        leaf eap-profile {
+          type string {
+            length "1..63";
+          }
+          description
+            "EAP Profile for Local EAP Server";
         }
       }
       leaf pae {

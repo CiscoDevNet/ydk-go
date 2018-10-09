@@ -5,7 +5,7 @@
 // for the following management objects:
 //   sr: Segment Routing
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package segment_routing_ms_cfg
 
@@ -181,22 +181,23 @@ type Sr_Mappings_Mapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Address Family. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. Address Family. The type is SrmsAddressFamily.
     Af interface{}
 
-    // This attribute is a key. IP prefix. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // This attribute is a key. IP prefix. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
-    // This attribute is a key. Mask. The type is interface{} with range:
-    // 0..4294967295.
+    // This attribute is a key. Mask. The type is interface{} with range: 1..128.
     Mask interface{}
 
     // Start of SID index range. The type is interface{} with range: 0..1048575.
     SidStart interface{}
 
-    // Range (number of SIDs). The type is interface{} with range: 0..4294967295.
+    // Range (number of SIDs). The type is interface{} with range: 0..1048575.
     SidRange interface{}
 
     // Enable/Disable Attached flag. The type is SrmsMiFlag.
@@ -296,7 +297,7 @@ type Sr_AdjacencySid_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Segment Routing Adjacency SID Interface Address Family Table.
@@ -548,9 +549,18 @@ func (globalBlock *Sr_GlobalBlock) GetEntityData() *types.CommonEntityData {
 
 // Sr_TrafficEngineering
 // Traffic Engineering configuration data
+// This type is a presence type.
 type Sr_TrafficEngineering struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
+
+    // Use TE-latency algorithm. The type is interface{}.
+    TeLatency interface{}
+
+    // Maximum SID Depth Configuration. The type is interface{} with range:
+    // 1..255. This attribute is mandatory.
+    MaximumSidDepth interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
@@ -600,6 +610,8 @@ func (trafficEngineering *Sr_TrafficEngineering) GetEntityData() *types.CommonEn
     trafficEngineering.EntityData.Children.Append("pcc", types.YChild{"Pcc", &trafficEngineering.Pcc})
     trafficEngineering.EntityData.Children.Append("affinity-maps", types.YChild{"AffinityMaps", &trafficEngineering.AffinityMaps})
     trafficEngineering.EntityData.Leafs = types.NewOrderedMap()
+    trafficEngineering.EntityData.Leafs.Append("te-latency", types.YLeaf{"TeLatency", trafficEngineering.TeLatency})
+    trafficEngineering.EntityData.Leafs.Append("maximum-sid-depth", types.YLeaf{"MaximumSidDepth", trafficEngineering.MaximumSidDepth})
     trafficEngineering.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", trafficEngineering.Enable})
 
     trafficEngineering.EntityData.YListKeys = []string {}
@@ -651,7 +663,7 @@ type Sr_TrafficEngineering_OnDemandColors_OnDemandColor struct {
     Color interface{}
 
     // The value of the bandwidth reserved by this policy in kbps. The type is
-    // interface{} with range: 1..4294967295. This attribute is mandatory.
+    // interface{} with range: 1..4294967295.
     Bandwidth interface{}
 
     // True only. The type is interface{}.
@@ -685,9 +697,15 @@ func (onDemandColor *Sr_TrafficEngineering_OnDemandColors_OnDemandColor) GetEnti
 
 // Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls
 // Dynamic MPLS path properties
+// This type is a presence type.
 type Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandColorDynMpls struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
+
+    // Prefix-SID algorithm. The type is interface{} with range: 128..255. This
+    // attribute is mandatory.
+    OnDemandColorDynMplsFlexAlgorithm interface{}
 
     // Dynamic MPLS path properties submode Enable. The type is interface{}.
     Enable interface{}
@@ -717,6 +735,7 @@ func (onDemandColorDynMpls *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_O
     onDemandColorDynMpls.EntityData.Children.Append("on-demand-color-dyn-mpls-pce", types.YChild{"OnDemandColorDynMplsPce", &onDemandColorDynMpls.OnDemandColorDynMplsPce})
     onDemandColorDynMpls.EntityData.Children.Append("disjoint-path", types.YChild{"DisjointPath", &onDemandColorDynMpls.DisjointPath})
     onDemandColorDynMpls.EntityData.Leafs = types.NewOrderedMap()
+    onDemandColorDynMpls.EntityData.Leafs.Append("on-demand-color-dyn-mpls-flex-algorithm", types.YLeaf{"OnDemandColorDynMplsFlexAlgorithm", onDemandColorDynMpls.OnDemandColorDynMplsFlexAlgorithm})
     onDemandColorDynMpls.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", onDemandColorDynMpls.Enable})
 
     onDemandColorDynMpls.EntityData.YListKeys = []string {}
@@ -1110,25 +1129,28 @@ type Sr_TrafficEngineering_Policies_Policy struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Policy name. The type is string with length:
-    // 1..128.
+    // 1..59.
     PolicyName interface{}
 
     // Forward class associated with the policy. The type is interface{} with
     // range: 1..7.
     ForwardClass interface{}
 
-    // Whether to advertise this policy to BGP. The type is interface{}.
-    AdvertiseBgp interface{}
+    // IPv6 disable. The type is interface{}.
+    Ipv6Disable interface{}
 
     // Administratively shutdown policy. The type is interface{}.
     Shutdown interface{}
 
     // The value of the bandwidth reserved by this policy in kbps. The type is
-    // interface{} with range: 1..4294967295. This attribute is mandatory.
+    // interface{} with range: 1..4294967295.
     Bandwidth interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
+
+    // Steering options for the policy.
+    Steering Sr_TrafficEngineering_Policies_Policy_Steering
 
     // Binding Segment ID.
     BindingSid Sr_TrafficEngineering_Policies_Policy_BindingSid
@@ -1154,6 +1176,7 @@ func (policy *Sr_TrafficEngineering_Policies_Policy) GetEntityData() *types.Comm
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     policy.EntityData.Children = types.NewOrderedMap()
+    policy.EntityData.Children.Append("steering", types.YChild{"Steering", &policy.Steering})
     policy.EntityData.Children.Append("binding-sid", types.YChild{"BindingSid", &policy.BindingSid})
     policy.EntityData.Children.Append("policy-color-endpoint", types.YChild{"PolicyColorEndpoint", &policy.PolicyColorEndpoint})
     policy.EntityData.Children.Append("auto-route", types.YChild{"AutoRoute", &policy.AutoRoute})
@@ -1161,7 +1184,7 @@ func (policy *Sr_TrafficEngineering_Policies_Policy) GetEntityData() *types.Comm
     policy.EntityData.Leafs = types.NewOrderedMap()
     policy.EntityData.Leafs.Append("policy-name", types.YLeaf{"PolicyName", policy.PolicyName})
     policy.EntityData.Leafs.Append("forward-class", types.YLeaf{"ForwardClass", policy.ForwardClass})
-    policy.EntityData.Leafs.Append("advertise-bgp", types.YLeaf{"AdvertiseBgp", policy.AdvertiseBgp})
+    policy.EntityData.Leafs.Append("ipv6-disable", types.YLeaf{"Ipv6Disable", policy.Ipv6Disable})
     policy.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", policy.Shutdown})
     policy.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", policy.Bandwidth})
     policy.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", policy.Enable})
@@ -1169,6 +1192,104 @@ func (policy *Sr_TrafficEngineering_Policies_Policy) GetEntityData() *types.Comm
     policy.EntityData.YListKeys = []string {"PolicyName"}
 
     return &(policy.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_Steering
+// Steering options for the policy
+type Sr_TrafficEngineering_Policies_Policy_Steering struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application table that steering options need to be applied.
+    Applications Sr_TrafficEngineering_Policies_Policy_Steering_Applications
+}
+
+func (steering *Sr_TrafficEngineering_Policies_Policy_Steering) GetEntityData() *types.CommonEntityData {
+    steering.EntityData.YFilter = steering.YFilter
+    steering.EntityData.YangName = "steering"
+    steering.EntityData.BundleName = "cisco_ios_xr"
+    steering.EntityData.ParentYangName = "policy"
+    steering.EntityData.SegmentPath = "steering"
+    steering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    steering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    steering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    steering.EntityData.Children = types.NewOrderedMap()
+    steering.EntityData.Children.Append("applications", types.YChild{"Applications", &steering.Applications})
+    steering.EntityData.Leafs = types.NewOrderedMap()
+
+    steering.EntityData.YListKeys = []string {}
+
+    return &(steering.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_Steering_Applications
+// Application table that steering options need
+// to be applied
+type Sr_TrafficEngineering_Policies_Policy_Steering_Applications struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Application that steering options need to be applied. The type is slice of
+    // Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application.
+    Application []*Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application
+}
+
+func (applications *Sr_TrafficEngineering_Policies_Policy_Steering_Applications) GetEntityData() *types.CommonEntityData {
+    applications.EntityData.YFilter = applications.YFilter
+    applications.EntityData.YangName = "applications"
+    applications.EntityData.BundleName = "cisco_ios_xr"
+    applications.EntityData.ParentYangName = "steering"
+    applications.EntityData.SegmentPath = "applications"
+    applications.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    applications.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    applications.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    applications.EntityData.Children = types.NewOrderedMap()
+    applications.EntityData.Children.Append("application", types.YChild{"Application", nil})
+    for i := range applications.Application {
+        applications.EntityData.Children.Append(types.GetSegmentPath(applications.Application[i]), types.YChild{"Application", applications.Application[i]})
+    }
+    applications.EntityData.Leafs = types.NewOrderedMap()
+
+    applications.EntityData.YListKeys = []string {}
+
+    return &(applications.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application
+// Application that steering options need to
+// be applied
+type Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Steering application. The type is
+    // XtcSteeringApplication.
+    Application interface{}
+
+    // Disable all steering services. The type is interface{}.
+    Disable interface{}
+}
+
+func (application *Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application) GetEntityData() *types.CommonEntityData {
+    application.EntityData.YFilter = application.YFilter
+    application.EntityData.YangName = "application"
+    application.EntityData.BundleName = "cisco_ios_xr"
+    application.EntityData.ParentYangName = "applications"
+    application.EntityData.SegmentPath = "application" + types.AddKeyToken(application.Application, "application")
+    application.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    application.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    application.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    application.EntityData.Children = types.NewOrderedMap()
+    application.EntityData.Leafs = types.NewOrderedMap()
+    application.EntityData.Leafs.Append("application", types.YLeaf{"Application", application.Application})
+    application.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", application.Disable})
+
+    application.EntityData.YListKeys = []string {"Application"}
+
+    return &(application.EntityData)
 }
 
 // Sr_TrafficEngineering_Policies_Policy_BindingSid
@@ -1518,6 +1639,12 @@ type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference
     // True only. The type is interface{}.
     Enable interface{}
 
+    // Disjoint path.
+    DisjointPath Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_DisjointPath
+
+    // SR path computation segment specific rules.
+    SegmentRules Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_SegmentRules
+
     // SR path computation and verification affinity rules.
     AffinityRules Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules
 }
@@ -1533,6 +1660,8 @@ func (constraints *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
     constraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     constraints.EntityData.Children = types.NewOrderedMap()
+    constraints.EntityData.Children.Append("disjoint-path", types.YChild{"DisjointPath", &constraints.DisjointPath})
+    constraints.EntityData.Children.Append("segment-rules", types.YChild{"SegmentRules", &constraints.SegmentRules})
     constraints.EntityData.Children.Append("affinity-rules", types.YChild{"AffinityRules", &constraints.AffinityRules})
     constraints.EntityData.Leafs = types.NewOrderedMap()
     constraints.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", constraints.Enable})
@@ -1540,6 +1669,80 @@ func (constraints *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
     constraints.EntityData.YListKeys = []string {}
 
     return &(constraints.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_DisjointPath
+// Disjoint path
+// This type is a presence type.
+type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_DisjointPath struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Group ID. The type is interface{} with range: 1..65535. This attribute is
+    // mandatory.
+    GroupId interface{}
+
+    // Disjointness Type. The type is XtcDisjointness. This attribute is
+    // mandatory.
+    DisjointnessType interface{}
+
+    // Sub ID. The type is interface{} with range: 1..65535.
+    SubId interface{}
+}
+
+func (disjointPath *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_DisjointPath) GetEntityData() *types.CommonEntityData {
+    disjointPath.EntityData.YFilter = disjointPath.YFilter
+    disjointPath.EntityData.YangName = "disjoint-path"
+    disjointPath.EntityData.BundleName = "cisco_ios_xr"
+    disjointPath.EntityData.ParentYangName = "constraints"
+    disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disjointPath.EntityData.Children = types.NewOrderedMap()
+    disjointPath.EntityData.Leafs = types.NewOrderedMap()
+    disjointPath.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", disjointPath.GroupId})
+    disjointPath.EntityData.Leafs.Append("disjointness-type", types.YLeaf{"DisjointnessType", disjointPath.DisjointnessType})
+    disjointPath.EntityData.Leafs.Append("sub-id", types.YLeaf{"SubId", disjointPath.SubId})
+
+    disjointPath.EntityData.YListKeys = []string {}
+
+    return &(disjointPath.EntityData)
+}
+
+// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_SegmentRules
+// SR path computation segment specific
+// rules
+// This type is a presence type.
+type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_SegmentRules struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Prefix-SID algorithm. The type is interface{} with range: 128..255. This
+    // attribute is mandatory.
+    SidAlgorithm interface{}
+}
+
+func (segmentRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_SegmentRules) GetEntityData() *types.CommonEntityData {
+    segmentRules.EntityData.YFilter = segmentRules.YFilter
+    segmentRules.EntityData.YangName = "segment-rules"
+    segmentRules.EntityData.BundleName = "cisco_ios_xr"
+    segmentRules.EntityData.ParentYangName = "constraints"
+    segmentRules.EntityData.SegmentPath = "segment-rules"
+    segmentRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    segmentRules.EntityData.Children = types.NewOrderedMap()
+    segmentRules.EntityData.Leafs = types.NewOrderedMap()
+    segmentRules.EntityData.Leafs.Append("sid-algorithm", types.YLeaf{"SidAlgorithm", segmentRules.SidAlgorithm})
+
+    segmentRules.EntityData.YListKeys = []string {}
+
+    return &(segmentRules.EntityData)
 }
 
 // Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules
@@ -1587,7 +1790,7 @@ type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference
     // XtcAffinityRule.
     Rule interface{}
 
-    // This attribute is a key. The color. The type is string with length: 1..128.
+    // This attribute is a key. The color. The type is string with length: 1..59.
     Color interface{}
 }
 
@@ -1662,7 +1865,7 @@ type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference
     // 1..128.
     SegmentListName interface{}
 
-    // Path-option weight. The type is interface{} with range: 0..4294967295.
+    // Path-option weight. The type is interface{} with range: 1..4294967295.
     Weight interface{}
 
     // True only. The type is interface{}.
@@ -1670,6 +1873,9 @@ type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference
 
     // Metric configuration, valid only for dynamic path-options.
     Metric Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Metric
+
+    // Path Computation Element Protocol.
+    Pcep Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Pcep
 }
 
 func (pathInfo *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo) GetEntityData() *types.CommonEntityData {
@@ -1684,6 +1890,7 @@ func (pathInfo *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences
 
     pathInfo.EntityData.Children = types.NewOrderedMap()
     pathInfo.EntityData.Children.Append("metric", types.YChild{"Metric", &pathInfo.Metric})
+    pathInfo.EntityData.Children.Append("pcep", types.YChild{"Pcep", &pathInfo.Pcep})
     pathInfo.EntityData.Leafs = types.NewOrderedMap()
     pathInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", pathInfo.Type})
     pathInfo.EntityData.Leafs.Append("hop-type", types.YLeaf{"HopType", pathInfo.HopType})
@@ -1778,6 +1985,35 @@ func (margin *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_P
     return &(margin.EntityData)
 }
 
+// Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Pcep
+// Path Computation Element Protocol
+type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Pcep struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // True only. The type is interface{}.
+    Enable interface{}
+}
+
+func (pcep *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo_Pcep) GetEntityData() *types.CommonEntityData {
+    pcep.EntityData.YFilter = pcep.YFilter
+    pcep.EntityData.YangName = "pcep"
+    pcep.EntityData.BundleName = "cisco_ios_xr"
+    pcep.EntityData.ParentYangName = "path-info"
+    pcep.EntityData.SegmentPath = "pcep"
+    pcep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pcep.EntityData.Children = types.NewOrderedMap()
+    pcep.EntityData.Leafs = types.NewOrderedMap()
+    pcep.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pcep.Enable})
+
+    pcep.EntityData.YListKeys = []string {}
+
+    return &(pcep.EntityData)
+}
+
 // Sr_TrafficEngineering_SrteInterfaces
 // SR-TE interfaces
 type Sr_TrafficEngineering_SrteInterfaces struct {
@@ -1818,8 +2054,12 @@ type Sr_TrafficEngineering_SrteInterfaces_SrteInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. SR-TE Interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     SrteInterfaceName interface{}
+
+    // Interface TE metric configuration. The type is interface{} with range:
+    // 0..2147483647.
+    InterfaceMetric interface{}
 
     // True only. The type is interface{}.
     Enable interface{}
@@ -1842,6 +2082,7 @@ func (srteInterface *Sr_TrafficEngineering_SrteInterfaces_SrteInterface) GetEnti
     srteInterface.EntityData.Children.Append("interface-affinities", types.YChild{"InterfaceAffinities", &srteInterface.InterfaceAffinities})
     srteInterface.EntityData.Leafs = types.NewOrderedMap()
     srteInterface.EntityData.Leafs.Append("srte-interface-name", types.YLeaf{"SrteInterfaceName", srteInterface.SrteInterfaceName})
+    srteInterface.EntityData.Leafs.Append("interface-metric", types.YLeaf{"InterfaceMetric", srteInterface.InterfaceMetric})
     srteInterface.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", srteInterface.Enable})
 
     srteInterface.EntityData.YListKeys = []string {"SrteInterfaceName"}
@@ -1914,24 +2155,29 @@ func (interfaceAffinity *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_Inte
 
 // Sr_TrafficEngineering_Pcc
 // Path Computation Client
-// This type is a presence type.
 type Sr_TrafficEngineering_Pcc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Amount of time after which the peer can declare this session down, if no
     // PCEP message has been received. The type is interface{} with range: 1..255.
-    // This attribute is mandatory.
     DeadTimerInterval interface{}
+
+    // Enable PCC centric model, where PCC only allows the lowest precedence PCE
+    // to initiate policies. The type is interface{}.
+    PccCentric interface{}
 
     // Report all local SR policies to connected PCEP peers. The type is
     // interface{}.
     ReportAll interface{}
 
     // Maximum time between two consecutive PCEP messages sent by this node. The
-    // type is interface{} with range: 0..255. This attribute is mandatory.
+    // type is interface{} with range: 0..255.
     KeepaliveTimerInterval interface{}
+
+    // Amount of time a PCE Initiated policy can remain orphan. The type is
+    // interface{} with range: 15..14400.
+    InitiatedStateInterval interface{}
 
     // Local source IP address to use on PCEP sessions. The type is one of the
     // following types: string with pattern:
@@ -1947,9 +2193,12 @@ type Sr_TrafficEngineering_Pcc struct {
     // PCC Enable. The type is interface{}.
     Enable interface{}
 
+    // Amount of time that a policy will be owned by a PCE after that PCE has gone
+    // down. The type is interface{} with range: 10..180.
+    InitiatedOrphanInterval interface{}
+
     // The maximum time delegated SR-TE policies can remain up without an active
-    // connection to a PCE. The type is interface{} with range: 0..3600. This
-    // attribute is mandatory.
+    // connection to a PCE. The type is interface{} with range: 0..3600.
     DelegationTimeout interface{}
 
     // PCE peer configuration.
@@ -1974,11 +2223,14 @@ func (pcc *Sr_TrafficEngineering_Pcc) GetEntityData() *types.CommonEntityData {
     pcc.EntityData.Children.Append("pce-addresses", types.YChild{"PceAddresses", &pcc.PceAddresses})
     pcc.EntityData.Leafs = types.NewOrderedMap()
     pcc.EntityData.Leafs.Append("dead-timer-interval", types.YLeaf{"DeadTimerInterval", pcc.DeadTimerInterval})
+    pcc.EntityData.Leafs.Append("pcc-centric", types.YLeaf{"PccCentric", pcc.PccCentric})
     pcc.EntityData.Leafs.Append("report-all", types.YLeaf{"ReportAll", pcc.ReportAll})
     pcc.EntityData.Leafs.Append("keepalive-timer-interval", types.YLeaf{"KeepaliveTimerInterval", pcc.KeepaliveTimerInterval})
+    pcc.EntityData.Leafs.Append("initiated-state-interval", types.YLeaf{"InitiatedStateInterval", pcc.InitiatedStateInterval})
     pcc.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", pcc.SourceAddress})
     pcc.EntityData.Leafs.Append("max-sid-depth", types.YLeaf{"MaxSidDepth", pcc.MaxSidDepth})
     pcc.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pcc.Enable})
+    pcc.EntityData.Leafs.Append("initiated-orphan-interval", types.YLeaf{"InitiatedOrphanInterval", pcc.InitiatedOrphanInterval})
     pcc.EntityData.Leafs.Append("delegation-timeout", types.YLeaf{"DelegationTimeout", pcc.DelegationTimeout})
 
     pcc.EntityData.YListKeys = []string {}

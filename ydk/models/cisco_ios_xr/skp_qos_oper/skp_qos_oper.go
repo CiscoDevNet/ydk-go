@@ -6,7 +6,7 @@
 //   platform-qos: QoS Skywarp platform operational data 
 //   platform-qos-ea: platform qos ea
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package skp_qos_oper
 
@@ -462,7 +462,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS list of member interfaces.
@@ -529,7 +529,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     YFilter yfilter.YFilter
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS policy direction input.
@@ -2587,7 +2587,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -4678,7 +4678,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA list of member interfaces.
@@ -4745,7 +4745,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     YFilter yfilter.YFilter
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA policy direction output.
@@ -4905,11 +4905,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -5647,11 +5647,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -6300,7 +6300,7 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA policy direction egress.
@@ -6460,11 +6460,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_InterfaceParam
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -7202,11 +7202,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_InterfaceParame
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.

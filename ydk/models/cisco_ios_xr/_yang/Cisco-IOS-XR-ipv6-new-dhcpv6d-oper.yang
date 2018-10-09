@@ -6,7 +6,7 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1 {
-    revision-date 2015-11-09;
+    revision-date 2017-12-06;
   }
 
   organization
@@ -29,9 +29,13 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
      for the following management objects:
        dhcpv6: IPV6 DHCPD operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-12-06 {
+    description
+      "Added proxy class and server class oper for class and server profile";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -95,6 +99,21 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
                       "MAC address";
                   }
                   uses IPV6-DHCPV6D-MAC-THROTTLE;
+                }
+              }
+              container proxy-classes {
+                description
+                  "IPv6 DHCP proxy class table";
+                list proxy-class {
+                  key "class-name";
+                  description
+                    "IPv6 DHCP proxy class profile";
+                  leaf class-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Class name";
+                  }
+                  uses IPV6-DHCPV6D-PROXY-PROFILE-CLASS;
                 }
               }
               container info {
@@ -249,6 +268,21 @@ module Cisco-IOS-XR-ipv6-new-dhcpv6d-oper {
                       "MAC address";
                   }
                   uses IPV6-DHCPV6D-MAC-THROTTLE;
+                }
+              }
+              container server-classes {
+                description
+                  "IPv6 DHCP server class table";
+                list server-class {
+                  key "class-name";
+                  description
+                    "IPv6 DHCP server class profile";
+                  leaf class-name {
+                    type xr:Cisco-ios-xr-string;
+                    description
+                      "Class name";
+                  }
+                  uses IPV6-DHCPV6D-SERVER-PROFILE-CLASS;
                 }
               }
               leaf profile-name {

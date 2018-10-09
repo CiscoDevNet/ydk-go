@@ -39,7 +39,7 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -127,6 +127,73 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
       key "track-name";
       description
         "Track name - maximum 32 characters";
+      container action {
+        description
+          "Actions associated with track state changes";
+        container action-err-dis {
+          description
+            "The list of all track actions";
+          list action-err-di {
+            key "track-state-type interface-name";
+            description
+              "Error disable track action";
+            leaf track-state-type {
+              type uint32 {
+                range "0..1";
+              }
+              description
+                "Track State Type";
+            }
+            leaf interface-name {
+              type xr:Interface-name;
+              description
+                "Interface to be error-disabled";
+            }
+          }
+        }
+        leaf actions-enable {
+          type empty;
+          description
+            "Enable track actions";
+        }
+      }
+      container type-bfd-rtr {
+        description
+          "Track type BFD RTR (BFD Response Time Reporter)";
+        container bfd-rtr {
+          presence "Indicates a bfd-rtr node is configured.";
+          description
+            "BFD session related parameters";
+          leaf rate {
+            type uint32 {
+              range "1..5000";
+            }
+            mandatory true;
+            description
+              "Tx interval in ms";
+          }
+          leaf debounce-count {
+            type uint32 {
+              range "1..10";
+            }
+            mandatory true;
+            description
+              "Debounce Count";
+          }
+          leaf interface-name {
+            type xr:Interface-name;
+            mandatory true;
+            description
+              "Interface to be used for BFD session";
+          }
+          leaf dest-address {
+            type inet:ipv4-address-no-zone;
+            mandatory true;
+            description
+              "Destination IP Address to track via BFD";
+          }
+        }
+      }
       container type-interface {
         description
           "Track type line-protocol";
@@ -169,6 +236,17 @@ module Cisco-IOS-XR-manageability-object-tracking-cfg {
           description
             "Track type threshold weight";
           uses OBJECT;
+        }
+        leaf threshold-percentage-object-enable {
+          type empty;
+          units "percentage";
+          description
+            "Enable threshold based on percentage";
+        }
+        leaf threshold-weight-object-enable {
+          type empty;
+          description
+            "Enable threshold based on weighted sum";
         }
       }
       container type-route {

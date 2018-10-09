@@ -6,7 +6,7 @@
 //   traffic-collector: Global Traffic Collector configuration
 //     commands
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_tc_cfg
 
@@ -159,7 +159,7 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable traffic collector on this interface. The type is interface{}.

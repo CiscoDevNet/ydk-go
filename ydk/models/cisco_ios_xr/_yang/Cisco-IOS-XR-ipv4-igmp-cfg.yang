@@ -31,7 +31,7 @@ module Cisco-IOS-XR-ipv4-igmp-cfg {
        amt: amt
        mld: mld
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-15 {

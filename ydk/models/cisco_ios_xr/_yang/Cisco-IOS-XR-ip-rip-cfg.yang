@@ -29,7 +29,7 @@ module Cisco-IOS-XR-ip-rip-cfg {
      for the following management objects:
        rip: RIP configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {

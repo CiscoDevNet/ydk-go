@@ -5,7 +5,7 @@
 // for the following management objects:
 //   mobile-ip: MobileIP configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_mobileip_cfg
 
@@ -565,7 +565,8 @@ type MobileIp_Lmas_Lma struct {
     // Default MN profile for LMA. The type is string with length: 1..125.
     DefaultProfile interface{}
 
-    // CN facing interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // CN facing interface name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Mobile Map for this LMA. The type is string with length: 1..125.
@@ -1262,7 +1263,7 @@ type MobileIp_Lmas_Lma_Mags_Mag struct {
     Ipv6Address interface{}
 
     // static tunnel for this peer MAG. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Tunnel interface{}
 
     // Authentication option between PMIPV6 entities.

@@ -7,7 +7,7 @@
 //   amt: amt
 //   mld: mld
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_igmp_cfg
 
@@ -481,7 +481,7 @@ type Igmp_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -1680,7 +1680,7 @@ type Igmp_DefaultContext_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -2489,7 +2489,7 @@ type Amt_RelayAdvAdd struct {
     Address interface{}
 
     // Relay Advertisement Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -2987,7 +2987,7 @@ type Mld_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.
@@ -4186,7 +4186,7 @@ type Mld_DefaultContext_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IGMP previous querier timeout. The type is interface{} with range: 60..300.

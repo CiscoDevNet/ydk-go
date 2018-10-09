@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pppoe: PPPoE operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_pppoe_ma_oper
 
@@ -24,18 +24,115 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe", reflect.TypeOf(Pppoe{}))
 }
 
-// PppoeMaThrottleState represents Pppoe ma throttle state
-type PppoeMaThrottleState string
+// PppoeMaSessionState represents Pppoe ma session state
+type PppoeMaSessionState string
 
 const (
-    // Idle State
-    PppoeMaThrottleState_idle PppoeMaThrottleState = "idle"
+    // Destroying session
+    PppoeMaSessionState_destroying PppoeMaSessionState = "destroying"
 
-    // Monitor State
-    PppoeMaThrottleState_monitor PppoeMaThrottleState = "monitor"
+    // Deleting interface
+    PppoeMaSessionState_deleting PppoeMaSessionState = "deleting"
 
-    // Block State
-    PppoeMaThrottleState_block PppoeMaThrottleState = "block"
+    // Initializing
+    PppoeMaSessionState_initializing PppoeMaSessionState = "initializing"
+
+    // Interface created
+    PppoeMaSessionState_created PppoeMaSessionState = "created"
+
+    // Stopping AAA session
+    PppoeMaSessionState_stopping PppoeMaSessionState = "stopping"
+
+    // AAA session started
+    PppoeMaSessionState_started PppoeMaSessionState = "started"
+
+    // SubDB Config activated
+    PppoeMaSessionState_activated PppoeMaSessionState = "activated"
+
+    // Complete
+    PppoeMaSessionState_complete PppoeMaSessionState = "complete"
+)
+
+// PppoeMaSessionIdbSrgState represents Pppoe ma session idb srg state
+type PppoeMaSessionIdbSrgState string
+
+const (
+    // SRG-None state
+    PppoeMaSessionIdbSrgState_none PppoeMaSessionIdbSrgState = "none"
+
+    // SRG-Active state
+    PppoeMaSessionIdbSrgState_active PppoeMaSessionIdbSrgState = "active"
+
+    // SRG-Standby state
+    PppoeMaSessionIdbSrgState_standby PppoeMaSessionIdbSrgState = "standby"
+)
+
+// PppoeMaSessionTrig represents Pppoe ma session trig
+type PppoeMaSessionTrig string
+
+const (
+    // pppoe ma session trig error
+    PppoeMaSessionTrig_pppoe_ma_session_trig_error PppoeMaSessionTrig = "pppoe-ma-session-trig-error"
+
+    // pppoe ma session trig publish encaps attr fail
+    PppoeMaSessionTrig_pppoe_ma_session_trig_publish_encaps_attr_fail PppoeMaSessionTrig = "pppoe-ma-session-trig-publish-encaps-attr-fail"
+
+    // pppoe ma session trig if create fail
+    PppoeMaSessionTrig_pppoe_ma_session_trig_if_create_fail PppoeMaSessionTrig = "pppoe-ma-session-trig-if-create-fail"
+
+    // pppoe ma session trig iedge session start fail
+    PppoeMaSessionTrig_pppoe_ma_session_trig_iedge_session_start_fail PppoeMaSessionTrig = "pppoe-ma-session-trig-iedge-session-start-fail"
+
+    // pppoe ma session trig iedge session update fail
+    PppoeMaSessionTrig_pppoe_ma_session_trig_iedge_session_update_fail PppoeMaSessionTrig = "pppoe-ma-session-trig-iedge-session-update-fail"
+
+    // pppoe ma session trig sub db activate fail
+    PppoeMaSessionTrig_pppoe_ma_session_trig_sub_db_activate_fail PppoeMaSessionTrig = "pppoe-ma-session-trig-sub-db-activate-fail"
+
+    // pppoe ma session trig in flight timeout
+    PppoeMaSessionTrig_pppoe_ma_session_trig_in_flight_timeout PppoeMaSessionTrig = "pppoe-ma-session-trig-in-flight-timeout"
+
+    // pppoe ma session trig down
+    PppoeMaSessionTrig_pppoe_ma_session_trig_down PppoeMaSessionTrig = "pppoe-ma-session-trig-down"
+
+    // pppoe ma session trig parent
+    PppoeMaSessionTrig_pppoe_ma_session_trig_parent PppoeMaSessionTrig = "pppoe-ma-session-trig-parent"
+
+    // pppoe ma session trig padt
+    PppoeMaSessionTrig_pppoe_ma_session_trig_padt PppoeMaSessionTrig = "pppoe-ma-session-trig-padt"
+
+    // pppoe ma session trig session pak
+    PppoeMaSessionTrig_pppoe_ma_session_trig_session_pak PppoeMaSessionTrig = "pppoe-ma-session-trig-session-pak"
+
+    // pppoe ma session trig final
+    PppoeMaSessionTrig_pppoe_ma_session_trig_final PppoeMaSessionTrig = "pppoe-ma-session-trig-final"
+
+    // pppoe ma session trig no im or
+    PppoeMaSessionTrig_pppoe_ma_session_trig_no_im_or PppoeMaSessionTrig = "pppoe-ma-session-trig-no-im-or"
+
+    // pppoe ma session trig restart
+    PppoeMaSessionTrig_pppoe_ma_session_trig_restart PppoeMaSessionTrig = "pppoe-ma-session-trig-restart"
+
+    // pppoe ma session trig admissions config change
+    PppoeMaSessionTrig_pppoe_ma_session_trig_admissions_config_change PppoeMaSessionTrig = "pppoe-ma-session-trig-admissions-config-change"
+
+    // pppoe ma session trig iedge disconnect
+    PppoeMaSessionTrig_pppoe_ma_session_trig_iedge_disconnect PppoeMaSessionTrig = "pppoe-ma-session-trig-iedge-disconnect"
+
+    // pppoe ma session trig invalid vlan tags
+    PppoeMaSessionTrig_pppoe_ma_session_trig_invalid_vlan_tags PppoeMaSessionTrig = "pppoe-ma-session-trig-invalid-vlan-tags"
+
+    // pppoe ma session trig port limit disconnect
+    PppoeMaSessionTrig_pppoe_ma_session_trig_port_limit_disconnect PppoeMaSessionTrig = "pppoe-ma-session-trig-port-limit-disconnect"
+
+    // pppoe ma session trig srg disconnect
+    PppoeMaSessionTrig_pppoe_ma_session_trig_srg_disconnect PppoeMaSessionTrig = "pppoe-ma-session-trig-srg-disconnect"
+
+    // pppoe ma session trig srg sweep
+    PppoeMaSessionTrig_pppoe_ma_session_trig_srg_sweep PppoeMaSessionTrig = "pppoe-ma-session-trig-srg-sweep"
+
+    // pppoe ma session trig count
+    PppoeMaSessionTrig_pppoe_ma_session_trig_count PppoeMaSessionTrig = "pppoe-ma-session-trig-count"
 )
 
 // PppoeMaLimitState represents Pppoe ma limit state
@@ -52,18 +149,18 @@ const (
     PppoeMaLimitState_block PppoeMaLimitState = "block"
 )
 
-// PppoeMaSessionIdbSrgState represents Pppoe ma session idb srg state
-type PppoeMaSessionIdbSrgState string
+// PppoeMaThrottleState represents Pppoe ma throttle state
+type PppoeMaThrottleState string
 
 const (
-    // SRG-None state
-    PppoeMaSessionIdbSrgState_none PppoeMaSessionIdbSrgState = "none"
+    // Idle State
+    PppoeMaThrottleState_idle PppoeMaThrottleState = "idle"
 
-    // SRG-Active state
-    PppoeMaSessionIdbSrgState_active PppoeMaSessionIdbSrgState = "active"
+    // Monitor State
+    PppoeMaThrottleState_monitor PppoeMaThrottleState = "monitor"
 
-    // SRG-Standby state
-    PppoeMaSessionIdbSrgState_standby PppoeMaSessionIdbSrgState = "standby"
+    // Block State
+    PppoeMaThrottleState_block PppoeMaThrottleState = "block"
 )
 
 // Pppoe
@@ -140,7 +237,7 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Packet Counts.
@@ -563,6 +660,12 @@ type Pppoe_Nodes_Node struct {
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
+    // PPPoE disconnect history for a given node.
+    DisconnectHistory Pppoe_Nodes_Node_DisconnectHistory
+
+    // PPPoE unique disconnect history for a given node.
+    DisconnectHistoryUnique Pppoe_Nodes_Node_DisconnectHistoryUnique
+
     // PPPoE statistics for a given node.
     Statistics Pppoe_Nodes_Node_Statistics
 
@@ -590,6 +693,8 @@ func (node *Pppoe_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     node.EntityData.Children = types.NewOrderedMap()
+    node.EntityData.Children.Append("disconnect-history", types.YChild{"DisconnectHistory", &node.DisconnectHistory})
+    node.EntityData.Children.Append("disconnect-history-unique", types.YChild{"DisconnectHistoryUnique", &node.DisconnectHistoryUnique})
     node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
     node.EntityData.Children.Append("access-interface", types.YChild{"AccessInterface", &node.AccessInterface})
     node.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &node.Interfaces})
@@ -601,6 +706,1285 @@ func (node *Pppoe_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.YListKeys = []string {"NodeName"}
 
     return &(node.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory
+// PPPoE disconnect history for a given node
+type Pppoe_Nodes_Node_DisconnectHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Current index of history. The type is interface{} with range:
+    // 0..4294967295.
+    CurrentIdx interface{}
+
+    // Array of disconnected subscribers. The type is slice of
+    // Pppoe_Nodes_Node_DisconnectHistory_Entry.
+    Entry []*Pppoe_Nodes_Node_DisconnectHistory_Entry
+}
+
+func (disconnectHistory *Pppoe_Nodes_Node_DisconnectHistory) GetEntityData() *types.CommonEntityData {
+    disconnectHistory.EntityData.YFilter = disconnectHistory.YFilter
+    disconnectHistory.EntityData.YangName = "disconnect-history"
+    disconnectHistory.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistory.EntityData.ParentYangName = "node"
+    disconnectHistory.EntityData.SegmentPath = "disconnect-history"
+    disconnectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistory.EntityData.Children = types.NewOrderedMap()
+    disconnectHistory.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
+    for i := range disconnectHistory.Entry {
+        disconnectHistory.EntityData.Children.Append(types.GetSegmentPath(disconnectHistory.Entry[i]), types.YChild{"Entry", disconnectHistory.Entry[i]})
+    }
+    disconnectHistory.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistory.EntityData.Leafs.Append("current-idx", types.YLeaf{"CurrentIdx", disconnectHistory.CurrentIdx})
+
+    disconnectHistory.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistory.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry
+// Array of disconnected subscribers
+type Pppoe_Nodes_Node_DisconnectHistory_Entry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time when disconnected. The type is interface{} with range:
+    // 0..18446744073709551615.
+    Timestamp interface{}
+
+    // Interface name. The type is string.
+    Ifname interface{}
+
+    // Disconnect Trigger. The type is PppoeMaSessionTrig.
+    Trigger interface{}
+
+    // Session IDB.
+    SessionIdb Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb
+}
+
+func (entry *Pppoe_Nodes_Node_DisconnectHistory_Entry) GetEntityData() *types.CommonEntityData {
+    entry.EntityData.YFilter = entry.YFilter
+    entry.EntityData.YangName = "entry"
+    entry.EntityData.BundleName = "cisco_ios_xr"
+    entry.EntityData.ParentYangName = "disconnect-history"
+    entry.EntityData.SegmentPath = "entry"
+    entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Children.Append("session-idb", types.YChild{"SessionIdb", &entry.SessionIdb})
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", entry.Timestamp})
+    entry.EntityData.Leafs.Append("ifname", types.YLeaf{"Ifname", entry.Ifname})
+    entry.EntityData.Leafs.Append("trigger", types.YLeaf{"Trigger", entry.Trigger})
+
+    entry.EntityData.YListKeys = []string {}
+
+    return &(entry.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb
+// Session IDB
+type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Interface interface{}
+
+    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    AccessInterface interface{}
+
+    // Session ID. The type is interface{} with range: 0..65535.
+    SessionId interface{}
+
+    // Sub Label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // Peer Mac-Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    PeerMacAddress interface{}
+
+    // State. The type is PppoeMaSessionState.
+    State interface{}
+
+    // CDM Object Handle. The type is interface{} with range: 0..4294967295.
+    CdmObjectHandle interface{}
+
+    // Chkpt ID. The type is interface{} with range: 0..4294967295.
+    ChkptId interface{}
+
+    // Punted Count. The type is interface{} with range: 0..4294967295.
+    PuntedCount interface{}
+
+    // Port Limit. The type is interface{} with range: 0..4294967295.
+    PortLimit interface{}
+
+    // Is BBA Counted. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsCounted interface{}
+
+    // Is VLAN Outer Tag. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVlanOuterTag interface{}
+
+    // Is VLAN Inner Tag. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVlanInnerTag interface{}
+
+    // Is Cleanup Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsCleanupPending interface{}
+
+    // Is Disconnect Done Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDisconnectDonePending interface{}
+
+    // Is Delete Done Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDeleteDonePending interface{}
+
+    // Is Interface Create Callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfCreateCallbackPending interface{}
+
+    // Is Publish Encaps Attr pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsPublishEncapsAttrPending interface{}
+
+    // Is Publish Encaps Attr Callback pending. The type is interface{} with
+    // range: -2147483648..2147483647.
+    IsPublishEncapsAttrCbPending interface{}
+
+    // Is Interface Delete Callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfDeleteCallbackPending interface{}
+
+    // Is Interface Delete pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfDeletePending interface{}
+
+    // Is IM Owned Resource. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImOwnedResource interface{}
+
+    // Is IM Final received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImFinalReceived interface{}
+
+    // Is IM Owned Resource missing. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImOwnedResourceMissing interface{}
+
+    // Is AAA Start request callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaStartRequestCallbackPending interface{}
+
+    // Is AAA Owned Resource. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaOwnedResource interface{}
+
+    // Is AAA Disconnect Requested. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaDisconnectRequested interface{}
+
+    // Is AAA Disconnect Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaDisconnectReceived interface{}
+
+    // Is SubDB Activate callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSubDbActivateCallbackPending interface{}
+
+    // Is PADS Sent. The type is interface{} with range: -2147483648..2147483647.
+    IsPadsSent interface{}
+
+    // Is PADT Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsPadtReceived interface{}
+
+    // Is Session In Flight. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsInFlight interface{}
+
+    // Is RADIUS override enabled. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsRadiusOverride interface{}
+
+    // Expected Notifications. The type is interface{} with range: 0..255.
+    ExpectedNotifications interface{}
+
+    // Received Notifications. The type is interface{} with range: 0..255.
+    ReceivedNotifications interface{}
+
+    // SRG state. The type is PppoeMaSessionIdbSrgState.
+    SrgState interface{}
+
+    // Is SRG Data Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSrgDataReceived interface{}
+
+    // Is IEDGE Data Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIedgeDataReceived interface{}
+
+    // Tags.
+    Tags Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags
+
+    // VLAN Outer Tag.
+    VlanOuterTag Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanOuterTag
+
+    // VLAN Inner Tag.
+    VlanInnerTag Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanInnerTag
+}
+
+func (sessionIdb *Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb) GetEntityData() *types.CommonEntityData {
+    sessionIdb.EntityData.YFilter = sessionIdb.YFilter
+    sessionIdb.EntityData.YangName = "session-idb"
+    sessionIdb.EntityData.BundleName = "cisco_ios_xr"
+    sessionIdb.EntityData.ParentYangName = "entry"
+    sessionIdb.EntityData.SegmentPath = "session-idb"
+    sessionIdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionIdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionIdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionIdb.EntityData.Children = types.NewOrderedMap()
+    sessionIdb.EntityData.Children.Append("tags", types.YChild{"Tags", &sessionIdb.Tags})
+    sessionIdb.EntityData.Children.Append("vlan-outer-tag", types.YChild{"VlanOuterTag", &sessionIdb.VlanOuterTag})
+    sessionIdb.EntityData.Children.Append("vlan-inner-tag", types.YChild{"VlanInnerTag", &sessionIdb.VlanInnerTag})
+    sessionIdb.EntityData.Leafs = types.NewOrderedMap()
+    sessionIdb.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", sessionIdb.Interface})
+    sessionIdb.EntityData.Leafs.Append("access-interface", types.YLeaf{"AccessInterface", sessionIdb.AccessInterface})
+    sessionIdb.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionIdb.SessionId})
+    sessionIdb.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", sessionIdb.SubLabel})
+    sessionIdb.EntityData.Leafs.Append("peer-mac-address", types.YLeaf{"PeerMacAddress", sessionIdb.PeerMacAddress})
+    sessionIdb.EntityData.Leafs.Append("state", types.YLeaf{"State", sessionIdb.State})
+    sessionIdb.EntityData.Leafs.Append("cdm-object-handle", types.YLeaf{"CdmObjectHandle", sessionIdb.CdmObjectHandle})
+    sessionIdb.EntityData.Leafs.Append("chkpt-id", types.YLeaf{"ChkptId", sessionIdb.ChkptId})
+    sessionIdb.EntityData.Leafs.Append("punted-count", types.YLeaf{"PuntedCount", sessionIdb.PuntedCount})
+    sessionIdb.EntityData.Leafs.Append("port-limit", types.YLeaf{"PortLimit", sessionIdb.PortLimit})
+    sessionIdb.EntityData.Leafs.Append("is-counted", types.YLeaf{"IsCounted", sessionIdb.IsCounted})
+    sessionIdb.EntityData.Leafs.Append("is-vlan-outer-tag", types.YLeaf{"IsVlanOuterTag", sessionIdb.IsVlanOuterTag})
+    sessionIdb.EntityData.Leafs.Append("is-vlan-inner-tag", types.YLeaf{"IsVlanInnerTag", sessionIdb.IsVlanInnerTag})
+    sessionIdb.EntityData.Leafs.Append("is-cleanup-pending", types.YLeaf{"IsCleanupPending", sessionIdb.IsCleanupPending})
+    sessionIdb.EntityData.Leafs.Append("is-disconnect-done-pending", types.YLeaf{"IsDisconnectDonePending", sessionIdb.IsDisconnectDonePending})
+    sessionIdb.EntityData.Leafs.Append("is-delete-done-pending", types.YLeaf{"IsDeleteDonePending", sessionIdb.IsDeleteDonePending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-create-callback-pending", types.YLeaf{"IsIntfCreateCallbackPending", sessionIdb.IsIntfCreateCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-publish-encaps-attr-pending", types.YLeaf{"IsPublishEncapsAttrPending", sessionIdb.IsPublishEncapsAttrPending})
+    sessionIdb.EntityData.Leafs.Append("is-publish-encaps-attr-cb-pending", types.YLeaf{"IsPublishEncapsAttrCbPending", sessionIdb.IsPublishEncapsAttrCbPending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-delete-callback-pending", types.YLeaf{"IsIntfDeleteCallbackPending", sessionIdb.IsIntfDeleteCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-delete-pending", types.YLeaf{"IsIntfDeletePending", sessionIdb.IsIntfDeletePending})
+    sessionIdb.EntityData.Leafs.Append("is-im-owned-resource", types.YLeaf{"IsImOwnedResource", sessionIdb.IsImOwnedResource})
+    sessionIdb.EntityData.Leafs.Append("is-im-final-received", types.YLeaf{"IsImFinalReceived", sessionIdb.IsImFinalReceived})
+    sessionIdb.EntityData.Leafs.Append("is-im-owned-resource-missing", types.YLeaf{"IsImOwnedResourceMissing", sessionIdb.IsImOwnedResourceMissing})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-start-request-callback-pending", types.YLeaf{"IsAaaStartRequestCallbackPending", sessionIdb.IsAaaStartRequestCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-owned-resource", types.YLeaf{"IsAaaOwnedResource", sessionIdb.IsAaaOwnedResource})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-disconnect-requested", types.YLeaf{"IsAaaDisconnectRequested", sessionIdb.IsAaaDisconnectRequested})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-disconnect-received", types.YLeaf{"IsAaaDisconnectReceived", sessionIdb.IsAaaDisconnectReceived})
+    sessionIdb.EntityData.Leafs.Append("is-sub-db-activate-callback-pending", types.YLeaf{"IsSubDbActivateCallbackPending", sessionIdb.IsSubDbActivateCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-pads-sent", types.YLeaf{"IsPadsSent", sessionIdb.IsPadsSent})
+    sessionIdb.EntityData.Leafs.Append("is-padt-received", types.YLeaf{"IsPadtReceived", sessionIdb.IsPadtReceived})
+    sessionIdb.EntityData.Leafs.Append("is-in-flight", types.YLeaf{"IsInFlight", sessionIdb.IsInFlight})
+    sessionIdb.EntityData.Leafs.Append("is-radius-override", types.YLeaf{"IsRadiusOverride", sessionIdb.IsRadiusOverride})
+    sessionIdb.EntityData.Leafs.Append("expected-notifications", types.YLeaf{"ExpectedNotifications", sessionIdb.ExpectedNotifications})
+    sessionIdb.EntityData.Leafs.Append("received-notifications", types.YLeaf{"ReceivedNotifications", sessionIdb.ReceivedNotifications})
+    sessionIdb.EntityData.Leafs.Append("srg-state", types.YLeaf{"SrgState", sessionIdb.SrgState})
+    sessionIdb.EntityData.Leafs.Append("is-srg-data-received", types.YLeaf{"IsSrgDataReceived", sessionIdb.IsSrgDataReceived})
+    sessionIdb.EntityData.Leafs.Append("is-iedge-data-received", types.YLeaf{"IsIedgeDataReceived", sessionIdb.IsIedgeDataReceived})
+
+    sessionIdb.EntityData.YListKeys = []string {}
+
+    return &(sessionIdb.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags
+// Tags
+type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is Service Name. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsServiceName interface{}
+
+    // Is Max Payload. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsMaxPayload interface{}
+
+    // Is Host Uniq. The type is interface{} with range: -2147483648..2147483647.
+    IsHostUniq interface{}
+
+    // Is Relay Session ID. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsRelaySessionId interface{}
+
+    // Is Vendor Specific. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVendorSpecific interface{}
+
+    // Is IWF. The type is interface{} with range: -2147483648..2147483647.
+    IsIwf interface{}
+
+    // Is Remote ID. The type is interface{} with range: -2147483648..2147483647.
+    IsRemoteId interface{}
+
+    // Is Circuit ID. The type is interface{} with range: -2147483648..2147483647.
+    IsCircuitId interface{}
+
+    // Is DSL Tag. The type is interface{} with range: -2147483648..2147483647.
+    IsDslTag interface{}
+
+    // Service Name. The type is string.
+    ServiceName interface{}
+
+    // Max Payload. The type is interface{} with range: 0..4294967295.
+    MaxPayload interface{}
+
+    // Host Uniq. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    HostUniq interface{}
+
+    // Relay Session ID. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    RelaySessionId interface{}
+
+    // Remote ID. The type is string.
+    RemoteId interface{}
+
+    // Circuit ID. The type is string.
+    CircuitId interface{}
+
+    // Is DSL Actual Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualUp interface{}
+
+    // Is DSL Actual Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDown interface{}
+
+    // Is DSL Min Up. The type is interface{} with range: -2147483648..2147483647.
+    IsDslMinUp interface{}
+
+    // Is DSL Min Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinDown interface{}
+
+    // Is DSL Attain Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslAttainUp interface{}
+
+    // Is DSL Attain Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslAttainDown interface{}
+
+    // Is DSL Max Up. The type is interface{} with range: -2147483648..2147483647.
+    IsDslMaxUp interface{}
+
+    // Is DSL Max Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDown interface{}
+
+    // Is DSL Min Up Low. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinUpLow interface{}
+
+    // Is DSL Min Down Low. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinDownLow interface{}
+
+    // Is DSL Max Delay Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDelayUp interface{}
+
+    // Is DSL Actual Delay Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDelayUp interface{}
+
+    // Is DSL Max Delay Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDelayDown interface{}
+
+    // Is DSL Actual Delay Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDelayDown interface{}
+
+    // Is Access Loop Encapsulation. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAccessLoopEncapsulation interface{}
+
+    // DSL Actual Up. The type is interface{} with range: 0..4294967295.
+    DslActualUp interface{}
+
+    // DSL Actual Down. The type is interface{} with range: 0..4294967295.
+    DslActualDown interface{}
+
+    // DSL Min Up. The type is interface{} with range: 0..4294967295.
+    DslMinUp interface{}
+
+    // DSL Min Down. The type is interface{} with range: 0..4294967295.
+    DslMinDown interface{}
+
+    // DSL Attain Up. The type is interface{} with range: 0..4294967295.
+    DslAttainUp interface{}
+
+    // DSL Attain Down. The type is interface{} with range: 0..4294967295.
+    DslAttainDown interface{}
+
+    // DSL Max Up. The type is interface{} with range: 0..4294967295.
+    DslMaxUp interface{}
+
+    // DSL Max Down. The type is interface{} with range: 0..4294967295.
+    DslMaxDown interface{}
+
+    // DSL Min Up Low. The type is interface{} with range: 0..4294967295.
+    DslMinUpLow interface{}
+
+    // DSL Min Down Low. The type is interface{} with range: 0..4294967295.
+    DslMinDownLow interface{}
+
+    // DSL Max Delay Up. The type is interface{} with range: 0..4294967295.
+    DslMaxDelayUp interface{}
+
+    // DSL Actual Delay Up. The type is interface{} with range: 0..4294967295.
+    DslActualDelayUp interface{}
+
+    // DSL Max Delay Down. The type is interface{} with range: 0..4294967295.
+    DslMaxDelayDown interface{}
+
+    // DSL Actual Delay Down. The type is interface{} with range: 0..4294967295.
+    DslActualDelayDown interface{}
+
+    // Access Loop Encapsulation.
+    AccessLoopEncapsulation Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags_AccessLoopEncapsulation
+}
+
+func (tags *Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags) GetEntityData() *types.CommonEntityData {
+    tags.EntityData.YFilter = tags.YFilter
+    tags.EntityData.YangName = "tags"
+    tags.EntityData.BundleName = "cisco_ios_xr"
+    tags.EntityData.ParentYangName = "session-idb"
+    tags.EntityData.SegmentPath = "tags"
+    tags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tags.EntityData.Children = types.NewOrderedMap()
+    tags.EntityData.Children.Append("access-loop-encapsulation", types.YChild{"AccessLoopEncapsulation", &tags.AccessLoopEncapsulation})
+    tags.EntityData.Leafs = types.NewOrderedMap()
+    tags.EntityData.Leafs.Append("is-service-name", types.YLeaf{"IsServiceName", tags.IsServiceName})
+    tags.EntityData.Leafs.Append("is-max-payload", types.YLeaf{"IsMaxPayload", tags.IsMaxPayload})
+    tags.EntityData.Leafs.Append("is-host-uniq", types.YLeaf{"IsHostUniq", tags.IsHostUniq})
+    tags.EntityData.Leafs.Append("is-relay-session-id", types.YLeaf{"IsRelaySessionId", tags.IsRelaySessionId})
+    tags.EntityData.Leafs.Append("is-vendor-specific", types.YLeaf{"IsVendorSpecific", tags.IsVendorSpecific})
+    tags.EntityData.Leafs.Append("is-iwf", types.YLeaf{"IsIwf", tags.IsIwf})
+    tags.EntityData.Leafs.Append("is-remote-id", types.YLeaf{"IsRemoteId", tags.IsRemoteId})
+    tags.EntityData.Leafs.Append("is-circuit-id", types.YLeaf{"IsCircuitId", tags.IsCircuitId})
+    tags.EntityData.Leafs.Append("is-dsl-tag", types.YLeaf{"IsDslTag", tags.IsDslTag})
+    tags.EntityData.Leafs.Append("service-name", types.YLeaf{"ServiceName", tags.ServiceName})
+    tags.EntityData.Leafs.Append("max-payload", types.YLeaf{"MaxPayload", tags.MaxPayload})
+    tags.EntityData.Leafs.Append("host-uniq", types.YLeaf{"HostUniq", tags.HostUniq})
+    tags.EntityData.Leafs.Append("relay-session-id", types.YLeaf{"RelaySessionId", tags.RelaySessionId})
+    tags.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", tags.RemoteId})
+    tags.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", tags.CircuitId})
+    tags.EntityData.Leafs.Append("is-dsl-actual-up", types.YLeaf{"IsDslActualUp", tags.IsDslActualUp})
+    tags.EntityData.Leafs.Append("is-dsl-actual-down", types.YLeaf{"IsDslActualDown", tags.IsDslActualDown})
+    tags.EntityData.Leafs.Append("is-dsl-min-up", types.YLeaf{"IsDslMinUp", tags.IsDslMinUp})
+    tags.EntityData.Leafs.Append("is-dsl-min-down", types.YLeaf{"IsDslMinDown", tags.IsDslMinDown})
+    tags.EntityData.Leafs.Append("is-dsl-attain-up", types.YLeaf{"IsDslAttainUp", tags.IsDslAttainUp})
+    tags.EntityData.Leafs.Append("is-dsl-attain-down", types.YLeaf{"IsDslAttainDown", tags.IsDslAttainDown})
+    tags.EntityData.Leafs.Append("is-dsl-max-up", types.YLeaf{"IsDslMaxUp", tags.IsDslMaxUp})
+    tags.EntityData.Leafs.Append("is-dsl-max-down", types.YLeaf{"IsDslMaxDown", tags.IsDslMaxDown})
+    tags.EntityData.Leafs.Append("is-dsl-min-up-low", types.YLeaf{"IsDslMinUpLow", tags.IsDslMinUpLow})
+    tags.EntityData.Leafs.Append("is-dsl-min-down-low", types.YLeaf{"IsDslMinDownLow", tags.IsDslMinDownLow})
+    tags.EntityData.Leafs.Append("is-dsl-max-delay-up", types.YLeaf{"IsDslMaxDelayUp", tags.IsDslMaxDelayUp})
+    tags.EntityData.Leafs.Append("is-dsl-actual-delay-up", types.YLeaf{"IsDslActualDelayUp", tags.IsDslActualDelayUp})
+    tags.EntityData.Leafs.Append("is-dsl-max-delay-down", types.YLeaf{"IsDslMaxDelayDown", tags.IsDslMaxDelayDown})
+    tags.EntityData.Leafs.Append("is-dsl-actual-delay-down", types.YLeaf{"IsDslActualDelayDown", tags.IsDslActualDelayDown})
+    tags.EntityData.Leafs.Append("is-access-loop-encapsulation", types.YLeaf{"IsAccessLoopEncapsulation", tags.IsAccessLoopEncapsulation})
+    tags.EntityData.Leafs.Append("dsl-actual-up", types.YLeaf{"DslActualUp", tags.DslActualUp})
+    tags.EntityData.Leafs.Append("dsl-actual-down", types.YLeaf{"DslActualDown", tags.DslActualDown})
+    tags.EntityData.Leafs.Append("dsl-min-up", types.YLeaf{"DslMinUp", tags.DslMinUp})
+    tags.EntityData.Leafs.Append("dsl-min-down", types.YLeaf{"DslMinDown", tags.DslMinDown})
+    tags.EntityData.Leafs.Append("dsl-attain-up", types.YLeaf{"DslAttainUp", tags.DslAttainUp})
+    tags.EntityData.Leafs.Append("dsl-attain-down", types.YLeaf{"DslAttainDown", tags.DslAttainDown})
+    tags.EntityData.Leafs.Append("dsl-max-up", types.YLeaf{"DslMaxUp", tags.DslMaxUp})
+    tags.EntityData.Leafs.Append("dsl-max-down", types.YLeaf{"DslMaxDown", tags.DslMaxDown})
+    tags.EntityData.Leafs.Append("dsl-min-up-low", types.YLeaf{"DslMinUpLow", tags.DslMinUpLow})
+    tags.EntityData.Leafs.Append("dsl-min-down-low", types.YLeaf{"DslMinDownLow", tags.DslMinDownLow})
+    tags.EntityData.Leafs.Append("dsl-max-delay-up", types.YLeaf{"DslMaxDelayUp", tags.DslMaxDelayUp})
+    tags.EntityData.Leafs.Append("dsl-actual-delay-up", types.YLeaf{"DslActualDelayUp", tags.DslActualDelayUp})
+    tags.EntityData.Leafs.Append("dsl-max-delay-down", types.YLeaf{"DslMaxDelayDown", tags.DslMaxDelayDown})
+    tags.EntityData.Leafs.Append("dsl-actual-delay-down", types.YLeaf{"DslActualDelayDown", tags.DslActualDelayDown})
+
+    tags.EntityData.YListKeys = []string {}
+
+    return &(tags.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags_AccessLoopEncapsulation
+// Access Loop Encapsulation
+type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags_AccessLoopEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Data Link. The type is interface{} with range: 0..255.
+    DataLink interface{}
+
+    // Encaps 1. The type is interface{} with range: 0..255.
+    Encaps1 interface{}
+
+    // Encaps 2. The type is interface{} with range: 0..255.
+    Encaps2 interface{}
+}
+
+func (accessLoopEncapsulation *Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_Tags_AccessLoopEncapsulation) GetEntityData() *types.CommonEntityData {
+    accessLoopEncapsulation.EntityData.YFilter = accessLoopEncapsulation.YFilter
+    accessLoopEncapsulation.EntityData.YangName = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    accessLoopEncapsulation.EntityData.ParentYangName = "tags"
+    accessLoopEncapsulation.EntityData.SegmentPath = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessLoopEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessLoopEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessLoopEncapsulation.EntityData.Children = types.NewOrderedMap()
+    accessLoopEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    accessLoopEncapsulation.EntityData.Leafs.Append("data-link", types.YLeaf{"DataLink", accessLoopEncapsulation.DataLink})
+    accessLoopEncapsulation.EntityData.Leafs.Append("encaps1", types.YLeaf{"Encaps1", accessLoopEncapsulation.Encaps1})
+    accessLoopEncapsulation.EntityData.Leafs.Append("encaps2", types.YLeaf{"Encaps2", accessLoopEncapsulation.Encaps2})
+
+    accessLoopEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(accessLoopEncapsulation.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanOuterTag
+// VLAN Outer Tag
+type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanOuterTag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype. See IEEE 802.1Q for more information. The type is interface{}
+    // with range: 0..65535.
+    EtherType interface{}
+
+    // User Priority. The type is interface{} with range: 0..255.
+    UserPriority interface{}
+
+    // CFI. The type is interface{} with range: 0..255.
+    Cfi interface{}
+
+    // VLAN ID. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (vlanOuterTag *Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanOuterTag) GetEntityData() *types.CommonEntityData {
+    vlanOuterTag.EntityData.YFilter = vlanOuterTag.YFilter
+    vlanOuterTag.EntityData.YangName = "vlan-outer-tag"
+    vlanOuterTag.EntityData.BundleName = "cisco_ios_xr"
+    vlanOuterTag.EntityData.ParentYangName = "session-idb"
+    vlanOuterTag.EntityData.SegmentPath = "vlan-outer-tag"
+    vlanOuterTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanOuterTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanOuterTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanOuterTag.EntityData.Children = types.NewOrderedMap()
+    vlanOuterTag.EntityData.Leafs = types.NewOrderedMap()
+    vlanOuterTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", vlanOuterTag.EtherType})
+    vlanOuterTag.EntityData.Leafs.Append("user-priority", types.YLeaf{"UserPriority", vlanOuterTag.UserPriority})
+    vlanOuterTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", vlanOuterTag.Cfi})
+    vlanOuterTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", vlanOuterTag.VlanId})
+
+    vlanOuterTag.EntityData.YListKeys = []string {}
+
+    return &(vlanOuterTag.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanInnerTag
+// VLAN Inner Tag
+type Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanInnerTag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype. See IEEE 802.1Q for more information. The type is interface{}
+    // with range: 0..65535.
+    EtherType interface{}
+
+    // User Priority. The type is interface{} with range: 0..255.
+    UserPriority interface{}
+
+    // CFI. The type is interface{} with range: 0..255.
+    Cfi interface{}
+
+    // VLAN ID. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (vlanInnerTag *Pppoe_Nodes_Node_DisconnectHistory_Entry_SessionIdb_VlanInnerTag) GetEntityData() *types.CommonEntityData {
+    vlanInnerTag.EntityData.YFilter = vlanInnerTag.YFilter
+    vlanInnerTag.EntityData.YangName = "vlan-inner-tag"
+    vlanInnerTag.EntityData.BundleName = "cisco_ios_xr"
+    vlanInnerTag.EntityData.ParentYangName = "session-idb"
+    vlanInnerTag.EntityData.SegmentPath = "vlan-inner-tag"
+    vlanInnerTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanInnerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanInnerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanInnerTag.EntityData.Children = types.NewOrderedMap()
+    vlanInnerTag.EntityData.Leafs = types.NewOrderedMap()
+    vlanInnerTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", vlanInnerTag.EtherType})
+    vlanInnerTag.EntityData.Leafs.Append("user-priority", types.YLeaf{"UserPriority", vlanInnerTag.UserPriority})
+    vlanInnerTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", vlanInnerTag.Cfi})
+    vlanInnerTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", vlanInnerTag.VlanId})
+
+    vlanInnerTag.EntityData.YListKeys = []string {}
+
+    return &(vlanInnerTag.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique
+// PPPoE unique disconnect history for a given
+// node
+type Pppoe_Nodes_Node_DisconnectHistoryUnique struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The total number of disconnects. The type is slice of interface{} with
+    // range: 0..4294967295.
+    DisconnectCount []interface{}
+
+    // Array of disconnected subscribers. The type is slice of
+    // Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry.
+    Entry []*Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry
+}
+
+func (disconnectHistoryUnique *Pppoe_Nodes_Node_DisconnectHistoryUnique) GetEntityData() *types.CommonEntityData {
+    disconnectHistoryUnique.EntityData.YFilter = disconnectHistoryUnique.YFilter
+    disconnectHistoryUnique.EntityData.YangName = "disconnect-history-unique"
+    disconnectHistoryUnique.EntityData.BundleName = "cisco_ios_xr"
+    disconnectHistoryUnique.EntityData.ParentYangName = "node"
+    disconnectHistoryUnique.EntityData.SegmentPath = "disconnect-history-unique"
+    disconnectHistoryUnique.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disconnectHistoryUnique.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disconnectHistoryUnique.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disconnectHistoryUnique.EntityData.Children = types.NewOrderedMap()
+    disconnectHistoryUnique.EntityData.Children.Append("entry", types.YChild{"Entry", nil})
+    for i := range disconnectHistoryUnique.Entry {
+        disconnectHistoryUnique.EntityData.Children.Append(types.GetSegmentPath(disconnectHistoryUnique.Entry[i]), types.YChild{"Entry", disconnectHistoryUnique.Entry[i]})
+    }
+    disconnectHistoryUnique.EntityData.Leafs = types.NewOrderedMap()
+    disconnectHistoryUnique.EntityData.Leafs.Append("disconnect-count", types.YLeaf{"DisconnectCount", disconnectHistoryUnique.DisconnectCount})
+
+    disconnectHistoryUnique.EntityData.YListKeys = []string {}
+
+    return &(disconnectHistoryUnique.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry
+// Array of disconnected subscribers
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Time when disconnected. The type is interface{} with range:
+    // 0..18446744073709551615.
+    Timestamp interface{}
+
+    // Interface name. The type is string.
+    Ifname interface{}
+
+    // Disconnect Trigger. The type is PppoeMaSessionTrig.
+    Trigger interface{}
+
+    // Session IDB.
+    SessionIdb Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb
+}
+
+func (entry *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry) GetEntityData() *types.CommonEntityData {
+    entry.EntityData.YFilter = entry.YFilter
+    entry.EntityData.YangName = "entry"
+    entry.EntityData.BundleName = "cisco_ios_xr"
+    entry.EntityData.ParentYangName = "disconnect-history-unique"
+    entry.EntityData.SegmentPath = "entry"
+    entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    entry.EntityData.Children = types.NewOrderedMap()
+    entry.EntityData.Children.Append("session-idb", types.YChild{"SessionIdb", &entry.SessionIdb})
+    entry.EntityData.Leafs = types.NewOrderedMap()
+    entry.EntityData.Leafs.Append("timestamp", types.YLeaf{"Timestamp", entry.Timestamp})
+    entry.EntityData.Leafs.Append("ifname", types.YLeaf{"Ifname", entry.Ifname})
+    entry.EntityData.Leafs.Append("trigger", types.YLeaf{"Trigger", entry.Trigger})
+
+    entry.EntityData.YListKeys = []string {}
+
+    return &(entry.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb
+// Session IDB
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Interface interface{}
+
+    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    AccessInterface interface{}
+
+    // Session ID. The type is interface{} with range: 0..65535.
+    SessionId interface{}
+
+    // Sub Label. The type is interface{} with range: 0..4294967295.
+    SubLabel interface{}
+
+    // Peer Mac-Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    PeerMacAddress interface{}
+
+    // State. The type is PppoeMaSessionState.
+    State interface{}
+
+    // CDM Object Handle. The type is interface{} with range: 0..4294967295.
+    CdmObjectHandle interface{}
+
+    // Chkpt ID. The type is interface{} with range: 0..4294967295.
+    ChkptId interface{}
+
+    // Punted Count. The type is interface{} with range: 0..4294967295.
+    PuntedCount interface{}
+
+    // Port Limit. The type is interface{} with range: 0..4294967295.
+    PortLimit interface{}
+
+    // Is BBA Counted. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsCounted interface{}
+
+    // Is VLAN Outer Tag. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVlanOuterTag interface{}
+
+    // Is VLAN Inner Tag. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVlanInnerTag interface{}
+
+    // Is Cleanup Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsCleanupPending interface{}
+
+    // Is Disconnect Done Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDisconnectDonePending interface{}
+
+    // Is Delete Done Pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDeleteDonePending interface{}
+
+    // Is Interface Create Callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfCreateCallbackPending interface{}
+
+    // Is Publish Encaps Attr pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsPublishEncapsAttrPending interface{}
+
+    // Is Publish Encaps Attr Callback pending. The type is interface{} with
+    // range: -2147483648..2147483647.
+    IsPublishEncapsAttrCbPending interface{}
+
+    // Is Interface Delete Callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfDeleteCallbackPending interface{}
+
+    // Is Interface Delete pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIntfDeletePending interface{}
+
+    // Is IM Owned Resource. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImOwnedResource interface{}
+
+    // Is IM Final received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImFinalReceived interface{}
+
+    // Is IM Owned Resource missing. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsImOwnedResourceMissing interface{}
+
+    // Is AAA Start request callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaStartRequestCallbackPending interface{}
+
+    // Is AAA Owned Resource. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaOwnedResource interface{}
+
+    // Is AAA Disconnect Requested. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaDisconnectRequested interface{}
+
+    // Is AAA Disconnect Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAaaDisconnectReceived interface{}
+
+    // Is SubDB Activate callback pending. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSubDbActivateCallbackPending interface{}
+
+    // Is PADS Sent. The type is interface{} with range: -2147483648..2147483647.
+    IsPadsSent interface{}
+
+    // Is PADT Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsPadtReceived interface{}
+
+    // Is Session In Flight. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsInFlight interface{}
+
+    // Is RADIUS override enabled. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsRadiusOverride interface{}
+
+    // Expected Notifications. The type is interface{} with range: 0..255.
+    ExpectedNotifications interface{}
+
+    // Received Notifications. The type is interface{} with range: 0..255.
+    ReceivedNotifications interface{}
+
+    // SRG state. The type is PppoeMaSessionIdbSrgState.
+    SrgState interface{}
+
+    // Is SRG Data Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsSrgDataReceived interface{}
+
+    // Is IEDGE Data Received. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsIedgeDataReceived interface{}
+
+    // Tags.
+    Tags Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags
+
+    // VLAN Outer Tag.
+    VlanOuterTag Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanOuterTag
+
+    // VLAN Inner Tag.
+    VlanInnerTag Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanInnerTag
+}
+
+func (sessionIdb *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb) GetEntityData() *types.CommonEntityData {
+    sessionIdb.EntityData.YFilter = sessionIdb.YFilter
+    sessionIdb.EntityData.YangName = "session-idb"
+    sessionIdb.EntityData.BundleName = "cisco_ios_xr"
+    sessionIdb.EntityData.ParentYangName = "entry"
+    sessionIdb.EntityData.SegmentPath = "session-idb"
+    sessionIdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionIdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionIdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionIdb.EntityData.Children = types.NewOrderedMap()
+    sessionIdb.EntityData.Children.Append("tags", types.YChild{"Tags", &sessionIdb.Tags})
+    sessionIdb.EntityData.Children.Append("vlan-outer-tag", types.YChild{"VlanOuterTag", &sessionIdb.VlanOuterTag})
+    sessionIdb.EntityData.Children.Append("vlan-inner-tag", types.YChild{"VlanInnerTag", &sessionIdb.VlanInnerTag})
+    sessionIdb.EntityData.Leafs = types.NewOrderedMap()
+    sessionIdb.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", sessionIdb.Interface})
+    sessionIdb.EntityData.Leafs.Append("access-interface", types.YLeaf{"AccessInterface", sessionIdb.AccessInterface})
+    sessionIdb.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionIdb.SessionId})
+    sessionIdb.EntityData.Leafs.Append("sub-label", types.YLeaf{"SubLabel", sessionIdb.SubLabel})
+    sessionIdb.EntityData.Leafs.Append("peer-mac-address", types.YLeaf{"PeerMacAddress", sessionIdb.PeerMacAddress})
+    sessionIdb.EntityData.Leafs.Append("state", types.YLeaf{"State", sessionIdb.State})
+    sessionIdb.EntityData.Leafs.Append("cdm-object-handle", types.YLeaf{"CdmObjectHandle", sessionIdb.CdmObjectHandle})
+    sessionIdb.EntityData.Leafs.Append("chkpt-id", types.YLeaf{"ChkptId", sessionIdb.ChkptId})
+    sessionIdb.EntityData.Leafs.Append("punted-count", types.YLeaf{"PuntedCount", sessionIdb.PuntedCount})
+    sessionIdb.EntityData.Leafs.Append("port-limit", types.YLeaf{"PortLimit", sessionIdb.PortLimit})
+    sessionIdb.EntityData.Leafs.Append("is-counted", types.YLeaf{"IsCounted", sessionIdb.IsCounted})
+    sessionIdb.EntityData.Leafs.Append("is-vlan-outer-tag", types.YLeaf{"IsVlanOuterTag", sessionIdb.IsVlanOuterTag})
+    sessionIdb.EntityData.Leafs.Append("is-vlan-inner-tag", types.YLeaf{"IsVlanInnerTag", sessionIdb.IsVlanInnerTag})
+    sessionIdb.EntityData.Leafs.Append("is-cleanup-pending", types.YLeaf{"IsCleanupPending", sessionIdb.IsCleanupPending})
+    sessionIdb.EntityData.Leafs.Append("is-disconnect-done-pending", types.YLeaf{"IsDisconnectDonePending", sessionIdb.IsDisconnectDonePending})
+    sessionIdb.EntityData.Leafs.Append("is-delete-done-pending", types.YLeaf{"IsDeleteDonePending", sessionIdb.IsDeleteDonePending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-create-callback-pending", types.YLeaf{"IsIntfCreateCallbackPending", sessionIdb.IsIntfCreateCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-publish-encaps-attr-pending", types.YLeaf{"IsPublishEncapsAttrPending", sessionIdb.IsPublishEncapsAttrPending})
+    sessionIdb.EntityData.Leafs.Append("is-publish-encaps-attr-cb-pending", types.YLeaf{"IsPublishEncapsAttrCbPending", sessionIdb.IsPublishEncapsAttrCbPending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-delete-callback-pending", types.YLeaf{"IsIntfDeleteCallbackPending", sessionIdb.IsIntfDeleteCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-intf-delete-pending", types.YLeaf{"IsIntfDeletePending", sessionIdb.IsIntfDeletePending})
+    sessionIdb.EntityData.Leafs.Append("is-im-owned-resource", types.YLeaf{"IsImOwnedResource", sessionIdb.IsImOwnedResource})
+    sessionIdb.EntityData.Leafs.Append("is-im-final-received", types.YLeaf{"IsImFinalReceived", sessionIdb.IsImFinalReceived})
+    sessionIdb.EntityData.Leafs.Append("is-im-owned-resource-missing", types.YLeaf{"IsImOwnedResourceMissing", sessionIdb.IsImOwnedResourceMissing})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-start-request-callback-pending", types.YLeaf{"IsAaaStartRequestCallbackPending", sessionIdb.IsAaaStartRequestCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-owned-resource", types.YLeaf{"IsAaaOwnedResource", sessionIdb.IsAaaOwnedResource})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-disconnect-requested", types.YLeaf{"IsAaaDisconnectRequested", sessionIdb.IsAaaDisconnectRequested})
+    sessionIdb.EntityData.Leafs.Append("is-aaa-disconnect-received", types.YLeaf{"IsAaaDisconnectReceived", sessionIdb.IsAaaDisconnectReceived})
+    sessionIdb.EntityData.Leafs.Append("is-sub-db-activate-callback-pending", types.YLeaf{"IsSubDbActivateCallbackPending", sessionIdb.IsSubDbActivateCallbackPending})
+    sessionIdb.EntityData.Leafs.Append("is-pads-sent", types.YLeaf{"IsPadsSent", sessionIdb.IsPadsSent})
+    sessionIdb.EntityData.Leafs.Append("is-padt-received", types.YLeaf{"IsPadtReceived", sessionIdb.IsPadtReceived})
+    sessionIdb.EntityData.Leafs.Append("is-in-flight", types.YLeaf{"IsInFlight", sessionIdb.IsInFlight})
+    sessionIdb.EntityData.Leafs.Append("is-radius-override", types.YLeaf{"IsRadiusOverride", sessionIdb.IsRadiusOverride})
+    sessionIdb.EntityData.Leafs.Append("expected-notifications", types.YLeaf{"ExpectedNotifications", sessionIdb.ExpectedNotifications})
+    sessionIdb.EntityData.Leafs.Append("received-notifications", types.YLeaf{"ReceivedNotifications", sessionIdb.ReceivedNotifications})
+    sessionIdb.EntityData.Leafs.Append("srg-state", types.YLeaf{"SrgState", sessionIdb.SrgState})
+    sessionIdb.EntityData.Leafs.Append("is-srg-data-received", types.YLeaf{"IsSrgDataReceived", sessionIdb.IsSrgDataReceived})
+    sessionIdb.EntityData.Leafs.Append("is-iedge-data-received", types.YLeaf{"IsIedgeDataReceived", sessionIdb.IsIedgeDataReceived})
+
+    sessionIdb.EntityData.YListKeys = []string {}
+
+    return &(sessionIdb.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags
+// Tags
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is Service Name. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsServiceName interface{}
+
+    // Is Max Payload. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsMaxPayload interface{}
+
+    // Is Host Uniq. The type is interface{} with range: -2147483648..2147483647.
+    IsHostUniq interface{}
+
+    // Is Relay Session ID. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsRelaySessionId interface{}
+
+    // Is Vendor Specific. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsVendorSpecific interface{}
+
+    // Is IWF. The type is interface{} with range: -2147483648..2147483647.
+    IsIwf interface{}
+
+    // Is Remote ID. The type is interface{} with range: -2147483648..2147483647.
+    IsRemoteId interface{}
+
+    // Is Circuit ID. The type is interface{} with range: -2147483648..2147483647.
+    IsCircuitId interface{}
+
+    // Is DSL Tag. The type is interface{} with range: -2147483648..2147483647.
+    IsDslTag interface{}
+
+    // Service Name. The type is string.
+    ServiceName interface{}
+
+    // Max Payload. The type is interface{} with range: 0..4294967295.
+    MaxPayload interface{}
+
+    // Host Uniq. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    HostUniq interface{}
+
+    // Relay Session ID. The type is string with pattern:
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    RelaySessionId interface{}
+
+    // Remote ID. The type is string.
+    RemoteId interface{}
+
+    // Circuit ID. The type is string.
+    CircuitId interface{}
+
+    // Is DSL Actual Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualUp interface{}
+
+    // Is DSL Actual Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDown interface{}
+
+    // Is DSL Min Up. The type is interface{} with range: -2147483648..2147483647.
+    IsDslMinUp interface{}
+
+    // Is DSL Min Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinDown interface{}
+
+    // Is DSL Attain Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslAttainUp interface{}
+
+    // Is DSL Attain Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslAttainDown interface{}
+
+    // Is DSL Max Up. The type is interface{} with range: -2147483648..2147483647.
+    IsDslMaxUp interface{}
+
+    // Is DSL Max Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDown interface{}
+
+    // Is DSL Min Up Low. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinUpLow interface{}
+
+    // Is DSL Min Down Low. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMinDownLow interface{}
+
+    // Is DSL Max Delay Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDelayUp interface{}
+
+    // Is DSL Actual Delay Up. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDelayUp interface{}
+
+    // Is DSL Max Delay Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslMaxDelayDown interface{}
+
+    // Is DSL Actual Delay Down. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsDslActualDelayDown interface{}
+
+    // Is Access Loop Encapsulation. The type is interface{} with range:
+    // -2147483648..2147483647.
+    IsAccessLoopEncapsulation interface{}
+
+    // DSL Actual Up. The type is interface{} with range: 0..4294967295.
+    DslActualUp interface{}
+
+    // DSL Actual Down. The type is interface{} with range: 0..4294967295.
+    DslActualDown interface{}
+
+    // DSL Min Up. The type is interface{} with range: 0..4294967295.
+    DslMinUp interface{}
+
+    // DSL Min Down. The type is interface{} with range: 0..4294967295.
+    DslMinDown interface{}
+
+    // DSL Attain Up. The type is interface{} with range: 0..4294967295.
+    DslAttainUp interface{}
+
+    // DSL Attain Down. The type is interface{} with range: 0..4294967295.
+    DslAttainDown interface{}
+
+    // DSL Max Up. The type is interface{} with range: 0..4294967295.
+    DslMaxUp interface{}
+
+    // DSL Max Down. The type is interface{} with range: 0..4294967295.
+    DslMaxDown interface{}
+
+    // DSL Min Up Low. The type is interface{} with range: 0..4294967295.
+    DslMinUpLow interface{}
+
+    // DSL Min Down Low. The type is interface{} with range: 0..4294967295.
+    DslMinDownLow interface{}
+
+    // DSL Max Delay Up. The type is interface{} with range: 0..4294967295.
+    DslMaxDelayUp interface{}
+
+    // DSL Actual Delay Up. The type is interface{} with range: 0..4294967295.
+    DslActualDelayUp interface{}
+
+    // DSL Max Delay Down. The type is interface{} with range: 0..4294967295.
+    DslMaxDelayDown interface{}
+
+    // DSL Actual Delay Down. The type is interface{} with range: 0..4294967295.
+    DslActualDelayDown interface{}
+
+    // Access Loop Encapsulation.
+    AccessLoopEncapsulation Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags_AccessLoopEncapsulation
+}
+
+func (tags *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags) GetEntityData() *types.CommonEntityData {
+    tags.EntityData.YFilter = tags.YFilter
+    tags.EntityData.YangName = "tags"
+    tags.EntityData.BundleName = "cisco_ios_xr"
+    tags.EntityData.ParentYangName = "session-idb"
+    tags.EntityData.SegmentPath = "tags"
+    tags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tags.EntityData.Children = types.NewOrderedMap()
+    tags.EntityData.Children.Append("access-loop-encapsulation", types.YChild{"AccessLoopEncapsulation", &tags.AccessLoopEncapsulation})
+    tags.EntityData.Leafs = types.NewOrderedMap()
+    tags.EntityData.Leafs.Append("is-service-name", types.YLeaf{"IsServiceName", tags.IsServiceName})
+    tags.EntityData.Leafs.Append("is-max-payload", types.YLeaf{"IsMaxPayload", tags.IsMaxPayload})
+    tags.EntityData.Leafs.Append("is-host-uniq", types.YLeaf{"IsHostUniq", tags.IsHostUniq})
+    tags.EntityData.Leafs.Append("is-relay-session-id", types.YLeaf{"IsRelaySessionId", tags.IsRelaySessionId})
+    tags.EntityData.Leafs.Append("is-vendor-specific", types.YLeaf{"IsVendorSpecific", tags.IsVendorSpecific})
+    tags.EntityData.Leafs.Append("is-iwf", types.YLeaf{"IsIwf", tags.IsIwf})
+    tags.EntityData.Leafs.Append("is-remote-id", types.YLeaf{"IsRemoteId", tags.IsRemoteId})
+    tags.EntityData.Leafs.Append("is-circuit-id", types.YLeaf{"IsCircuitId", tags.IsCircuitId})
+    tags.EntityData.Leafs.Append("is-dsl-tag", types.YLeaf{"IsDslTag", tags.IsDslTag})
+    tags.EntityData.Leafs.Append("service-name", types.YLeaf{"ServiceName", tags.ServiceName})
+    tags.EntityData.Leafs.Append("max-payload", types.YLeaf{"MaxPayload", tags.MaxPayload})
+    tags.EntityData.Leafs.Append("host-uniq", types.YLeaf{"HostUniq", tags.HostUniq})
+    tags.EntityData.Leafs.Append("relay-session-id", types.YLeaf{"RelaySessionId", tags.RelaySessionId})
+    tags.EntityData.Leafs.Append("remote-id", types.YLeaf{"RemoteId", tags.RemoteId})
+    tags.EntityData.Leafs.Append("circuit-id", types.YLeaf{"CircuitId", tags.CircuitId})
+    tags.EntityData.Leafs.Append("is-dsl-actual-up", types.YLeaf{"IsDslActualUp", tags.IsDslActualUp})
+    tags.EntityData.Leafs.Append("is-dsl-actual-down", types.YLeaf{"IsDslActualDown", tags.IsDslActualDown})
+    tags.EntityData.Leafs.Append("is-dsl-min-up", types.YLeaf{"IsDslMinUp", tags.IsDslMinUp})
+    tags.EntityData.Leafs.Append("is-dsl-min-down", types.YLeaf{"IsDslMinDown", tags.IsDslMinDown})
+    tags.EntityData.Leafs.Append("is-dsl-attain-up", types.YLeaf{"IsDslAttainUp", tags.IsDslAttainUp})
+    tags.EntityData.Leafs.Append("is-dsl-attain-down", types.YLeaf{"IsDslAttainDown", tags.IsDslAttainDown})
+    tags.EntityData.Leafs.Append("is-dsl-max-up", types.YLeaf{"IsDslMaxUp", tags.IsDslMaxUp})
+    tags.EntityData.Leafs.Append("is-dsl-max-down", types.YLeaf{"IsDslMaxDown", tags.IsDslMaxDown})
+    tags.EntityData.Leafs.Append("is-dsl-min-up-low", types.YLeaf{"IsDslMinUpLow", tags.IsDslMinUpLow})
+    tags.EntityData.Leafs.Append("is-dsl-min-down-low", types.YLeaf{"IsDslMinDownLow", tags.IsDslMinDownLow})
+    tags.EntityData.Leafs.Append("is-dsl-max-delay-up", types.YLeaf{"IsDslMaxDelayUp", tags.IsDslMaxDelayUp})
+    tags.EntityData.Leafs.Append("is-dsl-actual-delay-up", types.YLeaf{"IsDslActualDelayUp", tags.IsDslActualDelayUp})
+    tags.EntityData.Leafs.Append("is-dsl-max-delay-down", types.YLeaf{"IsDslMaxDelayDown", tags.IsDslMaxDelayDown})
+    tags.EntityData.Leafs.Append("is-dsl-actual-delay-down", types.YLeaf{"IsDslActualDelayDown", tags.IsDslActualDelayDown})
+    tags.EntityData.Leafs.Append("is-access-loop-encapsulation", types.YLeaf{"IsAccessLoopEncapsulation", tags.IsAccessLoopEncapsulation})
+    tags.EntityData.Leafs.Append("dsl-actual-up", types.YLeaf{"DslActualUp", tags.DslActualUp})
+    tags.EntityData.Leafs.Append("dsl-actual-down", types.YLeaf{"DslActualDown", tags.DslActualDown})
+    tags.EntityData.Leafs.Append("dsl-min-up", types.YLeaf{"DslMinUp", tags.DslMinUp})
+    tags.EntityData.Leafs.Append("dsl-min-down", types.YLeaf{"DslMinDown", tags.DslMinDown})
+    tags.EntityData.Leafs.Append("dsl-attain-up", types.YLeaf{"DslAttainUp", tags.DslAttainUp})
+    tags.EntityData.Leafs.Append("dsl-attain-down", types.YLeaf{"DslAttainDown", tags.DslAttainDown})
+    tags.EntityData.Leafs.Append("dsl-max-up", types.YLeaf{"DslMaxUp", tags.DslMaxUp})
+    tags.EntityData.Leafs.Append("dsl-max-down", types.YLeaf{"DslMaxDown", tags.DslMaxDown})
+    tags.EntityData.Leafs.Append("dsl-min-up-low", types.YLeaf{"DslMinUpLow", tags.DslMinUpLow})
+    tags.EntityData.Leafs.Append("dsl-min-down-low", types.YLeaf{"DslMinDownLow", tags.DslMinDownLow})
+    tags.EntityData.Leafs.Append("dsl-max-delay-up", types.YLeaf{"DslMaxDelayUp", tags.DslMaxDelayUp})
+    tags.EntityData.Leafs.Append("dsl-actual-delay-up", types.YLeaf{"DslActualDelayUp", tags.DslActualDelayUp})
+    tags.EntityData.Leafs.Append("dsl-max-delay-down", types.YLeaf{"DslMaxDelayDown", tags.DslMaxDelayDown})
+    tags.EntityData.Leafs.Append("dsl-actual-delay-down", types.YLeaf{"DslActualDelayDown", tags.DslActualDelayDown})
+
+    tags.EntityData.YListKeys = []string {}
+
+    return &(tags.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags_AccessLoopEncapsulation
+// Access Loop Encapsulation
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags_AccessLoopEncapsulation struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Data Link. The type is interface{} with range: 0..255.
+    DataLink interface{}
+
+    // Encaps 1. The type is interface{} with range: 0..255.
+    Encaps1 interface{}
+
+    // Encaps 2. The type is interface{} with range: 0..255.
+    Encaps2 interface{}
+}
+
+func (accessLoopEncapsulation *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_Tags_AccessLoopEncapsulation) GetEntityData() *types.CommonEntityData {
+    accessLoopEncapsulation.EntityData.YFilter = accessLoopEncapsulation.YFilter
+    accessLoopEncapsulation.EntityData.YangName = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    accessLoopEncapsulation.EntityData.ParentYangName = "tags"
+    accessLoopEncapsulation.EntityData.SegmentPath = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessLoopEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessLoopEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accessLoopEncapsulation.EntityData.Children = types.NewOrderedMap()
+    accessLoopEncapsulation.EntityData.Leafs = types.NewOrderedMap()
+    accessLoopEncapsulation.EntityData.Leafs.Append("data-link", types.YLeaf{"DataLink", accessLoopEncapsulation.DataLink})
+    accessLoopEncapsulation.EntityData.Leafs.Append("encaps1", types.YLeaf{"Encaps1", accessLoopEncapsulation.Encaps1})
+    accessLoopEncapsulation.EntityData.Leafs.Append("encaps2", types.YLeaf{"Encaps2", accessLoopEncapsulation.Encaps2})
+
+    accessLoopEncapsulation.EntityData.YListKeys = []string {}
+
+    return &(accessLoopEncapsulation.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanOuterTag
+// VLAN Outer Tag
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanOuterTag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype. See IEEE 802.1Q for more information. The type is interface{}
+    // with range: 0..65535.
+    EtherType interface{}
+
+    // User Priority. The type is interface{} with range: 0..255.
+    UserPriority interface{}
+
+    // CFI. The type is interface{} with range: 0..255.
+    Cfi interface{}
+
+    // VLAN ID. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (vlanOuterTag *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanOuterTag) GetEntityData() *types.CommonEntityData {
+    vlanOuterTag.EntityData.YFilter = vlanOuterTag.YFilter
+    vlanOuterTag.EntityData.YangName = "vlan-outer-tag"
+    vlanOuterTag.EntityData.BundleName = "cisco_ios_xr"
+    vlanOuterTag.EntityData.ParentYangName = "session-idb"
+    vlanOuterTag.EntityData.SegmentPath = "vlan-outer-tag"
+    vlanOuterTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanOuterTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanOuterTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanOuterTag.EntityData.Children = types.NewOrderedMap()
+    vlanOuterTag.EntityData.Leafs = types.NewOrderedMap()
+    vlanOuterTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", vlanOuterTag.EtherType})
+    vlanOuterTag.EntityData.Leafs.Append("user-priority", types.YLeaf{"UserPriority", vlanOuterTag.UserPriority})
+    vlanOuterTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", vlanOuterTag.Cfi})
+    vlanOuterTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", vlanOuterTag.VlanId})
+
+    vlanOuterTag.EntityData.YListKeys = []string {}
+
+    return &(vlanOuterTag.EntityData)
+}
+
+// Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanInnerTag
+// VLAN Inner Tag
+type Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanInnerTag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Ethertype. See IEEE 802.1Q for more information. The type is interface{}
+    // with range: 0..65535.
+    EtherType interface{}
+
+    // User Priority. The type is interface{} with range: 0..255.
+    UserPriority interface{}
+
+    // CFI. The type is interface{} with range: 0..255.
+    Cfi interface{}
+
+    // VLAN ID. The type is interface{} with range: 0..65535.
+    VlanId interface{}
+}
+
+func (vlanInnerTag *Pppoe_Nodes_Node_DisconnectHistoryUnique_Entry_SessionIdb_VlanInnerTag) GetEntityData() *types.CommonEntityData {
+    vlanInnerTag.EntityData.YFilter = vlanInnerTag.YFilter
+    vlanInnerTag.EntityData.YangName = "vlan-inner-tag"
+    vlanInnerTag.EntityData.BundleName = "cisco_ios_xr"
+    vlanInnerTag.EntityData.ParentYangName = "session-idb"
+    vlanInnerTag.EntityData.SegmentPath = "vlan-inner-tag"
+    vlanInnerTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanInnerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanInnerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vlanInnerTag.EntityData.Children = types.NewOrderedMap()
+    vlanInnerTag.EntityData.Leafs = types.NewOrderedMap()
+    vlanInnerTag.EntityData.Leafs.Append("ether-type", types.YLeaf{"EtherType", vlanInnerTag.EtherType})
+    vlanInnerTag.EntityData.Leafs.Append("user-priority", types.YLeaf{"UserPriority", vlanInnerTag.UserPriority})
+    vlanInnerTag.EntityData.Leafs.Append("cfi", types.YLeaf{"Cfi", vlanInnerTag.Cfi})
+    vlanInnerTag.EntityData.Leafs.Append("vlan-id", types.YLeaf{"VlanId", vlanInnerTag.VlanId})
+
+    vlanInnerTag.EntityData.YListKeys = []string {}
+
+    return &(vlanInnerTag.EntityData)
 }
 
 // Pppoe_Nodes_Node_Statistics
@@ -1315,10 +2699,10 @@ type Pppoe_Nodes_Node_AccessInterface_Summaries_Summary struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface State. The type is interface{} with range: 0..4294967295.
@@ -1408,13 +2792,13 @@ type Pppoe_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     AccessInterfaceName interface{}
 
     // BBA Group. The type is string.
@@ -2276,7 +3660,7 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:
@@ -2380,7 +3764,7 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:

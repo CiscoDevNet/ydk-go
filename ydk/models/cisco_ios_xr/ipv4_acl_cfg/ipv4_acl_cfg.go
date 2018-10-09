@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv4-acl-and-prefix-list: IPv4 ACL configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_acl_cfg
 
@@ -28,9 +28,6 @@ func init() {
 type NextHopType string
 
 const (
-    // None next-hop.
-    NextHopType_none_next_hop NextHopType = "none-next-hop"
-
     // Regular next-hop.
     NextHopType_regular_next_hop NextHopType = "regular-next-hop"
 

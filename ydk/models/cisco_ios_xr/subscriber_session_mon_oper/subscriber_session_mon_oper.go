@@ -5,7 +5,7 @@
 // for the following management objects:
 //   session-mon: Sessionmon
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_session_mon_oper
 
@@ -246,7 +246,7 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // total. The type is interface{} with range: 0..4294967295.

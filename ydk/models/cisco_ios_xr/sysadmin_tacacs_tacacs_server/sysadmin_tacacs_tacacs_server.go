@@ -1,10 +1,4 @@
-// This module contains definitions
-// for the Calvados model objects.
-// 
 // This module defines the TACACS+ data model.
-// 
-// Copyright (c) 2012-2017 by Cisco Systems, Inc.
-// All rights reserved.
 package sysadmin_tacacs_tacacs_server
 
 import (
@@ -37,6 +31,9 @@ type TacacsServer struct {
     Host []*TacacsServer_Host
 
     
+    Requests TacacsServer_Requests
+
+    
     TestAuthentication TacacsServer_TestAuthentication
 
     
@@ -44,9 +41,6 @@ type TacacsServer struct {
 
     
     TestAccounting TacacsServer_TestAccounting
-
-    
-    Requests TacacsServer_Requests
 }
 
 func (tacacsServer *TacacsServer) GetEntityData() *types.CommonEntityData {
@@ -64,10 +58,10 @@ func (tacacsServer *TacacsServer) GetEntityData() *types.CommonEntityData {
     for i := range tacacsServer.Host {
         tacacsServer.EntityData.Children.Append(types.GetSegmentPath(tacacsServer.Host[i]), types.YChild{"Host", tacacsServer.Host[i]})
     }
+    tacacsServer.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests", types.YChild{"Requests", &tacacsServer.Requests})
     tacacsServer.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication", types.YChild{"TestAuthentication", &tacacsServer.TestAuthentication})
     tacacsServer.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization", types.YChild{"TestAuthorization", &tacacsServer.TestAuthorization})
     tacacsServer.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting", types.YChild{"TestAccounting", &tacacsServer.TestAccounting})
-    tacacsServer.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests", types.YChild{"Requests", &tacacsServer.Requests})
     tacacsServer.EntityData.Leafs = types.NewOrderedMap()
     tacacsServer.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", tacacsServer.Timeout})
     tacacsServer.EntityData.Leafs.Append("key", types.YLeaf{"Key", tacacsServer.Key})
@@ -119,96 +113,6 @@ func (host *TacacsServer_Host) GetEntityData() *types.CommonEntityData {
     host.EntityData.YListKeys = []string {"Ip", "Port"}
 
     return &(host.EntityData)
-}
-
-// TacacsServer_TestAuthentication
-// This type is a presence type.
-type TacacsServer_TestAuthentication struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Authentication. The type is string.
-    Authentication interface{}
-}
-
-func (testAuthentication *TacacsServer_TestAuthentication) GetEntityData() *types.CommonEntityData {
-    testAuthentication.EntityData.YFilter = testAuthentication.YFilter
-    testAuthentication.EntityData.YangName = "test-authentication"
-    testAuthentication.EntityData.BundleName = "cisco_ios_xr"
-    testAuthentication.EntityData.ParentYangName = "tacacs-server"
-    testAuthentication.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
-    testAuthentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    testAuthentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    testAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    testAuthentication.EntityData.Children = types.NewOrderedMap()
-    testAuthentication.EntityData.Leafs = types.NewOrderedMap()
-    testAuthentication.EntityData.Leafs.Append("authentication", types.YLeaf{"Authentication", testAuthentication.Authentication})
-
-    testAuthentication.EntityData.YListKeys = []string {}
-
-    return &(testAuthentication.EntityData)
-}
-
-// TacacsServer_TestAuthorization
-// This type is a presence type.
-type TacacsServer_TestAuthorization struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Authorization. The type is string.
-    Authorization interface{}
-}
-
-func (testAuthorization *TacacsServer_TestAuthorization) GetEntityData() *types.CommonEntityData {
-    testAuthorization.EntityData.YFilter = testAuthorization.YFilter
-    testAuthorization.EntityData.YangName = "test-authorization"
-    testAuthorization.EntityData.BundleName = "cisco_ios_xr"
-    testAuthorization.EntityData.ParentYangName = "tacacs-server"
-    testAuthorization.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization"
-    testAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    testAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    testAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    testAuthorization.EntityData.Children = types.NewOrderedMap()
-    testAuthorization.EntityData.Leafs = types.NewOrderedMap()
-    testAuthorization.EntityData.Leafs.Append("authorization", types.YLeaf{"Authorization", testAuthorization.Authorization})
-
-    testAuthorization.EntityData.YListKeys = []string {}
-
-    return &(testAuthorization.EntityData)
-}
-
-// TacacsServer_TestAccounting
-// This type is a presence type.
-type TacacsServer_TestAccounting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Accounting. The type is string.
-    Accounting interface{}
-}
-
-func (testAccounting *TacacsServer_TestAccounting) GetEntityData() *types.CommonEntityData {
-    testAccounting.EntityData.YFilter = testAccounting.YFilter
-    testAccounting.EntityData.YangName = "test-accounting"
-    testAccounting.EntityData.BundleName = "cisco_ios_xr"
-    testAccounting.EntityData.ParentYangName = "tacacs-server"
-    testAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
-    testAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    testAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    testAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    testAccounting.EntityData.Children = types.NewOrderedMap()
-    testAccounting.EntityData.Leafs = types.NewOrderedMap()
-    testAccounting.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", testAccounting.Accounting})
-
-    testAccounting.EntityData.YListKeys = []string {}
-
-    return &(testAccounting.EntityData)
 }
 
 // TacacsServer_Requests
@@ -302,5 +206,95 @@ func (ipv4 *TacacsServer_Requests_Ipv4) GetEntityData() *types.CommonEntityData 
     ipv4.EntityData.YListKeys = []string {"Addr", "Port"}
 
     return &(ipv4.EntityData)
+}
+
+// TacacsServer_TestAuthentication
+// This type is a presence type.
+type TacacsServer_TestAuthentication struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Authentication. The type is string.
+    Authentication interface{}
+}
+
+func (testAuthentication *TacacsServer_TestAuthentication) GetEntityData() *types.CommonEntityData {
+    testAuthentication.EntityData.YFilter = testAuthentication.YFilter
+    testAuthentication.EntityData.YangName = "test-authentication"
+    testAuthentication.EntityData.BundleName = "cisco_ios_xr"
+    testAuthentication.EntityData.ParentYangName = "tacacs-server"
+    testAuthentication.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
+    testAuthentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    testAuthentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    testAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    testAuthentication.EntityData.Children = types.NewOrderedMap()
+    testAuthentication.EntityData.Leafs = types.NewOrderedMap()
+    testAuthentication.EntityData.Leafs.Append("authentication", types.YLeaf{"Authentication", testAuthentication.Authentication})
+
+    testAuthentication.EntityData.YListKeys = []string {}
+
+    return &(testAuthentication.EntityData)
+}
+
+// TacacsServer_TestAuthorization
+// This type is a presence type.
+type TacacsServer_TestAuthorization struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Authorization. The type is string.
+    Authorization interface{}
+}
+
+func (testAuthorization *TacacsServer_TestAuthorization) GetEntityData() *types.CommonEntityData {
+    testAuthorization.EntityData.YFilter = testAuthorization.YFilter
+    testAuthorization.EntityData.YangName = "test-authorization"
+    testAuthorization.EntityData.BundleName = "cisco_ios_xr"
+    testAuthorization.EntityData.ParentYangName = "tacacs-server"
+    testAuthorization.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization"
+    testAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    testAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    testAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    testAuthorization.EntityData.Children = types.NewOrderedMap()
+    testAuthorization.EntityData.Leafs = types.NewOrderedMap()
+    testAuthorization.EntityData.Leafs.Append("authorization", types.YLeaf{"Authorization", testAuthorization.Authorization})
+
+    testAuthorization.EntityData.YListKeys = []string {}
+
+    return &(testAuthorization.EntityData)
+}
+
+// TacacsServer_TestAccounting
+// This type is a presence type.
+type TacacsServer_TestAccounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Accounting. The type is string.
+    Accounting interface{}
+}
+
+func (testAccounting *TacacsServer_TestAccounting) GetEntityData() *types.CommonEntityData {
+    testAccounting.EntityData.YFilter = testAccounting.YFilter
+    testAccounting.EntityData.YangName = "test-accounting"
+    testAccounting.EntityData.BundleName = "cisco_ios_xr"
+    testAccounting.EntityData.ParentYangName = "tacacs-server"
+    testAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
+    testAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    testAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    testAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    testAccounting.EntityData.Children = types.NewOrderedMap()
+    testAccounting.EntityData.Leafs = types.NewOrderedMap()
+    testAccounting.EntityData.Leafs.Append("accounting", types.YLeaf{"Accounting", testAccounting.Accounting})
+
+    testAccounting.EntityData.YListKeys = []string {}
+
+    return &(testAccounting.EntityData)
 }
 

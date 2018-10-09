@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_statsd_cfg
 
@@ -94,7 +94,7 @@ type Statistics_Period_ServiceAccounting struct {
     YFilter yfilter.YFilter
 
     // Collection polling period for service accounting collectors. The type is
-    // interface{} with range: 30..3600. The default value is 900.
+    // interface{} with range: 30..3600.
     PollingPeriod interface{}
 
     // Disable periodic statistics polling for service accounting collectors. The

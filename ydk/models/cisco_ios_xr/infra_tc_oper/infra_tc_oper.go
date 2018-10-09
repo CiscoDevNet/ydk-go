@@ -6,7 +6,7 @@
 //   traffic-collector: Global Traffic Collector configuration
 //     commands
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_tc_oper
 
@@ -117,7 +117,7 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -718,8 +718,11 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct
     // Prefix Address (V4 or V6 Format). The type is string.
     Prefix interface{}
 
-    // Label. The type is interface{} with range: 0..4294967295.
+    // SR Label. The type is interface{} with range: 0..4294967295.
     LabelXr interface{}
+
+    // LDP Label. The type is interface{} with range: 0..4294967295.
+    LdpLabel interface{}
 
     // Prefix is Active and collecting new Statistics. The type is bool.
     IsActive interface{}
@@ -750,6 +753,7 @@ func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Pref
     prefix.EntityData.Leafs.Append("label", types.YLeaf{"Label", prefix.Label})
     prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
     prefix.EntityData.Leafs.Append("label-xr", types.YLeaf{"LabelXr", prefix.LabelXr})
+    prefix.EntityData.Leafs.Append("ldp-label", types.YLeaf{"LdpLabel", prefix.LdpLabel})
     prefix.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", prefix.IsActive})
 
     prefix.EntityData.YListKeys = []string {}
@@ -981,7 +985,7 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct 
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -1266,8 +1270,11 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
     // Prefix Address (V4 or V6 Format). The type is string.
     Prefix interface{}
 
-    // Label. The type is interface{} with range: 0..4294967295.
+    // SR Label. The type is interface{} with range: 0..4294967295.
     LabelXr interface{}
+
+    // LDP Label. The type is interface{} with range: 0..4294967295.
+    LdpLabel interface{}
 
     // Prefix is Active and collecting new Statistics. The type is bool.
     IsActive interface{}
@@ -1298,6 +1305,7 @@ func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetEntityData() 
     prefix.EntityData.Leafs.Append("label", types.YLeaf{"Label", prefix.Label})
     prefix.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", prefix.Prefix})
     prefix.EntityData.Leafs.Append("label-xr", types.YLeaf{"LabelXr", prefix.LabelXr})
+    prefix.EntityData.Leafs.Append("ldp-label", types.YLeaf{"LdpLabel", prefix.LdpLabel})
     prefix.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", prefix.IsActive})
 
     prefix.EntityData.YListKeys = []string {}
@@ -1529,7 +1537,7 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.

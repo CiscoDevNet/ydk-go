@@ -26,9 +26,13 @@ module Cisco-IOS-XR-pmengine-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -135,6 +139,23 @@ module Cisco-IOS-XR-pmengine-cfg {
     }
     description
       "Gfp report";
+  }
+
+  typedef Pcs-threshold {
+    type enumeration {
+      enum "thresh-bip" {
+        value 83886080;
+        description
+          "PM PCS Bip thresh";
+      }
+      enum "thresh-frm-err" {
+        value 83886081;
+        description
+          "PM PCS frm-err thresh";
+      }
+    }
+    description
+      "Pcs threshold";
   }
 
   typedef Ho-vc-threshold {
@@ -946,134 +967,154 @@ module Cisco-IOS-XR-pmengine-cfg {
   typedef Optics-threshold {
     type enumeration {
       enum "thresh-opt-min" {
-        value 65552;
+        value 65554;
         description
           "PM Optics opt min threshold in dbm or uW";
       }
       enum "thresh-opr-min" {
-        value 65553;
+        value 65555;
         description
           "PM Optics opr min threshold in dbm or uW";
       }
       enum "thresh-lbc-min" {
-        value 65554;
+        value 65556;
         description
           "PM Optics lbc min threshold";
       }
       enum "thresh-lbc-pc-min" {
-        value 65555;
+        value 65557;
         description
           "PM Optics lbcpc min threshold";
       }
       enum "thresh-cd-min" {
-        value 65559;
+        value 65561;
         description
           "PM Optics cd min threshold";
       }
       enum "thresh-dgd-min" {
-        value 65560;
+        value 65562;
         description
           "PM Optics dgd min threshold";
       }
       enum "thresh-pmd-min" {
-        value 65561;
+        value 65563;
         description
           "PM Optics sopmd min threshold";
       }
       enum "thresh-osnr-min" {
-        value 65562;
+        value 65564;
         description
           "PM Optics osnr min threshold";
       }
       enum "thresh-pdl-min" {
-        value 65563;
+        value 65565;
         description
           "PM Optics pdl min threshold";
       }
       enum "thresh-pcr-min" {
-        value 65564;
+        value 65566;
         description
           "PM Optics pcr min threshold";
       }
       enum "thresh-pn-min" {
-        value 65565;
+        value 65567;
         description
           "PM Optics pn min threshold";
       }
       enum "thresh-rx-sig-pow-min" {
-        value 65566;
+        value 65568;
         description
           "PM Optics rx sig pow min threshold";
       }
       enum "thresh-low-sig-freq-off-min" {
-        value 65567;
+        value 65569;
         description
           "PM Optics low sig freq off min threshold";
       }
+      enum "thresh-ampli-gain-min" {
+        value 65570;
+        description
+          "PM Optics ampli gain min threshold";
+      }
+      enum "thresh-ampli-gain-tilt-min" {
+        value 65571;
+        description
+          "PM Optics ampli gain tilt min threshold";
+      }
       enum "thresh-opt-max" {
-        value 65568;
+        value 65572;
         description
           "PM Optics opt max threshold in dbm or uW";
       }
       enum "thresh-opr-max" {
-        value 65569;
+        value 65573;
         description
           "PM Optics opr max threshold in dbm or uW";
       }
       enum "thresh-lbc-max" {
-        value 65570;
+        value 65574;
         description
           "PM Optics lbc max threshold";
       }
       enum "thresh-lbc-pc-max" {
-        value 65571;
+        value 65575;
         description
           "PM Optics lbcpc max threshold";
       }
       enum "thresh-cd-max" {
-        value 65575;
+        value 65579;
         description
           "PM Optics cd max threshold";
       }
       enum "thresh-dgd-max" {
-        value 65576;
+        value 65580;
         description
           "PM Optics dgd max threshold";
       }
       enum "thresh-pmd-max" {
-        value 65577;
+        value 65581;
         description
           "PM Optics sopmd max threshold";
       }
       enum "thresh-osnr-max" {
-        value 65578;
+        value 65582;
         description
           "PM Optics osnr max threshold";
       }
       enum "thresh-pdl-max" {
-        value 65579;
+        value 65583;
         description
           "PM Optics pdl max threshold";
       }
       enum "thresh-pcr-max" {
-        value 65580;
+        value 65584;
         description
           "PM Optics pcr max threshold";
       }
       enum "thresh-pn-max" {
-        value 65581;
+        value 65585;
         description
           "PM Optics pn max threshold";
       }
       enum "thresh-rx-sig-pow-max" {
-        value 65582;
+        value 65586;
         description
           "PM Optics rx sig pow max threshold";
       }
       enum "thresh-low-sig-freq-off-max" {
-        value 65583;
+        value 65587;
         description
           "PM Optics low sig freq off max threshold";
+      }
+      enum "thresh-ampli-gain-max" {
+        value 65588;
+        description
+          "PM Optics ampli gain max threshold";
+      }
+      enum "thresh-ampli-gain-tilt-max" {
+        value 65589;
+        description
+          "PM Optics ampli gain tilt max threshold";
       }
     }
     description
@@ -1160,134 +1201,154 @@ module Cisco-IOS-XR-pmengine-cfg {
   typedef Optics-report {
     type enumeration {
       enum "report-opt-min" {
-        value 65552;
+        value 65554;
         description
           "PM Optics opt min report";
       }
       enum "report-opr-min" {
-        value 65553;
+        value 65555;
         description
           "PM Optics opr min report";
       }
       enum "report-lbc-min" {
-        value 65554;
+        value 65556;
         description
           "PM Optics lbc min report";
       }
       enum "report-lbc-pc-min" {
-        value 65555;
+        value 65557;
         description
           "PM Optics lbcpc min report";
       }
       enum "report-cd-min" {
-        value 65559;
+        value 65561;
         description
           "PM Optics cd min report";
       }
       enum "report-dgd-min" {
-        value 65560;
+        value 65562;
         description
           "PM Optics dgd min report";
       }
       enum "report-pmd-min" {
-        value 65561;
+        value 65563;
         description
           "PM Optics sopmd min report";
       }
       enum "report-osnr-min" {
-        value 65562;
+        value 65564;
         description
           "PM Optics osnr min report";
       }
       enum "report-pdl-min" {
-        value 65563;
+        value 65565;
         description
           "PM Optics pdl min report";
       }
       enum "report-pcr-min" {
-        value 65564;
+        value 65566;
         description
           "PM Optics pcr min report";
       }
       enum "report-pn-min" {
-        value 65565;
+        value 65567;
         description
           "PM Optics pn min report";
       }
       enum "report-rx-sig-pow-min" {
-        value 65566;
+        value 65568;
         description
           "PM Optics rx sig pow min report";
       }
       enum "report-low-sig-freq-off-min" {
-        value 65567;
+        value 65569;
         description
           "PM Optics low sig freq off min report";
       }
+      enum "report-ampli-gain-min" {
+        value 65570;
+        description
+          "PM Optics ampli gain min report";
+      }
+      enum "report-ampli-gain-tilt-min" {
+        value 65571;
+        description
+          "PM Optics ampli gain tilt min report";
+      }
       enum "report-opt-max" {
-        value 65568;
+        value 65572;
         description
           "PM Optics opt max report";
       }
       enum "report-opr-max" {
-        value 65569;
+        value 65573;
         description
           "PM Optics opr max report";
       }
       enum "report-lbc-max" {
-        value 65570;
+        value 65574;
         description
           "PM Optics lbc max report";
       }
       enum "report-lbc-pc-max" {
-        value 65571;
+        value 65575;
         description
           "PM Optics lbcpc max report";
       }
       enum "report-cd-max" {
-        value 65575;
+        value 65579;
         description
           "PM Optics cd max report";
       }
       enum "report-dgd-max" {
-        value 65576;
+        value 65580;
         description
           "PM Optics dgd max report";
       }
       enum "report-pmd-max" {
-        value 65577;
+        value 65581;
         description
           "PM Optics sopmd max report";
       }
       enum "report-osnr-max" {
-        value 65578;
+        value 65582;
         description
           "PM Optics osnr max report";
       }
       enum "report-pdl-max" {
-        value 65579;
+        value 65583;
         description
           "PM Optics pdl max report";
       }
       enum "report-pcr-max" {
-        value 65580;
+        value 65584;
         description
           "PM Optics pcr max report";
       }
       enum "report-pn-max" {
-        value 65581;
+        value 65585;
         description
           "PM Optics pn max report";
       }
       enum "report-rx-sig-pow-max" {
-        value 65582;
+        value 65586;
         description
           "PM Optics rx sig pow max report";
       }
       enum "report-low-sig-freq-off-max" {
-        value 65583;
+        value 65587;
         description
           "PM Optics low sig freq off max report";
+      }
+      enum "report-ampli-gain-max" {
+        value 65588;
+        description
+          "PM Optics ampli gain max report";
+      }
+      enum "report-ampli-gain-tilt-max" {
+        value 65589;
+        description
+          "PM Optics ampli gain tilt max report";
       }
     }
     description
@@ -2344,6 +2405,23 @@ module Cisco-IOS-XR-pmengine-cfg {
       "Secytx threshold";
   }
 
+  typedef Pcs-report {
+    type enumeration {
+      enum "report-bip" {
+        value 100663296;
+        description
+          "PM PCS Bip report";
+      }
+      enum "report-frm-err" {
+        value 100663297;
+        description
+          "PM PCS frm-err report";
+      }
+    }
+    description
+      "Pcs report";
+  }
+
   typedef Fec-report {
     type enumeration {
       enum "report-ec-bits" {
@@ -2757,7 +2835,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Stm Threshold Type";
               }
               leaf stm-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Stm Thresh Value";
@@ -2799,7 +2877,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Gfp Threshold Type";
               }
               leaf gfp-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Gfp Threshold Value";
@@ -2841,7 +2919,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Path Threshold Type";
               }
               leaf path-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Path Threshold Value";
@@ -2879,7 +2957,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ocn Threshold Type";
               }
               leaf ocn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ocn Threshold Value";
@@ -2921,7 +2999,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Gfp Threshold Type";
               }
               leaf gfp-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Gfp Thresh Value";
@@ -2949,7 +3027,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ether Threshold Type";
               }
               leaf ether-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ether Thresh Value";
@@ -2993,7 +3071,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -3021,7 +3099,7 @@ module Cisco-IOS-XR-pmengine-cfg {
             }
           }
           leaf tcm-number {
-            type int32;
+            type uint32;
             description
               "TCM number";
           }
@@ -3066,7 +3144,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ocn Threshold Type";
               }
               leaf ocn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ocn Thresh Value";
@@ -3094,7 +3172,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ether Threshold Type";
               }
               leaf ether-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ether Threshold Value";
@@ -3156,7 +3234,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "ho_vc Threshold Type";
               }
               leaf ho-vc-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "ho_vc Thresh Value";
@@ -3169,6 +3247,52 @@ module Cisco-IOS-XR-pmengine-cfg {
         description
           "Configure optics performance monitoring for 30
            sec";
+        container second30pcs {
+          description
+            "Configure pcs performance monitoring";
+          container second30pcs-thresholds {
+            description
+              "Configure pcs threshold";
+            list second30pcs-threshold {
+              key "pcs-threshold";
+              description
+                "none";
+              leaf pcs-threshold {
+                type Pcs-threshold;
+                description
+                  "Pcs Threshold Type";
+              }
+              leaf pcs-threshold-value {
+                type string {
+                  length "1..20";
+                }
+                mandatory true;
+                description
+                  "Pcs Threshold Value";
+              }
+            }
+          }
+          container second30pcs-reports {
+            description
+              "set pcs TCA reporting status";
+            list second30pcs-report {
+              key "pcs-report";
+              description
+                "none";
+              leaf pcs-report {
+                type Pcs-report;
+                description
+                  "Pcs Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description
+                  "PCS Report";
+              }
+            }
+          }
+        }
         container second30fec {
           description
             "Configure fec g709 performance monitoring";
@@ -3186,7 +3310,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..16";
+                  length "1..20";
                 }
                 mandatory true;
                 description
@@ -3250,7 +3374,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Optics Thresh Value";
               }
               leaf dbm {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "Used only for Opt and Opr,To Enter
@@ -3275,7 +3399,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyif Threshold Type";
               }
               leaf secyif-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyif Threshold Value";
@@ -3319,7 +3443,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyrx Threshold Type";
               }
               leaf secyrx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyrx Threshold Value";
@@ -3363,7 +3487,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -3407,7 +3531,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secytx Threshold Type";
               }
               leaf secytx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secytx Threshold Value";
@@ -3458,7 +3582,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -3486,7 +3610,7 @@ module Cisco-IOS-XR-pmengine-cfg {
             }
           }
           leaf tcm-number {
-            type int32;
+            type uint32;
             description
               "TCM number";
           }
@@ -3531,7 +3655,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Path Threshold Type";
               }
               leaf path-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Path Threshold Value";
@@ -3559,7 +3683,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -3608,7 +3732,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Optics Thresh Value";
               }
               leaf dbm {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "Used only for Opt and Opr,To Enter
@@ -3631,6 +3755,52 @@ module Cisco-IOS-XR-pmengine-cfg {
             }
           }
         }
+        container hour24pcs {
+          description
+            "Configure pcs performance monitoring";
+          container hour24pcs-thresholds {
+            description
+              "Configure pcs threshold";
+            list hour24pcs-threshold {
+              key "pcs-threshold";
+              description
+                "none";
+              leaf pcs-threshold {
+                type Pcs-threshold;
+                description
+                  "Pcs Threshold Type";
+              }
+              leaf pcs-threshold-value {
+                type string {
+                  length "1..20";
+                }
+                mandatory true;
+                description
+                  "Pcs Threshold Value";
+              }
+            }
+          }
+          container hour24pcs-reports {
+            description
+              "set pcs TCA reporting status";
+            list hour24pcs-report {
+              key "pcs-report";
+              description
+                "none";
+              leaf pcs-report {
+                type Pcs-report;
+                description
+                  "Pcs Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description
+                  "PCS Report";
+              }
+            }
+          }
+        }
         container hour24fec {
           description
             "Configure fec g709 performance monitoring";
@@ -3648,7 +3818,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..16";
+                  length "1..20";
                 }
                 mandatory true;
                 description
@@ -3713,7 +3883,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyif Threshold Type";
               }
               leaf secyif-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyif threshold value";
@@ -3757,7 +3927,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyrx Threshold Type";
               }
               leaf secyrx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyrx threshold value";
@@ -3781,7 +3951,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secytx Threshold Type";
               }
               leaf secytx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secytx threshold value";
@@ -3849,7 +4019,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "ho_vc Threshold Type";
               }
               leaf ho-vc-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "ho_vc Threshold Value";
@@ -3877,7 +4047,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Path Threshold Type";
               }
               leaf path-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Path Thresh Value";
@@ -3945,7 +4115,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Stm Threshold Type";
               }
               leaf stm-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Stm Threshold Value";
@@ -3973,7 +4143,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Path Threshold Type";
               }
               leaf path-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Path Thresh Value";
@@ -4011,7 +4181,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ocn Threshold Type";
               }
               leaf ocn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ocn Thresh Value";
@@ -4073,7 +4243,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -4121,7 +4291,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ocn Threshold Type";
               }
               leaf ocn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ocn Threshold Value";
@@ -4150,7 +4320,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Ether Threshold Type";
               }
               leaf ether-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Ether Threshold Value";
@@ -4213,7 +4383,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";
@@ -4246,7 +4416,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Optics Threshold Value";
               }
               leaf dbm {
-                type int32;
+                type uint32;
                 default "0";
                 description
                   "Used only for Opt and Opr,To Enter
@@ -4305,7 +4475,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyif Threshold Type";
               }
               leaf secyif-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyif Threshold Value";
@@ -4349,10 +4519,56 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secyrx Threshold Type";
               }
               leaf secyrx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secyrx Threshold Value";
+              }
+            }
+          }
+        }
+        container minute15pcs {
+          description
+            "Configure pcs performance monitoring";
+          container minute15pcs-reports {
+            description
+              "set pcs TCA reporting status";
+            list minute15pcs-report {
+              key "pcs-report";
+              description
+                "none";
+              leaf pcs-report {
+                type Pcs-report;
+                description
+                  "Pcs Report Type";
+              }
+              leaf enable {
+                type Report;
+                mandatory true;
+                description
+                  "PCS Report";
+              }
+            }
+          }
+          container minute15pcs-thresholds {
+            description
+              "Configure pcs threshold";
+            list minute15pcs-threshold {
+              key "pcs-threshold";
+              description
+                "none";
+              leaf pcs-threshold {
+                type Pcs-threshold;
+                description
+                  "Pcs Threshold Type";
+              }
+              leaf pcs-threshold-value {
+                type string {
+                  length "1..20";
+                }
+                mandatory true;
+                description
+                  "Pcs Threshold Value";
               }
             }
           }
@@ -4374,7 +4590,7 @@ module Cisco-IOS-XR-pmengine-cfg {
               }
               leaf fec-threshold-value {
                 type string {
-                  length "1..16";
+                  length "1..20";
                 }
                 mandatory true;
                 description
@@ -4439,7 +4655,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Secytx Threshold Type";
               }
               leaf secytx-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Secytx Threshold Value";
@@ -4463,7 +4679,7 @@ module Cisco-IOS-XR-pmengine-cfg {
                   "Otn Threshold Type";
               }
               leaf otn-threshold-value {
-                type int32;
+                type uint32;
                 mandatory true;
                 description
                   "Otn Threshold Value";

@@ -8,9 +8,6 @@ module Cisco-IOS-XR-ip-rsvp-oper {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
-  include Cisco-IOS-XR-ip-rsvp-oper-sub2 {
-    revision-date 2017-09-07;
-  }
   include Cisco-IOS-XR-ip-rsvp-oper-sub1 {
     revision-date 2017-09-07;
   }
@@ -36,7 +33,7 @@ module Cisco-IOS-XR-ip-rsvp-oper {
        rsvp-standby: RSVP operational data for standby role
        rsvp: rsvp
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -477,36 +474,6 @@ module Cisco-IOS-XR-ip-rsvp-oper {
             "VRF Name";
         }
         uses RSVP-MGMT-RESERVATION-COMPACT;
-      }
-    }
-  }
-
-  grouping OPEN-CONFIG {
-    description
-      "Common node of rsvp, rsvp-standby";
-    container open-config {
-      description
-        "OpenConfig info";
-      container global-counters {
-        description
-          "Platform wide RSVP statistics and counters";
-        uses MPLS-RSVP-GLOBAL-COUNTERS;
-      }
-      container interface-counters {
-        description
-          "Table of info about RSVP-enabled interface
-           counters for OpenConfig";
-        list interface-counter {
-          key "interface-name";
-          description
-            "Info about an RSVP-enabled interface counters";
-          leaf interface-name {
-            type xr:Interface-name;
-            description
-              "Interface name";
-          }
-          uses MPLS-RSVP-INTERFACE-COUNTERS;
-        }
       }
     }
   }
@@ -1316,7 +1283,6 @@ module Cisco-IOS-XR-ip-rsvp-oper {
     uses HELLO-INSTANCE-BRIEF-TABLE;
     uses AUTHENTICATION-DETAIL-TABLE;
     uses RSB-BRIEF-TABLE;
-    uses OPEN-CONFIG;
     uses COUNTERS;
     uses INTERFACE-DETAILED-TABLE;
     uses CONTROLLER-BRIEF-TABLE;
@@ -1494,7 +1460,6 @@ module Cisco-IOS-XR-ip-rsvp-oper {
     uses HELLO-INSTANCE-BRIEF-TABLE;
     uses AUTHENTICATION-DETAIL-TABLE;
     uses RSB-BRIEF-TABLE;
-    uses OPEN-CONFIG;
     uses COUNTERS;
     uses INTERFACE-DETAILED-TABLE;
     uses CONTROLLER-BRIEF-TABLE;

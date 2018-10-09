@@ -6,7 +6,7 @@
 //   ipv4arm: IPv4 Address Repository Manager (IPv4 ARM)
 //     operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_iarm_v4_oper
 
@@ -33,7 +33,7 @@ type Ipv4arm struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MulticastHostInterface interface{}
 
     // IPv4 ARM address database information.
@@ -218,7 +218,7 @@ type Ipv4arm_Addresses_Vrfs_Vrf_Networks_Network struct {
     // Prefix Length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // Interface name. The type is string.
@@ -395,7 +395,7 @@ type Ipv4arm_Addresses_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Referenced Interface - only valid for an unnumbered interface. The type is

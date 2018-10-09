@@ -5,7 +5,7 @@
 // for the following management objects:
 //   lmp: Main common OLM/LMP configuration container
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lmp_cfg
 
@@ -264,7 +264,7 @@ type Lmp_GmplsUni_RouterId struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Name of interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Name of interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Local router ID (IPv4 Address). The type is string with pattern:
@@ -332,7 +332,7 @@ type Lmp_GmplsUni_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Enable the OLM/LMP application on this controller. The type is interface{}.

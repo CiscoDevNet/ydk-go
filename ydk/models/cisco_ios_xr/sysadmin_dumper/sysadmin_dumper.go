@@ -1,14 +1,8 @@
-// This module contains definitions
-// for the Calvados model objects.
-// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin dumper to
 // configure file path options to copy the core files to.
 // 
 // Copyright(c) 2015-2017 by Cisco Systems, Inc.
-// All rights reserved.
-// 
-// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_dumper
 

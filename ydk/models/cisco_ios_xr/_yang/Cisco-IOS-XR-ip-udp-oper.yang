@@ -6,16 +6,16 @@ module Cisco-IOS-XR-ip-udp-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub4 {
-    revision-date 2017-09-07;
+    revision-date 2018-03-04;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub3 {
-    revision-date 2017-09-07;
+    revision-date 2018-03-04;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub2 {
-    revision-date 2017-09-07;
+    revision-date 2018-03-04;
   }
   include Cisco-IOS-XR-ip-udp-oper-sub1 {
-    revision-date 2017-09-07;
+    revision-date 2018-03-04;
   }
 
   organization
@@ -39,9 +39,13 @@ module Cisco-IOS-XR-ip-udp-oper {
        udp: IP UDP Operational Data
        udp-connection: udp connection
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-03-04 {
+    description
+      "PCB_ID argument is passed in string format.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -160,9 +164,7 @@ module Cisco-IOS-XR-ip-udp-oper {
               description
                 "Satistics associated with a particular PCB";
               leaf pcb-address {
-                type uint32 {
-                  range "0..4294967295";
-                }
+                type xr:Cisco-ios-xr-string;
                 description
                   "Protocol Control Block address";
               }
@@ -214,9 +216,7 @@ module Cisco-IOS-XR-ip-udp-oper {
             description
               "Detail information about a UDP connection";
             leaf pcb-address {
-              type uint32 {
-                range "0..4294967295";
-              }
+              type xr:Cisco-ios-xr-string;
               description
                 "Protocol Control Block address";
             }
@@ -231,9 +231,7 @@ module Cisco-IOS-XR-ip-udp-oper {
             description
               "Brief information about a UDP connection";
             leaf pcb-address {
-              type uint32 {
-                range "0..4294967295";
-              }
+              type xr:Cisco-ios-xr-string;
               description
                 "Protocol Control Block address";
             }

@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_hsrp_cfg
 
@@ -116,7 +116,7 @@ type Hsrp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // HSRP MGO slave MAC refresh rate. The type is interface{} with range:
@@ -348,7 +348,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Bfd struct {
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -413,7 +413,7 @@ type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1279,7 +1279,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This
@@ -1319,7 +1319,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Bfd struct {
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1775,7 +1775,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Bfd struct {
     Address interface{}
 
     // Interface name to run BFD. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1944,7 +1944,7 @@ type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_Trac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface being tracked. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..255. This

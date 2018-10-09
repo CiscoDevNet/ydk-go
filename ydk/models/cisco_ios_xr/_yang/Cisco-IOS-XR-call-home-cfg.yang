@@ -26,9 +26,13 @@ module Cisco-IOS-XR-call-home-cfg {
      for the following management objects:
        call-home: Set CallHome parameters
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-21 {
+    description
+      "Remove container smart-licensing.";
+  }
   revision 2017-03-13 {
     description
       "Initial version.";
@@ -252,22 +256,6 @@ module Cisco-IOS-XR-call-home-cfg {
         type boolean;
         description
           "Active syslog throttling";
-      }
-    }
-    container smart-licensing {
-      description
-        "Enable/disable licensing messages. By default is
-         enabled.";
-      leaf profile-name {
-        type string;
-        description
-          "To specify existing profile name used for TG so
-           that licensing message";
-      }
-      leaf active {
-        type empty;
-        description
-          "Active the smart-licensing";
       }
     }
     container http-proxy {

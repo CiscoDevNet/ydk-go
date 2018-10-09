@@ -5,7 +5,7 @@
 // for the following management objects:
 //   mfwd: Multicast routing configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_mfwd_cfg
 
@@ -236,7 +236,7 @@ type Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule struct {
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -302,7 +302,7 @@ type Mfwd_DefaultContext_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -478,7 +478,7 @@ type Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule struct {
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -544,7 +544,7 @@ type Mfwd_DefaultContext_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -763,7 +763,7 @@ type Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule struct {
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -829,7 +829,7 @@ type Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:
@@ -979,7 +979,7 @@ type Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule struct {
     NeighborAddress interface{}
 
     // The name of the RPF interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 }
 
@@ -1045,7 +1045,7 @@ type Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // TTL threshold for multicast packets. The type is interface{} with range:

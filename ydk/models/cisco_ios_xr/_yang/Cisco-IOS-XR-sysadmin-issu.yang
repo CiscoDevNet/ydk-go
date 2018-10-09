@@ -9,8 +9,30 @@ module Cisco-IOS-XR-sysadmin-issu {
     prefix ietf-types;
   }
 
+  organization
+    "Cisco Systems Inc.";
+  contact
+    "Cisco Systems, Inc.
+     Customer Service
+     
+     Postal: 170 West Tasman Drive
+     San Jose, CA 95134
+     
+     Tel: +1 800 553-NETS
+     
+     E-mail: cs-yang@cisco.com";
   description
-    "Execution and monitoring of sysadmin ISSU operations ";
+    "This module contains a collection of YANG
+     definitions for executing and monitoring Cisco IOS-XR
+     sysadmin ISSU operations.
+     
+     Copyright(c) 2016-2018 by Cisco Systems, Inc.
+     All rights reserved.";
+
+  revision 2018-03-12 {
+    description
+      "Initial revision";
+  }
 
   typedef op-start-result {
     type enumeration {

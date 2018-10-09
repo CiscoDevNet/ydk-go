@@ -28,7 +28,7 @@ module Cisco-IOS-XR-ifmgr-cfg {
          for interfaces
        interface-configurations: interface configurations
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {

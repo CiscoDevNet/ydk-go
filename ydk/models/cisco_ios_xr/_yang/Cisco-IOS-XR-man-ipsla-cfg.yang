@@ -36,7 +36,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -1184,6 +1184,15 @@ module Cisco-IOS-XR-man-ipsla-cfg {
     container common {
       description
         "IPSLA application common configuration";
+      container hardware-timestamp {
+        description
+          "Hardware Timestamp configuration";
+        leaf disable {
+          type empty;
+          description
+            "states true if hw-timestamp is disabled";
+        }
+      }
       container authentication {
         description
           "Authenticaion configuration";
@@ -2316,6 +2325,19 @@ module Cisco-IOS-XR-man-ipsla-cfg {
     container responder {
       description
         "Responder configuration";
+      container twamp {
+        description
+          "Responder TWAMP configuration";
+        leaf timeout {
+          type uint32 {
+            range "1..604800";
+          }
+          units "second";
+          default "900";
+          description
+            "Configure responder timeout value in seconds";
+        }
+      }
       container type {
         description
           "Configure IPSLA Responder port type";
@@ -2353,11 +2375,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
           }
         }
       }
-      leaf enable {
-        type empty;
-        description
-          "Starts the responder process";
-      }
     }
     container mpls-discovery {
       description
@@ -2374,6 +2391,27 @@ module Cisco-IOS-XR-man-ipsla-cfg {
           description
             "Specify a discovery refresh interval";
         }
+      }
+    }
+    container server-twamp {
+      description
+        "IPPM Server configuration";
+      leaf inactivity-timer {
+        type uint32 {
+          range "1..6000";
+        }
+        units "second";
+        default "900";
+        description
+          "Configure ippmserver inactivity timer value in
+           seconds";
+      }
+      leaf port {
+        type xr:Cisco-ios-xr-port-number;
+        default "862";
+        description
+          "Configure port number for ippmserver listening
+           port";
       }
     }
   }

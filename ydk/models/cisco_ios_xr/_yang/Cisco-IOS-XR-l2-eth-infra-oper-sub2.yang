@@ -26,7 +26,7 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR l2-eth-infra package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -49,6 +49,63 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
     }
     description
       "Layer 2 vs. Layer 3 Terminated Service";
+  }
+
+  typedef Vlan-encaps {
+    type enumeration {
+      enum "no-encapsulation" {
+        value 0;
+        description
+          "No encapsulation";
+      }
+      enum "dot1q" {
+        value 1;
+        description
+          "IEEE 802.1Q encapsulation";
+      }
+      enum "qinq" {
+        value 2;
+        description
+          "Double 802.1Q encapsulation";
+      }
+      enum "qin-any" {
+        value 3;
+        description
+          "Double 802.1Q wildcarded encapsulation";
+      }
+      enum "dot1q-native" {
+        value 4;
+        description
+          "IEEE 802.1Q native VLAN encapsulation";
+      }
+      enum "dot1ad" {
+        value 5;
+        description
+          "IEEE 802.1ad encapsulation";
+      }
+      enum "dot1ad-native" {
+        value 6;
+        description
+          "IEEE 802.1ad native VLAN encapsulation";
+      }
+      enum "service-instance" {
+        value 7;
+        description
+          "Ethernet Service Instance";
+      }
+      enum "dot1ad-dot1q" {
+        value 8;
+        description
+          "IEEE 802.1ad 802.1Q encapsulation";
+      }
+      enum "dot1ad-any" {
+        value 9;
+        description
+          "IEEE 802.1ad wildcard 802.1Q encapsulation";
+      }
+    }
+    description
+      "VLAN encapsulation";
   }
 
   typedef Mac-address {
@@ -153,61 +210,26 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
       "Tag ethertype";
   }
 
-  typedef Vlan-encaps {
+  typedef Vlan-switched-mode {
     type enumeration {
-      enum "no-encapsulation" {
+      enum "none" {
         value 0;
         description
-          "No encapsulation";
+          "Disabled";
       }
-      enum "dot1q" {
+      enum "trunk-port" {
         value 1;
         description
-          "IEEE 802.1Q encapsulation";
+          "Trunk port";
       }
-      enum "qinq" {
+      enum "access-port" {
         value 2;
         description
-          "Double 802.1Q encapsulation";
-      }
-      enum "qin-any" {
-        value 3;
-        description
-          "Double 802.1Q wildcarded encapsulation";
-      }
-      enum "dot1q-native" {
-        value 4;
-        description
-          "IEEE 802.1Q native VLAN encapsulation";
-      }
-      enum "dot1ad" {
-        value 5;
-        description
-          "IEEE 802.1ad encapsulation";
-      }
-      enum "dot1ad-native" {
-        value 6;
-        description
-          "IEEE 802.1ad native VLAN encapsulation";
-      }
-      enum "service-instance" {
-        value 7;
-        description
-          "Ethernet Service Instance";
-      }
-      enum "dot1ad-dot1q" {
-        value 8;
-        description
-          "IEEE 802.1ad 802.1Q encapsulation";
-      }
-      enum "dot1ad-any" {
-        value 9;
-        description
-          "IEEE 802.1ad wildcard 802.1Q encapsulation";
+          "Access port";
       }
     }
     description
-      "VLAN encapsulation";
+      "VLAN-Switched mode";
   }
 
   typedef Eth-filtering {
@@ -347,124 +369,6 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
     }
     description
       "Im state enum";
-  }
-
-  grouping EFP-TAG-LOCAL-TRAFFIC-STACK {
-    description
-      "EFP TAG LOCAL TRAFFIC STACK";
-    list local-traffic-tag {
-      description
-        "VLAN tags for locally-sourced traffic";
-      uses EFP-VLAN-TAG;
-    }
-  }
-
-  grouping EFP-VLAN-TAG {
-    description
-      "EFP VLAN TAG";
-    leaf ethertype {
-      type Efp-tag-etype;
-      description
-        "Ethertype of tag";
-    }
-    leaf vlan-id {
-      type Vlan-tag-value;
-      description
-        "VLAN Id";
-    }
-  }
-
-  grouping EFP-RANGE-TYPE {
-    description
-      "EFP RANGE TYPE";
-    leaf vlan-id-low {
-      type Vlan-tag-value;
-      description
-        "VLAN ID Low";
-    }
-    leaf vlan-id-high {
-      type Vlan-tag-value;
-      description
-        "VLAN ID High";
-    }
-  }
-
-  grouping EFP-TAG-MATCH {
-    description
-      "EFP TAG MATCH";
-    leaf ethertype {
-      type Efp-tag-etype;
-      description
-        "Ethertype of tag to match";
-    }
-    leaf priority {
-      type Efp-tag-priority;
-      description
-        "Priority to match";
-    }
-    list vlan-range {
-      description
-        "VLAN Ids to match";
-      uses EFP-RANGE-TYPE;
-    }
-  }
-
-  grouping EFP-DESCRIPTION {
-    description
-      "EFP DESCRIPTION";
-    container local-traffic-stack {
-      description
-        "VLAN tags for locally-sourced traffic";
-      uses EFP-TAG-LOCAL-TRAFFIC-STACK;
-    }
-    leaf payload-ethertype {
-      type Efp-payload-etype;
-      description
-        "Payload Ethertype to match";
-    }
-    leaf tags-popped {
-      type uint16;
-      description
-        "Number of tags popped on ingress";
-    }
-    leaf is-exact-match {
-      type boolean;
-      description
-        "Whether the packet must match the encapsulation
-         exactly, with no further inner tags";
-    }
-    leaf is-native-vlan {
-      type boolean;
-      description
-        "Whether this represents the native VLAN on the
-         port";
-    }
-    leaf is-native-preserving {
-      type boolean;
-      description
-        "Whether the native VLAN is customer-tag
-         preserving";
-    }
-    leaf source-mac-match {
-      type Mac-address;
-      description
-        "The source MAC address to match on ingress";
-    }
-    leaf destination-mac-match {
-      type Mac-address;
-      description
-        "The destination MAC address to match on ingress";
-    }
-    list tags-to-match {
-      description
-        "Tags to match on ingress packets";
-      uses EFP-TAG-MATCH;
-    }
-    list pushe {
-      description
-        "VLAN tags pushed on egress";
-      uses EFP-VLAN-TAG;
-    }
   }
 
   grouping VLAN-DOUBLE-TAG-STACK {
@@ -613,6 +517,144 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
     }
   }
 
+  grouping EFP-TAG-LOCAL-TRAFFIC-STACK {
+    description
+      "EFP TAG LOCAL TRAFFIC STACK";
+    list local-traffic-tag {
+      description
+        "VLAN tags for locally-sourced traffic";
+      uses EFP-VLAN-TAG;
+    }
+  }
+
+  grouping EFP-VLAN-TAG {
+    description
+      "EFP VLAN TAG";
+    leaf ethertype {
+      type Efp-tag-etype;
+      description
+        "Ethertype of tag";
+    }
+    leaf vlan-id {
+      type Vlan-tag-value;
+      description
+        "VLAN Id";
+    }
+  }
+
+  grouping EFP-RANGE-TYPE {
+    description
+      "EFP RANGE TYPE";
+    leaf vlan-id-low {
+      type Vlan-tag-value;
+      description
+        "VLAN ID Low";
+    }
+    leaf vlan-id-high {
+      type Vlan-tag-value;
+      description
+        "VLAN ID High";
+    }
+  }
+
+  grouping EFP-TAG-MATCH {
+    description
+      "EFP TAG MATCH";
+    leaf ethertype {
+      type Efp-tag-etype;
+      description
+        "Ethertype of tag to match";
+    }
+    leaf priority {
+      type Efp-tag-priority;
+      description
+        "Priority to match";
+    }
+    list vlan-range {
+      description
+        "VLAN Ids to match";
+      uses EFP-RANGE-TYPE;
+    }
+  }
+
+  grouping EFP-DESCRIPTION {
+    description
+      "EFP DESCRIPTION";
+    container local-traffic-stack {
+      description
+        "VLAN tags for locally-sourced traffic";
+      uses EFP-TAG-LOCAL-TRAFFIC-STACK;
+    }
+    leaf payload-ethertype {
+      type Efp-payload-etype;
+      description
+        "Payload Ethertype to match";
+    }
+    leaf tags-popped {
+      type uint16;
+      description
+        "Number of tags popped on ingress";
+    }
+    leaf is-exact-match {
+      type boolean;
+      description
+        "Whether the packet must match the encapsulation
+         exactly, with no further inner tags";
+    }
+    leaf is-native-vlan {
+      type boolean;
+      description
+        "Whether this represents the native VLAN on the
+         port";
+    }
+    leaf is-native-preserving {
+      type boolean;
+      description
+        "Whether the native VLAN is customer-tag
+         preserving";
+    }
+    leaf source-mac-match {
+      type Mac-address;
+      description
+        "The source MAC address to match on ingress";
+    }
+    leaf destination-mac-match {
+      type Mac-address;
+      description
+        "The destination MAC address to match on ingress";
+    }
+    list tags-to-match {
+      description
+        "Tags to match on ingress packets";
+      uses EFP-TAG-MATCH;
+    }
+    list pushe {
+      description
+        "VLAN tags pushed on egress";
+      uses EFP-VLAN-TAG;
+    }
+  }
+
+  grouping VLAN-SWITCHED-INFO {
+    description
+      "VLAN-Switched information";
+    container trunk-vlan-ranges {
+      description
+        "VLAN-Switched Trunk VLAN ranges";
+      uses EFP-DESCRIPTION;
+    }
+    leaf mode {
+      type Vlan-switched-mode;
+      description
+        "VLAN-Switched mode";
+    }
+    leaf access-vlan {
+      type Vlan-tag-value;
+      description
+        "VLAN-Switched Access VLAN";
+    }
+  }
+
   grouping VLAN-TRUNK-L3-SUB-INTFS {
     description
       "Layer 3 Terminated Subinterfaces";
@@ -722,6 +764,11 @@ submodule Cisco-IOS-XR-l2-eth-infra-oper-sub2 {
       description
         "Layer 3 Terminated Subinterfaces";
       uses VLAN-TRUNK-L3-SUB-INTFS;
+    }
+    container vlan-switched {
+      description
+        "VLAN-Switched information";
+      uses VLAN-SWITCHED-INFO;
     }
     leaf interface-xr {
       type xr:Interface-name;

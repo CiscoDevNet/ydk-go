@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR spirit-install-instmgr package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -35,392 +35,284 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
       "IOS XR 6.0 revision.";
   }
 
-  typedef Node-role-et {
-    type enumeration {
-      enum "node-unknown" {
-        description
-          "Unknown";
-      }
-      enum "node-active" {
-        description
-          "Active";
-      }
-      enum "node-standby" {
-        description
-          "Standby";
-      }
-      enum "node-unusable" {
-        description
-          "Unusable";
-      }
-    }
+  typedef Install-bag-optional-string {
+    type string;
     description
-      "node role";
+      "Install bag optional string";
   }
 
-  typedef Issudir-node-status-et {
-    type enumeration {
-      enum "not-issu-ready" {
-        description
-          "Not ISSU Ready";
-      }
-      enum "issu-ready" {
-        description
-          "ISSU Ready";
-      }
-      enum "isus-go" {
-        description
-          "ISSU Go";
-      }
-      enum "node-fail" {
-        description
-          "Node Fail";
-      }
-    }
+  grouping CURRENT-INSTALL-OPERATION {
     description
-      "ISSU node status";
-  }
-
-  typedef Issu-node-role-et {
-    type enumeration {
-      enum "unknown-role" {
-        description
-          "Unknown";
-      }
-      enum "primary-role" {
-        description
-          "Primary";
-      }
-      enum "secondary-role" {
-        description
-          "Secondary";
-      }
-      enum "tertiary-role" {
-        description
-          "Tertiary";
-      }
-    }
-    description
-      "ISSU role";
-  }
-
-  typedef Card-type-et {
-    type enumeration {
-      enum "card-rp" {
-        description
-          "Card RP";
-      }
-      enum "card-drp" {
-        description
-          "Card DRP";
-      }
-      enum "card-lc" {
-        description
-          "Card LC";
-      }
-      enum "card-sc" {
-        description
-          "Card SC";
-      }
-      enum "card-sp" {
-        description
-          "Card SP";
-      }
-      enum "card-other" {
-        description
-          "Card Other";
-      }
-    }
-    description
-      "card type";
-  }
-
-  typedef Isd-error-et {
-    type enumeration {
-      enum "none" {
-        description
-          "ISD ERROR NONE";
-      }
-      enum "not-compatible" {
-        description
-          "ISD ERROR NOT COMPATIBLE";
-      }
-      enum "not-enough-resource" {
-        description
-          "ISD ERROR NOT ENOUGH RESOURCE";
-      }
-      enum "not-nsr-ready" {
-        description
-          "ISD ERROR NOT NSR READY";
-      }
-      enum "not-conn-sdrsm" {
-        description
-          "ISD ERROR NOT CONNECTED SDR SM";
-      }
-      enum "cmd-invalid" {
-        description
-          "ISD ERROR INST CMD INVALID";
-      }
-      enum "load-prep-fail" {
-        description
-          "ISD ERROR INST LOAD PREP FAILURE";
-      }
-      enum "error-timeout" {
-        description
-          "ISD ERROR TIMEOUT";
-      }
-      enum "err-node-down" {
-        description
-          "ISD ERROR NODE DOWN";
-      }
-      enum "node-not-ready" {
-        description
-          "ISD ERROR NODE NOT READY";
-      }
-      enum "err-node-new" {
-        description
-          "ISD ERROR NODE NEW";
-      }
-      enum "err-card-oir" {
-        description
-          "ISD ERROR CARD OIR";
-      }
-      enum "invalid-evt" {
-        description
-          "ISD ERROR INVALID EVT";
-      }
-      enum "disconn-from-calv" {
-        description
-          "ISD ERROR DISCONN FROM CALVADOS";
-      }
-      enum "gsp-down" {
-        description
-          "ISD ERROR GSP DOWN";
-      }
-      enum "abort-by-ism" {
-        description
-          "ISD ERROR ABORT BY ISM";
-      }
-      enum "rpfo" {
-        description
-          "ISD ERROR RPFO";
-      }
-      enum "pkg-null" {
-        description
-          "ISD ERROR PKG NULL";
-      }
-      enum "error-general" {
-        description
-          "ISD ERROR GENERAL";
-      }
-      enum "fsa-error" {
-        description
-          "ISD ERROR FSA ERROR";
-      }
-      enum "err-post-issu" {
-        description
-          "ISD ERROR POST ISSU";
-      }
-      enum "err-issu-dir-restart" {
-        description
-          "ISD ERROR ISSUDIR RESTART";
-      }
-    }
-    description
-      "isd error";
-  }
-
-  typedef Isd-issu-status-et {
-    type enumeration {
-      enum "ok" {
-        description
-          "ISSU STATUS OK";
-      }
-      enum "prep-done" {
-        description
-          "ISSU STATUS PREP DONE";
-      }
-      enum "big-bang" {
-        description
-          "ISSU STATUS BIG BANG";
-      }
-      enum "done" {
-        description
-          "ISSU STATUS DONE";
-      }
-      enum "abort" {
-        description
-          "ISSU STATUS ABORT";
-      }
-      enum "cmd-reject" {
-        description
-          "ISSU STATUS CMD REJECT";
-      }
-      enum "unknown" {
-        description
-          "ISSU STATUS UNKNOWN";
-      }
-      enum "abort-cleanup" {
-        description
-          "ISSU STATUS ABORT CLEANUP";
-      }
-      enum "abort-cmd-reject" {
-        description
-          "ISSU STATUS CMD ABORT REJECT";
-      }
-    }
-    description
-      "isd status";
-  }
-
-  typedef Isd-state-et {
-    type enumeration {
-      enum "none" {
-        description
-          "ISSU ST NONE";
-      }
-      enum "idle" {
-        description
-          "ISSU ST IDLE";
-      }
-      enum "init" {
-        description
-          "ISSU ST INIT";
-      }
-      enum "init-done" {
-        description
-          "ISSU ST INIT DONE";
-      }
-      enum "load-prep" {
-        description
-          "ISSU ST LOAD PREP";
-      }
-      enum "load-exec" {
-        description
-          "ISSU ST LOAD EXEC";
-      }
-      enum "load-issu-go" {
-        description
-          "ISSU ST LOAD ISSU GO";
-      }
-      enum "load-done" {
-        description
-          "ISSU ST LOAD DONE";
-      }
-      enum "run-prep" {
-        description
-          "ISSU ST RUN PREP";
-      }
-      enum "big-bang" {
-        description
-          "ISSU ST RUN BIG BANG";
-      }
-      enum "run-done" {
-        description
-          "ISSU ST RUN DONE";
-      }
-      enum "cleanup" {
-        description
-          "ISSU ST CLEANUP";
-      }
-      enum "cleanup-done" {
-        description
-          "ISSU ST CLEANUP DONE";
-      }
-      enum "abort" {
-        description
-          "ISSU ST ABORT";
-      }
-      enum "abort-done" {
-        description
-          "ISSU ST ABORT DONE";
-      }
-      enum "abort-cleanup" {
-        description
-          "ISSU ST ABORT CLEANUP";
-      }
-      enum "unknown-state" {
-        description
-          "ISSU UNKNOWN STATE";
-      }
-    }
-    description
-      "isd state";
-  }
-
-  grouping ISD-INV-INFO {
-    description
-      "ISSU Inventory Information";
-    leaf node-id {
-      type int32;
+      "Show install request info";
+    leaf curr-inst-oper {
+      type string;
       description
-        "Node ID";
+        "CurrInstOper";
+    }
+  }
+
+  grouping VERSION-PACKAGE-LIST {
+    description
+      "creation of list of packages for show version";
+    leaf name {
+      type string;
+      description
+        "Name";
+    }
+    leaf version {
+      type string;
+      description
+        "Running version";
+    }
+    leaf built-by {
+      type string;
+      description
+        "User built by";
+    }
+    leaf built-on {
+      type string;
+      description
+        "Time built";
+    }
+    leaf build-host {
+      type string;
+      description
+        "Build host";
+    }
+    leaf workspace {
+      type string;
+      description
+        "Workspace built in";
+    }
+  }
+
+  grouping SHOW-VERSION-INFO {
+    description
+      "Show version info";
+    leaf location {
+      type Install-bag-optional-string;
+      description
+        "Path where all cisco packages are installed";
+    }
+    leaf label {
+      type Install-bag-optional-string;
+      description
+        "label name";
+    }
+    leaf copyright-info {
+      type string;
+      description
+        "copyright info";
+    }
+    leaf hardware-info {
+      type string;
+      description
+        "hardware info of the router";
+    }
+    leaf system-uptime {
+      type string;
+      description
+        "duration since when system is up";
+    }
+    list package {
+      description
+        "package";
+      uses VERSION-PACKAGE-LIST;
+    }
+  }
+
+  grouping INST-STRING-PTR {
+    description
+      "inst string ptr";
+    leaf package {
+      type string;
+      description
+        "package";
+    }
+  }
+
+  grouping INSTMGR-SHOW-INSTALL-PREPARE {
+    description
+      "show install prepare";
+    leaf no-prepare-done {
+      type string;
+      description
+        "NoPrepareDone";
+    }
+    leaf prepared-boot-image {
+      type string;
+      description
+        "PreparedBootImage";
+    }
+    leaf prepared-boot-partition {
+      type string;
+      description
+        "PreparedBootPartition";
+    }
+    leaf restart-type {
+      type string;
+      description
+        "RestartType";
+    }
+    leaf activate-message {
+      type string;
+      description
+        "ActivateMessage";
+    }
+    leaf prepare-clean-message {
+      type string;
+      description
+        "PrepareCleanMessage";
+    }
+    list rpm {
+      description
+        "rpm";
+      uses INST-STRING-PTR;
+    }
+    list package {
+      description
+        "package";
+      uses INST-STRING-PTR;
+    }
+  }
+
+  grouping INSTMGR-CALV-SHOW-INST-ACT-ROW {
+    description
+      "calvados show install active";
+    leaf error-message {
+      type string;
+      description
+        "ErrorMessage";
+    }
+    leaf location {
+      type string;
+      description
+        "Location";
     }
     leaf node-type {
-      type Card-type-et;
+      type string;
       description
-        "Node Type";
+        "NodeType";
     }
-    leaf issu-node-role {
-      type Issu-node-role-et;
+    leaf boot-partition-name {
+      type string;
       description
-        "ISSU Node Role";
+        "BootPartitionName";
     }
-    leaf node-state {
-      type Issudir-node-status-et;
+    leaf number-of-active-packages {
+      type uint32;
       description
-        "Node State";
+        "NumberOfActivePackages";
     }
-    leaf node-role {
-      type Node-role-et;
+    leaf active-packages {
+      type string;
       description
-        "Node role";
-    }
-  }
-
-  grouping ISD-INV-INFO-CONTAINER {
-    description
-      "ISSU Inventory Information all nodes";
-    list invinfo {
-      description
-        "invinfo";
-      uses ISD-INV-INFO;
+        "ActivePackages";
     }
   }
 
-  grouping ISD-STAGE-INFO {
+  grouping INSTMGR-CALV-SHOW-INST-ACT {
     description
-      "ISSU Director stage Information";
-    leaf state {
-      type Isd-state-et;
+      "Calvados show install active info";
+    list active-package-info {
       description
-        "State";
+        "active package info";
+      uses INSTMGR-CALV-SHOW-INST-ACT-ROW;
     }
-    leaf issu-node-cnt {
-      type int32;
+  }
+
+  grouping INSTMGR-CALV-SHOW-INST-COMMIT-ROW {
+    description
+      "calvados show install committed";
+    leaf error-message {
+      type string;
       description
-        "ISSU Node Count";
+        "ErrorMessage";
     }
-    leaf issu-ready-node-cnt {
-      type int32;
+    leaf location {
+      type string;
       description
-        "ISSU Ready Node Count";
+        "Location";
     }
-    leaf percentage {
-      type int32;
-      units "percentage";
+    leaf node-type {
+      type string;
       description
-        "Percentage";
+        "NodeType";
     }
-    leaf issu-status {
-      type Isd-issu-status-et;
+    leaf boot-partition-name {
+      type string;
       description
-        "Abort Status";
+        "BootPartitionName";
     }
-    leaf issu-error {
-      type Isd-error-et;
+    leaf number-of-committed-packages {
+      type uint32;
       description
-        "ISSU Error";
+        "NumberOfCommittedPackages";
+    }
+    leaf committed-packages {
+      type string;
+      description
+        "CommittedPackages";
+    }
+  }
+
+  grouping INSTMGR-CALV-SHOW-INST-COMMIT {
+    description
+      "Calvados show install commit info";
+    list committed-package-info {
+      description
+        "committed package info";
+      uses INSTMGR-CALV-SHOW-INST-COMMIT-ROW;
+    }
+  }
+
+  grouping INSTMGR-SHOW-INST-SUP-ROW {
+    description
+      "show install superseded";
+    leaf error-message {
+      type string;
+      description
+        "ErrorMessage";
+    }
+    leaf location {
+      type string;
+      description
+        "Location";
+    }
+    leaf node-type {
+      type string;
+      description
+        "NodeType";
+    }
+    leaf boot-partition-name {
+      type string;
+      description
+        "BootPartitionName";
+    }
+    leaf superseded-packages {
+      type string;
+      description
+        "SupersededPackages";
+    }
+  }
+
+  grouping INSTMGR-SHOW-INST-SUP {
+    description
+      " show install superseded info";
+    list superseded-package-info {
+      description
+        "superseded package info";
+      uses INSTMGR-SHOW-INST-SUP-ROW;
+    }
+  }
+
+  grouping INSTALL-LOG {
+    description
+      "Install Log";
+    leaf log {
+      type string;
+      description
+        "log";
     }
   }
 }

@@ -6,7 +6,7 @@
 //   srms: Segment Routing Mapping Server operational data
 //   srlb: srlb
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package segment_routing_ms_oper
 
@@ -561,7 +561,7 @@ type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // address family container.

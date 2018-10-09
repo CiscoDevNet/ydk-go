@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-ma package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-08-23 {
@@ -33,6 +33,28 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
   revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
+  }
+
+  typedef Ipv4-ma-oper-config {
+    type enumeration {
+      enum "ipv4-ma-oper-client-none" {
+        value 0;
+        description
+          "ipv4 ma oper client none";
+      }
+      enum "ipv4-ma-oper-non-oc-client" {
+        value 1;
+        description
+          "ipv4 ma oper non oc client";
+      }
+      enum "ipv4-ma-oper-oc-client" {
+        value 2;
+        description
+          "ipv4 ma oper oc client";
+      }
+    }
+    description
+      "ipv4 client type";
   }
 
   typedef Rpf-mode {
@@ -439,6 +461,12 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
         "Name of referenced interface (valid if
          unnumbered)";
     }
+    leaf next-unnumbered-interface-name {
+      type string;
+      description
+        "Name of interface which is also unnum to        
+         same interface where this intf is unnumbered";
+    }
     leaf proxy-arp-disabled {
       type boolean;
       description
@@ -453,6 +481,52 @@ submodule Cisco-IOS-XR-ipv4-ma-oper-sub1 {
       type boolean;
       description
         "Is BGP Flow Tag Destination is enable";
+    }
+    leaf config-flags {
+      type uint16;
+      description
+        "IDB configuration flags";
+    }
+    leaf oper-flags {
+      type uint64;
+      description
+        "IDB operational flags";
+    }
+    leaf arm-flags {
+      type uint16;
+      description
+        "IP ARM operation flags";
+    }
+    leaf state-recvd-frm-im {
+      type Ipv4-ma-oper-line-state;
+      description
+        "state as recieved                               
+         from IM";
+    }
+    leaf cflct-address {
+      type inet:ipv4-address;
+      description
+        "Conflicated ipv4 address";
+    }
+    leaf client-type {
+      type Ipv4-ma-oper-config;
+      description
+        "Client type for IDB";
+    }
+    leaf is-or-event {
+      type boolean;
+      description
+        "Is OR event for IDB";
+    }
+    leaf or-im-state {
+      type Ipv4-ma-oper-line-state;
+      description
+        "OR IM state type";
+    }
+    leaf idb-pointer {
+      type uint64;
+      description
+        "idb pointer value";
     }
     list multicast-group {
       description

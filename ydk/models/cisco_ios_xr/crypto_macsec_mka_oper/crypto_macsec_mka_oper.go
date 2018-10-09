@@ -5,7 +5,7 @@
 // for the following management objects:
 //   macsec: Macsec operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package crypto_macsec_mka_oper
 
@@ -23,6 +23,54 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-macsec-mka-oper macsec}", reflect.TypeOf(Macsec{}))
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-macsec-mka-oper:macsec", reflect.TypeOf(Macsec{}))
 }
+
+// MacsecCipherSuite represents Macsec cipher suite
+type MacsecCipherSuite string
+
+const (
+    // Invalid MACsec cipher
+    MacsecCipherSuite_cipher_suite_none MacsecCipherSuite = "cipher-suite-none"
+
+    // 128 bit GCM_AES MACsec cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_128 MacsecCipherSuite = "cipher-suite-gcm-aes-128"
+
+    // 256 bit GCM_AES MACsec cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_256 MacsecCipherSuite = "cipher-suite-gcm-aes-256"
+
+    // 128 bit GCM_AES MACsec XPN cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_128_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-128-xpn"
+
+    // 256 bit GCM_AES MACsec XPN cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_256_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-256-xpn"
+)
+
+// MkaAuthenticationMode represents Mka authentication mode
+type MkaAuthenticationMode string
+
+const (
+    // Invalid authentication mode
+    MkaAuthenticationMode_auth_mode_invalid MkaAuthenticationMode = "auth-mode-invalid"
+
+    // Preshared Key
+    MkaAuthenticationMode_auth_mode_psk MkaAuthenticationMode = "auth-mode-psk"
+
+    // EAP
+    MkaAuthenticationMode_auth_mode_eap MkaAuthenticationMode = "auth-mode-eap"
+)
+
+// MacsecServicePort represents Macsec service port
+type MacsecServicePort string
+
+const (
+    // Macsec Service not enabled
+    MacsecServicePort_macsec_service_port_none MacsecServicePort = "macsec-service-port-none"
+
+    // Macsec Service Encryption Port
+    MacsecServicePort_macsec_service_port_encryption MacsecServicePort = "macsec-service-port-encryption"
+
+    // Macsec Service Decryption Port
+    MacsecServicePort_macsec_service_port_decryption MacsecServicePort = "macsec-service-port-decryption"
+)
 
 // Macsec
 // Macsec operational data
@@ -122,11 +170,14 @@ type Macsec_Mka_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // MKA Session Data.
     Session Macsec_Mka_Interfaces_Interface_Session
+
+    // MKA Interface Summary Data.
+    Info Macsec_Mka_Interfaces_Interface_Info
 }
 
 func (self *Macsec_Mka_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
@@ -141,6 +192,7 @@ func (self *Macsec_Mka_Interfaces_Interface) GetEntityData() *types.CommonEntity
 
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("session", types.YChild{"Session", &self.Session})
+    self.EntityData.Children.Append("info", types.YChild{"Info", &self.Info})
     self.EntityData.Leafs = types.NewOrderedMap()
     self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
 
@@ -413,8 +465,8 @@ type Macsec_Mka_Interfaces_Interface_Session_Vp struct {
     // SAK Retire time. The type is interface{} with range: 0..4294967295.
     RetireTime interface{}
 
-    // SAK Cipher Suite. The type is interface{} with range: 0..4294967295.
-    CipherSuite interface{}
+    // SAK Cipher Suite. The type is MacsecCipherSuite.
+    MacsecCipherSuite interface{}
 
     // SSCI of the Local TxSC. The type is interface{} with range: 0..4294967295.
     Ssci interface{}
@@ -457,7 +509,7 @@ func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.Com
     vp.EntityData.Leafs.Append("old-kn", types.YLeaf{"OldKn", vp.OldKn})
     vp.EntityData.Leafs.Append("wait-time", types.YLeaf{"WaitTime", vp.WaitTime})
     vp.EntityData.Leafs.Append("retire-time", types.YLeaf{"RetireTime", vp.RetireTime})
-    vp.EntityData.Leafs.Append("cipher-suite", types.YLeaf{"CipherSuite", vp.CipherSuite})
+    vp.EntityData.Leafs.Append("macsec-cipher-suite", types.YLeaf{"MacsecCipherSuite", vp.MacsecCipherSuite})
     vp.EntityData.Leafs.Append("ssci", types.YLeaf{"Ssci", vp.Ssci})
     vp.EntityData.Leafs.Append("time-to-sak-rekey", types.YLeaf{"TimeToSakRekey", vp.TimeToSakRekey})
 
@@ -969,5 +1021,99 @@ func (dormantPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer) GetEn
     dormantPeer.EntityData.YListKeys = []string {}
 
     return &(dormantPeer.EntityData)
+}
+
+// Macsec_Mka_Interfaces_Interface_Info
+// MKA Interface Summary Data
+type Macsec_Mka_Interfaces_Interface_Info struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MKA Interface Summary.
+    InterfaceSummary Macsec_Mka_Interfaces_Interface_Info_InterfaceSummary
+}
+
+func (info *Macsec_Mka_Interfaces_Interface_Info) GetEntityData() *types.CommonEntityData {
+    info.EntityData.YFilter = info.YFilter
+    info.EntityData.YangName = "info"
+    info.EntityData.BundleName = "cisco_ios_xr"
+    info.EntityData.ParentYangName = "interface"
+    info.EntityData.SegmentPath = "info"
+    info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    info.EntityData.Children = types.NewOrderedMap()
+    info.EntityData.Children.Append("interface-summary", types.YChild{"InterfaceSummary", &info.InterfaceSummary})
+    info.EntityData.Leafs = types.NewOrderedMap()
+
+    info.EntityData.YListKeys = []string {}
+
+    return &(info.EntityData)
+}
+
+// Macsec_Mka_Interfaces_Interface_Info_InterfaceSummary
+// MKA Interface Summary
+type Macsec_Mka_Interfaces_Interface_Info_InterfaceSummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // macsec configured interface. The type is string.
+    InterfaceName interface{}
+
+    // Short Name String. The type is string.
+    ShortName interface{}
+
+    // Name  of the Key chain. The type is string.
+    KeyChain interface{}
+
+    // Policy name. The type is string.
+    Policy interface{}
+
+    // Is macsec-service port or not. The type is bool.
+    MacsecSvcPort interface{}
+
+    // Macsec-service Encryption / Decryption port. The type is MacsecServicePort.
+    MacsecSvcPortType interface{}
+
+    // Macsec Service paired port Short Name String. The type is string.
+    SvcportShortName interface{}
+
+    // MKA authentication mode. The type is MkaAuthenticationMode.
+    MkaMode interface{}
+
+    // fallback Keychain name. The type is string.
+    FallbackKeychain interface{}
+
+    // MacsecShutdown. The type is bool.
+    MacsecShutdown interface{}
+}
+
+func (interfaceSummary *Macsec_Mka_Interfaces_Interface_Info_InterfaceSummary) GetEntityData() *types.CommonEntityData {
+    interfaceSummary.EntityData.YFilter = interfaceSummary.YFilter
+    interfaceSummary.EntityData.YangName = "interface-summary"
+    interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
+    interfaceSummary.EntityData.ParentYangName = "info"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaceSummary.EntityData.Children = types.NewOrderedMap()
+    interfaceSummary.EntityData.Leafs = types.NewOrderedMap()
+    interfaceSummary.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceSummary.InterfaceName})
+    interfaceSummary.EntityData.Leafs.Append("short-name", types.YLeaf{"ShortName", interfaceSummary.ShortName})
+    interfaceSummary.EntityData.Leafs.Append("key-chain", types.YLeaf{"KeyChain", interfaceSummary.KeyChain})
+    interfaceSummary.EntityData.Leafs.Append("policy", types.YLeaf{"Policy", interfaceSummary.Policy})
+    interfaceSummary.EntityData.Leafs.Append("macsec-svc-port", types.YLeaf{"MacsecSvcPort", interfaceSummary.MacsecSvcPort})
+    interfaceSummary.EntityData.Leafs.Append("macsec-svc-port-type", types.YLeaf{"MacsecSvcPortType", interfaceSummary.MacsecSvcPortType})
+    interfaceSummary.EntityData.Leafs.Append("svcport-short-name", types.YLeaf{"SvcportShortName", interfaceSummary.SvcportShortName})
+    interfaceSummary.EntityData.Leafs.Append("mka-mode", types.YLeaf{"MkaMode", interfaceSummary.MkaMode})
+    interfaceSummary.EntityData.Leafs.Append("fallback-keychain", types.YLeaf{"FallbackKeychain", interfaceSummary.FallbackKeychain})
+    interfaceSummary.EntityData.Leafs.Append("macsec-shutdown", types.YLeaf{"MacsecShutdown", interfaceSummary.MacsecShutdown})
+
+    interfaceSummary.EntityData.YListKeys = []string {}
+
+    return &(interfaceSummary.EntityData)
 }
 

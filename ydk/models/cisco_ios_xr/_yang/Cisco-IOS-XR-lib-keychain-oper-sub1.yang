@@ -19,9 +19,13 @@ submodule Cisco-IOS-XR-lib-keychain-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR lib-keychain package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
@@ -30,44 +34,48 @@ submodule Cisco-IOS-XR-lib-keychain-oper-sub1 {
   typedef Cryto-algo {
     type enumeration {
       enum "not-configured" {
-        value 0;
         description
           "Not configured";
       }
+      enum "aes-128-cmac-96" {
+        description
+          "CMAC AES 12 bytes";
+      }
       enum "hmac-sha1-12" {
-        value 2;
         description
           "HMAC SHA1 12 bytes";
       }
       enum "md5" {
-        value 3;
         description
           "MD5 16 bytes";
       }
       enum "sha1" {
-        value 4;
         description
           "SHA1 20 bytes";
       }
       enum "hmac-md5" {
-        value 5;
         description
           "HMAC MD5 16 bytes";
       }
       enum "hmac-sha1-20" {
-        value 6;
         description
           "HMAC SHA1 20 bytes";
       }
       enum "aes-128-cmac" {
-        value 7;
         description
           "CMAC AES 32 bytes";
       }
       enum "aes-256-cmac" {
-        value 8;
         description
           "CMAC AES 64 bytes";
+      }
+      enum "hmac-sha1-96" {
+        description
+          "HMAC SHA1 12 bytes";
+      }
+      enum "hmac-sha-256" {
+        description
+          "HMAC SHA256 32 bytes";
       }
     }
     description

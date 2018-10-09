@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions
 // for NAT operational data.
-// Copyright (c) 2017 by Cisco Systems, Inc.
+// Copyright (c) 2017-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package nat_oper
 
@@ -241,6 +241,9 @@ type NatData_IpNatTranslation struct {
 
     // Application type. The type is interface{} with range: 0..255.
     ApplicationType interface{}
+
+    // Virtual Routing and Forwarding name. The type is string.
+    VrfName interface{}
 }
 
 func (ipNatTranslation *NatData_IpNatTranslation) GetEntityData() *types.CommonEntityData {
@@ -267,6 +270,7 @@ func (ipNatTranslation *NatData_IpNatTranslation) GetEntityData() *types.CommonE
     ipNatTranslation.EntityData.Leafs.Append("outside-global-port", types.YLeaf{"OutsideGlobalPort", ipNatTranslation.OutsideGlobalPort})
     ipNatTranslation.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", ipNatTranslation.Flags})
     ipNatTranslation.EntityData.Leafs.Append("application-type", types.YLeaf{"ApplicationType", ipNatTranslation.ApplicationType})
+    ipNatTranslation.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipNatTranslation.VrfName})
 
     ipNatTranslation.EntityData.YListKeys = []string {"InsideLocalAddr", "OutsideLocalAddr", "InsideLocalPort", "OutsideLocalPort", "Vrfid", "Protocol"}
 

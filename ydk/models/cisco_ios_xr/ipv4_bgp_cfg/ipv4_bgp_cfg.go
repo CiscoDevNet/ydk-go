@@ -13,7 +13,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_bgp_cfg
 
@@ -616,6 +616,12 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal struct {
     // Control distribution of default information. The type is interface{}.
     DefaultInfoOriginate interface{}
 
+    // RPKI origin-AS validity signal ibgp. The type is interface{}.
+    RpkiOriginAsValiditySignalIbgp interface{}
+
+    // RPKI bestpath use origin-AS validity. The type is interface{}.
+    RpkiBestpathUseOriginAsValidity interface{}
+
     // Change default route selection criteria and allow the comparing of MED
     // among confederation paths. The type is interface{}.
     BestPathConfederationPaths interface{}
@@ -631,6 +637,14 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal struct {
     // Disable inbound and outbound messagelogging for all neighbors under the
     // vrf. The type is interface{}.
     DisableMsgLog interface{}
+
+    // Change default route selection criteria to ignore IGP Metric . The type is
+    // interface{}.
+    BestPathIgpMetricIgnore interface{}
+
+    // Enable path resolution for nexthops using default route. The type is
+    // interface{}.
+    NextHopResAllowDefault interface{}
 
     // Enable mpls forwarding path for ibgp learnt nexthops. The type is
     // interface{}.
@@ -707,10 +721,14 @@ func (vrfGlobal *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal) GetEntit
     vrfGlobal.EntityData.Leafs.Append("unsafe-ebgp-policy", types.YLeaf{"UnsafeEbgpPolicy", vrfGlobal.UnsafeEbgpPolicy})
     vrfGlobal.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", vrfGlobal.DefaultMetric})
     vrfGlobal.EntityData.Leafs.Append("default-info-originate", types.YLeaf{"DefaultInfoOriginate", vrfGlobal.DefaultInfoOriginate})
+    vrfGlobal.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", vrfGlobal.RpkiOriginAsValiditySignalIbgp})
+    vrfGlobal.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", vrfGlobal.RpkiBestpathUseOriginAsValidity})
     vrfGlobal.EntityData.Leafs.Append("best-path-confederation-paths", types.YLeaf{"BestPathConfederationPaths", vrfGlobal.BestPathConfederationPaths})
     vrfGlobal.EntityData.Leafs.Append("best-path-as-multipath-relax", types.YLeaf{"BestPathAsMultipathRelax", vrfGlobal.BestPathAsMultipathRelax})
     vrfGlobal.EntityData.Leafs.Append("disable-auto-soft-reset", types.YLeaf{"DisableAutoSoftReset", vrfGlobal.DisableAutoSoftReset})
     vrfGlobal.EntityData.Leafs.Append("disable-msg-log", types.YLeaf{"DisableMsgLog", vrfGlobal.DisableMsgLog})
+    vrfGlobal.EntityData.Leafs.Append("best-path-igp-metric-ignore", types.YLeaf{"BestPathIgpMetricIgnore", vrfGlobal.BestPathIgpMetricIgnore})
+    vrfGlobal.EntityData.Leafs.Append("next-hop-res-allow-default", types.YLeaf{"NextHopResAllowDefault", vrfGlobal.NextHopResAllowDefault})
     vrfGlobal.EntityData.Leafs.Append("next-hop-mpls-fwd-ibgp", types.YLeaf{"NextHopMplsFwdIbgp", vrfGlobal.NextHopMplsFwdIbgp})
     vrfGlobal.EntityData.Leafs.Append("disable-neighbor-logging", types.YLeaf{"DisableNeighborLogging", vrfGlobal.DisableNeighborLogging})
     vrfGlobal.EntityData.Leafs.Append("best-path-med-always", types.YLeaf{"BestPathMedAlways", vrfGlobal.BestPathMedAlways})
@@ -822,6 +840,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // originate route . The type is bool.
     AllowVpnDefaultOriginate interface{}
 
+    // RPKI origin-AS validation enable. The type is interface{}.
+    RpkiOriginAsValidationEnable interface{}
+
     // Update generation delay (in minutes) after a MED change. The type is
     // interface{} with range: 0..10. Units are minute. The default value is 10.
     DynamicMedInterval interface{}
@@ -841,12 +862,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // is bool.
     BestExternal interface{}
 
+    // RPKI origin-AS validity signal ibgp. The type is interface{}.
+    RpkiOriginAsValiditySignalIbgp interface{}
+
     // Advertise additional paths Receive capability. The type is
     // BgpAfAdditionalPathsCfg.
     AdditionalPathsReceive interface{}
 
     // Route policy for permanent networks. The type is string.
     PermanentNetwork interface{}
+
+    // RPKI bestpath use origin-AS validity. The type is interface{}.
+    RpkiBestpathUseOriginAsValidity interface{}
+
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // Minimum prefix-length for nexthop resolution. The type is interface{} with
     // range: 0..128. The default value is 0.
@@ -967,13 +1001,18 @@ func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     vrfGlobalAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", vrfGlobalAf.AfName})
     vrfGlobalAf.EntityData.Leafs.Append("rt-download", types.YLeaf{"RtDownload", vrfGlobalAf.RtDownload})
     vrfGlobalAf.EntityData.Leafs.Append("allow-vpn-default-originate", types.YLeaf{"AllowVpnDefaultOriginate", vrfGlobalAf.AllowVpnDefaultOriginate})
+    vrfGlobalAf.EntityData.Leafs.Append("rpki-origin-as-validation-enable", types.YLeaf{"RpkiOriginAsValidationEnable", vrfGlobalAf.RpkiOriginAsValidationEnable})
     vrfGlobalAf.EntityData.Leafs.Append("dynamic-med-interval", types.YLeaf{"DynamicMedInterval", vrfGlobalAf.DynamicMedInterval})
     vrfGlobalAf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrfGlobalAf.Enable})
     vrfGlobalAf.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", vrfGlobalAf.TablePolicy})
     vrfGlobalAf.EntityData.Leafs.Append("attribute-download", types.YLeaf{"AttributeDownload", vrfGlobalAf.AttributeDownload})
     vrfGlobalAf.EntityData.Leafs.Append("best-external", types.YLeaf{"BestExternal", vrfGlobalAf.BestExternal})
+    vrfGlobalAf.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", vrfGlobalAf.RpkiOriginAsValiditySignalIbgp})
     vrfGlobalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", vrfGlobalAf.AdditionalPathsReceive})
     vrfGlobalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", vrfGlobalAf.PermanentNetwork})
+    vrfGlobalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", vrfGlobalAf.RpkiBestpathUseOriginAsValidity})
+    vrfGlobalAf.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", vrfGlobalAf.Srv6LabelAllocationMode})
+    vrfGlobalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfGlobalAf.RpkiBestpathOriginAsAllowInvalid})
     vrfGlobalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", vrfGlobalAf.NextHopResolutionPrefixLengthMinimum})
     vrfGlobalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", vrfGlobalAf.ResetWeightOnImport})
     vrfGlobalAf.EntityData.Leafs.Append("additional-paths-send", types.YLeaf{"AdditionalPathsSend", vrfGlobalAf.AdditionalPathsSend})
@@ -1854,6 +1893,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Route policy name. The type is string.
     RoutePolicyName interface{}
+
+    // Allocate label for unlabeled paths too. The type is bool.
+    UnLabeledPath interface{}
 }
 
 func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AllocateLabel) GetEntityData() *types.CommonEntityData {
@@ -1870,6 +1912,7 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGl
     allocateLabel.EntityData.Leafs = types.NewOrderedMap()
     allocateLabel.EntityData.Leafs.Append("all", types.YLeaf{"All", allocateLabel.All})
     allocateLabel.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName})
+    allocateLabel.EntityData.Leafs.Append("un-labeled-path", types.YLeaf{"UnLabeledPath", allocateLabel.UnLabeledPath})
 
     allocateLabel.EntityData.YListKeys = []string {}
 
@@ -2106,7 +2149,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfac
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2376,6 +2419,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // default value is either.
     SessionOpenMode interface{}
 
+    // RPKI origin-AS validation disable. The type is interface{}.
+    RpkiOriginAsValidationDisable interface{}
+
     // Default mode, Cumulative mode or Disable to prevent inheritance from a
     // parent. The type is BgpEbgpSendDmzEnableMode.
     EbgpSendDmzEnableModes interface{}
@@ -2387,6 +2433,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // Set Maximum Peers in Dynamic Range. The type is interface{} with range:
     // 1..4096.
     MaxPeers interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // Advertise additional paths Send capability. The type is
     // BgpNbrCapAdditionalPathsCfg.
@@ -2432,7 +2481,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
@@ -2473,6 +2522,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
 
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_MsgLogOut
+
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_AoKeychain
 
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_ReceiveBufferSize
@@ -2517,6 +2569,7 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     vrfNeighbor.EntityData.Children.Append("tos", types.YChild{"Tos", &vrfNeighbor.Tos})
     vrfNeighbor.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &vrfNeighbor.UpdateInFiltering})
     vrfNeighbor.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &vrfNeighbor.MsgLogOut})
+    vrfNeighbor.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &vrfNeighbor.AoKeychain})
     vrfNeighbor.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &vrfNeighbor.ReceiveBufferSize})
     vrfNeighbor.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &vrfNeighbor.MsgLogIn})
     vrfNeighbor.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &vrfNeighbor.SendBufferSize})
@@ -2537,9 +2590,11 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     vrfNeighbor.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", vrfNeighbor.EnforceFirstAs})
     vrfNeighbor.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", vrfNeighbor.IdleWatchTime})
     vrfNeighbor.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", vrfNeighbor.SessionOpenMode})
+    vrfNeighbor.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", vrfNeighbor.RpkiOriginAsValidationDisable})
     vrfNeighbor.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighbor.EbgpSendDmzEnableModes})
     vrfNeighbor.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", vrfNeighbor.SuppressAllCapabilities})
     vrfNeighbor.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", vrfNeighbor.MaxPeers})
+    vrfNeighbor.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfNeighbor.RpkiBestpathOriginAsAllowInvalid})
     vrfNeighbor.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", vrfNeighbor.AdditionalPathsSendCapability})
     vrfNeighbor.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighbor.PropagateDmzLinkBandwidth})
     vrfNeighbor.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", vrfNeighbor.BfdEnableModes})
@@ -2628,12 +2683,18 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // BgpAdvertiseLocalLabeledRouteCfg.
     AdvertiseLocalLabeledRoute interface{}
 
+    // RPKI origin-AS validation disable. The type is interface{}.
+    RpkiOriginAsValidationDisable interface{}
+
     // Config Flowspec validation for this neighbor. The type is
     // BgpFlowspecValidationCfg.
     FlowspecValidation interface{}
 
     // Encapsulation type for this neighbor. The type is BgpAfEncapsulation.
     EncapsulationType interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // TRUE to enforce multiple labels support. The type is bool.
     EnforceMultipleLabels interface{}
@@ -2815,8 +2876,10 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp})
     vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged})
     vrfNeighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute})
+    vrfNeighborAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", vrfNeighborAf.RpkiOriginAsValidationDisable})
     vrfNeighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation})
     vrfNeighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType})
+    vrfNeighborAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfNeighborAf.RpkiBestpathOriginAsAllowInvalid})
     vrfNeighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels})
     vrfNeighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride})
     vrfNeighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", vrfNeighborAf.Multipath})
@@ -4140,6 +4203,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "vrf-neighbor"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -4500,6 +4606,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // default value is either.
     SessionOpenMode interface{}
 
+    // RPKI origin-AS validation disable. The type is interface{}.
+    RpkiOriginAsValidationDisable interface{}
+
     // Default mode, Cumulative mode or Disable to prevent inheritance from a
     // parent. The type is BgpEbgpSendDmzEnableMode.
     EbgpSendDmzEnableModes interface{}
@@ -4511,6 +4620,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // Set Maximum Peers in Dynamic Range. The type is interface{} with range:
     // 1..4096.
     MaxPeers interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // Advertise additional paths Send capability. The type is
     // BgpNbrCapAdditionalPathsCfg.
@@ -4556,7 +4668,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
@@ -4597,6 +4709,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_MsgLogOut
+
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_AoKeychain
 
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_ReceiveBufferSize
@@ -4641,6 +4756,7 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     vrfNeighborPrefixLength.EntityData.Children.Append("tos", types.YChild{"Tos", &vrfNeighborPrefixLength.Tos})
     vrfNeighborPrefixLength.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &vrfNeighborPrefixLength.UpdateInFiltering})
     vrfNeighborPrefixLength.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &vrfNeighborPrefixLength.MsgLogOut})
+    vrfNeighborPrefixLength.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &vrfNeighborPrefixLength.AoKeychain})
     vrfNeighborPrefixLength.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &vrfNeighborPrefixLength.ReceiveBufferSize})
     vrfNeighborPrefixLength.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &vrfNeighborPrefixLength.MsgLogIn})
     vrfNeighborPrefixLength.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &vrfNeighborPrefixLength.SendBufferSize})
@@ -4662,9 +4778,11 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     vrfNeighborPrefixLength.EntityData.Leafs.Append("enforce-first-as", types.YLeaf{"EnforceFirstAs", vrfNeighborPrefixLength.EnforceFirstAs})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("idle-watch-time", types.YLeaf{"IdleWatchTime", vrfNeighborPrefixLength.IdleWatchTime})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("session-open-mode", types.YLeaf{"SessionOpenMode", vrfNeighborPrefixLength.SessionOpenMode})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", vrfNeighborPrefixLength.RpkiOriginAsValidationDisable})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("ebgp-send-dmz-enable-modes", types.YLeaf{"EbgpSendDmzEnableModes", vrfNeighborPrefixLength.EbgpSendDmzEnableModes})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("suppress-all-capabilities", types.YLeaf{"SuppressAllCapabilities", vrfNeighborPrefixLength.SuppressAllCapabilities})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("max-peers", types.YLeaf{"MaxPeers", vrfNeighborPrefixLength.MaxPeers})
+    vrfNeighborPrefixLength.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfNeighborPrefixLength.RpkiBestpathOriginAsAllowInvalid})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("additional-paths-send-capability", types.YLeaf{"AdditionalPathsSendCapability", vrfNeighborPrefixLength.AdditionalPathsSendCapability})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("propagate-dmz-link-bandwidth", types.YLeaf{"PropagateDmzLinkBandwidth", vrfNeighborPrefixLength.PropagateDmzLinkBandwidth})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("bfd-enable-modes", types.YLeaf{"BfdEnableModes", vrfNeighborPrefixLength.BfdEnableModes})
@@ -4753,12 +4871,18 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // BgpAdvertiseLocalLabeledRouteCfg.
     AdvertiseLocalLabeledRoute interface{}
 
+    // RPKI origin-AS validation disable. The type is interface{}.
+    RpkiOriginAsValidationDisable interface{}
+
     // Config Flowspec validation for this neighbor. The type is
     // BgpFlowspecValidationCfg.
     FlowspecValidation interface{}
 
     // Encapsulation type for this neighbor. The type is BgpAfEncapsulation.
     EncapsulationType interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // TRUE to enforce multiple labels support. The type is bool.
     EnforceMultipleLabels interface{}
@@ -4940,8 +5064,10 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp", types.YLeaf{"SendCommunityEbgp", vrfNeighborAf.SendCommunityEbgp})
     vrfNeighborAf.EntityData.Leafs.Append("next-hop-unchanged", types.YLeaf{"NextHopUnchanged", vrfNeighborAf.NextHopUnchanged})
     vrfNeighborAf.EntityData.Leafs.Append("advertise-local-labeled-route", types.YLeaf{"AdvertiseLocalLabeledRoute", vrfNeighborAf.AdvertiseLocalLabeledRoute})
+    vrfNeighborAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", vrfNeighborAf.RpkiOriginAsValidationDisable})
     vrfNeighborAf.EntityData.Leafs.Append("flowspec-validation", types.YLeaf{"FlowspecValidation", vrfNeighborAf.FlowspecValidation})
     vrfNeighborAf.EntityData.Leafs.Append("encapsulation-type", types.YLeaf{"EncapsulationType", vrfNeighborAf.EncapsulationType})
+    vrfNeighborAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfNeighborAf.RpkiBestpathOriginAsAllowInvalid})
     vrfNeighborAf.EntityData.Leafs.Append("enforce-multiple-labels", types.YLeaf{"EnforceMultipleLabels", vrfNeighborAf.EnforceMultipleLabels})
     vrfNeighborAf.EntityData.Leafs.Append("as-override", types.YLeaf{"AsOverride", vrfNeighborAf.AsOverride})
     vrfNeighborAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", vrfNeighborAf.Multipath})
@@ -6265,6 +6391,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -6799,7 +6968,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
@@ -6840,6 +7009,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
 
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_MsgLogOut
+
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_AoKeychain
 
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_ReceiveBufferSize
@@ -6884,6 +7056,7 @@ func (neighbor *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     neighbor.EntityData.Children.Append("tos", types.YChild{"Tos", &neighbor.Tos})
     neighbor.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighbor.UpdateInFiltering})
     neighbor.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighbor.MsgLogOut})
+    neighbor.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &neighbor.AoKeychain})
     neighbor.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighbor.ReceiveBufferSize})
     neighbor.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighbor.MsgLogIn})
     neighbor.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighbor.SendBufferSize})
@@ -8471,6 +8644,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "neighbor"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -8893,7 +9109,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
@@ -8934,6 +9150,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_MsgLogOut
+
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_AoKeychain
 
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_ReceiveBufferSize
@@ -8978,6 +9197,7 @@ func (neighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnt
     neighborPrefixLength.EntityData.Children.Append("tos", types.YChild{"Tos", &neighborPrefixLength.Tos})
     neighborPrefixLength.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighborPrefixLength.UpdateInFiltering})
     neighborPrefixLength.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighborPrefixLength.MsgLogOut})
+    neighborPrefixLength.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &neighborPrefixLength.AoKeychain})
     neighborPrefixLength.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighborPrefixLength.ReceiveBufferSize})
     neighborPrefixLength.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighborPrefixLength.MsgLogIn})
     neighborPrefixLength.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighborPrefixLength.SendBufferSize})
@@ -10566,6 +10786,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "neighbor-prefix-length"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -11014,7 +11277,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
@@ -11061,6 +11324,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_MsgLogOut
 
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_AoKeychain
+
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_ReceiveBufferSize
 
@@ -11104,6 +11370,7 @@ func (neighborGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Nei
     neighborGroup.EntityData.Children.Append("tos", types.YChild{"Tos", &neighborGroup.Tos})
     neighborGroup.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &neighborGroup.UpdateInFiltering})
     neighborGroup.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &neighborGroup.MsgLogOut})
+    neighborGroup.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &neighborGroup.AoKeychain})
     neighborGroup.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &neighborGroup.ReceiveBufferSize})
     neighborGroup.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &neighborGroup.MsgLogIn})
     neighborGroup.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &neighborGroup.SendBufferSize})
@@ -12747,6 +13014,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "neighbor-group"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -14341,7 +14651,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
@@ -14385,6 +14695,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     // Message log outbound.
     MsgLogOut Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_MsgLogOut
 
+    // Set or disable AO based authentication.
+    AoKeychain Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_AoKeychain
+
     // Set socket receive buffer size and BGP read buffer size.
     ReceiveBufferSize Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_ReceiveBufferSize
 
@@ -14427,6 +14740,7 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     sessionGroup.EntityData.Children.Append("tos", types.YChild{"Tos", &sessionGroup.Tos})
     sessionGroup.EntityData.Children.Append("update-in-filtering", types.YChild{"UpdateInFiltering", &sessionGroup.UpdateInFiltering})
     sessionGroup.EntityData.Children.Append("msg-log-out", types.YChild{"MsgLogOut", &sessionGroup.MsgLogOut})
+    sessionGroup.EntityData.Children.Append("ao-keychain", types.YChild{"AoKeychain", &sessionGroup.AoKeychain})
     sessionGroup.EntityData.Children.Append("receive-buffer-size", types.YChild{"ReceiveBufferSize", &sessionGroup.ReceiveBufferSize})
     sessionGroup.EntityData.Children.Append("msg-log-in", types.YChild{"MsgLogIn", &sessionGroup.MsgLogIn})
     sessionGroup.EntityData.Children.Append("send-buffer-size", types.YChild{"SendBufferSize", &sessionGroup.SendBufferSize})
@@ -14986,6 +15300,49 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Session
     return &(msgLogOut.EntityData)
 }
 
+// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_AoKeychain
+// Set or disable AO based authentication
+type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_AoKeychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TRUE to prevent this entity from having AO keychain based authentication
+    // even if the parent has one.FALSE to enable AO keychain based
+    // authentication. The type is bool.
+    AoKeychainDisable interface{}
+
+    // Name of the AO keychain associated with this neighbor. The type is string.
+    AoKeychainName interface{}
+
+    // Include TCP options header with AO. The type is bool.
+    AoIncludeTcpOptions interface{}
+
+    // Accept new connections even though AO mismatched. The type is bool.
+    AoAcceptMismatchConnection interface{}
+}
+
+func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_AoKeychain) GetEntityData() *types.CommonEntityData {
+    aoKeychain.EntityData.YFilter = aoKeychain.YFilter
+    aoKeychain.EntityData.YangName = "ao-keychain"
+    aoKeychain.EntityData.BundleName = "cisco_ios_xr"
+    aoKeychain.EntityData.ParentYangName = "session-group"
+    aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aoKeychain.EntityData.Children = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs = types.NewOrderedMap()
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-disable", types.YLeaf{"AoKeychainDisable", aoKeychain.AoKeychainDisable})
+    aoKeychain.EntityData.Leafs.Append("ao-keychain-name", types.YLeaf{"AoKeychainName", aoKeychain.AoKeychainName})
+    aoKeychain.EntityData.Leafs.Append("ao-include-tcp-options", types.YLeaf{"AoIncludeTcpOptions", aoKeychain.AoIncludeTcpOptions})
+    aoKeychain.EntityData.Leafs.Append("ao-accept-mismatch-connection", types.YLeaf{"AoAcceptMismatchConnection", aoKeychain.AoAcceptMismatchConnection})
+
+    aoKeychain.EntityData.YListKeys = []string {}
+
+    return &(aoKeychain.EntityData)
+}
+
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_ReceiveBufferSize
 // Set socket receive buffer size and BGP read
 // buffer size
@@ -15315,15 +15672,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // RPKI origin-AS validation disable. The type is interface{}.
     RpkiOriginAsValidationDisable interface{}
 
-    // RPKI origin-AS validity signal ibgp. The type is interface{}.
-    RpkiOriginAsValiditySignalIbgp interface{}
-
     // Configure background scanner interval for generic scanner. The type is
     // interface{} with range: 5..3600. Units are second. The default value is 60.
     GlobalScanTime interface{}
-
-    // RPKI bestpath use origin-AS validity. The type is interface{}.
-    RpkiBestpathUseOriginAsValidity interface{}
 
     // Prefix validation time (in seconds). Range  : 5 - 60. Specify 0 to disable
     // the timer. The type is interface{} with range: 0..60. Units are second.
@@ -15426,6 +15777,12 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // Control distribution of default information. The type is interface{}.
     DefaultInfoOriginate interface{}
 
+    // RPKI origin-AS validity signal ibgp. The type is interface{}.
+    RpkiOriginAsValiditySignalIbgp interface{}
+
+    // RPKI bestpath use origin-AS validity. The type is interface{}.
+    RpkiBestpathUseOriginAsValidity interface{}
+
     // Change default route selection criteria and allow the comparing of MED
     // among confederation paths. The type is interface{}.
     BestPathConfederationPaths interface{}
@@ -15441,6 +15798,14 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // Disable inbound and outbound messagelogging for all neighbors under the
     // vrf. The type is interface{}.
     DisableMsgLog interface{}
+
+    // Change default route selection criteria to ignore IGP Metric . The type is
+    // interface{}.
+    BestPathIgpMetricIgnore interface{}
+
+    // Enable path resolution for nexthops using default route. The type is
+    // interface{}.
+    NextHopResAllowDefault interface{}
 
     // Enable mpls forwarding path for ibgp learnt nexthops. The type is
     // interface{}.
@@ -15558,9 +15923,7 @@ func (global *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global) GetEntityDat
     global.EntityData.Leafs.Append("neighbor-logging-detail", types.YLeaf{"NeighborLoggingDetail", global.NeighborLoggingDetail})
     global.EntityData.Leafs.Append("mvpn", types.YLeaf{"Mvpn", global.Mvpn})
     global.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", global.RpkiOriginAsValidationDisable})
-    global.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", global.RpkiOriginAsValiditySignalIbgp})
     global.EntityData.Leafs.Append("global-scan-time", types.YLeaf{"GlobalScanTime", global.GlobalScanTime})
-    global.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", global.RpkiBestpathUseOriginAsValidity})
     global.EntityData.Leafs.Append("rpki-origin-as-validation-time", types.YLeaf{"RpkiOriginAsValidationTime", global.RpkiOriginAsValidationTime})
     global.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", global.RpkiBestpathOriginAsAllowInvalid})
     global.EntityData.Leafs.Append("graceful-restart-purge-time", types.YLeaf{"GracefulRestartPurgeTime", global.GracefulRestartPurgeTime})
@@ -15586,10 +15949,14 @@ func (global *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global) GetEntityDat
     global.EntityData.Leafs.Append("unsafe-ebgp-policy", types.YLeaf{"UnsafeEbgpPolicy", global.UnsafeEbgpPolicy})
     global.EntityData.Leafs.Append("default-metric", types.YLeaf{"DefaultMetric", global.DefaultMetric})
     global.EntityData.Leafs.Append("default-info-originate", types.YLeaf{"DefaultInfoOriginate", global.DefaultInfoOriginate})
+    global.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", global.RpkiOriginAsValiditySignalIbgp})
+    global.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", global.RpkiBestpathUseOriginAsValidity})
     global.EntityData.Leafs.Append("best-path-confederation-paths", types.YLeaf{"BestPathConfederationPaths", global.BestPathConfederationPaths})
     global.EntityData.Leafs.Append("best-path-as-multipath-relax", types.YLeaf{"BestPathAsMultipathRelax", global.BestPathAsMultipathRelax})
     global.EntityData.Leafs.Append("disable-auto-soft-reset", types.YLeaf{"DisableAutoSoftReset", global.DisableAutoSoftReset})
     global.EntityData.Leafs.Append("disable-msg-log", types.YLeaf{"DisableMsgLog", global.DisableMsgLog})
+    global.EntityData.Leafs.Append("best-path-igp-metric-ignore", types.YLeaf{"BestPathIgpMetricIgnore", global.BestPathIgpMetricIgnore})
+    global.EntityData.Leafs.Append("next-hop-res-allow-default", types.YLeaf{"NextHopResAllowDefault", global.NextHopResAllowDefault})
     global.EntityData.Leafs.Append("next-hop-mpls-fwd-ibgp", types.YLeaf{"NextHopMplsFwdIbgp", global.NextHopMplsFwdIbgp})
     global.EntityData.Leafs.Append("disable-neighbor-logging", types.YLeaf{"DisableNeighborLogging", global.DisableNeighborLogging})
     global.EntityData.Leafs.Append("best-path-med-always", types.YLeaf{"BestPathMedAlways", global.BestPathMedAlways})
@@ -16479,11 +16846,12 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
     // interface{} with range: 5..3600. Units are second. The default value is 60.
     ScanTime interface{}
 
+    // Route policy name to apply to configure source route-target. The type is
+    // string.
+    SourceRouteTargetPolicy interface{}
+
     // RPKI origin-AS validation disable. The type is interface{}.
     RpkiOriginAsValidationDisable interface{}
-
-    // RPKI origin-AS validity signal ibgp. The type is interface{}.
-    RpkiOriginAsValiditySignalIbgp interface{}
 
     // Upper bound on update generation transient memory usage for every EBGP
     // Sub-group. The type is interface{} with range: 1..512. Units are megabyte.
@@ -16495,16 +16863,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
     // megabyte. The default value is 256.
     UpdateLimitAddressFamily interface{}
 
-    // RPKI bestpath use origin-AS validity. The type is interface{}.
-    RpkiBestpathUseOriginAsValidity interface{}
-
     // Upper bound on update generation transient memory usage for every IBGP
     // Sub-group. The type is interface{} with range: 1..512. Units are megabyte.
     // The default value is 32.
     UpdateLimitSubGroupIbgp interface{}
-
-    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
-    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // Disable client-to-client reflection. The type is interface{}.
     DisableClientToClientRr interface{}
@@ -16521,6 +16883,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
 
     // Retrieve prefix sid mapping from SRMS. The type is interface{}.
     PrefixSidMap interface{}
+
+    // RPKI origin-AS validation enable. The type is interface{}.
+    RpkiOriginAsValidationEnable interface{}
 
     // Update generation delay (in minutes) after a MED change. The type is
     // interface{} with range: 0..10. Units are minute. The default value is 10.
@@ -16541,12 +16906,25 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
     // is bool.
     BestExternal interface{}
 
+    // RPKI origin-AS validity signal ibgp. The type is interface{}.
+    RpkiOriginAsValiditySignalIbgp interface{}
+
     // Advertise additional paths Receive capability. The type is
     // BgpAfAdditionalPathsCfg.
     AdditionalPathsReceive interface{}
 
     // Route policy for permanent networks. The type is string.
     PermanentNetwork interface{}
+
+    // RPKI bestpath use origin-AS validity. The type is interface{}.
+    RpkiBestpathUseOriginAsValidity interface{}
+
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
+
+    // RPKI bestpath origin-AS allow invalid. The type is interface{}.
+    RpkiBestpathOriginAsAllowInvalid interface{}
 
     // Minimum prefix-length for nexthop resolution. The type is interface{} with
     // range: 0..128. The default value is 0.
@@ -16700,25 +17078,28 @@ func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     globalAf.EntityData.Leafs.Append("use-igpsr-label", types.YLeaf{"UseIgpsrLabel", globalAf.UseIgpsrLabel})
     globalAf.EntityData.Leafs.Append("label-retain", types.YLeaf{"LabelRetain", globalAf.LabelRetain})
     globalAf.EntityData.Leafs.Append("scan-time", types.YLeaf{"ScanTime", globalAf.ScanTime})
+    globalAf.EntityData.Leafs.Append("source-route-target-policy", types.YLeaf{"SourceRouteTargetPolicy", globalAf.SourceRouteTargetPolicy})
     globalAf.EntityData.Leafs.Append("rpki-origin-as-validation-disable", types.YLeaf{"RpkiOriginAsValidationDisable", globalAf.RpkiOriginAsValidationDisable})
-    globalAf.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", globalAf.RpkiOriginAsValiditySignalIbgp})
     globalAf.EntityData.Leafs.Append("update-limit-sub-group-ebgp", types.YLeaf{"UpdateLimitSubGroupEbgp", globalAf.UpdateLimitSubGroupEbgp})
     globalAf.EntityData.Leafs.Append("update-limit-address-family", types.YLeaf{"UpdateLimitAddressFamily", globalAf.UpdateLimitAddressFamily})
-    globalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", globalAf.RpkiBestpathUseOriginAsValidity})
     globalAf.EntityData.Leafs.Append("update-limit-sub-group-ibgp", types.YLeaf{"UpdateLimitSubGroupIbgp", globalAf.UpdateLimitSubGroupIbgp})
-    globalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", globalAf.RpkiBestpathOriginAsAllowInvalid})
     globalAf.EntityData.Leafs.Append("disable-client-to-client-rr", types.YLeaf{"DisableClientToClientRr", globalAf.DisableClientToClientRr})
     globalAf.EntityData.Leafs.Append("next-hop-route-policy", types.YLeaf{"NextHopRoutePolicy", globalAf.NextHopRoutePolicy})
     globalAf.EntityData.Leafs.Append("global-table-mcast", types.YLeaf{"GlobalTableMcast", globalAf.GlobalTableMcast})
     globalAf.EntityData.Leafs.Append("wait-rib-install", types.YLeaf{"WaitRibInstall", globalAf.WaitRibInstall})
     globalAf.EntityData.Leafs.Append("prefix-sid-map", types.YLeaf{"PrefixSidMap", globalAf.PrefixSidMap})
+    globalAf.EntityData.Leafs.Append("rpki-origin-as-validation-enable", types.YLeaf{"RpkiOriginAsValidationEnable", globalAf.RpkiOriginAsValidationEnable})
     globalAf.EntityData.Leafs.Append("dynamic-med-interval", types.YLeaf{"DynamicMedInterval", globalAf.DynamicMedInterval})
     globalAf.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", globalAf.Enable})
     globalAf.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", globalAf.TablePolicy})
     globalAf.EntityData.Leafs.Append("attribute-download", types.YLeaf{"AttributeDownload", globalAf.AttributeDownload})
     globalAf.EntityData.Leafs.Append("best-external", types.YLeaf{"BestExternal", globalAf.BestExternal})
+    globalAf.EntityData.Leafs.Append("rpki-origin-as-validity-signal-ibgp", types.YLeaf{"RpkiOriginAsValiditySignalIbgp", globalAf.RpkiOriginAsValiditySignalIbgp})
     globalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", globalAf.AdditionalPathsReceive})
     globalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", globalAf.PermanentNetwork})
+    globalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", globalAf.RpkiBestpathUseOriginAsValidity})
+    globalAf.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", globalAf.Srv6LabelAllocationMode})
+    globalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", globalAf.RpkiBestpathOriginAsAllowInvalid})
     globalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", globalAf.NextHopResolutionPrefixLengthMinimum})
     globalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", globalAf.ResetWeightOnImport})
     globalAf.EntityData.Leafs.Append("additional-paths-send", types.YLeaf{"AdditionalPathsSend", globalAf.AdditionalPathsSend})
@@ -16869,6 +17250,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Vrf
     // interface{}.
     SourceRtImportPolicy interface{}
 
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
+
     // MPLS-VPN label allocation mode.
     LabelMode Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_VrfAll_LabelMode
 }
@@ -16890,6 +17275,7 @@ func (vrfAll *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     vrfAll.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrfAll.Enable})
     vrfAll.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", vrfAll.TablePolicy})
     vrfAll.EntityData.Leafs.Append("source-rt-import-policy", types.YLeaf{"SourceRtImportPolicy", vrfAll.SourceRtImportPolicy})
+    vrfAll.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", vrfAll.Srv6LabelAllocationMode})
 
     vrfAll.EntityData.YListKeys = []string {}
 
@@ -18021,6 +18407,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_All
 
     // Route policy name. The type is string.
     RoutePolicyName interface{}
+
+    // Allocate label for unlabeled paths too. The type is bool.
+    UnLabeledPath interface{}
 }
 
 func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AllocateLabel) GetEntityData() *types.CommonEntityData {
@@ -18037,6 +18426,7 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Global
     allocateLabel.EntityData.Leafs = types.NewOrderedMap()
     allocateLabel.EntityData.Leafs.Append("all", types.YLeaf{"All", allocateLabel.All})
     allocateLabel.EntityData.Leafs.Append("route-policy-name", types.YLeaf{"RoutePolicyName", allocateLabel.RoutePolicyName})
+    allocateLabel.EntityData.Leafs.Append("un-labeled-path", types.YLeaf{"UnLabeledPath", allocateLabel.UnLabeledPath})
 
     allocateLabel.EntityData.YListKeys = []string {}
 
@@ -18354,7 +18744,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18684,7 +19074,7 @@ type BmpServers_BmpServer struct {
     Shutdown interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Initial refresh to generate BGP updates.

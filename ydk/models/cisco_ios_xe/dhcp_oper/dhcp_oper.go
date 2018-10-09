@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions
 // for DHCP Server and Client operational data.
-// Copyright (c) 2017 by Cisco Systems, Inc.
+// Copyright (c) 2017-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dhcp_oper
 
@@ -325,12 +325,26 @@ type DhcpOperData_Dhcpv4ClientOper struct {
     // range: 0..4294967295.
     LeaseRemaining interface{}
 
-    // DNS list based on index. The type is one of the following types: slice of
-    // string with pattern:
+    // First DNS address. The type is one of the following types: string with
+    // pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
-    // or slice of string with pattern:
+    // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    DnsList []interface{}
+    DnsAddress interface{}
+
+    // Secondary DNS address. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    DnsAddressSecondary interface{}
+
+    // Subnet mask address. The type is one of the following types: string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    SubnetMask interface{}
 
     // Lease Expiry time for the IP address we got.
     LeaseExpiry DhcpOperData_Dhcpv4ClientOper_LeaseExpiry
@@ -357,7 +371,9 @@ func (dhcpv4ClientOper *DhcpOperData_Dhcpv4ClientOper) GetEntityData() *types.Co
     dhcpv4ClientOper.EntityData.Leafs.Append("gateway-addr", types.YLeaf{"GatewayAddr", dhcpv4ClientOper.GatewayAddr})
     dhcpv4ClientOper.EntityData.Leafs.Append("lease-time", types.YLeaf{"LeaseTime", dhcpv4ClientOper.LeaseTime})
     dhcpv4ClientOper.EntityData.Leafs.Append("lease-remaining", types.YLeaf{"LeaseRemaining", dhcpv4ClientOper.LeaseRemaining})
-    dhcpv4ClientOper.EntityData.Leafs.Append("dns-list", types.YLeaf{"DnsList", dhcpv4ClientOper.DnsList})
+    dhcpv4ClientOper.EntityData.Leafs.Append("dns-address", types.YLeaf{"DnsAddress", dhcpv4ClientOper.DnsAddress})
+    dhcpv4ClientOper.EntityData.Leafs.Append("dns-address-secondary", types.YLeaf{"DnsAddressSecondary", dhcpv4ClientOper.DnsAddressSecondary})
+    dhcpv4ClientOper.EntityData.Leafs.Append("subnet-mask", types.YLeaf{"SubnetMask", dhcpv4ClientOper.SubnetMask})
 
     dhcpv4ClientOper.EntityData.YListKeys = []string {"IfName", "ClientAddr", "VrfName"}
 

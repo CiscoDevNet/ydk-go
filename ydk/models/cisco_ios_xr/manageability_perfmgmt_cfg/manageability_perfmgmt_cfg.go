@@ -5,7 +5,7 @@
 // for the following management objects:
 //   perf-mgmt: Performance Management configuration & operations
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package manageability_perfmgmt_cfg
 
@@ -227,12 +227,12 @@ type PerfMgmt_Resources_MemoryResources struct {
     YFilter yfilter.YFilter
 
     // Maximum limit for memory usage (Kbytes) for data buffers. The type is
-    // interface{} with range: -2147483648..2147483647. Units are kilobyte.
+    // interface{} with range: 0..4294967295. Units are kilobyte.
     MaxLimit interface{}
 
     // Specify a minimum free memory (Kbytes) to be ensured before allowing a
-    // collection request. The type is interface{} with range:
-    // -2147483648..2147483647. Units are kilobyte.
+    // collection request. The type is interface{} with range: 0..4294967295.
+    // Units are kilobyte.
     MinReserved interface{}
 }
 
@@ -3151,7 +3151,7 @@ type PerfMgmt_Enable_MonitorEnable_GenericCounters_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3411,7 +3411,7 @@ type PerfMgmt_Enable_MonitorEnable_BasicCounters_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -3892,7 +3892,7 @@ type PerfMgmt_Enable_MonitorEnable_DataRates_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Template name. The type is string.
@@ -5576,11 +5576,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressWithdraw
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5630,11 +5630,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelWithdrawMs
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5684,11 +5684,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressWithdraw
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5738,11 +5738,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelWithdrawMs
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5792,11 +5792,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_NotificationMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5900,11 +5900,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_NotificationMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -5954,11 +5954,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_TotalMsgsSent s
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6008,11 +6008,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelReleaseMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6062,11 +6062,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_InitMsgsRcvd st
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6116,11 +6116,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelReleaseMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6170,11 +6170,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_InitMsgsSent st
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6224,11 +6224,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelMappingMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6278,11 +6278,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_KeepaliveMsgsRc
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6332,11 +6332,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_LabelMappingMsg
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6386,11 +6386,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_KeepaliveMsgsSe
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6440,11 +6440,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressMsgsRcvd
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -6494,11 +6494,11 @@ type PerfMgmt_Threshold_LdpMpls_LdpMplsTemplates_LdpMplsTemplate_AddressMsgsSent
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -9276,11 +9276,11 @@ type PerfMgmt_Threshold_CpuNode_CpuNodeTemplates_CpuNodeTemplate_NoProcesses str
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -10123,11 +10123,11 @@ type PerfMgmt_Threshold_ProcessNode_ProcessNodeTemplates_ProcessNodeTemplate_Pea
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.
@@ -10391,11 +10391,11 @@ type PerfMgmt_Threshold_MemoryNode_MemoryNodeTemplates_MemoryNodeTemplate_CurrMe
     Operator interface{}
 
     // Threshold value (or start range value for operator RG). The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     Value interface{}
 
     // Threshold end range value (for operator RG, set to 0 otherwise). The type
-    // is interface{} with range: -2147483648..2147483647.
+    // is interface{} with range: 0..4294967295.
     EndRangeValue interface{}
 
     // Set to TRUE if Specified threshold values are in percent. The type is bool.

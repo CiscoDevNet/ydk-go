@@ -5,7 +5,7 @@
 // for the following management objects:
 //   infra-statistics: Statistics Infrastructure
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_statsd_oper
 
@@ -93,7 +93,7 @@ type InfraStatistics_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Cached stats data of interfaces.
@@ -247,7 +247,7 @@ type InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol struct {
     Protocol interface{}
 
     // Time when counters were last written (in seconds). The type is interface{}
-    // with range: 0..4294967295. Units are second.
+    // with range: 0..18446744073709551615. Units are second.
     LastDataTime interface{}
 
     // Input data rate in 1000's of bps. The type is interface{} with range:
@@ -855,7 +855,7 @@ type InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol struct {
     Protocol interface{}
 
     // Time when counters were last written (in seconds). The type is interface{}
-    // with range: 0..4294967295. Units are second.
+    // with range: 0..18446744073709551615. Units are second.
     LastDataTime interface{}
 
     // Input data rate in 1000's of bps. The type is interface{} with range:
@@ -1463,7 +1463,7 @@ type InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol struct {
     Protocol interface{}
 
     // Time when counters were last written (in seconds). The type is interface{}
-    // with range: 0..4294967295. Units are second.
+    // with range: 0..18446744073709551615. Units are second.
     LastDataTime interface{}
 
     // Input data rate in 1000's of bps. The type is interface{} with range:
@@ -2030,7 +2030,7 @@ type InfraStatistics_Interfaces_Interface_Protocols_Protocol struct {
     Protocol interface{}
 
     // Time when counters were last written (in seconds). The type is interface{}
-    // with range: 0..4294967295. Units are second.
+    // with range: 0..18446744073709551615. Units are second.
     LastDataTime interface{}
 
     // Input data rate in 1000's of bps. The type is interface{} with range:

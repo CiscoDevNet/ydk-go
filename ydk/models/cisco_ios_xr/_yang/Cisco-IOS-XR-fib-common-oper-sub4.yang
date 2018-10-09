@@ -3,6 +3,9 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     prefix Cisco-IOS-XR-fib-common-oper;
   }
 
+  import ietf-inet-types {
+    prefix inet;
+  }
   import ietf-yang-types {
     prefix yang;
   }
@@ -26,7 +29,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR fib-common package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -1329,6 +1332,21 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "XPL loadinfo is enabled";
     }
+    leaf mi-frr-follow-bgp-pic {
+      type boolean;
+      description
+        "fast-reroute follow BGP-PIC configured";
+    }
+    leaf mi-encap-sharing-disable {
+      type boolean;
+      description
+        "MPLS encapsulation sharing disabled";
+    }
+    leaf mi-lba-hash-recover {
+      type boolean;
+      description
+        "Consistent-hashing auto-recovery";
+    }
     list mi-idb-ext-cleanup-failed-count {
       max-elements "3";
       description
@@ -1472,7 +1490,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
   grouping FIB-SH-NHID-ENTRY {
     description
       "FIB per NHID entry information";
-    leaf nh-interf-handle {
+    leaf nh-interface-name-xr {
       type xr:Interface-name;
       description
         "Next-hop interface";
@@ -1497,7 +1515,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "Table-ID entry notified for";
     }
-    leaf nh-id {
+    leaf nh-id-xr {
       type uint32;
       description
         "NHID value";
@@ -1516,6 +1534,51 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       type uint64;
       description
         "The time of last update in msec";
+    }
+  }
+
+  grouping FIB-SRV6-GBL-UPD-LOC {
+    description
+      "FIB SRv6 global locator";
+    leaf name {
+      type string;
+      description
+        "Locator name";
+    }
+    leaf prefix {
+      type string;
+      description
+        "Locator prefix";
+    }
+    leaf locator {
+      type string;
+      description
+        "Locator";
+    }
+  }
+
+  grouping FIB-SRV6-GBL-UPD {
+    description
+      "FIB SRv6 global update";
+    leaf srv6-enabled {
+      type boolean;
+      description
+        "Is SRv6 enabled?";
+    }
+    leaf encap-source-address {
+      type inet:ipv6-address;
+      description
+        "Encap Source Address";
+    }
+    leaf locator-count {
+      type uint32;
+      description
+        "Locator Count";
+    }
+    list locator {
+      description
+        "Locator Array";
+      uses FIB-SRV6-GBL-UPD-LOC;
     }
   }
 
@@ -1861,16 +1924,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
     }
   }
 
-  grouping FIB-SH-TBL-PATH-SRV6-INFO {
-    description
-      "SRv6 path information for FIB table entries";
-    leaf srv6-sid-list {
-      type string;
-      description
-        "SRv6 SID list";
-    }
-  }
-
   grouping FIB-SH-TBL-MPLS-LABEL-STACK {
     description
       "mpls label stack information for FIB table
@@ -1936,6 +1989,28 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "igp label stack array";
       uses FIB-SH-TBL-MPLS-LABEL-STACK;
+    }
+  }
+
+  grouping FIB-SH-TBL-NNH-PATH {
+    description
+      "Detailed Next Next Hop Information";
+    leaf next-next-hop-index {
+      type uint8;
+      description
+        "Next next hop index";
+    }
+    leaf next-next-hop-prefix {
+      type string {
+        length "0..52";
+      }
+      description
+        "Next next hop prefix";
+    }
+    leaf next-next-hop-interface {
+      type uint32;
+      description
+        "Next next hop interface index";
     }
   }
 
@@ -2159,6 +2234,11 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "IP Encap";
       uses FIB-SH-IPENCAP-DET;
     }
+    list next-next-hop {
+      description
+        "Next Next hop sets";
+      uses FIB-SH-TBL-NNH-PATH;
+    }
   }
 
   grouping FIB-SH-TBL-PATH {
@@ -2176,11 +2256,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         description
           "mpls info for this path entry";
         uses FIB-SH-TBL-PATH-MPLS-INFO;
-      }
-      container srv6-information-for-path {
-        description
-          "SRv6 info for this path entry";
-        uses FIB-SH-TBL-PATH-SRV6-INFO;
       }
       leaf hardware-information {
         type yang:hex-string;
@@ -2936,21 +3011,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
       description
         "Route is a MPLS Segment-Routing prefix";
     }
-    leaf route-is-srv6-transit {
-      type boolean;
-      description
-        "This route is SRv6 Transit function";
-    }
-    leaf route-is-srv6-end {
-      type boolean;
-      description
-        "This route is SRv6 End function";
-    }
-    leaf srv6-operation-type {
-      type string;
-      description
-        "SRv6 Operation Type";
-    }
     list extension-object {
       description
         "Leaf Extension Object List";
@@ -3394,7 +3454,7 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Number of ECD pathlists unresolved";
     }
     list sep-num-ecd-pl-per-interest {
-      max-elements "10";
+      max-elements "13";
       description
         "Number of ECD pathlists per interest";
       leaf entry {
@@ -3530,9 +3590,9 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Cross-table shared load sharing element";
       uses FIB-PL-LDI-COUNT;
     }
-    container label-shared-load-sharing-element {
+    container encap-shared-load-sharing-element {
       description
-        "Label-shared load sharing element";
+        "Encap-shared load sharing element";
       uses FIB-PL-LDI-COUNT;
     }
     container prefix-masklen-distribution {
@@ -3734,15 +3794,10 @@ submodule Cisco-IOS-XR-fib-common-oper-sub4 {
         "Number of lisp rloc objects associated with
          table";
     }
-    leaf number-routes-srv6-transit {
+    leaf number-of-sr-labels {
       type uint32;
       description
-        "Number of SRv6 transit routes";
-    }
-    leaf number-routes-srv6-end {
-      type uint32;
-      description
-        "Number of SRv6 end routes";
+        "Number of SR labels";
     }
     leaf ss-vxlan-ltep-ifh {
       type xr:Interface-name;

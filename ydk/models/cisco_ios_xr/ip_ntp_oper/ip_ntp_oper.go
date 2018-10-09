@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ntp: NTP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_ntp_oper
 
@@ -324,6 +324,9 @@ type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo struct {
     // 0..4294967295.
     FilterIndex interface{}
 
+    // Cast Flags. The type is interface{} with range: 0..255.
+    CastFlags interface{}
+
     // Common peer info.
     PeerInfoCommon Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_PeerInfoCommon
 
@@ -376,6 +379,7 @@ func (peerDetailInfo *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo) GetEntit
     peerDetailInfo.EntityData.Leafs.Append("precision", types.YLeaf{"Precision", peerDetailInfo.Precision})
     peerDetailInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", peerDetailInfo.Version})
     peerDetailInfo.EntityData.Leafs.Append("filter-index", types.YLeaf{"FilterIndex", peerDetailInfo.FilterIndex})
+    peerDetailInfo.EntityData.Leafs.Append("cast-flags", types.YLeaf{"CastFlags", peerDetailInfo.CastFlags})
 
     peerDetailInfo.EntityData.YListKeys = []string {}
 

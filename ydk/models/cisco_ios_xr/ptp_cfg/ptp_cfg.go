@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ptp_cfg
 
@@ -34,6 +34,11 @@ type Ptp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Clock class to be used while acquiring phase-lock to a parent clock. Note
+    // that this is deprecated and should not be  used. The type is interface{}
+    // with range: 0..255.
+    UncalibratedClockClass interface{}
+
     // Time-of-day priority. The type is interface{} with range: 1..254. The
     // default value is 100.
     TimeOfDayPriority interface{}
@@ -53,9 +58,9 @@ type Ptp struct {
     // range: 0..255.
     MinClockClass interface{}
 
-    // Clock class to be used while acquiring phase-lock to a parent clock. The
-    // type is interface{} with range: 0..255.
-    UncalibratedClockClass interface{}
+    // Disable PTP as a source for frequency as only physical layer frequency
+    // sources are used. The type is interface{}.
+    PhysicalLayerFrequency interface{}
 
     // Freerun clock class value. The type is interface{} with range: 0..255.
     FreerunClockClass interface{}
@@ -72,8 +77,14 @@ type Ptp struct {
     // PTP logging configuration.
     Logging Ptp_Logging
 
+    // Clock class to be used while acquiring phase-lock to a parent clock.
+    UncalibratedClockClass2 Ptp_UncalibratedClockClass2
+
     // Transparent clock configuration.
     TransparentClock Ptp_TransparentClock
+
+    // PTP virtual port configuration.
+    VirtualPort Ptp_VirtualPort
 }
 
 func (ptp *Ptp) GetEntityData() *types.CommonEntityData {
@@ -91,14 +102,17 @@ func (ptp *Ptp) GetEntityData() *types.CommonEntityData {
     ptp.EntityData.Children.Append("profiles", types.YChild{"Profiles", &ptp.Profiles})
     ptp.EntityData.Children.Append("utc-offset", types.YChild{"UtcOffset", &ptp.UtcOffset})
     ptp.EntityData.Children.Append("logging", types.YChild{"Logging", &ptp.Logging})
+    ptp.EntityData.Children.Append("uncalibrated-clock-class2", types.YChild{"UncalibratedClockClass2", &ptp.UncalibratedClockClass2})
     ptp.EntityData.Children.Append("transparent-clock", types.YChild{"TransparentClock", &ptp.TransparentClock})
+    ptp.EntityData.Children.Append("virtual-port", types.YChild{"VirtualPort", &ptp.VirtualPort})
     ptp.EntityData.Leafs = types.NewOrderedMap()
+    ptp.EntityData.Leafs.Append("uncalibrated-clock-class", types.YLeaf{"UncalibratedClockClass", ptp.UncalibratedClockClass})
     ptp.EntityData.Leafs.Append("time-of-day-priority", types.YLeaf{"TimeOfDayPriority", ptp.TimeOfDayPriority})
     ptp.EntityData.Leafs.Append("frequency-priority", types.YLeaf{"FrequencyPriority", ptp.FrequencyPriority})
     ptp.EntityData.Leafs.Append("startup-clock-class", types.YLeaf{"StartupClockClass", ptp.StartupClockClass})
     ptp.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ptp.Enable})
     ptp.EntityData.Leafs.Append("min-clock-class", types.YLeaf{"MinClockClass", ptp.MinClockClass})
-    ptp.EntityData.Leafs.Append("uncalibrated-clock-class", types.YLeaf{"UncalibratedClockClass", ptp.UncalibratedClockClass})
+    ptp.EntityData.Leafs.Append("physical-layer-frequency", types.YLeaf{"PhysicalLayerFrequency", ptp.PhysicalLayerFrequency})
     ptp.EntityData.Leafs.Append("freerun-clock-class", types.YLeaf{"FreerunClockClass", ptp.FreerunClockClass})
 
     ptp.EntityData.YListKeys = []string {}
@@ -303,6 +317,10 @@ type Ptp_Profiles_Profile struct {
     // COS. The type is interface{} with range: 0..7. The default value is 6.
     Cos interface{}
 
+    // IPv4 TTL. The type is interface{} with range: 1..255. The default value is
+    // 255.
+    Ipv4ttl interface{}
+
     // Port state restriction. The type is PtpPortState. The default value is any.
     PortState interface{}
 
@@ -320,6 +338,10 @@ type Ptp_Profiles_Profile struct {
 
     // DSCP. The type is interface{} with range: 0..63. The default value is 46.
     Dscp interface{}
+
+    // IPv6 Hop Limit. The type is interface{} with range: 1..255. The default
+    // value is 255.
+    Ipv6HopLimit interface{}
 
     // General DSCP. The type is interface{} with range: 0..63. The default value
     // is 46.
@@ -343,6 +365,9 @@ type Ptp_Profiles_Profile struct {
 
     // Announce interval.
     AnnounceInterval Ptp_Profiles_Profile_AnnounceInterval
+
+    // Table for interop configuration.
+    Interop Ptp_Profiles_Profile_Interop
 
     // Source IPv4 Address.
     SourceIpv4Address Ptp_Profiles_Profile_SourceIpv4Address
@@ -378,6 +403,7 @@ func (profile *Ptp_Profiles_Profile) GetEntityData() *types.CommonEntityData {
 
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Children.Append("announce-interval", types.YChild{"AnnounceInterval", &profile.AnnounceInterval})
+    profile.EntityData.Children.Append("interop", types.YChild{"Interop", &profile.Interop})
     profile.EntityData.Children.Append("source-ipv4-address", types.YChild{"SourceIpv4Address", &profile.SourceIpv4Address})
     profile.EntityData.Children.Append("slaves", types.YChild{"Slaves", &profile.Slaves})
     profile.EntityData.Children.Append("sync-interval", types.YChild{"SyncInterval", &profile.SyncInterval})
@@ -393,11 +419,13 @@ func (profile *Ptp_Profiles_Profile) GetEntityData() *types.CommonEntityData {
     profile.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", profile.Transport})
     profile.EntityData.Leafs.Append("announce-timeout", types.YLeaf{"AnnounceTimeout", profile.AnnounceTimeout})
     profile.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", profile.Cos})
+    profile.EntityData.Leafs.Append("ipv4ttl", types.YLeaf{"Ipv4ttl", profile.Ipv4ttl})
     profile.EntityData.Leafs.Append("port-state", types.YLeaf{"PortState", profile.PortState})
     profile.EntityData.Leafs.Append("delay-response-timeout", types.YLeaf{"DelayResponseTimeout", profile.DelayResponseTimeout})
     profile.EntityData.Leafs.Append("delay-response-grant-duration", types.YLeaf{"DelayResponseGrantDuration", profile.DelayResponseGrantDuration})
     profile.EntityData.Leafs.Append("event-cos", types.YLeaf{"EventCos", profile.EventCos})
     profile.EntityData.Leafs.Append("dscp", types.YLeaf{"Dscp", profile.Dscp})
+    profile.EntityData.Leafs.Append("ipv6-hop-limit", types.YLeaf{"Ipv6HopLimit", profile.Ipv6HopLimit})
     profile.EntityData.Leafs.Append("general-dscp", types.YLeaf{"GeneralDscp", profile.GeneralDscp})
     profile.EntityData.Leafs.Append("clock-operation", types.YLeaf{"ClockOperation", profile.ClockOperation})
     profile.EntityData.Leafs.Append("announce-grant-duration", types.YLeaf{"AnnounceGrantDuration", profile.AnnounceGrantDuration})
@@ -440,6 +468,296 @@ func (announceInterval *Ptp_Profiles_Profile_AnnounceInterval) GetEntityData() *
     announceInterval.EntityData.YListKeys = []string {}
 
     return &(announceInterval.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop
+// Table for interop configuration
+type Ptp_Profiles_Profile_Interop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Profile to interoperate with. The type is PtpClockProfile.
+    Profile interface{}
+
+    // Domain number of the peer clock. The type is interface{} with range:
+    // 0..255.
+    Domain interface{}
+
+    // Iteroperation configuration to be used on egress.
+    EgressConversion Ptp_Profiles_Profile_Interop_EgressConversion
+
+    // Iteroperation configuration to be used on ingress.
+    IngressConversion Ptp_Profiles_Profile_Interop_IngressConversion
+}
+
+func (interop *Ptp_Profiles_Profile_Interop) GetEntityData() *types.CommonEntityData {
+    interop.EntityData.YFilter = interop.YFilter
+    interop.EntityData.YangName = "interop"
+    interop.EntityData.BundleName = "cisco_ios_xr"
+    interop.EntityData.ParentYangName = "profile"
+    interop.EntityData.SegmentPath = "interop"
+    interop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interop.EntityData.Children = types.NewOrderedMap()
+    interop.EntityData.Children.Append("egress-conversion", types.YChild{"EgressConversion", &interop.EgressConversion})
+    interop.EntityData.Children.Append("ingress-conversion", types.YChild{"IngressConversion", &interop.IngressConversion})
+    interop.EntityData.Leafs = types.NewOrderedMap()
+    interop.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", interop.Profile})
+    interop.EntityData.Leafs.Append("domain", types.YLeaf{"Domain", interop.Domain})
+
+    interop.EntityData.YListKeys = []string {}
+
+    return &(interop.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_EgressConversion
+// Iteroperation configuration to be used on
+// egress
+type Ptp_Profiles_Profile_Interop_EgressConversion struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clock Accuracy value to use for the peer clock. The type is interface{}
+    // with range: 0..254.
+    ClockAccuracy interface{}
+
+    // Priority2 value to use for the peer clock. The type is interface{} with
+    // range: 0..255.
+    Priority2 interface{}
+
+    // Default clock class to use when a more specific mapping is not available.
+    // The type is interface{} with range: 0..255.
+    ClockClassDefault interface{}
+
+    // OSLV value to use for the peer clock. The type is interface{} with range:
+    // 0..65535.
+    OffsetScaledLogVariance interface{}
+
+    // Priority1 value to use for the peer clock. The type is interface{} with
+    // range: 0..255.
+    Priority1 interface{}
+
+    // Table for specific mappings for given clock class values.
+    ClockClassMappings Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings
+}
+
+func (egressConversion *Ptp_Profiles_Profile_Interop_EgressConversion) GetEntityData() *types.CommonEntityData {
+    egressConversion.EntityData.YFilter = egressConversion.YFilter
+    egressConversion.EntityData.YangName = "egress-conversion"
+    egressConversion.EntityData.BundleName = "cisco_ios_xr"
+    egressConversion.EntityData.ParentYangName = "interop"
+    egressConversion.EntityData.SegmentPath = "egress-conversion"
+    egressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    egressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    egressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    egressConversion.EntityData.Children = types.NewOrderedMap()
+    egressConversion.EntityData.Children.Append("clock-class-mappings", types.YChild{"ClockClassMappings", &egressConversion.ClockClassMappings})
+    egressConversion.EntityData.Leafs = types.NewOrderedMap()
+    egressConversion.EntityData.Leafs.Append("clock-accuracy", types.YLeaf{"ClockAccuracy", egressConversion.ClockAccuracy})
+    egressConversion.EntityData.Leafs.Append("priority2", types.YLeaf{"Priority2", egressConversion.Priority2})
+    egressConversion.EntityData.Leafs.Append("clock-class-default", types.YLeaf{"ClockClassDefault", egressConversion.ClockClassDefault})
+    egressConversion.EntityData.Leafs.Append("offset-scaled-log-variance", types.YLeaf{"OffsetScaledLogVariance", egressConversion.OffsetScaledLogVariance})
+    egressConversion.EntityData.Leafs.Append("priority1", types.YLeaf{"Priority1", egressConversion.Priority1})
+
+    egressConversion.EntityData.YListKeys = []string {}
+
+    return &(egressConversion.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings
+// Table for specific mappings for given clock
+// class values
+type Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping for a given clock class value. The type is slice of
+    // Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings_ClockClassMapping.
+    ClockClassMapping []*Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings_ClockClassMapping
+}
+
+func (clockClassMappings *Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings) GetEntityData() *types.CommonEntityData {
+    clockClassMappings.EntityData.YFilter = clockClassMappings.YFilter
+    clockClassMappings.EntityData.YangName = "clock-class-mappings"
+    clockClassMappings.EntityData.BundleName = "cisco_ios_xr"
+    clockClassMappings.EntityData.ParentYangName = "egress-conversion"
+    clockClassMappings.EntityData.SegmentPath = "clock-class-mappings"
+    clockClassMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockClassMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockClassMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockClassMappings.EntityData.Children = types.NewOrderedMap()
+    clockClassMappings.EntityData.Children.Append("clock-class-mapping", types.YChild{"ClockClassMapping", nil})
+    for i := range clockClassMappings.ClockClassMapping {
+        clockClassMappings.EntityData.Children.Append(types.GetSegmentPath(clockClassMappings.ClockClassMapping[i]), types.YChild{"ClockClassMapping", clockClassMappings.ClockClassMapping[i]})
+    }
+    clockClassMappings.EntityData.Leafs = types.NewOrderedMap()
+
+    clockClassMappings.EntityData.YListKeys = []string {}
+
+    return &(clockClassMappings.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings_ClockClassMapping
+// Mapping for a given clock class value
+type Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings_ClockClassMapping struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Clock Class to map from. The type is interface{}
+    // with range: 0..255.
+    ClockClassFrom interface{}
+
+    // Clock class to map to. The type is interface{} with range: 0..255. This
+    // attribute is mandatory.
+    ClockClassTo interface{}
+}
+
+func (clockClassMapping *Ptp_Profiles_Profile_Interop_EgressConversion_ClockClassMappings_ClockClassMapping) GetEntityData() *types.CommonEntityData {
+    clockClassMapping.EntityData.YFilter = clockClassMapping.YFilter
+    clockClassMapping.EntityData.YangName = "clock-class-mapping"
+    clockClassMapping.EntityData.BundleName = "cisco_ios_xr"
+    clockClassMapping.EntityData.ParentYangName = "clock-class-mappings"
+    clockClassMapping.EntityData.SegmentPath = "clock-class-mapping" + types.AddKeyToken(clockClassMapping.ClockClassFrom, "clock-class-from")
+    clockClassMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockClassMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockClassMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockClassMapping.EntityData.Children = types.NewOrderedMap()
+    clockClassMapping.EntityData.Leafs = types.NewOrderedMap()
+    clockClassMapping.EntityData.Leafs.Append("clock-class-from", types.YLeaf{"ClockClassFrom", clockClassMapping.ClockClassFrom})
+    clockClassMapping.EntityData.Leafs.Append("clock-class-to", types.YLeaf{"ClockClassTo", clockClassMapping.ClockClassTo})
+
+    clockClassMapping.EntityData.YListKeys = []string {"ClockClassFrom"}
+
+    return &(clockClassMapping.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_IngressConversion
+// Iteroperation configuration to be used on
+// ingress
+type Ptp_Profiles_Profile_Interop_IngressConversion struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Clock Accuracy value to use for the peer clock. The type is interface{}
+    // with range: 0..254.
+    ClockAccuracy interface{}
+
+    // Priority2 value to use for the peer clock. The type is interface{} with
+    // range: 0..255.
+    Priority2 interface{}
+
+    // Default clock class to use when a more specific mapping is not available.
+    // The type is interface{} with range: 0..255.
+    ClockClassDefault interface{}
+
+    // OSLV value to use for the peer clock. The type is interface{} with range:
+    // 0..65535.
+    OffsetScaledLogVariance interface{}
+
+    // Priority1 value to use for the peer clock. The type is interface{} with
+    // range: 0..255.
+    Priority1 interface{}
+
+    // Table for specific mappings for given clock class values.
+    ClockClassMappings Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings
+}
+
+func (ingressConversion *Ptp_Profiles_Profile_Interop_IngressConversion) GetEntityData() *types.CommonEntityData {
+    ingressConversion.EntityData.YFilter = ingressConversion.YFilter
+    ingressConversion.EntityData.YangName = "ingress-conversion"
+    ingressConversion.EntityData.BundleName = "cisco_ios_xr"
+    ingressConversion.EntityData.ParentYangName = "interop"
+    ingressConversion.EntityData.SegmentPath = "ingress-conversion"
+    ingressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ingressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ingressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ingressConversion.EntityData.Children = types.NewOrderedMap()
+    ingressConversion.EntityData.Children.Append("clock-class-mappings", types.YChild{"ClockClassMappings", &ingressConversion.ClockClassMappings})
+    ingressConversion.EntityData.Leafs = types.NewOrderedMap()
+    ingressConversion.EntityData.Leafs.Append("clock-accuracy", types.YLeaf{"ClockAccuracy", ingressConversion.ClockAccuracy})
+    ingressConversion.EntityData.Leafs.Append("priority2", types.YLeaf{"Priority2", ingressConversion.Priority2})
+    ingressConversion.EntityData.Leafs.Append("clock-class-default", types.YLeaf{"ClockClassDefault", ingressConversion.ClockClassDefault})
+    ingressConversion.EntityData.Leafs.Append("offset-scaled-log-variance", types.YLeaf{"OffsetScaledLogVariance", ingressConversion.OffsetScaledLogVariance})
+    ingressConversion.EntityData.Leafs.Append("priority1", types.YLeaf{"Priority1", ingressConversion.Priority1})
+
+    ingressConversion.EntityData.YListKeys = []string {}
+
+    return &(ingressConversion.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings
+// Table for specific mappings for given clock
+// class values
+type Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mapping for a given clock class value. The type is slice of
+    // Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings_ClockClassMapping.
+    ClockClassMapping []*Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings_ClockClassMapping
+}
+
+func (clockClassMappings *Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings) GetEntityData() *types.CommonEntityData {
+    clockClassMappings.EntityData.YFilter = clockClassMappings.YFilter
+    clockClassMappings.EntityData.YangName = "clock-class-mappings"
+    clockClassMappings.EntityData.BundleName = "cisco_ios_xr"
+    clockClassMappings.EntityData.ParentYangName = "ingress-conversion"
+    clockClassMappings.EntityData.SegmentPath = "clock-class-mappings"
+    clockClassMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockClassMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockClassMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockClassMappings.EntityData.Children = types.NewOrderedMap()
+    clockClassMappings.EntityData.Children.Append("clock-class-mapping", types.YChild{"ClockClassMapping", nil})
+    for i := range clockClassMappings.ClockClassMapping {
+        clockClassMappings.EntityData.Children.Append(types.GetSegmentPath(clockClassMappings.ClockClassMapping[i]), types.YChild{"ClockClassMapping", clockClassMappings.ClockClassMapping[i]})
+    }
+    clockClassMappings.EntityData.Leafs = types.NewOrderedMap()
+
+    clockClassMappings.EntityData.YListKeys = []string {}
+
+    return &(clockClassMappings.EntityData)
+}
+
+// Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings_ClockClassMapping
+// Mapping for a given clock class value
+type Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings_ClockClassMapping struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Clock Class to map from. The type is interface{}
+    // with range: 0..255.
+    ClockClassFrom interface{}
+
+    // Clock class to map to. The type is interface{} with range: 0..255. This
+    // attribute is mandatory.
+    ClockClassTo interface{}
+}
+
+func (clockClassMapping *Ptp_Profiles_Profile_Interop_IngressConversion_ClockClassMappings_ClockClassMapping) GetEntityData() *types.CommonEntityData {
+    clockClassMapping.EntityData.YFilter = clockClassMapping.YFilter
+    clockClassMapping.EntityData.YangName = "clock-class-mapping"
+    clockClassMapping.EntityData.BundleName = "cisco_ios_xr"
+    clockClassMapping.EntityData.ParentYangName = "clock-class-mappings"
+    clockClassMapping.EntityData.SegmentPath = "clock-class-mapping" + types.AddKeyToken(clockClassMapping.ClockClassFrom, "clock-class-from")
+    clockClassMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockClassMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockClassMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockClassMapping.EntityData.Children = types.NewOrderedMap()
+    clockClassMapping.EntityData.Leafs = types.NewOrderedMap()
+    clockClassMapping.EntityData.Leafs.Append("clock-class-from", types.YLeaf{"ClockClassFrom", clockClassMapping.ClockClassFrom})
+    clockClassMapping.EntityData.Leafs.Append("clock-class-to", types.YLeaf{"ClockClassTo", clockClassMapping.ClockClassTo})
+
+    clockClassMapping.EntityData.YListKeys = []string {"ClockClassFrom"}
+
+    return &(clockClassMapping.EntityData)
 }
 
 // Ptp_Profiles_Profile_SourceIpv4Address
@@ -1172,9 +1490,6 @@ type Ptp_Logging struct {
 
     // PTP best master clock logging configuration.
     BestMasterClock Ptp_Logging_BestMasterClock
-
-    // PTP PD Servo logging configuration.
-    Servo Ptp_Logging_Servo
 }
 
 func (logging *Ptp_Logging) GetEntityData() *types.CommonEntityData {
@@ -1189,7 +1504,6 @@ func (logging *Ptp_Logging) GetEntityData() *types.CommonEntityData {
 
     logging.EntityData.Children = types.NewOrderedMap()
     logging.EntityData.Children.Append("best-master-clock", types.YChild{"BestMasterClock", &logging.BestMasterClock})
-    logging.EntityData.Children.Append("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo", types.YChild{"Servo", &logging.Servo})
     logging.EntityData.Leafs = types.NewOrderedMap()
 
     logging.EntityData.YListKeys = []string {}
@@ -1226,33 +1540,41 @@ func (bestMasterClock *Ptp_Logging_BestMasterClock) GetEntityData() *types.Commo
     return &(bestMasterClock.EntityData)
 }
 
-// Ptp_Logging_Servo
-// PTP PD Servo logging configuration
-type Ptp_Logging_Servo struct {
+// Ptp_UncalibratedClockClass2
+// Clock class to be used while acquiring
+// phase-lock to a parent clock.
+// This type is a presence type.
+type Ptp_UncalibratedClockClass2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
-    // Enable servo events logging. The type is interface{}.
-    Events interface{}
+    // Clock Class. The type is interface{} with range: 0..255. This attribute is
+    // mandatory.
+    ClockClass interface{}
+
+    // Unless from holdover flag. The type is bool.
+    UnlessFromHoldover interface{}
 }
 
-func (servo *Ptp_Logging_Servo) GetEntityData() *types.CommonEntityData {
-    servo.EntityData.YFilter = servo.YFilter
-    servo.EntityData.YangName = "servo"
-    servo.EntityData.BundleName = "cisco_ios_xr"
-    servo.EntityData.ParentYangName = "logging"
-    servo.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo"
-    servo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (uncalibratedClockClass2 *Ptp_UncalibratedClockClass2) GetEntityData() *types.CommonEntityData {
+    uncalibratedClockClass2.EntityData.YFilter = uncalibratedClockClass2.YFilter
+    uncalibratedClockClass2.EntityData.YangName = "uncalibrated-clock-class2"
+    uncalibratedClockClass2.EntityData.BundleName = "cisco_ios_xr"
+    uncalibratedClockClass2.EntityData.ParentYangName = "ptp"
+    uncalibratedClockClass2.EntityData.SegmentPath = "uncalibrated-clock-class2"
+    uncalibratedClockClass2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    uncalibratedClockClass2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    uncalibratedClockClass2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    servo.EntityData.Children = types.NewOrderedMap()
-    servo.EntityData.Leafs = types.NewOrderedMap()
-    servo.EntityData.Leafs.Append("events", types.YLeaf{"Events", servo.Events})
+    uncalibratedClockClass2.EntityData.Children = types.NewOrderedMap()
+    uncalibratedClockClass2.EntityData.Leafs = types.NewOrderedMap()
+    uncalibratedClockClass2.EntityData.Leafs.Append("clock-class", types.YLeaf{"ClockClass", uncalibratedClockClass2.ClockClass})
+    uncalibratedClockClass2.EntityData.Leafs.Append("unless-from-holdover", types.YLeaf{"UnlessFromHoldover", uncalibratedClockClass2.UnlessFromHoldover})
 
-    servo.EntityData.YListKeys = []string {}
+    uncalibratedClockClass2.EntityData.YListKeys = []string {}
 
-    return &(servo.EntityData)
+    return &(uncalibratedClockClass2.EntityData)
 }
 
 // Ptp_TransparentClock
@@ -1345,5 +1667,58 @@ func (domain *Ptp_TransparentClock_Domains_Domain) GetEntityData() *types.Common
     domain.EntityData.YListKeys = []string {"Domain"}
 
     return &(domain.EntityData)
+}
+
+// Ptp_VirtualPort
+// PTP virtual port configuration
+type Ptp_VirtualPort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Virtual port clock accuracy. The type is interface{} with range: 0..254.
+    ClockAccuracy interface{}
+
+    // Enable the PTP Virtual Port. The type is interface{}.
+    Enable interface{}
+
+    // Virtual port priority2. The type is interface{} with range: 0..255.
+    Priority2 interface{}
+
+    // Virtual port local priority. The type is interface{} with range: 1..255.
+    LocalPriority interface{}
+
+    // Virtual port OSLV. The type is interface{} with range: 0..65535.
+    OffsetScaledLogVariance interface{}
+
+    // Virtual port priority1. The type is interface{} with range: 0..255.
+    Priority1 interface{}
+
+    // Virtual port clock class. The type is interface{} with range: 0..255.
+    ClockClass interface{}
+}
+
+func (virtualPort *Ptp_VirtualPort) GetEntityData() *types.CommonEntityData {
+    virtualPort.EntityData.YFilter = virtualPort.YFilter
+    virtualPort.EntityData.YangName = "virtual-port"
+    virtualPort.EntityData.BundleName = "cisco_ios_xr"
+    virtualPort.EntityData.ParentYangName = "ptp"
+    virtualPort.EntityData.SegmentPath = "virtual-port"
+    virtualPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    virtualPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    virtualPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    virtualPort.EntityData.Children = types.NewOrderedMap()
+    virtualPort.EntityData.Leafs = types.NewOrderedMap()
+    virtualPort.EntityData.Leafs.Append("clock-accuracy", types.YLeaf{"ClockAccuracy", virtualPort.ClockAccuracy})
+    virtualPort.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", virtualPort.Enable})
+    virtualPort.EntityData.Leafs.Append("priority2", types.YLeaf{"Priority2", virtualPort.Priority2})
+    virtualPort.EntityData.Leafs.Append("local-priority", types.YLeaf{"LocalPriority", virtualPort.LocalPriority})
+    virtualPort.EntityData.Leafs.Append("offset-scaled-log-variance", types.YLeaf{"OffsetScaledLogVariance", virtualPort.OffsetScaledLogVariance})
+    virtualPort.EntityData.Leafs.Append("priority1", types.YLeaf{"Priority1", virtualPort.Priority1})
+    virtualPort.EntityData.Leafs.Append("clock-class", types.YLeaf{"ClockClass", virtualPort.ClockClass})
+
+    virtualPort.EntityData.YListKeys = []string {}
+
+    return &(virtualPort.EntityData)
 }
 

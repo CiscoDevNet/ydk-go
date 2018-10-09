@@ -5,7 +5,7 @@
 // for the following management objects:
 //   call-home: Set CallHome parameters
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package call_home_cfg
 
@@ -174,7 +174,7 @@ type CallHome struct {
     StreetAddress interface{}
 
     // Source interface name to send call-home messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Contract identification for Cisco Smart Call Home. The type is string with
@@ -195,9 +195,6 @@ type CallHome struct {
 
     // Enable or disable call-home syslog message throttling.
     SyslogThrottling CallHome_SyslogThrottling
-
-    // Enable/disable licensing messages. By default is enabled.
-    SmartLicensing CallHome_SmartLicensing
 
     // http proxy server address and port.
     HttpProxy CallHome_HttpProxy
@@ -231,7 +228,6 @@ func (callHome *CallHome) GetEntityData() *types.CommonEntityData {
     callHome.EntityData.Children = types.NewOrderedMap()
     callHome.EntityData.Children.Append("mail-servers", types.YChild{"MailServers", &callHome.MailServers})
     callHome.EntityData.Children.Append("syslog-throttling", types.YChild{"SyslogThrottling", &callHome.SyslogThrottling})
-    callHome.EntityData.Children.Append("smart-licensing", types.YChild{"SmartLicensing", &callHome.SmartLicensing})
     callHome.EntityData.Children.Append("http-proxy", types.YChild{"HttpProxy", &callHome.HttpProxy})
     callHome.EntityData.Children.Append("profiles", types.YChild{"Profiles", &callHome.Profiles})
     callHome.EntityData.Children.Append("alert-groups", types.YChild{"AlertGroups", &callHome.AlertGroups})
@@ -352,41 +348,6 @@ func (syslogThrottling *CallHome_SyslogThrottling) GetEntityData() *types.Common
     syslogThrottling.EntityData.YListKeys = []string {}
 
     return &(syslogThrottling.EntityData)
-}
-
-// CallHome_SmartLicensing
-// Enable/disable licensing messages. By default is
-// enabled.
-type CallHome_SmartLicensing struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // To specify existing profile name used for TG so that licensing message. The
-    // type is string.
-    ProfileName interface{}
-
-    // Active the smart-licensing. The type is interface{}.
-    Active interface{}
-}
-
-func (smartLicensing *CallHome_SmartLicensing) GetEntityData() *types.CommonEntityData {
-    smartLicensing.EntityData.YFilter = smartLicensing.YFilter
-    smartLicensing.EntityData.YangName = "smart-licensing"
-    smartLicensing.EntityData.BundleName = "cisco_ios_xr"
-    smartLicensing.EntityData.ParentYangName = "call-home"
-    smartLicensing.EntityData.SegmentPath = "smart-licensing"
-    smartLicensing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    smartLicensing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    smartLicensing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    smartLicensing.EntityData.Children = types.NewOrderedMap()
-    smartLicensing.EntityData.Leafs = types.NewOrderedMap()
-    smartLicensing.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", smartLicensing.ProfileName})
-    smartLicensing.EntityData.Leafs.Append("active", types.YLeaf{"Active", smartLicensing.Active})
-
-    smartLicensing.EntityData.YListKeys = []string {}
-
-    return &(smartLicensing.EntityData)
 }
 
 // CallHome_HttpProxy

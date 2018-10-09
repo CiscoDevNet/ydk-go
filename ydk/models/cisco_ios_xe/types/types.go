@@ -1,5 +1,5 @@
 // Cisco XE Native Common Type Definitions
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package types
 

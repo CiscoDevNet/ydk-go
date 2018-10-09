@@ -2195,6 +2195,9 @@ type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule struct {
 
     // Policy action service function path.
     ServiceFunctionPath PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_ServiceFunctionPath
+
+    // HTTP Enrichment action.
+    HttpEnrichment PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_HttpEnrichment
 }
 
 func (policyMapRule *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule) GetEntityData() *types.CommonEntityData {
@@ -2227,6 +2230,7 @@ func (policyMapRule *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule) GetEntity
     policyMapRule.EntityData.Children.Append("pbr-redirect", types.YChild{"PbrRedirect", &policyMapRule.PbrRedirect})
     policyMapRule.EntityData.Children.Append("pbr-forward", types.YChild{"PbrForward", &policyMapRule.PbrForward})
     policyMapRule.EntityData.Children.Append("service-function-path", types.YChild{"ServiceFunctionPath", &policyMapRule.ServiceFunctionPath})
+    policyMapRule.EntityData.Children.Append("http-enrichment", types.YChild{"HttpEnrichment", &policyMapRule.HttpEnrichment})
     policyMapRule.EntityData.Leafs = types.NewOrderedMap()
     policyMapRule.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", policyMapRule.ClassName})
     policyMapRule.EntityData.Leafs.Append("class-type", types.YLeaf{"ClassType", policyMapRule.ClassType})
@@ -4350,5 +4354,46 @@ func (serviceFunctionPath *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_Serv
     serviceFunctionPath.EntityData.YListKeys = []string {}
 
     return &(serviceFunctionPath.EntityData)
+}
+
+// PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_HttpEnrichment
+// HTTP Enrichment action
+type PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_HttpEnrichment struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Subscriber Mac. The type is interface{}.
+    Subscribermac interface{}
+
+    // Subscriber IP. The type is interface{}.
+    Subscriberip interface{}
+
+    // Hostname. The type is interface{}.
+    Hostname interface{}
+
+    // Bng Identifier Interface. The type is interface{}.
+    Bngidentifierinterface interface{}
+}
+
+func (httpEnrichment *PolicyManager_PolicyMaps_PolicyMap_PolicyMapRule_HttpEnrichment) GetEntityData() *types.CommonEntityData {
+    httpEnrichment.EntityData.YFilter = httpEnrichment.YFilter
+    httpEnrichment.EntityData.YangName = "http-enrichment"
+    httpEnrichment.EntityData.BundleName = "cisco_ios_xr"
+    httpEnrichment.EntityData.ParentYangName = "policy-map-rule"
+    httpEnrichment.EntityData.SegmentPath = "http-enrichment"
+    httpEnrichment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    httpEnrichment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    httpEnrichment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    httpEnrichment.EntityData.Children = types.NewOrderedMap()
+    httpEnrichment.EntityData.Leafs = types.NewOrderedMap()
+    httpEnrichment.EntityData.Leafs.Append("subscribermac", types.YLeaf{"Subscribermac", httpEnrichment.Subscribermac})
+    httpEnrichment.EntityData.Leafs.Append("subscriberip", types.YLeaf{"Subscriberip", httpEnrichment.Subscriberip})
+    httpEnrichment.EntityData.Leafs.Append("hostname", types.YLeaf{"Hostname", httpEnrichment.Hostname})
+    httpEnrichment.EntityData.Leafs.Append("bngidentifierinterface", types.YLeaf{"Bngidentifierinterface", httpEnrichment.Bngidentifierinterface})
+
+    httpEnrichment.EntityData.YListKeys = []string {}
+
+    return &(httpEnrichment.EntityData)
 }
 

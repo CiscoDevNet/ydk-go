@@ -19,9 +19,13 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR subscriber-accounting package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -229,6 +233,27 @@ submodule Cisco-IOS-XR-subscriber-accounting-oper-sub1 {
       description
         "Accumulated bi-directional volume reference
          quota in bytes";
+    }
+    leaf prepaid-volume-agg-refi-quota {
+      type uint64;
+      units "byte";
+      description
+        "Total Accumulated input volume reference quota
+         in bytes";
+    }
+    leaf prepaid-volume-agg-refo-quota {
+      type uint64;
+      units "byte";
+      description
+        "Total Accumulated output volume reference quota
+         in bytes";
+    }
+    leaf prepaid-volume-agg-refb-quota {
+      type uint64;
+      units "byte";
+      description
+        "Total Accumulated bi-directional volume
+         reference quota in bytes";
     }
     leaf prepaid-volume-newi-quota {
       type uint64;

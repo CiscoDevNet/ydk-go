@@ -5,7 +5,7 @@
 // for the following management objects:
 //   fib: CEF configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package fib_common_cfg
 
@@ -52,8 +52,19 @@ type Fib struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Set option for automatcially recovering consistent-hashing state on
+    // interface up. The type is bool.
+    AutoHashRecover interface{}
+
     // Set options for adjacency routes overriding RIB routes. The type is bool.
     PreferAibRoutes interface{}
+
+    // Set true to disable encapsulation sharing. The type is bool.
+    EncapSharingDisable interface{}
+
+    // Set option for fast-reroute to follow BGP PIC update, not to wait for
+    // timeout. The type is bool.
+    FrrFollowBgpPic interface{}
 
     // PBTS class configuration.
     PbtsForwardClassFallbacks Fib_PbtsForwardClassFallbacks
@@ -76,7 +87,10 @@ func (fib *Fib) GetEntityData() *types.CommonEntityData {
     fib.EntityData.Children.Append("pbts-forward-class-fallbacks", types.YChild{"PbtsForwardClassFallbacks", &fib.PbtsForwardClassFallbacks})
     fib.EntityData.Children.Append("platform", types.YChild{"Platform", &fib.Platform})
     fib.EntityData.Leafs = types.NewOrderedMap()
+    fib.EntityData.Leafs.Append("auto-hash-recover", types.YLeaf{"AutoHashRecover", fib.AutoHashRecover})
     fib.EntityData.Leafs.Append("prefer-aib-routes", types.YLeaf{"PreferAibRoutes", fib.PreferAibRoutes})
+    fib.EntityData.Leafs.Append("encap-sharing-disable", types.YLeaf{"EncapSharingDisable", fib.EncapSharingDisable})
+    fib.EntityData.Leafs.Append("frr-follow-bgp-pic", types.YLeaf{"FrrFollowBgpPic", fib.FrrFollowBgpPic})
 
     fib.EntityData.YListKeys = []string {}
 

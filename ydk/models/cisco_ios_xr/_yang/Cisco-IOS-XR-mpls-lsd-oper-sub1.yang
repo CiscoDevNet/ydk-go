@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-lsd package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -181,7 +181,15 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       }
       enum "mgmt-lsd-moi-type-ipv4-nnh-stack" {
         description
-          "IPv4 Next-Next-Hop";
+          "IPv4 Neighbor-Next-Hop";
+      }
+      enum "mgmt-lsd-moi-type-ipv6-nnh-stack" {
+        description
+          "IPv6 Neighbor-Next-Hop";
+      }
+      enum "mgmt-lsd-moi-type-label-range" {
+        description
+          "Label Range Opaque Message Data";
       }
     }
     description
@@ -217,6 +225,10 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       enum "mgmt-lsd-fpi-type-dmtc-ext-intf" {
         description
           "DMTC External Interface";
+      }
+      enum "mgmt-lsd-fpi-type-label-range" {
+        description
+          "Label Range Opaque Message Key";
       }
     }
     description
@@ -825,6 +837,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       description
         "Number of DMTC FPI";
     }
+    leaf num-label-range {
+      type uint32;
+      description
+        "Number of Label Range FPI";
+    }
     leaf num-rewrite {
       type uint32;
       description
@@ -885,6 +902,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       description
         "Total number of DMTC External Interfaces";
     }
+    leaf total-label-range {
+      type uint32;
+      description
+        "Total number of Label Ranges";
+    }
     leaf vrf-name-xr {
       type string;
       description
@@ -944,6 +966,36 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
     }
   }
 
+  grouping MPLS-LSD-MOI-LABEL-RANGE {
+    description
+      "Label Range MOI";
+    leaf start-label-active {
+      type uint32;
+      description
+        "Active Label Range Start";
+    }
+    leaf end-label-active {
+      type uint32;
+      description
+        "Active Label Range End";
+    }
+  }
+
+  grouping MPLS-LSD-MOI-IPV6-NNH-STACK {
+    description
+      "IPv6 NNH STACK MOI";
+    container ipv6-stack {
+      description
+        "IPv6 stack";
+      uses MPLS-LSD-MOI-IPV6-STACK;
+    }
+    list neighbor-next-hop {
+      description
+        "List of Neighbor Next Hops";
+      uses MPLS-LSD-MOI-NNH;
+    }
+  }
+
   grouping MPLS-LSD-MOI-NNH {
     description
       "IPV4/IPV6 NNH installed in LSD";
@@ -980,9 +1032,9 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "IPv4 stack";
       uses MPLS-LSD-MOI-IPV4-STACK;
     }
-    list next-next-hop {
+    list neighbor-next-hop {
       description
-        "List of Next Next Hops";
+        "List of Neighbor Next Hops";
       uses MPLS-LSD-MOI-NNH;
     }
   }
@@ -1448,6 +1500,16 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       description
         "Routing path backup id";
     }
+    leaf tunnel-id {
+      type uint16;
+      description
+        "Tunnel ID";
+    }
+    leaf tunnel-type {
+      type uint16;
+      description
+        "Tunnel Type";
+    }
     leaf next-hop-id {
       type uint32;
       description
@@ -1522,6 +1584,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       type uint16;
       description
         "Tunnel ID";
+    }
+    leaf tunnel-type {
+      type uint16;
+      description
+        "Tunnel Type";
     }
     leaf next-hop-id {
       type uint32;
@@ -1721,6 +1788,24 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "nnh stackv4 data";
       uses MPLS-LSD-MOI-IPV4-NNH-STACK;
     }
+    container nnh-stackv6-data {
+      when "../moi-type = 'mgmt-lsd-moi-type-ipv6-nnh-stack'" {
+        description
+          "../MoiType = 'MGMT_LSD_MOI_TYPE_IPV6_NNH_STACK'";
+      }
+      description
+        "nnh stackv6 data";
+      uses MPLS-LSD-MOI-IPV6-NNH-STACK;
+    }
+    container label-range {
+      when "../moi-type = 'mgmt-lsd-moi-type-label-range'" {
+        description
+          "../MoiType = 'MGMT_LSD_MOI_TYPE_LABEL_RANGE'";
+      }
+      description
+        "label range";
+      uses MPLS-LSD-MOI-LABEL-RANGE;
+    }
     leaf moi-type {
       type Mgmt-lsd-moi;
       description
@@ -1780,6 +1865,21 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       type inet:ipv4-address;
       description
         "V4 RPF Neighbor";
+    }
+  }
+
+  grouping MPLS-LSD-FPI-LABEL-RANGE {
+    description
+      "Label Range FPI";
+    leaf type {
+      type uint8;
+      description
+        "Label Range Type";
+    }
+    leaf index {
+      type uint8;
+      description
+        "Label Ranged Index";
     }
   }
 
@@ -1955,6 +2055,15 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "dmtc ext intf data";
       uses MPLS-LSD-FPI-DMTC-EXT-INTF;
     }
+    container label-range {
+      when "../fpi-type = 'mgmt-lsd-fpi-type-label-range'" {
+        description
+          "../FPIType = 'MGMT_LSD_FPI_TYPE_LABEL_RANGE'";
+      }
+      description
+        "label range";
+      uses MPLS-LSD-FPI-LABEL-RANGE;
+    }
     leaf fpi-type {
       type Mgmt-lsd-fpi;
       description
@@ -2024,6 +2133,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       type int32;
       description
         "Is rewrite's BCDL priority updated";
+    }
+    leaf rw-redist {
+      type int32;
+      description
+        "Is Rewrite redistributed";
     }
     list associated-fpi {
       description
@@ -2432,6 +2546,11 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
       type yang:hex-string;
       description
         "Ethernet Segment ID";
+    }
+    leaf evpn-encap {
+      type uint8;
+      description
+        "EVPN Encap";
     }
   }
 

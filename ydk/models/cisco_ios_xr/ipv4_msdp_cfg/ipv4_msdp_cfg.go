@@ -5,7 +5,7 @@
 // for the following management objects:
 //   msdp: MSDP Configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_msdp_cfg
 
@@ -143,7 +143,7 @@ type Msdp_Vrfs_Vrf struct {
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -151,7 +151,7 @@ type Msdp_Vrfs_Vrf struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -342,7 +342,7 @@ type Msdp_Vrfs_Vrf_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.
@@ -623,7 +623,7 @@ type Msdp_DefaultContext struct {
     DefaultPeer interface{}
 
     // Configure interface name used as originator ID. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     OriginatorId interface{}
 
     // Configure context's MAX SA state for the router. The type is interface{}
@@ -631,7 +631,7 @@ type Msdp_DefaultContext struct {
     MaxSa interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ConnectSource interface{}
 
     // Configure this systems SA cache access-lists.
@@ -821,7 +821,7 @@ type Msdp_DefaultContext_Peers_Peer struct {
     TtlThreshold interface{}
 
     // Configure interface name used for MSDP connection. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ConnectSource interface{}
 
     // Configure the remote AS of this peer.

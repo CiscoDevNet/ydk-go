@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pim: PIM configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_pim_cfg
 
@@ -187,7 +187,7 @@ type Pim_Vrfs_Vrf_Ipv4 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -807,6 +807,9 @@ type Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable struct {
 
     // Disable RPF Vector origination over iBGP sessions. The type is interface{}.
     DisableIbgp interface{}
+
+    // Use RPF Vector RFC compliant encoding. The type is interface{}.
+    UseStandardEncoding interface{}
 }
 
 func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable) GetEntityData() *types.CommonEntityData {
@@ -824,6 +827,7 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
     rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
     rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("use-standard-encoding", types.YLeaf{"UseStandardEncoding", rpfVectorEnable.UseStandardEncoding})
 
     rpfVectorEnable.EntityData.YListKeys = []string {}
 
@@ -1577,7 +1581,7 @@ type Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -1764,7 +1768,7 @@ type Pim_Vrfs_Vrf_Ipv6 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -2375,6 +2379,9 @@ type Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable struct {
 
     // Disable RPF Vector origination over iBGP sessions. The type is interface{}.
     DisableIbgp interface{}
+
+    // Use RPF Vector RFC compliant encoding. The type is interface{}.
+    UseStandardEncoding interface{}
 }
 
 func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable) GetEntityData() *types.CommonEntityData {
@@ -2392,6 +2399,7 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
     rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
     rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("use-standard-encoding", types.YLeaf{"UseStandardEncoding", rpfVectorEnable.UseStandardEncoding})
 
     rpfVectorEnable.EntityData.YListKeys = []string {}
 
@@ -2853,7 +2861,7 @@ type Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -3073,7 +3081,7 @@ type Pim_DefaultContext_Ipv6 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -3233,7 +3241,7 @@ type Pim_DefaultContext_Ipv6_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -3610,6 +3618,9 @@ type Pim_DefaultContext_Ipv6_RpfVectorEnable struct {
 
     // Disable RPF Vector origination over iBGP sessions. The type is interface{}.
     DisableIbgp interface{}
+
+    // Use RPF Vector RFC compliant encoding. The type is interface{}.
+    UseStandardEncoding interface{}
 }
 
 func (rpfVectorEnable *Pim_DefaultContext_Ipv6_RpfVectorEnable) GetEntityData() *types.CommonEntityData {
@@ -3627,6 +3638,7 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv6_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
     rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
     rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("use-standard-encoding", types.YLeaf{"UseStandardEncoding", rpfVectorEnable.UseStandardEncoding})
 
     rpfVectorEnable.EntityData.YListKeys = []string {}
 
@@ -4645,7 +4657,7 @@ type Pim_DefaultContext_Ipv4 struct {
     LogNeighborChanges interface{}
 
     // Source address to use for register messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     RegisterSource interface{}
 
     // Access-list which specifies unauthorized sources. The type is string with
@@ -4855,7 +4867,7 @@ type Pim_DefaultContext_Ipv4_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter PIM Interface processing. The type is interface{}.
@@ -5099,7 +5111,7 @@ type Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface from which Candidate-RP packets will be
-    // sourced. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // sourced. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Protocol Mode. The type is AutoRpProtocolMode.
@@ -5184,7 +5196,7 @@ type Pim_DefaultContext_Ipv4_AutoRpMappingAgent_Parameters struct {
     YPresence bool
 
     // Interface from which mapping packets will be sourced . The type is string
-    // with pattern: [a-zA-Z0-9./-]+. This attribute is mandatory.
+    // with pattern: [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 
     // TTL in Hops. The type is interface{} with range: 1..255. This attribute is
@@ -5471,6 +5483,9 @@ type Pim_DefaultContext_Ipv4_RpfVectorEnable struct {
 
     // Disable RPF Vector origination over iBGP sessions. The type is interface{}.
     DisableIbgp interface{}
+
+    // Use RPF Vector RFC compliant encoding. The type is interface{}.
+    UseStandardEncoding interface{}
 }
 
 func (rpfVectorEnable *Pim_DefaultContext_Ipv4_RpfVectorEnable) GetEntityData() *types.CommonEntityData {
@@ -5488,6 +5503,7 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv4_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", rpfVectorEnable.Enable})
     rpfVectorEnable.EntityData.Leafs.Append("allow-ebgp", types.YLeaf{"AllowEbgp", rpfVectorEnable.AllowEbgp})
     rpfVectorEnable.EntityData.Leafs.Append("disable-ibgp", types.YLeaf{"DisableIbgp", rpfVectorEnable.DisableIbgp})
+    rpfVectorEnable.EntityData.Leafs.Append("use-standard-encoding", types.YLeaf{"UseStandardEncoding", rpfVectorEnable.UseStandardEncoding})
 
     rpfVectorEnable.EntityData.YListKeys = []string {}
 

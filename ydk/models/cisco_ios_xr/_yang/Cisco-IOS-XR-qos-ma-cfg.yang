@@ -37,9 +37,14 @@ module Cisco-IOS-XR-qos-ma-cfg {
        Cisco-IOS-XR-l2vpn-cfg,
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-27 {
+    description
+      "Made subscriber-parent a presence container, changed
+       as part of commit check feature";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -231,6 +236,7 @@ module Cisco-IOS-XR-qos-ma-cfg {
         }
       }
       container subscriber-parent {
+        presence "Enable feature subscriber-parent";
         description
           "Subscriber Parent Details";
         leaf account-type {

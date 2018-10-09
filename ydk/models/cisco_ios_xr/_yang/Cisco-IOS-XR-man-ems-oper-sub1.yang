@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR man-ems package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
 
   grouping GRPC-STATUS-INFO-B {
     description
-      "gRPC status Info bag";
+      "gRPC status";
     leaf transport {
       type string;
       description
@@ -70,11 +70,21 @@ submodule Cisco-IOS-XR-man-ems-oper-sub1 {
       description
         "MaxReqTotal";
     }
+    leaf max-streams {
+      type uint32;
+      description
+        "Maximum number of streaming gRPCs";
+    }
+    leaf max-streams-per-user {
+      type uint32;
+      description
+        "Maximum number of streaming gRPCs per user";
+    }
   }
 
   grouping GRPC-STATISTICS-INFO-B {
     description
-      "gRPC statistics Info bag";
+      "gRPC statistics";
     leaf ct-show-cmd-txt-req-recv {
       type uint64;
       description

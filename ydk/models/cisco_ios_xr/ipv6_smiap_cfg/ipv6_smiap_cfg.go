@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv6-virtual: IPv6 virtual address for management interfaces
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_smiap_cfg
 

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   wanphy: WANPHY operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package wanphy_ui_oper
 
@@ -115,7 +115,7 @@ type Wanphy_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // WANPHY controller operational data.

@@ -27,7 +27,7 @@ module Cisco-IOS-XR-sysadmin-types {
      Copyright(c) 2011-2016 by Cisco Systems, Inc.
      All rights reserved.
      
-     Copyright (c) 2012-2017 by Cisco Systems, Inc.
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-01-31 {
@@ -136,7 +136,7 @@ module Cisco-IOS-XR-sysadmin-types {
 
   typedef location-id {
     type string {
-      pattern "((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?";
+      pattern "((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?";
     }
     description
       "location identifier";

@@ -12,7 +12,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_arp_cfg
 
@@ -259,7 +259,7 @@ type Arpgmp_Vrf_Entries_Entry struct {
     // Entry type. The type is ArpEntry.
     EntryType interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -394,7 +394,7 @@ type ArpRedundancy_Redundancy_Groups_Group struct {
     // 1..32.
     GroupId interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Table of Peer.
@@ -569,7 +569,7 @@ type ArpRedundancy_Redundancy_Groups_Group_InterfaceList_Interfaces_Interface st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:

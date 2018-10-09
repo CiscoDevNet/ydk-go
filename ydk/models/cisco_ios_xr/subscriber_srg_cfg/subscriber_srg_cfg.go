@@ -5,7 +5,7 @@
 // for the following management objects:
 //   subscriber-redundancy: Subscriber Redundancy configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_srg_cfg
 
@@ -59,13 +59,15 @@ const (
 
 // SubscriberRedundancy
 // Subscriber Redundancy configuration
+// This type is a presence type.
 type SubscriberRedundancy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable Subscriber Redundancy configuration. Deletion of this object also
     // causes deletion of all associated objects under SubscriberRedundancy. The
-    // type is interface{}.
+    // type is interface{}. This attribute is mandatory.
     Enable interface{}
 
     // Virtual MAC Prefix for Subscriber Redundancy. The type is string with
@@ -76,7 +78,7 @@ type SubscriberRedundancy struct {
     PreferredRole interface{}
 
     // Source Interface for Redundancy Peer Communication. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Set slave. The type is SubscriberRedundancyGroupSlaveMode.
@@ -174,6 +176,7 @@ type SubscriberRedundancy_Groups_Group struct {
 
     // Enable Redundancy Group configuration. Deletion of this object also causes
     // deletion of all associated objects under Group. The type is interface{}.
+    // This attribute is mandatory.
     Enable interface{}
 
     // Set preferred role. The type is SubscriberRedundancyGroupRole.
@@ -255,13 +258,15 @@ func (group *SubscriberRedundancy_Groups_Group) GetEntityData() *types.CommonEnt
 
 // SubscriberRedundancy_Groups_Group_InterfaceList
 // List of Interfaces for this Group
+// This type is a presence type.
 type SubscriberRedundancy_Groups_Group_InterfaceList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Enable List of Interfaces for this Group. Deletion of this object also
     // causes deletion of all associated objects under InterfaceList . The type is
-    // interface{}.
+    // interface{}. This attribute is mandatory.
     Enable interface{}
 
     // Table of Interface.
@@ -332,7 +337,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Id for the interface. The type is interface{} with range:
@@ -400,7 +405,7 @@ type SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRa
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Sub Interface Start Range. The type is interface{}
@@ -651,6 +656,14 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // This attribute is a key. VRF name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    Vrfname interface{}
+
+    // This attribute is a key. Prefix of the IP Address. The type is interface{}
+    // with range: 0..4294967295.
+    PrefixLength interface{}
+
     // This attribute is a key. IPv4 address with prefix-length. The type is one
     // of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -658,16 +671,9 @@ type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route st
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrefixString interface{}
 
-    // This attribute is a key. Prefix of the IP Address. The type is interface{}
-    // with range: 0..4294967295.
-    PrefixLength interface{}
-
-    // Data container.
-    Ipv4RouteData SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Ipv4RouteData
-
-    // keys: vrfname. The type is slice of
-    // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname.
-    Vrfname []*SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname
+    // Tag value. The type is interface{} with range: 1..4294967295. This
+    // attribute is mandatory.
+    Tagvalue interface{}
 }
 
 func (ipv4Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route) GetEntityData() *types.CommonEntityData {
@@ -675,89 +681,21 @@ func (ipv4Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_
     ipv4Route.EntityData.YangName = "ipv4-route"
     ipv4Route.EntityData.BundleName = "cisco_ios_xr"
     ipv4Route.EntityData.ParentYangName = "ipv4-routes"
-    ipv4Route.EntityData.SegmentPath = "ipv4-route" + types.AddKeyToken(ipv4Route.PrefixString, "prefix-string") + types.AddKeyToken(ipv4Route.PrefixLength, "prefix-length")
+    ipv4Route.EntityData.SegmentPath = "ipv4-route" + types.AddKeyToken(ipv4Route.Vrfname, "vrfname") + types.AddKeyToken(ipv4Route.PrefixLength, "prefix-length") + types.AddKeyToken(ipv4Route.PrefixString, "prefix-string")
     ipv4Route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     ipv4Route.EntityData.Children = types.NewOrderedMap()
-    ipv4Route.EntityData.Children.Append("ipv4-route-data", types.YChild{"Ipv4RouteData", &ipv4Route.Ipv4RouteData})
-    ipv4Route.EntityData.Children.Append("vrfname", types.YChild{"Vrfname", nil})
-    for i := range ipv4Route.Vrfname {
-        ipv4Route.EntityData.Children.Append(types.GetSegmentPath(ipv4Route.Vrfname[i]), types.YChild{"Vrfname", ipv4Route.Vrfname[i]})
-    }
     ipv4Route.EntityData.Leafs = types.NewOrderedMap()
-    ipv4Route.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipv4Route.PrefixString})
+    ipv4Route.EntityData.Leafs.Append("vrfname", types.YLeaf{"Vrfname", ipv4Route.Vrfname})
     ipv4Route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", ipv4Route.PrefixLength})
+    ipv4Route.EntityData.Leafs.Append("prefix-string", types.YLeaf{"PrefixString", ipv4Route.PrefixString})
+    ipv4Route.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", ipv4Route.Tagvalue})
 
-    ipv4Route.EntityData.YListKeys = []string {"PrefixString", "PrefixLength"}
+    ipv4Route.EntityData.YListKeys = []string {"Vrfname", "PrefixLength", "PrefixString"}
 
     return &(ipv4Route.EntityData)
-}
-
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Ipv4RouteData
-// Data container.
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Ipv4RouteData struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Tag value. The type is interface{} with range: 1..4294967295. This
-    // attribute is mandatory.
-    Tagvalue interface{}
-}
-
-func (ipv4RouteData *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Ipv4RouteData) GetEntityData() *types.CommonEntityData {
-    ipv4RouteData.EntityData.YFilter = ipv4RouteData.YFilter
-    ipv4RouteData.EntityData.YangName = "ipv4-route-data"
-    ipv4RouteData.EntityData.BundleName = "cisco_ios_xr"
-    ipv4RouteData.EntityData.ParentYangName = "ipv4-route"
-    ipv4RouteData.EntityData.SegmentPath = "ipv4-route-data"
-    ipv4RouteData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4RouteData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4RouteData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4RouteData.EntityData.Children = types.NewOrderedMap()
-    ipv4RouteData.EntityData.Leafs = types.NewOrderedMap()
-    ipv4RouteData.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", ipv4RouteData.Tagvalue})
-
-    ipv4RouteData.EntityData.YListKeys = []string {}
-
-    return &(ipv4RouteData.EntityData)
-}
-
-// SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname
-// keys: vrfname
-type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Vrfname interface{}
-
-    // Tag value. The type is interface{} with range: 1..4294967295. This
-    // attribute is mandatory.
-    Tagvalue interface{}
-}
-
-func (vrfname *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route_Vrfname) GetEntityData() *types.CommonEntityData {
-    vrfname.EntityData.YFilter = vrfname.YFilter
-    vrfname.EntityData.YangName = "vrfname"
-    vrfname.EntityData.BundleName = "cisco_ios_xr"
-    vrfname.EntityData.ParentYangName = "ipv4-route"
-    vrfname.EntityData.SegmentPath = "vrfname" + types.AddKeyToken(vrfname.Vrfname, "vrfname")
-    vrfname.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vrfname.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vrfname.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vrfname.EntityData.Children = types.NewOrderedMap()
-    vrfname.EntityData.Leafs = types.NewOrderedMap()
-    vrfname.EntityData.Leafs.Append("vrfname", types.YLeaf{"Vrfname", vrfname.Vrfname})
-    vrfname.EntityData.Leafs.Append("tagvalue", types.YLeaf{"Tagvalue", vrfname.Tagvalue})
-
-    vrfname.EntityData.YListKeys = []string {"Vrfname"}
-
-    return &(vrfname.EntityData)
 }
 
 // SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route

@@ -63,6 +63,23 @@ const (
     CpeExtLldpPwrSrc_unknown CpeExtLldpPwrSrc = "unknown"
 )
 
+// CpeExtLldpPwrClassOrZero represents             class 4 in IEEE specifications.
+type CpeExtLldpPwrClassOrZero string
+
+const (
+    CpeExtLldpPwrClassOrZero_unknown CpeExtLldpPwrClassOrZero = "unknown"
+
+    CpeExtLldpPwrClassOrZero_class0 CpeExtLldpPwrClassOrZero = "class0"
+
+    CpeExtLldpPwrClassOrZero_class1 CpeExtLldpPwrClassOrZero = "class1"
+
+    CpeExtLldpPwrClassOrZero_class2 CpeExtLldpPwrClassOrZero = "class2"
+
+    CpeExtLldpPwrClassOrZero_class3 CpeExtLldpPwrClassOrZero = "class3"
+
+    CpeExtLldpPwrClassOrZero_class4 CpeExtLldpPwrClassOrZero = "class4"
+)
+
 // CpeExtPwrPriority represents 'unknown'  - power priority level is unknown.
 type CpeExtPwrPriority string
 
@@ -273,13 +290,13 @@ type CISCOPOWERETHERNETEXTMIB_CpeExtMainPseTable_CpeExtMainPseEntry struct {
     // not capable. The type is bool.
     CpeExtMainPsePwrMonitorCapable interface{}
 
-    // Used power expressed in miliwatts. The type is interface{} with range:
-    // 0..4294967295. Units are miliwatts.
+    // This object indicates used power expressed in miliwatts. The type is
+    // interface{} with range: 0..4294967295. Units are miliwatts.
     CpeExtMainPseUsedPower interface{}
 
-    // Remaining power expressed in miliwatts, this parameter is calculated as
-    // pethMainPsePower minus cpeExtMainPseUsedPower. The type is interface{} with
-    // range: 0..4294967295. Units are miliwatts.
+    // This object indicates remaining power expressed in miliwatts, this
+    // parameter is calculated as pethMainPsePower minus cpeExtMainPseUsedPower.
+    // The type is interface{} with range: 0..4294967295. Units are miliwatts.
     CpeExtMainPseRemainingPower interface{}
 }
 
@@ -418,7 +435,7 @@ type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // A cpeExtPseDllPowerEntry entry contains the LLDP based DLL power
+    // A cpeExtPsePortLldpEntry entry contains the LLDP based 802.3at DLL power
     // classification characteristics for a particular PSE and the PD attached to
     // it.   A PSE has its entry here when all of the following conditions are
     // satisfied: - The LLDP power classification is globally enabled. - It has a
@@ -451,9 +468,9 @@ func (cpeExtPsePortLldpTable *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable) G
 }
 
 // CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry
-// A cpeExtPseDllPowerEntry entry contains the LLDP
-// based DLL power classification characteristics for a particular
-// PSE and the PD attached to it. 
+// A cpeExtPsePortLldpEntry entry contains the LLDP
+// based 802.3at DLL power classification characteristics for
+// a particular PSE and the PD attached to it. 
 // 
 // A PSE has its entry here when all of the following conditions
 // are satisfied:
@@ -513,6 +530,30 @@ type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry stru
     // The PSE allocated power value received from the remote system (PD). The
     // type is interface{} with range: 0..4294967295. Units are milliwatts.
     CpeExtPsePortLldpPdPwrAlloc interface{}
+
+    // The PSE power classification sent to the remote PD via MDI TLV in LLDP
+    // Protocol. The type is CpeExtLldpPwrClassOrZero.
+    CpeExtPsePortLldpPwrClass interface{}
+
+    // This power classification received from the remote system (PD). The type is
+    // CpeExtLldpPwrClassOrZero.
+    CpeExtPsePortLldpPdPwrClass interface{}
+
+    // This object indicates the power support mode received from the remote PD
+    // via MDI TLV in LLDP protocol.  'portClass'          - This bit is set if
+    // the port is                        operating as PSE.  Otherwise, it is     
+    // operating as PD.  'pseMdiPwrSupport'   - This bit is set if power is
+    // supported in                        MDI TLV.  'pseMdiPwrState'     - This
+    // bit is set if power is enabled.  'psePairCtrlAbility' - This bit is set if
+    // pair selection can                        be controlled. The type is
+    // map[string]bool.
+    CpeExtPsePortLldpPdPwrSupport interface{}
+
+    // This object indicates the pinout pairs in use received from the remote PD
+    // via MDI TLV in LLDP Protocol.  'unknown' - information is not available 
+    // 'signal'  - the signal pairs are in use.  'spare'   - the spare pairs are
+    // in use. The type is CpeExtPsePortLldpPdPwrPairsOrZero.
+    CpeExtPsePortLldpPdPwrPairsOrZero interface{}
 }
 
 func (cpeExtPsePortLldpEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry) GetEntityData() *types.CommonEntityData {
@@ -539,9 +580,24 @@ func (cpeExtPsePortLldpEntry *CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_Cp
     cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrReq", types.YLeaf{"CpeExtPsePortLldpPdPwrReq", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrReq})
     cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrAlloc", types.YLeaf{"CpeExtPsePortLldpPwrAlloc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrAlloc})
     cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrAlloc", types.YLeaf{"CpeExtPsePortLldpPdPwrAlloc", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrAlloc})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPwrClass", types.YLeaf{"CpeExtPsePortLldpPwrClass", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPwrClass})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrClass", types.YLeaf{"CpeExtPsePortLldpPdPwrClass", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrClass})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrSupport", types.YLeaf{"CpeExtPsePortLldpPdPwrSupport", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrSupport})
+    cpeExtPsePortLldpEntry.EntityData.Leafs.Append("cpeExtPsePortLldpPdPwrPairsOrZero", types.YLeaf{"CpeExtPsePortLldpPdPwrPairsOrZero", cpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrPairsOrZero})
 
     cpeExtPsePortLldpEntry.EntityData.YListKeys = []string {"PethPsePortGroupIndex", "PethPsePortIndex"}
 
     return &(cpeExtPsePortLldpEntry.EntityData)
 }
+
+// CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero represents 'spare'   - the spare pairs are in use.
+type CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero string
+
+const (
+    CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero_unknown CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero = "unknown"
+
+    CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero_signal CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero = "signal"
+
+    CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero_spare CISCOPOWERETHERNETEXTMIB_CpeExtPsePortLldpTable_CpeExtPsePortLldpEntry_CpeExtPsePortLldpPdPwrPairsOrZero = "spare"
+)
 

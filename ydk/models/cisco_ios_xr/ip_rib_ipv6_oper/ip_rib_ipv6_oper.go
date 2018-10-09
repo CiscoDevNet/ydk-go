@@ -6,7 +6,7 @@
 //   ipv6-rib: RIB operational data
 //   ipv6-rib-stdby: ipv6 rib stdby
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_rib_ipv6_oper
 
@@ -1469,7 +1469,7 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -1596,15 +1596,22 @@ type Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_Ro
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -1688,6 +1695,8 @@ func (ipv6RibEdmPath *Ipv6Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableIt
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -2391,7 +2400,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -2518,15 +2527,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -2610,6 +2626,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -2982,7 +3000,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -3109,15 +3127,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -3201,6 +3226,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -3569,7 +3596,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -3696,15 +3723,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -3788,6 +3822,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -4156,7 +4192,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -4283,15 +4319,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -4375,6 +4418,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -4884,7 +4929,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -5011,15 +5056,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_D
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -5103,6 +5155,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -5687,7 +5741,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -5814,15 +5868,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -5906,6 +5967,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -6386,7 +6449,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -6513,15 +6576,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -6605,6 +6675,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -7123,7 +7195,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -7250,15 +7322,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -7342,6 +7421,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -7851,7 +7932,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -7978,15 +8059,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -8070,6 +8158,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -8588,7 +8678,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -8715,15 +8805,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -8807,6 +8904,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -9325,7 +9424,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -9452,15 +9551,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -9544,6 +9650,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -10053,7 +10161,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -10180,15 +10288,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -10272,6 +10387,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -10781,7 +10898,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -10908,15 +11025,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -11000,6 +11124,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -11509,7 +11635,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -11636,15 +11762,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -11728,6 +11861,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -12246,7 +12381,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -12373,15 +12508,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -12465,6 +12607,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -12978,7 +13122,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -13105,15 +13249,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -13197,6 +13348,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -13677,7 +13830,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -13804,15 +13957,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -13896,6 +14056,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -14414,7 +14576,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -14541,15 +14703,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_P
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -14633,6 +14802,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -14791,7 +14962,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
-    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
@@ -15014,7 +15185,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -15141,15 +15312,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_R
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -15233,6 +15411,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -15605,7 +15785,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -15732,15 +15912,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Q
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -15824,6 +16011,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -16201,7 +16390,7 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -16328,15 +16517,22 @@ type Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_B
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -16420,6 +16616,8 @@ func (ipv6RibEdmPath *Ipv6Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -17955,7 +18153,7 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -18082,15 +18280,22 @@ type Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRou
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -18174,6 +18379,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTa
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -18877,7 +19084,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -19004,15 +19211,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -19096,6 +19310,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -19468,7 +19684,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -19595,15 +19811,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -19687,6 +19910,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -20055,7 +20280,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -20182,15 +20407,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -20274,6 +20506,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -20642,7 +20876,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -20769,15 +21003,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -20861,6 +21102,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -21370,7 +21613,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -21497,15 +21740,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -21589,6 +21839,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -22173,7 +22425,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -22300,15 +22552,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -22392,6 +22651,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -22872,7 +23133,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -22999,15 +23260,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -23091,6 +23359,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -23609,7 +23879,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -23736,15 +24006,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -23828,6 +24105,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -24337,7 +24616,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -24464,15 +24743,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -24556,6 +24842,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -25074,7 +25362,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -25201,15 +25489,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -25293,6 +25588,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -25811,7 +26108,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -25938,15 +26235,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -26030,6 +26334,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -26539,7 +26845,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -26666,15 +26972,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -26758,6 +27071,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -27267,7 +27582,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -27394,15 +27709,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -27486,6 +27808,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -27995,7 +28319,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -28122,15 +28446,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -28214,6 +28545,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -28732,7 +29065,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -28859,15 +29192,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -28951,6 +29291,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -29464,7 +29806,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -29591,15 +29933,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_L2vpn_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -29683,6 +30032,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -30163,7 +30514,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -30290,15 +30641,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -30382,6 +30740,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -30900,7 +31260,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -31027,15 +31387,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -31119,6 +31486,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -31277,7 +31646,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
-    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Outgoing Interface . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
@@ -31500,7 +31869,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -31627,15 +31996,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -31719,6 +32095,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -32091,7 +32469,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -32218,15 +32596,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -32310,6 +32695,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 
@@ -32687,7 +33074,7 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6InformationSource interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Metrics. The type is interface{} with range: 0..4294967295.
@@ -32814,15 +33201,22 @@ type Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     HasSpanDiagInterface interface{}
 
     // SPAN Diagnostics Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SpanDiagInterface interface{}
 
     // Subscriber Parent Interface exists for this path. The type is bool.
     HasSubscriberParentInterface interface{}
 
     // Subscriber Parent Interface for this path. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SubscriberParentInterface interface{}
+
+    // Interface Index present. The type is bool.
+    InterfaceIndexPresent interface{}
+
+    // Interface Index attribute. The type is interface{} with range:
+    // 0..4294967295.
+    InterfaceIndexAttribute interface{}
 
     // Remote backup node address. The type is slice of
     // Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv6RibEdmPath_RemoteBackupAddr.
@@ -32906,6 +33300,8 @@ func (ipv6RibEdmPath *Ipv6RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames
     ipv6RibEdmPath.EntityData.Leafs.Append("span-diag-interface", types.YLeaf{"SpanDiagInterface", ipv6RibEdmPath.SpanDiagInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("has-subscriber-parent-interface", types.YLeaf{"HasSubscriberParentInterface", ipv6RibEdmPath.HasSubscriberParentInterface})
     ipv6RibEdmPath.EntityData.Leafs.Append("subscriber-parent-interface", types.YLeaf{"SubscriberParentInterface", ipv6RibEdmPath.SubscriberParentInterface})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-present", types.YLeaf{"InterfaceIndexPresent", ipv6RibEdmPath.InterfaceIndexPresent})
+    ipv6RibEdmPath.EntityData.Leafs.Append("interface-index-attribute", types.YLeaf{"InterfaceIndexAttribute", ipv6RibEdmPath.InterfaceIndexAttribute})
 
     ipv6RibEdmPath.EntityData.YListKeys = []string {}
 

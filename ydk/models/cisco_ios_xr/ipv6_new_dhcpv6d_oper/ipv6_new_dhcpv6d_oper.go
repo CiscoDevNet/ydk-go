@@ -5,7 +5,7 @@
 // for the following management objects:
 //   dhcpv6: IPV6 DHCPD operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_new_dhcpv6d_oper
 
@@ -1309,6 +1309,9 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile struct {
     // DHCPV6 throttle table.
     ThrottleInfos Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos
 
+    // IPv6 DHCP proxy class table.
+    ProxyClasses Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses
+
     // IPv6 DHCP proxy profile Info.
     Info Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info
 }
@@ -1325,6 +1328,7 @@ func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetEntityData() *types.
 
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Children.Append("throttle-infos", types.YChild{"ThrottleInfos", &profile.ThrottleInfos})
+    profile.EntityData.Children.Append("proxy-classes", types.YChild{"ProxyClasses", &profile.ProxyClasses})
     profile.EntityData.Children.Append("info", types.YChild{"Info", &profile.Info})
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
@@ -1413,6 +1417,82 @@ func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_Throt
     throttleInfo.EntityData.YListKeys = []string {"MacAddress"}
 
     return &(throttleInfo.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses
+// IPv6 DHCP proxy class table
+type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 DHCP proxy class profile. The type is slice of
+    // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass.
+    ProxyClass []*Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass
+}
+
+func (proxyClasses *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses) GetEntityData() *types.CommonEntityData {
+    proxyClasses.EntityData.YFilter = proxyClasses.YFilter
+    proxyClasses.EntityData.YangName = "proxy-classes"
+    proxyClasses.EntityData.BundleName = "cisco_ios_xr"
+    proxyClasses.EntityData.ParentYangName = "profile"
+    proxyClasses.EntityData.SegmentPath = "proxy-classes"
+    proxyClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    proxyClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    proxyClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    proxyClasses.EntityData.Children = types.NewOrderedMap()
+    proxyClasses.EntityData.Children.Append("proxy-class", types.YChild{"ProxyClass", nil})
+    for i := range proxyClasses.ProxyClass {
+        proxyClasses.EntityData.Children.Append(types.GetSegmentPath(proxyClasses.ProxyClass[i]), types.YChild{"ProxyClass", proxyClasses.ProxyClass[i]})
+    }
+    proxyClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    proxyClasses.EntityData.YListKeys = []string {}
+
+    return &(proxyClasses.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass
+// IPv6 DHCP proxy class profile
+type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Class name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    ClassName interface{}
+
+    // Class name. The type is string with length: 0..65.
+    ClassNameXr interface{}
+
+    // Helper addresses. The type is slice of string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    ProfileHelperAddress []interface{}
+
+    // VRF names. The type is slice of string with length: 0..33.
+    VrfName []interface{}
+}
+
+func (proxyClass *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ProxyClasses_ProxyClass) GetEntityData() *types.CommonEntityData {
+    proxyClass.EntityData.YFilter = proxyClass.YFilter
+    proxyClass.EntityData.YangName = "proxy-class"
+    proxyClass.EntityData.BundleName = "cisco_ios_xr"
+    proxyClass.EntityData.ParentYangName = "proxy-classes"
+    proxyClass.EntityData.SegmentPath = "proxy-class" + types.AddKeyToken(proxyClass.ClassName, "class-name")
+    proxyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    proxyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    proxyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    proxyClass.EntityData.Children = types.NewOrderedMap()
+    proxyClass.EntityData.Leafs = types.NewOrderedMap()
+    proxyClass.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", proxyClass.ClassName})
+    proxyClass.EntityData.Leafs.Append("class-name-xr", types.YLeaf{"ClassNameXr", proxyClass.ClassNameXr})
+    proxyClass.EntityData.Leafs.Append("profile-helper-address", types.YLeaf{"ProfileHelperAddress", proxyClass.ProfileHelperAddress})
+    proxyClass.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", proxyClass.VrfName})
+
+    proxyClass.EntityData.YListKeys = []string {"ClassName"}
+
+    return &(proxyClass.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info
@@ -1982,7 +2062,7 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     IaIdPDs interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -2627,7 +2707,7 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     State interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCPV6 access interface VRF name. The type is string with length: 0..33.
@@ -3026,7 +3106,7 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     LinkLocalAddress interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -4195,6 +4275,9 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile struct {
 
     // DHCPV6 throttle table.
     ThrottleInfos Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos
+
+    // IPv6 DHCP server class table.
+    ServerClasses Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses
 }
 
 func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetEntityData() *types.CommonEntityData {
@@ -4210,6 +4293,7 @@ func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetEntityData() *types
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Children.Append("info", types.YChild{"Info", &profile.Info})
     profile.EntityData.Children.Append("throttle-infos", types.YChild{"ThrottleInfos", &profile.ThrottleInfos})
+    profile.EntityData.Children.Append("server-classes", types.YChild{"ServerClasses", &profile.ServerClasses})
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
 
@@ -4463,6 +4547,94 @@ func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_Thro
     throttleInfo.EntityData.YListKeys = []string {"MacAddress"}
 
     return &(throttleInfo.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses
+// IPv6 DHCP server class table
+type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 DHCP server class profile. The type is slice of
+    // Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass.
+    ServerClass []*Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass
+}
+
+func (serverClasses *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses) GetEntityData() *types.CommonEntityData {
+    serverClasses.EntityData.YFilter = serverClasses.YFilter
+    serverClasses.EntityData.YangName = "server-classes"
+    serverClasses.EntityData.BundleName = "cisco_ios_xr"
+    serverClasses.EntityData.ParentYangName = "profile"
+    serverClasses.EntityData.SegmentPath = "server-classes"
+    serverClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverClasses.EntityData.Children = types.NewOrderedMap()
+    serverClasses.EntityData.Children.Append("server-class", types.YChild{"ServerClass", nil})
+    for i := range serverClasses.ServerClass {
+        serverClasses.EntityData.Children.Append(types.GetSegmentPath(serverClasses.ServerClass[i]), types.YChild{"ServerClass", serverClasses.ServerClass[i]})
+    }
+    serverClasses.EntityData.Leafs = types.NewOrderedMap()
+
+    serverClasses.EntityData.YListKeys = []string {}
+
+    return &(serverClasses.EntityData)
+}
+
+// Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass
+// IPv6 DHCP server class profile
+type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Class name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    ClassName interface{}
+
+    // Class name. The type is string with length: 0..65.
+    ClassNameXr interface{}
+
+    // Server domain name. The type is string with length: 0..65.
+    DomainName interface{}
+
+    // DNS address count. The type is interface{} with range: 0..255.
+    ProfileDns interface{}
+
+    // Server framed address pool name. The type is string with length: 0..65.
+    FramedAddrPoolName interface{}
+
+    // Server delegated prefix pool name. The type is string with length: 0..65.
+    DelegatedPrefixPoolName interface{}
+
+    // DNS addresses. The type is slice of string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    ProfileDnsAddress []interface{}
+}
+
+func (serverClass *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ServerClasses_ServerClass) GetEntityData() *types.CommonEntityData {
+    serverClass.EntityData.YFilter = serverClass.YFilter
+    serverClass.EntityData.YangName = "server-class"
+    serverClass.EntityData.BundleName = "cisco_ios_xr"
+    serverClass.EntityData.ParentYangName = "server-classes"
+    serverClass.EntityData.SegmentPath = "server-class" + types.AddKeyToken(serverClass.ClassName, "class-name")
+    serverClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverClass.EntityData.Children = types.NewOrderedMap()
+    serverClass.EntityData.Leafs = types.NewOrderedMap()
+    serverClass.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", serverClass.ClassName})
+    serverClass.EntityData.Leafs.Append("class-name-xr", types.YLeaf{"ClassNameXr", serverClass.ClassNameXr})
+    serverClass.EntityData.Leafs.Append("domain-name", types.YLeaf{"DomainName", serverClass.DomainName})
+    serverClass.EntityData.Leafs.Append("profile-dns", types.YLeaf{"ProfileDns", serverClass.ProfileDns})
+    serverClass.EntityData.Leafs.Append("framed-addr-pool-name", types.YLeaf{"FramedAddrPoolName", serverClass.FramedAddrPoolName})
+    serverClass.EntityData.Leafs.Append("delegated-prefix-pool-name", types.YLeaf{"DelegatedPrefixPoolName", serverClass.DelegatedPrefixPoolName})
+    serverClass.EntityData.Leafs.Append("profile-dns-address", types.YLeaf{"ProfileDnsAddress", serverClass.ProfileDnsAddress})
+
+    serverClass.EntityData.YListKeys = []string {"ClassName"}
+
+    return &(serverClass.EntityData)
 }
 
 // Dhcpv6_Nodes_Node_Server_Interfaces

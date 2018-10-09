@@ -6,7 +6,7 @@
 //   mld: MLD operational data
 //   igmp: igmp
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_igmp_oper
 
@@ -359,7 +359,7 @@ type Mld_Standby_Vrfs_Vrf_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -370,7 +370,7 @@ type Mld_Standby_Vrfs_Vrf_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -455,10 +455,10 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -512,7 +512,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -592,7 +592,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -852,7 +852,7 @@ type Mld_Standby_Vrfs_Vrf_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -910,7 +910,7 @@ type Mld_Standby_Vrfs_Vrf_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -1529,7 +1529,7 @@ type Mld_Standby_Vrfs_Vrf_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -1589,7 +1589,7 @@ type Mld_Standby_Vrfs_Vrf_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -1961,10 +1961,10 @@ type Mld_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -2018,7 +2018,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -2098,7 +2098,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -2353,7 +2353,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAdjust s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -2690,7 +2690,7 @@ type Mld_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -2727,7 +2727,7 @@ type Mld_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -2781,7 +2781,7 @@ type Mld_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -2861,7 +2861,7 @@ type Mld_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -3300,10 +3300,10 @@ type Mld_Standby_Vrfs_Vrf_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -3618,10 +3618,10 @@ type Mld_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -3675,7 +3675,7 @@ type Mld_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -3755,7 +3755,7 @@ type Mld_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -4223,10 +4223,10 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -4280,7 +4280,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -4360,7 +4360,7 @@ type Mld_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -4588,7 +4588,7 @@ type Mld_Standby_Process struct {
     Nsr Mld_Standby_Process_Nsr
 
     // Table containing AMT Gateway DataBase information.
-    AmtGatewaies Mld_Standby_Process_AmtGatewaies
+    AmtGateways Mld_Standby_Process_AmtGateways
 
     // IGMP Unicast-Qos-Adjust Statistics.
     UnicastQosAdjustStats Mld_Standby_Process_UnicastQosAdjustStats
@@ -4613,7 +4613,7 @@ func (process *Mld_Standby_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("amt-summary", types.YChild{"AmtSummary", &process.AmtSummary})
     process.EntityData.Children.Append("nsr", types.YChild{"Nsr", &process.Nsr})
-    process.EntityData.Children.Append("amt-gatewaies", types.YChild{"AmtGatewaies", &process.AmtGatewaies})
+    process.EntityData.Children.Append("amt-gateways", types.YChild{"AmtGateways", &process.AmtGateways})
     process.EntityData.Children.Append("unicast-qos-adjust-stats", types.YChild{"UnicastQosAdjustStats", &process.UnicastQosAdjustStats})
     process.EntityData.Children.Append("bvi-statistics", types.YChild{"BviStatistics", &process.BviStatistics})
     process.EntityData.Children.Append("nsf", types.YChild{"Nsf", &process.Nsf})
@@ -4797,43 +4797,43 @@ func (nsr *Mld_Standby_Process_Nsr) GetEntityData() *types.CommonEntityData {
     return &(nsr.EntityData)
 }
 
-// Mld_Standby_Process_AmtGatewaies
+// Mld_Standby_Process_AmtGateways
 // Table containing AMT Gateway DataBase
 // information
-type Mld_Standby_Process_AmtGatewaies struct {
+type Mld_Standby_Process_AmtGateways struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AMT Gateway DataBase information. The type is slice of
-    // Mld_Standby_Process_AmtGatewaies_AmtGateway.
-    AmtGateway []*Mld_Standby_Process_AmtGatewaies_AmtGateway
+    // Mld_Standby_Process_AmtGateways_AmtGateway.
+    AmtGateway []*Mld_Standby_Process_AmtGateways_AmtGateway
 }
 
-func (amtGatewaies *Mld_Standby_Process_AmtGatewaies) GetEntityData() *types.CommonEntityData {
-    amtGatewaies.EntityData.YFilter = amtGatewaies.YFilter
-    amtGatewaies.EntityData.YangName = "amt-gatewaies"
-    amtGatewaies.EntityData.BundleName = "cisco_ios_xr"
-    amtGatewaies.EntityData.ParentYangName = "process"
-    amtGatewaies.EntityData.SegmentPath = "amt-gatewaies"
-    amtGatewaies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    amtGatewaies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    amtGatewaies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (amtGateways *Mld_Standby_Process_AmtGateways) GetEntityData() *types.CommonEntityData {
+    amtGateways.EntityData.YFilter = amtGateways.YFilter
+    amtGateways.EntityData.YangName = "amt-gateways"
+    amtGateways.EntityData.BundleName = "cisco_ios_xr"
+    amtGateways.EntityData.ParentYangName = "process"
+    amtGateways.EntityData.SegmentPath = "amt-gateways"
+    amtGateways.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    amtGateways.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    amtGateways.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    amtGatewaies.EntityData.Children = types.NewOrderedMap()
-    amtGatewaies.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
-    for i := range amtGatewaies.AmtGateway {
-        amtGatewaies.EntityData.Children.Append(types.GetSegmentPath(amtGatewaies.AmtGateway[i]), types.YChild{"AmtGateway", amtGatewaies.AmtGateway[i]})
+    amtGateways.EntityData.Children = types.NewOrderedMap()
+    amtGateways.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
+    for i := range amtGateways.AmtGateway {
+        amtGateways.EntityData.Children.Append(types.GetSegmentPath(amtGateways.AmtGateway[i]), types.YChild{"AmtGateway", amtGateways.AmtGateway[i]})
     }
-    amtGatewaies.EntityData.Leafs = types.NewOrderedMap()
+    amtGateways.EntityData.Leafs = types.NewOrderedMap()
 
-    amtGatewaies.EntityData.YListKeys = []string {}
+    amtGateways.EntityData.YListKeys = []string {}
 
-    return &(amtGatewaies.EntityData)
+    return &(amtGateways.EntityData)
 }
 
-// Mld_Standby_Process_AmtGatewaies_AmtGateway
+// Mld_Standby_Process_AmtGateways_AmtGateway
 // AMT Gateway DataBase information
-type Mld_Standby_Process_AmtGatewaies_AmtGateway struct {
+type Mld_Standby_Process_AmtGateways_AmtGateway struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4873,11 +4873,11 @@ type Mld_Standby_Process_AmtGatewaies_AmtGateway struct {
     MemUpdOut interface{}
 }
 
-func (amtGateway *Mld_Standby_Process_AmtGatewaies_AmtGateway) GetEntityData() *types.CommonEntityData {
+func (amtGateway *Mld_Standby_Process_AmtGateways_AmtGateway) GetEntityData() *types.CommonEntityData {
     amtGateway.EntityData.YFilter = amtGateway.YFilter
     amtGateway.EntityData.YangName = "amt-gateway"
     amtGateway.EntityData.BundleName = "cisco_ios_xr"
-    amtGateway.EntityData.ParentYangName = "amt-gatewaies"
+    amtGateway.EntityData.ParentYangName = "amt-gateways"
     amtGateway.EntityData.SegmentPath = "amt-gateway"
     amtGateway.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amtGateway.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -5448,7 +5448,7 @@ type Mld_Standby_DefaultContext_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -5459,7 +5459,7 @@ type Mld_Standby_DefaultContext_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -5544,10 +5544,10 @@ type Mld_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -5601,7 +5601,7 @@ type Mld_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -5681,7 +5681,7 @@ type Mld_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -5941,7 +5941,7 @@ type Mld_Standby_DefaultContext_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -5999,7 +5999,7 @@ type Mld_Standby_DefaultContext_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -6618,7 +6618,7 @@ type Mld_Standby_DefaultContext_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -6678,7 +6678,7 @@ type Mld_Standby_DefaultContext_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -7050,10 +7050,10 @@ type Mld_Standby_DefaultContext_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -7107,7 +7107,7 @@ type Mld_Standby_DefaultContext_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -7187,7 +7187,7 @@ type Mld_Standby_DefaultContext_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -7442,7 +7442,7 @@ type Mld_Standby_DefaultContext_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAd
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -7780,7 +7780,7 @@ type Mld_Standby_DefaultContext_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -7817,7 +7817,7 @@ type Mld_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -7871,7 +7871,7 @@ type Mld_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -7951,7 +7951,7 @@ type Mld_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -8390,10 +8390,10 @@ type Mld_Standby_DefaultContext_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -8708,10 +8708,10 @@ type Mld_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -8765,7 +8765,7 @@ type Mld_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -8845,7 +8845,7 @@ type Mld_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -9313,10 +9313,10 @@ type Mld_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -9370,7 +9370,7 @@ type Mld_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -9450,7 +9450,7 @@ type Mld_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -9916,7 +9916,7 @@ type Mld_Active_Vrfs_Vrf_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -9927,7 +9927,7 @@ type Mld_Active_Vrfs_Vrf_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -10012,10 +10012,10 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -10069,7 +10069,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -10149,7 +10149,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -10409,7 +10409,7 @@ type Mld_Active_Vrfs_Vrf_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -10467,7 +10467,7 @@ type Mld_Active_Vrfs_Vrf_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -11086,7 +11086,7 @@ type Mld_Active_Vrfs_Vrf_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -11146,7 +11146,7 @@ type Mld_Active_Vrfs_Vrf_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -11518,10 +11518,10 @@ type Mld_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -11575,7 +11575,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -11655,7 +11655,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -11910,7 +11910,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAdjust st
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -12247,7 +12247,7 @@ type Mld_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -12284,7 +12284,7 @@ type Mld_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -12338,7 +12338,7 @@ type Mld_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct 
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -12418,7 +12418,7 @@ type Mld_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct 
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -12857,10 +12857,10 @@ type Mld_Active_Vrfs_Vrf_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -13175,10 +13175,10 @@ type Mld_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -13232,7 +13232,7 @@ type Mld_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -13312,7 +13312,7 @@ type Mld_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -13780,10 +13780,10 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -13837,7 +13837,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -13917,7 +13917,7 @@ type Mld_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -14145,7 +14145,7 @@ type Mld_Active_Process struct {
     Nsr Mld_Active_Process_Nsr
 
     // Table containing AMT Gateway DataBase information.
-    AmtGatewaies Mld_Active_Process_AmtGatewaies
+    AmtGateways Mld_Active_Process_AmtGateways
 
     // IGMP Unicast-Qos-Adjust Statistics.
     UnicastQosAdjustStats Mld_Active_Process_UnicastQosAdjustStats
@@ -14170,7 +14170,7 @@ func (process *Mld_Active_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("amt-summary", types.YChild{"AmtSummary", &process.AmtSummary})
     process.EntityData.Children.Append("nsr", types.YChild{"Nsr", &process.Nsr})
-    process.EntityData.Children.Append("amt-gatewaies", types.YChild{"AmtGatewaies", &process.AmtGatewaies})
+    process.EntityData.Children.Append("amt-gateways", types.YChild{"AmtGateways", &process.AmtGateways})
     process.EntityData.Children.Append("unicast-qos-adjust-stats", types.YChild{"UnicastQosAdjustStats", &process.UnicastQosAdjustStats})
     process.EntityData.Children.Append("bvi-statistics", types.YChild{"BviStatistics", &process.BviStatistics})
     process.EntityData.Children.Append("nsf", types.YChild{"Nsf", &process.Nsf})
@@ -14354,43 +14354,43 @@ func (nsr *Mld_Active_Process_Nsr) GetEntityData() *types.CommonEntityData {
     return &(nsr.EntityData)
 }
 
-// Mld_Active_Process_AmtGatewaies
+// Mld_Active_Process_AmtGateways
 // Table containing AMT Gateway DataBase
 // information
-type Mld_Active_Process_AmtGatewaies struct {
+type Mld_Active_Process_AmtGateways struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AMT Gateway DataBase information. The type is slice of
-    // Mld_Active_Process_AmtGatewaies_AmtGateway.
-    AmtGateway []*Mld_Active_Process_AmtGatewaies_AmtGateway
+    // Mld_Active_Process_AmtGateways_AmtGateway.
+    AmtGateway []*Mld_Active_Process_AmtGateways_AmtGateway
 }
 
-func (amtGatewaies *Mld_Active_Process_AmtGatewaies) GetEntityData() *types.CommonEntityData {
-    amtGatewaies.EntityData.YFilter = amtGatewaies.YFilter
-    amtGatewaies.EntityData.YangName = "amt-gatewaies"
-    amtGatewaies.EntityData.BundleName = "cisco_ios_xr"
-    amtGatewaies.EntityData.ParentYangName = "process"
-    amtGatewaies.EntityData.SegmentPath = "amt-gatewaies"
-    amtGatewaies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    amtGatewaies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    amtGatewaies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (amtGateways *Mld_Active_Process_AmtGateways) GetEntityData() *types.CommonEntityData {
+    amtGateways.EntityData.YFilter = amtGateways.YFilter
+    amtGateways.EntityData.YangName = "amt-gateways"
+    amtGateways.EntityData.BundleName = "cisco_ios_xr"
+    amtGateways.EntityData.ParentYangName = "process"
+    amtGateways.EntityData.SegmentPath = "amt-gateways"
+    amtGateways.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    amtGateways.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    amtGateways.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    amtGatewaies.EntityData.Children = types.NewOrderedMap()
-    amtGatewaies.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
-    for i := range amtGatewaies.AmtGateway {
-        amtGatewaies.EntityData.Children.Append(types.GetSegmentPath(amtGatewaies.AmtGateway[i]), types.YChild{"AmtGateway", amtGatewaies.AmtGateway[i]})
+    amtGateways.EntityData.Children = types.NewOrderedMap()
+    amtGateways.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
+    for i := range amtGateways.AmtGateway {
+        amtGateways.EntityData.Children.Append(types.GetSegmentPath(amtGateways.AmtGateway[i]), types.YChild{"AmtGateway", amtGateways.AmtGateway[i]})
     }
-    amtGatewaies.EntityData.Leafs = types.NewOrderedMap()
+    amtGateways.EntityData.Leafs = types.NewOrderedMap()
 
-    amtGatewaies.EntityData.YListKeys = []string {}
+    amtGateways.EntityData.YListKeys = []string {}
 
-    return &(amtGatewaies.EntityData)
+    return &(amtGateways.EntityData)
 }
 
-// Mld_Active_Process_AmtGatewaies_AmtGateway
+// Mld_Active_Process_AmtGateways_AmtGateway
 // AMT Gateway DataBase information
-type Mld_Active_Process_AmtGatewaies_AmtGateway struct {
+type Mld_Active_Process_AmtGateways_AmtGateway struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -14430,11 +14430,11 @@ type Mld_Active_Process_AmtGatewaies_AmtGateway struct {
     MemUpdOut interface{}
 }
 
-func (amtGateway *Mld_Active_Process_AmtGatewaies_AmtGateway) GetEntityData() *types.CommonEntityData {
+func (amtGateway *Mld_Active_Process_AmtGateways_AmtGateway) GetEntityData() *types.CommonEntityData {
     amtGateway.EntityData.YFilter = amtGateway.YFilter
     amtGateway.EntityData.YangName = "amt-gateway"
     amtGateway.EntityData.BundleName = "cisco_ios_xr"
-    amtGateway.EntityData.ParentYangName = "amt-gatewaies"
+    amtGateway.EntityData.ParentYangName = "amt-gateways"
     amtGateway.EntityData.SegmentPath = "amt-gateway"
     amtGateway.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amtGateway.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -15005,7 +15005,7 @@ type Mld_Active_DefaultContext_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -15016,7 +15016,7 @@ type Mld_Active_DefaultContext_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -15101,10 +15101,10 @@ type Mld_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -15158,7 +15158,7 @@ type Mld_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -15238,7 +15238,7 @@ type Mld_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -15498,7 +15498,7 @@ type Mld_Active_DefaultContext_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -15556,7 +15556,7 @@ type Mld_Active_DefaultContext_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -16175,7 +16175,7 @@ type Mld_Active_DefaultContext_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -16235,7 +16235,7 @@ type Mld_Active_DefaultContext_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -16607,10 +16607,10 @@ type Mld_Active_DefaultContext_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -16664,7 +16664,7 @@ type Mld_Active_DefaultContext_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -16744,7 +16744,7 @@ type Mld_Active_DefaultContext_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -16999,7 +16999,7 @@ type Mld_Active_DefaultContext_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAdj
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -17337,7 +17337,7 @@ type Mld_Active_DefaultContext_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -17374,7 +17374,7 @@ type Mld_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry s
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -17428,7 +17428,7 @@ type Mld_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry s
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -17508,7 +17508,7 @@ type Mld_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry s
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -17947,10 +17947,10 @@ type Mld_Active_DefaultContext_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -18265,10 +18265,10 @@ type Mld_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -18322,7 +18322,7 @@ type Mld_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -18402,7 +18402,7 @@ type Mld_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -18870,10 +18870,10 @@ type Mld_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -18927,7 +18927,7 @@ type Mld_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -19007,7 +19007,7 @@ type Mld_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -19506,7 +19506,7 @@ type Igmp_Standby_Vrfs_Vrf_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -19517,7 +19517,7 @@ type Igmp_Standby_Vrfs_Vrf_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -19602,10 +19602,10 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -19659,7 +19659,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -19739,7 +19739,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -19999,7 +19999,7 @@ type Igmp_Standby_Vrfs_Vrf_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -20057,7 +20057,7 @@ type Igmp_Standby_Vrfs_Vrf_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -20676,7 +20676,7 @@ type Igmp_Standby_Vrfs_Vrf_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -20736,7 +20736,7 @@ type Igmp_Standby_Vrfs_Vrf_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -21108,10 +21108,10 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -21165,7 +21165,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -21245,7 +21245,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -21500,7 +21500,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAdjust 
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -21837,7 +21837,7 @@ type Igmp_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -21874,7 +21874,7 @@ type Igmp_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -21928,7 +21928,7 @@ type Igmp_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struc
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -22008,7 +22008,7 @@ type Igmp_Standby_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struc
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -22447,10 +22447,10 @@ type Igmp_Standby_Vrfs_Vrf_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -22765,10 +22765,10 @@ type Igmp_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -22822,7 +22822,7 @@ type Igmp_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -22902,7 +22902,7 @@ type Igmp_Standby_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -23370,10 +23370,10 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -23427,7 +23427,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -23507,7 +23507,7 @@ type Igmp_Standby_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -23735,7 +23735,7 @@ type Igmp_Standby_Process struct {
     Nsr Igmp_Standby_Process_Nsr
 
     // Table containing AMT Gateway DataBase information.
-    AmtGatewaies Igmp_Standby_Process_AmtGatewaies
+    AmtGateways Igmp_Standby_Process_AmtGateways
 
     // IGMP Unicast-Qos-Adjust Statistics.
     UnicastQosAdjustStats Igmp_Standby_Process_UnicastQosAdjustStats
@@ -23760,7 +23760,7 @@ func (process *Igmp_Standby_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("amt-summary", types.YChild{"AmtSummary", &process.AmtSummary})
     process.EntityData.Children.Append("nsr", types.YChild{"Nsr", &process.Nsr})
-    process.EntityData.Children.Append("amt-gatewaies", types.YChild{"AmtGatewaies", &process.AmtGatewaies})
+    process.EntityData.Children.Append("amt-gateways", types.YChild{"AmtGateways", &process.AmtGateways})
     process.EntityData.Children.Append("unicast-qos-adjust-stats", types.YChild{"UnicastQosAdjustStats", &process.UnicastQosAdjustStats})
     process.EntityData.Children.Append("bvi-statistics", types.YChild{"BviStatistics", &process.BviStatistics})
     process.EntityData.Children.Append("nsf", types.YChild{"Nsf", &process.Nsf})
@@ -23944,43 +23944,43 @@ func (nsr *Igmp_Standby_Process_Nsr) GetEntityData() *types.CommonEntityData {
     return &(nsr.EntityData)
 }
 
-// Igmp_Standby_Process_AmtGatewaies
+// Igmp_Standby_Process_AmtGateways
 // Table containing AMT Gateway DataBase
 // information
-type Igmp_Standby_Process_AmtGatewaies struct {
+type Igmp_Standby_Process_AmtGateways struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AMT Gateway DataBase information. The type is slice of
-    // Igmp_Standby_Process_AmtGatewaies_AmtGateway.
-    AmtGateway []*Igmp_Standby_Process_AmtGatewaies_AmtGateway
+    // Igmp_Standby_Process_AmtGateways_AmtGateway.
+    AmtGateway []*Igmp_Standby_Process_AmtGateways_AmtGateway
 }
 
-func (amtGatewaies *Igmp_Standby_Process_AmtGatewaies) GetEntityData() *types.CommonEntityData {
-    amtGatewaies.EntityData.YFilter = amtGatewaies.YFilter
-    amtGatewaies.EntityData.YangName = "amt-gatewaies"
-    amtGatewaies.EntityData.BundleName = "cisco_ios_xr"
-    amtGatewaies.EntityData.ParentYangName = "process"
-    amtGatewaies.EntityData.SegmentPath = "amt-gatewaies"
-    amtGatewaies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    amtGatewaies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    amtGatewaies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (amtGateways *Igmp_Standby_Process_AmtGateways) GetEntityData() *types.CommonEntityData {
+    amtGateways.EntityData.YFilter = amtGateways.YFilter
+    amtGateways.EntityData.YangName = "amt-gateways"
+    amtGateways.EntityData.BundleName = "cisco_ios_xr"
+    amtGateways.EntityData.ParentYangName = "process"
+    amtGateways.EntityData.SegmentPath = "amt-gateways"
+    amtGateways.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    amtGateways.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    amtGateways.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    amtGatewaies.EntityData.Children = types.NewOrderedMap()
-    amtGatewaies.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
-    for i := range amtGatewaies.AmtGateway {
-        amtGatewaies.EntityData.Children.Append(types.GetSegmentPath(amtGatewaies.AmtGateway[i]), types.YChild{"AmtGateway", amtGatewaies.AmtGateway[i]})
+    amtGateways.EntityData.Children = types.NewOrderedMap()
+    amtGateways.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
+    for i := range amtGateways.AmtGateway {
+        amtGateways.EntityData.Children.Append(types.GetSegmentPath(amtGateways.AmtGateway[i]), types.YChild{"AmtGateway", amtGateways.AmtGateway[i]})
     }
-    amtGatewaies.EntityData.Leafs = types.NewOrderedMap()
+    amtGateways.EntityData.Leafs = types.NewOrderedMap()
 
-    amtGatewaies.EntityData.YListKeys = []string {}
+    amtGateways.EntityData.YListKeys = []string {}
 
-    return &(amtGatewaies.EntityData)
+    return &(amtGateways.EntityData)
 }
 
-// Igmp_Standby_Process_AmtGatewaies_AmtGateway
+// Igmp_Standby_Process_AmtGateways_AmtGateway
 // AMT Gateway DataBase information
-type Igmp_Standby_Process_AmtGatewaies_AmtGateway struct {
+type Igmp_Standby_Process_AmtGateways_AmtGateway struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -24020,11 +24020,11 @@ type Igmp_Standby_Process_AmtGatewaies_AmtGateway struct {
     MemUpdOut interface{}
 }
 
-func (amtGateway *Igmp_Standby_Process_AmtGatewaies_AmtGateway) GetEntityData() *types.CommonEntityData {
+func (amtGateway *Igmp_Standby_Process_AmtGateways_AmtGateway) GetEntityData() *types.CommonEntityData {
     amtGateway.EntityData.YFilter = amtGateway.YFilter
     amtGateway.EntityData.YangName = "amt-gateway"
     amtGateway.EntityData.BundleName = "cisco_ios_xr"
-    amtGateway.EntityData.ParentYangName = "amt-gatewaies"
+    amtGateway.EntityData.ParentYangName = "amt-gateways"
     amtGateway.EntityData.SegmentPath = "amt-gateway"
     amtGateway.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amtGateway.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -24595,7 +24595,7 @@ type Igmp_Standby_DefaultContext_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -24606,7 +24606,7 @@ type Igmp_Standby_DefaultContext_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -24691,10 +24691,10 @@ type Igmp_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -24748,7 +24748,7 @@ type Igmp_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -24828,7 +24828,7 @@ type Igmp_Standby_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -25088,7 +25088,7 @@ type Igmp_Standby_DefaultContext_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -25146,7 +25146,7 @@ type Igmp_Standby_DefaultContext_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -25765,7 +25765,7 @@ type Igmp_Standby_DefaultContext_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -25825,7 +25825,7 @@ type Igmp_Standby_DefaultContext_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -26197,10 +26197,10 @@ type Igmp_Standby_DefaultContext_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -26254,7 +26254,7 @@ type Igmp_Standby_DefaultContext_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -26334,7 +26334,7 @@ type Igmp_Standby_DefaultContext_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -26589,7 +26589,7 @@ type Igmp_Standby_DefaultContext_InterfaceUnicastQosAdjusts_InterfaceUnicastQosA
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -26927,7 +26927,7 @@ type Igmp_Standby_DefaultContext_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -26964,7 +26964,7 @@ type Igmp_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -27018,7 +27018,7 @@ type Igmp_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -27098,7 +27098,7 @@ type Igmp_Standby_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -27537,10 +27537,10 @@ type Igmp_Standby_DefaultContext_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -27855,10 +27855,10 @@ type Igmp_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -27912,7 +27912,7 @@ type Igmp_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -27992,7 +27992,7 @@ type Igmp_Standby_DefaultContext_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -28460,10 +28460,10 @@ type Igmp_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -28517,7 +28517,7 @@ type Igmp_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -28597,7 +28597,7 @@ type Igmp_Standby_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -29063,7 +29063,7 @@ type Igmp_Active_Vrfs_Vrf_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -29074,7 +29074,7 @@ type Igmp_Active_Vrfs_Vrf_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -29159,10 +29159,10 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -29216,7 +29216,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -29296,7 +29296,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -29556,7 +29556,7 @@ type Igmp_Active_Vrfs_Vrf_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -29614,7 +29614,7 @@ type Igmp_Active_Vrfs_Vrf_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -30233,7 +30233,7 @@ type Igmp_Active_Vrfs_Vrf_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -30293,7 +30293,7 @@ type Igmp_Active_Vrfs_Vrf_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -30665,10 +30665,10 @@ type Igmp_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -30722,7 +30722,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -30802,7 +30802,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -31057,7 +31057,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAdjust s
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -31394,7 +31394,7 @@ type Igmp_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -31431,7 +31431,7 @@ type Igmp_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -31485,7 +31485,7 @@ type Igmp_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -31565,7 +31565,7 @@ type Igmp_Active_Vrfs_Vrf_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry struct
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -32004,10 +32004,10 @@ type Igmp_Active_Vrfs_Vrf_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -32322,10 +32322,10 @@ type Igmp_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -32379,7 +32379,7 @@ type Igmp_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -32459,7 +32459,7 @@ type Igmp_Active_Vrfs_Vrf_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -32927,10 +32927,10 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -32984,7 +32984,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -33064,7 +33064,7 @@ type Igmp_Active_Vrfs_Vrf_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -33292,7 +33292,7 @@ type Igmp_Active_Process struct {
     Nsr Igmp_Active_Process_Nsr
 
     // Table containing AMT Gateway DataBase information.
-    AmtGatewaies Igmp_Active_Process_AmtGatewaies
+    AmtGateways Igmp_Active_Process_AmtGateways
 
     // IGMP Unicast-Qos-Adjust Statistics.
     UnicastQosAdjustStats Igmp_Active_Process_UnicastQosAdjustStats
@@ -33317,7 +33317,7 @@ func (process *Igmp_Active_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children = types.NewOrderedMap()
     process.EntityData.Children.Append("amt-summary", types.YChild{"AmtSummary", &process.AmtSummary})
     process.EntityData.Children.Append("nsr", types.YChild{"Nsr", &process.Nsr})
-    process.EntityData.Children.Append("amt-gatewaies", types.YChild{"AmtGatewaies", &process.AmtGatewaies})
+    process.EntityData.Children.Append("amt-gateways", types.YChild{"AmtGateways", &process.AmtGateways})
     process.EntityData.Children.Append("unicast-qos-adjust-stats", types.YChild{"UnicastQosAdjustStats", &process.UnicastQosAdjustStats})
     process.EntityData.Children.Append("bvi-statistics", types.YChild{"BviStatistics", &process.BviStatistics})
     process.EntityData.Children.Append("nsf", types.YChild{"Nsf", &process.Nsf})
@@ -33501,43 +33501,43 @@ func (nsr *Igmp_Active_Process_Nsr) GetEntityData() *types.CommonEntityData {
     return &(nsr.EntityData)
 }
 
-// Igmp_Active_Process_AmtGatewaies
+// Igmp_Active_Process_AmtGateways
 // Table containing AMT Gateway DataBase
 // information
-type Igmp_Active_Process_AmtGatewaies struct {
+type Igmp_Active_Process_AmtGateways struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AMT Gateway DataBase information. The type is slice of
-    // Igmp_Active_Process_AmtGatewaies_AmtGateway.
-    AmtGateway []*Igmp_Active_Process_AmtGatewaies_AmtGateway
+    // Igmp_Active_Process_AmtGateways_AmtGateway.
+    AmtGateway []*Igmp_Active_Process_AmtGateways_AmtGateway
 }
 
-func (amtGatewaies *Igmp_Active_Process_AmtGatewaies) GetEntityData() *types.CommonEntityData {
-    amtGatewaies.EntityData.YFilter = amtGatewaies.YFilter
-    amtGatewaies.EntityData.YangName = "amt-gatewaies"
-    amtGatewaies.EntityData.BundleName = "cisco_ios_xr"
-    amtGatewaies.EntityData.ParentYangName = "process"
-    amtGatewaies.EntityData.SegmentPath = "amt-gatewaies"
-    amtGatewaies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    amtGatewaies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    amtGatewaies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (amtGateways *Igmp_Active_Process_AmtGateways) GetEntityData() *types.CommonEntityData {
+    amtGateways.EntityData.YFilter = amtGateways.YFilter
+    amtGateways.EntityData.YangName = "amt-gateways"
+    amtGateways.EntityData.BundleName = "cisco_ios_xr"
+    amtGateways.EntityData.ParentYangName = "process"
+    amtGateways.EntityData.SegmentPath = "amt-gateways"
+    amtGateways.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    amtGateways.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    amtGateways.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    amtGatewaies.EntityData.Children = types.NewOrderedMap()
-    amtGatewaies.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
-    for i := range amtGatewaies.AmtGateway {
-        amtGatewaies.EntityData.Children.Append(types.GetSegmentPath(amtGatewaies.AmtGateway[i]), types.YChild{"AmtGateway", amtGatewaies.AmtGateway[i]})
+    amtGateways.EntityData.Children = types.NewOrderedMap()
+    amtGateways.EntityData.Children.Append("amt-gateway", types.YChild{"AmtGateway", nil})
+    for i := range amtGateways.AmtGateway {
+        amtGateways.EntityData.Children.Append(types.GetSegmentPath(amtGateways.AmtGateway[i]), types.YChild{"AmtGateway", amtGateways.AmtGateway[i]})
     }
-    amtGatewaies.EntityData.Leafs = types.NewOrderedMap()
+    amtGateways.EntityData.Leafs = types.NewOrderedMap()
 
-    amtGatewaies.EntityData.YListKeys = []string {}
+    amtGateways.EntityData.YListKeys = []string {}
 
-    return &(amtGatewaies.EntityData)
+    return &(amtGateways.EntityData)
 }
 
-// Igmp_Active_Process_AmtGatewaies_AmtGateway
+// Igmp_Active_Process_AmtGateways_AmtGateway
 // AMT Gateway DataBase information
-type Igmp_Active_Process_AmtGatewaies_AmtGateway struct {
+type Igmp_Active_Process_AmtGateways_AmtGateway struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -33577,11 +33577,11 @@ type Igmp_Active_Process_AmtGatewaies_AmtGateway struct {
     MemUpdOut interface{}
 }
 
-func (amtGateway *Igmp_Active_Process_AmtGatewaies_AmtGateway) GetEntityData() *types.CommonEntityData {
+func (amtGateway *Igmp_Active_Process_AmtGateways_AmtGateway) GetEntityData() *types.CommonEntityData {
     amtGateway.EntityData.YFilter = amtGateway.YFilter
     amtGateway.EntityData.YangName = "amt-gateway"
     amtGateway.EntityData.BundleName = "cisco_ios_xr"
-    amtGateway.EntityData.ParentYangName = "amt-gatewaies"
+    amtGateway.EntityData.ParentYangName = "amt-gateways"
     amtGateway.EntityData.SegmentPath = "amt-gateway"
     amtGateway.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amtGateway.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -34152,7 +34152,7 @@ type Igmp_Active_DefaultContext_Summary_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Maximum groups accepted per interface. The type is interface{} with range:
@@ -34163,7 +34163,7 @@ type Igmp_Active_DefaultContext_Summary_Interface struct {
     // 0..4294967295.
     GroupCount interface{}
 
-    // Parent if handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent if handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Enabled/Disabled. The type is bool.
@@ -34248,10 +34248,10 @@ type Igmp_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -34305,7 +34305,7 @@ type Igmp_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -34385,7 +34385,7 @@ type Igmp_Active_DefaultContext_InterfaceStateOns_InterfaceStateOn struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -34645,7 +34645,7 @@ type Igmp_Active_DefaultContext_DetailGroups_DetailGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -34703,7 +34703,7 @@ type Igmp_Active_DefaultContext_DetailGroups_DetailGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -35322,7 +35322,7 @@ type Igmp_Active_DefaultContext_ExplicitGroups_ExplicitGroup struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source/Host Address. The type is one of the following types: string with
@@ -35382,7 +35382,7 @@ type Igmp_Active_DefaultContext_ExplicitGroups_ExplicitGroup_GroupInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -35754,10 +35754,10 @@ type Igmp_Active_DefaultContext_InterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -35811,7 +35811,7 @@ type Igmp_Active_DefaultContext_InterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -35891,7 +35891,7 @@ type Igmp_Active_DefaultContext_InterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -36146,7 +36146,7 @@ type Igmp_Active_DefaultContext_InterfaceUnicastQosAdjusts_InterfaceUnicastQosAd
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Is VirtualAccess Interface. The type is bool.
@@ -36484,7 +36484,7 @@ type Igmp_Active_DefaultContext_IfrsInterfaces_IfrsInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. IFRS Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Join group count. The type is interface{} with range: 0..4294967295.
@@ -36521,7 +36521,7 @@ type Igmp_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -36575,7 +36575,7 @@ type Igmp_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -36655,7 +36655,7 @@ type Igmp_Active_DefaultContext_IfrsInterfaces_IfrsInterface_IgmpInterfaceEntry 
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -37094,10 +37094,10 @@ type Igmp_Active_DefaultContext_Groups_Group struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     GroupAddress interface{}
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Uptime in seconds. The type is interface{} with range:
@@ -37412,10 +37412,10 @@ type Igmp_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -37469,7 +37469,7 @@ type Igmp_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -37549,7 +37549,7 @@ type Igmp_Active_DefaultContext_GlobalInterfaceTable_Interface struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:
@@ -38017,10 +38017,10 @@ type Igmp_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface state. The type is interface{} with range: 0..4294967295.
@@ -38074,7 +38074,7 @@ type Igmp_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // 0..4294967295.
     Robustness interface{}
 
-    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Proxy interface index. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ProxyInterface interface{}
 
     // Time since the last querier took over. The type is interface{} with range:
@@ -38154,7 +38154,7 @@ type Igmp_Active_DefaultContext_InterfaceStateOffs_InterfaceStateOff struct {
     // ID string of subscriber. The type is string with length: 0..257.
     SubscriberId interface{}
 
-    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent If Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentIfhandle interface{}
 
     // Time elapsed since last query. The type is interface{} with range:

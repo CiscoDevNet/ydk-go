@@ -2236,7 +2236,7 @@ type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec struct {
     // The maximum traffic generation rate that the head-end device sends traffic
     // at. The type is one of the following types: string with length: 32 Units
     // are bytes per second., or enumeration
-    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
+    // Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
     // Units are bytes per second..
     PeakDataRate interface{}
 }
@@ -3370,8 +3370,8 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReser
 
     // This attribute is a key. Reference to the RSVP priority level. The type is
     // one of the following types: int with range: 0..7, or
-    // :go:struct:`NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
-    // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
+    // :go:struct:`Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
+    // <ydk/models/mpls/Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
     Priority interface{}
 
     // Operational state parameters relating to a bandwidth reservation at a
@@ -3408,7 +3408,7 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReser
 
     // RSVP priority level for LSPs traversing the interface. The type is one of
     // the following types: int with range: 0..7, or enumeration
-    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
+    // Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
     Priority interface{}
 
     // Bandwidth currently available with the priority level, or for the entire

@@ -5,7 +5,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pmengine_cfg
 
@@ -61,6 +61,12 @@ const (
     // PM Optics low sig freq off min threshold
     OpticsThreshold_thresh_low_sig_freq_off_min OpticsThreshold = "thresh-low-sig-freq-off-min"
 
+    // PM Optics ampli gain min threshold
+    OpticsThreshold_thresh_ampli_gain_min OpticsThreshold = "thresh-ampli-gain-min"
+
+    // PM Optics ampli gain tilt min threshold
+    OpticsThreshold_thresh_ampli_gain_tilt_min OpticsThreshold = "thresh-ampli-gain-tilt-min"
+
     // PM Optics opt max threshold in dbm or uW
     OpticsThreshold_thresh_opt_max OpticsThreshold = "thresh-opt-max"
 
@@ -99,6 +105,12 @@ const (
 
     // PM Optics low sig freq off max threshold
     OpticsThreshold_thresh_low_sig_freq_off_max OpticsThreshold = "thresh-low-sig-freq-off-max"
+
+    // PM Optics ampli gain max threshold
+    OpticsThreshold_thresh_ampli_gain_max OpticsThreshold = "thresh-ampli-gain-max"
+
+    // PM Optics ampli gain tilt max threshold
+    OpticsThreshold_thresh_ampli_gain_tilt_max OpticsThreshold = "thresh-ampli-gain-tilt-max"
 )
 
 // OtnThreshold represents Otn threshold
@@ -397,6 +409,17 @@ const (
     GfpThreshold_thresh_rx_csf GfpThreshold = "thresh-rx-csf"
 )
 
+// PcsThreshold represents Pcs threshold
+type PcsThreshold string
+
+const (
+    // PM PCS Bip thresh
+    PcsThreshold_thresh_bip PcsThreshold = "thresh-bip"
+
+    // PM PCS frm-err thresh
+    PcsThreshold_thresh_frm_err PcsThreshold = "thresh-frm-err"
+)
+
 // SecytxThreshold represents Secytx threshold
 type SecytxThreshold string
 
@@ -415,6 +438,17 @@ const (
 
     // PM SECYTX tx OutPktsTooLong thresh
     SecytxThreshold_thresh_tx_outpkts_too_long SecytxThreshold = "thresh-tx-outpkts-too-long"
+)
+
+// PcsReport represents Pcs report
+type PcsReport string
+
+const (
+    // PM PCS Bip report
+    PcsReport_report_bip PcsReport = "report-bip"
+
+    // PM PCS frm-err report
+    PcsReport_report_frm_err PcsReport = "report-frm-err"
 )
 
 // Report represents Report
@@ -524,6 +558,12 @@ const (
     // PM Optics low sig freq off min report
     OpticsReport_report_low_sig_freq_off_min OpticsReport = "report-low-sig-freq-off-min"
 
+    // PM Optics ampli gain min report
+    OpticsReport_report_ampli_gain_min OpticsReport = "report-ampli-gain-min"
+
+    // PM Optics ampli gain tilt min report
+    OpticsReport_report_ampli_gain_tilt_min OpticsReport = "report-ampli-gain-tilt-min"
+
     // PM Optics opt max report
     OpticsReport_report_opt_max OpticsReport = "report-opt-max"
 
@@ -562,6 +602,12 @@ const (
 
     // PM Optics low sig freq off max report
     OpticsReport_report_low_sig_freq_off_max OpticsReport = "report-low-sig-freq-off-max"
+
+    // PM Optics ampli gain max report
+    OpticsReport_report_ampli_gain_max OpticsReport = "report-ampli-gain-max"
+
+    // PM Optics ampli gain tilt max report
+    OpticsReport_report_ampli_gain_tilt_max OpticsReport = "report-ampli-gain-tilt-max"
 )
 
 // GfpReport represents Gfp report

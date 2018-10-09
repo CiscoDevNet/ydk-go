@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-show-fpd-loc-ng-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR show-fpd-loc-ng package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -169,6 +169,11 @@ submodule Cisco-IOS-XR-show-fpd-loc-ng-oper-sub1 {
   grouping FPD-INFO-LIST {
     description
       "fpd info list";
+    leaf upgrade-status {
+      type string;
+      description
+        "Either Upgrading or free used by CTC ";
+    }
     list fpd-info-detaile {
       description
         " fpd list with all detailes";

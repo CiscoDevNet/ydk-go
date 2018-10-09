@@ -6,7 +6,7 @@
 //   dot1x: Global Dot1x Configuration
 //   eap: eap
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dot1x_cfg
 
@@ -137,6 +137,9 @@ type Dot1x_Dot1xProfile_Authenticator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // EAP Profile for Local EAP Server. The type is string with length: 1..63.
+    EapProfile interface{}
+
     // Timers for Authenticator.
     Timers Dot1x_Dot1xProfile_Authenticator_Timers
 }
@@ -154,6 +157,7 @@ func (authenticator *Dot1x_Dot1xProfile_Authenticator) GetEntityData() *types.Co
     authenticator.EntityData.Children = types.NewOrderedMap()
     authenticator.EntityData.Children.Append("timers", types.YChild{"Timers", &authenticator.Timers})
     authenticator.EntityData.Leafs = types.NewOrderedMap()
+    authenticator.EntityData.Leafs.Append("eap-profile", types.YLeaf{"EapProfile", authenticator.EapProfile})
 
     authenticator.EntityData.YListKeys = []string {}
 

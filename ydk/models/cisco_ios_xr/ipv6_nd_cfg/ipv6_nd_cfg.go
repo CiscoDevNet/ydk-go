@@ -10,7 +10,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_nd_cfg
 
@@ -173,7 +173,7 @@ type Ipv6Neighbor_Neighbors_Neighbor struct {
     NeighborAddress interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IPv6 address zone. The type is string. The default value is 0.

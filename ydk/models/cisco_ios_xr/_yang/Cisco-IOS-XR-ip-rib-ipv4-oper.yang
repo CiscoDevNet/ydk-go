@@ -33,7 +33,7 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
        rib-stdby: RIB standby node operational data
        rib: rib
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -290,6 +290,11 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
                           "OSPF Protocol";
                         uses AS;
                       }
+                      container srv6-local {
+                        description
+                          "SRv6-Local Protocol";
+                        uses NON-AS;
+                      }
                       container static {
                         description
                           "Static Protocol";
@@ -535,8 +540,9 @@ module Cisco-IOS-XR-ip-rib-ipv4-oper {
 
   grouping NON-AS {
     description
-      "Common node of local, connected, rip, static,
-       subscriber, mobile, dagr, application, te-client";
+      "Common node of local, srv6-local, connected, rip,
+       static, subscriber, mobile, dagr, application,
+       te-client";
     container non-as {
       description
         "Non Autonomous System of protocol";

@@ -26,7 +26,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -389,7 +389,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
            (OSRI)";
       }
       leaf optics-ots-amplifier-gain-degrade-high-threshold {
-        type int32 {
+        type uint32 {
           range "0..500";
         }
         description
@@ -397,7 +397,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
            units of 0.1dBm)";
       }
       leaf optics-ots-rx-voa-attenuation {
-        type int32 {
+        type uint32 {
           range "0..200";
         }
         description
@@ -411,7 +411,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
           "Configure optics fec ";
       }
       leaf optics-dgd-high-threshold {
-        type int32 {
+        type uint32 {
           range "0..18000";
         }
         description
@@ -431,7 +431,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
           "Configure amplifier working mode";
       }
       leaf optics-ots-amplifier-gain {
-        type int32 {
+        type uint32 {
           range "0..500";
         }
         description
@@ -456,7 +456,7 @@ module Cisco-IOS-XR-controller-optics-cfg {
            ps/nm)";
       }
       leaf optics-ots-tx-voa-attenuation {
-        type int32 {
+        type uint32 {
           range "0..200";
         }
         description
@@ -475,12 +475,12 @@ module Cisco-IOS-XR-controller-optics-cfg {
         description
           "Configure optics transmit laser shutdown ";
       }
-      leaf optics-description {
+      leaf optics-baud-rate {
         type string {
-          length "1..255";
+          length "1..20";
         }
         description
-          "Configure optics port description ";
+          "BaudRate(Max Length 10)";
       }
       leaf optics-performance-monitoring {
         type boolean;
@@ -497,8 +497,15 @@ module Cisco-IOS-XR-controller-optics-cfg {
           "Select max chromatic dispersion (in units of
            ps/nm)";
       }
+      leaf optics-bits-per-symbol {
+        type string {
+          length "1..20";
+        }
+        description
+          "BitsPerSymbol(Max Length 9)";
+      }
       leaf optics-lbc-high-threshold {
-        type int32 {
+        type uint32 {
           range "0..100";
         }
         description
@@ -513,14 +520,14 @@ module Cisco-IOS-XR-controller-optics-cfg {
            units of ps/nm)";
       }
       leaf optics-osnr-low-threshold {
-        type int32 {
+        type uint32 {
           range "0..4000";
         }
         description
           "Select OSNR low threshold(in units of 0.01db)";
       }
       leaf optics-ots-amplifier-gain-degrade-low-threshold {
-        type int32 {
+        type uint32 {
           range "0..500";
         }
         description

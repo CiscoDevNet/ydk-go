@@ -5,7 +5,7 @@
 // for the following management objects:
 //   auto-rp: AutoRP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_autorp_oper
 
@@ -208,7 +208,7 @@ type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.
@@ -658,7 +658,7 @@ type AutoRp_Active_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Protocol Mode. The type is AutoRpProtocolMode.

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   object-tracking: Object Tracking operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package manageability_object_tracking_oper
 

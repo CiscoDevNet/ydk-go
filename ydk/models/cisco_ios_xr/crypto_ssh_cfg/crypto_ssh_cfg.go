@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ssh: Secure Shell configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package crypto_ssh_cfg
 
@@ -79,7 +79,7 @@ type Ssh_Client struct {
     RekeyTime interface{}
 
     // Source interface for ssh client sessions. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Cisco sshd DSCP value. The type is interface{} with range: 0..63.
@@ -182,7 +182,7 @@ type Ssh_Client_ClientEnable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // clientcipher.
+    // Enable AES-CBC and 3DES_CBC for ssh client.
     ClientCipher Ssh_Client_ClientEnable_ClientCipher
 }
 
@@ -206,14 +206,16 @@ func (clientEnable *Ssh_Client_ClientEnable) GetEntityData() *types.CommonEntity
 }
 
 // Ssh_Client_ClientEnable_ClientCipher
-// clientcipher
+// Enable AES-CBC and 3DES_CBC for ssh client
 type Ssh_Client_ClientEnable_ClientCipher struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable AES-CBC ciphers for client. The type is bool. The default value is
-    // false.
-    Aescbc interface{}
+    // Enable AES-CBC ciphers. The type is bool. The default value is false.
+    AesCbc interface{}
+
+    // Enable 3DES-CBC cipher. The type is bool. The default value is false.
+    TripledesCbc interface{}
 }
 
 func (clientCipher *Ssh_Client_ClientEnable_ClientCipher) GetEntityData() *types.CommonEntityData {
@@ -228,7 +230,8 @@ func (clientCipher *Ssh_Client_ClientEnable_ClientCipher) GetEntityData() *types
 
     clientCipher.EntityData.Children = types.NewOrderedMap()
     clientCipher.EntityData.Leafs = types.NewOrderedMap()
-    clientCipher.EntityData.Leafs.Append("aescbc", types.YLeaf{"Aescbc", clientCipher.Aescbc})
+    clientCipher.EntityData.Leafs.Append("aes-cbc", types.YLeaf{"AesCbc", clientCipher.AesCbc})
+    clientCipher.EntityData.Leafs.Append("tripledes-cbc", types.YLeaf{"TripledesCbc", clientCipher.TripledesCbc})
 
     clientCipher.EntityData.YListKeys = []string {}
 
@@ -391,7 +394,7 @@ type Ssh_Server_Enable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // cipher.
+    // Enable AES-CBC and 3DES-CBC ciphers.
     Cipher Ssh_Server_Enable_Cipher
 }
 
@@ -415,13 +418,16 @@ func (enable *Ssh_Server_Enable) GetEntityData() *types.CommonEntityData {
 }
 
 // Ssh_Server_Enable_Cipher
-// cipher
+// Enable AES-CBC and 3DES-CBC ciphers
 type Ssh_Server_Enable_Cipher struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable AES-CBC ciphers. The type is bool. The default value is false.
-    Aescbc interface{}
+    // Enable aes-cbc ciphers. The type is bool. The default value is false.
+    AesCbc interface{}
+
+    // Enable 3des-cbc cipher. The type is bool. The default value is false.
+    TripledesCbc interface{}
 }
 
 func (cipher *Ssh_Server_Enable_Cipher) GetEntityData() *types.CommonEntityData {
@@ -436,7 +442,8 @@ func (cipher *Ssh_Server_Enable_Cipher) GetEntityData() *types.CommonEntityData 
 
     cipher.EntityData.Children = types.NewOrderedMap()
     cipher.EntityData.Leafs = types.NewOrderedMap()
-    cipher.EntityData.Leafs.Append("aescbc", types.YLeaf{"Aescbc", cipher.Aescbc})
+    cipher.EntityData.Leafs.Append("aes-cbc", types.YLeaf{"AesCbc", cipher.AesCbc})
+    cipher.EntityData.Leafs.Append("tripledes-cbc", types.YLeaf{"TripledesCbc", cipher.TripledesCbc})
 
     cipher.EntityData.YListKeys = []string {}
 

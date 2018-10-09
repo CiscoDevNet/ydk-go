@@ -22,7 +22,7 @@ module Cisco-IOS-XR-clns-isis-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -69,7 +69,7 @@ module Cisco-IOS-XR-clns-isis-datatypes {
 
   typedef Isis-instance-name {
     type xr:Cisco-ios-xr-string {
-      length "1..40";
+      length "1..36";
     }
     description
       "Isis instance name";

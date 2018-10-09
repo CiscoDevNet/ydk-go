@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub7 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-te package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -438,6 +438,58 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub7 {
       description
         "List of Destination Stats";
       uses TE-STATS-BAG-DEST;
+    }
+  }
+
+  grouping TE-S2L-FSM-EVENT-ARRAY {
+    description
+      "Array to store S2L FSM events for a state";
+    leaf-list te-s2l-fsm-event-array {
+      type uint32;
+      max-elements "55";
+      description
+        "te s2l fsm event array";
+    }
+  }
+
+  grouping TE-S2L-FSM-STATS-ARRAY {
+    description
+      "Array to store S2L FSM stats";
+    list te-s2l-fsm-stats-array {
+      max-elements "19";
+      description
+        "te s2l fsm stats array";
+      uses TE-S2L-FSM-EVENT-ARRAY;
+    }
+  }
+
+  grouping TE-FSM-UNEXPECTED-EVENT-STATS {
+    description
+      "TE S2L FSM Unexpected Event Stats";
+    container head-fsm-events {
+      description
+        "FSM unexpected event stats for headend S2Ls";
+      uses TE-S2L-FSM-STATS-ARRAY;
+    }
+    container mid-fsm-events {
+      description
+        "FSM unexpected event stats for midpoint S2Ls";
+      uses TE-S2L-FSM-STATS-ARRAY;
+    }
+    container tail-fsm-events {
+      description
+        "FSM unexpected event stats for tailend S2Ls";
+      uses TE-S2L-FSM-STATS-ARRAY;
+    }
+    leaf last-cleared-time {
+      type uint32;
+      description
+        "Timestamp when the stat has been cleared";
+    }
+    leaf unexpected-event-num {
+      type uint32;
+      description
+        "Total number of unexpected events";
     }
   }
 

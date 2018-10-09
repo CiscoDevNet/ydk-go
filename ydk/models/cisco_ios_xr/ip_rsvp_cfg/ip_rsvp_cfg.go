@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_rsvp_cfg
 
@@ -282,7 +282,7 @@ type Rsvp_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of controller. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Enable RSVP on an interface. The type is interface{}.
@@ -585,7 +585,7 @@ type Rsvp_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable RSVP on an interface. The type is interface{}.

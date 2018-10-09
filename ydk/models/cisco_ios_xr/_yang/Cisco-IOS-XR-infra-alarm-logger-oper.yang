@@ -26,7 +26,7 @@ module Cisco-IOS-XR-infra-alarm-logger-oper {
      for the following management objects:
        alarm-logger: Alarm Logger operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {

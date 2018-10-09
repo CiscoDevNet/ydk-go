@@ -36,6 +36,9 @@ type CiscoPlatformSoftware struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Platform system usage information.
+    SystemUsages CiscoPlatformSoftware_SystemUsages
+
     // Information about control processes.
     ControlProcesses CiscoPlatformSoftware_ControlProcesses
 
@@ -55,6 +58,7 @@ func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.Commo
     ciscoPlatformSoftware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
     ciscoPlatformSoftware.EntityData.Children = types.NewOrderedMap()
+    ciscoPlatformSoftware.EntityData.Children.Append("system-usages", types.YChild{"SystemUsages", &ciscoPlatformSoftware.SystemUsages})
     ciscoPlatformSoftware.EntityData.Children.Append("control-processes", types.YChild{"ControlProcesses", &ciscoPlatformSoftware.ControlProcesses})
     ciscoPlatformSoftware.EntityData.Children.Append("q-filesystem", types.YChild{"QFilesystem", nil})
     for i := range ciscoPlatformSoftware.QFilesystem {
@@ -65,6 +69,174 @@ func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.Commo
     ciscoPlatformSoftware.EntityData.YListKeys = []string {}
 
     return &(ciscoPlatformSoftware.EntityData)
+}
+
+// CiscoPlatformSoftware_SystemUsages
+// Platform system usage information
+type CiscoPlatformSoftware_SystemUsages struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The list of process system usage. The type is slice of
+    // CiscoPlatformSoftware_SystemUsages_SystemUsage.
+    SystemUsage []*CiscoPlatformSoftware_SystemUsages_SystemUsage
+}
+
+func (systemUsages *CiscoPlatformSoftware_SystemUsages) GetEntityData() *types.CommonEntityData {
+    systemUsages.EntityData.YFilter = systemUsages.YFilter
+    systemUsages.EntityData.YangName = "system-usages"
+    systemUsages.EntityData.BundleName = "cisco_ios_xe"
+    systemUsages.EntityData.ParentYangName = "cisco-platform-software"
+    systemUsages.EntityData.SegmentPath = "system-usages"
+    systemUsages.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    systemUsages.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    systemUsages.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    systemUsages.EntityData.Children = types.NewOrderedMap()
+    systemUsages.EntityData.Children.Append("system-usage", types.YChild{"SystemUsage", nil})
+    for i := range systemUsages.SystemUsage {
+        systemUsages.EntityData.Children.Append(types.GetSegmentPath(systemUsages.SystemUsage[i]), types.YChild{"SystemUsage", systemUsages.SystemUsage[i]})
+    }
+    systemUsages.EntityData.Leafs = types.NewOrderedMap()
+
+    systemUsages.EntityData.YListKeys = []string {}
+
+    return &(systemUsages.EntityData)
+}
+
+// CiscoPlatformSoftware_SystemUsages_SystemUsage
+// The list of process system usage
+type CiscoPlatformSoftware_SystemUsages_SystemUsage struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Field replaceable unit. The type is BFru.
+    Fru interface{}
+
+    // This attribute is a key. Slot number. The type is interface{} with range:
+    // -32768..32767.
+    Slotnum interface{}
+
+    // This attribute is a key. Bay number. The type is interface{} with range:
+    // -32768..32767.
+    Baynum interface{}
+
+    // This attribute is a key. Chassis number. The type is interface{} with
+    // range: -32768..32767.
+    Chassisnum interface{}
+
+    // List of process system usage.
+    ProcessSystemUsages CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages
+}
+
+func (systemUsage *CiscoPlatformSoftware_SystemUsages_SystemUsage) GetEntityData() *types.CommonEntityData {
+    systemUsage.EntityData.YFilter = systemUsage.YFilter
+    systemUsage.EntityData.YangName = "system-usage"
+    systemUsage.EntityData.BundleName = "cisco_ios_xe"
+    systemUsage.EntityData.ParentYangName = "system-usages"
+    systemUsage.EntityData.SegmentPath = "system-usage" + types.AddKeyToken(systemUsage.Fru, "fru") + types.AddKeyToken(systemUsage.Slotnum, "slotnum") + types.AddKeyToken(systemUsage.Baynum, "baynum") + types.AddKeyToken(systemUsage.Chassisnum, "chassisnum")
+    systemUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    systemUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    systemUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    systemUsage.EntityData.Children = types.NewOrderedMap()
+    systemUsage.EntityData.Children.Append("process-system-usages", types.YChild{"ProcessSystemUsages", &systemUsage.ProcessSystemUsages})
+    systemUsage.EntityData.Leafs = types.NewOrderedMap()
+    systemUsage.EntityData.Leafs.Append("fru", types.YLeaf{"Fru", systemUsage.Fru})
+    systemUsage.EntityData.Leafs.Append("slotnum", types.YLeaf{"Slotnum", systemUsage.Slotnum})
+    systemUsage.EntityData.Leafs.Append("baynum", types.YLeaf{"Baynum", systemUsage.Baynum})
+    systemUsage.EntityData.Leafs.Append("chassisnum", types.YLeaf{"Chassisnum", systemUsage.Chassisnum})
+
+    systemUsage.EntityData.YListKeys = []string {"Fru", "Slotnum", "Baynum", "Chassisnum"}
+
+    return &(systemUsage.EntityData)
+}
+
+// CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages
+// List of process system usage
+type CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Per-process system usage. The type is slice of
+    // CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage.
+    ProcessSystemUsage []*CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage
+}
+
+func (processSystemUsages *CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages) GetEntityData() *types.CommonEntityData {
+    processSystemUsages.EntityData.YFilter = processSystemUsages.YFilter
+    processSystemUsages.EntityData.YangName = "process-system-usages"
+    processSystemUsages.EntityData.BundleName = "cisco_ios_xe"
+    processSystemUsages.EntityData.ParentYangName = "system-usage"
+    processSystemUsages.EntityData.SegmentPath = "process-system-usages"
+    processSystemUsages.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    processSystemUsages.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    processSystemUsages.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    processSystemUsages.EntityData.Children = types.NewOrderedMap()
+    processSystemUsages.EntityData.Children.Append("process-system-usage", types.YChild{"ProcessSystemUsage", nil})
+    for i := range processSystemUsages.ProcessSystemUsage {
+        processSystemUsages.EntityData.Children.Append(types.GetSegmentPath(processSystemUsages.ProcessSystemUsage[i]), types.YChild{"ProcessSystemUsage", processSystemUsages.ProcessSystemUsage[i]})
+    }
+    processSystemUsages.EntityData.Leafs = types.NewOrderedMap()
+
+    processSystemUsages.EntityData.YListKeys = []string {}
+
+    return &(processSystemUsages.EntityData)
+}
+
+// CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage
+// Per-process system usage
+type CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The pid of the process. The type is interface{}
+    // with range: 0..4294967295.
+    Pid interface{}
+
+    // Process name. The type is string.
+    Name interface{}
+
+    // Total run time in seconds. The type is interface{} with range:
+    // 0..18446744073709551615.
+    TotalRunTime interface{}
+
+    // Busy percentage in last 5-seconds. The type is interface{} with range:
+    // 0..18446744073709551615.
+    FiveSeconds interface{}
+
+    // Memory allocated to this process in kB. The type is interface{} with range:
+    // 0..18446744073709551615.
+    AllocatedMemory interface{}
+
+    // Percentage of memory allocated to this process. The type is interface{}
+    // with range: 0..4294967295.
+    AllocatedMemoryPercent interface{}
+}
+
+func (processSystemUsage *CiscoPlatformSoftware_SystemUsages_SystemUsage_ProcessSystemUsages_ProcessSystemUsage) GetEntityData() *types.CommonEntityData {
+    processSystemUsage.EntityData.YFilter = processSystemUsage.YFilter
+    processSystemUsage.EntityData.YangName = "process-system-usage"
+    processSystemUsage.EntityData.BundleName = "cisco_ios_xe"
+    processSystemUsage.EntityData.ParentYangName = "process-system-usages"
+    processSystemUsage.EntityData.SegmentPath = "process-system-usage" + types.AddKeyToken(processSystemUsage.Pid, "pid")
+    processSystemUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    processSystemUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    processSystemUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    processSystemUsage.EntityData.Children = types.NewOrderedMap()
+    processSystemUsage.EntityData.Leafs = types.NewOrderedMap()
+    processSystemUsage.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", processSystemUsage.Pid})
+    processSystemUsage.EntityData.Leafs.Append("name", types.YLeaf{"Name", processSystemUsage.Name})
+    processSystemUsage.EntityData.Leafs.Append("total-run-time", types.YLeaf{"TotalRunTime", processSystemUsage.TotalRunTime})
+    processSystemUsage.EntityData.Leafs.Append("five-seconds", types.YLeaf{"FiveSeconds", processSystemUsage.FiveSeconds})
+    processSystemUsage.EntityData.Leafs.Append("allocated-memory", types.YLeaf{"AllocatedMemory", processSystemUsage.AllocatedMemory})
+    processSystemUsage.EntityData.Leafs.Append("allocated-memory-percent", types.YLeaf{"AllocatedMemoryPercent", processSystemUsage.AllocatedMemoryPercent})
+
+    processSystemUsage.EntityData.YListKeys = []string {"Pid"}
+
+    return &(processSystemUsage.EntityData)
 }
 
 // CiscoPlatformSoftware_ControlProcesses

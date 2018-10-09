@@ -26,7 +26,7 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
      for the following management objects:
        router-convergence: Configure Router Convergence Monitoring
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-15 {
@@ -165,6 +165,7 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
       }
     }
     container storage-location {
+      presence "Indicates a storage-location node is configured.";
       description
         "Absolute directory path for saving the archive
          files. Example /disk0:/rcmd/ or
@@ -200,9 +201,11 @@ module Cisco-IOS-XR-infra-rcmd-cfg {
       }
     }
     container mpls-ldp {
+      presence "Indicates a mpls-ldp node is configured.";
       description
         "RCMD related configuration for MPLS-LDP";
       container remote-lfa {
+        presence "Indicates a remote-lfa node is configured.";
         description
           "Monitoring configuration for Remote LFA";
         leaf threshold {

@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv6-ospfv3 package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-30 {
@@ -3286,6 +3286,11 @@ submodule Cisco-IOS-XR-ipv6-ospfv3-oper-sub1 {
       type xr:Interface-name;
       description
         "Route path interface name ";
+    }
+    leaf interface-index {
+      type uint32;
+      description
+        "Route path interface Index ";
     }
     leaf route-path-next-hop {
       type inet:ipv6-address;

@@ -29,7 +29,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
      for the following management objects:
        address-pool-service: Address Pool configuration data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -107,6 +107,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                 }
               }
               container utilization-mark {
+                presence "Indicates a utilization-mark node is configured.";
                 description
                   "Specify utilization mark";
                 leaf high-mark {
@@ -114,6 +115,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     range "0..100";
                   }
                   units "percentage";
+                  mandatory true;
                   description
                     "Specify numerical value as percentage";
                 }
@@ -122,6 +124,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     range "0..100";
                   }
                   units "percentage";
+                  mandatory true;
                   description
                     "Specify numerical value as percentage";
                 }
@@ -249,6 +252,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                 }
               }
               container utilization-mark {
+                presence "Indicates a utilization-mark node is configured.";
                 description
                   "Specify utilization mark";
                 leaf high {
@@ -256,6 +260,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     range "0..100";
                   }
                   units "percentage";
+                  mandatory true;
                   description
                     "Specify numerical value as percentage";
                 }
@@ -264,6 +269,7 @@ module Cisco-IOS-XR-ip-daps-cfg {
                     range "0..100";
                   }
                   units "percentage";
+                  mandatory true;
                   description
                     "Specify numerical value as percentage";
                 }

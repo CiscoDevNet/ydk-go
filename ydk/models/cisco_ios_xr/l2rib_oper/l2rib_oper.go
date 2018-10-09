@@ -5,7 +5,7 @@
 // for the following management objects:
 //   l2rib: L2RIB operational information 
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package l2rib_oper
 
@@ -1382,8 +1382,14 @@ type L2rib_EviChildTables struct {
     // L2RIB EVPN EVI MAC table.
     Macs L2rib_EviChildTables_Macs
 
+    // L2RIB EVPN EVI IMET table.
+    Imets L2rib_EviChildTables_Imets
+
     // L2RIB EVPN EVI MAC Detail table.
     MacDetails L2rib_EviChildTables_MacDetails
+
+    // L2RIB EVPN EVI IMET Detail table.
+    ImetDetails L2rib_EviChildTables_ImetDetails
 }
 
 func (eviChildTables *L2rib_EviChildTables) GetEntityData() *types.CommonEntityData {
@@ -1400,7 +1406,9 @@ func (eviChildTables *L2rib_EviChildTables) GetEntityData() *types.CommonEntityD
     eviChildTables.EntityData.Children.Append("macip-details", types.YChild{"MacipDetails", &eviChildTables.MacipDetails})
     eviChildTables.EntityData.Children.Append("mac-ips", types.YChild{"MacIps", &eviChildTables.MacIps})
     eviChildTables.EntityData.Children.Append("macs", types.YChild{"Macs", &eviChildTables.Macs})
+    eviChildTables.EntityData.Children.Append("imets", types.YChild{"Imets", &eviChildTables.Imets})
     eviChildTables.EntityData.Children.Append("mac-details", types.YChild{"MacDetails", &eviChildTables.MacDetails})
+    eviChildTables.EntityData.Children.Append("imet-details", types.YChild{"ImetDetails", &eviChildTables.ImetDetails})
     eviChildTables.EntityData.Leafs = types.NewOrderedMap()
 
     eviChildTables.EntityData.YListKeys = []string {}
@@ -1453,10 +1461,14 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // Tag ID. The type is interface{} with range: 0..4294967295.
     TagId interface{}
 
-    // MAC IP Address. The type is string with length: 1..15.
+    // MAC IP Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
-    // IP Address. The type is string with length: 1..15.
+    // IP Address. The type is one of the following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Admin distance. The type is interface{} with range: 0..4294967295.
@@ -1469,7 +1481,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // 0..4294967295.
     SequenceNumber interface{}
 
-    // MAC-IP route flags. The type is interface{} with range: 0..4294967295.
+    // MAC-IP route flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Flags interface{}
 
     // SOO. The type is interface{} with range: 0..4294967295.
@@ -1629,7 +1641,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop_NextHop st
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -1673,8 +1685,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop_NextHop_La
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -1891,10 +1902,14 @@ type L2rib_EviChildTables_MacIps_MacIp struct {
     // Tag ID. The type is interface{} with range: 0..4294967295.
     TagId interface{}
 
-    // MAC-IP Address. The type is string with length: 1..15.
+    // MAC-IP Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
-    // IP Address. The type is string with length: 1..15.
+    // IP Address. The type is one of the following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Admin distance. The type is interface{} with range: 0..4294967295.
@@ -2012,7 +2027,7 @@ type L2rib_EviChildTables_MacIps_MacIp_NextHop_NextHop struct {
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2056,8 +2071,7 @@ type L2rib_EviChildTables_MacIps_MacIp_NextHop_NextHop_Labeled struct {
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -2133,7 +2147,8 @@ type L2rib_EviChildTables_Macs_Mac struct {
     // Tag ID. The type is interface{} with range: 0..4294967295.
     TagId interface{}
 
-    // MAC Address. The type is string with length: 1..15.
+    // MAC Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Admin distance. The type is interface{} with range: 0..4294967295.
@@ -2316,7 +2331,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop_NextHop struct {
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2360,8 +2375,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop_NextHop_Labeled struct 
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -2699,7 +2713,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListE
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2743,8 +2757,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListE
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -2865,7 +2878,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray_NextHop s
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2909,8 +2922,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray_NextHop_L
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -3205,7 +3217,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListEsi_
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3249,8 +3261,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListEsi_
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -3371,7 +3382,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_NextHop stru
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3415,8 +3426,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_NextHop_Labe
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -3446,6 +3456,108 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_Ne
     labeled.EntityData.YListKeys = []string {}
 
     return &(labeled.EntityData)
+}
+
+// L2rib_EviChildTables_Imets
+// L2RIB EVPN EVI IMET table
+type L2rib_EviChildTables_Imets struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // L2RIB EVPN IMET table. The type is slice of
+    // L2rib_EviChildTables_Imets_Imet.
+    Imet []*L2rib_EviChildTables_Imets_Imet
+}
+
+func (imets *L2rib_EviChildTables_Imets) GetEntityData() *types.CommonEntityData {
+    imets.EntityData.YFilter = imets.YFilter
+    imets.EntityData.YangName = "imets"
+    imets.EntityData.BundleName = "cisco_ios_xr"
+    imets.EntityData.ParentYangName = "evi-child-tables"
+    imets.EntityData.SegmentPath = "imets"
+    imets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    imets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    imets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    imets.EntityData.Children = types.NewOrderedMap()
+    imets.EntityData.Children.Append("imet", types.YChild{"Imet", nil})
+    for i := range imets.Imet {
+        imets.EntityData.Children.Append(types.GetSegmentPath(imets.Imet[i]), types.YChild{"Imet", imets.Imet[i]})
+    }
+    imets.EntityData.Leafs = types.NewOrderedMap()
+
+    imets.EntityData.YListKeys = []string {}
+
+    return &(imets.EntityData)
+}
+
+// L2rib_EviChildTables_Imets_Imet
+// L2RIB EVPN IMET table
+type L2rib_EviChildTables_Imets_Imet struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EVPN ID. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
+
+    // Tag ID. The type is interface{} with range: 0..4294967295.
+    TagId interface{}
+
+    // Originating Router IP Address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    IpAddr interface{}
+
+    // Admin distance. The type is interface{} with range: 0..4294967295.
+    AdminDist interface{}
+
+    // Producer ID. The type is interface{} with range: 0..4294967295.
+    ProdId interface{}
+
+    // Originating Router IP Address. The type is string.
+    VtepiPaddr interface{}
+
+    // Admin Distance. The type is interface{} with range: 0..255.
+    AdminDistance interface{}
+
+    // Producer of Imet route. The type is interface{} with range: 0..255.
+    ProducerId interface{}
+
+    // Topo ID. The type is interface{} with range: 0..4294967295.
+    TopoId interface{}
+
+    // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
+    EthernetTagId interface{}
+}
+
+func (imet *L2rib_EviChildTables_Imets_Imet) GetEntityData() *types.CommonEntityData {
+    imet.EntityData.YFilter = imet.YFilter
+    imet.EntityData.YangName = "imet"
+    imet.EntityData.BundleName = "cisco_ios_xr"
+    imet.EntityData.ParentYangName = "imets"
+    imet.EntityData.SegmentPath = "imet"
+    imet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    imet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    imet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    imet.EntityData.Children = types.NewOrderedMap()
+    imet.EntityData.Leafs = types.NewOrderedMap()
+    imet.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", imet.Evi})
+    imet.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", imet.TagId})
+    imet.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", imet.IpAddr})
+    imet.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", imet.AdminDist})
+    imet.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", imet.ProdId})
+    imet.EntityData.Leafs.Append("vtepi-paddr", types.YLeaf{"VtepiPaddr", imet.VtepiPaddr})
+    imet.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", imet.AdminDistance})
+    imet.EntityData.Leafs.Append("producer-id", types.YLeaf{"ProducerId", imet.ProducerId})
+    imet.EntityData.Leafs.Append("topo-id", types.YLeaf{"TopoId", imet.TopoId})
+    imet.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", imet.EthernetTagId})
+
+    imet.EntityData.YListKeys = []string {}
+
+    return &(imet.EntityData)
 }
 
 // L2rib_EviChildTables_MacDetails
@@ -3493,7 +3605,8 @@ type L2rib_EviChildTables_MacDetails_MacDetail struct {
     // Tag ID. The type is interface{} with range: 0..4294967295.
     TagId interface{}
 
-    // MAC Address. The type is string with length: 1..15.
+    // MAC Address. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Admin distance. The type is interface{} with range: 0..4294967295.
@@ -3506,10 +3619,10 @@ type L2rib_EviChildTables_MacDetails_MacDetail struct {
     // 0..4294967295.
     SequenceNumber interface{}
 
-    // MAC route flags. The type is interface{} with range: 0..4294967295.
+    // MAC route flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Flags interface{}
 
-    // BASE flags. The type is interface{} with range: 0..4294967295.
+    // BASE flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Baseflags interface{}
 
     // SOO. The type is interface{} with range: 0..4294967295.
@@ -3739,7 +3852,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_NextHop_Ne
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3783,8 +3896,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_NextHop_Ne
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -4122,7 +4234,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_P
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4166,8 +4278,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_P
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -4288,7 +4399,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_N
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4332,8 +4443,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_N
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -4628,7 +4738,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Path
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4672,8 +4782,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Path
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -4794,7 +4903,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Next
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4838,8 +4947,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Next
     // L2RIB Address Family. The type is L2ribAfi.
     AddressFamily interface{}
 
-    // IP Address (V6 Format). The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // IP Address. The type is string.
     IpAddress interface{}
 
     // Label. The type is interface{} with range: 0..4294967295.
@@ -4939,6 +5047,162 @@ func (tlvVal *L2rib_EviChildTables_MacDetails_MacDetail_RtTlv_TlvVal) GetEntityD
     tlvVal.EntityData.YListKeys = []string {}
 
     return &(tlvVal.EntityData)
+}
+
+// L2rib_EviChildTables_ImetDetails
+// L2RIB EVPN EVI IMET Detail table
+type L2rib_EviChildTables_ImetDetails struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // L2RIB EVPN IMET Detail table. The type is slice of
+    // L2rib_EviChildTables_ImetDetails_ImetDetail.
+    ImetDetail []*L2rib_EviChildTables_ImetDetails_ImetDetail
+}
+
+func (imetDetails *L2rib_EviChildTables_ImetDetails) GetEntityData() *types.CommonEntityData {
+    imetDetails.EntityData.YFilter = imetDetails.YFilter
+    imetDetails.EntityData.YangName = "imet-details"
+    imetDetails.EntityData.BundleName = "cisco_ios_xr"
+    imetDetails.EntityData.ParentYangName = "evi-child-tables"
+    imetDetails.EntityData.SegmentPath = "imet-details"
+    imetDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    imetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    imetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    imetDetails.EntityData.Children = types.NewOrderedMap()
+    imetDetails.EntityData.Children.Append("imet-detail", types.YChild{"ImetDetail", nil})
+    for i := range imetDetails.ImetDetail {
+        imetDetails.EntityData.Children.Append(types.GetSegmentPath(imetDetails.ImetDetail[i]), types.YChild{"ImetDetail", imetDetails.ImetDetail[i]})
+    }
+    imetDetails.EntityData.Leafs = types.NewOrderedMap()
+
+    imetDetails.EntityData.YListKeys = []string {}
+
+    return &(imetDetails.EntityData)
+}
+
+// L2rib_EviChildTables_ImetDetails_ImetDetail
+// L2RIB EVPN IMET Detail table
+type L2rib_EviChildTables_ImetDetails_ImetDetail struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EVPN ID. The type is interface{} with range: 0..4294967295.
+    Evi interface{}
+
+    // Tag ID. The type is interface{} with range: 0..4294967295.
+    TagId interface{}
+
+    // Originating Router IP Address. The type is one of the following types:
+    // string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    IpAddr interface{}
+
+    // Admin distance. The type is interface{} with range: 0..4294967295.
+    AdminDist interface{}
+
+    // Producer ID. The type is interface{} with range: 0..4294967295.
+    ProdId interface{}
+
+    // Tunnel Id. The type is string.
+    TunnelId interface{}
+
+    // IMET route flags. The type is interface{} with range: 0..4294967295.
+    Flags interface{}
+
+    // IMET route tunnel type. The type is interface{} with range: 0..4294967295.
+    TunnelType interface{}
+
+    // Label. The type is interface{} with range: 0..4294967295.
+    L2rLabel interface{}
+
+    // Encap Type. The type is interface{} with range: 0..4294967295.
+    EncapType interface{}
+
+    // Last Update Timestamp. The type is interface{} with range:
+    // 0..18446744073709551615.
+    LastUpdateTimestamp interface{}
+
+    // Imet Route base information.
+    ImetRouteBase L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase
+}
+
+func (imetDetail *L2rib_EviChildTables_ImetDetails_ImetDetail) GetEntityData() *types.CommonEntityData {
+    imetDetail.EntityData.YFilter = imetDetail.YFilter
+    imetDetail.EntityData.YangName = "imet-detail"
+    imetDetail.EntityData.BundleName = "cisco_ios_xr"
+    imetDetail.EntityData.ParentYangName = "imet-details"
+    imetDetail.EntityData.SegmentPath = "imet-detail"
+    imetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    imetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    imetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    imetDetail.EntityData.Children = types.NewOrderedMap()
+    imetDetail.EntityData.Children.Append("imet-route-base", types.YChild{"ImetRouteBase", &imetDetail.ImetRouteBase})
+    imetDetail.EntityData.Leafs = types.NewOrderedMap()
+    imetDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", imetDetail.Evi})
+    imetDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", imetDetail.TagId})
+    imetDetail.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", imetDetail.IpAddr})
+    imetDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", imetDetail.AdminDist})
+    imetDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", imetDetail.ProdId})
+    imetDetail.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", imetDetail.TunnelId})
+    imetDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", imetDetail.Flags})
+    imetDetail.EntityData.Leafs.Append("tunnel-type", types.YLeaf{"TunnelType", imetDetail.TunnelType})
+    imetDetail.EntityData.Leafs.Append("l2r-label", types.YLeaf{"L2rLabel", imetDetail.L2rLabel})
+    imetDetail.EntityData.Leafs.Append("encap-type", types.YLeaf{"EncapType", imetDetail.EncapType})
+    imetDetail.EntityData.Leafs.Append("last-update-timestamp", types.YLeaf{"LastUpdateTimestamp", imetDetail.LastUpdateTimestamp})
+
+    imetDetail.EntityData.YListKeys = []string {}
+
+    return &(imetDetail.EntityData)
+}
+
+// L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase
+// Imet Route base information
+type L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Originating Router IP Address. The type is string.
+    VtepiPaddr interface{}
+
+    // Admin Distance. The type is interface{} with range: 0..255.
+    AdminDistance interface{}
+
+    // Producer of Imet route. The type is interface{} with range: 0..255.
+    ProducerId interface{}
+
+    // Topo ID. The type is interface{} with range: 0..4294967295.
+    TopoId interface{}
+
+    // Ethernet Tag ID. The type is interface{} with range: 0..4294967295.
+    EthernetTagId interface{}
+}
+
+func (imetRouteBase *L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase) GetEntityData() *types.CommonEntityData {
+    imetRouteBase.EntityData.YFilter = imetRouteBase.YFilter
+    imetRouteBase.EntityData.YangName = "imet-route-base"
+    imetRouteBase.EntityData.BundleName = "cisco_ios_xr"
+    imetRouteBase.EntityData.ParentYangName = "imet-detail"
+    imetRouteBase.EntityData.SegmentPath = "imet-route-base"
+    imetRouteBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    imetRouteBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    imetRouteBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    imetRouteBase.EntityData.Children = types.NewOrderedMap()
+    imetRouteBase.EntityData.Leafs = types.NewOrderedMap()
+    imetRouteBase.EntityData.Leafs.Append("vtepi-paddr", types.YLeaf{"VtepiPaddr", imetRouteBase.VtepiPaddr})
+    imetRouteBase.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", imetRouteBase.AdminDistance})
+    imetRouteBase.EntityData.Leafs.Append("producer-id", types.YLeaf{"ProducerId", imetRouteBase.ProducerId})
+    imetRouteBase.EntityData.Leafs.Append("topo-id", types.YLeaf{"TopoId", imetRouteBase.TopoId})
+    imetRouteBase.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", imetRouteBase.EthernetTagId})
+
+    imetRouteBase.EntityData.YListKeys = []string {}
+
+    return &(imetRouteBase.EntityData)
 }
 
 // L2rib_Evis

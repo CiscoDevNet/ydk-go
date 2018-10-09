@@ -5,7 +5,7 @@
 // for the following management objects:
 //   diag: Diag information
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sdr_invmgr_diag_oper
 
@@ -99,7 +99,7 @@ type Diag_Racks_Rack struct {
     PowerShelfs Diag_Racks_Rack_PowerShelfs
 
     // Table for rack fan trays.
-    FanTraies Diag_Racks_Rack_FanTraies
+    FanTrays Diag_Racks_Rack_FanTrays
 
     // Table of slots.
     Slots Diag_Racks_Rack_Slots
@@ -120,7 +120,7 @@ func (rack *Diag_Racks_Rack) GetEntityData() *types.CommonEntityData {
 
     rack.EntityData.Children = types.NewOrderedMap()
     rack.EntityData.Children.Append("power-shelfs", types.YChild{"PowerShelfs", &rack.PowerShelfs})
-    rack.EntityData.Children.Append("fan-traies", types.YChild{"FanTraies", &rack.FanTraies})
+    rack.EntityData.Children.Append("fan-trays", types.YChild{"FanTrays", &rack.FanTrays})
     rack.EntityData.Children.Append("slots", types.YChild{"Slots", &rack.Slots})
     rack.EntityData.Children.Append("chassis", types.YChild{"Chassis", &rack.Chassis})
     rack.EntityData.Leafs = types.NewOrderedMap()
@@ -442,6 +442,10 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Informatio
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
+    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
+    // length: 0..255.
+    EciAlphaNumber interface{}
+
     // RMA Data.
     Rma Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma
 }
@@ -515,6 +519,7 @@ func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSup
     information.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", information.EngineerUse})
     information.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", information.Snmpoid})
     information.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", information.RmaCode})
+    information.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", information.EciAlphaNumber})
 
     information.EntityData.YListKeys = []string {}
 
@@ -559,41 +564,41 @@ func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Info
     return &(rma.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies
+// Diag_Racks_Rack_FanTrays
 // Table for rack fan trays
-type Diag_Racks_Rack_FanTraies struct {
+type Diag_Racks_Rack_FanTrays struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Fan tray name. The type is slice of Diag_Racks_Rack_FanTraies_FanTray.
-    FanTray []*Diag_Racks_Rack_FanTraies_FanTray
+    // Fan tray name. The type is slice of Diag_Racks_Rack_FanTrays_FanTray.
+    FanTray []*Diag_Racks_Rack_FanTrays_FanTray
 }
 
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityData {
-    fanTraies.EntityData.YFilter = fanTraies.YFilter
-    fanTraies.EntityData.YangName = "fan-traies"
-    fanTraies.EntityData.BundleName = "cisco_ios_xr"
-    fanTraies.EntityData.ParentYangName = "rack"
-    fanTraies.EntityData.SegmentPath = "fan-traies"
-    fanTraies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fanTraies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fanTraies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (fanTrays *Diag_Racks_Rack_FanTrays) GetEntityData() *types.CommonEntityData {
+    fanTrays.EntityData.YFilter = fanTrays.YFilter
+    fanTrays.EntityData.YangName = "fan-trays"
+    fanTrays.EntityData.BundleName = "cisco_ios_xr"
+    fanTrays.EntityData.ParentYangName = "rack"
+    fanTrays.EntityData.SegmentPath = "fan-trays"
+    fanTrays.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fanTrays.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fanTrays.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    fanTraies.EntityData.Children = types.NewOrderedMap()
-    fanTraies.EntityData.Children.Append("fan-tray", types.YChild{"FanTray", nil})
-    for i := range fanTraies.FanTray {
-        fanTraies.EntityData.Children.Append(types.GetSegmentPath(fanTraies.FanTray[i]), types.YChild{"FanTray", fanTraies.FanTray[i]})
+    fanTrays.EntityData.Children = types.NewOrderedMap()
+    fanTrays.EntityData.Children.Append("fan-tray", types.YChild{"FanTray", nil})
+    for i := range fanTrays.FanTray {
+        fanTrays.EntityData.Children.Append(types.GetSegmentPath(fanTrays.FanTray[i]), types.YChild{"FanTray", fanTrays.FanTray[i]})
     }
-    fanTraies.EntityData.Leafs = types.NewOrderedMap()
+    fanTrays.EntityData.Leafs = types.NewOrderedMap()
 
-    fanTraies.EntityData.YListKeys = []string {}
+    fanTrays.EntityData.YListKeys = []string {}
 
-    return &(fanTraies.EntityData)
+    return &(fanTrays.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray
+// Diag_Racks_Rack_FanTrays_FanTray
 // Fan tray name
-type Diag_Racks_Rack_FanTraies_FanTray struct {
+type Diag_Racks_Rack_FanTrays_FanTray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -602,14 +607,14 @@ type Diag_Racks_Rack_FanTraies_FanTray struct {
     FanTrayName interface{}
 
     // Table for rack fans .
-    Fanses Diag_Racks_Rack_FanTraies_FanTray_Fanses
+    Fanses Diag_Racks_Rack_FanTrays_FanTray_Fanses
 }
 
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetEntityData() *types.CommonEntityData {
+func (fanTray *Diag_Racks_Rack_FanTrays_FanTray) GetEntityData() *types.CommonEntityData {
     fanTray.EntityData.YFilter = fanTray.YFilter
     fanTray.EntityData.YangName = "fan-tray"
     fanTray.EntityData.BundleName = "cisco_ios_xr"
-    fanTray.EntityData.ParentYangName = "fan-traies"
+    fanTray.EntityData.ParentYangName = "fan-trays"
     fanTray.EntityData.SegmentPath = "fan-tray" + types.AddKeyToken(fanTray.FanTrayName, "fan-tray-name")
     fanTray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanTray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -625,18 +630,18 @@ func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetEntityData() *types.CommonE
     return &(fanTray.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Fanses
+// Diag_Racks_Rack_FanTrays_FanTray_Fanses
 // Table for rack fans 
-type Diag_Racks_Rack_FanTraies_FanTray_Fanses struct {
+type Diag_Racks_Rack_FanTrays_FanTray_Fanses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fan name. The type is slice of
-    // Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans.
-    Fans []*Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
+    // Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans.
+    Fans []*Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans
 }
 
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetEntityData() *types.CommonEntityData {
+func (fanses *Diag_Racks_Rack_FanTrays_FanTray_Fanses) GetEntityData() *types.CommonEntityData {
     fanses.EntityData.YFilter = fanses.YFilter
     fanses.EntityData.YangName = "fanses"
     fanses.EntityData.BundleName = "cisco_ios_xr"
@@ -658,9 +663,9 @@ func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetEntityData() *types.C
     return &(fanses.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
+// Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans
 // Fan name
-type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans struct {
+type Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -669,10 +674,10 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans struct {
     FansName interface{}
 
     // Basic information.
-    Information Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information
+    Information Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information
 }
 
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetEntityData() *types.CommonEntityData {
+func (fans *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans) GetEntityData() *types.CommonEntityData {
     fans.EntityData.YFilter = fans.YFilter
     fans.EntityData.YangName = "fans"
     fans.EntityData.BundleName = "cisco_ios_xr"
@@ -692,9 +697,9 @@ func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetEntityData() *type
     return &(fans.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information
+// Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information
 // Basic information
-type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information struct {
+type Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -869,11 +874,15 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
+    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
+    // length: 0..255.
+    EciAlphaNumber interface{}
+
     // RMA Data.
-    Rma Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma
+    Rma Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information_Rma
 }
 
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetEntityData() *types.CommonEntityData {
+func (information *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information) GetEntityData() *types.CommonEntityData {
     information.EntityData.YFilter = information.YFilter
     information.EntityData.YangName = "information"
     information.EntityData.BundleName = "cisco_ios_xr"
@@ -942,15 +951,16 @@ func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) Ge
     information.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", information.EngineerUse})
     information.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", information.Snmpoid})
     information.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", information.RmaCode})
+    information.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", information.EciAlphaNumber})
 
     information.EntityData.YListKeys = []string {}
 
     return &(information.EntityData)
 }
 
-// Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma
+// Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information_Rma
 // RMA Data
-type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma struct {
+type Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information_Rma struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -965,7 +975,7 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma struct {
     RmaHistory interface{}
 }
 
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetEntityData() *types.CommonEntityData {
+func (rma *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information_Rma) GetEntityData() *types.CommonEntityData {
     rma.EntityData.YFilter = rma.YFilter
     rma.EntityData.YangName = "rma"
     rma.EntityData.BundleName = "cisco_ios_xr"
@@ -1329,6 +1339,10 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
+    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
+    // length: 0..255.
+    EciAlphaNumber interface{}
+
     // RMA Data.
     Rma Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma
 }
@@ -1402,6 +1416,7 @@ func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardIns
     cardInstance.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", cardInstance.EngineerUse})
     cardInstance.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", cardInstance.Snmpoid})
     cardInstance.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", cardInstance.RmaCode})
+    cardInstance.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", cardInstance.EciAlphaNumber})
 
     cardInstance.EntityData.YListKeys = []string {}
 
@@ -1623,6 +1638,10 @@ type Diag_Racks_Rack_Chassis struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
+    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
+    // length: 0..255.
+    EciAlphaNumber interface{}
+
     // RMA Data.
     Rma Diag_Racks_Rack_Chassis_Rma
 }
@@ -1696,6 +1715,7 @@ func (chassis *Diag_Racks_Rack_Chassis) GetEntityData() *types.CommonEntityData 
     chassis.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", chassis.EngineerUse})
     chassis.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", chassis.Snmpoid})
     chassis.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", chassis.RmaCode})
+    chassis.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", chassis.EciAlphaNumber})
 
     chassis.EntityData.YListKeys = []string {}
 

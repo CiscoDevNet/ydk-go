@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package freqsync_datatypes
 
@@ -130,6 +130,15 @@ const (
 
     // QZSS constellation
     GnssConstellation_qzss GnssConstellation = "qzss"
+
+    // GLONASS constellation
+    GnssConstellation_glonass GnssConstellation = "glonass"
+
+    // SBAS constellation
+    GnssConstellation_sbas GnssConstellation = "sbas"
+
+    // IRNSS constellation
+    GnssConstellation_irnss GnssConstellation = "irnss"
 )
 
 // Gnss1ppsPolarity represents Gnss1pps polarity

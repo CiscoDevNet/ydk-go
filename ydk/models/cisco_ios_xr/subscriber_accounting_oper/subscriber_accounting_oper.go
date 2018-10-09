@@ -5,7 +5,7 @@
 // for the following management objects:
 //   subscriber-accounting: Subscriber accounting operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_accounting_oper
 
@@ -172,7 +172,7 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_Subscri
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique subscriber label. The type is interface{}
-    // with range: -2147483648..2147483647.
+    // with range: 0..4294967295.
     SubLabel interface{}
 
     // Accounting session feature display data.
@@ -831,7 +831,7 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_Subscriber
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique subscriber class label. The type is
-    // interface{} with range: -2147483648..2147483647.
+    // interface{} with range: 0..4294967295.
     ClassLabel interface{}
 
     // Accouting flow feature display data.
@@ -998,6 +998,18 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_Subscriber
     // interface{} with range: 0..18446744073709551615. Units are byte.
     PrepaidVolumeRefbQuota interface{}
 
+    // Total Accumulated input volume reference quota in bytes. The type is
+    // interface{} with range: 0..18446744073709551615. Units are byte.
+    PrepaidVolumeAggRefiQuota interface{}
+
+    // Total Accumulated output volume reference quota in bytes. The type is
+    // interface{} with range: 0..18446744073709551615. Units are byte.
+    PrepaidVolumeAggRefoQuota interface{}
+
+    // Total Accumulated bi-directional volume reference quota in bytes. The type
+    // is interface{} with range: 0..18446744073709551615. Units are byte.
+    PrepaidVolumeAggRefbQuota interface{}
+
     // Newly arrvied input volume quota in bytes. The type is interface{} with
     // range: 0..18446744073709551615. Units are byte.
     PrepaidVolumeNewiQuota interface{}
@@ -1085,6 +1097,9 @@ func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowF
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-refi-quota", types.YLeaf{"PrepaidVolumeRefiQuota", flowFeatureData.PrepaidVolumeRefiQuota})
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-refo-quota", types.YLeaf{"PrepaidVolumeRefoQuota", flowFeatureData.PrepaidVolumeRefoQuota})
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-refb-quota", types.YLeaf{"PrepaidVolumeRefbQuota", flowFeatureData.PrepaidVolumeRefbQuota})
+    flowFeatureData.EntityData.Leafs.Append("prepaid-volume-agg-refi-quota", types.YLeaf{"PrepaidVolumeAggRefiQuota", flowFeatureData.PrepaidVolumeAggRefiQuota})
+    flowFeatureData.EntityData.Leafs.Append("prepaid-volume-agg-refo-quota", types.YLeaf{"PrepaidVolumeAggRefoQuota", flowFeatureData.PrepaidVolumeAggRefoQuota})
+    flowFeatureData.EntityData.Leafs.Append("prepaid-volume-agg-refb-quota", types.YLeaf{"PrepaidVolumeAggRefbQuota", flowFeatureData.PrepaidVolumeAggRefbQuota})
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-newi-quota", types.YLeaf{"PrepaidVolumeNewiQuota", flowFeatureData.PrepaidVolumeNewiQuota})
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-newo-quota", types.YLeaf{"PrepaidVolumeNewoQuota", flowFeatureData.PrepaidVolumeNewoQuota})
     flowFeatureData.EntityData.Leafs.Append("prepaid-volume-newb-quota", types.YLeaf{"PrepaidVolumeNewbQuota", flowFeatureData.PrepaidVolumeNewbQuota})

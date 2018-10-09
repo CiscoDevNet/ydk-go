@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ipv4-virtual: IPv4 virtual address for management interfaces
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_smiap_cfg
 

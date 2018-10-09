@@ -18,12 +18,29 @@ module Cisco-IOS-XR-l2-eth-infra-datatypes {
     "This module contains a collection of generally useful
      derived YANG data types.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Vs-mode {
+    type enumeration {
+      enum "trunk" {
+        value 1;
+        description
+          "VLAN-Switched trunk mode";
+      }
+      enum "access" {
+        value 2;
+        description
+          "VLAN-Switched access mode";
+      }
+    }
+    description
+      "Vs mode";
   }
 
   typedef Vlan-tag-or-cvp {

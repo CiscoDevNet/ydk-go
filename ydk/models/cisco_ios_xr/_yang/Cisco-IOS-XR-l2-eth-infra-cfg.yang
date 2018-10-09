@@ -40,7 +40,7 @@ module Cisco-IOS-XR-l2-eth-infra-cfg {
        Cisco-IOS-XR-l2vpn-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -679,6 +679,43 @@ module Cisco-IOS-XR-l2-eth-infra-cfg {
           mandatory true;
           description
             "VLAN identifier";
+        }
+      }
+      container vlan-switched {
+        description
+          "VLAN Switch interface configuration";
+        leaf mode {
+          type dt1:Vs-mode;
+          description
+            "VLAN Switch mode";
+        }
+        leaf access-vlan {
+          when "../mode = 'access'" {
+            description
+              "../Mode = Access";
+          }
+          type dt1:Vlan-tag;
+          description
+            "Access VLAN Id";
+        }
+        leaf trunk-tag-type {
+          when "../mode = 'trunk'" {
+            description
+              "../Mode = Trunk";
+          }
+          type dt1:Vlan;
+          description
+            "Whether to match dot1ad or dot1Q packets";
+        }
+        leaf trunk-vla-ns {
+          when "../mode = 'trunk'" {
+            description
+              "../Mode = Trunk";
+          }
+          type string;
+          description
+            "Comma-separated, increasing sequence of VLAN
+             Ids or VLAN ranges";
         }
       }
       leaf tunneling-ethertype {

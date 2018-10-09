@@ -1,7 +1,7 @@
 // This module contains a collection of generally useful
 // derived YANG data types.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package l2_eth_infra_datatypes
 
@@ -21,6 +21,44 @@ const (
     // This is the Native VLAN and C-VLAN
     // preservation is enabled
     VlanTagOrCvp_native_with_cvlan_preservation VlanTagOrCvp = "native-with-cvlan-preservation"
+)
+
+// Vlan represents Vlan
+type Vlan string
+
+const (
+    // An 802.1ad VLAN
+    Vlan_vlan_type_dot1ad Vlan = "vlan-type-dot1ad"
+
+    // An 802.1q VLAN
+    Vlan_vlan_type_dot1q Vlan = "vlan-type-dot1q"
+)
+
+// VsMode represents Vs mode
+type VsMode string
+
+const (
+    // VLAN-Switched trunk mode
+    VsMode_trunk VsMode = "trunk"
+
+    // VLAN-Switched access mode
+    VsMode_access VsMode = "access"
+)
+
+// EthertypeMatch represents Ethertype match
+type EthertypeMatch string
+
+const (
+    // PPP over Ethernet
+    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
+)
+
+// VlanTagOrNull represents Vlan tag or null
+type VlanTagOrNull string
+
+const (
+    // Match any inner VLAN tag value
+    VlanTagOrNull_any VlanTagOrNull = "any"
 )
 
 // Rewrite represents Rewrite
@@ -50,33 +88,6 @@ const (
 
     // Translate 2-to-2
     Rewrite_translate2to2 Rewrite = "translate2to2"
-)
-
-// Vlan represents Vlan
-type Vlan string
-
-const (
-    // An 802.1ad VLAN
-    Vlan_vlan_type_dot1ad Vlan = "vlan-type-dot1ad"
-
-    // An 802.1q VLAN
-    Vlan_vlan_type_dot1q Vlan = "vlan-type-dot1q"
-)
-
-// EthertypeMatch represents Ethertype match
-type EthertypeMatch string
-
-const (
-    // PPP over Ethernet
-    EthertypeMatch_ppp_over_ethernet EthertypeMatch = "ppp-over-ethernet"
-)
-
-// VlanTagOrNull represents Vlan tag or null
-type VlanTagOrNull string
-
-const (
-    // Match any inner VLAN tag value
-    VlanTagOrNull_any VlanTagOrNull = "any"
 )
 
 // VlanTagOrAny represents Vlan tag or any

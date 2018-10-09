@@ -305,6 +305,22 @@ type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
     // The type is string.
     AtmInterfaceSubscrAddress interface{}
 
+    // The current number PVCLs on this interface which  changed state to 'up'
+    // since the last  atmIntPvcUpTrap was sent. The type is interface{} with
+    // range: 0..4294967295.
+    AtmIntfCurrentlyDownToUpPVcls interface{}
+
+    // The total number of PVCLs in this interface which  are currently in the oam
+    // loopback failed condition but  the status of each PVCL remain in the 'up'
+    // state. The type is interface{} with range: 0..4294967295.
+    AtmIntfOAMFailedPVcls interface{}
+
+    // The current number of PVCLs on this interface for which the oam loop back
+    // has failed but the status of each PVCL remain  in the 'up' state in the
+    // last notification interval. The type is interface{} with range:
+    // 0..4294967295.
+    AtmIntfCurrentlyOAMFailingPVcls interface{}
+
     // The number of times the operational status of a PVCL on this interface has
     // gone down. The type is interface{} with range: 0..4294967295.
     AtmIntfPvcFailures interface{}
@@ -443,22 +459,6 @@ type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
 
     // Type of OAM Recovered. The type is CatmOAMRecoveryType.
     CatmIntfTypeOfOAMRecover interface{}
-
-    // The current number PVCLs on this interface which  changed state to 'up'
-    // since the last  atmIntPvcUpTrap was sent. The type is interface{} with
-    // range: 0..4294967295.
-    AtmIntfCurrentlyDownToUpPVcls interface{}
-
-    // The total number of PVCLs in this interface which  are currently in the oam
-    // loopback failed condition but  the status of each PVCL remain in the 'up'
-    // state. The type is interface{} with range: 0..4294967295.
-    AtmIntfOAMFailedPVcls interface{}
-
-    // The current number of PVCLs on this interface for which the oam loop back
-    // has failed but the status of each PVCL remain  in the 'up' state in the
-    // last notification interval. The type is interface{} with range:
-    // 0..4294967295.
-    AtmIntfCurrentlyOAMFailingPVcls interface{}
 }
 
 func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry) GetEntityData() *types.CommonEntityData {
@@ -489,6 +489,9 @@ func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry)
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVpiBits", types.YLeaf{"AtmInterfaceCurrentMaxVpiBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVpiBits})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceCurrentMaxVciBits", types.YLeaf{"AtmInterfaceCurrentMaxVciBits", atmInterfaceConfEntry.AtmInterfaceCurrentMaxVciBits})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmInterfaceSubscrAddress", types.YLeaf{"AtmInterfaceSubscrAddress", atmInterfaceConfEntry.AtmInterfaceSubscrAddress})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyDownToUpPVcls", types.YLeaf{"AtmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyDownToUpPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfOAMFailedPVcls", types.YLeaf{"AtmIntfOAMFailedPVcls", atmInterfaceConfEntry.AtmIntfOAMFailedPVcls})
+    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyOAMFailingPVcls", types.YLeaf{"AtmIntfCurrentlyOAMFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyOAMFailingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailures", types.YLeaf{"AtmIntfPvcFailures", atmInterfaceConfEntry.AtmIntfPvcFailures})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyFailingPVcls", types.YLeaf{"AtmIntfCurrentlyFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyFailingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfPvcFailuresTrapEnable", types.YLeaf{"AtmIntfPvcFailuresTrapEnable", atmInterfaceConfEntry.AtmIntfPvcFailuresTrapEnable})
@@ -517,9 +520,6 @@ func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry)
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfAnyOAMRcovedPVcls", types.YLeaf{"CatmIntfAnyOAMRcovedPVcls", atmInterfaceConfEntry.CatmIntfAnyOAMRcovedPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfCurAnyOAMRcovingPVcls", types.YLeaf{"CatmIntfCurAnyOAMRcovingPVcls", atmInterfaceConfEntry.CatmIntfCurAnyOAMRcovingPVcls})
     atmInterfaceConfEntry.EntityData.Leafs.Append("catmIntfTypeOfOAMRecover", types.YLeaf{"CatmIntfTypeOfOAMRecover", atmInterfaceConfEntry.CatmIntfTypeOfOAMRecover})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyDownToUpPVcls", types.YLeaf{"AtmIntfCurrentlyDownToUpPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyDownToUpPVcls})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfOAMFailedPVcls", types.YLeaf{"AtmIntfOAMFailedPVcls", atmInterfaceConfEntry.AtmIntfOAMFailedPVcls})
-    atmInterfaceConfEntry.EntityData.Leafs.Append("atmIntfCurrentlyOAMFailingPVcls", types.YLeaf{"AtmIntfCurrentlyOAMFailingPVcls", atmInterfaceConfEntry.AtmIntfCurrentlyOAMFailingPVcls})
 
     atmInterfaceConfEntry.EntityData.YListKeys = []string {"IfIndex"}
 
@@ -2309,20 +2309,6 @@ type ATMMIB_Aal5VccTable_Aal5VccEntry struct {
     // type is interface{} with range: 0..4294967295.
     Aal5VccOverSizedSDUs interface{}
 
-    // Boolean, if compression enabled for VCC. The type is bool.
-    CAal5VccExtCompEnabled interface{}
-
-    // Boolean, TRUE if VCC is used to carry voice. The type is bool.
-    CAal5VccExtVoice interface{}
-
-    // Number of OAM F5 end to end loopback cells  received through the VCC. The
-    // type is interface{} with range: 0..4294967295.
-    CAal5VccExtInF5OamCells interface{}
-
-    // Number of OAM F5 end to end loopback cells sent  through the VCC. The type
-    // is interface{} with range: 0..4294967295.
-    CAal5VccExtOutF5OamCells interface{}
-
     // The number of AAL5 CPCS PDUs received on this AAL5 VCC at the interface
     // associated with an AAL5 entity. The type is interface{} with range:
     // 0..4294967295. Units are packets.
@@ -2378,6 +2364,20 @@ type ATMMIB_Aal5VccTable_Aal5VccEntry struct {
     // This is 64bit (High Capacity) version of cAal5VccOutOctets  counters. The
     // type is interface{} with range: 0..18446744073709551615.
     CAal5VccHCOutOctets interface{}
+
+    // Boolean, if compression enabled for VCC. The type is bool.
+    CAal5VccExtCompEnabled interface{}
+
+    // Boolean, TRUE if VCC is used to carry voice. The type is bool.
+    CAal5VccExtVoice interface{}
+
+    // Number of OAM F5 end to end loopback cells  received through the VCC. The
+    // type is interface{} with range: 0..4294967295.
+    CAal5VccExtInF5OamCells interface{}
+
+    // Number of OAM F5 end to end loopback cells sent  through the VCC. The type
+    // is interface{} with range: 0..4294967295.
+    CAal5VccExtOutF5OamCells interface{}
 }
 
 func (aal5VccEntry *ATMMIB_Aal5VccTable_Aal5VccEntry) GetEntityData() *types.CommonEntityData {
@@ -2398,10 +2398,6 @@ func (aal5VccEntry *ATMMIB_Aal5VccTable_Aal5VccEntry) GetEntityData() *types.Com
     aal5VccEntry.EntityData.Leafs.Append("aal5VccCrcErrors", types.YLeaf{"Aal5VccCrcErrors", aal5VccEntry.Aal5VccCrcErrors})
     aal5VccEntry.EntityData.Leafs.Append("aal5VccSarTimeOuts", types.YLeaf{"Aal5VccSarTimeOuts", aal5VccEntry.Aal5VccSarTimeOuts})
     aal5VccEntry.EntityData.Leafs.Append("aal5VccOverSizedSDUs", types.YLeaf{"Aal5VccOverSizedSDUs", aal5VccEntry.Aal5VccOverSizedSDUs})
-    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtCompEnabled", types.YLeaf{"CAal5VccExtCompEnabled", aal5VccEntry.CAal5VccExtCompEnabled})
-    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtVoice", types.YLeaf{"CAal5VccExtVoice", aal5VccEntry.CAal5VccExtVoice})
-    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtInF5OamCells", types.YLeaf{"CAal5VccExtInF5OamCells", aal5VccEntry.CAal5VccExtInF5OamCells})
-    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtOutF5OamCells", types.YLeaf{"CAal5VccExtOutF5OamCells", aal5VccEntry.CAal5VccExtOutF5OamCells})
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccInPkts", types.YLeaf{"CAal5VccInPkts", aal5VccEntry.CAal5VccInPkts})
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccOutPkts", types.YLeaf{"CAal5VccOutPkts", aal5VccEntry.CAal5VccOutPkts})
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccInOctets", types.YLeaf{"CAal5VccInOctets", aal5VccEntry.CAal5VccInOctets})
@@ -2414,6 +2410,10 @@ func (aal5VccEntry *ATMMIB_Aal5VccTable_Aal5VccEntry) GetEntityData() *types.Com
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCOutPkts", types.YLeaf{"CAal5VccHCOutPkts", aal5VccEntry.CAal5VccHCOutPkts})
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCInOctets", types.YLeaf{"CAal5VccHCInOctets", aal5VccEntry.CAal5VccHCInOctets})
     aal5VccEntry.EntityData.Leafs.Append("cAal5VccHCOutOctets", types.YLeaf{"CAal5VccHCOutOctets", aal5VccEntry.CAal5VccHCOutOctets})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtCompEnabled", types.YLeaf{"CAal5VccExtCompEnabled", aal5VccEntry.CAal5VccExtCompEnabled})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtVoice", types.YLeaf{"CAal5VccExtVoice", aal5VccEntry.CAal5VccExtVoice})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtInF5OamCells", types.YLeaf{"CAal5VccExtInF5OamCells", aal5VccEntry.CAal5VccExtInF5OamCells})
+    aal5VccEntry.EntityData.Leafs.Append("cAal5VccExtOutF5OamCells", types.YLeaf{"CAal5VccExtOutF5OamCells", aal5VccEntry.CAal5VccExtOutF5OamCells})
 
     aal5VccEntry.EntityData.YListKeys = []string {"IfIndex", "Aal5VccVpi", "Aal5VccVci"}
 

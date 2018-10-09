@@ -43,12 +43,16 @@ module Cisco-IOS-XR-ip-tcp-oper {
        tcp: tcp
        tcp-nsr: tcp nsr
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2018-02-14 {
     description
       "PCB_ID argument is passed in string format.";
+  }
+  revision 2018-02-14 {
+    description
+      "Added support for TCP-AO feature.";
   }
   revision 2017-05-01 {
     description
@@ -191,6 +195,21 @@ module Cisco-IOS-XR-ip-tcp-oper {
                  null for all";
             }
             uses TCP-SH-TABLE-BAG;
+          }
+        }
+        container keychains {
+          description
+            "Table listing keychains configured for TCP-AO.";
+          list keychain {
+            key "keychain-name";
+            description
+              "Details of a keychain";
+            leaf keychain-name {
+              type xr:Cisco-ios-xr-string;
+              description
+                "Keychain name";
+            }
+            uses TCP-SH-KEYCHAIN-BAG;
           }
         }
         container brief-informations {

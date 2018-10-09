@@ -255,6 +255,15 @@ type AaaData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Radius server statistics. The type is slice of AaaData_AaaRadiusStats.
+    AaaRadiusStats []*AaaData_AaaRadiusStats
+
+    // AAA TACACS server statistics. The type is slice of AaaData_AaaTacacsStats.
+    AaaTacacsStats []*AaaData_AaaTacacsStats
+
+    // LDAP server counters. The type is slice of AaaData_AaaLdapCounters.
+    AaaLdapCounters []*AaaData_AaaLdapCounters
+
     // List of current users. The type is slice of AaaData_AaaUsers.
     AaaUsers []*AaaData_AaaUsers
 }
@@ -270,6 +279,18 @@ func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
     aaaData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
     aaaData.EntityData.Children = types.NewOrderedMap()
+    aaaData.EntityData.Children.Append("aaa-radius-stats", types.YChild{"AaaRadiusStats", nil})
+    for i := range aaaData.AaaRadiusStats {
+        aaaData.EntityData.Children.Append(types.GetSegmentPath(aaaData.AaaRadiusStats[i]), types.YChild{"AaaRadiusStats", aaaData.AaaRadiusStats[i]})
+    }
+    aaaData.EntityData.Children.Append("aaa-tacacs-stats", types.YChild{"AaaTacacsStats", nil})
+    for i := range aaaData.AaaTacacsStats {
+        aaaData.EntityData.Children.Append(types.GetSegmentPath(aaaData.AaaTacacsStats[i]), types.YChild{"AaaTacacsStats", aaaData.AaaTacacsStats[i]})
+    }
+    aaaData.EntityData.Children.Append("aaa-ldap-counters", types.YChild{"AaaLdapCounters", nil})
+    for i := range aaaData.AaaLdapCounters {
+        aaaData.EntityData.Children.Append(types.GetSegmentPath(aaaData.AaaLdapCounters[i]), types.YChild{"AaaLdapCounters", aaaData.AaaLdapCounters[i]})
+    }
     aaaData.EntityData.Children.Append("aaa-users", types.YChild{"AaaUsers", nil})
     for i := range aaaData.AaaUsers {
         aaaData.EntityData.Children.Append(types.GetSegmentPath(aaaData.AaaUsers[i]), types.YChild{"AaaUsers", aaaData.AaaUsers[i]})
@@ -279,6 +300,344 @@ func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
     aaaData.EntityData.YListKeys = []string {}
 
     return &(aaaData.EntityData)
+}
+
+// AaaData_AaaRadiusStats
+// Radius server statistics
+type AaaData_AaaRadiusStats struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. AAA group name in which the server is defined. 
+    // For public servers the group name is "PUBLIC GROUP" by default. The type is
+    // string.
+    GroupName interface{}
+
+    // This attribute is a key. Radius server IP address. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    RadiusServerIp interface{}
+
+    // This attribute is a key. Radius server auth-port. The type is interface{}
+    // with range: 0..65535.
+    AuthPort interface{}
+
+    // This attribute is a key. Radius server acct-port. The type is interface{}
+    // with range: 0..65535.
+    AcctPort interface{}
+
+    // Authentication retried access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthenRetriedAccessRequests interface{}
+
+    // Authentication access accepts. The type is interface{} with range:
+    // 0..4294967295.
+    AuthenAccessAccepts interface{}
+
+    // Authentication access rejects. The type is interface{} with range:
+    // 0..4294967295.
+    AuthenAccessRejects interface{}
+
+    // Authentication Timeout access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthenTimeoutAccessRequests interface{}
+
+    // Authorization retried access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorRetriedAccessRequests interface{}
+
+    // Authorization access accepts. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorAccessAccepts interface{}
+
+    // Authorization access rejects. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorAccessRejects interface{}
+
+    // Authorization Timeout access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorTimeoutAccessRequests interface{}
+
+    // Number of new connection requests sent to the RADIUS server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionOpens interface{}
+
+    // Number of connection close requests sent to the server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionCloses interface{}
+
+    // Number of connections aborted. These do not include connections that are
+    // closed gracefully. The type is interface{} with range: 0..4294967295.
+    ConnectionAborts interface{}
+
+    // Number of connection failures to the RADIUS server. The type is interface{}
+    // with range: 0..4294967295.
+    ConnectionFailures interface{}
+
+    // Number of connection timeouts to the RADIUS server. The type is interface{}
+    // with range: 0..4294967295.
+    ConnectionTimeouts interface{}
+
+    // Number of authentication messages sent to the RADIUS server. The type is
+    // interface{} with range: 0..4294967295.
+    AuthenMessagesSent interface{}
+
+    // Number of authorization messages sent to the RADIUS server. The type is
+    // interface{} with range: 0..4294967295.
+    AuthorMessagesSent interface{}
+
+    // Number of accounting messages sent to the RADIUS server. The type is
+    // interface{} with range: 0..4294967295.
+    AcctMessagesSent interface{}
+
+    // Number of authentication messages received by the RADIUS server. The type
+    // is interface{} with range: 0..4294967295.
+    AuthenMessagesReceived interface{}
+
+    // Number of authorization messages received by the RADIUS server. The type is
+    // interface{} with range: 0..4294967295.
+    AuthorMessagesReceived interface{}
+
+    // Number of authentication error messages received  from the RADIUS server.
+    // The type is interface{} with range: 0..4294967295.
+    AuthenErrorsReceived interface{}
+
+    // Number of authorization error messages received  from the RADIUS server.
+    // The type is interface{} with range: 0..4294967295.
+    AuthorErrorsReceived interface{}
+
+    // Number of accounting error messages received  from the RADIUS server. The
+    // type is interface{} with range: 0..4294967295.
+    AcctErrorsReceived interface{}
+
+    // Time from which the statistics are valid. This field will be updated when a
+    // RADIUS server is configured and also when the RADIUS server statistics are
+    // cleared. The type is string with pattern:
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StatsTime interface{}
+}
+
+func (aaaRadiusStats *AaaData_AaaRadiusStats) GetEntityData() *types.CommonEntityData {
+    aaaRadiusStats.EntityData.YFilter = aaaRadiusStats.YFilter
+    aaaRadiusStats.EntityData.YangName = "aaa-radius-stats"
+    aaaRadiusStats.EntityData.BundleName = "cisco_ios_xe"
+    aaaRadiusStats.EntityData.ParentYangName = "aaa-data"
+    aaaRadiusStats.EntityData.SegmentPath = "aaa-radius-stats" + types.AddKeyToken(aaaRadiusStats.GroupName, "group-name") + types.AddKeyToken(aaaRadiusStats.RadiusServerIp, "radius-server-ip") + types.AddKeyToken(aaaRadiusStats.AuthPort, "auth-port") + types.AddKeyToken(aaaRadiusStats.AcctPort, "acct-port")
+    aaaRadiusStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aaaRadiusStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aaaRadiusStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    aaaRadiusStats.EntityData.Children = types.NewOrderedMap()
+    aaaRadiusStats.EntityData.Leafs = types.NewOrderedMap()
+    aaaRadiusStats.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", aaaRadiusStats.GroupName})
+    aaaRadiusStats.EntityData.Leafs.Append("radius-server-ip", types.YLeaf{"RadiusServerIp", aaaRadiusStats.RadiusServerIp})
+    aaaRadiusStats.EntityData.Leafs.Append("auth-port", types.YLeaf{"AuthPort", aaaRadiusStats.AuthPort})
+    aaaRadiusStats.EntityData.Leafs.Append("acct-port", types.YLeaf{"AcctPort", aaaRadiusStats.AcctPort})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-retried-access-requests", types.YLeaf{"AuthenRetriedAccessRequests", aaaRadiusStats.AuthenRetriedAccessRequests})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-access-accepts", types.YLeaf{"AuthenAccessAccepts", aaaRadiusStats.AuthenAccessAccepts})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-access-rejects", types.YLeaf{"AuthenAccessRejects", aaaRadiusStats.AuthenAccessRejects})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-timeout-access-requests", types.YLeaf{"AuthenTimeoutAccessRequests", aaaRadiusStats.AuthenTimeoutAccessRequests})
+    aaaRadiusStats.EntityData.Leafs.Append("author-retried-access-requests", types.YLeaf{"AuthorRetriedAccessRequests", aaaRadiusStats.AuthorRetriedAccessRequests})
+    aaaRadiusStats.EntityData.Leafs.Append("author-access-accepts", types.YLeaf{"AuthorAccessAccepts", aaaRadiusStats.AuthorAccessAccepts})
+    aaaRadiusStats.EntityData.Leafs.Append("author-access-rejects", types.YLeaf{"AuthorAccessRejects", aaaRadiusStats.AuthorAccessRejects})
+    aaaRadiusStats.EntityData.Leafs.Append("author-timeout-access-requests", types.YLeaf{"AuthorTimeoutAccessRequests", aaaRadiusStats.AuthorTimeoutAccessRequests})
+    aaaRadiusStats.EntityData.Leafs.Append("connection-opens", types.YLeaf{"ConnectionOpens", aaaRadiusStats.ConnectionOpens})
+    aaaRadiusStats.EntityData.Leafs.Append("connection-closes", types.YLeaf{"ConnectionCloses", aaaRadiusStats.ConnectionCloses})
+    aaaRadiusStats.EntityData.Leafs.Append("connection-aborts", types.YLeaf{"ConnectionAborts", aaaRadiusStats.ConnectionAborts})
+    aaaRadiusStats.EntityData.Leafs.Append("connection-failures", types.YLeaf{"ConnectionFailures", aaaRadiusStats.ConnectionFailures})
+    aaaRadiusStats.EntityData.Leafs.Append("connection-timeouts", types.YLeaf{"ConnectionTimeouts", aaaRadiusStats.ConnectionTimeouts})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-messages-sent", types.YLeaf{"AuthenMessagesSent", aaaRadiusStats.AuthenMessagesSent})
+    aaaRadiusStats.EntityData.Leafs.Append("author-messages-sent", types.YLeaf{"AuthorMessagesSent", aaaRadiusStats.AuthorMessagesSent})
+    aaaRadiusStats.EntityData.Leafs.Append("acct-messages-sent", types.YLeaf{"AcctMessagesSent", aaaRadiusStats.AcctMessagesSent})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-messages-received", types.YLeaf{"AuthenMessagesReceived", aaaRadiusStats.AuthenMessagesReceived})
+    aaaRadiusStats.EntityData.Leafs.Append("author-messages-received", types.YLeaf{"AuthorMessagesReceived", aaaRadiusStats.AuthorMessagesReceived})
+    aaaRadiusStats.EntityData.Leafs.Append("authen-errors-received", types.YLeaf{"AuthenErrorsReceived", aaaRadiusStats.AuthenErrorsReceived})
+    aaaRadiusStats.EntityData.Leafs.Append("author-errors-received", types.YLeaf{"AuthorErrorsReceived", aaaRadiusStats.AuthorErrorsReceived})
+    aaaRadiusStats.EntityData.Leafs.Append("acct-errors-received", types.YLeaf{"AcctErrorsReceived", aaaRadiusStats.AcctErrorsReceived})
+    aaaRadiusStats.EntityData.Leafs.Append("stats-time", types.YLeaf{"StatsTime", aaaRadiusStats.StatsTime})
+
+    aaaRadiusStats.EntityData.YListKeys = []string {"GroupName", "RadiusServerIp", "AuthPort", "AcctPort"}
+
+    return &(aaaRadiusStats.EntityData)
+}
+
+// AaaData_AaaTacacsStats
+// AAA TACACS server statistics
+type AaaData_AaaTacacsStats struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. AAA group name in which the server is defined. For
+    // public servers the group name is "PUBLIC GROUP" by default. The type is
+    // string.
+    GroupName interface{}
+
+    // This attribute is a key. TACACS server IP address. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    TacacsServerAddress interface{}
+
+    // This attribute is a key. TACACS server port. The type is interface{} with
+    // range: 0..65535.
+    Port interface{}
+
+    // Number of new connection requests sent to the server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionOpens interface{}
+
+    // Number of connection close requests sent to the server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionCloses interface{}
+
+    // Number of aborted connections to the server. These do not include
+    // connections that are close gracefully. The type is interface{} with range:
+    // 0..4294967295.
+    ConnectionAborts interface{}
+
+    // Number of connection failures to the server. The type is interface{} with
+    // range: 0..4294967295.
+    ConnectionFailures interface{}
+
+    // Number of connection timeouts to the server. The type is interface{} with
+    // range: 0..4294967295.
+    ConnectionTimeouts interface{}
+
+    // Number of messages sent to the server. The type is interface{} with range:
+    // 0..4294967295.
+    MessagesSent interface{}
+
+    // Number of messages received by the server. The type is interface{} with
+    // range: 0..4294967295.
+    MessagesReceived interface{}
+
+    // Number of error messages received from the server. The type is interface{}
+    // with range: 0..4294967295.
+    ErrorsReceived interface{}
+
+    // This attribute contains stats collection start time. Stats collection
+    // starts when the TACACS server is configured. The type is string with
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    StatsStartTime interface{}
+}
+
+func (aaaTacacsStats *AaaData_AaaTacacsStats) GetEntityData() *types.CommonEntityData {
+    aaaTacacsStats.EntityData.YFilter = aaaTacacsStats.YFilter
+    aaaTacacsStats.EntityData.YangName = "aaa-tacacs-stats"
+    aaaTacacsStats.EntityData.BundleName = "cisco_ios_xe"
+    aaaTacacsStats.EntityData.ParentYangName = "aaa-data"
+    aaaTacacsStats.EntityData.SegmentPath = "aaa-tacacs-stats" + types.AddKeyToken(aaaTacacsStats.GroupName, "group-name") + types.AddKeyToken(aaaTacacsStats.TacacsServerAddress, "tacacs-server-address") + types.AddKeyToken(aaaTacacsStats.Port, "port")
+    aaaTacacsStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aaaTacacsStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aaaTacacsStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    aaaTacacsStats.EntityData.Children = types.NewOrderedMap()
+    aaaTacacsStats.EntityData.Leafs = types.NewOrderedMap()
+    aaaTacacsStats.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", aaaTacacsStats.GroupName})
+    aaaTacacsStats.EntityData.Leafs.Append("tacacs-server-address", types.YLeaf{"TacacsServerAddress", aaaTacacsStats.TacacsServerAddress})
+    aaaTacacsStats.EntityData.Leafs.Append("port", types.YLeaf{"Port", aaaTacacsStats.Port})
+    aaaTacacsStats.EntityData.Leafs.Append("connection-opens", types.YLeaf{"ConnectionOpens", aaaTacacsStats.ConnectionOpens})
+    aaaTacacsStats.EntityData.Leafs.Append("connection-closes", types.YLeaf{"ConnectionCloses", aaaTacacsStats.ConnectionCloses})
+    aaaTacacsStats.EntityData.Leafs.Append("connection-aborts", types.YLeaf{"ConnectionAborts", aaaTacacsStats.ConnectionAborts})
+    aaaTacacsStats.EntityData.Leafs.Append("connection-failures", types.YLeaf{"ConnectionFailures", aaaTacacsStats.ConnectionFailures})
+    aaaTacacsStats.EntityData.Leafs.Append("connection-timeouts", types.YLeaf{"ConnectionTimeouts", aaaTacacsStats.ConnectionTimeouts})
+    aaaTacacsStats.EntityData.Leafs.Append("messages-sent", types.YLeaf{"MessagesSent", aaaTacacsStats.MessagesSent})
+    aaaTacacsStats.EntityData.Leafs.Append("messages-received", types.YLeaf{"MessagesReceived", aaaTacacsStats.MessagesReceived})
+    aaaTacacsStats.EntityData.Leafs.Append("errors-received", types.YLeaf{"ErrorsReceived", aaaTacacsStats.ErrorsReceived})
+    aaaTacacsStats.EntityData.Leafs.Append("stats-start-time", types.YLeaf{"StatsStartTime", aaaTacacsStats.StatsStartTime})
+
+    aaaTacacsStats.EntityData.YListKeys = []string {"GroupName", "TacacsServerAddress", "Port"}
+
+    return &(aaaTacacsStats.EntityData)
+}
+
+// AaaData_AaaLdapCounters
+// LDAP server counters
+type AaaData_AaaLdapCounters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. LDAP server IP address. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    LdapServerAddress interface{}
+
+    // This attribute is a key. LDAP server listening port - TCP. The type is
+    // interface{} with range: 0..65535.
+    LdapServerPort interface{}
+
+    // Number of new connection requests sent to the LDAP server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionOpens interface{}
+
+    // Number of messages sent to the LDAP server. The type is interface{} with
+    // range: 0..4294967295.
+    MessagesSent interface{}
+
+    // Number of messages received by the LDAP server. The type is interface{}
+    // with range: 0..4294967295.
+    MessagesReceived interface{}
+
+    // Number of error messages received from the LDAP server. The type is
+    // interface{} with range: 0..4294967295.
+    ErrorsReceived interface{}
+
+    // Number of connection close requests sent to the server. The type is
+    // interface{} with range: 0..4294967295.
+    ConnectionCloses interface{}
+
+    // Number of connections aborted. These do not include connections that are
+    // close gracefully. The type is interface{} with range: 0..4294967295.
+    ConnectionAborts interface{}
+
+    // Number of connection failures to the LDAP server. The type is interface{}
+    // with range: 0..4294967295.
+    ConnectionFailures interface{}
+
+    // Number of connection timeouts to the LDAP server. The type is interface{}
+    // with range: 0..4294967295.
+    ConnectionTimeouts interface{}
+
+    // This attribute contains LDAP counters collection start time. Counters
+    // collection starts when a LDAP server is configured. Counters collection
+    // will be reset when the LDAP server counters are cleared. The type is string
+    // with pattern:
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    CountersStartTime interface{}
+}
+
+func (aaaLdapCounters *AaaData_AaaLdapCounters) GetEntityData() *types.CommonEntityData {
+    aaaLdapCounters.EntityData.YFilter = aaaLdapCounters.YFilter
+    aaaLdapCounters.EntityData.YangName = "aaa-ldap-counters"
+    aaaLdapCounters.EntityData.BundleName = "cisco_ios_xe"
+    aaaLdapCounters.EntityData.ParentYangName = "aaa-data"
+    aaaLdapCounters.EntityData.SegmentPath = "aaa-ldap-counters" + types.AddKeyToken(aaaLdapCounters.LdapServerAddress, "ldap-server-address") + types.AddKeyToken(aaaLdapCounters.LdapServerPort, "ldap-server-port")
+    aaaLdapCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aaaLdapCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aaaLdapCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    aaaLdapCounters.EntityData.Children = types.NewOrderedMap()
+    aaaLdapCounters.EntityData.Leafs = types.NewOrderedMap()
+    aaaLdapCounters.EntityData.Leafs.Append("ldap-server-address", types.YLeaf{"LdapServerAddress", aaaLdapCounters.LdapServerAddress})
+    aaaLdapCounters.EntityData.Leafs.Append("ldap-server-port", types.YLeaf{"LdapServerPort", aaaLdapCounters.LdapServerPort})
+    aaaLdapCounters.EntityData.Leafs.Append("connection-opens", types.YLeaf{"ConnectionOpens", aaaLdapCounters.ConnectionOpens})
+    aaaLdapCounters.EntityData.Leafs.Append("messages-sent", types.YLeaf{"MessagesSent", aaaLdapCounters.MessagesSent})
+    aaaLdapCounters.EntityData.Leafs.Append("messages-received", types.YLeaf{"MessagesReceived", aaaLdapCounters.MessagesReceived})
+    aaaLdapCounters.EntityData.Leafs.Append("errors-received", types.YLeaf{"ErrorsReceived", aaaLdapCounters.ErrorsReceived})
+    aaaLdapCounters.EntityData.Leafs.Append("connection-closes", types.YLeaf{"ConnectionCloses", aaaLdapCounters.ConnectionCloses})
+    aaaLdapCounters.EntityData.Leafs.Append("connection-aborts", types.YLeaf{"ConnectionAborts", aaaLdapCounters.ConnectionAborts})
+    aaaLdapCounters.EntityData.Leafs.Append("connection-failures", types.YLeaf{"ConnectionFailures", aaaLdapCounters.ConnectionFailures})
+    aaaLdapCounters.EntityData.Leafs.Append("connection-timeouts", types.YLeaf{"ConnectionTimeouts", aaaLdapCounters.ConnectionTimeouts})
+    aaaLdapCounters.EntityData.Leafs.Append("counters-start-time", types.YLeaf{"CountersStartTime", aaaLdapCounters.CountersStartTime})
+
+    aaaLdapCounters.EntityData.YListKeys = []string {"LdapServerAddress", "LdapServerPort"}
+
+    return &(aaaLdapCounters.EntityData)
 }
 
 // AaaData_AaaUsers

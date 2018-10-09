@@ -1,6 +1,6 @@
 // This module contains a collection of YANG 
 // definitions for operational data of streaming telemetry.
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mdt_oper
 
@@ -73,6 +73,10 @@ const (
     // -survive reboot
     // -receivers are configured 
     MdtSubType_sub_type_static MdtSubType = "sub-type-static"
+
+    // Permanent subscriptions
+    // -created during system startup, can not be modified
+    MdtSubType_sub_type_permanent MdtSubType = "sub-type-permanent"
 )
 
 // MdtReceiverState represents Receiver states.
@@ -349,8 +353,8 @@ type MdtOperData_MdtSubscriptions_MdtReceivers struct {
     // Comments related to receiver state. The type is string.
     Comments interface{}
 
-    // Receiver security profile. The type is string.
-    SecurityProfile interface{}
+    // Receiver's protocol profile name. The type is string.
+    Profile interface{}
 }
 
 func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetEntityData() *types.CommonEntityData {
@@ -370,7 +374,7 @@ func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetEntityData() *
     mdtReceivers.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", mdtReceivers.Protocol})
     mdtReceivers.EntityData.Leafs.Append("state", types.YLeaf{"State", mdtReceivers.State})
     mdtReceivers.EntityData.Leafs.Append("comments", types.YLeaf{"Comments", mdtReceivers.Comments})
-    mdtReceivers.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile})
+    mdtReceivers.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", mdtReceivers.Profile})
 
     mdtReceivers.EntityData.YListKeys = []string {"Address", "Port"}
 
@@ -416,8 +420,8 @@ type MdtOperData_MdtConnections struct {
     // Connection state. The type is MdtConState.
     State interface{}
 
-    // Security profile used with this connection. The type is string.
-    SecurityProfile interface{}
+    // Protocol profile used with this connection. The type is string.
+    Profile interface{}
 
     // List of subscription specific statistics for this connection. The type is
     // slice of MdtOperData_MdtConnections_MdtSubConStats.
@@ -447,7 +451,7 @@ func (mdtConnections *MdtOperData_MdtConnections) GetEntityData() *types.CommonE
     mdtConnections.EntityData.Leafs.Append("transport", types.YLeaf{"Transport", mdtConnections.Transport})
     mdtConnections.EntityData.Leafs.Append("peer-id", types.YLeaf{"PeerId", mdtConnections.PeerId})
     mdtConnections.EntityData.Leafs.Append("state", types.YLeaf{"State", mdtConnections.State})
-    mdtConnections.EntityData.Leafs.Append("security-profile", types.YLeaf{"SecurityProfile", mdtConnections.SecurityProfile})
+    mdtConnections.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", mdtConnections.Profile})
 
     mdtConnections.EntityData.YListKeys = []string {"Address", "Port", "SourceVrf", "SourceAddress"}
 

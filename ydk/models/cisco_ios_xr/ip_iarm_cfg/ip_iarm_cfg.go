@@ -6,7 +6,7 @@
 //   ip-arm: IP Address Repository Manager (IPv4/IPv6 ARM)
 //     configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_iarm_cfg
 
@@ -145,7 +145,7 @@ type IpArm_Ipv4_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MulticastHostInterface interface{}
 }
 
@@ -237,7 +237,7 @@ type IpArm_Ipv6_MulticastHost struct {
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MulticastHostInterface interface{}
 }
 

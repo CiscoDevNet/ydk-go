@@ -6,7 +6,7 @@
 //   frequency-synchronization: Frequency Synchronization
 //     operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package freqsync_oper
 
@@ -245,6 +245,20 @@ const (
 
     // Down
     FsyncBagSourceState_source_state_down FsyncBagSourceState = "source-state-down"
+
+    // Unvailable
+    FsyncBagSourceState_source_state_unavailable FsyncBagSourceState = "source-state-unavailable"
+)
+
+// FsyncBagForwardtraceNode represents Selection forwardtrace node information
+type FsyncBagForwardtraceNode string
+
+const (
+    // A selection point forwardtrace node
+    FsyncBagForwardtraceNode_forward_trace_node_selection_point FsyncBagForwardtraceNode = "forward-trace-node-selection-point"
+
+    // A timing source forwardtrace node
+    FsyncBagForwardtraceNode_forward_trace_node_source FsyncBagForwardtraceNode = "forward-trace-node-source"
 )
 
 // FsyncStream represents Fsync stream
@@ -390,17 +404,6 @@ const (
 
     // Stratum 4 freerun
     FsyncBagQlO2G1Value_option2_generation1_stratum4 FsyncBagQlO2G1Value = "option2-generation1-stratum4"
-)
-
-// FsyncBagForwardtraceNode represents Selection forwardtrace node information
-type FsyncBagForwardtraceNode string
-
-const (
-    // A selection point forwardtrace node
-    FsyncBagForwardtraceNode_forward_trace_node_selection_point FsyncBagForwardtraceNode = "forward-trace-node-selection-point"
-
-    // A timing source forwardtrace node
-    FsyncBagForwardtraceNode_forward_trace_node_source FsyncBagForwardtraceNode = "forward-trace-node-source"
 )
 
 // FsyncSource represents Fsync source
@@ -649,10 +652,10 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -664,7 +667,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -719,7 +722,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -758,7 +761,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1013,10 +1016,10 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -1028,7 +1031,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -1083,7 +1086,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1122,7 +1125,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1194,10 +1197,10 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -1209,7 +1212,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -1264,7 +1267,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1303,7 +1306,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1514,10 +1517,10 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -1529,7 +1532,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -1584,7 +1587,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1623,7 +1626,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1796,10 +1799,10 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -1811,7 +1814,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -1866,7 +1869,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1905,7 +1908,7 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -1971,7 +1974,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Selection forwardtrace operational data for a particular interface.
@@ -2150,10 +2153,10 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -2165,7 +2168,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -2220,7 +2223,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2259,7 +2262,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2331,10 +2334,10 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -2346,7 +2349,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -2401,7 +2404,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2440,7 +2443,7 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2598,10 +2601,10 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -2613,7 +2616,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -2668,7 +2671,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source_ClockId struct {
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2707,7 +2710,7 @@ type FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId str
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2776,10 +2779,10 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -2791,7 +2794,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -2846,7 +2849,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId struct {
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2885,7 +2888,7 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId str
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -2950,7 +2953,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -3084,10 +3087,10 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -3099,7 +3102,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -3154,7 +3157,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_ClockId struct
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -3193,7 +3196,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -3227,10 +3230,10 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -3242,7 +3245,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -3297,7 +3300,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_ClockI
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -3336,7 +3339,7 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssRe
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -3872,6 +3875,9 @@ type FrequencySynchronization_Nodes_Node struct {
     // SSM operational data.
     SsmSummary FrequencySynchronization_Nodes_Node_SsmSummary
 
+    // Table for detailed clock operational data.
+    DetailedClockDatas FrequencySynchronization_Nodes_Node_DetailedClockDatas
+
     // Table for clock operational data.
     ClockDatas FrequencySynchronization_Nodes_Node_ClockDatas
 
@@ -3895,6 +3901,7 @@ func (node *FrequencySynchronization_Nodes_Node) GetEntityData() *types.CommonEn
     node.EntityData.Children.Append("configuration-errors", types.YChild{"ConfigurationErrors", &node.ConfigurationErrors})
     node.EntityData.Children.Append("ptp-data", types.YChild{"PtpData", &node.PtpData})
     node.EntityData.Children.Append("ssm-summary", types.YChild{"SsmSummary", &node.SsmSummary})
+    node.EntityData.Children.Append("detailed-clock-datas", types.YChild{"DetailedClockDatas", &node.DetailedClockDatas})
     node.EntityData.Children.Append("clock-datas", types.YChild{"ClockDatas", &node.ClockDatas})
     node.EntityData.Children.Append("selection-point-inputs", types.YChild{"SelectionPointInputs", &node.SelectionPointInputs})
     node.EntityData.Leafs = types.NewOrderedMap()
@@ -4574,10 +4581,10 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -4589,7 +4596,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -4644,7 +4651,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -4683,7 +4690,7 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -5210,6 +5217,751 @@ func (ssmSummary *FrequencySynchronization_Nodes_Node_SsmSummary) GetEntityData(
     return &(ssmSummary.EntityData)
 }
 
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas
+// Table for detailed clock operational data
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Detailed operational data for a particular clock. The type is slice of
+    // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData.
+    DetailedClockData []*FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData
+}
+
+func (detailedClockDatas *FrequencySynchronization_Nodes_Node_DetailedClockDatas) GetEntityData() *types.CommonEntityData {
+    detailedClockDatas.EntityData.YFilter = detailedClockDatas.YFilter
+    detailedClockDatas.EntityData.YangName = "detailed-clock-datas"
+    detailedClockDatas.EntityData.BundleName = "cisco_ios_xr"
+    detailedClockDatas.EntityData.ParentYangName = "node"
+    detailedClockDatas.EntityData.SegmentPath = "detailed-clock-datas"
+    detailedClockDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detailedClockDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detailedClockDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    detailedClockDatas.EntityData.Children = types.NewOrderedMap()
+    detailedClockDatas.EntityData.Children.Append("detailed-clock-data", types.YChild{"DetailedClockData", nil})
+    for i := range detailedClockDatas.DetailedClockData {
+        detailedClockDatas.EntityData.Children.Append(types.GetSegmentPath(detailedClockDatas.DetailedClockData[i]), types.YChild{"DetailedClockData", detailedClockDatas.DetailedClockData[i]})
+    }
+    detailedClockDatas.EntityData.Leafs = types.NewOrderedMap()
+
+    detailedClockDatas.EntityData.YListKeys = []string {}
+
+    return &(detailedClockDatas.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData
+// Detailed operational data for a particular
+// clock
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Clock type. The type is FsyncClock.
+    ClockType interface{}
+
+    // This attribute is a key. Clock ID (port number for clock interfaces,
+    // receiver number for GNSS receivers. The type is interface{} with range:
+    // 0..4294967295.
+    Id interface{}
+
+    // Clock state. The type is FsyncBagSourceState.
+    State interface{}
+
+    // Why the clock is down. The type is string.
+    DownReason interface{}
+
+    // Clock description. The type is string.
+    Description interface{}
+
+    // Priority. The type is interface{} with range: 0..255.
+    Priority interface{}
+
+    // Time-of-day priority. The type is interface{} with range: 0..255.
+    TimeOfDayPriority interface{}
+
+    // The clock supports SSMs. The type is bool.
+    SsmSupport interface{}
+
+    // The clock output is squelched. The type is bool.
+    SsmEnabled interface{}
+
+    // The clock is looped back. The type is bool.
+    Loopback interface{}
+
+    // The clock is an input for selection. The type is bool.
+    SelectionInput interface{}
+
+    // The clock output is squelched. The type is bool.
+    Squelched interface{}
+
+    // Damping state. The type is FsyncBagDampingState.
+    DampingState interface{}
+
+    // Time until damping state changes in ms. The type is interface{} with range:
+    // 0..4294967295.
+    DampingTime interface{}
+
+    // Timing input is disabled. The type is bool.
+    InputDisabled interface{}
+
+    // Timing output is disabled. The type is bool.
+    OutputDisabled interface{}
+
+    // Wait-to-restore time for the clock. The type is interface{} with range:
+    // 0..65535.
+    WaitToRestoreTime interface{}
+
+    // The type of clock. The type is FsyncBagClockIntfClass.
+    ClockTypeXr interface{}
+
+    // The PTP clock supports frequency. The type is bool.
+    SupportsFrequency interface{}
+
+    // The PTP clock supports time. The type is bool.
+    SupportsTimeOfDay interface{}
+
+    // The source ID for the clock.
+    Source FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source
+
+    // Timing source selected for clock output.
+    SelectedSource FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource
+
+    // Received quality level.
+    QualityLevelReceived FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelReceived
+
+    // Quality level after damping has been applied.
+    QualityLevelDamped FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelDamped
+
+    // The effective input quality level.
+    QualityLevelEffectiveInput FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveInput
+
+    // The effective output quality level.
+    QualityLevelEffectiveOutput FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveOutput
+
+    // The quality level of the source driving this interface.
+    QualityLevelSelectedSource FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelSelectedSource
+
+    // Spa selection points. The type is slice of
+    // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint.
+    SpaSelectionPoint []*FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint
+
+    // Node selection points. The type is slice of
+    // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint.
+    NodeSelectionPoint []*FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint
+}
+
+func (detailedClockData *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData) GetEntityData() *types.CommonEntityData {
+    detailedClockData.EntityData.YFilter = detailedClockData.YFilter
+    detailedClockData.EntityData.YangName = "detailed-clock-data"
+    detailedClockData.EntityData.BundleName = "cisco_ios_xr"
+    detailedClockData.EntityData.ParentYangName = "detailed-clock-datas"
+    detailedClockData.EntityData.SegmentPath = "detailed-clock-data" + types.AddKeyToken(detailedClockData.ClockType, "clock-type") + types.AddKeyToken(detailedClockData.Id, "id")
+    detailedClockData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detailedClockData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detailedClockData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    detailedClockData.EntityData.Children = types.NewOrderedMap()
+    detailedClockData.EntityData.Children.Append("source", types.YChild{"Source", &detailedClockData.Source})
+    detailedClockData.EntityData.Children.Append("selected-source", types.YChild{"SelectedSource", &detailedClockData.SelectedSource})
+    detailedClockData.EntityData.Children.Append("quality-level-received", types.YChild{"QualityLevelReceived", &detailedClockData.QualityLevelReceived})
+    detailedClockData.EntityData.Children.Append("quality-level-damped", types.YChild{"QualityLevelDamped", &detailedClockData.QualityLevelDamped})
+    detailedClockData.EntityData.Children.Append("quality-level-effective-input", types.YChild{"QualityLevelEffectiveInput", &detailedClockData.QualityLevelEffectiveInput})
+    detailedClockData.EntityData.Children.Append("quality-level-effective-output", types.YChild{"QualityLevelEffectiveOutput", &detailedClockData.QualityLevelEffectiveOutput})
+    detailedClockData.EntityData.Children.Append("quality-level-selected-source", types.YChild{"QualityLevelSelectedSource", &detailedClockData.QualityLevelSelectedSource})
+    detailedClockData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
+    for i := range detailedClockData.SpaSelectionPoint {
+        detailedClockData.EntityData.Children.Append(types.GetSegmentPath(detailedClockData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", detailedClockData.SpaSelectionPoint[i]})
+    }
+    detailedClockData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
+    for i := range detailedClockData.NodeSelectionPoint {
+        detailedClockData.EntityData.Children.Append(types.GetSegmentPath(detailedClockData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", detailedClockData.NodeSelectionPoint[i]})
+    }
+    detailedClockData.EntityData.Leafs = types.NewOrderedMap()
+    detailedClockData.EntityData.Leafs.Append("clock-type", types.YLeaf{"ClockType", detailedClockData.ClockType})
+    detailedClockData.EntityData.Leafs.Append("id", types.YLeaf{"Id", detailedClockData.Id})
+    detailedClockData.EntityData.Leafs.Append("state", types.YLeaf{"State", detailedClockData.State})
+    detailedClockData.EntityData.Leafs.Append("down-reason", types.YLeaf{"DownReason", detailedClockData.DownReason})
+    detailedClockData.EntityData.Leafs.Append("description", types.YLeaf{"Description", detailedClockData.Description})
+    detailedClockData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", detailedClockData.Priority})
+    detailedClockData.EntityData.Leafs.Append("time-of-day-priority", types.YLeaf{"TimeOfDayPriority", detailedClockData.TimeOfDayPriority})
+    detailedClockData.EntityData.Leafs.Append("ssm-support", types.YLeaf{"SsmSupport", detailedClockData.SsmSupport})
+    detailedClockData.EntityData.Leafs.Append("ssm-enabled", types.YLeaf{"SsmEnabled", detailedClockData.SsmEnabled})
+    detailedClockData.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", detailedClockData.Loopback})
+    detailedClockData.EntityData.Leafs.Append("selection-input", types.YLeaf{"SelectionInput", detailedClockData.SelectionInput})
+    detailedClockData.EntityData.Leafs.Append("squelched", types.YLeaf{"Squelched", detailedClockData.Squelched})
+    detailedClockData.EntityData.Leafs.Append("damping-state", types.YLeaf{"DampingState", detailedClockData.DampingState})
+    detailedClockData.EntityData.Leafs.Append("damping-time", types.YLeaf{"DampingTime", detailedClockData.DampingTime})
+    detailedClockData.EntityData.Leafs.Append("input-disabled", types.YLeaf{"InputDisabled", detailedClockData.InputDisabled})
+    detailedClockData.EntityData.Leafs.Append("output-disabled", types.YLeaf{"OutputDisabled", detailedClockData.OutputDisabled})
+    detailedClockData.EntityData.Leafs.Append("wait-to-restore-time", types.YLeaf{"WaitToRestoreTime", detailedClockData.WaitToRestoreTime})
+    detailedClockData.EntityData.Leafs.Append("clock-type-xr", types.YLeaf{"ClockTypeXr", detailedClockData.ClockTypeXr})
+    detailedClockData.EntityData.Leafs.Append("supports-frequency", types.YLeaf{"SupportsFrequency", detailedClockData.SupportsFrequency})
+    detailedClockData.EntityData.Leafs.Append("supports-time-of-day", types.YLeaf{"SupportsTimeOfDay", detailedClockData.SupportsTimeOfDay})
+
+    detailedClockData.EntityData.YListKeys = []string {"ClockType", "Id"}
+
+    return &(detailedClockData.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source
+// The source ID for the clock
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SourceClass. The type is FsyncBagSourceClass.
+    SourceClass interface{}
+
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    EthernetInterface interface{}
+
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    SonetInterface interface{}
+
+    // Internal Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // PTP Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    PtpNode interface{}
+
+    // Satellite Access Interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    SatelliteAccessInterface interface{}
+
+    // NTP Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    NtpNode interface{}
+
+    // Clock ID.
+    ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId
+
+    // GNSS Receiver ID.
+    GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
+}
+
+func (source *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "cisco_ios_xr"
+    source.EntityData.ParentYangName = "detailed-clock-data"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
+    source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
+    source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
+    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
+    source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
+    source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
+    source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
+
+    source.EntityData.YListKeys = []string {}
+
+    return &(source.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId
+// Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId) GetEntityData() *types.CommonEntityData {
+    clockId.EntityData.YFilter = clockId.YFilter
+    clockId.EntityData.YangName = "clock-id"
+    clockId.EntityData.BundleName = "cisco_ios_xr"
+    clockId.EntityData.ParentYangName = "source"
+    clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockId.EntityData.Children = types.NewOrderedMap()
+    clockId.EntityData.Leafs = types.NewOrderedMap()
+    clockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", clockId.Node})
+    clockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", clockId.Id})
+    clockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", clockId.ClockName})
+
+    clockId.EntityData.YListKeys = []string {}
+
+    return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
+// GNSS Receiver ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (gnssReceiverId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId) GetEntityData() *types.CommonEntityData {
+    gnssReceiverId.EntityData.YFilter = gnssReceiverId.YFilter
+    gnssReceiverId.EntityData.YangName = "gnss-receiver-id"
+    gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
+    gnssReceiverId.EntityData.ParentYangName = "source"
+    gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    gnssReceiverId.EntityData.Children = types.NewOrderedMap()
+    gnssReceiverId.EntityData.Leafs = types.NewOrderedMap()
+    gnssReceiverId.EntityData.Leafs.Append("node", types.YLeaf{"Node", gnssReceiverId.Node})
+    gnssReceiverId.EntityData.Leafs.Append("id", types.YLeaf{"Id", gnssReceiverId.Id})
+    gnssReceiverId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", gnssReceiverId.ClockName})
+
+    gnssReceiverId.EntityData.YListKeys = []string {}
+
+    return &(gnssReceiverId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource
+// Timing source selected for clock output
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SourceClass. The type is FsyncBagSourceClass.
+    SourceClass interface{}
+
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    EthernetInterface interface{}
+
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    SonetInterface interface{}
+
+    // Internal Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // PTP Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    PtpNode interface{}
+
+    // Satellite Access Interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    SatelliteAccessInterface interface{}
+
+    // NTP Clock Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    NtpNode interface{}
+
+    // Clock ID.
+    ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId
+
+    // GNSS Receiver ID.
+    GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
+}
+
+func (selectedSource *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource) GetEntityData() *types.CommonEntityData {
+    selectedSource.EntityData.YFilter = selectedSource.YFilter
+    selectedSource.EntityData.YangName = "selected-source"
+    selectedSource.EntityData.BundleName = "cisco_ios_xr"
+    selectedSource.EntityData.ParentYangName = "detailed-clock-data"
+    selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    selectedSource.EntityData.Children = types.NewOrderedMap()
+    selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
+    selectedSource.EntityData.Leafs = types.NewOrderedMap()
+    selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
+    selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
+    selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
+    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
+    selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
+    selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
+    selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
+
+    selectedSource.EntityData.YListKeys = []string {}
+
+    return &(selectedSource.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId
+// Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId) GetEntityData() *types.CommonEntityData {
+    clockId.EntityData.YFilter = clockId.YFilter
+    clockId.EntityData.YangName = "clock-id"
+    clockId.EntityData.BundleName = "cisco_ios_xr"
+    clockId.EntityData.ParentYangName = "selected-source"
+    clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    clockId.EntityData.Children = types.NewOrderedMap()
+    clockId.EntityData.Leafs = types.NewOrderedMap()
+    clockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", clockId.Node})
+    clockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", clockId.Id})
+    clockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", clockId.ClockName})
+
+    clockId.EntityData.YListKeys = []string {}
+
+    return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
+// GNSS Receiver ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (gnssReceiverId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId) GetEntityData() *types.CommonEntityData {
+    gnssReceiverId.EntityData.YFilter = gnssReceiverId.YFilter
+    gnssReceiverId.EntityData.YangName = "gnss-receiver-id"
+    gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
+    gnssReceiverId.EntityData.ParentYangName = "selected-source"
+    gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    gnssReceiverId.EntityData.Children = types.NewOrderedMap()
+    gnssReceiverId.EntityData.Leafs = types.NewOrderedMap()
+    gnssReceiverId.EntityData.Leafs.Append("node", types.YLeaf{"Node", gnssReceiverId.Node})
+    gnssReceiverId.EntityData.Leafs.Append("id", types.YLeaf{"Id", gnssReceiverId.Id})
+    gnssReceiverId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", gnssReceiverId.ClockName})
+
+    gnssReceiverId.EntityData.YListKeys = []string {}
+
+    return &(gnssReceiverId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelReceived
+// Received quality level
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelReceived struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QualityLevelOption. The type is FsyncBagQlOption.
+    QualityLevelOption interface{}
+
+    // ITU-T Option 1 QL value. The type is FsyncBagQlO1Value.
+    Option1Value interface{}
+
+    // ITU-T Option 2, generation 1 value. The type is FsyncBagQlO2G1Value.
+    Option2Generation1Value interface{}
+
+    // ITU-T Option 2, generation 2 value. The type is FsyncBagQlO2G2Value.
+    Option2Generation2Value interface{}
+}
+
+func (qualityLevelReceived *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelReceived) GetEntityData() *types.CommonEntityData {
+    qualityLevelReceived.EntityData.YFilter = qualityLevelReceived.YFilter
+    qualityLevelReceived.EntityData.YangName = "quality-level-received"
+    qualityLevelReceived.EntityData.BundleName = "cisco_ios_xr"
+    qualityLevelReceived.EntityData.ParentYangName = "detailed-clock-data"
+    qualityLevelReceived.EntityData.SegmentPath = "quality-level-received"
+    qualityLevelReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qualityLevelReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qualityLevelReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qualityLevelReceived.EntityData.Children = types.NewOrderedMap()
+    qualityLevelReceived.EntityData.Leafs = types.NewOrderedMap()
+    qualityLevelReceived.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", qualityLevelReceived.QualityLevelOption})
+    qualityLevelReceived.EntityData.Leafs.Append("option1-value", types.YLeaf{"Option1Value", qualityLevelReceived.Option1Value})
+    qualityLevelReceived.EntityData.Leafs.Append("option2-generation1-value", types.YLeaf{"Option2Generation1Value", qualityLevelReceived.Option2Generation1Value})
+    qualityLevelReceived.EntityData.Leafs.Append("option2-generation2-value", types.YLeaf{"Option2Generation2Value", qualityLevelReceived.Option2Generation2Value})
+
+    qualityLevelReceived.EntityData.YListKeys = []string {}
+
+    return &(qualityLevelReceived.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelDamped
+// Quality level after damping has been applied
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelDamped struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QualityLevelOption. The type is FsyncBagQlOption.
+    QualityLevelOption interface{}
+
+    // ITU-T Option 1 QL value. The type is FsyncBagQlO1Value.
+    Option1Value interface{}
+
+    // ITU-T Option 2, generation 1 value. The type is FsyncBagQlO2G1Value.
+    Option2Generation1Value interface{}
+
+    // ITU-T Option 2, generation 2 value. The type is FsyncBagQlO2G2Value.
+    Option2Generation2Value interface{}
+}
+
+func (qualityLevelDamped *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelDamped) GetEntityData() *types.CommonEntityData {
+    qualityLevelDamped.EntityData.YFilter = qualityLevelDamped.YFilter
+    qualityLevelDamped.EntityData.YangName = "quality-level-damped"
+    qualityLevelDamped.EntityData.BundleName = "cisco_ios_xr"
+    qualityLevelDamped.EntityData.ParentYangName = "detailed-clock-data"
+    qualityLevelDamped.EntityData.SegmentPath = "quality-level-damped"
+    qualityLevelDamped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qualityLevelDamped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qualityLevelDamped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qualityLevelDamped.EntityData.Children = types.NewOrderedMap()
+    qualityLevelDamped.EntityData.Leafs = types.NewOrderedMap()
+    qualityLevelDamped.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", qualityLevelDamped.QualityLevelOption})
+    qualityLevelDamped.EntityData.Leafs.Append("option1-value", types.YLeaf{"Option1Value", qualityLevelDamped.Option1Value})
+    qualityLevelDamped.EntityData.Leafs.Append("option2-generation1-value", types.YLeaf{"Option2Generation1Value", qualityLevelDamped.Option2Generation1Value})
+    qualityLevelDamped.EntityData.Leafs.Append("option2-generation2-value", types.YLeaf{"Option2Generation2Value", qualityLevelDamped.Option2Generation2Value})
+
+    qualityLevelDamped.EntityData.YListKeys = []string {}
+
+    return &(qualityLevelDamped.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveInput
+// The effective input quality level
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveInput struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QualityLevelOption. The type is FsyncBagQlOption.
+    QualityLevelOption interface{}
+
+    // ITU-T Option 1 QL value. The type is FsyncBagQlO1Value.
+    Option1Value interface{}
+
+    // ITU-T Option 2, generation 1 value. The type is FsyncBagQlO2G1Value.
+    Option2Generation1Value interface{}
+
+    // ITU-T Option 2, generation 2 value. The type is FsyncBagQlO2G2Value.
+    Option2Generation2Value interface{}
+}
+
+func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveInput) GetEntityData() *types.CommonEntityData {
+    qualityLevelEffectiveInput.EntityData.YFilter = qualityLevelEffectiveInput.YFilter
+    qualityLevelEffectiveInput.EntityData.YangName = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
+    qualityLevelEffectiveInput.EntityData.ParentYangName = "detailed-clock-data"
+    qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qualityLevelEffectiveInput.EntityData.Children = types.NewOrderedMap()
+    qualityLevelEffectiveInput.EntityData.Leafs = types.NewOrderedMap()
+    qualityLevelEffectiveInput.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", qualityLevelEffectiveInput.QualityLevelOption})
+    qualityLevelEffectiveInput.EntityData.Leafs.Append("option1-value", types.YLeaf{"Option1Value", qualityLevelEffectiveInput.Option1Value})
+    qualityLevelEffectiveInput.EntityData.Leafs.Append("option2-generation1-value", types.YLeaf{"Option2Generation1Value", qualityLevelEffectiveInput.Option2Generation1Value})
+    qualityLevelEffectiveInput.EntityData.Leafs.Append("option2-generation2-value", types.YLeaf{"Option2Generation2Value", qualityLevelEffectiveInput.Option2Generation2Value})
+
+    qualityLevelEffectiveInput.EntityData.YListKeys = []string {}
+
+    return &(qualityLevelEffectiveInput.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveOutput
+// The effective output quality level
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveOutput struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QualityLevelOption. The type is FsyncBagQlOption.
+    QualityLevelOption interface{}
+
+    // ITU-T Option 1 QL value. The type is FsyncBagQlO1Value.
+    Option1Value interface{}
+
+    // ITU-T Option 2, generation 1 value. The type is FsyncBagQlO2G1Value.
+    Option2Generation1Value interface{}
+
+    // ITU-T Option 2, generation 2 value. The type is FsyncBagQlO2G2Value.
+    Option2Generation2Value interface{}
+}
+
+func (qualityLevelEffectiveOutput *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelEffectiveOutput) GetEntityData() *types.CommonEntityData {
+    qualityLevelEffectiveOutput.EntityData.YFilter = qualityLevelEffectiveOutput.YFilter
+    qualityLevelEffectiveOutput.EntityData.YangName = "quality-level-effective-output"
+    qualityLevelEffectiveOutput.EntityData.BundleName = "cisco_ios_xr"
+    qualityLevelEffectiveOutput.EntityData.ParentYangName = "detailed-clock-data"
+    qualityLevelEffectiveOutput.EntityData.SegmentPath = "quality-level-effective-output"
+    qualityLevelEffectiveOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qualityLevelEffectiveOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qualityLevelEffectiveOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qualityLevelEffectiveOutput.EntityData.Children = types.NewOrderedMap()
+    qualityLevelEffectiveOutput.EntityData.Leafs = types.NewOrderedMap()
+    qualityLevelEffectiveOutput.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", qualityLevelEffectiveOutput.QualityLevelOption})
+    qualityLevelEffectiveOutput.EntityData.Leafs.Append("option1-value", types.YLeaf{"Option1Value", qualityLevelEffectiveOutput.Option1Value})
+    qualityLevelEffectiveOutput.EntityData.Leafs.Append("option2-generation1-value", types.YLeaf{"Option2Generation1Value", qualityLevelEffectiveOutput.Option2Generation1Value})
+    qualityLevelEffectiveOutput.EntityData.Leafs.Append("option2-generation2-value", types.YLeaf{"Option2Generation2Value", qualityLevelEffectiveOutput.Option2Generation2Value})
+
+    qualityLevelEffectiveOutput.EntityData.YListKeys = []string {}
+
+    return &(qualityLevelEffectiveOutput.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelSelectedSource
+// The quality level of the source driving this
+// interface
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelSelectedSource struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QualityLevelOption. The type is FsyncBagQlOption.
+    QualityLevelOption interface{}
+
+    // ITU-T Option 1 QL value. The type is FsyncBagQlO1Value.
+    Option1Value interface{}
+
+    // ITU-T Option 2, generation 1 value. The type is FsyncBagQlO2G1Value.
+    Option2Generation1Value interface{}
+
+    // ITU-T Option 2, generation 2 value. The type is FsyncBagQlO2G2Value.
+    Option2Generation2Value interface{}
+}
+
+func (qualityLevelSelectedSource *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_QualityLevelSelectedSource) GetEntityData() *types.CommonEntityData {
+    qualityLevelSelectedSource.EntityData.YFilter = qualityLevelSelectedSource.YFilter
+    qualityLevelSelectedSource.EntityData.YangName = "quality-level-selected-source"
+    qualityLevelSelectedSource.EntityData.BundleName = "cisco_ios_xr"
+    qualityLevelSelectedSource.EntityData.ParentYangName = "detailed-clock-data"
+    qualityLevelSelectedSource.EntityData.SegmentPath = "quality-level-selected-source"
+    qualityLevelSelectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qualityLevelSelectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qualityLevelSelectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    qualityLevelSelectedSource.EntityData.Children = types.NewOrderedMap()
+    qualityLevelSelectedSource.EntityData.Leafs = types.NewOrderedMap()
+    qualityLevelSelectedSource.EntityData.Leafs.Append("quality-level-option", types.YLeaf{"QualityLevelOption", qualityLevelSelectedSource.QualityLevelOption})
+    qualityLevelSelectedSource.EntityData.Leafs.Append("option1-value", types.YLeaf{"Option1Value", qualityLevelSelectedSource.Option1Value})
+    qualityLevelSelectedSource.EntityData.Leafs.Append("option2-generation1-value", types.YLeaf{"Option2Generation1Value", qualityLevelSelectedSource.Option2Generation1Value})
+    qualityLevelSelectedSource.EntityData.Leafs.Append("option2-generation2-value", types.YLeaf{"Option2Generation2Value", qualityLevelSelectedSource.Option2Generation2Value})
+
+    qualityLevelSelectedSource.EntityData.YListKeys = []string {}
+
+    return &(qualityLevelSelectedSource.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint
+// Spa selection points
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Selection point ID. The type is interface{} with range: 0..255.
+    SelectionPoint interface{}
+
+    // Selection point description. The type is string.
+    SelectionPointDescription interface{}
+}
+
+func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint) GetEntityData() *types.CommonEntityData {
+    spaSelectionPoint.EntityData.YFilter = spaSelectionPoint.YFilter
+    spaSelectionPoint.EntityData.YangName = "spa-selection-point"
+    spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
+    spaSelectionPoint.EntityData.ParentYangName = "detailed-clock-data"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    spaSelectionPoint.EntityData.Children = types.NewOrderedMap()
+    spaSelectionPoint.EntityData.Leafs = types.NewOrderedMap()
+    spaSelectionPoint.EntityData.Leafs.Append("selection-point", types.YLeaf{"SelectionPoint", spaSelectionPoint.SelectionPoint})
+    spaSelectionPoint.EntityData.Leafs.Append("selection-point-description", types.YLeaf{"SelectionPointDescription", spaSelectionPoint.SelectionPointDescription})
+
+    spaSelectionPoint.EntityData.YListKeys = []string {}
+
+    return &(spaSelectionPoint.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint
+// Node selection points
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Selection point ID. The type is interface{} with range: 0..255.
+    SelectionPoint interface{}
+
+    // Selection point description. The type is string.
+    SelectionPointDescription interface{}
+}
+
+func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint) GetEntityData() *types.CommonEntityData {
+    nodeSelectionPoint.EntityData.YFilter = nodeSelectionPoint.YFilter
+    nodeSelectionPoint.EntityData.YangName = "node-selection-point"
+    nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
+    nodeSelectionPoint.EntityData.ParentYangName = "detailed-clock-data"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nodeSelectionPoint.EntityData.Children = types.NewOrderedMap()
+    nodeSelectionPoint.EntityData.Leafs = types.NewOrderedMap()
+    nodeSelectionPoint.EntityData.Leafs.Append("selection-point", types.YLeaf{"SelectionPoint", nodeSelectionPoint.SelectionPoint})
+    nodeSelectionPoint.EntityData.Leafs.Append("selection-point-description", types.YLeaf{"SelectionPointDescription", nodeSelectionPoint.SelectionPointDescription})
+
+    nodeSelectionPoint.EntityData.YListKeys = []string {}
+
+    return &(nodeSelectionPoint.EntityData)
+}
+
 // FrequencySynchronization_Nodes_Node_ClockDatas
 // Table for clock operational data
 type FrequencySynchronization_Nodes_Node_ClockDatas struct {
@@ -5405,10 +6157,10 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -5420,7 +6172,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -5475,7 +6227,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_ClockId str
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -5514,7 +6266,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceive
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -5548,10 +6300,10 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -5563,7 +6315,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -5618,7 +6370,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_Clo
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -5657,7 +6409,7 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_Gns
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -6005,7 +6757,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // Type of source. The type is FsyncSource.
     SourceType interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Clock port. The type is interface{} with range: 0..4294967295.
@@ -6183,10 +6935,10 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -6198,7 +6950,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -6253,7 +7005,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -6292,7 +7044,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -6397,10 +7149,10 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SourceClass. The type is FsyncBagSourceClass.
     SourceClass interface{}
 
-    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Ethernet interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     EthernetInterface interface{}
 
-    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
     // Internal Clock Node. The type is string with pattern:
@@ -6412,7 +7164,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     PtpNode interface{}
 
     // Satellite Access Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SatelliteAccessInterface interface{}
 
     // NTP Clock Node. The type is string with pattern:
@@ -6467,7 +7219,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 
@@ -6506,7 +7258,7 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // The type is interface{} with range: 0..4294967295.
     Id interface{}
 
-    // Name. The type is string.
+    // Name. The type is string with length: 0..144.
     ClockName interface{}
 }
 

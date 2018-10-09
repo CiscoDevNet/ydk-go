@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR mpls-te package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -733,6 +733,10 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         description
           "Delay Limit verification failed";
       }
+      enum "lockout-metric-verify-failed" {
+        description
+          "Lockout metric verification failed";
+      }
       enum "path-setup-timeout" {
         description
           "Path Setup Timed out";
@@ -1338,6 +1342,20 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
         description
           "LSP OOR";
       }
+      enum "path-protection-configuration-change" {
+        description
+          "Path protection configuration changed under the
+           tunnel I/F";
+      }
+      enum "better-standby-path" {
+        description
+          "Better standby path exists";
+      }
+      enum "path-protection-non-revertive-config-changed" {
+        description
+          "Path protection non-revertive config changed
+           under the tunnel I/F";
+      }
       enum "fsm-sc-must-be-last" {
         description
           "Not used, must be last entry";
@@ -1631,6 +1649,14 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
       enum "srlg" {
         description
           "Standby SRLG diverse";
+      }
+      enum "node-srlg" {
+        description
+          "Standby LSP node and SRLG diverse";
+      }
+      enum "node-link-srlg" {
+        description
+          "Standby LSP node and link and SRLG diverse";
       }
       enum "diversity-user" {
         description
@@ -2527,6 +2553,18 @@ submodule Cisco-IOS-XR-mpls-te-oper-sub6 {
       type Mpls-te-uni;
       description
         "Remote uni type";
+    }
+  }
+
+  grouping TE-TERM-INTERFACE-SRLG-CB {
+    description
+      "Termination SRLG";
+    list discovered-srlg {
+      description
+        "Discovered SRLG";
+      leaf entry {
+        type uint32;
+      }
     }
   }
 

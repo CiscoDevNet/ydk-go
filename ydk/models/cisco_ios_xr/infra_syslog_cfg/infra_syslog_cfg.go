@@ -6,7 +6,7 @@
 //   syslog-service: Syslog Timestamp Services
 //   syslog: syslog
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_syslog_cfg
 
@@ -683,14 +683,14 @@ type Syslog struct {
     // Configure source interface.
     SourceInterfaceTable Syslog_SourceInterfaceTable
 
-    // Alarm Logger Properties.
-    AlarmLogger Syslog_AlarmLogger
-
     // Configure properties of the event correlator.
     Correlator Syslog_Correlator
 
     // Configure properties of the syslog/alarm suppression.
     Suppression Syslog_Suppression
+
+    // Alarm Logger Properties.
+    AlarmLogger Syslog_AlarmLogger
 }
 
 func (syslog *Syslog) GetEntityData() *types.CommonEntityData {
@@ -716,9 +716,9 @@ func (syslog *Syslog) GetEntityData() *types.CommonEntityData {
     syslog.EntityData.Children.Append("archive", types.YChild{"Archive", &syslog.Archive})
     syslog.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &syslog.Ipv6})
     syslog.EntityData.Children.Append("source-interface-table", types.YChild{"SourceInterfaceTable", &syslog.SourceInterfaceTable})
-    syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", types.YChild{"AlarmLogger", &syslog.AlarmLogger})
     syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-correlator-cfg:correlator", types.YChild{"Correlator", &syslog.Correlator})
     syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-correlator-cfg:suppression", types.YChild{"Suppression", &syslog.Suppression})
+    syslog.EntityData.Children.Append("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", types.YChild{"AlarmLogger", &syslog.AlarmLogger})
     syslog.EntityData.Leafs = types.NewOrderedMap()
     syslog.EntityData.Leafs.Append("host-name-prefix", types.YLeaf{"HostNamePrefix", syslog.HostNamePrefix})
     syslog.EntityData.Leafs.Append("local-log-file-size", types.YLeaf{"LocalLogFileSize", syslog.LocalLogFileSize})
@@ -2304,7 +2304,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue stru
     YFilter yfilter.YFilter
 
     // This attribute is a key. Which Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     SrcInterfaceNameValue interface{}
 
     // Configure source interface VRF.
@@ -2392,128 +2392,6 @@ func (sourceInterfaceVrf *Syslog_SourceInterfaceTable_SourceInterfaceValues_Sour
     sourceInterfaceVrf.EntityData.YListKeys = []string {"VrfName"}
 
     return &(sourceInterfaceVrf.EntityData)
-}
-
-// Syslog_AlarmLogger
-// Alarm Logger Properties
-type Syslog_AlarmLogger struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Suppress events from a card/VM till its configuration is complete. The type
-    // is interface{}.
-    PreConfigSuppression interface{}
-
-    // Log all events with equal or higher (lower level) severity than this. The
-    // type is AlarmLoggerSeverityLevel.
-    SeverityLevel interface{}
-
-    // Timeout (in minutes) for pre-config events suppression (default 15). The
-    // type is interface{} with range: 1..60. Units are minute. The default value
-    // is 15.
-    PreConfigSuppressionTimeout interface{}
-
-    // Set size of the local event buffer. The type is interface{} with range:
-    // 1024..1024000.
-    BufferSize interface{}
-
-    // Enable alarm source location in message text. The type is interface{}.
-    SourceLocation interface{}
-
-    // Configure threshold (%) for capacity alarm. The type is interface{} with
-    // range: 10..100. The default value is 90.
-    Threshold interface{}
-
-    // List of filter strings.
-    AlarmFilterStrings Syslog_AlarmLogger_AlarmFilterStrings
-}
-
-func (alarmLogger *Syslog_AlarmLogger) GetEntityData() *types.CommonEntityData {
-    alarmLogger.EntityData.YFilter = alarmLogger.YFilter
-    alarmLogger.EntityData.YangName = "alarm-logger"
-    alarmLogger.EntityData.BundleName = "cisco_ios_xr"
-    alarmLogger.EntityData.ParentYangName = "syslog"
-    alarmLogger.EntityData.SegmentPath = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
-    alarmLogger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    alarmLogger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    alarmLogger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    alarmLogger.EntityData.Children = types.NewOrderedMap()
-    alarmLogger.EntityData.Children.Append("alarm-filter-strings", types.YChild{"AlarmFilterStrings", &alarmLogger.AlarmFilterStrings})
-    alarmLogger.EntityData.Leafs = types.NewOrderedMap()
-    alarmLogger.EntityData.Leafs.Append("pre-config-suppression", types.YLeaf{"PreConfigSuppression", alarmLogger.PreConfigSuppression})
-    alarmLogger.EntityData.Leafs.Append("severity-level", types.YLeaf{"SeverityLevel", alarmLogger.SeverityLevel})
-    alarmLogger.EntityData.Leafs.Append("pre-config-suppression-timeout", types.YLeaf{"PreConfigSuppressionTimeout", alarmLogger.PreConfigSuppressionTimeout})
-    alarmLogger.EntityData.Leafs.Append("buffer-size", types.YLeaf{"BufferSize", alarmLogger.BufferSize})
-    alarmLogger.EntityData.Leafs.Append("source-location", types.YLeaf{"SourceLocation", alarmLogger.SourceLocation})
-    alarmLogger.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", alarmLogger.Threshold})
-
-    alarmLogger.EntityData.YListKeys = []string {}
-
-    return &(alarmLogger.EntityData)
-}
-
-// Syslog_AlarmLogger_AlarmFilterStrings
-// List of filter strings
-type Syslog_AlarmLogger_AlarmFilterStrings struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match string to filter alarms. The type is slice of
-    // Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString.
-    AlarmFilterString []*Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
-}
-
-func (alarmFilterStrings *Syslog_AlarmLogger_AlarmFilterStrings) GetEntityData() *types.CommonEntityData {
-    alarmFilterStrings.EntityData.YFilter = alarmFilterStrings.YFilter
-    alarmFilterStrings.EntityData.YangName = "alarm-filter-strings"
-    alarmFilterStrings.EntityData.BundleName = "cisco_ios_xr"
-    alarmFilterStrings.EntityData.ParentYangName = "alarm-logger"
-    alarmFilterStrings.EntityData.SegmentPath = "alarm-filter-strings"
-    alarmFilterStrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    alarmFilterStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    alarmFilterStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    alarmFilterStrings.EntityData.Children = types.NewOrderedMap()
-    alarmFilterStrings.EntityData.Children.Append("alarm-filter-string", types.YChild{"AlarmFilterString", nil})
-    for i := range alarmFilterStrings.AlarmFilterString {
-        alarmFilterStrings.EntityData.Children.Append(types.GetSegmentPath(alarmFilterStrings.AlarmFilterString[i]), types.YChild{"AlarmFilterString", alarmFilterStrings.AlarmFilterString[i]})
-    }
-    alarmFilterStrings.EntityData.Leafs = types.NewOrderedMap()
-
-    alarmFilterStrings.EntityData.YListKeys = []string {}
-
-    return &(alarmFilterStrings.EntityData)
-}
-
-// Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
-// Match string to filter alarms
-type Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Filter String. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    FilterString interface{}
-}
-
-func (alarmFilterString *Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString) GetEntityData() *types.CommonEntityData {
-    alarmFilterString.EntityData.YFilter = alarmFilterString.YFilter
-    alarmFilterString.EntityData.YangName = "alarm-filter-string"
-    alarmFilterString.EntityData.BundleName = "cisco_ios_xr"
-    alarmFilterString.EntityData.ParentYangName = "alarm-filter-strings"
-    alarmFilterString.EntityData.SegmentPath = "alarm-filter-string" + types.AddKeyToken(alarmFilterString.FilterString, "filter-string")
-    alarmFilterString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    alarmFilterString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    alarmFilterString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    alarmFilterString.EntityData.Children = types.NewOrderedMap()
-    alarmFilterString.EntityData.Leafs = types.NewOrderedMap()
-    alarmFilterString.EntityData.Leafs.Append("filter-string", types.YLeaf{"FilterString", alarmFilterString.FilterString})
-
-    alarmFilterString.EntityData.YListKeys = []string {"FilterString"}
-
-    return &(alarmFilterString.EntityData)
 }
 
 // Syslog_Correlator
@@ -3923,5 +3801,127 @@ func (alarmCause *Syslog_Suppression_Rules_Rule_AlarmCauses_AlarmCause) GetEntit
     alarmCause.EntityData.YListKeys = []string {"Category", "Group", "Code"}
 
     return &(alarmCause.EntityData)
+}
+
+// Syslog_AlarmLogger
+// Alarm Logger Properties
+type Syslog_AlarmLogger struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Suppress events from a card/VM till its configuration is complete. The type
+    // is interface{}.
+    PreConfigSuppression interface{}
+
+    // Log all events with equal or higher (lower level) severity than this. The
+    // type is AlarmLoggerSeverityLevel.
+    SeverityLevel interface{}
+
+    // Timeout (in minutes) for pre-config events suppression (default 15). The
+    // type is interface{} with range: 1..60. Units are minute. The default value
+    // is 15.
+    PreConfigSuppressionTimeout interface{}
+
+    // Set size of the local event buffer. The type is interface{} with range:
+    // 1024..1024000.
+    BufferSize interface{}
+
+    // Enable alarm source location in message text. The type is interface{}.
+    SourceLocation interface{}
+
+    // Configure threshold (%) for capacity alarm. The type is interface{} with
+    // range: 10..100. The default value is 90.
+    Threshold interface{}
+
+    // List of filter strings.
+    AlarmFilterStrings Syslog_AlarmLogger_AlarmFilterStrings
+}
+
+func (alarmLogger *Syslog_AlarmLogger) GetEntityData() *types.CommonEntityData {
+    alarmLogger.EntityData.YFilter = alarmLogger.YFilter
+    alarmLogger.EntityData.YangName = "alarm-logger"
+    alarmLogger.EntityData.BundleName = "cisco_ios_xr"
+    alarmLogger.EntityData.ParentYangName = "syslog"
+    alarmLogger.EntityData.SegmentPath = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
+    alarmLogger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmLogger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmLogger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmLogger.EntityData.Children = types.NewOrderedMap()
+    alarmLogger.EntityData.Children.Append("alarm-filter-strings", types.YChild{"AlarmFilterStrings", &alarmLogger.AlarmFilterStrings})
+    alarmLogger.EntityData.Leafs = types.NewOrderedMap()
+    alarmLogger.EntityData.Leafs.Append("pre-config-suppression", types.YLeaf{"PreConfigSuppression", alarmLogger.PreConfigSuppression})
+    alarmLogger.EntityData.Leafs.Append("severity-level", types.YLeaf{"SeverityLevel", alarmLogger.SeverityLevel})
+    alarmLogger.EntityData.Leafs.Append("pre-config-suppression-timeout", types.YLeaf{"PreConfigSuppressionTimeout", alarmLogger.PreConfigSuppressionTimeout})
+    alarmLogger.EntityData.Leafs.Append("buffer-size", types.YLeaf{"BufferSize", alarmLogger.BufferSize})
+    alarmLogger.EntityData.Leafs.Append("source-location", types.YLeaf{"SourceLocation", alarmLogger.SourceLocation})
+    alarmLogger.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", alarmLogger.Threshold})
+
+    alarmLogger.EntityData.YListKeys = []string {}
+
+    return &(alarmLogger.EntityData)
+}
+
+// Syslog_AlarmLogger_AlarmFilterStrings
+// List of filter strings
+type Syslog_AlarmLogger_AlarmFilterStrings struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match string to filter alarms. The type is slice of
+    // Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString.
+    AlarmFilterString []*Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
+}
+
+func (alarmFilterStrings *Syslog_AlarmLogger_AlarmFilterStrings) GetEntityData() *types.CommonEntityData {
+    alarmFilterStrings.EntityData.YFilter = alarmFilterStrings.YFilter
+    alarmFilterStrings.EntityData.YangName = "alarm-filter-strings"
+    alarmFilterStrings.EntityData.BundleName = "cisco_ios_xr"
+    alarmFilterStrings.EntityData.ParentYangName = "alarm-logger"
+    alarmFilterStrings.EntityData.SegmentPath = "alarm-filter-strings"
+    alarmFilterStrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmFilterStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmFilterStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmFilterStrings.EntityData.Children = types.NewOrderedMap()
+    alarmFilterStrings.EntityData.Children.Append("alarm-filter-string", types.YChild{"AlarmFilterString", nil})
+    for i := range alarmFilterStrings.AlarmFilterString {
+        alarmFilterStrings.EntityData.Children.Append(types.GetSegmentPath(alarmFilterStrings.AlarmFilterString[i]), types.YChild{"AlarmFilterString", alarmFilterStrings.AlarmFilterString[i]})
+    }
+    alarmFilterStrings.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmFilterStrings.EntityData.YListKeys = []string {}
+
+    return &(alarmFilterStrings.EntityData)
+}
+
+// Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString
+// Match string to filter alarms
+type Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Filter String. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    FilterString interface{}
+}
+
+func (alarmFilterString *Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString) GetEntityData() *types.CommonEntityData {
+    alarmFilterString.EntityData.YFilter = alarmFilterString.YFilter
+    alarmFilterString.EntityData.YangName = "alarm-filter-string"
+    alarmFilterString.EntityData.BundleName = "cisco_ios_xr"
+    alarmFilterString.EntityData.ParentYangName = "alarm-filter-strings"
+    alarmFilterString.EntityData.SegmentPath = "alarm-filter-string" + types.AddKeyToken(alarmFilterString.FilterString, "filter-string")
+    alarmFilterString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmFilterString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmFilterString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmFilterString.EntityData.Children = types.NewOrderedMap()
+    alarmFilterString.EntityData.Leafs = types.NewOrderedMap()
+    alarmFilterString.EntityData.Leafs.Append("filter-string", types.YLeaf{"FilterString", alarmFilterString.FilterString})
+
+    alarmFilterString.EntityData.YListKeys = []string {"FilterString"}
+
+    return &(alarmFilterString.EntityData)
 }
 

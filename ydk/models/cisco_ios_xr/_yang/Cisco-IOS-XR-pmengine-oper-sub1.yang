@@ -3,6 +3,10 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     prefix Cisco-IOS-XR-pmengine-oper;
   }
 
+  import Cisco-IOS-XR-types {
+    prefix xr;
+  }
+
   organization
     "Cisco Systems, Inc.";
   contact
@@ -19,9 +23,13 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR pmengine package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-07 {
+    description
+      "Fixed type translation error.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -146,6 +154,83 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       "PM PRBS Pattern Mode Enum";
   }
 
+  grouping PM-PCS-PARAMETER {
+    description
+      "pm pcs parameter";
+    leaf name {
+      type string {
+        length "0..30";
+      }
+      description
+        "pcs param name";
+    }
+    leaf data {
+      type uint64;
+      description
+        "the threshold users set";
+    }
+    leaf threshold {
+      type uint64;
+      description
+        "the threshold users set";
+    }
+    leaf tca-report {
+      type boolean;
+      description
+        "enable/disable to report TCA";
+    }
+  }
+
+  grouping PM-PCS-PARAS {
+    description
+      "all paras in pcs";
+    leaf index {
+      type uint32;
+      description
+        "index";
+    }
+    leaf valid {
+      type boolean;
+      description
+        "valid";
+    }
+    leaf timestamp {
+      type string;
+      description
+        "timestamp";
+    }
+    leaf last-clear-time {
+      type string;
+      description
+        "last clear time";
+    }
+    leaf last-clear15-min-time {
+      type string;
+      description
+        "last clear time";
+    }
+    leaf last-clear30-sec-time {
+      type string;
+      description
+        "last clear time";
+    }
+    leaf last-clear24-hr-time {
+      type string;
+      description
+        "last clear time";
+    }
+    list bip {
+      description
+        "Bip ";
+      uses PM-PCS-PARAMETER;
+    }
+    list frm-err {
+      description
+        "Frm Err";
+      uses PM-PCS-PARAMETER;
+    }
+  }
+
   grouping PM-OPTICS-PARAMETER-STRING {
     description
       "one parameter in optics";
@@ -153,41 +238,61 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type boolean;
       description
         "valid";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum {
       type string;
       description
         "minimum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf average {
       type string;
       description
         "average";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum {
       type string;
       description
         "maximum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-threshold {
       type string;
       description
         "minimun threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
+    }
+    leaf configured-min-thresh {
+      type string;
+      description
+        "minimunthreshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA on min";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-threshold {
       type string;
       description
         "maximum threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
+    }
+    leaf configured-max-thresh {
+      type string;
+      description
+        "maximumthreshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA on max";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
   }
 
@@ -198,41 +303,61 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type boolean;
       description
         "valid";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum {
       type int32;
       description
         "minimum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf average {
       type int32;
       description
         "average";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum {
       type int32;
       description
         "maximum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-threshold {
       type int32;
       description
         "minimun threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
+    }
+    leaf configured-min-thresh {
+      type string;
+      description
+        "minimunthreshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA on min";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-threshold {
       type int32;
       description
         "maximum threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
+    }
+    leaf configured-max-thresh {
+      type string;
+      description
+        "maximumthreshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA on max";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
   }
 
@@ -309,6 +434,16 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
         "low freq sig off";
       uses PM-OPTICS-PARAMETER;
     }
+    container ampli-gain {
+      description
+        "Ampli Gain";
+      uses PM-OPTICS-PARAMETER-STRING;
+    }
+    container ampli-gain-tilt {
+      description
+        "Ampli Gain Tilt";
+      uses PM-OPTICS-PARAMETER-STRING;
+    }
     leaf index {
       type uint32;
       description
@@ -323,6 +458,7 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type string;
       description
         "timestamp";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf last-clear-time {
       type string;
@@ -914,41 +1050,49 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type string;
       description
         "minimum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf average {
       type string;
       description
         "average";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum {
       type string;
       description
         "maximum";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-threshold {
       type string;
       description
         "minimun threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf minimum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA on min";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-threshold {
       type string;
       description
         "maximum threshold";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf maximum-tca-report {
       type boolean;
       description
         "enable/disable to report TCA";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf valid {
       type boolean;
       description
         "valid";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
   }
 
@@ -959,21 +1103,25 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type uint64;
       description
         "the number in the interval";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf threshold {
       type uint64;
       description
         "the threshold users set";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf tca-report {
       type boolean;
       description
         "enable/disable to report TCA";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf valid {
       type boolean;
       description
         "valid";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
   }
 
@@ -1024,6 +1172,7 @@ submodule Cisco-IOS-XR-pmengine-oper-sub1 {
       type string;
       description
         "timestamp";
+      xr:event-telemetry "Subscribe Telemetry Event";
     }
     leaf last-clear-time {
       type string;

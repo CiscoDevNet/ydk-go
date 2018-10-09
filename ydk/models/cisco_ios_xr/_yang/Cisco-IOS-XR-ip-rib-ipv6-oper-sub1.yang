@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-rib-ipv6 package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -477,6 +477,16 @@ submodule Cisco-IOS-XR-ip-rib-ipv6-oper-sub1 {
         type xr:Interface-name;
         description
           "Subscriber Parent Interface for this path";
+      }
+      leaf interface-index-present {
+        type boolean;
+        description
+          "Interface Index present";
+      }
+      leaf interface-index-attribute {
+        type uint32;
+        description
+          "Interface Index attribute";
       }
       list remote-backup-addr {
         max-elements "2";

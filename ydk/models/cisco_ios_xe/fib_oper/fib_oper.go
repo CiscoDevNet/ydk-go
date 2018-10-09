@@ -86,7 +86,7 @@ const (
 // FibOperData
 // This module contains a collection of YANG definitions for
 // monitoring the operation of IOS-XE CEF.
-// Copyright (c) 2016-2017 by Cisco Systems, Inc.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
 // All rights reserved.
 type FibOperData struct {
     EntityData types.CommonEntityData
@@ -242,8 +242,8 @@ type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. IP Address. The type is one of the following
-    // types: string with pattern:
+    // This attribute is a key. Nexthop IP Address. The type is one of the
+    // following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -274,6 +274,13 @@ type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
 
     // Decap Header Type. The type is EncapsulationHeaderType.
     Decap interface{}
+
+    // Resolved Nexthop IP Address. The type is one of the following types: string
+    // with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    ResolvedNhAddr interface{}
 }
 
 func (fibNexthopEntries *FibOperData_FibNiEntry_FibEntries_FibNexthopEntries) GetEntityData() *types.CommonEntityData {
@@ -297,6 +304,7 @@ func (fibNexthopEntries *FibOperData_FibNiEntry_FibEntries_FibNexthopEntries) Ge
     fibNexthopEntries.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", fibNexthopEntries.Weight})
     fibNexthopEntries.EntityData.Leafs.Append("encap", types.YLeaf{"Encap", fibNexthopEntries.Encap})
     fibNexthopEntries.EntityData.Leafs.Append("decap", types.YLeaf{"Decap", fibNexthopEntries.Decap})
+    fibNexthopEntries.EntityData.Leafs.Append("resolved-nh-addr", types.YLeaf{"ResolvedNhAddr", fibNexthopEntries.ResolvedNhAddr})
 
     fibNexthopEntries.EntityData.YListKeys = []string {"NhAddr"}
 

@@ -1,15 +1,9 @@
-// This module contains definitions
-// for the Calvados model objects.
-// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // The System Admin Manager (CM)
 // 
 // Copyright(c) 2010-2017 by Cisco Systems, Inc.
-// All rights reserved.
-// 
-// Copyright (c) 2012-2017 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_cm
 
@@ -132,7 +126,7 @@ type NodeInventory_Summary_NodeLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NodeLocation interface{}
 
     // The type is slice of NodeInventory_Summary_NodeLocations_Nodei.
@@ -251,7 +245,7 @@ type NodeInventory_Detail_NodeLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NodeLocation interface{}
 
     // The type is slice of NodeInventory_Detail_NodeLocations_Nodei.
@@ -382,7 +376,7 @@ type CardInventory_CardLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     CardLocation interface{}
 
     // The type is slice of CardInventory_CardLocations_Cardi.
@@ -502,7 +496,7 @@ type RackInventory_RackLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     RackLocation interface{}
 
     // The type is slice of RackInventory_RackLocations_Racki.
@@ -606,7 +600,7 @@ type SystemServiceInventory_SsvcLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     SsvcLocation interface{}
 
     // The type is slice of SystemServiceInventory_SsvcLocations_Ssvci.
@@ -722,7 +716,7 @@ type RackServiceInventory_RsvcLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     RsvcLocation interface{}
 
     // The type is slice of RackServiceInventory_RsvcLocations_Rsvci.
@@ -838,7 +832,7 @@ type SdrInventory_SdrLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     SdrLocation interface{}
 
     // The type is slice of SdrInventory_SdrLocations_Sdri.
@@ -947,7 +941,7 @@ type LeaderStatistics_LdrLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LdrLocation interface{}
 
     // Primary System Leader. The type is string.
@@ -1032,7 +1026,7 @@ type TopologyNeighbors_NbrLocations struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-3])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[1-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NbrLocation interface{}
 
     // The type is slice of TopologyNeighbors_NbrLocations_Nbri.

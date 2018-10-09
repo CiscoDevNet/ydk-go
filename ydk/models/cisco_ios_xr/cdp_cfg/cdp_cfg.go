@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package cdp_cfg
 
@@ -35,7 +35,7 @@ type Cdp struct {
     YFilter yfilter.YFilter
 
     // Specify the rate at which CDP packets are sent. The type is interface{}
-    // with range: 5..255. The default value is 60.
+    // with range: 5..254. The default value is 60.
     Timer interface{}
 
     // Enable CDPv1 only advertisements. The type is interface{}.

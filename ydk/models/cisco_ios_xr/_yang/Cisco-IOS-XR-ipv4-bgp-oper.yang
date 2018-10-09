@@ -35,7 +35,7 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
      for the following management objects:
        bgp: BGP operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -430,26 +430,6 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
     }
   }
 
-  grouping RPKI-REFRESH-AF-TABLE {
-    description
-      "Common node of instance-active, instance-standby";
-    container rpki-refresh-afs {
-      description
-        "RPKI Refresh Table (per AF)";
-      list rpki-refresh-af {
-        key "af-name";
-        description
-          "RPKI Refresh List";
-        leaf af-name {
-          type Bgp-rpki-edm-af;
-          description
-            "Adress family";
-        }
-        uses BGP-RPKI-REFRESH-LIST-BAG;
-      }
-    }
-  }
-
   grouping INFORMATION {
     description
       "Common node of default-vrf, vrf";
@@ -766,6 +746,15 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
         key "af-name";
         description
           "A particular address family";
+        container rpki-refresh-af-table {
+          description
+            "RPKI Refresh Table (per AF)";
+          container rpki-refresh-af {
+            description
+              "RPKI Refresh List";
+            uses BGP-RPKI-REFRESH-LIST-BAG;
+          }
+        }
         container policies {
           description
             "The BGP Policy Table";
@@ -1230,6 +1219,11 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
               description
                 "Source Route Distinguisher value";
             }
+            leaf orig-source-rd {
+              type Bgp-route-distinguisher;
+              description
+                "Original Source Route Distinguisher value";
+            }
             leaf path-id {
               type uint32;
               description
@@ -1403,7 +1397,6 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
             }
           }
           uses UPDATE-GENERATION-PROCESS;
-          uses RPKI-REFRESH-AF-TABLE;
           uses VRF-TABLE;
           uses DEFAULT-VRF;
           uses UPDATE-INBOUND-FILTER-PROCESS;
@@ -1419,7 +1412,6 @@ module Cisco-IOS-XR-ipv4-bgp-oper {
           description
             "Standby BGP operational data";
           uses UPDATE-GENERATION-PROCESS;
-          uses RPKI-REFRESH-AF-TABLE;
           uses VRF-TABLE;
           uses DEFAULT-VRF;
           uses UPDATE-INBOUND-FILTER-PROCESS;

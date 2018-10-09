@@ -28,7 +28,7 @@ module Cisco-IOS-XR-sysadmin-show-trace-cm {
      Copyright(c) 2013-2017 by Cisco Systems, Inc.
      All rights reserved.
      
-     Copyright (c) 2012-2017 by Cisco Systems, Inc.
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-04-12 {

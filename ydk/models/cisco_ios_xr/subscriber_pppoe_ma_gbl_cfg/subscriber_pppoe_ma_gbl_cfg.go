@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package subscriber_pppoe_ma_gbl_cfg
 
@@ -1331,13 +1331,11 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay struct {
     Default interface{}
 
     // Configure PADO delay dependent on the received Circuit ID. The type is
-    // interface{} with range: 0..10000. This attribute is mandatory. Units are
-    // millisecond.
+    // interface{} with range: 0..10000. Units are millisecond.
     CircuitId interface{}
 
     // Configure PADO delay dependent on the received Remote ID. The type is
-    // interface{} with range: 0..10000. This attribute is mandatory. Units are
-    // millisecond.
+    // interface{} with range: 0..10000. Units are millisecond.
     RemoteId interface{}
 
     // Delay the PADO response when the received Remote ID contains the given

@@ -5,7 +5,7 @@
 // for the following management objects:
 //   grpc: grpc commands
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package man_ems_oper
 
@@ -216,6 +216,14 @@ type Grpc_Status struct {
 
     // MaxReqTotal. The type is interface{} with range: 0..4294967295.
     MaxReqTotal interface{}
+
+    // Maximum number of streaming gRPCs. The type is interface{} with range:
+    // 0..4294967295.
+    MaxStreams interface{}
+
+    // Maximum number of streaming gRPCs per user. The type is interface{} with
+    // range: 0..4294967295.
+    MaxStreamsPerUser interface{}
 }
 
 func (status *Grpc_Status) GetEntityData() *types.CommonEntityData {
@@ -238,6 +246,8 @@ func (status *Grpc_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.Leafs.Append("vrf-socket-ns-path", types.YLeaf{"VrfSocketNsPath", status.VrfSocketNsPath})
     status.EntityData.Leafs.Append("max-req-per-user", types.YLeaf{"MaxReqPerUser", status.MaxReqPerUser})
     status.EntityData.Leafs.Append("max-req-total", types.YLeaf{"MaxReqTotal", status.MaxReqTotal})
+    status.EntityData.Leafs.Append("max-streams", types.YLeaf{"MaxStreams", status.MaxStreams})
+    status.EntityData.Leafs.Append("max-streams-per-user", types.YLeaf{"MaxStreamsPerUser", status.MaxStreamsPerUser})
 
     status.EntityData.YListKeys = []string {}
 

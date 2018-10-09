@@ -39,9 +39,21 @@ module Cisco-IOS-XR-clns-isis-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-06-14 {
+    description
+      "Added FRR InitialDelay under address-family fast-reroute submode.";
+  }
+  revision 2018-04-20 {
+    description
+      "Added metric-type under flex-algo submode.";
+  }
+  revision 2018-01-24 {
+    description
+      "Added SRLG TILFA related CLIs.";
+  }
   revision 2017-12-15 {
     description
       "Change metric-style to include transition modes.";
@@ -98,6 +110,23 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isis adv type inter level";
+  }
+
+  typedef Isis-enable-poi {
+    type enumeration {
+      enum "enable-poi-off" {
+        value 0;
+        description
+          "Disable purge originator";
+      }
+      enum "enable-poi-on" {
+        value 1;
+        description
+          "Enable purge originator";
+      }
+    }
+    description
+      "Isis enable poi";
   }
 
   typedef Isis-interface-state {
@@ -372,6 +401,35 @@ module Cisco-IOS-XR-clns-isis-cfg {
       "Isisexplicit null flag";
   }
 
+  typedef Isis-application-attribute {
+    type enumeration {
+      enum "srlg" {
+        value 0;
+        description
+          "SRLG Attribute";
+      }
+    }
+    description
+      "Isis application attribute";
+  }
+
+  typedef Isisfrr-srlg-protection {
+    type enumeration {
+      enum "local" {
+        value 0;
+        description
+          "SRLG Attribute";
+      }
+      enum "weighted-global" {
+        value 1;
+        description
+          "SRLG Attribute";
+      }
+    }
+    description
+      "Isisfrr srlg protection";
+  }
+
   typedef Isis-redist-proto {
     type enumeration {
       enum "connected" {
@@ -510,6 +568,18 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isisispf state";
+  }
+
+  typedef Isis-application {
+    type enumeration {
+      enum "lfa" {
+        value 0;
+        description
+          "LFA Application";
+      }
+    }
+    description
+      "Isis application";
   }
 
   typedef Isissid-protected {
@@ -1528,6 +1598,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     "Prefer segment routing labels over LDP
                      labels";
                 }
+                leaf srv6 {
+                  type empty;
+                  description
+                    "Enable Segment Routing SRV6 configuration";
+                }
               }
               container metric-styles {
                 description
@@ -1573,30 +1648,71 @@ module Cisco-IOS-XR-clns-isis-cfg {
                     }
                   }
                 }
-                container priority-limits {
+                container frrsrlg-protection-types {
                   description
-                    "FRR prefix-limit configuration";
-                  list priority-limit {
-                    key "level frr-type";
+                    "SRLG protection type configuration";
+                  list frrsrlg-protection-type {
+                    key "level";
                     description
-                      "Limit backup computation upto the prefix
-                       priority";
+                      "FRR SRLG Protection Type";
                     leaf level {
                       type dt1:Isis-internal-level;
                       description
                         "Level to which configuration applies";
                     }
-                    leaf frr-type {
-                      type Isisfrr;
-                      description
-                        "Computation Type";
-                    }
-                    leaf priority {
-                      type Isis-prefix-priority;
+                    leaf protection-type {
+                      type Isisfrr-srlg-protection;
                       mandatory true;
                       description
-                        "Compute for all prefixes upto the
-                         specified priority";
+                        "Protection Type";
+                    }
+                  }
+                }
+                container priority-limits {
+                  description
+                    "FRR prefix-limit configuration";
+                  list priority-limit {
+                    must "priority-limit-data or frr-type" {
+                      description
+                        "priority-limit-data or frr-type must be
+                         present.";
+                    }
+                    key "level";
+                    description
+                      "Limit backup computation upto the prefix
+                       priority";
+
+                    grouping PRIORITY-LIMIT-CONTENT {
+                      description
+                        "Content grouping.";
+                      leaf priority {
+                        type Isis-prefix-priority;
+                        mandatory true;
+                        description
+                          "Compute for all prefixes upto the
+                           specified priority";
+                      }
+                    }
+                    container priority-limit-data {
+                      description
+                        "Data container.";
+                      uses PRIORITY-LIMIT-CONTENT;
+                    }
+                    leaf level {
+                      type dt1:Isis-internal-level;
+                      description
+                        "Level to which configuration applies";
+                    }
+                    list frr-type {
+                      key "frr-type";
+                      description
+                        "keys: frr-type";
+                      leaf frr-type {
+                        type Isisfrr;
+                        description
+                          "Computation Type";
+                      }
+                      uses PRIORITY-LIMIT-CONTENT;
                     }
                   }
                 }
@@ -1671,6 +1787,14 @@ module Cisco-IOS-XR-clns-isis-cfg {
                         "Computation Type";
                     }
                   }
+                }
+                leaf frr-initial-delay {
+                  type uint32 {
+                    range "100..60000";
+                  }
+                  units "millisecond";
+                  description
+                    "Delay before running FRR (milliseconds)";
                 }
               }
               container router-id {
@@ -2025,6 +2149,37 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   }
                 }
               }
+              container application-tables {
+                description
+                  "Advertise application specific values";
+                list application-table {
+                  key "app-type";
+                  description
+                    "Application Name";
+                  leaf app-type {
+                    type Isis-application;
+                    description
+                      "Application Type";
+                  }
+                  list attribute-table {
+                    key "app-type";
+                    description
+                      "Attribute Name";
+                    leaf app-type {
+                      type Isis-application-attribute;
+                      description
+                        "Application Type";
+                    }
+                    leaf enable {
+                      type boolean;
+                      mandatory true;
+                      description
+                        "If TRUE, advertise application link
+                         attribute in our LSP";
+                    }
+                  }
+                }
+              }
               container spf-periodic-intervals {
                 description
                   "Peoridic SPF configuration";
@@ -2372,6 +2527,7 @@ module Cisco-IOS-XR-clns-isis-cfg {
               uses WEIGHT-TABLE;
             }
             container af-data {
+              presence "Indicates a af-data node is configured.";
               description
                 "Data container.";
               uses AF-CONTENT;
@@ -2448,6 +2604,76 @@ module Cisco-IOS-XR-clns-isis-cfg {
               "Seconds";
           }
         }
+        container flex-algos {
+          description
+            "Flex-Algo Table";
+          list flex-algo {
+            key "flex-algo";
+            description
+              "Configuration for an IS-IS Flex-Algo";
+            container affinity-exclude-anies {
+              description
+                "Set the exclude-any affinity";
+              leaf-list affinity-exclude-any {
+                type string;
+                max-elements "32";
+                description
+                  "Array of Attribute Names";
+              }
+            }
+            leaf running {
+              type empty;
+              description
+                "This object must be set before any other
+                 configuration is supplied for an interface,
+                 and must be the last per-interface
+                 configuration object to be removed.";
+            }
+            leaf metric-type {
+              type uint32;
+              description
+                "Set the Flex-Algo metric-type";
+            }
+            leaf priority {
+              type uint32 {
+                range "0..255";
+              }
+              description
+                "Set the Flex-Algo priority";
+            }
+            leaf flex-algo {
+              type uint32 {
+                range "128..255";
+              }
+              description
+                "Flex Algo";
+            }
+          }
+        }
+        container affinity-mappings {
+          description
+            "Affinity Mapping Table";
+          list affinity-mapping {
+            key "affinity-name";
+            description
+              "Affinity Mapping configuration";
+            leaf affinity-name {
+              type xr:Cisco-ios-xr-string {
+                length "1..32";
+              }
+              description
+                "Affinity Name";
+            }
+            leaf value {
+              type uint32 {
+                range "0..255";
+              }
+              mandatory true;
+              description
+                "Bit position";
+            }
+          }
+        }
         container lsp-accept-passwords {
           description
             "LSP/SNP accept password configuration";
@@ -2491,6 +2717,59 @@ module Cisco-IOS-XR-clns-isis-cfg {
               description
                 "Bytes";
             }
+          }
+        }
+        container srlg-table {
+          description
+            "SRLG configuration";
+          container srlg-names {
+            description
+              "SRLG named configuration";
+            list srlg-name {
+              key "srlg-name";
+              description
+                "Configuration for an IS-IS SRLG";
+              container from-tos {
+                description
+                  "Configure Static Remote SRLG";
+                list from-to {
+                  key "local-ipv4-address remote-ipv4-address";
+                  description
+                    "Local and remote addresses of a link";
+                  leaf local-ipv4-address {
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "Local IPv4 address";
+                  }
+                  leaf remote-ipv4-address {
+                    type inet:ipv4-address-no-zone;
+                    description
+                      "Remote IPv4 address";
+                  }
+                }
+              }
+              leaf admin-weight {
+                type uint32 {
+                  range "0..16777215";
+                }
+                description
+                  "Configure SRLG Admin Weight";
+              }
+              leaf srlg-name {
+                type xr:Cisco-ios-xr-string {
+                  length "1..64";
+                }
+                description
+                  "Srlg name";
+              }
+            }
+          }
+          leaf srlg-admin-weight-default {
+            type uint32 {
+              range "0..16777215";
+            }
+            description
+              "Configure Default SRLG Admin Weight";
           }
         }
         container nsf {
@@ -2635,6 +2914,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
               description
                 "Password or unencrypted Key Chain name";
             }
+            leaf enable-poi {
+              type Isis-enable-poi;
+              description
+                "Enable POI";
+            }
           }
         }
         container nets {
@@ -2731,6 +3015,21 @@ module Cisco-IOS-XR-clns-isis-cfg {
             key "interface-name";
             description
               "Configuration for an IS-IS interface";
+            container int-affinity-table {
+              description
+                "Interface Affinity Table";
+              container flex-algos {
+                description
+                  "Set the interface affinities used by
+                   Flex-Algo";
+                leaf-list flex-algo {
+                  type string;
+                  max-elements "32";
+                  description
+                    "Array of Attribute Names";
+                }
+              }
+            }
             container lsp-retransmit-throttle-intervals {
               description
                 "LSP-retransmission-throttle-interval
@@ -3293,6 +3592,57 @@ module Cisco-IOS-XR-clns-isis-cfg {
                       mandatory true;
                       description
                         "Clear N-flag for the prefix-SID";
+                    }
+                  }
+                  container algorithm-prefix-sids {
+                    description
+                      "Algorithm SID Table";
+                    list algorithm-prefix-sid {
+                      key "algo";
+                      description
+                        "Assign prefix SID for algorithm to an
+                         interface, ISISPHPFlag will be rejected
+                         if set to disable, ISISEXPLICITNULLFlag
+                         will override the value of ISISPHPFlag";
+                      leaf algo {
+                        type uint32 {
+                          range "128..255";
+                        }
+                        description
+                          "Algorithm";
+                      }
+                      leaf type {
+                        type Isissid1;
+                        mandatory true;
+                        description
+                          "SID type for the interface";
+                      }
+                      leaf value {
+                        type uint32 {
+                          range "0..1048575";
+                        }
+                        mandatory true;
+                        description
+                          "SID value for the interface";
+                      }
+                      leaf php {
+                        type Isisphp-flag;
+                        mandatory true;
+                        description
+                          "Enable/Disable Penultimate Hop Popping";
+                      }
+                      leaf explicit-null {
+                        type Isisexplicit-null-flag;
+                        mandatory true;
+                        description
+                          "Enable/Disable Explicit-NULL flag";
+                      }
+                      leaf nflag-clear {
+                        type Nflag-clear;
+                        mandatory true;
+                        description
+                          "Clear N-flag for the prefix-SID";
+                      }
                     }
                   }
                   container auto-metrics {

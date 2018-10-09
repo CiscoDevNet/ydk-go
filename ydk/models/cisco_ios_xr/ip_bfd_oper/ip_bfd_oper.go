@@ -5,7 +5,7 @@
 // for the following management objects:
 //   bfd: Bidirectional Forwarding Detection(BFD) operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_bfd_oper
 
@@ -181,7 +181,7 @@ type Bfd struct {
     // IPv6 single hop Counters.
     Ipv6SingleHopCounters Bfd_Ipv6SingleHopCounters
 
-    // Counters.
+    // IPv4 Counters.
     Counters Bfd_Counters
 
     // Table of detailed information about BFD clients.
@@ -465,7 +465,7 @@ type Bfd_LabelSessionBriefs_LabelSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
@@ -781,9 +781,12 @@ type Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Location. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
     // 0..4294967295.
@@ -810,7 +813,7 @@ func (ipv6SingleHopPacketCounter *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketC
     ipv6SingleHopPacketCounter.EntityData.YangName = "ipv6-single-hop-packet-counter"
     ipv6SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopPacketCounter.EntityData.ParentYangName = "ipv6-single-hop-packet-counters"
-    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter" + types.AddKeyToken(ipv6SingleHopPacketCounter.InterfaceName, "interface-name")
+    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter"
     ipv6SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -818,24 +821,25 @@ func (ipv6SingleHopPacketCounter *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketC
     ipv6SingleHopPacketCounter.EntityData.Children = types.NewOrderedMap()
     ipv6SingleHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv6SingleHopPacketCounter.InterfaceName})
+    ipv6SingleHopPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv6SingleHopPacketCounter.Location})
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv6SingleHopPacketCounter.HelloTransmitCount})
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv6SingleHopPacketCounter.HelloReceiveCount})
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv6SingleHopPacketCounter.EchoTransmitCount})
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv6SingleHopPacketCounter.EchoReceiveCount})
     ipv6SingleHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv6SingleHopPacketCounter.DisplayType})
 
-    ipv6SingleHopPacketCounter.EntityData.YListKeys = []string {"InterfaceName"}
+    ipv6SingleHopPacketCounter.EntityData.YListKeys = []string {}
 
     return &(ipv6SingleHopPacketCounter.EntityData)
 }
 
 // Bfd_Counters
-// Counters
+// IPv4 Counters
 type Bfd_Counters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Table of Packet counters.
+    // Table of IPv4 Packet counters.
     PacketCounters Bfd_Counters_PacketCounters
 }
 
@@ -859,12 +863,12 @@ func (counters *Bfd_Counters) GetEntityData() *types.CommonEntityData {
 }
 
 // Bfd_Counters_PacketCounters
-// Table of Packet counters
+// Table of IPv4 Packet counters
 type Bfd_Counters_PacketCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Packet counters. The type is slice of
+    // Interface IPv4 Packet counters. The type is slice of
     // Bfd_Counters_PacketCounters_PacketCounter.
     PacketCounter []*Bfd_Counters_PacketCounters_PacketCounter
 }
@@ -892,14 +896,17 @@ func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.Common
 }
 
 // Bfd_Counters_PacketCounters_PacketCounter
-// Interface Packet counters
+// Interface IPv4 Packet counters
 type Bfd_Counters_PacketCounters_PacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Location. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
     // 0..4294967295.
@@ -926,7 +933,7 @@ func (packetCounter *Bfd_Counters_PacketCounters_PacketCounter) GetEntityData() 
     packetCounter.EntityData.YangName = "packet-counter"
     packetCounter.EntityData.BundleName = "cisco_ios_xr"
     packetCounter.EntityData.ParentYangName = "packet-counters"
-    packetCounter.EntityData.SegmentPath = "packet-counter" + types.AddKeyToken(packetCounter.InterfaceName, "interface-name")
+    packetCounter.EntityData.SegmentPath = "packet-counter"
     packetCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -934,13 +941,14 @@ func (packetCounter *Bfd_Counters_PacketCounters_PacketCounter) GetEntityData() 
     packetCounter.EntityData.Children = types.NewOrderedMap()
     packetCounter.EntityData.Leafs = types.NewOrderedMap()
     packetCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", packetCounter.InterfaceName})
+    packetCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", packetCounter.Location})
     packetCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", packetCounter.HelloTransmitCount})
     packetCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", packetCounter.HelloReceiveCount})
     packetCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", packetCounter.EchoTransmitCount})
     packetCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", packetCounter.EchoReceiveCount})
     packetCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", packetCounter.DisplayType})
 
-    packetCounter.EntityData.YListKeys = []string {"InterfaceName"}
+    packetCounter.EntityData.YListKeys = []string {}
 
     return &(packetCounter.EntityData)
 }
@@ -1284,7 +1292,7 @@ type Bfd_LabelMultiPaths_LabelMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
@@ -1311,7 +1319,7 @@ type Bfd_LabelMultiPaths_LabelMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -2661,7 +2669,7 @@ type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
@@ -4253,7 +4261,7 @@ type Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination address. The type is one of the following types: string with
@@ -4284,7 +4292,7 @@ type Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -4556,7 +4564,7 @@ type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -6740,9 +6748,12 @@ type Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
+
+    // Location. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Location interface{}
 
     // Number of Hellos transmitted. The type is interface{} with range:
     // 0..4294967295.
@@ -6769,7 +6780,7 @@ func (ipv4SingleHopPacketCounter *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketC
     ipv4SingleHopPacketCounter.EntityData.YangName = "ipv4-single-hop-packet-counter"
     ipv4SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopPacketCounter.EntityData.ParentYangName = "ipv4-single-hop-packet-counters"
-    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter" + types.AddKeyToken(ipv4SingleHopPacketCounter.InterfaceName, "interface-name")
+    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter"
     ipv4SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6777,13 +6788,14 @@ func (ipv4SingleHopPacketCounter *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketC
     ipv4SingleHopPacketCounter.EntityData.Children = types.NewOrderedMap()
     ipv4SingleHopPacketCounter.EntityData.Leafs = types.NewOrderedMap()
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ipv4SingleHopPacketCounter.InterfaceName})
+    ipv4SingleHopPacketCounter.EntityData.Leafs.Append("location", types.YLeaf{"Location", ipv4SingleHopPacketCounter.Location})
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("hello-transmit-count", types.YLeaf{"HelloTransmitCount", ipv4SingleHopPacketCounter.HelloTransmitCount})
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("hello-receive-count", types.YLeaf{"HelloReceiveCount", ipv4SingleHopPacketCounter.HelloReceiveCount})
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("echo-transmit-count", types.YLeaf{"EchoTransmitCount", ipv4SingleHopPacketCounter.EchoTransmitCount})
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("echo-receive-count", types.YLeaf{"EchoReceiveCount", ipv4SingleHopPacketCounter.EchoReceiveCount})
     ipv4SingleHopPacketCounter.EntityData.Leafs.Append("display-type", types.YLeaf{"DisplayType", ipv4SingleHopPacketCounter.DisplayType})
 
-    ipv4SingleHopPacketCounter.EntityData.YListKeys = []string {"InterfaceName"}
+    ipv4SingleHopPacketCounter.EntityData.YListKeys = []string {}
 
     return &(ipv4SingleHopPacketCounter.EntityData)
 }
@@ -8143,7 +8155,7 @@ type Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -8244,7 +8256,7 @@ type Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMpl
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Location. The type is string with pattern:
@@ -8987,7 +8999,7 @@ type Bfd_SessionBriefs_SessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
@@ -9772,7 +9784,7 @@ type Bfd_LabelSessionDetails_LabelSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Incoming Label. The type is interface{} with range: 0..4294967295.
@@ -11038,7 +11050,7 @@ type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
@@ -12444,7 +12456,7 @@ type Bfd_SessionDetails_SessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
@@ -13709,7 +13721,7 @@ type Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
@@ -13737,7 +13749,7 @@ type Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -13809,7 +13821,7 @@ type Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is string with pattern:
@@ -14312,7 +14324,7 @@ type Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Location. The type is string with pattern:
@@ -14406,7 +14418,7 @@ type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -15720,7 +15732,7 @@ type Bfd_RelationBriefs_RelationBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
@@ -15912,7 +15924,7 @@ type Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -15976,7 +15988,7 @@ type Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -16059,7 +16071,7 @@ type Bfd_RelationDetails_RelationDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
@@ -16505,7 +16517,7 @@ type Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Destination Address. The type is one of the following types: string with
@@ -16782,7 +16794,7 @@ type Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 
@@ -16900,7 +16912,7 @@ type Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath struct {
     // Incoming Label. The type is interface{} with range: 0..4294967295.
     IncomingLabelXr interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SessionInterfaceName interface{}
 }
 

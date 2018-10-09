@@ -5,7 +5,7 @@
 // for the following management objects:
 //   dot1x: Dot1x operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package dot1x_oper
 
@@ -130,7 +130,7 @@ type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -147,6 +147,9 @@ type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic struct {
 
     // Dot1x Supplicant Port Statistics.
     Supp Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
+
+    // Dot1x Local EAP Port Statistics.
+    LocalEap Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_LocalEap
 }
 
 func (interfaceStatistic *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic) GetEntityData() *types.CommonEntityData {
@@ -163,6 +166,7 @@ func (interfaceStatistic *Dot1x_Statistics_InterfaceStatistics_InterfaceStatisti
     interfaceStatistic.EntityData.Children.Append("idb", types.YChild{"Idb", &interfaceStatistic.Idb})
     interfaceStatistic.EntityData.Children.Append("auth", types.YChild{"Auth", &interfaceStatistic.Auth})
     interfaceStatistic.EntityData.Children.Append("supp", types.YChild{"Supp", &interfaceStatistic.Supp})
+    interfaceStatistic.EntityData.Children.Append("local-eap", types.YChild{"LocalEap", &interfaceStatistic.LocalEap})
     interfaceStatistic.EntityData.Leafs = types.NewOrderedMap()
     interfaceStatistic.EntityData.Leafs.Append("name", types.YLeaf{"Name", interfaceStatistic.Name})
     interfaceStatistic.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceStatistic.InterfaceName})
@@ -248,6 +252,12 @@ type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth struct {
 
     // TxTotal. The type is interface{} with range: 0..4294967295.
     TxTotal interface{}
+
+    // PacketDrop. The type is interface{} with range: 0..4294967295.
+    PacketDropNoConfigReceived interface{}
+
+    // PortControl.
+    PortControl Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth_PortControl
 }
 
 func (auth *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEntityData() *types.CommonEntityData {
@@ -261,6 +271,7 @@ func (auth *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEnt
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     auth.EntityData.Children = types.NewOrderedMap()
+    auth.EntityData.Children.Append("port-control", types.YChild{"PortControl", &auth.PortControl})
     auth.EntityData.Leafs = types.NewOrderedMap()
     auth.EntityData.Leafs.Append("rx-start", types.YLeaf{"RxStart", auth.RxStart})
     auth.EntityData.Leafs.Append("rx-logoff", types.YLeaf{"RxLogoff", auth.RxLogoff})
@@ -273,10 +284,60 @@ func (auth *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEnt
     auth.EntityData.Leafs.Append("tx-req", types.YLeaf{"TxReq", auth.TxReq})
     auth.EntityData.Leafs.Append("tx-reqid", types.YLeaf{"TxReqid", auth.TxReqid})
     auth.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", auth.TxTotal})
+    auth.EntityData.Leafs.Append("packet-drop-no-config-received", types.YLeaf{"PacketDropNoConfigReceived", auth.PacketDropNoConfigReceived})
 
     auth.EntityData.YListKeys = []string {}
 
     return &(auth.EntityData)
+}
+
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth_PortControl
+// PortControl
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth_PortControl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EnableSucc. The type is interface{} with range: 0..4294967295.
+    EnableSucc interface{}
+
+    // EnableFail. The type is interface{} with range: 0..4294967295.
+    EnableFail interface{}
+
+    // AddClientSucc. The type is interface{} with range: 0..4294967295.
+    AddClientSucc interface{}
+
+    // AddClientFail. The type is interface{} with range: 0..4294967295.
+    AddClientFail interface{}
+
+    // RemoveClientSucc. The type is interface{} with range: 0..4294967295.
+    RemoveClientSucc interface{}
+
+    // RemoveClientFail. The type is interface{} with range: 0..4294967295.
+    RemoveClientFail interface{}
+}
+
+func (portControl *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth_PortControl) GetEntityData() *types.CommonEntityData {
+    portControl.EntityData.YFilter = portControl.YFilter
+    portControl.EntityData.YangName = "port-control"
+    portControl.EntityData.BundleName = "cisco_ios_xr"
+    portControl.EntityData.ParentYangName = "auth"
+    portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portControl.EntityData.Children = types.NewOrderedMap()
+    portControl.EntityData.Leafs = types.NewOrderedMap()
+    portControl.EntityData.Leafs.Append("enable-succ", types.YLeaf{"EnableSucc", portControl.EnableSucc})
+    portControl.EntityData.Leafs.Append("enable-fail", types.YLeaf{"EnableFail", portControl.EnableFail})
+    portControl.EntityData.Leafs.Append("add-client-succ", types.YLeaf{"AddClientSucc", portControl.AddClientSucc})
+    portControl.EntityData.Leafs.Append("add-client-fail", types.YLeaf{"AddClientFail", portControl.AddClientFail})
+    portControl.EntityData.Leafs.Append("remove-client-succ", types.YLeaf{"RemoveClientSucc", portControl.RemoveClientSucc})
+    portControl.EntityData.Leafs.Append("remove-client-fail", types.YLeaf{"RemoveClientFail", portControl.RemoveClientFail})
+
+    portControl.EntityData.YListKeys = []string {}
+
+    return &(portControl.EntityData)
 }
 
 // Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp
@@ -338,6 +399,59 @@ func (supp *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp) GetEnt
     supp.EntityData.YListKeys = []string {}
 
     return &(supp.EntityData)
+}
+
+// Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_LocalEap
+// Dot1x Local EAP Port Statistics
+type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_LocalEap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Requests. The type is interface{} with range: 0..4294967295.
+    Requests interface{}
+
+    // Replies. The type is interface{} with range: 0..4294967295.
+    Replies interface{}
+
+    // Timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // DroppedNoEAP. The type is interface{} with range: 0..4294967295.
+    DroppedNoEap interface{}
+
+    // Dropped. The type is interface{} with range: 0..4294967295.
+    Dropped interface{}
+
+    // Success. The type is interface{} with range: 0..4294967295.
+    Success interface{}
+
+    // Failed. The type is interface{} with range: 0..4294967295.
+    Failed interface{}
+}
+
+func (localEap *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_LocalEap) GetEntityData() *types.CommonEntityData {
+    localEap.EntityData.YFilter = localEap.YFilter
+    localEap.EntityData.YangName = "local-eap"
+    localEap.EntityData.BundleName = "cisco_ios_xr"
+    localEap.EntityData.ParentYangName = "interface-statistic"
+    localEap.EntityData.SegmentPath = "local-eap"
+    localEap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localEap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localEap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localEap.EntityData.Children = types.NewOrderedMap()
+    localEap.EntityData.Leafs = types.NewOrderedMap()
+    localEap.EntityData.Leafs.Append("requests", types.YLeaf{"Requests", localEap.Requests})
+    localEap.EntityData.Leafs.Append("replies", types.YLeaf{"Replies", localEap.Replies})
+    localEap.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", localEap.Timeout})
+    localEap.EntityData.Leafs.Append("dropped-no-eap", types.YLeaf{"DroppedNoEap", localEap.DroppedNoEap})
+    localEap.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", localEap.Dropped})
+    localEap.EntityData.Leafs.Append("success", types.YLeaf{"Success", localEap.Success})
+    localEap.EntityData.Leafs.Append("failed", types.YLeaf{"Failed", localEap.Failed})
+
+    localEap.EntityData.YListKeys = []string {}
+
+    return &(localEap.EntityData)
 }
 
 // Dot1x_Nodes
@@ -609,6 +723,12 @@ type Dot1x_Nodes_Node_Statistics_GlStats struct {
 
     // RxNoIDB. The type is interface{} with range: 0..4294967295.
     RxNoIdb interface{}
+
+    // PacketDrop. The type is interface{} with range: 0..4294967295.
+    PacketDropNoConfigReceived interface{}
+
+    // PortControl.
+    PortControl Dot1x_Nodes_Node_Statistics_GlStats_PortControl
 }
 
 func (glStats *Dot1x_Nodes_Node_Statistics_GlStats) GetEntityData() *types.CommonEntityData {
@@ -622,14 +742,73 @@ func (glStats *Dot1x_Nodes_Node_Statistics_GlStats) GetEntityData() *types.Commo
     glStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     glStats.EntityData.Children = types.NewOrderedMap()
+    glStats.EntityData.Children.Append("port-control", types.YChild{"PortControl", &glStats.PortControl})
     glStats.EntityData.Leafs = types.NewOrderedMap()
     glStats.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", glStats.TxTotal})
     glStats.EntityData.Leafs.Append("rx-total", types.YLeaf{"RxTotal", glStats.RxTotal})
     glStats.EntityData.Leafs.Append("rx-no-idb", types.YLeaf{"RxNoIdb", glStats.RxNoIdb})
+    glStats.EntityData.Leafs.Append("packet-drop-no-config-received", types.YLeaf{"PacketDropNoConfigReceived", glStats.PacketDropNoConfigReceived})
 
     glStats.EntityData.YListKeys = []string {}
 
     return &(glStats.EntityData)
+}
+
+// Dot1x_Nodes_Node_Statistics_GlStats_PortControl
+// PortControl
+type Dot1x_Nodes_Node_Statistics_GlStats_PortControl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EnableSucc. The type is interface{} with range: 0..4294967295.
+    EnableSucc interface{}
+
+    // EnableFail. The type is interface{} with range: 0..4294967295.
+    EnableFail interface{}
+
+    // DisableSucc. The type is interface{} with range: 0..4294967295.
+    DisableSucc interface{}
+
+    // DisableFail. The type is interface{} with range: 0..4294967295.
+    DisableFail interface{}
+
+    // AddClientSucc. The type is interface{} with range: 0..4294967295.
+    AddClientSucc interface{}
+
+    // AddClientFail. The type is interface{} with range: 0..4294967295.
+    AddClientFail interface{}
+
+    // RemoveClientSucc. The type is interface{} with range: 0..4294967295.
+    RemoveClientSucc interface{}
+
+    // RemoveClientFail. The type is interface{} with range: 0..4294967295.
+    RemoveClientFail interface{}
+}
+
+func (portControl *Dot1x_Nodes_Node_Statistics_GlStats_PortControl) GetEntityData() *types.CommonEntityData {
+    portControl.EntityData.YFilter = portControl.YFilter
+    portControl.EntityData.YangName = "port-control"
+    portControl.EntityData.BundleName = "cisco_ios_xr"
+    portControl.EntityData.ParentYangName = "gl-stats"
+    portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portControl.EntityData.Children = types.NewOrderedMap()
+    portControl.EntityData.Leafs = types.NewOrderedMap()
+    portControl.EntityData.Leafs.Append("enable-succ", types.YLeaf{"EnableSucc", portControl.EnableSucc})
+    portControl.EntityData.Leafs.Append("enable-fail", types.YLeaf{"EnableFail", portControl.EnableFail})
+    portControl.EntityData.Leafs.Append("disable-succ", types.YLeaf{"DisableSucc", portControl.DisableSucc})
+    portControl.EntityData.Leafs.Append("disable-fail", types.YLeaf{"DisableFail", portControl.DisableFail})
+    portControl.EntityData.Leafs.Append("add-client-succ", types.YLeaf{"AddClientSucc", portControl.AddClientSucc})
+    portControl.EntityData.Leafs.Append("add-client-fail", types.YLeaf{"AddClientFail", portControl.AddClientFail})
+    portControl.EntityData.Leafs.Append("remove-client-succ", types.YLeaf{"RemoveClientSucc", portControl.RemoveClientSucc})
+    portControl.EntityData.Leafs.Append("remove-client-fail", types.YLeaf{"RemoveClientFail", portControl.RemoveClientFail})
+
+    portControl.EntityData.YListKeys = []string {}
+
+    return &(portControl.EntityData)
 }
 
 // Dot1x_Nodes_Node_Statistics_IfStats
@@ -652,6 +831,9 @@ type Dot1x_Nodes_Node_Statistics_IfStats struct {
 
     // Dot1x Supplicant Port Statistics.
     Supp Dot1x_Nodes_Node_Statistics_IfStats_Supp
+
+    // Dot1x Local EAP Port Statistics.
+    LocalEap Dot1x_Nodes_Node_Statistics_IfStats_LocalEap
 }
 
 func (ifStats *Dot1x_Nodes_Node_Statistics_IfStats) GetEntityData() *types.CommonEntityData {
@@ -668,6 +850,7 @@ func (ifStats *Dot1x_Nodes_Node_Statistics_IfStats) GetEntityData() *types.Commo
     ifStats.EntityData.Children.Append("idb", types.YChild{"Idb", &ifStats.Idb})
     ifStats.EntityData.Children.Append("auth", types.YChild{"Auth", &ifStats.Auth})
     ifStats.EntityData.Children.Append("supp", types.YChild{"Supp", &ifStats.Supp})
+    ifStats.EntityData.Children.Append("local-eap", types.YChild{"LocalEap", &ifStats.LocalEap})
     ifStats.EntityData.Leafs = types.NewOrderedMap()
     ifStats.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", ifStats.InterfaceName})
     ifStats.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", ifStats.Pae})
@@ -752,6 +935,12 @@ type Dot1x_Nodes_Node_Statistics_IfStats_Auth struct {
 
     // TxTotal. The type is interface{} with range: 0..4294967295.
     TxTotal interface{}
+
+    // PacketDrop. The type is interface{} with range: 0..4294967295.
+    PacketDropNoConfigReceived interface{}
+
+    // PortControl.
+    PortControl Dot1x_Nodes_Node_Statistics_IfStats_Auth_PortControl
 }
 
 func (auth *Dot1x_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.CommonEntityData {
@@ -765,6 +954,7 @@ func (auth *Dot1x_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.Com
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     auth.EntityData.Children = types.NewOrderedMap()
+    auth.EntityData.Children.Append("port-control", types.YChild{"PortControl", &auth.PortControl})
     auth.EntityData.Leafs = types.NewOrderedMap()
     auth.EntityData.Leafs.Append("rx-start", types.YLeaf{"RxStart", auth.RxStart})
     auth.EntityData.Leafs.Append("rx-logoff", types.YLeaf{"RxLogoff", auth.RxLogoff})
@@ -777,10 +967,60 @@ func (auth *Dot1x_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.Com
     auth.EntityData.Leafs.Append("tx-req", types.YLeaf{"TxReq", auth.TxReq})
     auth.EntityData.Leafs.Append("tx-reqid", types.YLeaf{"TxReqid", auth.TxReqid})
     auth.EntityData.Leafs.Append("tx-total", types.YLeaf{"TxTotal", auth.TxTotal})
+    auth.EntityData.Leafs.Append("packet-drop-no-config-received", types.YLeaf{"PacketDropNoConfigReceived", auth.PacketDropNoConfigReceived})
 
     auth.EntityData.YListKeys = []string {}
 
     return &(auth.EntityData)
+}
+
+// Dot1x_Nodes_Node_Statistics_IfStats_Auth_PortControl
+// PortControl
+type Dot1x_Nodes_Node_Statistics_IfStats_Auth_PortControl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // EnableSucc. The type is interface{} with range: 0..4294967295.
+    EnableSucc interface{}
+
+    // EnableFail. The type is interface{} with range: 0..4294967295.
+    EnableFail interface{}
+
+    // AddClientSucc. The type is interface{} with range: 0..4294967295.
+    AddClientSucc interface{}
+
+    // AddClientFail. The type is interface{} with range: 0..4294967295.
+    AddClientFail interface{}
+
+    // RemoveClientSucc. The type is interface{} with range: 0..4294967295.
+    RemoveClientSucc interface{}
+
+    // RemoveClientFail. The type is interface{} with range: 0..4294967295.
+    RemoveClientFail interface{}
+}
+
+func (portControl *Dot1x_Nodes_Node_Statistics_IfStats_Auth_PortControl) GetEntityData() *types.CommonEntityData {
+    portControl.EntityData.YFilter = portControl.YFilter
+    portControl.EntityData.YangName = "port-control"
+    portControl.EntityData.BundleName = "cisco_ios_xr"
+    portControl.EntityData.ParentYangName = "auth"
+    portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portControl.EntityData.Children = types.NewOrderedMap()
+    portControl.EntityData.Leafs = types.NewOrderedMap()
+    portControl.EntityData.Leafs.Append("enable-succ", types.YLeaf{"EnableSucc", portControl.EnableSucc})
+    portControl.EntityData.Leafs.Append("enable-fail", types.YLeaf{"EnableFail", portControl.EnableFail})
+    portControl.EntityData.Leafs.Append("add-client-succ", types.YLeaf{"AddClientSucc", portControl.AddClientSucc})
+    portControl.EntityData.Leafs.Append("add-client-fail", types.YLeaf{"AddClientFail", portControl.AddClientFail})
+    portControl.EntityData.Leafs.Append("remove-client-succ", types.YLeaf{"RemoveClientSucc", portControl.RemoveClientSucc})
+    portControl.EntityData.Leafs.Append("remove-client-fail", types.YLeaf{"RemoveClientFail", portControl.RemoveClientFail})
+
+    portControl.EntityData.YListKeys = []string {}
+
+    return &(portControl.EntityData)
 }
 
 // Dot1x_Nodes_Node_Statistics_IfStats_Supp
@@ -842,6 +1082,59 @@ func (supp *Dot1x_Nodes_Node_Statistics_IfStats_Supp) GetEntityData() *types.Com
     supp.EntityData.YListKeys = []string {}
 
     return &(supp.EntityData)
+}
+
+// Dot1x_Nodes_Node_Statistics_IfStats_LocalEap
+// Dot1x Local EAP Port Statistics
+type Dot1x_Nodes_Node_Statistics_IfStats_LocalEap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Requests. The type is interface{} with range: 0..4294967295.
+    Requests interface{}
+
+    // Replies. The type is interface{} with range: 0..4294967295.
+    Replies interface{}
+
+    // Timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // DroppedNoEAP. The type is interface{} with range: 0..4294967295.
+    DroppedNoEap interface{}
+
+    // Dropped. The type is interface{} with range: 0..4294967295.
+    Dropped interface{}
+
+    // Success. The type is interface{} with range: 0..4294967295.
+    Success interface{}
+
+    // Failed. The type is interface{} with range: 0..4294967295.
+    Failed interface{}
+}
+
+func (localEap *Dot1x_Nodes_Node_Statistics_IfStats_LocalEap) GetEntityData() *types.CommonEntityData {
+    localEap.EntityData.YFilter = localEap.YFilter
+    localEap.EntityData.YangName = "local-eap"
+    localEap.EntityData.BundleName = "cisco_ios_xr"
+    localEap.EntityData.ParentYangName = "if-stats"
+    localEap.EntityData.SegmentPath = "local-eap"
+    localEap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localEap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localEap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localEap.EntityData.Children = types.NewOrderedMap()
+    localEap.EntityData.Leafs = types.NewOrderedMap()
+    localEap.EntityData.Leafs.Append("requests", types.YLeaf{"Requests", localEap.Requests})
+    localEap.EntityData.Leafs.Append("replies", types.YLeaf{"Replies", localEap.Replies})
+    localEap.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", localEap.Timeout})
+    localEap.EntityData.Leafs.Append("dropped-no-eap", types.YLeaf{"DroppedNoEap", localEap.DroppedNoEap})
+    localEap.EntityData.Leafs.Append("dropped", types.YLeaf{"Dropped", localEap.Dropped})
+    localEap.EntityData.Leafs.Append("success", types.YLeaf{"Success", localEap.Success})
+    localEap.EntityData.Leafs.Append("failed", types.YLeaf{"Failed", localEap.Failed})
+
+    localEap.EntityData.YListKeys = []string {}
+
+    return &(localEap.EntityData)
 }
 
 // Dot1x_Session
@@ -913,7 +1206,7 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Interface Display name . The type is string.
@@ -979,6 +1272,9 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo struct {
     // Dot1x Profile. The type is string.
     Dot1xProfile interface{}
 
+    // L2 Transport Info. The type is bool.
+    L2Transport interface{}
+
     // Dot1x Authenticator info.
     AuthInfo Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
 
@@ -1003,6 +1299,7 @@ func (intfInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo) GetEn
     intfInfo.EntityData.Leafs.Append("pae", types.YLeaf{"Pae", intfInfo.Pae})
     intfInfo.EntityData.Leafs.Append("port-status", types.YLeaf{"PortStatus", intfInfo.PortStatus})
     intfInfo.EntityData.Leafs.Append("dot1x-profile", types.YLeaf{"Dot1xProfile", intfInfo.Dot1xProfile})
+    intfInfo.EntityData.Leafs.Append("l2-transport", types.YLeaf{"L2Transport", intfInfo.L2Transport})
 
     intfInfo.EntityData.YListKeys = []string {}
 
@@ -1015,11 +1312,17 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Port Control Feature. The type is string.
+    PortControl interface{}
+
     // Re-Authentication enabled status. The type is string.
     Reauth interface{}
 
     // Configuration Dependency . The type is string.
     ConfigDependency interface{}
+
+    // EAP profile. The type is string.
+    EapProfile interface{}
 
     // Authenticator client list. The type is slice of
     // Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client.
@@ -1042,8 +1345,10 @@ func (authInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthIn
         authInfo.EntityData.Children.Append(types.GetSegmentPath(authInfo.Client[i]), types.YChild{"Client", authInfo.Client[i]})
     }
     authInfo.EntityData.Leafs = types.NewOrderedMap()
+    authInfo.EntityData.Leafs.Append("port-control", types.YLeaf{"PortControl", authInfo.PortControl})
     authInfo.EntityData.Leafs.Append("reauth", types.YLeaf{"Reauth", authInfo.Reauth})
     authInfo.EntityData.Leafs.Append("config-dependency", types.YLeaf{"ConfigDependency", authInfo.ConfigDependency})
+    authInfo.EntityData.Leafs.Append("eap-profile", types.YLeaf{"EapProfile", authInfo.EapProfile})
 
     authInfo.EntityData.YListKeys = []string {}
 
@@ -1073,6 +1378,9 @@ type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client s
 
     // Last Authenticated Server. The type is string.
     LastAuthServer interface{}
+
+    // Auth Client Port Control Status. The type is string.
+    PortControl interface{}
 }
 
 func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client) GetEntityData() *types.CommonEntityData {
@@ -1093,6 +1401,7 @@ func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
     client.EntityData.Leafs.Append("time-to-next-reauth", types.YLeaf{"TimeToNextReauth", client.TimeToNextReauth})
     client.EntityData.Leafs.Append("last-auth-time", types.YLeaf{"LastAuthTime", client.LastAuthTime})
     client.EntityData.Leafs.Append("last-auth-server", types.YLeaf{"LastAuthServer", client.LastAuthServer})
+    client.EntityData.Leafs.Append("port-control", types.YLeaf{"PortControl", client.PortControl})
 
     client.EntityData.YListKeys = []string {}
 

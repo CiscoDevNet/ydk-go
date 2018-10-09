@@ -32,7 +32,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
      for the following management objects:
        subscriber-redundancy: Subscriber Redundancy configuration
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -96,6 +96,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
   }
 
   container subscriber-redundancy {
+    presence "Indicates a subscriber-redundancy node is configured.";
     description
       "Subscriber Redundancy configuration";
     container groups {
@@ -106,6 +107,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
         description
           "Redundancy Group configuration";
         container interface-list {
+          presence "Indicates a interface-list node is configured.";
           description
             "List of Interfaces for this Group";
           container interfaces {
@@ -174,6 +176,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
           }
           leaf enable {
             type empty;
+            mandatory true;
             description
               "Enable List of Interfaces for this Group.
                Deletion of this object also causes deletion
@@ -244,30 +247,13 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
             description
               "Table of IPv4Route";
             list ipv4-route {
-              must "ipv4-route-data or vrfname" {
-                description
-                  "ipv4-route-data or vrfname must be present.";
-              }
-              key "prefix-string prefix-length";
+              key "vrfname prefix-length prefix-string";
               description
                 "None";
-
-              grouping IPV4-ROUTE-CONTENT {
+              leaf vrfname {
+                type xr:Cisco-ios-xr-string;
                 description
-                  "Content grouping.";
-                leaf tagvalue {
-                  type uint32 {
-                    range "1..4294967295";
-                  }
-                  mandatory true;
-                  description
-                    "Tag value";
-                }
-              }
-              container ipv4-route-data {
-                description
-                  "Data container.";
-                uses IPV4-ROUTE-CONTENT;
+                  "VRF name";
               }
               leaf prefix-length {
                 type uint32;
@@ -279,16 +265,13 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
                 description
                   "IPv4 address with prefix-length";
               }
-              list vrfname {
-                key "vrfname";
-                description
-                  "keys: vrfname";
-                leaf vrfname {
-                  type xr:Cisco-ios-xr-string;
-                  description
-                    "VRF name";
+              leaf tagvalue {
+                type uint32 {
+                  range "1..4294967295";
                 }
-                uses IPV4-ROUTE-CONTENT;
+                mandatory true;
+                description
+                  "Tag value";
               }
             }
           }
@@ -373,6 +356,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
         }
         leaf enable {
           type empty;
+          mandatory true;
           description
             "Enable Redundancy Group configuration.
              Deletion of this object also causes deletion
@@ -451,6 +435,7 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
     }
     leaf enable {
       type empty;
+      mandatory true;
       description
         "Enable Subscriber Redundancy configuration.
          Deletion of this object also causes deletion of

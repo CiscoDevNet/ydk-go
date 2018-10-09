@@ -29,7 +29,7 @@ module Cisco-IOS-XR-infra-correlator-cfg {
        Cisco-IOS-XR-infra-syslog-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {

@@ -23,9 +23,13 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR aaa-protocol-radius package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-11-13 {
+    description
+      "Adding yang support for new cli.";
+  }
   revision 2017-05-01 {
     description
       "Fixing backward compatibility error in module.";
@@ -47,6 +51,16 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       type uint32;
       description
         "Invalid change of authorization requests";
+    }
+    leaf radius-context-not-found {
+      type uint32;
+      description
+        "Radius context not found";
+    }
+    leaf client-context-not-found {
+      type uint32;
+      description
+        "Client context not found";
     }
   }
 
@@ -143,6 +157,11 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "IP address Family";
     }
+    leaf redirected-requests {
+      type uint32;
+      description
+        "Redirected Requests";
+    }
   }
 
   grouping RADIUS-GROUPS-SERVERS {
@@ -173,6 +192,167 @@ submodule Cisco-IOS-XR-aaa-protocol-radius-oper-sub2 {
       description
         "Server groups";
       uses RADIUS-SERVER-GROUP-DATA;
+    }
+  }
+
+  grouping RADIUS-DYNAMIC-CLIENT-DATA {
+    description
+      "RADIUS dynamic authorization client";
+    leaf client-address {
+      type inet:ipv4-address;
+      description
+        "Client's Internet address";
+    }
+    leaf disc-reqs {
+      type uint32;
+      description
+        "Number of RADIUS Disconnect-Requestsreceived
+         from the client";
+    }
+    leaf disc-acks {
+      type uint32;
+      description
+        "Number of RADIUS Disconnect-ACKs sent to the
+         client";
+    }
+    leaf disc-naks {
+      type uint32;
+      description
+        "Number of RADIUS Disconnect-NAKs sent to the
+         client";
+    }
+    leaf disc-bad-auth {
+      type uint32;
+      description
+        "Number of RADIUS Disconnect-Requests received
+         from the client containing an invalid
+         Authenticator";
+    }
+    leaf drop-disc-reqs {
+      type uint32;
+      description
+        "Number of RADIUS Disconnect-Requests received
+         from the client that were silently discarded";
+    }
+    leaf coa-reqs {
+      type uint32;
+      description
+        "Number of RADIUS CoA-Requests received from the
+         client";
+    }
+    leaf coa-acks {
+      type uint32;
+      description
+        "Number of RADIUS CoA-ACKs sent to the client";
+    }
+    leaf coa-naks {
+      type uint32;
+      description
+        "Number of RADIUS CoA-NAKs sent to the client";
+    }
+    leaf coa-bad-auth {
+      type uint32;
+      description
+        "Number of RADIUS CoA-Requests received from the
+         client containing an invalid Authenticator";
+    }
+    leaf drop-coa-reqs {
+      type uint32;
+      description
+        "Number of RADIUS CoA-Requests received from the
+         client that were silently discarded";
+    }
+    leaf unknown-types {
+      type uint32;
+      description
+        "Number of incoming packets of unknown types that
+         were received from the client";
+    }
+    leaf internal-error {
+      type uint32;
+      description
+        "Number of packets dropped due to internal error";
+    }
+    leaf pak-decode-fail {
+      type uint32;
+      description
+        "Number of packets dropped due to failure in
+         radius packet decoding";
+    }
+    leaf vrf-parse-fail-err {
+      type uint32;
+      description
+        "Number of requests which encountered vrf parse
+         fail error";
+    }
+    leaf unknown-vsa-error {
+      type uint32;
+      description
+        "Number of requests which encountered unknown vsa
+         error";
+    }
+    leaf send-msg-failed {
+      type uint32;
+      description
+        "Number of response packets which failed to be
+         send";
+    }
+    leaf radius-to-ch {
+      type uint32;
+      description
+        "Number of requests sent to command handler";
+    }
+    leaf ch-to-radius {
+      type uint32;
+      description
+        "Number of responses received from command
+         handler";
+    }
+    leaf service-parse-fail {
+      type uint32;
+      description
+        "Number of requests which encountered service
+         parse fail error";
+    }
+    leaf multi-subs-error {
+      type uint32;
+      description
+        "Number of requests which encountered multiple
+         subscribers not allowed error";
+    }
+    leaf service-not-present {
+      type uint32;
+      description
+        "Number of requests which has missing service
+         name attribute";
+    }
+    leaf send-to-ch-fail {
+      type uint32;
+      description
+        "Number of requests which failed to be sent to
+         command handler";
+    }
+    leaf vrf-name {
+      type string;
+      description
+        "VRF of RADIUS dynamic authorization client";
+    }
+    leaf addr-buf {
+      type string {
+        length "0..46";
+      }
+      description
+        "Address Buffer";
+    }
+  }
+
+  grouping RADIUS-DYNAMIC-CLIENT {
+    description
+      "RADIUS dynamic clients";
+    list dynamic-author-client {
+      description
+        "List of dynamic author clients";
+      uses RADIUS-DYNAMIC-CLIENT-DATA;
     }
   }
 

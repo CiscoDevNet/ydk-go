@@ -5,7 +5,7 @@
 // for the following management objects:
 //   asic-errors: Error summary of all asics
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package asic_errors_oper
 

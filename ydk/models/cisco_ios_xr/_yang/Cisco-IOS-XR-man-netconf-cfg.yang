@@ -22,9 +22,13 @@ module Cisco-IOS-XR-man-netconf-cfg {
      for the following management objects:
        netconf-yang: NETCONF YANG configuration commands
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-04 {
+    description
+      "Provison to disable openconfig.";
+  }
   revision 2016-03-15 {
     description
       "Descriptions updated.";
@@ -40,6 +44,19 @@ module Cisco-IOS-XR-man-netconf-cfg {
     container agent {
       description
         "NETCONF YANG agent configuration commands";
+      container models {
+        description
+          "Models to be disabled";
+        container openconfig {
+          description
+            "Type of models: openconfig";
+          leaf disabled {
+            type empty;
+            description
+              "Disable the specified model type";
+          }
+        }
+      }
       container ssh {
         description
           "NETCONF YANG agent over SSH connection";

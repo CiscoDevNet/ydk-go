@@ -5,7 +5,7 @@
 // for the following management objects:
 //   cofo: COFO operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package cofo_infra_oper
 
@@ -166,6 +166,12 @@ type Cofo_Nodes_Node_ClientIds_ClientId struct {
     // interface{} with range: 1..7.
     Id interface{}
 
+    // Connection Handle. The type is interface{} with range: 0..4294967295.
+    ConnectionHandle interface{}
+
+    // Peer Handle. The type is interface{} with range: 0..4294967295.
+    PeerHandle interface{}
+
     // Client ID. The type is interface{} with range: 0..4294967295.
     ClientId interface{}
 
@@ -177,6 +183,14 @@ type Cofo_Nodes_Node_ClientIds_ClientId struct {
 
     // Connection state. The type is interface{} with range: 0..4294967295.
     ConnectionState interface{}
+
+    // Topic Subscribed. The type is slice of interface{} with range:
+    // 0..4294967295.
+    TopicSubscribed []interface{}
+
+    // Topic Published. The type is slice of interface{} with range:
+    // 0..4294967295.
+    TopicPublished []interface{}
 }
 
 func (clientId *Cofo_Nodes_Node_ClientIds_ClientId) GetEntityData() *types.CommonEntityData {
@@ -192,10 +206,14 @@ func (clientId *Cofo_Nodes_Node_ClientIds_ClientId) GetEntityData() *types.Commo
     clientId.EntityData.Children = types.NewOrderedMap()
     clientId.EntityData.Leafs = types.NewOrderedMap()
     clientId.EntityData.Leafs.Append("id", types.YLeaf{"Id", clientId.Id})
+    clientId.EntityData.Leafs.Append("connection-handle", types.YLeaf{"ConnectionHandle", clientId.ConnectionHandle})
+    clientId.EntityData.Leafs.Append("peer-handle", types.YLeaf{"PeerHandle", clientId.PeerHandle})
     clientId.EntityData.Leafs.Append("client-id", types.YLeaf{"ClientId", clientId.ClientId})
     clientId.EntityData.Leafs.Append("purge-timeout", types.YLeaf{"PurgeTimeout", clientId.PurgeTimeout})
     clientId.EntityData.Leafs.Append("host-client", types.YLeaf{"HostClient", clientId.HostClient})
     clientId.EntityData.Leafs.Append("connection-state", types.YLeaf{"ConnectionState", clientId.ConnectionState})
+    clientId.EntityData.Leafs.Append("topic-subscribed", types.YLeaf{"TopicSubscribed", clientId.TopicSubscribed})
+    clientId.EntityData.Leafs.Append("topic-published", types.YLeaf{"TopicPublished", clientId.TopicPublished})
 
     clientId.EntityData.YListKeys = []string {"Id"}
 
@@ -319,8 +337,8 @@ type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct stru
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Total objects published. The type is interface{} with range: 0..4294967295.
-    TotalObjectsPublished interface{}
+    // Total objects. The type is interface{} with range: 0..4294967295.
+    TotalObjects interface{}
 
     // Total valid items in db. The type is interface{} with range: 0..4294967295.
     TotalValidItemsInDb interface{}
@@ -346,7 +364,7 @@ func (clientDbInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Cl
         clientDbInfoStruct.EntityData.Children.Append(types.GetSegmentPath(clientDbInfoStruct.CofoObjectPublishedArray[i]), types.YChild{"CofoObjectPublishedArray", clientDbInfoStruct.CofoObjectPublishedArray[i]})
     }
     clientDbInfoStruct.EntityData.Leafs = types.NewOrderedMap()
-    clientDbInfoStruct.EntityData.Leafs.Append("total-objects-published", types.YLeaf{"TotalObjectsPublished", clientDbInfoStruct.TotalObjectsPublished})
+    clientDbInfoStruct.EntityData.Leafs.Append("total-objects", types.YLeaf{"TotalObjects", clientDbInfoStruct.TotalObjects})
     clientDbInfoStruct.EntityData.Leafs.Append("total-valid-items-in-db", types.YLeaf{"TotalValidItemsInDb", clientDbInfoStruct.TotalValidItemsInDb})
 
     clientDbInfoStruct.EntityData.YListKeys = []string {}
@@ -360,6 +378,18 @@ type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_Cofo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Client ID. The type is interface{} with range: 0..4294967295.
+    ClientId interface{}
+
+    // Object ID. The type is interface{} with range: 0..4294967295.
+    ObjectId interface{}
+
+    // Insert Count. The type is interface{} with range: 0..4294967295.
+    InsertCount interface{}
+
+    // Item State. The type is interface{} with range: 0..4294967295.
+    ItemState interface{}
+
     // Cofo infra object key. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     CofoInfraObjectKey interface{}
@@ -367,6 +397,18 @@ type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_Cofo
     // Cofo infra object value. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     CofoInfraObjectValue interface{}
+
+    // Cofo object add time.
+    ObjectAddTime Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectAddTime
+
+    // Cofo object delete time.
+    ObjectDeleteTime Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectDeleteTime
+
+    // Cofo object txl add time.
+    ObjectTxlAddTime Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlAddTime
+
+    // Cofo object txl encode time.
+    ObjectTxlEncodeTime Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlEncodeTime
 }
 
 func (cofoObjectPublishedArray *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray) GetEntityData() *types.CommonEntityData {
@@ -380,12 +422,152 @@ func (cofoObjectPublishedArray *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStr
     cofoObjectPublishedArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     cofoObjectPublishedArray.EntityData.Children = types.NewOrderedMap()
+    cofoObjectPublishedArray.EntityData.Children.Append("object-add-time", types.YChild{"ObjectAddTime", &cofoObjectPublishedArray.ObjectAddTime})
+    cofoObjectPublishedArray.EntityData.Children.Append("object-delete-time", types.YChild{"ObjectDeleteTime", &cofoObjectPublishedArray.ObjectDeleteTime})
+    cofoObjectPublishedArray.EntityData.Children.Append("object-txl-add-time", types.YChild{"ObjectTxlAddTime", &cofoObjectPublishedArray.ObjectTxlAddTime})
+    cofoObjectPublishedArray.EntityData.Children.Append("object-txl-encode-time", types.YChild{"ObjectTxlEncodeTime", &cofoObjectPublishedArray.ObjectTxlEncodeTime})
     cofoObjectPublishedArray.EntityData.Leafs = types.NewOrderedMap()
+    cofoObjectPublishedArray.EntityData.Leafs.Append("client-id", types.YLeaf{"ClientId", cofoObjectPublishedArray.ClientId})
+    cofoObjectPublishedArray.EntityData.Leafs.Append("object-id", types.YLeaf{"ObjectId", cofoObjectPublishedArray.ObjectId})
+    cofoObjectPublishedArray.EntityData.Leafs.Append("insert-count", types.YLeaf{"InsertCount", cofoObjectPublishedArray.InsertCount})
+    cofoObjectPublishedArray.EntityData.Leafs.Append("item-state", types.YLeaf{"ItemState", cofoObjectPublishedArray.ItemState})
     cofoObjectPublishedArray.EntityData.Leafs.Append("cofo-infra-object-key", types.YLeaf{"CofoInfraObjectKey", cofoObjectPublishedArray.CofoInfraObjectKey})
     cofoObjectPublishedArray.EntityData.Leafs.Append("cofo-infra-object-value", types.YLeaf{"CofoInfraObjectValue", cofoObjectPublishedArray.CofoInfraObjectValue})
 
     cofoObjectPublishedArray.EntityData.YListKeys = []string {}
 
     return &(cofoObjectPublishedArray.EntityData)
+}
+
+// Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectAddTime
+// Cofo object add time
+type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectAddTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // tv sec. The type is interface{} with range: 0..4294967295.
+    TvSec interface{}
+
+    // tv nsec. The type is interface{} with range: 0..4294967295.
+    TvNsec interface{}
+}
+
+func (objectAddTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectAddTime) GetEntityData() *types.CommonEntityData {
+    objectAddTime.EntityData.YFilter = objectAddTime.YFilter
+    objectAddTime.EntityData.YangName = "object-add-time"
+    objectAddTime.EntityData.BundleName = "cisco_ios_xr"
+    objectAddTime.EntityData.ParentYangName = "cofo-object-published-array"
+    objectAddTime.EntityData.SegmentPath = "object-add-time"
+    objectAddTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    objectAddTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    objectAddTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    objectAddTime.EntityData.Children = types.NewOrderedMap()
+    objectAddTime.EntityData.Leafs = types.NewOrderedMap()
+    objectAddTime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", objectAddTime.TvSec})
+    objectAddTime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", objectAddTime.TvNsec})
+
+    objectAddTime.EntityData.YListKeys = []string {}
+
+    return &(objectAddTime.EntityData)
+}
+
+// Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectDeleteTime
+// Cofo object delete time
+type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectDeleteTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // tv sec. The type is interface{} with range: 0..4294967295.
+    TvSec interface{}
+
+    // tv nsec. The type is interface{} with range: 0..4294967295.
+    TvNsec interface{}
+}
+
+func (objectDeleteTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectDeleteTime) GetEntityData() *types.CommonEntityData {
+    objectDeleteTime.EntityData.YFilter = objectDeleteTime.YFilter
+    objectDeleteTime.EntityData.YangName = "object-delete-time"
+    objectDeleteTime.EntityData.BundleName = "cisco_ios_xr"
+    objectDeleteTime.EntityData.ParentYangName = "cofo-object-published-array"
+    objectDeleteTime.EntityData.SegmentPath = "object-delete-time"
+    objectDeleteTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    objectDeleteTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    objectDeleteTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    objectDeleteTime.EntityData.Children = types.NewOrderedMap()
+    objectDeleteTime.EntityData.Leafs = types.NewOrderedMap()
+    objectDeleteTime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", objectDeleteTime.TvSec})
+    objectDeleteTime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", objectDeleteTime.TvNsec})
+
+    objectDeleteTime.EntityData.YListKeys = []string {}
+
+    return &(objectDeleteTime.EntityData)
+}
+
+// Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlAddTime
+// Cofo object txl add time
+type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlAddTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // tv sec. The type is interface{} with range: 0..4294967295.
+    TvSec interface{}
+
+    // tv nsec. The type is interface{} with range: 0..4294967295.
+    TvNsec interface{}
+}
+
+func (objectTxlAddTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlAddTime) GetEntityData() *types.CommonEntityData {
+    objectTxlAddTime.EntityData.YFilter = objectTxlAddTime.YFilter
+    objectTxlAddTime.EntityData.YangName = "object-txl-add-time"
+    objectTxlAddTime.EntityData.BundleName = "cisco_ios_xr"
+    objectTxlAddTime.EntityData.ParentYangName = "cofo-object-published-array"
+    objectTxlAddTime.EntityData.SegmentPath = "object-txl-add-time"
+    objectTxlAddTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    objectTxlAddTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    objectTxlAddTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    objectTxlAddTime.EntityData.Children = types.NewOrderedMap()
+    objectTxlAddTime.EntityData.Leafs = types.NewOrderedMap()
+    objectTxlAddTime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", objectTxlAddTime.TvSec})
+    objectTxlAddTime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", objectTxlAddTime.TvNsec})
+
+    objectTxlAddTime.EntityData.YListKeys = []string {}
+
+    return &(objectTxlAddTime.EntityData)
+}
+
+// Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlEncodeTime
+// Cofo object txl encode time
+type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlEncodeTime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // tv sec. The type is interface{} with range: 0..4294967295.
+    TvSec interface{}
+
+    // tv nsec. The type is interface{} with range: 0..4294967295.
+    TvNsec interface{}
+}
+
+func (objectTxlEncodeTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray_ObjectTxlEncodeTime) GetEntityData() *types.CommonEntityData {
+    objectTxlEncodeTime.EntityData.YFilter = objectTxlEncodeTime.YFilter
+    objectTxlEncodeTime.EntityData.YangName = "object-txl-encode-time"
+    objectTxlEncodeTime.EntityData.BundleName = "cisco_ios_xr"
+    objectTxlEncodeTime.EntityData.ParentYangName = "cofo-object-published-array"
+    objectTxlEncodeTime.EntityData.SegmentPath = "object-txl-encode-time"
+    objectTxlEncodeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    objectTxlEncodeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    objectTxlEncodeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    objectTxlEncodeTime.EntityData.Children = types.NewOrderedMap()
+    objectTxlEncodeTime.EntityData.Leafs = types.NewOrderedMap()
+    objectTxlEncodeTime.EntityData.Leafs.Append("tv-sec", types.YLeaf{"TvSec", objectTxlEncodeTime.TvSec})
+    objectTxlEncodeTime.EntityData.Leafs.Append("tv-nsec", types.YLeaf{"TvNsec", objectTxlEncodeTime.TvNsec})
+
+    objectTxlEncodeTime.EntityData.YListKeys = []string {}
+
+    return &(objectTxlEncodeTime.EntityData)
 }
 

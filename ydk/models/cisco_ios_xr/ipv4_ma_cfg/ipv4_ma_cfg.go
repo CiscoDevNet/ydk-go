@@ -6,7 +6,7 @@
 //   ipv4-network-global: IPv4 network global configuration data
 //   subscriber-pta: subscriber pta
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_ma_cfg
 

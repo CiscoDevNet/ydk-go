@@ -41,7 +41,7 @@ module Cisco-IOS-XR-freqsync-cfg {
        Cisco-IOS-XR-config-mda-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-30 {
@@ -361,7 +361,6 @@ module Cisco-IOS-XR-freqsync-cfg {
     uses NODE-CFG;
   }
   container frequency-synchronization {
-    presence "Indicates a frequency-synchronization node is configured.";
     description
       "frequency synchronization";
     leaf quality-level-option {
@@ -377,19 +376,16 @@ module Cisco-IOS-XR-freqsync-cfg {
     }
     leaf source-selection-logging {
       type Fsync-source-selection-logging;
-      mandatory true;
       description
         "Source selection logging option";
     }
     leaf clock-interface-source-type {
       type Fsync-clock-source;
-      mandatory true;
       description
         "Clock interface source type";
     }
     leaf system-timing-mode {
       type Fsync-system-timing-mode;
-      mandatory true;
       description
         "System timing mode";
     }

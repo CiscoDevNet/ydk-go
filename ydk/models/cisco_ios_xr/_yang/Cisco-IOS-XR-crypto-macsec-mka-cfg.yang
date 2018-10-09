@@ -26,7 +26,7 @@ module Cisco-IOS-XR-crypto-macsec-mka-cfg {
      for the following management objects:
        macsec: MACSec MKA
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -130,10 +130,18 @@ module Cisco-IOS-XR-crypto-macsec-mka-cfg {
 
   typedef Macsec-mka-sak-rekey-interval {
     type uint32 {
-      range "0..43200";
+      range "1..43200";
     }
     description
       "Macsec mka sak rekey interval";
+  }
+
+  typedef Macsec-mka-sak-rekey-interval-sec {
+    type uint32 {
+      range "60..2592000";
+    }
+    description
+      "Macsec mka sak rekey interval sec";
   }
 
   typedef Macsec-mka-vlan-tags-in-clear {
@@ -147,71 +155,91 @@ module Cisco-IOS-XR-crypto-macsec-mka-cfg {
   container macsec {
     description
       "MACSec MKA";
-    list policy {
-      key "name";
+    container policy-names {
       description
         "MACSec Policy";
-      leaf delay-protection {
-        type boolean;
+      list policy-name {
+        key "name";
         description
-          "TRUE enables data delay protection";
-      }
-      leaf security-policy {
-        type Macsec-mka-security-policy;
-        description
-          "Security-Policy of Policy";
-      }
-      leaf key-server-priority {
-        type Macsec-mka-key-server-priority;
-        description
-          "Key-Server-Priority of Policy";
-      }
-      leaf conf-offset {
-        type Macsec-mka-conf-offset;
-        description
-          "Conf-Offset of Policy";
-      }
-      leaf sak-rekey-interval {
-        type Macsec-mka-sak-rekey-interval;
-        units "minute";
-        description
-          "Interval after which key-server generates new
-           SAK for a Secured Session";
-      }
-      leaf policy-exception {
-        type Macsec-mka-policy-exception;
-        description
-          "Macsec policy exception for packets to be in
-           clear";
-      }
-      leaf window-size {
-        type Macsec-mka-window-size;
-        description
-          "Window-Size of Policy";
-      }
-      leaf cipher-suite {
-        type Macsec-mka-cipher-suite;
-        description
-          "Cipher-suite of Policy";
-      }
-      leaf include-icv-indicator {
-        type boolean;
-        description
-          "TRUE enables Include ICV Indicator paramset in
-           MKPDU";
-      }
-      leaf vlan-tags-in-clear {
-        type Macsec-mka-vlan-tags-in-clear;
-        description
-          "VLAN-Tags-In-Clear of Policy";
-      }
-      leaf name {
-        type xr:Cisco-ios-xr-string {
-          length "1..16";
+          "MACsec Policy Name";
+        leaf delay-protection {
+          type empty;
+          description
+            "Enables data delay protection";
         }
-        description
-          "Name of the Policy of maximum length 16";
+        leaf security-policy {
+          type Macsec-mka-security-policy;
+          description
+            "Security-Policy of Policy";
+        }
+        leaf key-server-priority {
+          type Macsec-mka-key-server-priority;
+          description
+            "Key-Server-Priority of Policy";
+        }
+        leaf conf-offset {
+          type Macsec-mka-conf-offset;
+          description
+            "Conf-Offset of Policy";
+        }
+        leaf sak-rekey-interval {
+          type Macsec-mka-sak-rekey-interval;
+          units "minute";
+          description
+            "DEPRECATED-Interval(in minutes) after which
+             key-server generates new SAK for a Secured
+             Session, Default: OFF, recommended to use
+             seconds option";
+        }
+        leaf policy-exception {
+          type Macsec-mka-policy-exception;
+          description
+            "Macsec policy exception for packets to be in
+             clear";
+        }
+        leaf window-size {
+          type Macsec-mka-window-size;
+          description
+            "Window-Size of Policy";
+        }
+        leaf cipher-suite {
+          type Macsec-mka-cipher-suite;
+          description
+            "Cipher-suite of Policy";
+        }
+        leaf include-icv-indicator {
+          type empty;
+          description
+            "Enables Include ICV Indicator paramset in
+             MKPDU";
+        }
+        leaf sak-rekey-interval-sec {
+          type Macsec-mka-sak-rekey-interval-sec;
+          units "second";
+          description
+            "Interval(in seconds) after which key-server
+             generates new SAK for a Secured Session,
+             Default: OFF";
+        }
+        leaf vlan-tags-in-clear {
+          type Macsec-mka-vlan-tags-in-clear;
+          description
+            "VLAN-Tags-In-Clear of Policy";
+        }
+        leaf name {
+          type xr:Cisco-ios-xr-string {
+            length "1..16";
+          }
+          description
+            "Name of the Policy of maximum length 16";
+        }
       }
+    }
+    leaf shutdown {
+      type empty;
+      description
+        "Disable macsec on all data ports(system wide),
+         has no impact on macsec configs";
     }
   }
 }

@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-bgp package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -714,6 +714,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         description
           "All capabilities suppression changed";
       }
+      enum "next-hop-changed" {
+        value 43;
+        description
+          "Next hop configuration changed";
+      }
     }
     description
       "Bgp reset reason index";
@@ -1295,6 +1300,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         value 3;
         description
           "SRGB type";
+      }
+      enum "prefix-sid-srv6" {
+        value 4;
+        description
+          "SRV6 SID type";
       }
     }
     description
@@ -1981,26 +1991,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Number of IPv6 ROA Paths";
-    }
-    leaf rpki-disabled {
-      type boolean;
-      description
-        "RPKI Knob disabled";
-    }
-    leaf rpki-use-validity {
-      type boolean;
-      description
-        "Use RPKI validity for bestpath calculation";
-    }
-    leaf rpki-allow-invalid {
-      type boolean;
-      description
-        "Allow invalid paths";
-    }
-    leaf rpki-signal-ibgp {
-      type boolean;
-      description
-        "Signal RPKI validity to iBGP peers";
     }
   }
 
@@ -5872,6 +5862,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Bestpath: Ignore AIGP unless both paths have
          AIGP attribute";
     }
+    leaf is-bestpath-igp-metric-ignore-enabled {
+      type boolean;
+      description
+        "Bestpath: Ignore IGP metric";
+    }
     leaf is-multipath-as-path-ignore-onwards-enabled {
       type boolean;
       description
@@ -5954,6 +5949,21 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       units "second";
       description
         "RIB purge timeout time (in seconds)";
+    }
+    leaf rpki-use-validity {
+      type boolean;
+      description
+        "Use RPKI validity for bestpath calculation";
+    }
+    leaf rpki-allow-invalid {
+      type boolean;
+      description
+        "Allow invalid paths";
+    }
+    leaf rpki-signal-ibgp {
+      type boolean;
+      description
+        "Signal RPKI validity to iBGP peers";
     }
   }
 
@@ -8859,6 +8869,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Refcount";
     }
+    leaf rpc-set-object-id {
+      type uint32;
+      description
+        "RPC set object ID";
+    }
     list epe-key {
       description
         "Key of EPE object";
@@ -9127,6 +9142,21 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint8;
       description
         "Flags";
+    }
+    leaf has-s-rv6sid-allocated {
+      type boolean;
+      description
+        "Net has SRv6 SID allocated";
+    }
+    leaf srv6sid-address {
+      type Ipv6-address;
+      description
+        "SRv6 SID address value";
+    }
+    leaf srv6sid-address-len {
+      type uint32;
+      description
+        "SRv6 SID address Length";
     }
     list local-peers-advertised-to {
       description
@@ -11185,6 +11215,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Refcount";
     }
+    leaf srv6sid-address {
+      type Ipv6-address;
+      description
+        "SRv6 SID address value";
+    }
+    leaf srv6sid-address-len {
+      type uint32;
+      description
+        "SRv6 SID address Length";
+    }
     list next-hop {
       description
         "List of multipath next-hops";
@@ -12659,6 +12699,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "SR Policy programming Status";
     }
+    leaf usable {
+      type boolean;
+      description
+        "SR Policy is usable on this node";
+    }
     list segment-list {
       description
         "SR Policy Segment Lists";
@@ -13124,6 +13169,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Entry is a neighbor (not an update group)";
     }
+    leaf update-group-afi {
+      type uint8;
+      description
+        "AFI of the Update group it is advertised to";
+    }
     leaf update-group-number {
       type uint32;
       description
@@ -13197,6 +13247,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "IPv6 enabled";
     }
+    leaf tunnel-notif-first-rcvd {
+      type boolean;
+      description
+        "Tunnel first notif received";
+    }
+    leaf tunnel-state-skip-reg {
+      type boolean;
+      description
+        "Skip tunnel registration for Stale entry";
+    }
     leaf binding-label {
       type uint32;
       description
@@ -13211,6 +13271,21 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       type uint32;
       description
         "Time since the last tunnel update happened";
+    }
+    leaf tunnel-color {
+      type uint32;
+      description
+        "Color corresponding to this SR tunnel";
+    }
+    leaf is-tunnel-color-only {
+      type boolean;
+      description
+        "Is a Color Only (Null Endpoint) tunnel";
+    }
+    leaf tunnel-endpoint-afi {
+      type Bgp-afi;
+      description
+        "AFI of the Null Endpoint (IPv4/IPv6)";
     }
   }
 
@@ -13775,6 +13850,16 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Original Source Route Distinguisher";
     }
+    leaf mac-ip-present {
+      type boolean;
+      description
+        "Mac IP Present  present";
+    }
+    leaf mac-ip {
+      type yang:mac-address;
+      description
+        "Mac associated with IP";
+    }
     list rcvd-label {
       description
         "Path received label stack";
@@ -13883,40 +13968,6 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
     }
   }
 
-  grouping BGP-UPDERR-VRF-BAG {
-    description
-      "BGP Update error-handling VRF information";
-    container last-update-malformed-timestamp {
-      description
-        "Last malformed messages received time: time
-         elapsed since 00:00:00 UTC, January 1, 1970";
-      uses BGP-TIMESPEC;
-    }
-    leaf update-vrf-name {
-      type string;
-      description
-        "VRF Name";
-    }
-    leaf update-malformed-message-count {
-      type uint32;
-      description
-        "Malformed messages count";
-    }
-    leaf update-malformed-neighbor-count {
-      type uint32;
-      description
-        "Count of neighbors that received malformed
-         messages";
-    }
-    leaf last-update-malformed-age {
-      type uint32;
-      units "second";
-      description
-        "Time since last malformed messages received
-         event (in seconds)";
-    }
-  }
-
   grouping BGP-EDM-RPKI-REFRESH-ENTRY {
     description
       "BGP EDM RPKI REFRESH ENTRY";
@@ -13954,6 +14005,40 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       description
         "Array of refresh entries";
       uses BGP-EDM-RPKI-REFRESH-ENTRY;
+    }
+  }
+
+  grouping BGP-UPDERR-VRF-BAG {
+    description
+      "BGP Update error-handling VRF information";
+    container last-update-malformed-timestamp {
+      description
+        "Last malformed messages received time: time
+         elapsed since 00:00:00 UTC, January 1, 1970";
+      uses BGP-TIMESPEC;
+    }
+    leaf update-vrf-name {
+      type string;
+      description
+        "VRF Name";
+    }
+    leaf update-malformed-message-count {
+      type uint32;
+      description
+        "Malformed messages count";
+    }
+    leaf update-malformed-neighbor-count {
+      type uint32;
+      description
+        "Count of neighbors that received malformed
+         messages";
+    }
+    leaf last-update-malformed-age {
+      type uint32;
+      units "second";
+      description
+        "Time since last malformed messages received
+         event (in seconds)";
     }
   }
 
@@ -15110,6 +15195,11 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
         "Idle Watch time item info";
       uses BGP-CONFIG-INFO;
     }
+    container ao-keychain-info {
+      description
+        "Neighbor AO keychain item info";
+      uses BGP-CONFIG-INFO;
+    }
     leaf remote-as-number-xx {
       type uint32;
       description
@@ -15461,6 +15551,21 @@ submodule Cisco-IOS-XR-ipv4-bgp-oper-sub1 {
       units "second";
       description
         "Idle Watch time(in seconds)";
+    }
+    leaf ao-keychain {
+      type string;
+      description
+        "Neighbor AO keychain name";
+    }
+    leaf ao-include-tcp-options {
+      type uint32;
+      description
+        "Include TCP options AO";
+    }
+    leaf ao-accept-mismatch-connection {
+      type uint32;
+      description
+        "Accept AO mismatched connection";
     }
     leaf local-as-replace-as {
       type boolean;

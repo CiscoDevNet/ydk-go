@@ -10,7 +10,7 @@
 //   lacp-bundle-members: lacp bundle members
 //   bundles-adjacency: bundles adjacency
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package bundlemgr_oper
 
@@ -1133,7 +1133,7 @@ type LacpBundles_Bundles_Bundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. LACP Bundle interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for each Bundle.
@@ -1223,7 +1223,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -1254,7 +1254,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -1276,7 +1276,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -1676,10 +1676,10 @@ type LacpBundles_Bundles_Bundle_Members_Member struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -1840,7 +1840,7 @@ type LacpBundles_Bundles_Bundle_Members_Member_LinkData struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -2210,7 +2210,7 @@ type BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and all its members.
@@ -2721,7 +2721,7 @@ type BundleInformation_ScheduledActions_ScheduledActionsBundles_ScheduledActions
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -2898,7 +2898,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and all its members.
@@ -2976,7 +2976,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -3007,7 +3007,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -3029,7 +3029,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -3332,7 +3332,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -3492,7 +3492,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -3740,7 +3740,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -3901,7 +3901,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -4111,7 +4111,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -4142,7 +4142,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -4164,7 +4164,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -4575,7 +4575,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -4606,7 +4606,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -4628,7 +4628,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -4931,7 +4931,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5091,7 +5091,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -5301,7 +5301,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5461,7 +5461,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_LinkDa
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -6507,7 +6507,7 @@ type BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and its parent bundle.
@@ -6922,7 +6922,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -7016,7 +7016,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -7047,7 +7047,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -7069,7 +7069,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -7525,7 +7525,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -7556,7 +7556,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -7578,7 +7578,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -8402,7 +8402,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberDa
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -8961,7 +8961,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_Lac
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -9185,7 +9185,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -9216,7 +9216,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -9238,7 +9238,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -10062,7 +10062,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -10584,7 +10584,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_AdditionalInfo
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -11549,7 +11549,7 @@ type BundleInformation_MlacpBundleCounters_Bundles_Bundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -13273,7 +13273,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -13307,7 +13307,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem st
     YFilter yfilter.YFilter
 
     // Bundle's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterfaceHandle interface{}
 
     // Whether the bundle interface is up. The type is bool.
@@ -13382,7 +13382,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem_Me
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // Member's underlying link ID. The type is interface{} with range: 0..65535.
@@ -13513,7 +13513,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -13917,7 +13917,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundle
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -14374,7 +14374,7 @@ type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_Mlacp
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -14494,7 +14494,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -14898,7 +14898,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -15355,7 +15355,7 @@ type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_B
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -16297,7 +16297,7 @@ type BundleInformation_Events_EventsBundles_EventsBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and its parent bundle.
@@ -18127,7 +18127,7 @@ type BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -18924,7 +18924,7 @@ type BundleInformation_BundleBriefs_BundleBrief struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -18957,7 +18957,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -18988,7 +18988,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -19010,7 +19010,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -19386,7 +19386,7 @@ type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Children of bundle with member events information.
@@ -25000,7 +25000,7 @@ type BundleInformation_MlacpMemberCounters_Bundles_Bundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -26566,7 +26566,7 @@ type Bundles_Bundles_Bundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for each Bundle.
@@ -26603,7 +26603,7 @@ type Bundles_Bundles_Bundle_Data struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -26634,7 +26634,7 @@ type Bundles_Bundles_Bundle_Data struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -26656,7 +26656,7 @@ type Bundles_Bundles_Bundle_Data struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -26993,10 +26993,10 @@ type Bundles_Bundles_Bundle_Members_Member struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -27157,7 +27157,7 @@ type Bundles_Bundles_Bundle_Members_Member_LinkData struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -27562,7 +27562,7 @@ type LacpBundleMembers_Members_Member struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Link data for LACP bundle members.
@@ -27600,7 +27600,7 @@ type LacpBundleMembers_Members_Member_Data struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of the actor system. The type is interface{} with range:
@@ -27920,7 +27920,7 @@ type BundlesAdjacency_Nodes_Node_Brief_BundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of sub-interfaces on the bundle. The type is interface{} with range:
@@ -27972,7 +27972,7 @@ type BundlesAdjacency_Nodes_Node_Brief_BundleData_SubInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Sub interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.
@@ -28077,7 +28077,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     BundleName interface{}
 
     // Data for each Bundle.
@@ -28172,7 +28172,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of sub-interfaces on the bundle. The type is interface{} with range:
@@ -28224,7 +28224,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief_SubInterface st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Sub interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.
@@ -28333,7 +28333,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Member's link ID in database. The type is interface{} with range: 0..255.
@@ -28375,7 +28375,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_SubInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Sub interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.

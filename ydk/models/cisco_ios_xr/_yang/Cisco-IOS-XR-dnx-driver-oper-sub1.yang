@@ -19,9 +19,13 @@ submodule Cisco-IOS-XR-dnx-driver-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR dnx-driver package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-29 {
+    description
+      "Changed blk and field info to be dynamic.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -892,7 +896,6 @@ submodule Cisco-IOS-XR-dnx-driver-oper-sub1 {
         "Num Fields";
     }
     list field-info {
-      max-elements "200";
       description
         "field info";
       uses FIA-EDM-DEVICE-STATS-FIELD-INFO;
@@ -908,7 +911,6 @@ submodule Cisco-IOS-XR-dnx-driver-oper-sub1 {
         "Num Blocks";
     }
     list block-info {
-      max-elements "22";
       description
         "block info";
       uses FIA-EDM-DEVICE-STATS-BLK-INFO;
@@ -1264,6 +1266,36 @@ submodule Cisco-IOS-XR-dnx-driver-oper-sub1 {
       description
         "local switch state";
     }
+    leaf startup-wb-mtime-str {
+      type string;
+      description
+        "startup wb mtime str";
+    }
+    leaf startup-wb-outof-sync {
+      type boolean;
+      description
+        "startup wb outof sync";
+    }
+    leaf local-wb-sync-end-str {
+      type string;
+      description
+        "local wb sync end str";
+    }
+    leaf remote-wb-sync-end-str {
+      type string;
+      description
+        "remote wb sync end str";
+    }
+    leaf local-wb-sync-pending {
+      type boolean;
+      description
+        "local wb sync pending";
+    }
+    leaf sdk-delay-msec {
+      type uint32;
+      description
+        "sdk delay msec";
+    }
   }
 
   grouping FIA-EDM-DRIVER-INFO {
@@ -1488,6 +1520,31 @@ submodule Cisco-IOS-XR-dnx-driver-oper-sub1 {
       type uint32;
       description
         "board rev id";
+    }
+    leaf all-wb-insync {
+      type boolean;
+      description
+        "all wb insync";
+    }
+    leaf all-wb-insync-since {
+      type uint32;
+      description
+        "all wb insync since";
+    }
+    leaf all-startup-wb-insync {
+      type boolean;
+      description
+        "all startup wb insync";
+    }
+    leaf plane-a-bitmap {
+      type uint32;
+      description
+        "planeA bitmap";
+    }
+    leaf plane-b-bitmap {
+      type uint32;
+      description
+        "planeB bitmap";
     }
     list device-info {
       max-elements "32";

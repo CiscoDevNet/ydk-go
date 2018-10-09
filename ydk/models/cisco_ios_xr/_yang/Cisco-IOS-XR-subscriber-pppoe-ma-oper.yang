@@ -32,7 +32,7 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-oper {
      for the following management objects:
        pppoe: PPPoE operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -67,6 +67,17 @@ module Cisco-IOS-XR-subscriber-pppoe-ma-oper {
         key "node-name";
         description
           "PPPoE operational data for a particular node";
+        container disconnect-history {
+          description
+            "PPPoE disconnect history for a given node";
+          uses PPPOE-MA-DISC-HISTORY;
+        }
+        container disconnect-history-unique {
+          description
+            "PPPoE unique disconnect history for a given
+             node";
+          uses PPPOE-MA-DISC-HISTORY-UNIQUE;
+        }
         container statistics {
           description
             "PPPoE statistics for a given node";

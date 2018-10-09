@@ -29,7 +29,7 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR l2rib package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2015-11-09 {
@@ -333,6 +333,46 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
       "L2RIB Object Types";
   }
 
+  grouping L2RIB-IMET-ROUTE-DETAIL {
+    description
+      "L2RIB IMET ROUTE DETAIL";
+    container imet-route-base {
+      description
+        "Imet Route base information";
+      uses L2RIB-IMET-ROUTE;
+    }
+    leaf tunnel-id {
+      type string;
+      description
+        "Tunnel Id";
+    }
+    leaf flags {
+      type uint32;
+      description
+        "IMET route flags";
+    }
+    leaf tunnel-type {
+      type uint32;
+      description
+        "IMET route tunnel type";
+    }
+    leaf l2r-label {
+      type uint32;
+      description
+        "Label";
+    }
+    leaf encap-type {
+      type uint32;
+      description
+        "Encap Type";
+    }
+    leaf last-update-timestamp {
+      type uint64;
+      description
+        "Last Update Timestamp";
+    }
+  }
+
   grouping L2RIB-MAC-ROUTE-DETAIL {
     description
       "Detailed L2RIB MAC Route";
@@ -352,12 +392,12 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         "MAC route sequence Number";
     }
     leaf flags {
-      type uint32;
+      type xr:Hex-integer;
       description
         "MAC route flags";
     }
     leaf baseflags {
-      type uint32;
+      type xr:Hex-integer;
       description
         "BASE flags";
     }
@@ -380,6 +420,36 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
       type uint64;
       description
         "Last Update Timestamp";
+    }
+  }
+
+  grouping L2RIB-IMET-ROUTE {
+    description
+      "L2RIB IMET ROUTE";
+    leaf vtepi-paddr {
+      type string;
+      description
+        "Originating Router IP Address";
+    }
+    leaf admin-distance {
+      type uint8;
+      description
+        "Admin Distance";
+    }
+    leaf producer-id {
+      type uint8;
+      description
+        "Producer of Imet route";
+    }
+    leaf topo-id {
+      type uint32;
+      description
+        "Topo ID";
+    }
+    leaf ethernet-tag-id {
+      type uint32;
+      description
+        "Ethernet Tag ID";
     }
   }
 
@@ -647,9 +717,9 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         "L2RIB Address Family";
     }
     leaf ip-address {
-      type inet:ipv6-address;
+      type string;
       description
-        "IP Address (V6 Format)";
+        "IP Address";
     }
     leaf label {
       type uint32;
@@ -806,7 +876,7 @@ submodule Cisco-IOS-XR-l2rib-oper-sub1 {
         "MAC-IP route sequence Number";
     }
     leaf flags {
-      type uint32;
+      type xr:Hex-integer;
       description
         "MAC-IP route flags";
     }

@@ -33,7 +33,7 @@ module Cisco-IOS-XR-mpls-lsd-oper {
        mpls-lsd-nodes: Location MPLS LSD operational data
        mpls-lsd: mpls lsd
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -281,6 +281,25 @@ module Cisco-IOS-XR-mpls-lsd-oper {
     container rewrite {
       description
         "Table of rewrites";
+      container rewrite-label-range-cnts {
+        description
+          "Table of Label Range Counters";
+        list rewrite-label-range-cnt {
+          description
+            "Label Range Counters";
+          leaf label-range-type {
+            type uint32;
+            description
+              "Label Range Type";
+          }
+          leaf label-range-index {
+            type uint32;
+            description
+              "Label Range Index";
+          }
+          uses MPLS-LSD-RW;
+        }
+      }
       container rewrite-pws {
         description
           "Table of Rewrites";

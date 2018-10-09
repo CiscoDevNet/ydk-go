@@ -5,7 +5,7 @@
 // for the following management objects:
 //   pbr: PBR operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package pbr_oper
 
@@ -200,7 +200,7 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // PBR direction.
@@ -320,8 +320,9 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat str
     // DropPackets/DropBytes are undetermined .0x00000001 - Transmit
     // (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 - Drop
     // (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 - Httpr
-    // (HttprTransmitPackets/HttprTransmitBytes), . The type is interface{} with
-    // range: 0..18446744073709551615. Units are byte.
+    // (HttprTransmitPackets/HttprTransmitBytes), 0x00000020 - HttpErich
+    // (HttpErichTransmitPackets /HttpEnrichTransmitBytes), . The type is
+    // interface{} with range: 0..18446744073709551615. Units are byte.
     CounterValidityBitmask interface{}
 
     // ClassName. The type is string with length: 0..65.
@@ -335,6 +336,9 @@ type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat str
 
     // HTTPR stats.
     HttprStats Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat_HttprStats
+
+    // HTTP Enrichment stats.
+    HttpEnrichStats Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat_HttpEnrichStats
 }
 
 func (classStat *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat) GetEntityData() *types.CommonEntityData {
@@ -350,6 +354,7 @@ func (classStat *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_C
     classStat.EntityData.Children = types.NewOrderedMap()
     classStat.EntityData.Children.Append("general-stats", types.YChild{"GeneralStats", &classStat.GeneralStats})
     classStat.EntityData.Children.Append("httpr-stats", types.YChild{"HttprStats", &classStat.HttprStats})
+    classStat.EntityData.Children.Append("http-enrich-stats", types.YChild{"HttpEnrichStats", &classStat.HttpEnrichStats})
     classStat.EntityData.Leafs = types.NewOrderedMap()
     classStat.EntityData.Leafs.Append("counter-validity-bitmask", types.YLeaf{"CounterValidityBitmask", classStat.CounterValidityBitmask})
     classStat.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", classStat.ClassName})
@@ -483,5 +488,70 @@ func (httprStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_
     httprStats.EntityData.YListKeys = []string {}
 
     return &(httprStats.EntityData)
+}
+
+// Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat_HttpEnrichStats
+// HTTP Enrichment stats
+type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat_HttpEnrichStats struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TotalNum of pkts HTTP request received. The type is interface{} with range:
+    // 0..18446744073709551615.
+    RqstRcvdPackets interface{}
+
+    // TotalNum of Bytes HTTP request received. The type is interface{} with
+    // range: 0..18446744073709551615. Units are byte.
+    RqstRcvdBytes interface{}
+
+    // Dropped  packets. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DropPackets interface{}
+
+    // Dropped bytes. The type is interface{} with range: 0..18446744073709551615.
+    // Units are byte.
+    DropBytes interface{}
+
+    // TotalNum of pkts HTTP Enrichment response sent. The type is interface{}
+    // with range: 0..18446744073709551615.
+    RespSentPackets interface{}
+
+    // TotalNum of Bytes HTTP Enrichment response sent. The type is interface{}
+    // with range: 0..18446744073709551615. Units are byte.
+    RespSentBytes interface{}
+
+    // TotalNum of pkts HTTP Enrichment request sent. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ReqSentPackets interface{}
+
+    // TotalNum of pkts HTTP Enrichment TCP packet sent. The type is interface{}
+    // with range: 0..18446744073709551615.
+    TcpSentPackets interface{}
+}
+
+func (httpEnrichStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat_HttpEnrichStats) GetEntityData() *types.CommonEntityData {
+    httpEnrichStats.EntityData.YFilter = httpEnrichStats.YFilter
+    httpEnrichStats.EntityData.YangName = "http-enrich-stats"
+    httpEnrichStats.EntityData.BundleName = "cisco_ios_xr"
+    httpEnrichStats.EntityData.ParentYangName = "class-stat"
+    httpEnrichStats.EntityData.SegmentPath = "http-enrich-stats"
+    httpEnrichStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    httpEnrichStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    httpEnrichStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    httpEnrichStats.EntityData.Children = types.NewOrderedMap()
+    httpEnrichStats.EntityData.Leafs = types.NewOrderedMap()
+    httpEnrichStats.EntityData.Leafs.Append("rqst-rcvd-packets", types.YLeaf{"RqstRcvdPackets", httpEnrichStats.RqstRcvdPackets})
+    httpEnrichStats.EntityData.Leafs.Append("rqst-rcvd-bytes", types.YLeaf{"RqstRcvdBytes", httpEnrichStats.RqstRcvdBytes})
+    httpEnrichStats.EntityData.Leafs.Append("drop-packets", types.YLeaf{"DropPackets", httpEnrichStats.DropPackets})
+    httpEnrichStats.EntityData.Leafs.Append("drop-bytes", types.YLeaf{"DropBytes", httpEnrichStats.DropBytes})
+    httpEnrichStats.EntityData.Leafs.Append("resp-sent-packets", types.YLeaf{"RespSentPackets", httpEnrichStats.RespSentPackets})
+    httpEnrichStats.EntityData.Leafs.Append("resp-sent-bytes", types.YLeaf{"RespSentBytes", httpEnrichStats.RespSentBytes})
+    httpEnrichStats.EntityData.Leafs.Append("req-sent-packets", types.YLeaf{"ReqSentPackets", httpEnrichStats.ReqSentPackets})
+    httpEnrichStats.EntityData.Leafs.Append("tcp-sent-packets", types.YLeaf{"TcpSentPackets", httpEnrichStats.TcpSentPackets})
+
+    httpEnrichStats.EntityData.YListKeys = []string {}
+
+    return &(httpEnrichStats.EntityData)
 }
 

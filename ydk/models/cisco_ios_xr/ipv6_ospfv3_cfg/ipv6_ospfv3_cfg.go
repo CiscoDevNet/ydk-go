@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv6_ospfv3_cfg
 
@@ -1327,7 +1327,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -1899,7 +1899,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1963,7 +1963,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2065,7 +2065,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2129,7 +2129,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Interfaces_In
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2298,7 +2298,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2362,7 +2362,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2464,7 +2464,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2528,7 +2528,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Fas
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3512,7 +3512,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -4084,7 +4084,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4148,7 +4148,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4250,7 +4250,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4314,7 +4314,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Interfaces_Int
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4483,7 +4483,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4547,7 +4547,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4649,7 +4649,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4713,7 +4713,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Fast
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7359,7 +7359,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Candid
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7423,7 +7423,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Exclud
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7525,7 +7525,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Cand
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7589,7 +7589,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Excl
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8690,7 +8690,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -9262,7 +9262,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9326,7 +9326,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9428,7 +9428,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9492,7 +9492,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_Interfaces_Inte
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9661,7 +9661,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9725,7 +9725,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9827,7 +9827,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9891,7 +9891,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10875,7 +10875,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface to configure. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable OSPFv3 interface. The type is interface{}.
@@ -11447,7 +11447,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11511,7 +11511,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11613,7 +11613,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11677,7 +11677,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Interfaces_Inter
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11846,7 +11846,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11910,7 +11910,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12012,7 +12012,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12076,7 +12076,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14722,7 +14722,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_Candidat
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14786,7 +14786,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_ExcludeI
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14888,7 +14888,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Candid
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14952,7 +14952,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Exclud
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 

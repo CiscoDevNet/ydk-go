@@ -33,7 +33,7 @@ module Cisco-IOS-XR-freqsync-oper {
        frequency-synchronization: Frequency Synchronization
          operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-20 {
@@ -274,6 +274,28 @@ module Cisco-IOS-XR-freqsync-oper {
           description
             "SSM operational data";
           uses FSYNC-SSM-INFO;
+        }
+        container detailed-clock-datas {
+          description
+            "Table for detailed clock operational data";
+          list detailed-clock-data {
+            key "clock-type id";
+            description
+              "Detailed operational data for a particular
+               clock";
+            leaf clock-type {
+              type dt1:Fsync-clock;
+              description
+                "Clock type";
+            }
+            leaf id {
+              type uint32;
+              description
+                "Clock ID (port number for clock interfaces,
+                 receiver number for GNSS receivers";
+            }
+            uses FSYNC-CLOCK-INFO-V2;
+          }
         }
         container clock-datas {
           description

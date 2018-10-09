@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-ifmgr-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package manageability_object_tracking_cfg
 
@@ -93,6 +93,12 @@ type ObjectTrackings_ObjectTracking struct {
     // Enable track type boolean list or. The type is interface{}.
     TypeBooleanListOrEnable interface{}
 
+    // Actions associated with track state changes.
+    Action ObjectTrackings_ObjectTracking_Action
+
+    // Track type BFD RTR (BFD Response Time Reporter).
+    TypeBfdRtr ObjectTrackings_ObjectTracking_TypeBfdRtr
+
     // Track type line-protocol.
     TypeInterface ObjectTrackings_ObjectTracking_TypeInterface
 
@@ -120,6 +126,8 @@ func (objectTracking *ObjectTrackings_ObjectTracking) GetEntityData() *types.Com
     objectTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     objectTracking.EntityData.Children = types.NewOrderedMap()
+    objectTracking.EntityData.Children.Append("action", types.YChild{"Action", &objectTracking.Action})
+    objectTracking.EntityData.Children.Append("type-bfd-rtr", types.YChild{"TypeBfdRtr", &objectTracking.TypeBfdRtr})
     objectTracking.EntityData.Children.Append("type-interface", types.YChild{"TypeInterface", &objectTracking.TypeInterface})
     objectTracking.EntityData.Children.Append("type-rtr", types.YChild{"TypeRtr", &objectTracking.TypeRtr})
     objectTracking.EntityData.Children.Append("type-list", types.YChild{"TypeList", &objectTracking.TypeList})
@@ -140,6 +148,184 @@ func (objectTracking *ObjectTrackings_ObjectTracking) GetEntityData() *types.Com
     return &(objectTracking.EntityData)
 }
 
+// ObjectTrackings_ObjectTracking_Action
+// Actions associated with track state changes
+type ObjectTrackings_ObjectTracking_Action struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable track actions. The type is interface{}.
+    ActionsEnable interface{}
+
+    // The list of all track actions.
+    ActionErrDis ObjectTrackings_ObjectTracking_Action_ActionErrDis
+}
+
+func (action *ObjectTrackings_ObjectTracking_Action) GetEntityData() *types.CommonEntityData {
+    action.EntityData.YFilter = action.YFilter
+    action.EntityData.YangName = "action"
+    action.EntityData.BundleName = "cisco_ios_xr"
+    action.EntityData.ParentYangName = "object-tracking"
+    action.EntityData.SegmentPath = "action"
+    action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    action.EntityData.Children = types.NewOrderedMap()
+    action.EntityData.Children.Append("action-err-dis", types.YChild{"ActionErrDis", &action.ActionErrDis})
+    action.EntityData.Leafs = types.NewOrderedMap()
+    action.EntityData.Leafs.Append("actions-enable", types.YLeaf{"ActionsEnable", action.ActionsEnable})
+
+    action.EntityData.YListKeys = []string {}
+
+    return &(action.EntityData)
+}
+
+// ObjectTrackings_ObjectTracking_Action_ActionErrDis
+// The list of all track actions
+type ObjectTrackings_ObjectTracking_Action_ActionErrDis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Error disable track action. The type is slice of
+    // ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi.
+    ActionErrDi []*ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi
+}
+
+func (actionErrDis *ObjectTrackings_ObjectTracking_Action_ActionErrDis) GetEntityData() *types.CommonEntityData {
+    actionErrDis.EntityData.YFilter = actionErrDis.YFilter
+    actionErrDis.EntityData.YangName = "action-err-dis"
+    actionErrDis.EntityData.BundleName = "cisco_ios_xr"
+    actionErrDis.EntityData.ParentYangName = "action"
+    actionErrDis.EntityData.SegmentPath = "action-err-dis"
+    actionErrDis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    actionErrDis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    actionErrDis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    actionErrDis.EntityData.Children = types.NewOrderedMap()
+    actionErrDis.EntityData.Children.Append("action-err-di", types.YChild{"ActionErrDi", nil})
+    for i := range actionErrDis.ActionErrDi {
+        actionErrDis.EntityData.Children.Append(types.GetSegmentPath(actionErrDis.ActionErrDi[i]), types.YChild{"ActionErrDi", actionErrDis.ActionErrDi[i]})
+    }
+    actionErrDis.EntityData.Leafs = types.NewOrderedMap()
+
+    actionErrDis.EntityData.YListKeys = []string {}
+
+    return &(actionErrDis.EntityData)
+}
+
+// ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi
+// Error disable track action
+type ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Track State Type. The type is interface{} with
+    // range: 0..1.
+    TrackStateType interface{}
+
+    // This attribute is a key. Interface to be error-disabled. The type is string
+    // with pattern: [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
+}
+
+func (actionErrDi *ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi) GetEntityData() *types.CommonEntityData {
+    actionErrDi.EntityData.YFilter = actionErrDi.YFilter
+    actionErrDi.EntityData.YangName = "action-err-di"
+    actionErrDi.EntityData.BundleName = "cisco_ios_xr"
+    actionErrDi.EntityData.ParentYangName = "action-err-dis"
+    actionErrDi.EntityData.SegmentPath = "action-err-di" + types.AddKeyToken(actionErrDi.TrackStateType, "track-state-type") + types.AddKeyToken(actionErrDi.InterfaceName, "interface-name")
+    actionErrDi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    actionErrDi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    actionErrDi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    actionErrDi.EntityData.Children = types.NewOrderedMap()
+    actionErrDi.EntityData.Leafs = types.NewOrderedMap()
+    actionErrDi.EntityData.Leafs.Append("track-state-type", types.YLeaf{"TrackStateType", actionErrDi.TrackStateType})
+    actionErrDi.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", actionErrDi.InterfaceName})
+
+    actionErrDi.EntityData.YListKeys = []string {"TrackStateType", "InterfaceName"}
+
+    return &(actionErrDi.EntityData)
+}
+
+// ObjectTrackings_ObjectTracking_TypeBfdRtr
+// Track type BFD RTR (BFD Response Time Reporter)
+type ObjectTrackings_ObjectTracking_TypeBfdRtr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // BFD session related parameters.
+    BfdRtr ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr
+}
+
+func (typeBfdRtr *ObjectTrackings_ObjectTracking_TypeBfdRtr) GetEntityData() *types.CommonEntityData {
+    typeBfdRtr.EntityData.YFilter = typeBfdRtr.YFilter
+    typeBfdRtr.EntityData.YangName = "type-bfd-rtr"
+    typeBfdRtr.EntityData.BundleName = "cisco_ios_xr"
+    typeBfdRtr.EntityData.ParentYangName = "object-tracking"
+    typeBfdRtr.EntityData.SegmentPath = "type-bfd-rtr"
+    typeBfdRtr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    typeBfdRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    typeBfdRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    typeBfdRtr.EntityData.Children = types.NewOrderedMap()
+    typeBfdRtr.EntityData.Children.Append("bfd-rtr", types.YChild{"BfdRtr", &typeBfdRtr.BfdRtr})
+    typeBfdRtr.EntityData.Leafs = types.NewOrderedMap()
+
+    typeBfdRtr.EntityData.YListKeys = []string {}
+
+    return &(typeBfdRtr.EntityData)
+}
+
+// ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr
+// BFD session related parameters
+// This type is a presence type.
+type ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // Tx interval in ms. The type is interface{} with range: 1..5000. This
+    // attribute is mandatory.
+    Rate interface{}
+
+    // Debounce Count. The type is interface{} with range: 1..10. This attribute
+    // is mandatory.
+    DebounceCount interface{}
+
+    // Interface to be used for BFD session. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
+    InterfaceName interface{}
+
+    // Destination IP Address to track via BFD. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // This attribute is mandatory.
+    DestAddress interface{}
+}
+
+func (bfdRtr *ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr) GetEntityData() *types.CommonEntityData {
+    bfdRtr.EntityData.YFilter = bfdRtr.YFilter
+    bfdRtr.EntityData.YangName = "bfd-rtr"
+    bfdRtr.EntityData.BundleName = "cisco_ios_xr"
+    bfdRtr.EntityData.ParentYangName = "type-bfd-rtr"
+    bfdRtr.EntityData.SegmentPath = "bfd-rtr"
+    bfdRtr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bfdRtr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bfdRtr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bfdRtr.EntityData.Children = types.NewOrderedMap()
+    bfdRtr.EntityData.Leafs = types.NewOrderedMap()
+    bfdRtr.EntityData.Leafs.Append("rate", types.YLeaf{"Rate", bfdRtr.Rate})
+    bfdRtr.EntityData.Leafs.Append("debounce-count", types.YLeaf{"DebounceCount", bfdRtr.DebounceCount})
+    bfdRtr.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", bfdRtr.InterfaceName})
+    bfdRtr.EntityData.Leafs.Append("dest-address", types.YLeaf{"DestAddress", bfdRtr.DestAddress})
+
+    bfdRtr.EntityData.YListKeys = []string {}
+
+    return &(bfdRtr.EntityData)
+}
+
 // ObjectTrackings_ObjectTracking_TypeInterface
 // Track type line-protocol
 type ObjectTrackings_ObjectTracking_TypeInterface struct {
@@ -147,7 +333,7 @@ type ObjectTrackings_ObjectTracking_TypeInterface struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -205,6 +391,13 @@ type ObjectTrackings_ObjectTracking_TypeList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Enable threshold based on percentage. The type is interface{}. Units are
+    // percentage.
+    ThresholdPercentageObjectEnable interface{}
+
+    // Enable threshold based on weighted sum. The type is interface{}.
+    ThresholdWeightObjectEnable interface{}
+
     // Track type threshold weight.
     ThresholdWeight ObjectTrackings_ObjectTracking_TypeList_ThresholdWeight
 
@@ -234,6 +427,8 @@ func (typeList *ObjectTrackings_ObjectTracking_TypeList) GetEntityData() *types.
     typeList.EntityData.Children.Append("threshold-percentage", types.YChild{"ThresholdPercentage", &typeList.ThresholdPercentage})
     typeList.EntityData.Children.Append("threshold-weight-object", types.YChild{"ThresholdWeightObject", &typeList.ThresholdWeightObject})
     typeList.EntityData.Leafs = types.NewOrderedMap()
+    typeList.EntityData.Leafs.Append("threshold-percentage-object-enable", types.YLeaf{"ThresholdPercentageObjectEnable", typeList.ThresholdPercentageObjectEnable})
+    typeList.EntityData.Leafs.Append("threshold-weight-object-enable", types.YLeaf{"ThresholdWeightObjectEnable", typeList.ThresholdWeightObjectEnable})
 
     typeList.EntityData.YListKeys = []string {}
 

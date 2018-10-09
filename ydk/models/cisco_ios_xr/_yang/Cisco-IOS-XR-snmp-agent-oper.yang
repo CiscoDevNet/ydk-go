@@ -50,7 +50,7 @@ module Cisco-IOS-XR-snmp-agent-oper {
      for the following management objects:
        snmp: SNMP operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {

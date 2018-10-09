@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ethernet-interface: Ethernet operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package drivers_media_eth_oper
 
@@ -113,6 +113,9 @@ const (
 
     // OTN Framing Error
     EtherLinkState_otn_framing_error EtherLinkState = "otn-framing-error"
+
+    // Link is shutdown
+    EtherLinkState_shutdown EtherLinkState = "shutdown"
 )
 
 // EthernetBertPattern represents Ethernet test patterns (IEEE spec 36A/48A)
@@ -1496,6 +1499,15 @@ const (
     // Passive Twinax cable assembly 1m
     EthernetMedia_ethernet_10gbase_cu1m EthernetMedia = "ethernet-10gbase-cu1m"
 
+    // Passive Twinax cable assembly 1.5m
+    EthernetMedia_ethernet_10gbase_cu1_5m EthernetMedia = "ethernet-10gbase-cu1-5m"
+
+    // Passive Twinax cable assembly 2m
+    EthernetMedia_ethernet_10gbase_cu2m EthernetMedia = "ethernet-10gbase-cu2m"
+
+    // Passive Twinax cable assembly 2.5m
+    EthernetMedia_ethernet_10gbase_cu2_5m EthernetMedia = "ethernet-10gbase-cu2-5m"
+
     // Passive Twinax cable assembly 3m
     EthernetMedia_ethernet_10gbase_cu3m EthernetMedia = "ethernet-10gbase-cu3m"
 
@@ -1507,6 +1519,60 @@ const (
 
     // Active Twinax cable assembly 10m
     EthernetMedia_ethernet_10gbase_acu10m EthernetMedia = "ethernet-10gbase-acu10m"
+
+    // Active optical cable 1m
+    EthernetMedia_ethernet_10gbase_aoc1m EthernetMedia = "ethernet-10gbase-aoc1m"
+
+    // Active optical cable 2m
+    EthernetMedia_ethernet_10gbase_aoc2m EthernetMedia = "ethernet-10gbase-aoc2m"
+
+    // Active optical cable 3m
+    EthernetMedia_ethernet_10gbase_aoc3m EthernetMedia = "ethernet-10gbase-aoc3m"
+
+    // Active optical cable 5m
+    EthernetMedia_ethernet_10gbase_aoc5m EthernetMedia = "ethernet-10gbase-aoc5m"
+
+    // Active optical cable 7m
+    EthernetMedia_ethernet_10gbase_aoc7m EthernetMedia = "ethernet-10gbase-aoc7m"
+
+    // Active optical cable 10m
+    EthernetMedia_ethernet_10gbase_aoc10m EthernetMedia = "ethernet-10gbase-aoc10m"
+
+    // Active optical cable
+    EthernetMedia_ethernet_40gbase_aoc EthernetMedia = "ethernet-40gbase-aoc"
+
+    // fiber over 4 lane optics (long reach)
+    EthernetMedia_ethernet_4x10g_base_lr EthernetMedia = "ethernet-4x10g-base-lr"
+
+    // Active Twinax cable assembly 1m
+    EthernetMedia_ethernet_40gbase_acu1m EthernetMedia = "ethernet-40gbase-acu1m"
+
+    // Active Twinax cable assembly 3m
+    EthernetMedia_ethernet_40gbase_acu3m EthernetMedia = "ethernet-40gbase-acu3m"
+
+    // Active Twinax cable assembly 5m
+    EthernetMedia_ethernet_40gbase_acu5m EthernetMedia = "ethernet-40gbase-acu5m"
+
+    // Active Twinax cable assembly 7m
+    EthernetMedia_ethernet_40gbase_acu7m EthernetMedia = "ethernet-40gbase-acu7m"
+
+    // Active Twinax cable assembly 10m
+    EthernetMedia_ethernet_40gbase_acu10m EthernetMedia = "ethernet-40gbase-acu10m"
+
+    // Twinaxial copper cabling (1m)
+    EthernetMedia_ethernet_25gbase_cu1m EthernetMedia = "ethernet-25gbase-cu1m"
+
+    // Twinaxial copper cabling (2m)
+    EthernetMedia_ethernet_25gbase_cu2m EthernetMedia = "ethernet-25gbase-cu2m"
+
+    // Twinaxial copper cabling (3m)
+    EthernetMedia_ethernet_25gbase_cu3m EthernetMedia = "ethernet-25gbase-cu3m"
+
+    // Twinaxial copper cabling (5m)
+    EthernetMedia_ethernet_25gbase_cu5m EthernetMedia = "ethernet-25gbase-cu5m"
+
+    // 4 lane CWDM Lite cable
+    EthernetMedia_ethernet_100gbase_sm_sr EthernetMedia = "ethernet-100gbase-sm-sr"
 
     // ethernet base max
     EthernetMedia_ethernet_base_max EthernetMedia = "ethernet-base-max"
@@ -1620,7 +1686,7 @@ type EthernetInterface_Statistics_Statistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total octets of all frames. The type is interface{} with range:
@@ -1957,7 +2023,7 @@ type EthernetInterface_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Port Administrative State. The type is EthernetPortEnable.
@@ -2019,6 +2085,9 @@ type EthernetInterface_Interfaces_Interface_PhyInfo struct {
     // Port operational loopback. The type is EthernetLoopback.
     Loopback interface{}
 
+    // Holdoff Time. The type is interface{} with range: 0..4294967295.
+    HoldoffTime interface{}
+
     // Details about the PHY.
     PhyDetails EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails
 
@@ -2051,6 +2120,7 @@ func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetEntityData() *
     phyInfo.EntityData.Leafs.Append("media-type", types.YLeaf{"MediaType", phyInfo.MediaType})
     phyInfo.EntityData.Leafs.Append("phy-present", types.YLeaf{"PhyPresent", phyInfo.PhyPresent})
     phyInfo.EntityData.Leafs.Append("loopback", types.YLeaf{"Loopback", phyInfo.Loopback})
+    phyInfo.EntityData.Leafs.Append("holdoff-time", types.YLeaf{"HoldoffTime", phyInfo.HoldoffTime})
 
     phyInfo.EntityData.YListKeys = []string {}
 
@@ -3302,8 +3372,8 @@ type EthernetInterface_Interfaces_Interface_TransportInfo struct {
     // AINS Soak status. The type is EtherAinsStatus.
     AinsStatus interface{}
 
-    // Total duration (seconds) of AINS soak timer. The type is interface{} with
-    // range: 0..4294967295. Units are second.
+    // Total duration (minutes) of AINS soak timer. The type is interface{} with
+    // range: 0..4294967295. Units are minute.
     TotalDuration interface{}
 
     // Remaining duration (seconds) of AINS soak timer. The type is interface{}
@@ -3373,7 +3443,7 @@ type EthernetInterface_Berts_Bert struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Remaining time for this test in seconds. The type is interface{} with

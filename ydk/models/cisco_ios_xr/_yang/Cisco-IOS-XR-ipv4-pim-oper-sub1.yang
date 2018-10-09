@@ -32,7 +32,7 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ipv4-pim package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -2310,6 +2310,16 @@ submodule Cisco-IOS-XR-ipv4-pim-oper-sub1 {
       type uint32;
       description
         "Packets dropped due to truncated Joins or Prunes";
+    }
+    leaf invalid-source-encodings {
+      type uint32;
+      description
+        "Number of invalid source encodings received";
+    }
+    leaf invalid-hello-options {
+      type uint32;
+      description
+        "Number of invalid hello options received";
     }
     list packet-queue {
       max-elements "2";

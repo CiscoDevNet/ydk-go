@@ -32,7 +32,7 @@ module Cisco-IOS-XR-ipv4-io-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2018-01-11 {
@@ -68,18 +68,6 @@ module Cisco-IOS-XR-ipv4-io-cfg {
     }
     description
       "Ipv4 reachable";
-  }
-
-  typedef Dhcp-client-option-code {
-    type enumeration {
-      enum "60" {
-        value 1;
-        description
-          "Vendor id  DHCP Discover";
-      }
-    }
-    description
-      "Dhcp client option code";
   }
 
   typedef Ipv4-self-ping {
@@ -298,35 +286,16 @@ module Cisco-IOS-XR-ipv4-io-cfg {
               "RouteTag";
           }
         }
-        container dhcp {
-          description
-            "IPv4 address and Mask negotiated via DHCP";
-          leaf enabled {
-            type empty;
-            description
-              "Enable DHCP client on an interface";
-          }
-          leaf option-code {
-            type Dhcp-client-option-code;
-            description
-              "DHCP option code";
-          }
-          leaf format {
-            type uint32;
-            description
-              "Format type";
-          }
-          leaf pattern {
-            type string;
-            description
-              "Vendor id string";
-          }
-        }
         leaf unnumbered {
           type xr:Interface-name;
           description
             "Enable IP processing without an explicit
              address";
+        }
+        leaf dhcp {
+          type empty;
+          description
+            "IPv4 address and Mask negotiated via DHCP";
         }
       }
       container helper-addresses {

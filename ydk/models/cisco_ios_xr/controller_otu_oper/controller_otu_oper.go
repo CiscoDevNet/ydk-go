@@ -5,7 +5,7 @@
 // for the following management objects:
 //   otu: OTU operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package controller_otu_oper
 
@@ -137,6 +137,20 @@ const (
     OtuPrbsTest_enable OtuPrbsTest = "enable"
 )
 
+// OtuAinsStateEt represents Otu ains state et
+type OtuAinsStateEt string
+
+const (
+    // None
+    OtuAinsStateEt_none OtuAinsStateEt = "none"
+
+    // Running
+    OtuAinsStateEt_active_running OtuAinsStateEt = "active-running"
+
+    // Pending
+    OtuAinsStateEt_active_pending OtuAinsStateEt = "active-pending"
+)
+
 // OtuPpFsmState represents Otu pp fsm state
 type OtuPpFsmState string
 
@@ -205,6 +219,12 @@ const (
 
     // Soft-Decision 7
     OtuG709fecMode_otu_bag_sd7_fec OtuG709fecMode = "otu-bag-sd7-fec"
+
+    // Soft-Decision 15
+    OtuG709fecMode_otu_bag_sd15_fec OtuG709fecMode = "otu-bag-sd15-fec"
+
+    // Soft-Decision 27
+    OtuG709fecMode_otu_bag_sd27_fec OtuG709fecMode = "otu-bag-sd27-fec"
 
     // ALL
     OtuG709fecMode_otu_bag_all_fec OtuG709fecMode = "otu-bag-all-fec"
@@ -280,7 +300,7 @@ const (
     OtuSecState_maintenance OtuSecState = "maintenance"
 
     // Automatic In Service
-    OtuSecState_ais OtuSecState = "ais"
+    OtuSecState_ains OtuSecState = "ains"
 )
 
 // OtuLoopBackMode represents Otu loop back mode
@@ -328,7 +348,7 @@ const (
     OtuDerState_maintenance OtuDerState = "maintenance"
 
     // Automatic In Service
-    OtuDerState_ais OtuDerState = "ais"
+    OtuDerState_ains OtuDerState = "ains"
 )
 
 // Otu
@@ -399,7 +419,7 @@ type Otu_Controllers_Controller struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // OTU port PRBS operational data.
@@ -581,6 +601,9 @@ type Otu_Controllers_Controller_Info struct {
 
     // OTU FEC Statistics.
     OtuFecSatistics Otu_Controllers_Controller_Info_OtuFecSatistics
+
+    // AINS information.
+    AinsInfo Otu_Controllers_Controller_Info_AinsInfo
 }
 
 func (info *Otu_Controllers_Controller_Info) GetEntityData() *types.CommonEntityData {
@@ -601,6 +624,7 @@ func (info *Otu_Controllers_Controller_Info) GetEntityData() *types.CommonEntity
     info.EntityData.Children.Append("otu-alarm-info", types.YChild{"OtuAlarmInfo", &info.OtuAlarmInfo})
     info.EntityData.Children.Append("proactive", types.YChild{"Proactive", &info.Proactive})
     info.EntityData.Children.Append("otu-fec-satistics", types.YChild{"OtuFecSatistics", &info.OtuFecSatistics})
+    info.EntityData.Children.Append("ains-info", types.YChild{"AinsInfo", &info.AinsInfo})
     info.EntityData.Leafs = types.NewOrderedMap()
     info.EntityData.Leafs.Append("state", types.YLeaf{"State", info.State})
     info.EntityData.Leafs.Append("name", types.YLeaf{"Name", info.Name})
@@ -2176,5 +2200,44 @@ func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetEntit
     otuFecSatistics.EntityData.YListKeys = []string {}
 
     return &(otuFecSatistics.EntityData)
+}
+
+// Otu_Controllers_Controller_Info_AinsInfo
+// AINS information
+type Otu_Controllers_Controller_Info_AinsInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // AINS State. The type is OtuAinsStateEt.
+    AinsState interface{}
+
+    // AINS Timer in Minutes. The type is interface{} with range: 0..4294967295.
+    // Units are minute.
+    AinsTimerMinutes interface{}
+
+    // AINS Remaining Seconds. The type is interface{} with range: 0..4294967295.
+    // Units are second.
+    AinsRemainingSecs interface{}
+}
+
+func (ainsInfo *Otu_Controllers_Controller_Info_AinsInfo) GetEntityData() *types.CommonEntityData {
+    ainsInfo.EntityData.YFilter = ainsInfo.YFilter
+    ainsInfo.EntityData.YangName = "ains-info"
+    ainsInfo.EntityData.BundleName = "cisco_ios_xr"
+    ainsInfo.EntityData.ParentYangName = "info"
+    ainsInfo.EntityData.SegmentPath = "ains-info"
+    ainsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ainsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ainsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ainsInfo.EntityData.Children = types.NewOrderedMap()
+    ainsInfo.EntityData.Leafs = types.NewOrderedMap()
+    ainsInfo.EntityData.Leafs.Append("ains-state", types.YLeaf{"AinsState", ainsInfo.AinsState})
+    ainsInfo.EntityData.Leafs.Append("ains-timer-minutes", types.YLeaf{"AinsTimerMinutes", ainsInfo.AinsTimerMinutes})
+    ainsInfo.EntityData.Leafs.Append("ains-remaining-secs", types.YLeaf{"AinsRemainingSecs", ainsInfo.AinsRemainingSecs})
+
+    ainsInfo.EntityData.YListKeys = []string {}
+
+    return &(ainsInfo.EntityData)
 }
 

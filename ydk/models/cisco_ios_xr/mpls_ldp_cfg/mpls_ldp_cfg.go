@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-snmp-agent-cfg
 // module with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_ldp_cfg
 
@@ -826,7 +826,7 @@ type MplsLdp_DefaultVrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1811,7 +1811,7 @@ type MplsLdp_DefaultVrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable Label Distribution Protocol (LDP) on thisinterface. The type is
@@ -2472,6 +2472,9 @@ type MplsLdp_Vrfs_Vrf_Global_Neighbor struct {
     // (!.+)|([^!].+).
     Password interface{}
 
+    // Configuration related to neighbor transport.
+    DualStack MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack
+
     // Configuration related to Neighbors using LDP Id.
     LdpIds MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds
 }
@@ -2487,6 +2490,7 @@ func (neighbor *MplsLdp_Vrfs_Vrf_Global_Neighbor) GetEntityData() *types.CommonE
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     neighbor.EntityData.Children = types.NewOrderedMap()
+    neighbor.EntityData.Children.Append("dual-stack", types.YChild{"DualStack", &neighbor.DualStack})
     neighbor.EntityData.Children.Append("ldp-ids", types.YChild{"LdpIds", &neighbor.LdpIds})
     neighbor.EntityData.Leafs = types.NewOrderedMap()
     neighbor.EntityData.Leafs.Append("password", types.YLeaf{"Password", neighbor.Password})
@@ -2494,6 +2498,100 @@ func (neighbor *MplsLdp_Vrfs_Vrf_Global_Neighbor) GetEntityData() *types.CommonE
     neighbor.EntityData.YListKeys = []string {}
 
     return &(neighbor.EntityData)
+}
+
+// MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack
+// Configuration related to neighbor transport
+type MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration related to neighbor transport.
+    TransportConnection MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection
+}
+
+func (dualStack *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack) GetEntityData() *types.CommonEntityData {
+    dualStack.EntityData.YFilter = dualStack.YFilter
+    dualStack.EntityData.YangName = "dual-stack"
+    dualStack.EntityData.BundleName = "cisco_ios_xr"
+    dualStack.EntityData.ParentYangName = "neighbor"
+    dualStack.EntityData.SegmentPath = "dual-stack"
+    dualStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dualStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dualStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dualStack.EntityData.Children = types.NewOrderedMap()
+    dualStack.EntityData.Children.Append("transport-connection", types.YChild{"TransportConnection", &dualStack.TransportConnection})
+    dualStack.EntityData.Leafs = types.NewOrderedMap()
+
+    dualStack.EntityData.YListKeys = []string {}
+
+    return &(dualStack.EntityData)
+}
+
+// MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection
+// Configuration related to neighbor transport
+type MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration related to neighbor dual-stack xport-connection max-wait. The
+    // type is interface{} with range: 0..60. Units are second.
+    MaxWait interface{}
+
+    // Configuration related to neighbor dual-stack xport-connection preference.
+    Prefer MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection_Prefer
+}
+
+func (transportConnection *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection) GetEntityData() *types.CommonEntityData {
+    transportConnection.EntityData.YFilter = transportConnection.YFilter
+    transportConnection.EntityData.YangName = "transport-connection"
+    transportConnection.EntityData.BundleName = "cisco_ios_xr"
+    transportConnection.EntityData.ParentYangName = "dual-stack"
+    transportConnection.EntityData.SegmentPath = "transport-connection"
+    transportConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transportConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transportConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    transportConnection.EntityData.Children = types.NewOrderedMap()
+    transportConnection.EntityData.Children.Append("prefer", types.YChild{"Prefer", &transportConnection.Prefer})
+    transportConnection.EntityData.Leafs = types.NewOrderedMap()
+    transportConnection.EntityData.Leafs.Append("max-wait", types.YLeaf{"MaxWait", transportConnection.MaxWait})
+
+    transportConnection.EntityData.YListKeys = []string {}
+
+    return &(transportConnection.EntityData)
+}
+
+// MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection_Prefer
+// Configuration related to neighbor
+// dual-stack xport-connection preference
+type MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection_Prefer struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration related to neighbor dual-stack xport-connection preference
+    // ipv4. The type is interface{}.
+    Ipv4 interface{}
+}
+
+func (prefer *MplsLdp_Vrfs_Vrf_Global_Neighbor_DualStack_TransportConnection_Prefer) GetEntityData() *types.CommonEntityData {
+    prefer.EntityData.YFilter = prefer.YFilter
+    prefer.EntityData.YangName = "prefer"
+    prefer.EntityData.BundleName = "cisco_ios_xr"
+    prefer.EntityData.ParentYangName = "transport-connection"
+    prefer.EntityData.SegmentPath = "prefer"
+    prefer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    prefer.EntityData.Children = types.NewOrderedMap()
+    prefer.EntityData.Leafs = types.NewOrderedMap()
+    prefer.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", prefer.Ipv4})
+
+    prefer.EntityData.YListKeys = []string {}
+
+    return &(prefer.EntityData)
 }
 
 // MplsLdp_Vrfs_Vrf_Global_Neighbor_LdpIds
@@ -3273,7 +3371,7 @@ type MplsLdp_Vrfs_Vrf_Afs_Af_Label_Local_Advertise_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3410,7 +3508,7 @@ type MplsLdp_Vrfs_Vrf_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable Label Distribution Protocol (LDP) on thisinterface. The type is

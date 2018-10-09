@@ -36,9 +36,13 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
        Cisco-IOS-XR-snmp-agent-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2017-07-14 {
     description
       "Trace buffer size added in yang xml request repsonse.";
@@ -184,6 +188,11 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
         value 2;
         description
           "MD5 Message Digest";
+      }
+      enum "keychain" {
+        value 3;
+        description
+          "Keychain Authentication";
       }
     }
     description
@@ -2402,7 +2411,7 @@ module Cisco-IOS-XR-ipv4-ospf-cfg {
             "Keychain name";
         }
       }
-      container message-digest-keies {
+      container message-digest-keys {
         description
           "Message digest authentication password (key)
            configurations, first 16 chars used";

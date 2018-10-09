@@ -2,6 +2,9 @@ module Cisco-IOS-XR-sysadmin-system {
   namespace "http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-system";
   prefix calvados_system;
 
+  import tailf-common {
+    prefix tailf;
+  }
   import ietf-inet-types {
     prefix inet;
   }
@@ -32,7 +35,7 @@ module Cisco-IOS-XR-sysadmin-system {
      Copyright(c) 2011-2017 by Cisco Systems, Inc.
      All rights reserved.
      
-     Copyright (c) 2012-2017 by Cisco Systems, Inc.
+     Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-10-31 {
@@ -88,7 +91,20 @@ module Cisco-IOS-XR-sysadmin-system {
   }
 
   grouping config_sync_clear_inconsistency {
-    container configuration;
+    container configuration {
+      tailf:action "inconsistencies" {
+        output {
+          list node {
+            leaf ip {
+              type string;
+            }
+            leaf status {
+              type string;
+            }
+          }
+        }
+      }
+    }
   }
 
   container mgmt {

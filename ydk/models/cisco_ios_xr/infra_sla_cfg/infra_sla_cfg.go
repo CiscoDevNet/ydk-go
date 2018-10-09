@@ -5,7 +5,7 @@
 // for the following management objects:
 //   sla: SLA prtocol and profile Configuration
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_sla_cfg
 
@@ -245,6 +245,9 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic struct {
     // Size of the buckets into which statistics are collected.
     BucketsSize Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize
 
+    // Thresholds and associated actions for the given statistics type.
+    Actions Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions
+
     // Aggregation to apply to results for the statistic.
     Aggregation Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation
 }
@@ -261,6 +264,7 @@ func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) G
 
     statistic.EntityData.Children = types.NewOrderedMap()
     statistic.EntityData.Children.Append("buckets-size", types.YChild{"BucketsSize", &statistic.BucketsSize})
+    statistic.EntityData.Children.Append("actions", types.YChild{"Actions", &statistic.Actions})
     statistic.EntityData.Children.Append("aggregation", types.YChild{"Aggregation", &statistic.Aggregation})
     statistic.EntityData.Leafs = types.NewOrderedMap()
     statistic.EntityData.Leafs.Append("statistic-name", types.YLeaf{"StatisticName", statistic.StatisticName})
@@ -308,6 +312,91 @@ func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_
     bucketsSize.EntityData.YListKeys = []string {}
 
     return &(bucketsSize.EntityData)
+}
+
+// Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions
+// Thresholds and associated actions for the
+// given statistics type
+type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Action to perform when the threshold is crossed. The type is slice of
+    // Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action.
+    Action []*Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action
+}
+
+func (actions *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions) GetEntityData() *types.CommonEntityData {
+    actions.EntityData.YFilter = actions.YFilter
+    actions.EntityData.YangName = "actions"
+    actions.EntityData.BundleName = "cisco_ios_xr"
+    actions.EntityData.ParentYangName = "statistic"
+    actions.EntityData.SegmentPath = "actions"
+    actions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    actions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    actions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    actions.EntityData.Children = types.NewOrderedMap()
+    actions.EntityData.Children.Append("action", types.YChild{"Action", nil})
+    for i := range actions.Action {
+        actions.EntityData.Children.Append(types.GetSegmentPath(actions.Action[i]), types.YChild{"Action", actions.Action[i]})
+    }
+    actions.EntityData.Leafs = types.NewOrderedMap()
+
+    actions.EntityData.YListKeys = []string {}
+
+    return &(actions.EntityData)
+}
+
+// Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action
+// Action to perform when the threshold is
+// crossed
+type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Threshold type. The type is SlaThresholdTypeEnum.
+    ThresholdType interface{}
+
+    // This attribute is a key. Action to take when the threshold is crossed. The
+    // type is SlaActionTypeEnum.
+    ActionType interface{}
+
+    // This attribute is a key. Condition to be met to consider the threshold
+    // crossed. The type is SlaThresholdConditionEnum.
+    Condition interface{}
+
+    // Threshold Value. The type is interface{} with range: 1..2147483647. This
+    // attribute is mandatory.
+    ThresholdValue interface{}
+
+    // Bin number in-and-above which samples contribute towards a sample-count
+    // threshold (required only when Condition is SampleCount). The type is
+    // interface{} with range: 2..100.
+    BinNumber interface{}
+}
+
+func (action *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action) GetEntityData() *types.CommonEntityData {
+    action.EntityData.YFilter = action.YFilter
+    action.EntityData.YangName = "action"
+    action.EntityData.BundleName = "cisco_ios_xr"
+    action.EntityData.ParentYangName = "actions"
+    action.EntityData.SegmentPath = "action" + types.AddKeyToken(action.ThresholdType, "threshold-type") + types.AddKeyToken(action.ActionType, "action-type") + types.AddKeyToken(action.Condition, "condition")
+    action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    action.EntityData.Children = types.NewOrderedMap()
+    action.EntityData.Leafs = types.NewOrderedMap()
+    action.EntityData.Leafs.Append("threshold-type", types.YLeaf{"ThresholdType", action.ThresholdType})
+    action.EntityData.Leafs.Append("action-type", types.YLeaf{"ActionType", action.ActionType})
+    action.EntityData.Leafs.Append("condition", types.YLeaf{"Condition", action.Condition})
+    action.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", action.ThresholdValue})
+    action.EntityData.Leafs.Append("bin-number", types.YLeaf{"BinNumber", action.BinNumber})
+
+    action.EntityData.YListKeys = []string {"ThresholdType", "ActionType", "Condition"}
+
+    return &(action.EntityData)
 }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation

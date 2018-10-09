@@ -5,7 +5,7 @@
 // for the following management objects:
 //   alarms: Show Alarms associated with XR
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package alarmgr_server_oper
 
@@ -147,6 +147,9 @@ const (
 
     // Alarm Notifcation Event Type
     AlarmEvent_notification AlarmEvent = "notification"
+
+    // Alarm Type Condition
+    AlarmEvent_condition AlarmEvent = "condition"
 
     // Last Event Type
     AlarmEvent_last AlarmEvent = "last"
@@ -332,6 +335,9 @@ type Alarms_Detail_DetailSystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Show the Conditions present at this scope.
+    Conditions Alarms_Detail_DetailSystem_Conditions
+
     // Show the active alarms at this scope.
     Active Alarms_Detail_DetailSystem_Active
 
@@ -359,6 +365,7 @@ func (detailSystem *Alarms_Detail_DetailSystem) GetEntityData() *types.CommonEnt
     detailSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     detailSystem.EntityData.Children = types.NewOrderedMap()
+    detailSystem.EntityData.Children.Append("conditions", types.YChild{"Conditions", &detailSystem.Conditions})
     detailSystem.EntityData.Children.Append("active", types.YChild{"Active", &detailSystem.Active})
     detailSystem.EntityData.Children.Append("history", types.YChild{"History", &detailSystem.History})
     detailSystem.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &detailSystem.Suppressed})
@@ -369,6 +376,220 @@ func (detailSystem *Alarms_Detail_DetailSystem) GetEntityData() *types.CommonEnt
     detailSystem.EntityData.YListKeys = []string {}
 
     return &(detailSystem.EntityData)
+}
+
+// Alarms_Detail_DetailSystem_Conditions
+// Show the Conditions present at this scope.
+type Alarms_Detail_DetailSystem_Conditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm List. The type is slice of
+    // Alarms_Detail_DetailSystem_Conditions_AlarmInfo.
+    AlarmInfo []*Alarms_Detail_DetailSystem_Conditions_AlarmInfo
+}
+
+func (conditions *Alarms_Detail_DetailSystem_Conditions) GetEntityData() *types.CommonEntityData {
+    conditions.EntityData.YFilter = conditions.YFilter
+    conditions.EntityData.YangName = "conditions"
+    conditions.EntityData.BundleName = "cisco_ios_xr"
+    conditions.EntityData.ParentYangName = "detail-system"
+    conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conditions.EntityData.Children = types.NewOrderedMap()
+    conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
+    for i := range conditions.AlarmInfo {
+        conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
+    }
+    conditions.EntityData.Leafs = types.NewOrderedMap()
+
+    conditions.EntityData.YListKeys = []string {}
+
+    return &(conditions.EntityData)
+}
+
+// Alarms_Detail_DetailSystem_Conditions_AlarmInfo
+// Alarm List
+type Alarms_Detail_DetailSystem_Conditions_AlarmInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm description. The type is string with length: 0..256.
+    Description interface{}
+
+    // Alarm location. The type is string with length: 0..128.
+    Location interface{}
+
+    // Alarm aid. The type is string with length: 0..128.
+    Aid interface{}
+
+    // Alarm tag description. The type is string with length: 0..128.
+    Tag interface{}
+
+    // Alarm module description. The type is string with length: 0..128.
+    Module interface{}
+
+    // Alarm eid. The type is string with length: 0..128.
+    Eid interface{}
+
+    // Reporting agent id. The type is interface{} with range: 0..4294967295.
+    ReportingAgentId interface{}
+
+    // Pending async flag. The type is bool.
+    PendingSync interface{}
+
+    // Alarm severity. The type is AlarmSeverity.
+    Severity interface{}
+
+    // Alarm status. The type is AlarmStatus.
+    Status interface{}
+
+    // Alarm group. The type is AlarmGroups.
+    Group interface{}
+
+    // Alarm set time. The type is string with length: 0..64.
+    SetTime interface{}
+
+    // Alarm set time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    SetTimestamp interface{}
+
+    // Alarm clear time. The type is string with length: 0..64.
+    ClearTime interface{}
+
+    // Alarm clear time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    ClearTimestamp interface{}
+
+    // Alarm service affecting. The type is AlarmServiceAffecting.
+    ServiceAffecting interface{}
+
+    // alarm event type. The type is AlarmEvent.
+    Type interface{}
+
+    // Alarm interface name. The type is string with length: 0..128.
+    Interface interface{}
+
+    // Alarm name. The type is string with length: 0..128.
+    AlarmName interface{}
+
+    // OTN feature specific alarm attributes.
+    Otn Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Otn
+
+    // TCA feature specific alarm attributes.
+    Tca Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Tca
+}
+
+func (alarmInfo *Alarms_Detail_DetailSystem_Conditions_AlarmInfo) GetEntityData() *types.CommonEntityData {
+    alarmInfo.EntityData.YFilter = alarmInfo.YFilter
+    alarmInfo.EntityData.YangName = "alarm-info"
+    alarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    alarmInfo.EntityData.ParentYangName = "conditions"
+    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
+    return &(alarmInfo.EntityData)
+}
+
+// Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Otn
+// OTN feature specific alarm attributes
+type Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Otn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm direction . The type is AlarmDirection.
+    Direction interface{}
+
+    // Source of Alarm. The type is AlarmNotificationSrc.
+    NotificationSource interface{}
+}
+
+func (otn *Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Otn) GetEntityData() *types.CommonEntityData {
+    otn.EntityData.YFilter = otn.YFilter
+    otn.EntityData.YangName = "otn"
+    otn.EntityData.BundleName = "cisco_ios_xr"
+    otn.EntityData.ParentYangName = "alarm-info"
+    otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
+    return &(otn.EntityData)
+}
+
+// Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Tca
+// TCA feature specific alarm attributes
+type Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Tca struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm Threshold . The type is string with length: 0..20.
+    ThresholdValue interface{}
+
+    // Alarm Threshold. The type is string with length: 0..20.
+    CurrentValue interface{}
+
+    // Timing Bucket. The type is TimingBucket.
+    BucketType interface{}
+}
+
+func (tca *Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Tca) GetEntityData() *types.CommonEntityData {
+    tca.EntityData.YFilter = tca.YFilter
+    tca.EntityData.YangName = "tca"
+    tca.EntityData.BundleName = "cisco_ios_xr"
+    tca.EntityData.ParentYangName = "alarm-info"
+    tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
+    return &(tca.EntityData)
 }
 
 // Alarms_Detail_DetailSystem_Active
@@ -1270,6 +1491,9 @@ type Alarms_Detail_DetailCard_DetailLocations_DetailLocation struct {
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
+    // Show the conditions present at this scope.
+    Conditions Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions
+
     // Show the active alarms at this scope.
     Active Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active
 
@@ -1297,6 +1521,7 @@ func (detailLocation *Alarms_Detail_DetailCard_DetailLocations_DetailLocation) G
     detailLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     detailLocation.EntityData.Children = types.NewOrderedMap()
+    detailLocation.EntityData.Children.Append("conditions", types.YChild{"Conditions", &detailLocation.Conditions})
     detailLocation.EntityData.Children.Append("active", types.YChild{"Active", &detailLocation.Active})
     detailLocation.EntityData.Children.Append("history", types.YChild{"History", &detailLocation.History})
     detailLocation.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &detailLocation.Suppressed})
@@ -1308,6 +1533,220 @@ func (detailLocation *Alarms_Detail_DetailCard_DetailLocations_DetailLocation) G
     detailLocation.EntityData.YListKeys = []string {"NodeId"}
 
     return &(detailLocation.EntityData)
+}
+
+// Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions
+// Show the conditions present at this scope.
+type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm List. The type is slice of
+    // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo.
+    AlarmInfo []*Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo
+}
+
+func (conditions *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions) GetEntityData() *types.CommonEntityData {
+    conditions.EntityData.YFilter = conditions.YFilter
+    conditions.EntityData.YangName = "conditions"
+    conditions.EntityData.BundleName = "cisco_ios_xr"
+    conditions.EntityData.ParentYangName = "detail-location"
+    conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conditions.EntityData.Children = types.NewOrderedMap()
+    conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
+    for i := range conditions.AlarmInfo {
+        conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
+    }
+    conditions.EntityData.Leafs = types.NewOrderedMap()
+
+    conditions.EntityData.YListKeys = []string {}
+
+    return &(conditions.EntityData)
+}
+
+// Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo
+// Alarm List
+type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm description. The type is string with length: 0..256.
+    Description interface{}
+
+    // Alarm location. The type is string with length: 0..128.
+    Location interface{}
+
+    // Alarm aid. The type is string with length: 0..128.
+    Aid interface{}
+
+    // Alarm tag description. The type is string with length: 0..128.
+    Tag interface{}
+
+    // Alarm module description. The type is string with length: 0..128.
+    Module interface{}
+
+    // Alarm eid. The type is string with length: 0..128.
+    Eid interface{}
+
+    // Reporting agent id. The type is interface{} with range: 0..4294967295.
+    ReportingAgentId interface{}
+
+    // Pending async flag. The type is bool.
+    PendingSync interface{}
+
+    // Alarm severity. The type is AlarmSeverity.
+    Severity interface{}
+
+    // Alarm status. The type is AlarmStatus.
+    Status interface{}
+
+    // Alarm group. The type is AlarmGroups.
+    Group interface{}
+
+    // Alarm set time. The type is string with length: 0..64.
+    SetTime interface{}
+
+    // Alarm set time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    SetTimestamp interface{}
+
+    // Alarm clear time. The type is string with length: 0..64.
+    ClearTime interface{}
+
+    // Alarm clear time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    ClearTimestamp interface{}
+
+    // Alarm service affecting. The type is AlarmServiceAffecting.
+    ServiceAffecting interface{}
+
+    // alarm event type. The type is AlarmEvent.
+    Type interface{}
+
+    // Alarm interface name. The type is string with length: 0..128.
+    Interface interface{}
+
+    // Alarm name. The type is string with length: 0..128.
+    AlarmName interface{}
+
+    // OTN feature specific alarm attributes.
+    Otn Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Otn
+
+    // TCA feature specific alarm attributes.
+    Tca Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Tca
+}
+
+func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo) GetEntityData() *types.CommonEntityData {
+    alarmInfo.EntityData.YFilter = alarmInfo.YFilter
+    alarmInfo.EntityData.YangName = "alarm-info"
+    alarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    alarmInfo.EntityData.ParentYangName = "conditions"
+    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Children.Append("otn", types.YChild{"Otn", &alarmInfo.Otn})
+    alarmInfo.EntityData.Children.Append("tca", types.YChild{"Tca", &alarmInfo.Tca})
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", alarmInfo.Aid})
+    alarmInfo.EntityData.Leafs.Append("tag", types.YLeaf{"Tag", alarmInfo.Tag})
+    alarmInfo.EntityData.Leafs.Append("module", types.YLeaf{"Module", alarmInfo.Module})
+    alarmInfo.EntityData.Leafs.Append("eid", types.YLeaf{"Eid", alarmInfo.Eid})
+    alarmInfo.EntityData.Leafs.Append("reporting-agent-id", types.YLeaf{"ReportingAgentId", alarmInfo.ReportingAgentId})
+    alarmInfo.EntityData.Leafs.Append("pending-sync", types.YLeaf{"PendingSync", alarmInfo.PendingSync})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", alarmInfo.Status})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("service-affecting", types.YLeaf{"ServiceAffecting", alarmInfo.ServiceAffecting})
+    alarmInfo.EntityData.Leafs.Append("type", types.YLeaf{"Type", alarmInfo.Type})
+    alarmInfo.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", alarmInfo.Interface})
+    alarmInfo.EntityData.Leafs.Append("alarm-name", types.YLeaf{"AlarmName", alarmInfo.AlarmName})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
+    return &(alarmInfo.EntityData)
+}
+
+// Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Otn
+// OTN feature specific alarm attributes
+type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Otn struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm direction . The type is AlarmDirection.
+    Direction interface{}
+
+    // Source of Alarm. The type is AlarmNotificationSrc.
+    NotificationSource interface{}
+}
+
+func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Otn) GetEntityData() *types.CommonEntityData {
+    otn.EntityData.YFilter = otn.YFilter
+    otn.EntityData.YangName = "otn"
+    otn.EntityData.BundleName = "cisco_ios_xr"
+    otn.EntityData.ParentYangName = "alarm-info"
+    otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    otn.EntityData.Children = types.NewOrderedMap()
+    otn.EntityData.Leafs = types.NewOrderedMap()
+    otn.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", otn.Direction})
+    otn.EntityData.Leafs.Append("notification-source", types.YLeaf{"NotificationSource", otn.NotificationSource})
+
+    otn.EntityData.YListKeys = []string {}
+
+    return &(otn.EntityData)
+}
+
+// Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Tca
+// TCA feature specific alarm attributes
+type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Tca struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm Threshold . The type is string with length: 0..20.
+    ThresholdValue interface{}
+
+    // Alarm Threshold. The type is string with length: 0..20.
+    CurrentValue interface{}
+
+    // Timing Bucket. The type is TimingBucket.
+    BucketType interface{}
+}
+
+func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo_Tca) GetEntityData() *types.CommonEntityData {
+    tca.EntityData.YFilter = tca.YFilter
+    tca.EntityData.YangName = "tca"
+    tca.EntityData.BundleName = "cisco_ios_xr"
+    tca.EntityData.ParentYangName = "alarm-info"
+    tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tca.EntityData.Children = types.NewOrderedMap()
+    tca.EntityData.Leafs = types.NewOrderedMap()
+    tca.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", tca.ThresholdValue})
+    tca.EntityData.Leafs.Append("current-value", types.YLeaf{"CurrentValue", tca.CurrentValue})
+    tca.EntityData.Leafs.Append("bucket-type", types.YLeaf{"BucketType", tca.BucketType})
+
+    tca.EntityData.YListKeys = []string {}
+
+    return &(tca.EntityData)
 }
 
 // Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active
@@ -2243,6 +2682,9 @@ type Alarms_Brief_BriefCard_BriefLocations_BriefLocation struct {
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
+    // Show the conditions present at this scope.
+    Conditions Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions
+
     // Show the active alarms at this scope.
     Active Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active
 
@@ -2264,6 +2706,7 @@ func (briefLocation *Alarms_Brief_BriefCard_BriefLocations_BriefLocation) GetEnt
     briefLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     briefLocation.EntityData.Children = types.NewOrderedMap()
+    briefLocation.EntityData.Children.Append("conditions", types.YChild{"Conditions", &briefLocation.Conditions})
     briefLocation.EntityData.Children.Append("active", types.YChild{"Active", &briefLocation.Active})
     briefLocation.EntityData.Children.Append("history", types.YChild{"History", &briefLocation.History})
     briefLocation.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &briefLocation.Suppressed})
@@ -2273,6 +2716,98 @@ func (briefLocation *Alarms_Brief_BriefCard_BriefLocations_BriefLocation) GetEnt
     briefLocation.EntityData.YListKeys = []string {"NodeId"}
 
     return &(briefLocation.EntityData)
+}
+
+// Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions
+// Show the conditions present at this scope.
+type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm List. The type is slice of
+    // Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo.
+    AlarmInfo []*Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo
+}
+
+func (conditions *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions) GetEntityData() *types.CommonEntityData {
+    conditions.EntityData.YFilter = conditions.YFilter
+    conditions.EntityData.YangName = "conditions"
+    conditions.EntityData.BundleName = "cisco_ios_xr"
+    conditions.EntityData.ParentYangName = "brief-location"
+    conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conditions.EntityData.Children = types.NewOrderedMap()
+    conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
+    for i := range conditions.AlarmInfo {
+        conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
+    }
+    conditions.EntityData.Leafs = types.NewOrderedMap()
+
+    conditions.EntityData.YListKeys = []string {}
+
+    return &(conditions.EntityData)
+}
+
+// Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo
+// Alarm List
+type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm location. The type is string with length: 0..128.
+    Location interface{}
+
+    // Alarm severity. The type is AlarmSeverity.
+    Severity interface{}
+
+    // Alarm group. The type is AlarmGroups.
+    Group interface{}
+
+    // Alarm set time. The type is string with length: 0..64.
+    SetTime interface{}
+
+    // Alarm set time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    SetTimestamp interface{}
+
+    // Alarm clear time. The type is string with length: 0..64.
+    ClearTime interface{}
+
+    // Alarm clear time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    ClearTimestamp interface{}
+
+    // Alarm description. The type is string with length: 0..256.
+    Description interface{}
+}
+
+func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo) GetEntityData() *types.CommonEntityData {
+    alarmInfo.EntityData.YFilter = alarmInfo.YFilter
+    alarmInfo.EntityData.YangName = "alarm-info"
+    alarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    alarmInfo.EntityData.ParentYangName = "conditions"
+    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
+    return &(alarmInfo.EntityData)
 }
 
 // Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active
@@ -2557,6 +3092,9 @@ type Alarms_Brief_BriefSystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Show the conditions present at this scope.
+    Conditions Alarms_Brief_BriefSystem_Conditions
+
     // Show the active alarms at this scope.
     Active Alarms_Brief_BriefSystem_Active
 
@@ -2578,6 +3116,7 @@ func (briefSystem *Alarms_Brief_BriefSystem) GetEntityData() *types.CommonEntity
     briefSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     briefSystem.EntityData.Children = types.NewOrderedMap()
+    briefSystem.EntityData.Children.Append("conditions", types.YChild{"Conditions", &briefSystem.Conditions})
     briefSystem.EntityData.Children.Append("active", types.YChild{"Active", &briefSystem.Active})
     briefSystem.EntityData.Children.Append("history", types.YChild{"History", &briefSystem.History})
     briefSystem.EntityData.Children.Append("suppressed", types.YChild{"Suppressed", &briefSystem.Suppressed})
@@ -2586,6 +3125,98 @@ func (briefSystem *Alarms_Brief_BriefSystem) GetEntityData() *types.CommonEntity
     briefSystem.EntityData.YListKeys = []string {}
 
     return &(briefSystem.EntityData)
+}
+
+// Alarms_Brief_BriefSystem_Conditions
+// Show the conditions present at this scope.
+type Alarms_Brief_BriefSystem_Conditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm List. The type is slice of
+    // Alarms_Brief_BriefSystem_Conditions_AlarmInfo.
+    AlarmInfo []*Alarms_Brief_BriefSystem_Conditions_AlarmInfo
+}
+
+func (conditions *Alarms_Brief_BriefSystem_Conditions) GetEntityData() *types.CommonEntityData {
+    conditions.EntityData.YFilter = conditions.YFilter
+    conditions.EntityData.YangName = "conditions"
+    conditions.EntityData.BundleName = "cisco_ios_xr"
+    conditions.EntityData.ParentYangName = "brief-system"
+    conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conditions.EntityData.Children = types.NewOrderedMap()
+    conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
+    for i := range conditions.AlarmInfo {
+        conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
+    }
+    conditions.EntityData.Leafs = types.NewOrderedMap()
+
+    conditions.EntityData.YListKeys = []string {}
+
+    return &(conditions.EntityData)
+}
+
+// Alarms_Brief_BriefSystem_Conditions_AlarmInfo
+// Alarm List
+type Alarms_Brief_BriefSystem_Conditions_AlarmInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm location. The type is string with length: 0..128.
+    Location interface{}
+
+    // Alarm severity. The type is AlarmSeverity.
+    Severity interface{}
+
+    // Alarm group. The type is AlarmGroups.
+    Group interface{}
+
+    // Alarm set time. The type is string with length: 0..64.
+    SetTime interface{}
+
+    // Alarm set time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    SetTimestamp interface{}
+
+    // Alarm clear time. The type is string with length: 0..64.
+    ClearTime interface{}
+
+    // Alarm clear time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    ClearTimestamp interface{}
+
+    // Alarm description. The type is string with length: 0..256.
+    Description interface{}
+}
+
+func (alarmInfo *Alarms_Brief_BriefSystem_Conditions_AlarmInfo) GetEntityData() *types.CommonEntityData {
+    alarmInfo.EntityData.YFilter = alarmInfo.YFilter
+    alarmInfo.EntityData.YangName = "alarm-info"
+    alarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    alarmInfo.EntityData.ParentYangName = "conditions"
+    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmInfo.EntityData.Children = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs = types.NewOrderedMap()
+    alarmInfo.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarmInfo.Location})
+    alarmInfo.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarmInfo.Severity})
+    alarmInfo.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarmInfo.Group})
+    alarmInfo.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarmInfo.SetTime})
+    alarmInfo.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarmInfo.SetTimestamp})
+    alarmInfo.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarmInfo.ClearTime})
+    alarmInfo.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarmInfo.ClearTimestamp})
+    alarmInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarmInfo.Description})
+
+    alarmInfo.EntityData.YListKeys = []string {}
+
+    return &(alarmInfo.EntityData)
 }
 
 // Alarms_Brief_BriefSystem_Active

@@ -7,7 +7,7 @@
 //     information
 //   session-redundancy-agent: session redundancy agent
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package infra_serg_oper
 
@@ -160,6 +160,9 @@ const (
 
     // DHCPv6
     SergShowComp_dhcpv6 SergShowComp = "dhcpv6"
+
+    // DAPS
+    SergShowComp_daps SergShowComp = "daps"
 )
 
 // SergShowSessionOperation represents SERG Session Operation
@@ -482,6 +485,9 @@ type SessionRedundancyManager_Summary struct {
 
     // No. of Slave Interfaces. The type is interface{} with range: 0..4294967295.
     SlaveInterfaceCount interface{}
+
+    // No. of Configured Pools. The type is interface{} with range: 0..4294967295.
+    PoolCount interface{}
 }
 
 func (summary *SessionRedundancyManager_Summary) GetEntityData() *types.CommonEntityData {
@@ -512,6 +518,7 @@ func (summary *SessionRedundancyManager_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", summary.InterfaceCount})
     summary.EntityData.Leafs.Append("master-interface-count", types.YLeaf{"MasterInterfaceCount", summary.MasterInterfaceCount})
     summary.EntityData.Leafs.Append("slave-interface-count", types.YLeaf{"SlaveInterfaceCount", summary.SlaveInterfaceCount})
+    summary.EntityData.Leafs.Append("pool-count", types.YLeaf{"PoolCount", summary.PoolCount})
 
     summary.EntityData.YListKeys = []string {}
 
@@ -1039,6 +1046,22 @@ type SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId struct {
 
     // TxListDeActiveNotOk. The type is interface{} with range: 0..4294967295.
     TxListDeActiveNotOk interface{}
+
+    // TxListSendPoolRoleOk. The type is interface{} with range: 0..4294967295.
+    TxListSendPoolRoleOk interface{}
+
+    // TxListSendPoolRoleNotOk. The type is interface{} with range: 0..4294967295.
+    TxListSendPoolRoleNotOk interface{}
+
+    // TxListSendPoolUpdateOk. The type is interface{} with range: 0..4294967295.
+    TxListSendPoolUpdateOk interface{}
+
+    // TxListSendPoolUpdateNotOk. The type is interface{} with range:
+    // 0..4294967295.
+    TxListSendPoolUpdateNotOk interface{}
+
+    // TxListRecvPoolUpdateOk. The type is interface{} with range: 0..4294967295.
+    TxListRecvPoolUpdateOk interface{}
 }
 
 func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetEntityData() *types.CommonEntityData {
@@ -1101,6 +1124,11 @@ func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetEntityD
     clientId.EntityData.Leafs.Append("tx-list-active-not-ok", types.YLeaf{"TxListActiveNotOk", clientId.TxListActiveNotOk})
     clientId.EntityData.Leafs.Append("tx-list-de-active-ok", types.YLeaf{"TxListDeActiveOk", clientId.TxListDeActiveOk})
     clientId.EntityData.Leafs.Append("tx-list-de-active-not-ok", types.YLeaf{"TxListDeActiveNotOk", clientId.TxListDeActiveNotOk})
+    clientId.EntityData.Leafs.Append("tx-list-send-pool-role-ok", types.YLeaf{"TxListSendPoolRoleOk", clientId.TxListSendPoolRoleOk})
+    clientId.EntityData.Leafs.Append("tx-list-send-pool-role-not-ok", types.YLeaf{"TxListSendPoolRoleNotOk", clientId.TxListSendPoolRoleNotOk})
+    clientId.EntityData.Leafs.Append("tx-list-send-pool-update-ok", types.YLeaf{"TxListSendPoolUpdateOk", clientId.TxListSendPoolUpdateOk})
+    clientId.EntityData.Leafs.Append("tx-list-send-pool-update-not-ok", types.YLeaf{"TxListSendPoolUpdateNotOk", clientId.TxListSendPoolUpdateNotOk})
+    clientId.EntityData.Leafs.Append("tx-list-recv-pool-update-ok", types.YLeaf{"TxListRecvPoolUpdateOk", clientId.TxListRecvPoolUpdateOk})
 
     clientId.EntityData.YListKeys = []string {"StatsClientId"}
 
@@ -1446,6 +1474,9 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     // 0..4294967295. Units are second.
     SwitchoverRevertTime interface{}
 
+    // No. of Configured Pools. The type is interface{} with range: 0..4294967295.
+    PoolCount interface{}
+
     // Client Session Count. The type is slice of
     // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount.
     ClientSessionCount []*SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount
@@ -1453,6 +1484,10 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     // Interface List. The type is slice of
     // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface.
     Interface []*SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
+
+    // Pool List. The type is slice of
+    // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool.
+    Pool []*SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool
 }
 
 func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData() *types.CommonEntityData {
@@ -1473,6 +1508,10 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData
     groupId.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range groupId.Interface {
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Interface[i]), types.YChild{"Interface", groupId.Interface[i]})
+    }
+    groupId.EntityData.Children.Append("pool", types.YChild{"Pool", nil})
+    for i := range groupId.Pool {
+        groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Pool[i]), types.YChild{"Pool", groupId.Pool[i]})
     }
     groupId.EntityData.Leafs = types.NewOrderedMap()
     groupId.EntityData.Leafs.Append("group-id", types.YLeaf{"GroupId", groupId.GroupId})
@@ -1510,6 +1549,7 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData
     groupId.EntityData.Leafs.Append("interface-count", types.YLeaf{"InterfaceCount", groupId.InterfaceCount})
     groupId.EntityData.Leafs.Append("revertive-timer", types.YLeaf{"RevertiveTimer", groupId.RevertiveTimer})
     groupId.EntityData.Leafs.Append("switchover-revert-time", types.YLeaf{"SwitchoverRevertTime", groupId.SwitchoverRevertTime})
+    groupId.EntityData.Leafs.Append("pool-count", types.YLeaf{"PoolCount", groupId.PoolCount})
 
     groupId.EntityData.YListKeys = []string {"GroupId"}
 
@@ -1591,6 +1631,35 @@ func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetEnt
     return &(self.EntityData)
 }
 
+// SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool
+// Pool List
+type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Pool Name. The type is string.
+    PoolName interface{}
+}
+
+func (pool *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool) GetEntityData() *types.CommonEntityData {
+    pool.EntityData.YFilter = pool.YFilter
+    pool.EntityData.YangName = "pool"
+    pool.EntityData.BundleName = "cisco_ios_xr"
+    pool.EntityData.ParentYangName = "group-id"
+    pool.EntityData.SegmentPath = "pool"
+    pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    pool.EntityData.Children = types.NewOrderedMap()
+    pool.EntityData.Leafs = types.NewOrderedMap()
+    pool.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", pool.PoolName})
+
+    pool.EntityData.YListKeys = []string {}
+
+    return &(pool.EntityData)
+}
+
 // SessionRedundancyAgent_Nodes_Node_Interfaces
 // List of interfaces
 type SessionRedundancyAgent_Nodes_Node_Interfaces struct {
@@ -1631,7 +1700,7 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface Name. The type is string.
@@ -1993,6 +2062,10 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal struct {
     // 0..4294967295.
     TxListPeerSessionConnectionDownNotOk interface{}
 
+    // TxListSendPoolUpdateNotOk. The type is interface{} with range:
+    // 0..4294967295.
+    TxListSendPoolUpdateNotOk interface{}
+
     // intf status statistics.
     IntfStatusStatistics SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics
 
@@ -2072,6 +2145,7 @@ func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetEntityData(
     statsGlobal.EntityData.Leafs.Append("tx-list-peer-cmd-connection-down-not-ok", types.YLeaf{"TxListPeerCmdConnectionDownNotOk", statsGlobal.TxListPeerCmdConnectionDownNotOk})
     statsGlobal.EntityData.Leafs.Append("tx-list-peer-session-connection-up-not-ok", types.YLeaf{"TxListPeerSessionConnectionUpNotOk", statsGlobal.TxListPeerSessionConnectionUpNotOk})
     statsGlobal.EntityData.Leafs.Append("tx-list-peer-session-connection-down-not-ok", types.YLeaf{"TxListPeerSessionConnectionDownNotOk", statsGlobal.TxListPeerSessionConnectionDownNotOk})
+    statsGlobal.EntityData.Leafs.Append("tx-list-send-pool-update-not-ok", types.YLeaf{"TxListSendPoolUpdateNotOk", statsGlobal.TxListSendPoolUpdateNotOk})
 
     statsGlobal.EntityData.YListKeys = []string {}
 

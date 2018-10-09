@@ -9,7 +9,7 @@
 //   Cisco-IOS-XR-aaa-locald-oper
 // module with state data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package aaa_protocol_radius_oper
 
@@ -112,6 +112,9 @@ type Radius_Nodes_Node struct {
     // RADIUS accounting data.
     Accounting Radius_Nodes_Node_Accounting
 
+    // Dynamic authorization client data.
+    DynamicAuthorizationClients Radius_Nodes_Node_DynamicAuthorizationClients
+
     // RADIUS server group table.
     ServerGroups Radius_Nodes_Node_ServerGroups
 
@@ -134,6 +137,7 @@ func (node *Radius_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.Children.Append("dead-criteria", types.YChild{"DeadCriteria", &node.DeadCriteria})
     node.EntityData.Children.Append("authentication", types.YChild{"Authentication", &node.Authentication})
     node.EntityData.Children.Append("accounting", types.YChild{"Accounting", &node.Accounting})
+    node.EntityData.Children.Append("dynamic-authorization-clients", types.YChild{"DynamicAuthorizationClients", &node.DynamicAuthorizationClients})
     node.EntityData.Children.Append("server-groups", types.YChild{"ServerGroups", &node.ServerGroups})
     node.EntityData.Children.Append("dynamic-authorization", types.YChild{"DynamicAuthorization", &node.DynamicAuthorization})
     node.EntityData.Leafs = types.NewOrderedMap()
@@ -741,6 +745,187 @@ func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEn
     return &(accounting.EntityData)
 }
 
+// Radius_Nodes_Node_DynamicAuthorizationClients
+// Dynamic authorization client data
+type Radius_Nodes_Node_DynamicAuthorizationClients struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of dynamic author clients. The type is slice of
+    // Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient.
+    DynamicAuthorClient []*Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient
+}
+
+func (dynamicAuthorizationClients *Radius_Nodes_Node_DynamicAuthorizationClients) GetEntityData() *types.CommonEntityData {
+    dynamicAuthorizationClients.EntityData.YFilter = dynamicAuthorizationClients.YFilter
+    dynamicAuthorizationClients.EntityData.YangName = "dynamic-authorization-clients"
+    dynamicAuthorizationClients.EntityData.BundleName = "cisco_ios_xr"
+    dynamicAuthorizationClients.EntityData.ParentYangName = "node"
+    dynamicAuthorizationClients.EntityData.SegmentPath = "dynamic-authorization-clients"
+    dynamicAuthorizationClients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicAuthorizationClients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicAuthorizationClients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dynamicAuthorizationClients.EntityData.Children = types.NewOrderedMap()
+    dynamicAuthorizationClients.EntityData.Children.Append("dynamic-author-client", types.YChild{"DynamicAuthorClient", nil})
+    for i := range dynamicAuthorizationClients.DynamicAuthorClient {
+        dynamicAuthorizationClients.EntityData.Children.Append(types.GetSegmentPath(dynamicAuthorizationClients.DynamicAuthorClient[i]), types.YChild{"DynamicAuthorClient", dynamicAuthorizationClients.DynamicAuthorClient[i]})
+    }
+    dynamicAuthorizationClients.EntityData.Leafs = types.NewOrderedMap()
+
+    dynamicAuthorizationClients.EntityData.YListKeys = []string {}
+
+    return &(dynamicAuthorizationClients.EntityData)
+}
+
+// Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient
+// List of dynamic author clients
+type Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Client's Internet address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    ClientAddress interface{}
+
+    // Number of RADIUS Disconnect-Requestsreceived from the client. The type is
+    // interface{} with range: 0..4294967295.
+    DiscReqs interface{}
+
+    // Number of RADIUS Disconnect-ACKs sent to the client. The type is
+    // interface{} with range: 0..4294967295.
+    DiscAcks interface{}
+
+    // Number of RADIUS Disconnect-NAKs sent to the client. The type is
+    // interface{} with range: 0..4294967295.
+    DiscNaks interface{}
+
+    // Number of RADIUS Disconnect-Requests received from the client containing an
+    // invalid Authenticator. The type is interface{} with range: 0..4294967295.
+    DiscBadAuth interface{}
+
+    // Number of RADIUS Disconnect-Requests received from the client that were
+    // silently discarded. The type is interface{} with range: 0..4294967295.
+    DropDiscReqs interface{}
+
+    // Number of RADIUS CoA-Requests received from the client. The type is
+    // interface{} with range: 0..4294967295.
+    CoaReqs interface{}
+
+    // Number of RADIUS CoA-ACKs sent to the client. The type is interface{} with
+    // range: 0..4294967295.
+    CoaAcks interface{}
+
+    // Number of RADIUS CoA-NAKs sent to the client. The type is interface{} with
+    // range: 0..4294967295.
+    CoaNaks interface{}
+
+    // Number of RADIUS CoA-Requests received from the client containing an
+    // invalid Authenticator. The type is interface{} with range: 0..4294967295.
+    CoaBadAuth interface{}
+
+    // Number of RADIUS CoA-Requests received from the client that were silently
+    // discarded. The type is interface{} with range: 0..4294967295.
+    DropCoaReqs interface{}
+
+    // Number of incoming packets of unknown types that were received from the
+    // client. The type is interface{} with range: 0..4294967295.
+    UnknownTypes interface{}
+
+    // Number of packets dropped due to internal error. The type is interface{}
+    // with range: 0..4294967295.
+    InternalError interface{}
+
+    // Number of packets dropped due to failure in radius packet decoding. The
+    // type is interface{} with range: 0..4294967295.
+    PakDecodeFail interface{}
+
+    // Number of requests which encountered vrf parse fail error. The type is
+    // interface{} with range: 0..4294967295.
+    VrfParseFailErr interface{}
+
+    // Number of requests which encountered unknown vsa error. The type is
+    // interface{} with range: 0..4294967295.
+    UnknownVsaError interface{}
+
+    // Number of response packets which failed to be send. The type is interface{}
+    // with range: 0..4294967295.
+    SendMsgFailed interface{}
+
+    // Number of requests sent to command handler. The type is interface{} with
+    // range: 0..4294967295.
+    RadiusToCh interface{}
+
+    // Number of responses received from command handler. The type is interface{}
+    // with range: 0..4294967295.
+    ChToRadius interface{}
+
+    // Number of requests which encountered service parse fail error. The type is
+    // interface{} with range: 0..4294967295.
+    ServiceParseFail interface{}
+
+    // Number of requests which encountered multiple subscribers not allowed
+    // error. The type is interface{} with range: 0..4294967295.
+    MultiSubsError interface{}
+
+    // Number of requests which has missing service name attribute. The type is
+    // interface{} with range: 0..4294967295.
+    ServiceNotPresent interface{}
+
+    // Number of requests which failed to be sent to command handler. The type is
+    // interface{} with range: 0..4294967295.
+    SendToChFail interface{}
+
+    // VRF of RADIUS dynamic authorization client. The type is string.
+    VrfName interface{}
+
+    // Address Buffer. The type is string with length: 0..46.
+    AddrBuf interface{}
+}
+
+func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient) GetEntityData() *types.CommonEntityData {
+    dynamicAuthorClient.EntityData.YFilter = dynamicAuthorClient.YFilter
+    dynamicAuthorClient.EntityData.YangName = "dynamic-author-client"
+    dynamicAuthorClient.EntityData.BundleName = "cisco_ios_xr"
+    dynamicAuthorClient.EntityData.ParentYangName = "dynamic-authorization-clients"
+    dynamicAuthorClient.EntityData.SegmentPath = "dynamic-author-client"
+    dynamicAuthorClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicAuthorClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicAuthorClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dynamicAuthorClient.EntityData.Children = types.NewOrderedMap()
+    dynamicAuthorClient.EntityData.Leafs = types.NewOrderedMap()
+    dynamicAuthorClient.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", dynamicAuthorClient.ClientAddress})
+    dynamicAuthorClient.EntityData.Leafs.Append("disc-reqs", types.YLeaf{"DiscReqs", dynamicAuthorClient.DiscReqs})
+    dynamicAuthorClient.EntityData.Leafs.Append("disc-acks", types.YLeaf{"DiscAcks", dynamicAuthorClient.DiscAcks})
+    dynamicAuthorClient.EntityData.Leafs.Append("disc-naks", types.YLeaf{"DiscNaks", dynamicAuthorClient.DiscNaks})
+    dynamicAuthorClient.EntityData.Leafs.Append("disc-bad-auth", types.YLeaf{"DiscBadAuth", dynamicAuthorClient.DiscBadAuth})
+    dynamicAuthorClient.EntityData.Leafs.Append("drop-disc-reqs", types.YLeaf{"DropDiscReqs", dynamicAuthorClient.DropDiscReqs})
+    dynamicAuthorClient.EntityData.Leafs.Append("coa-reqs", types.YLeaf{"CoaReqs", dynamicAuthorClient.CoaReqs})
+    dynamicAuthorClient.EntityData.Leafs.Append("coa-acks", types.YLeaf{"CoaAcks", dynamicAuthorClient.CoaAcks})
+    dynamicAuthorClient.EntityData.Leafs.Append("coa-naks", types.YLeaf{"CoaNaks", dynamicAuthorClient.CoaNaks})
+    dynamicAuthorClient.EntityData.Leafs.Append("coa-bad-auth", types.YLeaf{"CoaBadAuth", dynamicAuthorClient.CoaBadAuth})
+    dynamicAuthorClient.EntityData.Leafs.Append("drop-coa-reqs", types.YLeaf{"DropCoaReqs", dynamicAuthorClient.DropCoaReqs})
+    dynamicAuthorClient.EntityData.Leafs.Append("unknown-types", types.YLeaf{"UnknownTypes", dynamicAuthorClient.UnknownTypes})
+    dynamicAuthorClient.EntityData.Leafs.Append("internal-error", types.YLeaf{"InternalError", dynamicAuthorClient.InternalError})
+    dynamicAuthorClient.EntityData.Leafs.Append("pak-decode-fail", types.YLeaf{"PakDecodeFail", dynamicAuthorClient.PakDecodeFail})
+    dynamicAuthorClient.EntityData.Leafs.Append("vrf-parse-fail-err", types.YLeaf{"VrfParseFailErr", dynamicAuthorClient.VrfParseFailErr})
+    dynamicAuthorClient.EntityData.Leafs.Append("unknown-vsa-error", types.YLeaf{"UnknownVsaError", dynamicAuthorClient.UnknownVsaError})
+    dynamicAuthorClient.EntityData.Leafs.Append("send-msg-failed", types.YLeaf{"SendMsgFailed", dynamicAuthorClient.SendMsgFailed})
+    dynamicAuthorClient.EntityData.Leafs.Append("radius-to-ch", types.YLeaf{"RadiusToCh", dynamicAuthorClient.RadiusToCh})
+    dynamicAuthorClient.EntityData.Leafs.Append("ch-to-radius", types.YLeaf{"ChToRadius", dynamicAuthorClient.ChToRadius})
+    dynamicAuthorClient.EntityData.Leafs.Append("service-parse-fail", types.YLeaf{"ServiceParseFail", dynamicAuthorClient.ServiceParseFail})
+    dynamicAuthorClient.EntityData.Leafs.Append("multi-subs-error", types.YLeaf{"MultiSubsError", dynamicAuthorClient.MultiSubsError})
+    dynamicAuthorClient.EntityData.Leafs.Append("service-not-present", types.YLeaf{"ServiceNotPresent", dynamicAuthorClient.ServiceNotPresent})
+    dynamicAuthorClient.EntityData.Leafs.Append("send-to-ch-fail", types.YLeaf{"SendToChFail", dynamicAuthorClient.SendToChFail})
+    dynamicAuthorClient.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", dynamicAuthorClient.VrfName})
+    dynamicAuthorClient.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", dynamicAuthorClient.AddrBuf})
+
+    dynamicAuthorClient.EntityData.YListKeys = []string {}
+
+    return &(dynamicAuthorClient.EntityData)
+}
+
 // Radius_Nodes_Node_ServerGroups
 // RADIUS server group table
 type Radius_Nodes_Node_ServerGroups struct {
@@ -854,6 +1039,9 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup struct {
     // IP address Family. The type is string.
     Family interface{}
 
+    // Redirected Requests. The type is interface{} with range: 0..4294967295.
+    RedirectedRequests interface{}
+
     // Accounting data.
     Accounting Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting
 
@@ -885,6 +1073,7 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetEn
     serverGroup.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", serverGroup.IsPrivate})
     serverGroup.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", serverGroup.IpAddress})
     serverGroup.EntityData.Leafs.Append("family", types.YLeaf{"Family", serverGroup.Family})
+    serverGroup.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", serverGroup.RedirectedRequests})
 
     serverGroup.EntityData.YListKeys = []string {}
 
@@ -1189,6 +1378,14 @@ type Radius_Nodes_Node_DynamicAuthorization struct {
     // Invalid change of authorization requests. The type is interface{} with
     // range: 0..4294967295.
     InvalidCoaRequests interface{}
+
+    // Radius context not found. The type is interface{} with range:
+    // 0..4294967295.
+    RadiusContextNotFound interface{}
+
+    // Client context not found. The type is interface{} with range:
+    // 0..4294967295.
+    ClientContextNotFound interface{}
 }
 
 func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetEntityData() *types.CommonEntityData {
@@ -1205,6 +1402,8 @@ func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetEntityDat
     dynamicAuthorization.EntityData.Leafs = types.NewOrderedMap()
     dynamicAuthorization.EntityData.Leafs.Append("disconnected-invalid-requests", types.YLeaf{"DisconnectedInvalidRequests", dynamicAuthorization.DisconnectedInvalidRequests})
     dynamicAuthorization.EntityData.Leafs.Append("invalid-coa-requests", types.YLeaf{"InvalidCoaRequests", dynamicAuthorization.InvalidCoaRequests})
+    dynamicAuthorization.EntityData.Leafs.Append("radius-context-not-found", types.YLeaf{"RadiusContextNotFound", dynamicAuthorization.RadiusContextNotFound})
+    dynamicAuthorization.EntityData.Leafs.Append("client-context-not-found", types.YLeaf{"ClientContextNotFound", dynamicAuthorization.ClientContextNotFound})
 
     dynamicAuthorization.EntityData.YListKeys = []string {}
 

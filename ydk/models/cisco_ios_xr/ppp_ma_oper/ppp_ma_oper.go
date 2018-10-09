@@ -5,7 +5,7 @@
 // for the following management objects:
 //   ppp: PPP operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ppp_ma_oper
 
@@ -724,7 +724,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Parent state. The type is interface{} with range: 0..4294967295.
@@ -885,7 +885,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
     // Is an MP bundle. The type is bool.
     IsMpBundle interface{}
 
-    // MP Bundle Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // MP Bundle Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     MpBundleInterface interface{}
 
     // MP Bundle Member. The type is bool.
@@ -948,7 +948,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Member Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Member State. The type is PppLcpMpMbrState.
@@ -1448,7 +1448,7 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface with SSO Alert. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // LCP SSO Error.
@@ -1676,7 +1676,7 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // PPP LCP Statistics.
@@ -2251,7 +2251,7 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     // SSRP Session ID. The type is interface{} with range: 0..4294967295.
     SessionIdXr interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // LCP SSO State.

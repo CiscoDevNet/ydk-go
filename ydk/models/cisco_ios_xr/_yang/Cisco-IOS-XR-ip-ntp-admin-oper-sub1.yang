@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-ip-ntp-admin-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR ip-ntp-admin package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -142,32 +142,32 @@ submodule Cisco-IOS-XR-ip-ntp-admin-oper-sub1 {
   typedef Ntp-loop-filter-state {
     type enumeration {
       enum "ntp-loop-flt-n-set" {
-        value 0;
+        value 1;
         description
           " never set";
       }
       enum "ntp-loop-flt-f-set" {
-        value 1;
+        value 2;
         description
           " drift set from file";
       }
       enum "ntp-loop-flt-spik" {
-        value 2;
+        value 3;
         description
           " spike";
       }
       enum "ntp-loop-flt-freq" {
-        value 3;
+        value 4;
         description
           " drift being measured";
       }
       enum "ntp-loop-flt-sync" {
-        value 4;
+        value 5;
         description
           " normal controlled loop";
       }
       enum "ntp-loop-flt-unkn" {
-        value 5;
+        value 6;
         description
           " unknown";
       }
@@ -301,6 +301,11 @@ submodule Cisco-IOS-XR-ip-ntp-admin-oper-sub1 {
       type uint32;
       description
         "Index into filter shift register";
+    }
+    leaf cast-flags {
+      type uint8;
+      description
+        "Cast Flags";
     }
     list filter-detail {
       max-elements "8";

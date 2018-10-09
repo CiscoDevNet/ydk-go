@@ -5,7 +5,7 @@
 // for the following management objects:
 //   address-pool-service: Address Pool configuration data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_daps_cfg
 
@@ -396,16 +396,18 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude) Get
 
 // AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_UtilizationMark
 // Specify utilization mark
+// This type is a presence type.
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_UtilizationMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify numerical value as percentage. The type is interface{} with range:
-    // 0..100. Units are percentage.
+    // 0..100. This attribute is mandatory. Units are percentage.
     HighMark interface{}
 
     // Specify numerical value as percentage. The type is interface{} with range:
-    // 0..100. Units are percentage.
+    // 0..100. This attribute is mandatory. Units are percentage.
     LowMark interface{}
 }
 
@@ -843,16 +845,18 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude) Get
 
 // AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_UtilizationMark
 // Specify utilization mark
+// This type is a presence type.
 type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_UtilizationMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Specify numerical value as percentage. The type is interface{} with range:
-    // 0..100. Units are percentage.
+    // 0..100. This attribute is mandatory. Units are percentage.
     High interface{}
 
     // Specify numerical value as percentage. The type is interface{} with range:
-    // 0..100. Units are percentage.
+    // 0..100. This attribute is mandatory. Units are percentage.
     Low interface{}
 }
 

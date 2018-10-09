@@ -23,7 +23,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR controller-optics package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-09-07 {
@@ -37,6 +37,28 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
+  }
+
+  typedef Optics-ains-state-et {
+    type enumeration {
+      enum "none" {
+        value 0;
+        description
+          "None";
+      }
+      enum "active-running" {
+        value 1;
+        description
+          "Running";
+      }
+      enum "active-pending" {
+        value 2;
+        description
+          "Pending";
+      }
+    }
+    description
+      "Optics ains state et";
   }
 
   typedef Ethernet-pmd {
@@ -447,7 +469,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       enum "fec-cl91" {
         value 64;
         description
-          "FEC CL91 ";
+          "FEC CL91";
       }
     }
     description
@@ -786,6 +808,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "TenGigE Edge Performance 1 Lane";
       }
+      enum "one-gig-csfp" {
+        value 66;
+        description
+          "OneGig CSFP optics";
+      }
     }
     description
       "Optics phy type";
@@ -848,28 +875,38 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "CFP2";
       }
-      enum "cfp4" {
+      enum "cfp2-aco" {
         value 11;
+        description
+          "CFP2 ACO";
+      }
+      enum "cfp2-dco" {
+        value 12;
+        description
+          "CFP2 DCO";
+      }
+      enum "cfp4" {
+        value 13;
         description
           "CFP4";
       }
       enum "xfp" {
-        value 12;
+        value 14;
         description
           "XFP";
       }
       enum "x2" {
-        value 13;
+        value 15;
         description
           "X2";
       }
       enum "non-pluggable" {
-        value 14;
+        value 16;
         description
           "Non pluggable";
       }
       enum "other" {
-        value 15;
+        value 17;
         description
           "Other";
       }
@@ -942,6 +979,68 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       "Optics led state";
   }
 
+  typedef Optics-modulation {
+    type enumeration {
+      enum "mod-bpsk" {
+        value 1;
+        description
+          "BPSK";
+      }
+      enum "mod-qpsk" {
+        value 2;
+        description
+          "QPSK";
+      }
+      enum "mod-8qam" {
+        value 3;
+        description
+          "8QAM";
+      }
+      enum "mod-16qam" {
+        value 4;
+        description
+          "16QAM";
+      }
+      enum "mod-32qam" {
+        value 5;
+        description
+          "32QAM";
+      }
+      enum "mod-64qam" {
+        value 6;
+        description
+          "64QAM";
+      }
+      enum "mod-bpsk-qpsk" {
+        value 7;
+        description
+          "BPSK QPSK";
+      }
+      enum "mod-qpsk-8qam" {
+        value 8;
+        description
+          "QPSK 8QAM";
+      }
+      enum "mod-8qam-16qam" {
+        value 9;
+        description
+          "8QAM 16QAM";
+      }
+      enum "mode-16qam-32qam" {
+        value 10;
+        description
+          "16QAM 32QAM";
+      }
+      enum "mod-32qam-64qam" {
+        value 11;
+        description
+          "32QAM 64QAM";
+      }
+    }
+    description
+      "Optics modulation";
+  }
+
   typedef Optics-laser-state {
     type enumeration {
       enum "on" {
@@ -963,6 +1062,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         value 3;
         description
           "Apr";
+      }
+      enum "na" {
+        value 4;
+        description
+          "N/A";
       }
     }
     description
@@ -1073,6 +1177,28 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Optics controller state: Up, Down or
          Administratively Down";
+    }
+  }
+
+  grouping OPTICS-AINS-HW-INFO {
+    description
+      "OPTICS AINS information";
+    leaf ains-state {
+      type Optics-ains-state-et;
+      description
+        "AINS State";
+    }
+    leaf ains-timer-minutes {
+      type uint32;
+      units "minute";
+      description
+        "AINS Timer in Minutes";
+    }
+    leaf ains-remaining-secs {
+      type uint32;
+      units "second";
+      description
+        "AINS Remaining Seconds";
     }
   }
 
@@ -1802,7 +1928,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf internal-temperature {
       type int32;
       description
-        "Internal Temperature in C";
+        "Internal Temperature in units of C";
     }
   }
 
@@ -1811,12 +1937,12 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       "Ots Alarm Information";
     container low-tx-power {
       description
-        "Low Tx Power in uints of 0.1 dBm";
+        "Low Tx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx-power {
       description
-        "Low Rx Power in uints of 0.1 dBm";
+        "Low Rx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container rx-los-p {
@@ -1891,22 +2017,22 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       "Optics Alarm Information";
     container high-rx-power {
       description
-        "High Rx Power in uints of 0.1 dBm";
+        "High Rx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx-power {
       description
-        "Low Rx Power in uints of 0.1 dBm";
+        "Low Rx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx-power {
       description
-        "High Tx Power in uints of 0.1 dBm";
+        "High Tx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-tx-power {
       description
-        "Low Tx Power in uints of 0.1 dBm";
+        "Low Tx Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-lbc {
@@ -1936,82 +2062,82 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     }
     container high-rx1-power {
       description
-        "High Rx1 Power in uints of 0.1 dBm";
+        "High Rx1 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-rx2-power {
       description
-        "High Rx2 Power in uints of 0.1 dBm";
+        "High Rx2 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-rx3-power {
       description
-        "High Rx3 Power in uints of 0.1 dBm";
+        "High Rx3 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-rx4-power {
       description
-        "High Rx4 Power in uints of 0.1 dBm";
+        "High Rx4 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx1-power {
       description
-        "Low Rx1 Power in uints of 0.1 dBm";
+        "Low Rx1 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx2-power {
       description
-        "Low Rx2 Power in uints of 0.1 dBm";
+        "Low Rx2 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx3-power {
       description
-        "Low Rx3 Power in uints of 0.1 dBm";
+        "Low Rx3 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-rx4-power {
       description
-        "Low Rx4 Power in uints of 0.1 dBm";
+        "Low Rx4 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx1-power {
       description
-        "High Tx1 Power in uints of 0.1 dBm";
+        "High Tx1 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx2-power {
       description
-        "High Tx2 Power in uints of 0.1 dBm";
+        "High Tx2 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx3-power {
       description
-        "High Tx3 Power in uints of 0.1 dBm";
+        "High Tx3 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx4-power {
       description
-        "High Tx4 Power in uints of 0.1 dBm";
+        "High Tx4 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-tx1-power {
       description
-        "Low Tx1 Power in uints of 0.1 dBm";
+        "Low Tx1 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-tx2-power {
       description
-        "Low Tx2 Power in uints of 0.1 dBm";
+        "Low Tx2 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-tx3-power {
       description
-        "Low Tx3 Power in uints of 0.1 dBm";
+        "Low Tx3 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container low-tx4-power {
       description
-        "Low Tx4 Power in uints of 0.1 dBm";
+        "Low Tx4 Power in units of 0.1 dBm";
       uses OPTICS-ALARM-DETAIL;
     }
     container high-tx1lbc {
@@ -2211,33 +2337,35 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf transmit-power {
       type int32;
       description
-        "Transmit power in the unit of 0.01dBm";
+        "Transmit power in the units of 0.01dBm";
     }
     leaf receive-power {
       type int32;
       description
-        "Transponder receive power in the unit of 0.01dBm";
+        "Transponder receive power in the units of 0
+         .01dBm";
     }
     leaf receive-signal-power {
       type int32;
       description
-        "Transponder receive signal power in the unit of
+        "Transponder receive signal power in the units of
          0.01dBm";
     }
     leaf transmit-signal-power {
       type int32;
       description
-        "Transmit Signal power in the unit of 0.01dBm";
+        "Transmit Signal power in the units of 0.01dBm";
     }
     leaf output-frequency {
       type int32;
       description
-        "Output frequency read from hw in the unit 100MHz";
+        "Output frequency read from hw in the units of
+         100MHz";
     }
     leaf frequency-offset {
       type int32;
       description
-        "Frequency Offset read from hw in unit of MHz";
+        "Frequency Offset read from hw in units of MHz";
     }
   }
 
@@ -2304,6 +2432,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         "Extended DOM alarm Information";
       uses EXT-PARAM-EDM-ALARM-INFO;
     }
+    container ains-info {
+      description
+        "AINS information";
+      uses OPTICS-AINS-HW-INFO;
+    }
     leaf transport-admin-state {
       type Optics-tas;
       description
@@ -2343,8 +2476,8 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf dwdm-carrier-frequency {
       type string;
       description
-        "DWDM Carrier frequency read from hw in the unit
-         1THz";
+        "DWDM Carrier frequency read from hw in the units
+         of  1THz";
     }
     leaf dwdm-carrier-wavelength {
       type string;
@@ -2385,7 +2518,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf lbc-th-high-default {
       type int32;
       description
-        "LBC high threshold default value in unit of 0
+        "LBC high threshold default value in units of 0
          .001mA";
     }
     leaf lbc-th-low-default {
@@ -2397,22 +2530,22 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf temp-low-threshold {
       type int32;
       description
-        "Temp Low threshold value in the units 0.01 C";
+        "Temp Low threshold value in the units 0.01C";
     }
     leaf temp-high-threshold {
       type int32;
       description
-        "Temp High threshold value in the units of 0.01 C";
+        "Temp High threshold value in the units of 0.01C";
     }
     leaf volt-low-threshold {
       type int32;
       description
-        "Volt Low threshold value";
+        "Volt Low threshold value in the units of 0.01V";
     }
     leaf volt-high-threshold {
       type int32;
       description
-        "Volt High threshold value";
+        "Volt High threshold value in the units of 0.01V";
     }
     leaf cd {
       type int32;
@@ -2495,6 +2628,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Showing laser state.Either ON or OFF or unknown";
     }
+    leaf modulation-type {
+      type Optics-modulation;
+      description
+        "Available Modulation Types";
+    }
     leaf led-state {
       type Optics-led-state;
       description
@@ -2520,7 +2658,7 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf cfg-tx-power {
       type int32;
       description
-        "Configured Tx power value in 0.1 dB";
+        "Configured Tx power value in units of 0.1dB";
     }
     leaf cfg-tx-power-configurable {
       type boolean;
@@ -2530,12 +2668,12 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf temperature {
       type int32;
       description
-        "Temperature value";
+        "Temperature value in units of 0.01 C";
     }
     leaf voltage {
       type int32;
       description
-        "Voltage value";
+        "Voltage value in units of 0.01V";
     }
     leaf display-volt-temp {
       type boolean;
@@ -2552,6 +2690,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       description
         "Optics FEC";
     }
+    leaf skip-snmp-pm-table {
+      type int32;
+      description
+        "PM enabled or not";
+    }
     leaf port-type {
       type Optics-port;
       description
@@ -2565,22 +2708,22 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf rx-voa-attenuation {
       type int32;
       description
-        "Rx Voa Attenuation in the unit of 0.01dBm";
+        "Rx Voa Attenuation in the units of 0.01dBm";
     }
     leaf tx-voa-attenuation {
       type int32;
       description
-        "Tx Voa Attenuation in the unit of 0.01dBm";
+        "Tx Voa Attenuation in the units of 0.01dBm";
     }
     leaf ampli-gain {
       type int32;
       description
-        "Ampli Gain in the unit of 0.01dBm";
+        "Ampli Gain in the units of 0.01dBm";
     }
     leaf ampli-tilt {
       type int32;
       description
-        "Ampli Tilt in the unit of 0.01dBm";
+        "Ampli Tilt in the units of 0.01dBm";
     }
     leaf rx-power-th-configurable {
       type boolean;
@@ -2595,12 +2738,14 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf rx-voa-attenuation-config-val {
       type int32;
       description
-        "rx voa attenuation config val";
+        "RX VOA attenuation configured value in units of
+         0.1dB";
     }
     leaf tx-voa-attenuation-config-val {
       type int32;
       description
-        "tx voa attenuation config val";
+        "TX VOA attenuation configured value in units of
+         0.1dB";
     }
     leaf ampli-control-mode-config-val {
       type Optics-amplifier-control-mode;
@@ -2615,32 +2760,36 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf ampli-gain-config-val {
       type int32;
       description
-        "ampli gain config val";
+        "Ampli gain configured value in units of 0.1dB";
     }
     leaf ampli-tilt-config-val {
       type int32;
       description
-        "ampli tilt config val";
+        "Ampli tilt configured value in units of 0.1dB";
     }
     leaf ampli-channel-power-config-val {
       type int32;
       description
-        "ampli channel power config val";
+        "Ampli channel power configured value in units of
+         0.1dBm";
     }
     leaf channel-power-max-delta-config-val {
       type int32;
       description
-        "channel power max delta config val";
+        "Channel power max delta configured value in
+         units of 0.1 dBm";
     }
     leaf ampli-gain-thr-deg-low-config-val {
       type int32;
       description
-        "ampli gain thr deg low config val";
+        "Ampli gain low degrade threshold configured
+         value in units of 0.1dBm";
     }
     leaf ampli-gain-thr-deg-high-config-val {
       type int32;
       description
-        "ampli gain thr deg high config val";
+        "Ampli gain high degrade threshold configured
+         value in units of 0.1dBm";
     }
     leaf osri-config-val {
       type boolean;
@@ -2665,13 +2814,14 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf total-rx-power {
       type int32;
       description
-        "Total Receive Power for Multi-Lane Optics in dBm";
+        "Total Receive Power for Multi-Lane Optics in
+         units of 0.01 dBm";
     }
     leaf total-tx-power {
       type int32;
       description
         "Total Transmit Power for Multi-Lane Optics in
-         dBm";
+         units of 0.01 dBm";
     }
     leaf is-bo-configured {
       type boolean;
@@ -2715,8 +2865,8 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
     leaf lbc-th-high-warning-default {
       type int32;
       description
-        "LBC high Warning threshold default value in unit
-         of 0.001mA";
+        "LBC high Warning threshold default value in
+         units of 0.001mA";
     }
     leaf lbc-th-low-warning-default {
       type int32;
@@ -2728,23 +2878,25 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type int32;
       description
         "Temp Low warning threshold value in the units 0
-         .01 C";
+         .01C";
     }
     leaf temp-high-warning-threshold {
       type int32;
       description
         "Temp High warning threshold value in the units
-         of 0.01 C";
+         of 0.01C";
     }
     leaf volt-low-warning-threshold {
       type int32;
       description
-        "Volt Low warning threshold value";
+        "Volt Low warning threshold value in the units of
+         0.01V";
     }
     leaf volt-high-warning-threshold {
       type int32;
       description
-        "Volt High warning threshold value";
+        "Volt High warning threshold value in the units
+         of 0.01V";
     }
     leaf description {
       type string;
@@ -2790,6 +2942,26 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
       type int32;
       description
         "Rx Low threshold actual value in units of 0.1dBm";
+    }
+    leaf rx-span-loss {
+      type int32;
+      description
+        "RX Span Loss in units of 0.01 dB";
+    }
+    leaf tx-span-loss {
+      type int32;
+      description
+        "TX Span Loss in units of 0.01 dB";
+    }
+    leaf baud-rate {
+      type string;
+      description
+        "Baud Rate in GBd";
+    }
+    leaf bits-per-symbol {
+      type string;
+      description
+        "Bits per Symbol";
     }
     list lane-data {
       description

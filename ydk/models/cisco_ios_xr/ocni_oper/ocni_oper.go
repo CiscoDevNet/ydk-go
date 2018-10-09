@@ -10,7 +10,7 @@
 //     Layer 3 instances are also supaported. Copyright (c) 2017 by
 //     Cisco Systems, Inc.  All rights reserved.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ocni_oper
 

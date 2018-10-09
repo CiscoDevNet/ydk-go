@@ -6,7 +6,7 @@ module Cisco-IOS-XR-lib-keychain-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-lib-keychain-oper-sub1 {
-    revision-date 2015-01-07;
+    revision-date 2018-01-31;
   }
 
   organization
@@ -29,9 +29,13 @@ module Cisco-IOS-XR-lib-keychain-oper {
      for the following management objects:
        keychain: Keychain operational data
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-31 {
+    description
+      "Fixed incorrect plural rendering.";
+  }
   revision 2015-01-07 {
     description
       "IOS XR 5.3.1 revision.";
@@ -41,7 +45,7 @@ module Cisco-IOS-XR-lib-keychain-oper {
     config false;
     description
       "Keychain operational data";
-    container keies {
+    container keys {
       description
         "List of configured key names";
       list key {

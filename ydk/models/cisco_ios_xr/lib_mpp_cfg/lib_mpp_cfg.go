@@ -5,7 +5,7 @@
 // for the following management objects:
 //   control-plane: Configure control Plane
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lib_mpp_cfg
 
@@ -196,7 +196,7 @@ type ControlPlane_ManagementPlaneProtection_Outband_InterfaceSelection_Interface
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Configure HTTP on this interface.
@@ -6746,7 +6746,7 @@ type ControlPlane_ManagementPlaneProtection_Inband_InterfaceSelection_Interfaces
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Configure HTTP on this interface.

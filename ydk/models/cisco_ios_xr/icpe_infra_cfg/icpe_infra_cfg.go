@@ -11,7 +11,7 @@
 //   Cisco-IOS-XR-rgmgr-cfg,
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package icpe_infra_cfg
 
@@ -242,6 +242,9 @@ type NvSatellites_NvSatellite_UpgradeOnConnect struct {
 
     // Reference name. The type is string.
     Reference interface{}
+
+    // Image Reference name. The type is string.
+    ImageReference interface{}
 }
 
 func (upgradeOnConnect *NvSatellites_NvSatellite_UpgradeOnConnect) GetEntityData() *types.CommonEntityData {
@@ -258,6 +261,7 @@ func (upgradeOnConnect *NvSatellites_NvSatellite_UpgradeOnConnect) GetEntityData
     upgradeOnConnect.EntityData.Leafs = types.NewOrderedMap()
     upgradeOnConnect.EntityData.Leafs.Append("connect-type", types.YLeaf{"ConnectType", upgradeOnConnect.ConnectType})
     upgradeOnConnect.EntityData.Leafs.Append("reference", types.YLeaf{"Reference", upgradeOnConnect.Reference})
+    upgradeOnConnect.EntityData.Leafs.Append("image-reference", types.YLeaf{"ImageReference", upgradeOnConnect.ImageReference})
 
     upgradeOnConnect.EntityData.YListKeys = []string {}
 

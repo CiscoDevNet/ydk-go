@@ -78,6 +78,10 @@ type Vlans_Vlan struct {
 
     // Assigned ports. The type is slice of Vlans_Vlan_Ports.
     Ports []*Vlans_Vlan_Ports
+
+    // List of interfaces for a given VLAN. The type is slice of
+    // Vlans_Vlan_VlanInterfaces.
+    VlanInterfaces []*Vlans_Vlan_VlanInterfaces
 }
 
 func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
@@ -94,6 +98,10 @@ func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.Children.Append("ports", types.YChild{"Ports", nil})
     for i := range vlan.Ports {
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.Ports[i]), types.YChild{"Ports", vlan.Ports[i]})
+    }
+    vlan.EntityData.Children.Append("vlan-interfaces", types.YChild{"VlanInterfaces", nil})
+    for i := range vlan.VlanInterfaces {
+        vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanInterfaces[i]), types.YChild{"VlanInterfaces", vlan.VlanInterfaces[i]})
     }
     vlan.EntityData.Leafs = types.NewOrderedMap()
     vlan.EntityData.Leafs.Append("id", types.YLeaf{"Id", vlan.Id})
@@ -136,5 +144,40 @@ func (ports *Vlans_Vlan_Ports) GetEntityData() *types.CommonEntityData {
     ports.EntityData.YListKeys = []string {}
 
     return &(ports.EntityData)
+}
+
+// Vlans_Vlan_VlanInterfaces
+// List of interfaces for a given VLAN
+type Vlans_Vlan_VlanInterfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Assigned interface to the vlan. The type is
+    // string.
+    Interface interface{}
+
+    // Assigned subinterface to the vlan. The type is interface{} with range:
+    // 0..4294967295.
+    Subinterface interface{}
+}
+
+func (vlanInterfaces *Vlans_Vlan_VlanInterfaces) GetEntityData() *types.CommonEntityData {
+    vlanInterfaces.EntityData.YFilter = vlanInterfaces.YFilter
+    vlanInterfaces.EntityData.YangName = "vlan-interfaces"
+    vlanInterfaces.EntityData.BundleName = "cisco_ios_xe"
+    vlanInterfaces.EntityData.ParentYangName = "vlan"
+    vlanInterfaces.EntityData.SegmentPath = "vlan-interfaces" + types.AddKeyToken(vlanInterfaces.Interface, "interface")
+    vlanInterfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vlanInterfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vlanInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    vlanInterfaces.EntityData.Children = types.NewOrderedMap()
+    vlanInterfaces.EntityData.Leafs = types.NewOrderedMap()
+    vlanInterfaces.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", vlanInterfaces.Interface})
+    vlanInterfaces.EntityData.Leafs.Append("subinterface", types.YLeaf{"Subinterface", vlanInterfaces.Subinterface})
+
+    vlanInterfaces.EntityData.YListKeys = []string {"Interface"}
+
+    return &(vlanInterfaces.EntityData)
 }
 

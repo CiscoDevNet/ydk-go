@@ -1,6 +1,6 @@
 // This module contains a collection of YANG definitions
 // for PPP and PPPoE operational data.
-// Copyright (c) 2017 by Cisco Systems, Inc.
+// Copyright (c) 2017-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ppp_oper
 
@@ -428,6 +428,14 @@ type PppData_Pppoe_PppoeStatistics struct {
     // PPPoE active discovery session pkts. The type is interface{} with range:
     // 0..4294967295.
     PppoePadsPkts interface{}
+
+    // PPPoE active discovery terminate pkts. The type is interface{} with range:
+    // 0..4294967295.
+    PppoePadtPkts interface{}
+
+    // PPPoE invalid discovery pkts. The type is interface{} with range:
+    // 0..4294967295.
+    InvalidDiscoveryPkts interface{}
 }
 
 func (pppoeStatistics *PppData_Pppoe_PppoeStatistics) GetEntityData() *types.CommonEntityData {
@@ -446,6 +454,8 @@ func (pppoeStatistics *PppData_Pppoe_PppoeStatistics) GetEntityData() *types.Com
     pppoeStatistics.EntityData.Leafs.Append("pppoe-pado-pkts", types.YLeaf{"PppoePadoPkts", pppoeStatistics.PppoePadoPkts})
     pppoeStatistics.EntityData.Leafs.Append("pppoe-padr-pkts", types.YLeaf{"PppoePadrPkts", pppoeStatistics.PppoePadrPkts})
     pppoeStatistics.EntityData.Leafs.Append("pppoe-pads-pkts", types.YLeaf{"PppoePadsPkts", pppoeStatistics.PppoePadsPkts})
+    pppoeStatistics.EntityData.Leafs.Append("pppoe-padt-pkts", types.YLeaf{"PppoePadtPkts", pppoeStatistics.PppoePadtPkts})
+    pppoeStatistics.EntityData.Leafs.Append("invalid-discovery-pkts", types.YLeaf{"InvalidDiscoveryPkts", pppoeStatistics.InvalidDiscoveryPkts})
 
     pppoeStatistics.EntityData.YListKeys = []string {}
 

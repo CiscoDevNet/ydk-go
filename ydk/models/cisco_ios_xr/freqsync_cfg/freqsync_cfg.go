@@ -11,7 +11,7 @@
 //   Cisco-IOS-XR-config-mda-cfg
 // modules with configuration data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package freqsync_cfg
 
@@ -65,11 +65,9 @@ const (
 
 // FrequencySynchronization
 // frequency synchronization
-// This type is a presence type.
 type FrequencySynchronization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Quality level option. The type is FsyncQlOption. The default value is
     // option-1.
@@ -79,15 +77,12 @@ type FrequencySynchronization struct {
     Enable interface{}
 
     // Source selection logging option. The type is FsyncSourceSelectionLogging.
-    // This attribute is mandatory.
     SourceSelectionLogging interface{}
 
-    // Clock interface source type. The type is FsyncClockSource. This attribute
-    // is mandatory.
+    // Clock interface source type. The type is FsyncClockSource.
     ClockInterfaceSourceType interface{}
 
-    // System timing mode. The type is FsyncSystemTimingMode. This attribute is
-    // mandatory.
+    // System timing mode. The type is FsyncSystemTimingMode.
     SystemTimingMode interface{}
 }
 

@@ -7,7 +7,7 @@
 //   ftp: ftp
 //   tftp: tftp
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ipv4_filesystems_cfg
 
@@ -69,7 +69,7 @@ type Rcp_RcpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 }
 
@@ -142,7 +142,7 @@ type Ftp_FtpClient struct {
     Username interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // VRF table.
@@ -216,7 +216,7 @@ type Ftp_FtpClient_Vrfs_Vrf struct {
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Specify username for connections. The type is string.
@@ -301,7 +301,7 @@ type Tftp_TftpClient struct {
     Timeout interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // VRF table.
@@ -373,7 +373,7 @@ type Tftp_TftpClient_Vrfs_Vrf struct {
     VrfName interface{}
 
     // Specify interface for source address in connections. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Specify the number of retries when client requests TFTP connections. The

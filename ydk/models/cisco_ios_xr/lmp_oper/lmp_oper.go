@@ -5,7 +5,7 @@
 // for the following management objects:
 //   lmp: Main common UCP/OLM operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package lmp_oper
 
@@ -769,7 +769,7 @@ type Lmp_GmplsUni_TeLinks_TeLink struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface forOLM info. The type is string.
@@ -2409,7 +2409,7 @@ type Lmp_ComponentLinkIds_ComponentLinkId struct {
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // LMP component link ID for an I/F. The type is interface{} with range:

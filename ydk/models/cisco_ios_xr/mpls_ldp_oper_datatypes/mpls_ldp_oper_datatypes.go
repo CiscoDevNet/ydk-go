@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR mpls-ldp-oper-data package operational data.
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package mpls_ldp_oper_datatypes
 
@@ -23,5 +23,8 @@ const (
 
     // IPv6
     MplsLdpOperAfName_ipv6 MplsLdpOperAfName = "ipv6"
+
+    // All
+    MplsLdpOperAfName_all MplsLdpOperAfName = "all"
 )
 

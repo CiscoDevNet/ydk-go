@@ -30,7 +30,7 @@ module Cisco-IOS-XR-ethernet-lldp-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      module with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2017-05-01 {
@@ -75,6 +75,12 @@ module Cisco-IOS-XR-ethernet-lldp-cfg {
         mandatory true;
         description
           "enter LLDP interface submode";
+      }
+      leaf enable {
+        type boolean;
+        default "false";
+        description
+          "Enable both LLDP TX and RX";
       }
     }
   }
@@ -163,6 +169,13 @@ module Cisco-IOS-XR-ethernet-lldp-cfg {
       description
         "Enable or disable LLDP on Sub-interfaces as well
          globally";
+    }
+    leaf enable-mgmtintf {
+      type boolean;
+      default "false";
+      description
+        "Enable or disable LLDP on Mgmt interfaces as
+         well globally";
     }
     leaf timer {
       type uint32 {

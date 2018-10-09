@@ -246,6 +246,13 @@ type VrrpOperData_VrrpOperState struct {
     // is OmpStateUpdown.
     OmpState interface{}
 
+    // Contains the list of secondary address configured on the group. The type is
+    // one of the following types: slice of string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or slice of string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    SecondaryVipAddresses []interface{}
+
     // Status of list of tracking objects in the group. The type is slice of
     // VrrpOperData_VrrpOperState_TrackList.
     TrackList []*VrrpOperData_VrrpOperState_TrackList
@@ -296,6 +303,7 @@ func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEn
     vrrpOperState.EntityData.Leafs.Append("advertisement-sent", types.YLeaf{"AdvertisementSent", vrrpOperState.AdvertisementSent})
     vrrpOperState.EntityData.Leafs.Append("advertisement-rcvd", types.YLeaf{"AdvertisementRcvd", vrrpOperState.AdvertisementRcvd})
     vrrpOperState.EntityData.Leafs.Append("omp-state", types.YLeaf{"OmpState", vrrpOperState.OmpState})
+    vrrpOperState.EntityData.Leafs.Append("secondary-vip-addresses", types.YLeaf{"SecondaryVipAddresses", vrrpOperState.SecondaryVipAddresses})
 
     vrrpOperState.EntityData.YListKeys = []string {"IfNumber", "GroupId", "AddrType"}
 

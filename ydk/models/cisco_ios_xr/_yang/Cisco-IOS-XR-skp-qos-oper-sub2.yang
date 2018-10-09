@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-skp-qos-oper-sub2 {
     "This submodule contains a collection of YANG definitions
      for Cisco IOS-XR skp-qos package operational data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2016-02-18 {
@@ -960,6 +960,11 @@ submodule Cisco-IOS-XR-skp-qos-oper-sub2 {
       type uint32;
       description
         "to maintain satellite id";
+    }
+    leaf policy-timestamp {
+      type uint64;
+      description
+        "per policy timestamp";
     }
     list class-stat {
       description

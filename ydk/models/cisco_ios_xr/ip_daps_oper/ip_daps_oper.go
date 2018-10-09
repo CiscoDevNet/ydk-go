@@ -5,7 +5,7 @@
 // for the following management objects:
 //   address-pool-service: Pool operational data
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_daps_oper
 
@@ -23,6 +23,31 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-ip-daps-oper address-pool-service}", reflect.TypeOf(AddressPoolService{}))
     ydk.RegisterEntity("Cisco-IOS-XR-ip-daps-oper:address-pool-service", reflect.TypeOf(AddressPoolService{}))
 }
+
+// DapsSergRole represents DAPS SERG role
+type DapsSergRole string
+
+const (
+    // Role None
+    DapsSergRole_none DapsSergRole = "none"
+
+    // Role Master
+    DapsSergRole_master DapsSergRole = "master"
+
+    // Role Slave
+    DapsSergRole_slave DapsSergRole = "slave"
+)
+
+// IpAddr represents Address type
+type IpAddr string
+
+const (
+    // IPv4 address
+    IpAddr_ipv4 IpAddr = "ipv4"
+
+    // IPv6 address
+    IpAddr_ipv6 IpAddr = "ipv6"
+)
 
 // DapsClient represents DAPS client types
 type DapsClient string
@@ -42,17 +67,6 @@ const (
 
     // Client type is IPv6ND
     DapsClient_ipv6nd DapsClient = "ipv6nd"
-)
-
-// IpAddr represents Address type
-type IpAddr string
-
-const (
-    // IPv4 address
-    IpAddr_ipv4 IpAddr = "ipv4"
-
-    // IPv6 address
-    IpAddr_ipv6 IpAddr = "ipv6"
 )
 
 // AddressPoolService
@@ -1052,6 +1066,9 @@ type AddressPoolService_Nodes_Node_Pools_Pool_Configuration struct {
     // Number of times Low utilization threshold was crossed. The type is
     // interface{} with range: 0..4294967295.
     UtilizationLowCount interface{}
+
+    // SERG Info.
+    SergInfo AddressPoolService_Nodes_Node_Pools_Pool_Configuration_SergInfo
 }
 
 func (configuration *AddressPoolService_Nodes_Node_Pools_Pool_Configuration) GetEntityData() *types.CommonEntityData {
@@ -1065,6 +1082,7 @@ func (configuration *AddressPoolService_Nodes_Node_Pools_Pool_Configuration) Get
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     configuration.EntityData.Children = types.NewOrderedMap()
+    configuration.EntityData.Children.Append("serg-info", types.YChild{"SergInfo", &configuration.SergInfo})
     configuration.EntityData.Leafs = types.NewOrderedMap()
     configuration.EntityData.Leafs.Append("pool-name", types.YLeaf{"PoolName", configuration.PoolName})
     configuration.EntityData.Leafs.Append("pool-id", types.YLeaf{"PoolId", configuration.PoolId})
@@ -1080,6 +1098,43 @@ func (configuration *AddressPoolService_Nodes_Node_Pools_Pool_Configuration) Get
     configuration.EntityData.YListKeys = []string {}
 
     return &(configuration.EntityData)
+}
+
+// AddressPoolService_Nodes_Node_Pools_Pool_Configuration_SergInfo
+// SERG Info
+type AddressPoolService_Nodes_Node_Pools_Pool_Configuration_SergInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // SERG PreferredRole. The type is DapsSergRole.
+    PreferredRole interface{}
+
+    // Peer Down. The type is bool.
+    PeerDown interface{}
+
+    // Verify Pending. The type is bool.
+    VerifyPend interface{}
+}
+
+func (sergInfo *AddressPoolService_Nodes_Node_Pools_Pool_Configuration_SergInfo) GetEntityData() *types.CommonEntityData {
+    sergInfo.EntityData.YFilter = sergInfo.YFilter
+    sergInfo.EntityData.YangName = "serg-info"
+    sergInfo.EntityData.BundleName = "cisco_ios_xr"
+    sergInfo.EntityData.ParentYangName = "configuration"
+    sergInfo.EntityData.SegmentPath = "serg-info"
+    sergInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sergInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sergInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sergInfo.EntityData.Children = types.NewOrderedMap()
+    sergInfo.EntityData.Leafs = types.NewOrderedMap()
+    sergInfo.EntityData.Leafs.Append("preferred-role", types.YLeaf{"PreferredRole", sergInfo.PreferredRole})
+    sergInfo.EntityData.Leafs.Append("peer-down", types.YLeaf{"PeerDown", sergInfo.PeerDown})
+    sergInfo.EntityData.Leafs.Append("verify-pend", types.YLeaf{"VerifyPend", sergInfo.VerifyPend})
+
+    sergInfo.EntityData.YListKeys = []string {}
+
+    return &(sergInfo.EntityData)
 }
 
 // AddressPoolService_Nodes_Node_TotalUtilization

@@ -7,7 +7,7 @@
 //   tcp: tcp
 //   tcp-nsr: tcp nsr
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ip_tcp_oper
 
@@ -483,6 +483,26 @@ const (
     MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
 )
 
+// TcpKeyInvalidReason represents TCP AO key state invalid reason
+type TcpKeyInvalidReason string
+
+const (
+    // No reason
+    TcpKeyInvalidReason_none TcpKeyInvalidReason = "none"
+
+    // Incomplete
+    TcpKeyInvalidReason_incomplete TcpKeyInvalidReason = "incomplete"
+
+    // Send and accept lifetime are not same
+    TcpKeyInvalidReason_lifetime_not_same TcpKeyInvalidReason = "lifetime-not-same"
+
+    // Send ID is invalid
+    TcpKeyInvalidReason_send_id_invalid TcpKeyInvalidReason = "send-id-invalid"
+
+    // Receive ID is invalid
+    TcpKeyInvalidReason_recv_id_invalid TcpKeyInvalidReason = "recv-id-invalid"
+)
+
 // AddrFamily represents Address Family Types
 type AddrFamily string
 
@@ -506,6 +526,44 @@ const (
 
     // NSR Stream Not applicable
     NsrStatus_na NsrStatus = "na"
+)
+
+// TcpMacAlgo represents TCP AO MAC algorithm type
+type TcpMacAlgo string
+
+const (
+    // Not configured
+    TcpMacAlgo_not_configured TcpMacAlgo = "not-configured"
+
+    // CMAC 96
+    TcpMacAlgo_aes_128_cmac_96 TcpMacAlgo = "aes-128-cmac-96"
+
+    // HMAC SHA1 12
+    TcpMacAlgo_hmac_sha1_12 TcpMacAlgo = "hmac-sha1-12"
+
+    // MD5 16
+    TcpMacAlgo_md5_16 TcpMacAlgo = "md5-16"
+
+    // SHA1 20
+    TcpMacAlgo_sha1_20 TcpMacAlgo = "sha1-20"
+
+    // HMAC MD5 16
+    TcpMacAlgo_hmac_md5_16 TcpMacAlgo = "hmac-md5-16"
+
+    // HMAC SHA1 20
+    TcpMacAlgo_hmac_sha1_20 TcpMacAlgo = "hmac-sha1-20"
+
+    // AES 128 CMAC
+    TcpMacAlgo_aes_128_cmac TcpMacAlgo = "aes-128-cmac"
+
+    // AES 256 CMAC
+    TcpMacAlgo_aes_256_cmac TcpMacAlgo = "aes-256-cmac"
+
+    // HMAC SHA1 96
+    TcpMacAlgo_hmac_sha1_96 TcpMacAlgo = "hmac-sha1-96"
+
+    // HMAC SHA1 256
+    TcpMacAlgo_hmac_sha_256 TcpMacAlgo = "hmac-sha-256"
 )
 
 // TcpAddressFamily represents Address Family Type
@@ -795,6 +853,9 @@ type TcpConnection_Nodes_Node struct {
     // Table listing TCP connections for which detailed information is provided.
     DetailInformations TcpConnection_Nodes_Node_DetailInformations
 
+    // Table listing keychains configured for TCP-AO.
+    Keychains TcpConnection_Nodes_Node_Keychains
+
     // Table listing connections for which brief information is provided.Note that
     // not all connections are listed in the brief table.
     BriefInformations TcpConnection_Nodes_Node_BriefInformations
@@ -814,6 +875,7 @@ func (node *TcpConnection_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
     node.EntityData.Children.Append("extended-information", types.YChild{"ExtendedInformation", &node.ExtendedInformation})
     node.EntityData.Children.Append("detail-informations", types.YChild{"DetailInformations", &node.DetailInformations})
+    node.EntityData.Children.Append("keychains", types.YChild{"Keychains", &node.Keychains})
     node.EntityData.Children.Append("brief-informations", types.YChild{"BriefInformations", &node.BriefInformations})
     node.EntityData.Leafs = types.NewOrderedMap()
     node.EntityData.Leafs.Append("id", types.YLeaf{"Id", node.Id})
@@ -2564,7 +2626,7 @@ type TcpConnection_Nodes_Node_ExtendedInformation_DisplayTypes_DisplayType_Conne
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Remote address length. The type is interface{} with range: 0..65535.
@@ -3981,6 +4043,391 @@ func (sendSackHole *TcpConnection_Nodes_Node_DetailInformations_DetailInformatio
     sendSackHole.EntityData.YListKeys = []string {}
 
     return &(sendSackHole.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains
+// Table listing keychains configured for TCP-AO.
+type TcpConnection_Nodes_Node_Keychains struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Details of a keychain. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain.
+    Keychain []*TcpConnection_Nodes_Node_Keychains_Keychain
+}
+
+func (keychains *TcpConnection_Nodes_Node_Keychains) GetEntityData() *types.CommonEntityData {
+    keychains.EntityData.YFilter = keychains.YFilter
+    keychains.EntityData.YangName = "keychains"
+    keychains.EntityData.BundleName = "cisco_ios_xr"
+    keychains.EntityData.ParentYangName = "node"
+    keychains.EntityData.SegmentPath = "keychains"
+    keychains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keychains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keychains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keychains.EntityData.Children = types.NewOrderedMap()
+    keychains.EntityData.Children.Append("keychain", types.YChild{"Keychain", nil})
+    for i := range keychains.Keychain {
+        keychains.EntityData.Children.Append(types.GetSegmentPath(keychains.Keychain[i]), types.YChild{"Keychain", keychains.Keychain[i]})
+    }
+    keychains.EntityData.Leafs = types.NewOrderedMap()
+
+    keychains.EntityData.YListKeys = []string {}
+
+    return &(keychains.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain
+// Details of a keychain
+type TcpConnection_Nodes_Node_Keychains_Keychain struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Keychain name. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    KeychainName interface{}
+
+    // Keychain name. The type is string.
+    ChainName interface{}
+
+    // Is keychain configured?. The type is bool.
+    IsConfigured interface{}
+
+    // Is desired key available?. The type is bool.
+    DesiredKeyAvailable interface{}
+
+    // Desired key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    DesiredKeyId interface{}
+
+    // Keys under this keychain. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_Keys.
+    Keys []*TcpConnection_Nodes_Node_Keychains_Keychain_Keys
+
+    // List of active keys. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_ActiveKey.
+    ActiveKey []*TcpConnection_Nodes_Node_Keychains_Keychain_ActiveKey
+
+    // Send IDs under this keychain. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_SendId.
+    SendId []*TcpConnection_Nodes_Node_Keychains_Keychain_SendId
+
+    // Receive IDs under this keychain. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId.
+    ReceiveId []*TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId
+}
+
+func (keychain *TcpConnection_Nodes_Node_Keychains_Keychain) GetEntityData() *types.CommonEntityData {
+    keychain.EntityData.YFilter = keychain.YFilter
+    keychain.EntityData.YangName = "keychain"
+    keychain.EntityData.BundleName = "cisco_ios_xr"
+    keychain.EntityData.ParentYangName = "keychains"
+    keychain.EntityData.SegmentPath = "keychain" + types.AddKeyToken(keychain.KeychainName, "keychain-name")
+    keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keychain.EntityData.Children = types.NewOrderedMap()
+    keychain.EntityData.Children.Append("keys", types.YChild{"Keys", nil})
+    for i := range keychain.Keys {
+        keychain.EntityData.Children.Append(types.GetSegmentPath(keychain.Keys[i]), types.YChild{"Keys", keychain.Keys[i]})
+    }
+    keychain.EntityData.Children.Append("active-key", types.YChild{"ActiveKey", nil})
+    for i := range keychain.ActiveKey {
+        keychain.EntityData.Children.Append(types.GetSegmentPath(keychain.ActiveKey[i]), types.YChild{"ActiveKey", keychain.ActiveKey[i]})
+    }
+    keychain.EntityData.Children.Append("send-id", types.YChild{"SendId", nil})
+    for i := range keychain.SendId {
+        keychain.EntityData.Children.Append(types.GetSegmentPath(keychain.SendId[i]), types.YChild{"SendId", keychain.SendId[i]})
+    }
+    keychain.EntityData.Children.Append("receive-id", types.YChild{"ReceiveId", nil})
+    for i := range keychain.ReceiveId {
+        keychain.EntityData.Children.Append(types.GetSegmentPath(keychain.ReceiveId[i]), types.YChild{"ReceiveId", keychain.ReceiveId[i]})
+    }
+    keychain.EntityData.Leafs = types.NewOrderedMap()
+    keychain.EntityData.Leafs.Append("keychain-name", types.YLeaf{"KeychainName", keychain.KeychainName})
+    keychain.EntityData.Leafs.Append("chain-name", types.YLeaf{"ChainName", keychain.ChainName})
+    keychain.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", keychain.IsConfigured})
+    keychain.EntityData.Leafs.Append("desired-key-available", types.YLeaf{"DesiredKeyAvailable", keychain.DesiredKeyAvailable})
+    keychain.EntityData.Leafs.Append("desired-key-id", types.YLeaf{"DesiredKeyId", keychain.DesiredKeyId})
+
+    keychain.EntityData.YListKeys = []string {"KeychainName"}
+
+    return &(keychain.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_Keys
+// Keys under this keychain
+type TcpConnection_Nodes_Node_Keychains_Keychain_Keys struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    KeyId interface{}
+
+    // Is key active. The type is bool.
+    IsActive interface{}
+
+    // Is key expired. The type is bool.
+    IsExpired interface{}
+
+    // Is key valid. The type is bool.
+    IsValid interface{}
+
+    // Key invalid reason. The type is TcpKeyInvalidReason.
+    Reason interface{}
+
+    // Send ID. The type is interface{} with range: 0..255.
+    SendId interface{}
+
+    // Receive ID. The type is interface{} with range: 0..255.
+    RecvId interface{}
+
+    // Cryptography algorithm associated with the key. The type is TcpMacAlgo.
+    CryptAlgo interface{}
+
+    // Is key configured?. The type is bool.
+    IsConfigured interface{}
+
+    // Is overlapping key available?. The type is bool.
+    OverlappingKeyAvailable interface{}
+
+    // Overlapping key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    OverlappingKey interface{}
+
+    // List of keys invalidated. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_Keys_InvalidatedKey.
+    InvalidatedKey []*TcpConnection_Nodes_Node_Keychains_Keychain_Keys_InvalidatedKey
+}
+
+func (keys *TcpConnection_Nodes_Node_Keychains_Keychain_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "keychain"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Children.Append("invalidated-key", types.YChild{"InvalidatedKey", nil})
+    for i := range keys.InvalidatedKey {
+        keys.EntityData.Children.Append(types.GetSegmentPath(keys.InvalidatedKey[i]), types.YChild{"InvalidatedKey", keys.InvalidatedKey[i]})
+    }
+    keys.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", keys.KeyId})
+    keys.EntityData.Leafs.Append("is-active", types.YLeaf{"IsActive", keys.IsActive})
+    keys.EntityData.Leafs.Append("is-expired", types.YLeaf{"IsExpired", keys.IsExpired})
+    keys.EntityData.Leafs.Append("is-valid", types.YLeaf{"IsValid", keys.IsValid})
+    keys.EntityData.Leafs.Append("reason", types.YLeaf{"Reason", keys.Reason})
+    keys.EntityData.Leafs.Append("send-id", types.YLeaf{"SendId", keys.SendId})
+    keys.EntityData.Leafs.Append("recv-id", types.YLeaf{"RecvId", keys.RecvId})
+    keys.EntityData.Leafs.Append("crypt-algo", types.YLeaf{"CryptAlgo", keys.CryptAlgo})
+    keys.EntityData.Leafs.Append("is-configured", types.YLeaf{"IsConfigured", keys.IsConfigured})
+    keys.EntityData.Leafs.Append("overlapping-key-available", types.YLeaf{"OverlappingKeyAvailable", keys.OverlappingKeyAvailable})
+    keys.EntityData.Leafs.Append("overlapping-key", types.YLeaf{"OverlappingKey", keys.OverlappingKey})
+
+    keys.EntityData.YListKeys = []string {}
+
+    return &(keys.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_Keys_InvalidatedKey
+// List of keys invalidated
+type TcpConnection_Nodes_Node_Keychains_Keychain_Keys_InvalidatedKey struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    KeyId interface{}
+}
+
+func (invalidatedKey *TcpConnection_Nodes_Node_Keychains_Keychain_Keys_InvalidatedKey) GetEntityData() *types.CommonEntityData {
+    invalidatedKey.EntityData.YFilter = invalidatedKey.YFilter
+    invalidatedKey.EntityData.YangName = "invalidated-key"
+    invalidatedKey.EntityData.BundleName = "cisco_ios_xr"
+    invalidatedKey.EntityData.ParentYangName = "keys"
+    invalidatedKey.EntityData.SegmentPath = "invalidated-key"
+    invalidatedKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    invalidatedKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    invalidatedKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    invalidatedKey.EntityData.Children = types.NewOrderedMap()
+    invalidatedKey.EntityData.Leafs = types.NewOrderedMap()
+    invalidatedKey.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", invalidatedKey.KeyId})
+
+    invalidatedKey.EntityData.YListKeys = []string {}
+
+    return &(invalidatedKey.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_ActiveKey
+// List of active keys
+type TcpConnection_Nodes_Node_Keychains_Keychain_ActiveKey struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    KeyId interface{}
+}
+
+func (activeKey *TcpConnection_Nodes_Node_Keychains_Keychain_ActiveKey) GetEntityData() *types.CommonEntityData {
+    activeKey.EntityData.YFilter = activeKey.YFilter
+    activeKey.EntityData.YangName = "active-key"
+    activeKey.EntityData.BundleName = "cisco_ios_xr"
+    activeKey.EntityData.ParentYangName = "keychain"
+    activeKey.EntityData.SegmentPath = "active-key"
+    activeKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    activeKey.EntityData.Children = types.NewOrderedMap()
+    activeKey.EntityData.Leafs = types.NewOrderedMap()
+    activeKey.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", activeKey.KeyId})
+
+    activeKey.EntityData.YListKeys = []string {}
+
+    return &(activeKey.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_SendId
+// Send IDs under this keychain
+type TcpConnection_Nodes_Node_Keychains_Keychain_SendId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Identifier. The type is interface{} with range: 0..255.
+    Id interface{}
+
+    // List of keys having this id. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_SendId_Keys.
+    Keys []*TcpConnection_Nodes_Node_Keychains_Keychain_SendId_Keys
+}
+
+func (sendId *TcpConnection_Nodes_Node_Keychains_Keychain_SendId) GetEntityData() *types.CommonEntityData {
+    sendId.EntityData.YFilter = sendId.YFilter
+    sendId.EntityData.YangName = "send-id"
+    sendId.EntityData.BundleName = "cisco_ios_xr"
+    sendId.EntityData.ParentYangName = "keychain"
+    sendId.EntityData.SegmentPath = "send-id"
+    sendId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sendId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sendId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sendId.EntityData.Children = types.NewOrderedMap()
+    sendId.EntityData.Children.Append("keys", types.YChild{"Keys", nil})
+    for i := range sendId.Keys {
+        sendId.EntityData.Children.Append(types.GetSegmentPath(sendId.Keys[i]), types.YChild{"Keys", sendId.Keys[i]})
+    }
+    sendId.EntityData.Leafs = types.NewOrderedMap()
+    sendId.EntityData.Leafs.Append("id", types.YLeaf{"Id", sendId.Id})
+
+    sendId.EntityData.YListKeys = []string {}
+
+    return &(sendId.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_SendId_Keys
+// List of keys having this id
+type TcpConnection_Nodes_Node_Keychains_Keychain_SendId_Keys struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    KeyId interface{}
+}
+
+func (keys *TcpConnection_Nodes_Node_Keychains_Keychain_SendId_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "send-id"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", keys.KeyId})
+
+    keys.EntityData.YListKeys = []string {}
+
+    return &(keys.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId
+// Receive IDs under this keychain
+type TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Identifier. The type is interface{} with range: 0..255.
+    Id interface{}
+
+    // List of keys having this id. The type is slice of
+    // TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId_Keys.
+    Keys []*TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId_Keys
+}
+
+func (receiveId *TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId) GetEntityData() *types.CommonEntityData {
+    receiveId.EntityData.YFilter = receiveId.YFilter
+    receiveId.EntityData.YangName = "receive-id"
+    receiveId.EntityData.BundleName = "cisco_ios_xr"
+    receiveId.EntityData.ParentYangName = "keychain"
+    receiveId.EntityData.SegmentPath = "receive-id"
+    receiveId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    receiveId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    receiveId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    receiveId.EntityData.Children = types.NewOrderedMap()
+    receiveId.EntityData.Children.Append("keys", types.YChild{"Keys", nil})
+    for i := range receiveId.Keys {
+        receiveId.EntityData.Children.Append(types.GetSegmentPath(receiveId.Keys[i]), types.YChild{"Keys", receiveId.Keys[i]})
+    }
+    receiveId.EntityData.Leafs = types.NewOrderedMap()
+    receiveId.EntityData.Leafs.Append("id", types.YLeaf{"Id", receiveId.Id})
+
+    receiveId.EntityData.YListKeys = []string {}
+
+    return &(receiveId.EntityData)
+}
+
+// TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId_Keys
+// List of keys having this id
+type TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId_Keys struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Key identifier. The type is interface{} with range:
+    // 0..18446744073709551615.
+    KeyId interface{}
+}
+
+func (keys *TcpConnection_Nodes_Node_Keychains_Keychain_ReceiveId_Keys) GetEntityData() *types.CommonEntityData {
+    keys.EntityData.YFilter = keys.YFilter
+    keys.EntityData.YangName = "keys"
+    keys.EntityData.BundleName = "cisco_ios_xr"
+    keys.EntityData.ParentYangName = "receive-id"
+    keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keys.EntityData.Children = types.NewOrderedMap()
+    keys.EntityData.Leafs = types.NewOrderedMap()
+    keys.EntityData.Leafs.Append("key-id", types.YLeaf{"KeyId", keys.KeyId})
+
+    keys.EntityData.YListKeys = []string {}
+
+    return &(keys.EntityData)
 }
 
 // TcpConnection_Nodes_Node_BriefInformations

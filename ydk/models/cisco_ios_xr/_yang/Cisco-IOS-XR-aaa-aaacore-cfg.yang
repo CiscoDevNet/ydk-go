@@ -36,9 +36,13 @@ module Cisco-IOS-XR-aaa-aaacore-cfg {
        Cisco-IOS-XR-ifmgr-cfg
      modules with configuration data.
      
-     Copyright (c) 2013-2017 by Cisco Systems, Inc.
+     Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-04 {
+    description
+      "Added class for nas-identifier.";
+  }
   revision 2015-11-09 {
     description
       "IOS XR 6.0 revision.";
@@ -249,6 +253,11 @@ module Cisco-IOS-XR-aaa-aaacore-cfg {
             type Nas-port-value;
             description
               "AAA nas-port-type attribute";
+          }
+          leaf nas-identifier {
+            type string;
+            description
+              "AAA nas-identifier attribute";
           }
         }
       }
