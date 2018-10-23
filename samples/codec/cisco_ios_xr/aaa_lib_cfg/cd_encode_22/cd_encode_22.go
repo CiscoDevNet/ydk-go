@@ -66,20 +66,14 @@ func config_aaa(aaa *aaaCfg.Aaa) {
 	usergroupUnderUsername := aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
 	usergroupUnderUsername.Name = "sysadmin"
 
-	username.UsergroupUnderUsernames.UsergroupUnderUsername = make(
-		[]aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername, 0)
-	// username.UsergroupUnderUsernames.UsergroupUnderUsername.append(usergroupUnderUsername)
 	username.UsergroupUnderUsernames.UsergroupUnderUsername = append(
-		username.UsergroupUnderUsernames.UsergroupUnderUsername, usergroupUnderUsername)
+		username.UsergroupUnderUsernames.UsergroupUnderUsername, &usergroupUnderUsername)
 
 	// task group
 	usergroupUnderUsername = aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
 	usergroupUnderUsername.Name = "operator"
 
-	if (aaa.Usernames.Username == nil) {
-		aaa.Usernames.Username = make([]aaaCfg.Aaa_Usernames_Username, 0)
-	}
-	aaa.Usernames.Username = append(aaa.Usernames.Username, username)
+	aaa.Usernames.Username = append(aaa.Usernames.Username, &username)
 }
 
 // main execute main program.

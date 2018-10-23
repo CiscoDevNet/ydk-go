@@ -54,20 +54,17 @@ const (
 
 // config_aaa adds config data to aaa object.
 func config_aaa(aaa *aaaCfg.Aaa) {
-	aaa.Usernames = aaaCfg.Aaa_Usernames{
-		Username: make([]aaaCfg.Aaa_Usernames_Username, 1) }
 
-	username := &aaa.Usernames.Username[0]
+	username := aaaCfg.Aaa_Usernames_Username{}
 	username.OrderingIndex = 20
 	username.Name = "sysadmin"
 	username.Secret = "$1$AQ9U$6iYrri084f6crrBmPeN0q."
+    aaa.Usernames.Username = append(aaa.Usernames.Username, &username)
 
 	// task group
-	username.UsergroupUnderUsernames = aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames{
-		UsergroupUnderUsername: make(
-			[]aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername, 1) }
-	usergroupUnderUsername := &username.UsergroupUnderUsernames.UsergroupUnderUsername[0]
+    usergroupUnderUsername := aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
 	usergroupUnderUsername.Name = "sysadmin"
+	username.UsergroupUnderUsernames.UsergroupUnderUsername = append(username.UsergroupUnderUsernames.UsergroupUnderUsername, &usergroupUnderUsername)
 }
 
 // main execute main program.

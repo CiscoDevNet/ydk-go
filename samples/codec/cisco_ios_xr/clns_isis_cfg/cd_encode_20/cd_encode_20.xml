@@ -11,7 +11,6 @@
               <metric-style>
                 <level>not-set</level>
                 <style>new-metric-style</style>
-                <transition-state>disabled</transition-state>
               </metric-style>
             </metric-styles>
           </af-data>

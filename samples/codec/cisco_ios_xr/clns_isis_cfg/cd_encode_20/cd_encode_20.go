@@ -39,67 +39,55 @@ import (
 // configIsis adds config data to isis object.
 func configIsis(isis *isisCfg.Isis) {
 	// global configuration
-	isis.Instances = isisCfg.Isis_Instances{
-		Instance: make([]isisCfg.Isis_Instances_Instance, 1) }
-	instance := &isis.Instances.Instance[0]
+	instance := isisCfg.Isis_Instances_Instance{}
 	instance.InstanceName = "DEFAULT"
 	instance.Running = types.Empty{}
 	instance.IsType = isisCfg.IsisConfigurableLevels_level2
+    isis.Instances.Instance = append(isis.Instances.Instance, &instance)
 
-	instance.Nets = isisCfg.Isis_Instances_Instance_Nets{
-		Net: make([]isisCfg.Isis_Instances_Instance_Nets_Net, 1) }
-	net := &instance.Nets.Net[0]
+	net := isisCfg.Isis_Instances_Instance_Nets_Net{}
 	net.NetName = "49.0000.1720.1625.5001.00"
+    instance.Nets.Net = append(instance.Nets.Net, &net)
 
 	// global address family
-	instance.Afs = isisCfg.Isis_Instances_Instance_Afs{
-		Af: make([]isisCfg.Isis_Instances_Instance_Afs_Af, 1) }
-	af := &instance.Afs.Af[0]
+	af := isisCfg.Isis_Instances_Instance_Afs_Af{}
 	af.AfName = isisDatatypes.IsisAddressFamily_ipv4
 	af.SafName = isisDatatypes.IsisSubAddressFamily_unicast
 	af.AfData = isisCfg.Isis_Instances_Instance_Afs_Af_AfData{}
+    instance.Afs.Af = append(instance.Afs.Af, &af)
 
-	af.AfData.MetricStyles = isisCfg.Isis_Instances_Instance_Afs_Af_AfData_MetricStyles{
-		MetricStyle: make(
-			[]isisCfg.Isis_Instances_Instance_Afs_Af_AfData_MetricStyles_MetricStyle, 1) }
-	metricStyle := &af.AfData.MetricStyles.MetricStyle[0]
+	metricStyle := isisCfg.Isis_Instances_Instance_Afs_Af_AfData_MetricStyles_MetricStyle{}
 	metricStyle.Style = isisCfg.IsisMetricStyle_new_metric_style
 	metricStyle.Level = isisDatatypes.IsisInternalLevel_not_set
-
-	transitionState := isisCfg.IsisMetricStyleTransition_disabled
-	metricStyle.TransitionState = transitionState
+    af.AfData.MetricStyles.MetricStyle = append(af.AfData.MetricStyles.MetricStyle, &metricStyle)
 
 	// loopback interface
-	instance.Interfaces = isisCfg.Isis_Instances_Instance_Interfaces{
-		Interface_: make([]isisCfg.Isis_Instances_Instance_Interfaces_Interface, 2) }
-	intrface := &instance.Interfaces.Interface_[0]
+	intrface := isisCfg.Isis_Instances_Instance_Interfaces_Interface{}
 	intrface.InterfaceName = "Loopback0"
 	intrface.Running = types.Empty{}
 	intrface.State = isisCfg.IsisInterfaceState_passive
+    instance.Interfaces.Interface = append(instance.Interfaces.Interface, &intrface)
 
-	//     interface address family
-	intrface.InterfaceAfs = isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs{
-		InterfaceAf: make(
-			[]isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf, 1) }
-	interfaceAf := &intrface.InterfaceAfs.InterfaceAf[0]
+	// interface address family
+	interfaceAf := isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf{}
 	interfaceAf.AfName = isisDatatypes.IsisAddressFamily_ipv4
 	interfaceAf.SafName = isisDatatypes.IsisSubAddressFamily_unicast
 	interfaceAf.InterfaceAfData.Running = types.Empty{}
+    intrface.InterfaceAfs.InterfaceAf = append(intrface.InterfaceAfs.InterfaceAf, &interfaceAf)
 
 	// gi0/0/0/0 interface
-	intrface = &instance.Interfaces.Interface_[1]
+	intrface = isisCfg.Isis_Instances_Instance_Interfaces_Interface{}
 	intrface.InterfaceName = "GigabitEthernet0/0/0/0"
 	intrface.Running = types.Empty{}
 	intrface.PointToPoint = types.Empty{}
+    instance.Interfaces.Interface = append(instance.Interfaces.Interface, &intrface)
 
-	//     interface address family
-	intrface.InterfaceAfs = isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs{
-		InterfaceAf: make(
-			[]isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf, 1) }
-	interfaceAf = &intrface.InterfaceAfs.InterfaceAf[0]
+	// interface address family
+	interfaceAf = isisCfg.Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf{}
 	interfaceAf.AfName = isisDatatypes.IsisAddressFamily_ipv4
 	interfaceAf.SafName = isisDatatypes.IsisSubAddressFamily_unicast
 	interfaceAf.InterfaceAfData.Running = types.Empty{}
+    intrface.InterfaceAfs.InterfaceAf = append(intrface.InterfaceAfs.InterfaceAf, &interfaceAf)
 }
 
 // main executes main program.
