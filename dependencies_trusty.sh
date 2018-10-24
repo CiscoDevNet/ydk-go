@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 print_msg "Installing Trusty OS dependencies"
-sudo apt-get update > /dev/null
+sudo apt-get update && apt-get install -y --no-install-recommends apt-utils > /dev/null
 sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev wget -y > /dev/null
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y > /dev/null
 sudo apt-get update > /dev/null
@@ -32,7 +32,7 @@ cd -
 print_msg "Installing Golang version 1.9.2"
 wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
 tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
-ln -s /usr/local/go/bin/go /usr/bin/go
+ln -f -s /usr/local/go/bin/go /usr/bin/go
 
 print_msg "Installing pip"
 sudo easy_install pip

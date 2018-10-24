@@ -11,15 +11,13 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 print_msg "Installing Xenial OS dependencies"
-apt update -y > /dev/null
+apt-get update && apt-get install -y --no-install-recommends apt-utils > /dev/null
 apt install sudo -y > /dev/null
-apt-get update > /dev/null
-sudo apt-get install libtool-bin -y > /dev/null
+apt-get install libtool-bin -y > /dev/null
 local status=$?
 if [[ ${status} != 0 ]]; then
    sudo apt-get install libtool -y > /dev/null
 fi
-
 apt-get install git gdebi-core python-dev python-pip wget -y > /dev/null
 
 print_msg "Installing C++ version 5"
