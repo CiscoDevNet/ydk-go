@@ -59,10 +59,10 @@ func config_aaa(aaa *aaaCfg.Aaa) {
 	username.OrderingIndex = 20
 	username.Name = "sysadmin"
 	username.Secret = "$1$AQ9U$6iYrri084f6crrBmPeN0q."
-    aaa.Usernames.Username = append(aaa.Usernames.Username, &username)
+	aaa.Usernames.Username = append(aaa.Usernames.Username, &username)
 
 	// task group
-    usergroupUnderUsername := aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
+	usergroupUnderUsername := aaaCfg.Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
 	usergroupUnderUsername.Name = "sysadmin"
 	username.UsergroupUnderUsernames.UsergroupUnderUsername = append(username.UsergroupUnderUsernames.UsergroupUnderUsername, &usergroupUnderUsername)
 }

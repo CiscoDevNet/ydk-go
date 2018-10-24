@@ -140,14 +140,14 @@ type MplsStatic_MplsStaticCfg struct {
     // The LSPs indexed by name.
     NamedLsps MplsStatic_MplsStaticCfg_NamedLsps
 
-    // The list of interfaces configured with mpls.
-    Interfaces MplsStatic_MplsStaticCfg_Interfaces
-
     // The LSPs indexed by in-label.
     InLabelLsps MplsStatic_MplsStaticCfg_InLabelLsps
 
     // The LSPs indexed by ipv6 prefix.
     Ipv6IngressLsps MplsStatic_MplsStaticCfg_Ipv6IngressLsps
+
+    // The list of interfaces configured with mpls.
+    Interfaces MplsStatic_MplsStaticCfg_Interfaces
 
     // The LSPs indexed by ipv4 prefix.
     Ipv4IngressLsps MplsStatic_MplsStaticCfg_Ipv4IngressLsps
@@ -165,9 +165,9 @@ func (mplsStaticCfg *MplsStatic_MplsStaticCfg) GetEntityData() *types.CommonEnti
 
     mplsStaticCfg.EntityData.Children = types.NewOrderedMap()
     mplsStaticCfg.EntityData.Children.Append("named-lsps", types.YChild{"NamedLsps", &mplsStaticCfg.NamedLsps})
-    mplsStaticCfg.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mplsStaticCfg.Interfaces})
     mplsStaticCfg.EntityData.Children.Append("in-label-lsps", types.YChild{"InLabelLsps", &mplsStaticCfg.InLabelLsps})
     mplsStaticCfg.EntityData.Children.Append("ipv6-ingress-lsps", types.YChild{"Ipv6IngressLsps", &mplsStaticCfg.Ipv6IngressLsps})
+    mplsStaticCfg.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mplsStaticCfg.Interfaces})
     mplsStaticCfg.EntityData.Children.Append("ipv4-ingress-lsps", types.YChild{"Ipv4IngressLsps", &mplsStaticCfg.Ipv4IngressLsps})
     mplsStaticCfg.EntityData.Leafs = types.NewOrderedMap()
 
@@ -747,75 +747,6 @@ func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
     stack.EntityData.YListKeys = []string {}
 
     return &(stack.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Interfaces
-// The list of interfaces configured with mpls
-type MplsStatic_MplsStaticCfg_Interfaces struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of interfaces that can be enabled under mpls static. The type is slice
-    // of MplsStatic_MplsStaticCfg_Interfaces_Interface.
-    Interface []*MplsStatic_MplsStaticCfg_Interfaces_Interface
-}
-
-func (interfaces *MplsStatic_MplsStaticCfg_Interfaces) GetEntityData() *types.CommonEntityData {
-    interfaces.EntityData.YFilter = interfaces.YFilter
-    interfaces.EntityData.YangName = "interfaces"
-    interfaces.EntityData.BundleName = "cisco_ios_xe"
-    interfaces.EntityData.ParentYangName = "mpls-static-cfg"
-    interfaces.EntityData.SegmentPath = "interfaces"
-    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    interfaces.EntityData.Children = types.NewOrderedMap()
-    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
-    for i := range interfaces.Interface {
-        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
-    }
-    interfaces.EntityData.Leafs = types.NewOrderedMap()
-
-    interfaces.EntityData.YListKeys = []string {}
-
-    return &(interfaces.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Interfaces_Interface
-// List of interfaces that can be enabled under
-// mpls static
-type MplsStatic_MplsStaticCfg_Interfaces_Interface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Interface name. The type is string. Refers to
-    // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
-    Name interface{}
-
-    // Interface Enabled boolean. The type is interface{} with range:
-    // 0..4294967295. This attribute is mandatory.
-    Enabled interface{}
-}
-
-func (self *MplsStatic_MplsStaticCfg_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
-    self.EntityData.YFilter = self.YFilter
-    self.EntityData.YangName = "interface"
-    self.EntityData.BundleName = "cisco_ios_xe"
-    self.EntityData.ParentYangName = "interfaces"
-    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
-    self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    self.EntityData.Children = types.NewOrderedMap()
-    self.EntityData.Leafs = types.NewOrderedMap()
-    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
-    self.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", self.Enabled})
-
-    self.EntityData.YListKeys = []string {"Name"}
-
-    return &(self.EntityData)
 }
 
 // MplsStatic_MplsStaticCfg_InLabelLsps
@@ -1916,6 +1847,75 @@ func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHo
     return &(stack.EntityData)
 }
 
+// MplsStatic_MplsStaticCfg_Interfaces
+// The list of interfaces configured with mpls
+type MplsStatic_MplsStaticCfg_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of interfaces that can be enabled under mpls static. The type is slice
+    // of MplsStatic_MplsStaticCfg_Interfaces_Interface.
+    Interface []*MplsStatic_MplsStaticCfg_Interfaces_Interface
+}
+
+func (interfaces *MplsStatic_MplsStaticCfg_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xe"
+    interfaces.EntityData.ParentYangName = "mpls-static-cfg"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    interfaces.EntityData.Children = types.NewOrderedMap()
+    interfaces.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
+    for i := range interfaces.Interface {
+        interfaces.EntityData.Children.Append(types.GetSegmentPath(interfaces.Interface[i]), types.YChild{"Interface", interfaces.Interface[i]})
+    }
+    interfaces.EntityData.Leafs = types.NewOrderedMap()
+
+    interfaces.EntityData.YListKeys = []string {}
+
+    return &(interfaces.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Interfaces_Interface
+// List of interfaces that can be enabled under
+// mpls static
+type MplsStatic_MplsStaticCfg_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Interface name. The type is string. Refers to
+    // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
+    Name interface{}
+
+    // Interface Enabled boolean. The type is interface{} with range:
+    // 0..4294967295. This attribute is mandatory.
+    Enabled interface{}
+}
+
+func (self *MplsStatic_MplsStaticCfg_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xe"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    self.EntityData.Children = types.NewOrderedMap()
+    self.EntityData.Leafs = types.NewOrderedMap()
+    self.EntityData.Leafs.Append("name", types.YLeaf{"Name", self.Name})
+    self.EntityData.Leafs.Append("enabled", types.YLeaf{"Enabled", self.Enabled})
+
+    self.EntityData.YListKeys = []string {"Name"}
+
+    return &(self.EntityData)
+}
+
 // MplsStatic_MplsStaticCfg_Ipv4IngressLsps
 // The LSPs indexed by ipv4 prefix
 type MplsStatic_MplsStaticCfg_Ipv4IngressLsps struct {
@@ -1964,12 +1964,12 @@ type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
+    // Name of the LSP. The type is string.
+    Name interface{}
+
     // Value of the local label. Optional for ingress. The type is one of the
     // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
     InLabel interface{}
-
-    // Name of the LSP. The type is string.
-    Name interface{}
 
     // Fowarding path.
     Path MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
@@ -1990,8 +1990,8 @@ func (ipv4IngressLsp *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp) G
     ipv4IngressLsp.EntityData.Leafs = types.NewOrderedMap()
     ipv4IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4IngressLsp.VrfName})
     ipv4IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4IngressLsp.Prefix})
-    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
     ipv4IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv4IngressLsp.Name})
+    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
 
     ipv4IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
 
@@ -2433,14 +2433,14 @@ type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHo
     // This attribute is mandatory.
     Ipv6Address interface{}
 
-    // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
-    MacAddress interface{}
-
     // IPv4 Address of the nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Ipv4Address interface{}
+
+    // MAC address of the nexthop. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
+    MacAddress interface{}
 
     // Name of the outgoing interface. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
@@ -2461,8 +2461,8 @@ func (nextHopType *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_
     nextHopType.EntityData.Leafs = types.NewOrderedMap()
     nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
     nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
-    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
     nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
+    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
     nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
 
     nextHopType.EntityData.YListKeys = []string {}

@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
-    export GOPATH=/home/ygorelik/go-env
+    export GOPATH=/root/go-env
     print_msg "Setting GOPATH to $GOPATH"
 fi
 
