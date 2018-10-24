@@ -19,6 +19,7 @@ cd libssh-0.7.6
 mkdir build && cd build
 cmake ..
 sudo make install
+cd ../../
 
 brew rm -f --ignore-dependencies python python3
 

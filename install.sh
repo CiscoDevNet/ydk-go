@@ -10,10 +10,8 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
-if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
-    export GOPATH=/root/go-env
-    print_msg "Setting GOPATH to $GOPATH"
-fi
+export GOPATH="$(pwd)/golang"
+print_msg "Setting GOPATH to $GOPATH"
 
 print_msg "Installing YDK-Go core package"
 go get github.com/CiscoDevNet/ydk-go/ydk
