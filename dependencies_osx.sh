@@ -10,10 +10,15 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
-print_msg "Installing OSX dependencies"
-brew upgrade cloog
-brew update > /dev/null
-brew install libssh xml2 curl > /dev/null
+print_msg "Installing libssh 7.5.5"
+brew install openssl
+export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
+wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
+tar zxf libssh-0.7.6.tar.gz
+cd libssh-0.7.6
+mkdir build && cd build
+cmake ..
+sudo make install
 
 brew rm -f --ignore-dependencies python python3
 
