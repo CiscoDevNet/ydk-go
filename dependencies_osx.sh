@@ -16,11 +16,6 @@ brew install libssh xml2 curl > /dev/null
 
 brew rm -f --ignore-dependencies python python3
 
-print_msg "Installing Golang version 1.9.2"
-export CGO_ENABLED=0
-export GOROOT_BOOTSTRAP=$GOROOT
-gvm install go1.9.2
-
 print_msg "Installing YDK C++ core library"
 curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
 sudo installer -pkg libydk*pkg -target /

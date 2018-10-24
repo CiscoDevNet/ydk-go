@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function print_msg {
 	echo -e "${MSG_COLOR}*** $(date): dependencies_xenial.sh | $@ ${NOCOLOR}"
