@@ -10,8 +10,10 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
-export GOPATH="$(pwd)/golang"
-print_msg "Setting GOPATH to $GOPATH"
+if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
+    export GOPATH="$(pwd)/golang"
+    print_msg "Setting GOPATH to $GOPATH"
+fi
 
 print_msg "Running codec samples"
 go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v

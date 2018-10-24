@@ -23,6 +23,18 @@ cd ../../
 
 brew rm -f --ignore-dependencies python python3
 
+print_msg "Installing Go1.9.2"
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.4 -B
+gvm use go1.4
+export GOROOT_BOOTSTRAP=$GOROOT
+gvm install go1.9.2
+gvm use go1.9.2
+print_msg "GOROOT: $GOROOT"
+print_msg "GOPATH: $GOPATH"
+print_msg "GO version: $(go version)"
+print_msg " "
+
 print_msg "Installing YDK C++ core library"
 curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
 sudo installer -pkg libydk*pkg -target /
