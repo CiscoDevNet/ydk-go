@@ -15,5 +15,13 @@ if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
     print_msg "Setting GOPATH to $GOPATH"
 fi
 
+if [[ $(uname) == "Darwin" ]] && [[ -z "${GOPATH// }" ]]; then
+    source /Users/travis/.gvm/scripts/gvm
+    gvm use go1.9.2
+    print_msg "GOROOT: $GOROOT"
+    print_msg "GOPATH: $GOPATH"
+    print_msg "GO version: $(go version)"
+fi
+
 print_msg "Installing YDK-Go core package"
 go get github.com/CiscoDevNet/ydk-go/ydk

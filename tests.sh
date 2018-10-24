@@ -15,6 +15,14 @@ if [[ $(uname) == "Linux" ]] && [[ -z "${GOPATH// }" ]]; then
     print_msg "Setting GOPATH to $GOPATH"
 fi
 
+if [[ $(uname) == "Darwin" ]] && [[ -z "${GOPATH// }" ]]; then
+    source /Users/travis/.gvm/scripts/gvm
+    gvm use go1.9.2
+    print_msg "GOROOT: $GOROOT"
+    print_msg "GOPATH: $GOPATH"
+    print_msg "GO version: $(go version)"
+fi
+
 print_msg "Running codec samples"
 go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v
 go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_20/cd_encode_20.go -v
