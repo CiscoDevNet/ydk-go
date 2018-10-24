@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 print_msg "Installing libssh 7.5.5"
-brew install openssl
+brew reinstall openssl
 export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
 wget https://git.libssh.org/projects/libssh.git/snapshot/libssh-0.7.6.tar.gz
 tar zxf libssh-0.7.6.tar.gz
