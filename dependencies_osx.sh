@@ -11,6 +11,7 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 print_msg "Installing OSX dependencies"
+brew upgrade > /dev/null
 brew update > /dev/null
 brew install libssh xml2 curl > /dev/null
 
