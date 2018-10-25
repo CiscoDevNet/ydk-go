@@ -34,16 +34,8 @@ function install_golang {
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    brew reinstall git
-    git clone https://github.com/ciscodevnet/ydk-cpp.git -b 0.7.3
-    mkdir ydk-cpp/core/ydk/build
-    cd ydk-cpp/core/ydk/build
-    cmake -DCMAKE_BUILD_TYPE=Release .. 
-    sudo make install
-    cd -
-
-    #curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
-    #sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
+    sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
 }
 
 # Terminal colors
