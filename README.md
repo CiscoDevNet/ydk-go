@@ -22,7 +22,7 @@
 
 ## Overview
 
-The YANG Development Kit (YDK) is a Software Development Kit that provides API's that are modeled in YANG. The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.  
+The YANG Development Kit (YDK) is a Software Development Kit that provides API's that are modeled in YANG. The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.
 
 ## Docker
 A [docker image](https://docs.docker.com/engine/reference/run/) is automatically built with the latest ydk-go installed. This be used to run ydk-go without installing anything natively on your machine.
@@ -38,13 +38,13 @@ docker run -it ydkdev/ydk-go
 You can install YDK-Go on macOS or Linux.  It is not currently supported on Windows.
 
 ### System Requirements
-**Linux**  
+**Linux**
 Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Go:
 
 ```
 $ sudo apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev libxml2-dev libxslt1-dev libtool-bin cmake
 
-$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.2/libydk_0.7.2-1_amd64.deb
+$ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.3/libydk_0.7.3-1_amd64.deb
 $ sudo gdebi libydk_0.7.3-1_amd64.deb
 ```
 
@@ -60,7 +60,7 @@ $ yum install devtoolset-4-gcc* -y > /dev/null
 $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
 $ ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
-$ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.2/libydk-0.7.2-1.x86_64.rpm
+$ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.3/libydk-0.7.3-1.x86_64.rpm
 
 ```
 
@@ -71,7 +71,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 $ brew install pkg-config libssh libxml2 xml2 curl pcre cmake
 $ xcode-select --install
 
-$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.2/libydk-0.7.2-Darwin.pkg
+$ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
 $ sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
 ```
 
@@ -109,4 +109,4 @@ $ go get github.com/CiscoDevNet/ydk-go/ydk
 - Additional YDK information can be found at [ydk.io](http://ydk.io)
 
 ## Release Notes
-The current YDK release version is 0.7.3 (alpha). YDK-Go is licensed under the Apache 2.0 License.
+The current YDK release version is 0.7.3. YDK-Go is licensed under the Apache 2.0 License.
