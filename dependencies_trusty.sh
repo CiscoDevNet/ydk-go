@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function print_msg {
-	echo -e "${MSG_COLOR}*** $(date): dependencies_trusty.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): dependencies_trusty.sh | $@ ${NOCOLOR}"
 }
 
 # Terminal colors
@@ -31,8 +31,8 @@ cd -
 
 print_msg "Installing Golang version 1.9.2"
 wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
-tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
-ln -f -s /usr/local/go/bin/go /usr/bin/go
+sudo tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
+sudo ln -f -s /usr/local/go/bin/go /usr/bin/go
 
 print_msg "Installing pip"
 sudo easy_install pip
