@@ -213,4 +213,5 @@ $ go get github.com/CiscoDevNet/ydk-go/ydk
 
 ## Release Notes
 
+
 The current YDK release version is 0.8.0. YDK-Go is licensed under the Apache 2.0 License.
