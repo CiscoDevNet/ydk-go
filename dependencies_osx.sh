@@ -1,10 +1,35 @@
 #!/bin/bash
 
-brew update > /dev/null
-brew install libssh xml2 curl pybind11 > /dev/null
+function print_msg {
+    echo -e "$MSG_COLOR*** $(date): dependencies_osx.sh | $@ $NOCOLOR"
+}
 
-brew rm -f --ignore-dependencies python python3
+function install_os_dependencies {
+    brew install curl xml2 doxygen pybind11
+    brew rm -f --ignore-dependencies python python3
+}
 
-curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.0/libydk-0.8.0-Darwin.pkg
-sudo installer -pkg libydk*pkg -target /
+function install_libssh {
+    print_msg "Installing libssh-0.7.5"
+    brew reinstall openssl
+    export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
 
+    wget https://devhub.cisco.com/artifactory/osx-ydk/third-party/libssh-0.7.5.pkg
+    sudo installer -pkg libssh-0.7.5.pkg -target /
+}
+
+function install_libydk {
+    print_msg "Installing YDK C++ core library"
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.0/libydk-0.8.0-Darwin.pkg
+    sudo installer -pkg libydk-0.8.0-Darwin.pkg -target /
+}
+
+# Terminal colors
+RED="\033[0;31m"
+NOCOLOR="\033[0m"
+YELLOW='\033[1;33m'
+MSG_COLOR=$YELLOW
+
+install_os_dependencies
+install_libssh
+install_libydk
