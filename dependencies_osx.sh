@@ -5,8 +5,7 @@ function print_msg {
 }
 
 function install_os_dependencies {
-    brew install curl xml2 doxygen pybind11
-    brew rm -f --ignore-dependencies python python3
+    brew install curl xml2 doxygen golang
 }
 
 function install_libssh {
