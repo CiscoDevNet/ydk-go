@@ -5,7 +5,7 @@ function print_msg {
 }
 
 function install_os_dependencies {
-    brew install curl xml2 doxygen golang
+    brew install curl xml2 doxygen
 }
 
 function install_libssh {
