@@ -37,15 +37,15 @@ else
 fi
 
 print_msg "Running codec samples"
-run_cmd go run core/samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_20/cd_encode_20.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_22/cd_encode_22.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_24/cd_encode_24.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_10/cd_encode_10.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_20/cd_encode_20.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_22/cd_encode_22.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_10/cd_encode_10.go -v
-run_cmd go run core/samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_20/cd_encode_20.go -v
+run_cmd go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_10/cd_encode_10.go -v
+run_cmd go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_20/cd_encode_20.go -v
+run_cmd go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_22/cd_encode_22.go -v
+run_cmd go run samples/codec/cisco_ios_xr/cdp_cfg/cd_encode_24/cd_encode_24.go -v
+run_cmd go run samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_10/cd_encode_10.go -v
+run_cmd go run samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_20/cd_encode_20.go -v
+run_cmd go run samples/codec/cisco_ios_xr/aaa_lib_cfg/cd_encode_22/cd_encode_22.go -v
+run_cmd go run samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_10/cd_encode_10.go -v
+run_cmd go run samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_20/cd_encode_20.go -v
 #go run samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_30/cd_encode_30.go -v
 #go run samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_31/cd_encode_31.go -v
 #go run samples/codec/cisco_ios_xr/clns_isis_cfg/cd_encode_32/cd_encode_32.go -v
