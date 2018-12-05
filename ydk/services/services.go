@@ -47,8 +47,8 @@ type CrudService struct {
 func (c *CrudService) Create(
 	provider types.ServiceProvider, entity types.Entity) bool {
 
-	data := map[string]interface{} { "entity": entity }
-	return operationSucceeded(path.ExecuteRPC(provider, "ydk:create", data, false))
+	options := make(map[string]string)
+	return operationSucceeded(provider.ExecuteRpc("create", entity, options))
 }
 
 // Update the entity.
@@ -56,8 +56,8 @@ func (c *CrudService) Create(
 func (c *CrudService) Update(
 	provider types.ServiceProvider, entity types.Entity) bool {
 
-	data := map[string]interface{} { "entity": entity }
-	return operationSucceeded(path.ExecuteRPC(provider, "ydk:update", data, false))
+	options := make(map[string]string)
+	return operationSucceeded(provider.ExecuteRpc("update", entity, options))
 }
 
 // Delete the entity.
@@ -65,8 +65,8 @@ func (c *CrudService) Update(
 func (c *CrudService) Delete(
 	provider types.ServiceProvider, entity types.Entity) bool {
 
-	data := map[string]interface{} { "entity": entity }
-	return operationSucceeded(path.ExecuteRPC(provider, "ydk:delete", data, false))
+	options := make(map[string]string)
+	return operationSucceeded(provider.ExecuteRpc("delete", entity, options))
 }
 
 // Read the entity.
@@ -74,9 +74,10 @@ func (c *CrudService) Delete(
 func (c *CrudService) Read(
 	provider types.ServiceProvider, filter types.Entity) types.Entity {
 
-	data := map[string]interface{} { "filter": filter }
-	return path.ReadDatanode(
-		filter, path.ExecuteRPC(provider, "ydk:read", data, false))
+	options := make(map[string]string)
+	options["mode"] = "all"
+	dn := provider.ExecuteRpc("read", filter, options)
+	return path.ReadDatanode( filter, dn)
 }
 
 // ReadConfig only reads config.
@@ -84,9 +85,10 @@ func (c *CrudService) Read(
 func (c *CrudService) ReadConfig(
 	provider types.ServiceProvider, filter types.Entity) types.Entity {
 
-	data := map[string]interface{} { "filter": filter }
-	return path.ReadDatanode(
-		filter, path.ExecuteRPC(provider, "ydk:read", data, true))
+	options := make(map[string]string)
+	options["mode"] = "config"
+	dn := provider.ExecuteRpc("read", filter, options)
+	return path.ReadDatanode( filter, dn)
 }
 
 // CodecService supports encoding and decoding Go model API objects of type

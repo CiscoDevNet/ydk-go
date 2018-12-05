@@ -1,0 +1,5 @@
+<cdp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-cfg">
+  <enable>true</enable>
+  <hold-time>60</hold-time>
+  <timer>15</timer>
+</cdp>

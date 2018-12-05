@@ -166,6 +166,48 @@ func (provider *NetconfServiceProvider) Disconnect() {
 	path.CleanUpErrorState(&provider.State)
 }
 
+func getRpcTag(operation string) string {
+    var rpc string
+    if operation == "create" {
+        rpc = "ydk:create"
+    } else if operation == "update" {
+    	rpc = "ydk:update"
+    } else if operation == "delete" {
+    	rpc = "ydk:delete"
+    } else if operation == "read" {
+    	rpc = "ydk:read"
+    } else {
+        ydk.YLogError(fmt.Sprintf("getRpcTag: Operation '{}' is not supported", operation));
+        panic(1)
+    }
+    return rpc;
+}
+
+func executeNetconfRpc(provider types.ServiceProvider, operation string, entity types.Entity, params map[string]string) types.DataNode {
+	rpcTag := getRpcTag(operation)
+	dataTag := "entity"
+	if operation == "read" {
+		dataTag = "filter"
+	}
+	data := make(map[string]interface{})
+	data[dataTag] = entity
+
+	setConfigFlag := false
+	mode, ok := params["mode"]
+	if ok && mode == "config" {
+		setConfigFlag = true
+	}
+	return path.ExecuteRPC(provider, rpcTag, data, setConfigFlag)
+}
+
+func (provider *NetconfServiceProvider) ExecuteRpc(operation string, entity types.Entity, params map[string]string) types.DataNode {
+	return executeNetconfRpc(provider, operation, entity, params)
+}
+
+func (provider *RestconfServiceProvider) ExecuteRpc(operation string, entity types.Entity, params map[string]string) types.DataNode {
+	return executeNetconfRpc(provider, operation, entity, params)
+}
+
 // GetPrivate returns private pointer for RestconfServiceProvider
 func (provider *RestconfServiceProvider) GetPrivate() interface{} {
 	return provider.Private

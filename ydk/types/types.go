@@ -90,19 +90,19 @@ type YLeaf struct {
 // CommonEntityData encapsulate common data within an Entity
 type CommonEntityData struct {
 	// static data (internals)
-	YangName 					string
-	BundleName 					string
+	YangName				string
+	BundleName				string
 	ParentYangName				string
-	YFilter 					yfilter.YFilter
-	Children 					*OrderedMap
-	Leafs 						*OrderedMap
-	SegmentPath					string
+	YFilter					yfilter.YFilter
+	Children				*OrderedMap
+	Leafs					*OrderedMap
+	SegmentPath				string
 
 	CapabilitiesTable			map[string]string
 	NamespaceTable				map[string]string
-	BundleYangModelsLocation	string
+	BundleYangModelsLocation		string
 
-	YListKeys 					[]string
+	YListKeys				[]string
 
 	// dynamic data (internals)
 	Parent 					Entity
@@ -115,6 +115,23 @@ type Entity interface {
 
 func EntityToString (e Entity) string {
     return fmt.Sprintf("Type: %s, Path: %v", reflect.TypeOf(e), GetSegmentPath(e))
+}
+
+func GetEntityFilter(ent Entity) yfilter.YFilter {
+	filter := yfilter.NotSet
+	entData := ent.GetEntityData()
+	if entData != nil {
+		filter = entData.YFilter
+	}
+	return filter
+}
+
+func SetEntityFilter(ent Entity, filter yfilter.YFilter) {
+	s := reflect.ValueOf(ent).Elem()
+	v := s.FieldByName("YFilter")
+	if v.IsValid() {
+		v.Set(reflect.ValueOf(filter))
+	}
 }
 
 // Bits is a basic type that represents the YANG bits type
@@ -326,6 +343,14 @@ func (ec *EntityCollection) String() string {
         entity_str[i] = EntityToString(entity)
     }
     return fmt.Sprintf("EntityCollection [%s]", strings.Join(entity_str, "; "))
+}
+
+func (ec *EntityCollection) SetFilter(filter yfilter.YFilter) {
+	iEntities := ec.EcMap.Values()
+	for i:=0; i<ec.Len(); i++ {
+		ent := iEntities[i].(Entity)
+		SetEntityFilter(ent, filter)
+	}	
 }
 
 type Config = EntityCollection
@@ -607,6 +632,7 @@ type ServiceProvider interface {
 	Connect()
 	Disconnect()
 	GetState() *errors.State
+	ExecuteRpc(string, Entity, map[string]string) DataNode
 }
 
 // CodecServiceProvider
@@ -626,6 +652,15 @@ type DataNode struct {
 // It can be used to instantiate a DataNode tree or an Rpc object. 
 // The children of the RootSchemaNode represent the top level SchemaNode in the YANG module submodules.
 type RootSchemaNode struct {
+	Private interface{}
+}
+
+type Session struct {
+	Private		interface{}
+}
+
+type Rpc struct {
+	Input   DataNode
 	Private interface{}
 }
 

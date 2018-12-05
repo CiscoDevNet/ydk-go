@@ -83,12 +83,12 @@ type NvoInstances_NvoInstance struct {
     // Identifier. The type is interface{} with range: 0..65535.
     NvoId interface{}
 
-    // Encapsulation type. The type is one of the following: NvgreTypeVxlanType.
-    OverlayEncapsulation interface{}
-
     // Source interface name. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
     SourceInterface interface{}
+
+    // Encapsulation type. The type is one of the following: NvgreTypeVxlanType.
+    OverlayEncapsulation interface{}
 
     // VNI member attributes. The type is slice of
     // NvoInstances_NvoInstance_VirtualNetwork.
@@ -112,8 +112,8 @@ func (nvoInstance *NvoInstances_NvoInstance) GetEntityData() *types.CommonEntity
     }
     nvoInstance.EntityData.Leafs = types.NewOrderedMap()
     nvoInstance.EntityData.Leafs.Append("nvo-id", types.YLeaf{"NvoId", nvoInstance.NvoId})
-    nvoInstance.EntityData.Leafs.Append("overlay-encapsulation", types.YLeaf{"OverlayEncapsulation", nvoInstance.OverlayEncapsulation})
     nvoInstance.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", nvoInstance.SourceInterface})
+    nvoInstance.EntityData.Leafs.Append("overlay-encapsulation", types.YLeaf{"OverlayEncapsulation", nvoInstance.OverlayEncapsulation})
 
     nvoInstance.EntityData.YListKeys = []string {"NvoId"}
 
@@ -136,6 +136,10 @@ type NvoInstances_NvoInstance_VirtualNetwork struct {
     // 1..16777214. This attribute is mandatory.
     VniEnd interface{}
 
+    // VRF Name. The type is string. Refers to
+    // ietf_routing.Routing_RoutingInstance_Name
+    RoutingInstance interface{}
+
     // Use control protocol BGP to discover  peers. The type is interface{}.
     Bgp interface{}
 
@@ -145,10 +149,6 @@ type NvoInstances_NvoInstance_VirtualNetwork struct {
     // How to peform endpoint discovery. The type is EndHostDiscovery. The default
     // value is flood-and-learn.
     EndHostDiscovery interface{}
-
-    // VRF Name. The type is string. Refers to
-    // ietf_routing.Routing_RoutingInstance_Name
-    RoutingInstance interface{}
 
     // List of VTEP peers. The type is slice of
     // NvoInstances_NvoInstance_VirtualNetwork_Peers.
@@ -177,10 +177,10 @@ func (virtualNetwork *NvoInstances_NvoInstance_VirtualNetwork) GetEntityData() *
     virtualNetwork.EntityData.Leafs = types.NewOrderedMap()
     virtualNetwork.EntityData.Leafs.Append("vni-start", types.YLeaf{"VniStart", virtualNetwork.VniStart})
     virtualNetwork.EntityData.Leafs.Append("vni-end", types.YLeaf{"VniEnd", virtualNetwork.VniEnd})
+    virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
     virtualNetwork.EntityData.Leafs.Append("bgp", types.YLeaf{"Bgp", virtualNetwork.Bgp})
     virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
     virtualNetwork.EntityData.Leafs.Append("end-host-discovery", types.YLeaf{"EndHostDiscovery", virtualNetwork.EndHostDiscovery})
-    virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
 
     virtualNetwork.EntityData.YListKeys = []string {"VniStart", "VniEnd"}
 

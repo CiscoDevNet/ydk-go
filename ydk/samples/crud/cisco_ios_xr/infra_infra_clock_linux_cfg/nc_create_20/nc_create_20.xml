@@ -1,0 +1,6 @@
+<clock xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-infra-clock-linux-cfg">
+  <time-zone>
+    <area-name>PST8PDT</area-name>
+    <time-zone-name>PST</time-zone-name>
+  </time-zone>
+</clock>

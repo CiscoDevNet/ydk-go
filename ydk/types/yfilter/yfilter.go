@@ -34,6 +34,7 @@ const (
 	Remove
 	Delete
 	Replace
+	Update
 )
 
 // String returns the name of the given YFilter (string)
@@ -51,6 +52,8 @@ func (e YFilter) String() string {
 		return "create"
 	case Remove:
 		return "remove"
+	case Update:
+		return "update"
 	case NotSet:
 		return ""
 	}

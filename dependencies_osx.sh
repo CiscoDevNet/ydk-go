@@ -1,7 +1,11 @@
 #!/bin/bash
 
 function print_msg {
-	echo -e "${MSG_COLOR}*** $(date): dependencies_osx.sh | $@ ${NOCOLOR}"
+    echo -e "$MSG_COLOR*** $(date): dependencies_osx.sh | $@ $NOCOLOR"
+}
+
+function install_os_dependencies {
+    brew install curl xml2 doxygen
 }
 
 function install_libssh {
@@ -34,8 +38,8 @@ function install_golang {
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
-    sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.0/libydk-0.8.0-Darwin.pkg
+    sudo installer -pkg libydk-0.8.0-Darwin.pkg -target /
 }
 
 # Terminal colors
@@ -44,10 +48,7 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
+install_os_dependencies
 install_libssh
-
 install_golang
-
 install_libydk
-
-brew rm -f --ignore-dependencies python python3
