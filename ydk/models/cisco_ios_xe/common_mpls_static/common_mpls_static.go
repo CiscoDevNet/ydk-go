@@ -143,14 +143,14 @@ type MplsStatic_MplsStaticCfg struct {
     // The LSPs indexed by ipv4 prefix.
     Ipv4IngressLsps MplsStatic_MplsStaticCfg_Ipv4IngressLsps
 
-    // The LSPs indexed by in-label.
-    InLabelLsps MplsStatic_MplsStaticCfg_InLabelLsps
+    // The LSPs indexed by name.
+    NamedLsps MplsStatic_MplsStaticCfg_NamedLsps
 
     // The LSPs indexed by ipv6 prefix.
     Ipv6IngressLsps MplsStatic_MplsStaticCfg_Ipv6IngressLsps
 
-    // The LSPs indexed by name.
-    NamedLsps MplsStatic_MplsStaticCfg_NamedLsps
+    // The LSPs indexed by in-label.
+    InLabelLsps MplsStatic_MplsStaticCfg_InLabelLsps
 }
 
 func (mplsStaticCfg *MplsStatic_MplsStaticCfg) GetEntityData() *types.CommonEntityData {
@@ -166,9 +166,9 @@ func (mplsStaticCfg *MplsStatic_MplsStaticCfg) GetEntityData() *types.CommonEnti
     mplsStaticCfg.EntityData.Children = types.NewOrderedMap()
     mplsStaticCfg.EntityData.Children.Append("interfaces", types.YChild{"Interfaces", &mplsStaticCfg.Interfaces})
     mplsStaticCfg.EntityData.Children.Append("ipv4-ingress-lsps", types.YChild{"Ipv4IngressLsps", &mplsStaticCfg.Ipv4IngressLsps})
-    mplsStaticCfg.EntityData.Children.Append("in-label-lsps", types.YChild{"InLabelLsps", &mplsStaticCfg.InLabelLsps})
-    mplsStaticCfg.EntityData.Children.Append("ipv6-ingress-lsps", types.YChild{"Ipv6IngressLsps", &mplsStaticCfg.Ipv6IngressLsps})
     mplsStaticCfg.EntityData.Children.Append("named-lsps", types.YChild{"NamedLsps", &mplsStaticCfg.NamedLsps})
+    mplsStaticCfg.EntityData.Children.Append("ipv6-ingress-lsps", types.YChild{"Ipv6IngressLsps", &mplsStaticCfg.Ipv6IngressLsps})
+    mplsStaticCfg.EntityData.Children.Append("in-label-lsps", types.YChild{"InLabelLsps", &mplsStaticCfg.InLabelLsps})
     mplsStaticCfg.EntityData.Leafs = types.NewOrderedMap()
 
     mplsStaticCfg.EntityData.YListKeys = []string {}
@@ -293,12 +293,12 @@ type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp struct {
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
     Prefix interface{}
 
+    // Name of the LSP. The type is string.
+    Name interface{}
+
     // Value of the local label. Optional for ingress. The type is one of the
     // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
     InLabel interface{}
-
-    // Name of the LSP. The type is string.
-    Name interface{}
 
     // Fowarding path.
     Path MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path
@@ -319,8 +319,8 @@ func (ipv4IngressLsp *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp) G
     ipv4IngressLsp.EntityData.Leafs = types.NewOrderedMap()
     ipv4IngressLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", ipv4IngressLsp.VrfName})
     ipv4IngressLsp.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", ipv4IngressLsp.Prefix})
-    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
     ipv4IngressLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", ipv4IngressLsp.Name})
+    ipv4IngressLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", ipv4IngressLsp.InLabel})
 
     ipv4IngressLsp.EntityData.YListKeys = []string {"VrfName", "Prefix"}
 
@@ -544,19 +544,19 @@ type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop struct
     // range: 0..4294967295. This attribute is mandatory.
     Index interface{}
 
-    // Index of the nexthop that protects this nexthop. The type is interface{}
-    // with range: 0..4294967295.
-    ProtectedBy interface{}
-
     // The forwarding path's hoptype. The type is Hoptype. This attribute is
     // mandatory.
     Type interface{}
 
-    // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
+    // Index of the nexthop that protects this nexthop. The type is interface{}
+    // with range: 0..4294967295.
+    ProtectedBy interface{}
 
     // Next-hop.
     NextHopType MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
+
+    // The incoming label processing.
+    Operations MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
 }
 
 func (nextHop *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
@@ -570,16 +570,68 @@ func (nextHop *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_Next
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
     nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
     nextHop.EntityData.Children.Append("next-hop-type", types.YChild{"NextHopType", &nextHop.NextHopType})
+    nextHop.EntityData.Children.Append("operations", types.YChild{"Operations", &nextHop.Operations})
     nextHop.EntityData.Leafs = types.NewOrderedMap()
     nextHop.EntityData.Leafs.Append("index", types.YLeaf{"Index", nextHop.Index})
-    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
     nextHop.EntityData.Leafs.Append("type", types.YLeaf{"Type", nextHop.Type})
+    nextHop.EntityData.Leafs.Append("protected-by", types.YLeaf{"ProtectedBy", nextHop.ProtectedBy})
 
     nextHop.EntityData.YListKeys = []string {"Index"}
 
     return &(nextHop.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
+// Next-hop
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IPv6 Address of the nexthop. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // This attribute is mandatory.
+    Ipv6Address interface{}
+
+    // MAC address of the nexthop. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
+    MacAddress interface{}
+
+    // The interface index. The type is interface{} with range: 0..4294967295.
+    // This attribute is mandatory.
+    IfIndex interface{}
+
+    // IPv4 Address of the nexthop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // This attribute is mandatory.
+    Ipv4Address interface{}
+
+    // Name of the outgoing interface. The type is string. Refers to
+    // ietf_interfaces.Interfaces_Interface_Name
+    OutInterfaceName interface{}
+}
+
+func (nextHopType *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
+    nextHopType.EntityData.YFilter = nextHopType.YFilter
+    nextHopType.EntityData.YangName = "next-hop-type"
+    nextHopType.EntityData.BundleName = "cisco_ios_xe"
+    nextHopType.EntityData.ParentYangName = "next-hop"
+    nextHopType.EntityData.SegmentPath = "next-hop-type"
+    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    nextHopType.EntityData.Children = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs = types.NewOrderedMap()
+    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
+    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
+    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
+    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
+    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
+
+    nextHopType.EntityData.YListKeys = []string {}
+
+    return &(nextHopType.EntityData)
 }
 
 // MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations
@@ -597,10 +649,10 @@ type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operat
     Preserve interface{}
 
     // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
+    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
 
     // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
+    Swap MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
 }
 
 func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
@@ -614,8 +666,8 @@ func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_N
     operations.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
     operations.EntityData.Children = types.NewOrderedMap()
-    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
     operations.EntityData.Children.Append("push", types.YChild{"Push", &operations.Push})
+    operations.EntityData.Children.Append("swap", types.YChild{"Swap", &operations.Swap})
     operations.EntityData.Leafs = types.NewOrderedMap()
     operations.EntityData.Leafs.Append("pop-and-forward", types.YLeaf{"PopAndForward", operations.PopAndForward})
     operations.EntityData.Leafs.Append("preserve", types.YLeaf{"Preserve", operations.Preserve})
@@ -623,67 +675,6 @@ func (operations *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_N
     operations.EntityData.YListKeys = []string {}
 
     return &(operations.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
-// Push outgoing label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The label stack.
-    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
-}
-
-func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
-    swap.EntityData.YFilter = swap.YFilter
-    swap.EntityData.YangName = "swap"
-    swap.EntityData.BundleName = "cisco_ios_xe"
-    swap.EntityData.ParentYangName = "operations"
-    swap.EntityData.SegmentPath = "swap"
-    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    swap.EntityData.Children = types.NewOrderedMap()
-    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
-    swap.EntityData.Leafs = types.NewOrderedMap()
-
-    swap.EntityData.YListKeys = []string {}
-
-    return &(swap.EntityData)
-}
-
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
-// The label stack
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // First label in the list is the top of the stack. The type is one of the
-    // following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`IetfMplsLabel
-    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
-    LabelStack []interface{}
-}
-
-func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
-    stack.EntityData.YFilter = stack.YFilter
-    stack.EntityData.YangName = "stack"
-    stack.EntityData.BundleName = "cisco_ios_xe"
-    stack.EntityData.ParentYangName = "swap"
-    stack.EntityData.SegmentPath = "stack"
-    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
-
-    stack.EntityData.Children = types.NewOrderedMap()
-    stack.EntityData.Leafs = types.NewOrderedMap()
-    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
-
-    stack.EntityData.YListKeys = []string {}
-
-    return &(stack.EntityData)
 }
 
 // MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Push
@@ -747,133 +738,171 @@ func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHo
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType
-// Next-hop
-type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType struct {
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap
+// Push outgoing label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The interface index. The type is interface{} with range: 0..4294967295.
-    // This attribute is mandatory.
-    IfIndex interface{}
-
-    // IPv6 Address of the nexthop. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv6Address interface{}
-
-    // IPv4 Address of the nexthop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    // This attribute is mandatory.
-    Ipv4Address interface{}
-
-    // MAC address of the nexthop. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
-    MacAddress interface{}
-
-    // Name of the outgoing interface. The type is string. Refers to
-    // ietf_interfaces.Interfaces_Interface_Name
-    OutInterfaceName interface{}
+    // The label stack.
+    Stack MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
 }
 
-func (nextHopType *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
-    nextHopType.EntityData.YFilter = nextHopType.YFilter
-    nextHopType.EntityData.YangName = "next-hop-type"
-    nextHopType.EntityData.BundleName = "cisco_ios_xe"
-    nextHopType.EntityData.ParentYangName = "next-hop"
-    nextHopType.EntityData.SegmentPath = "next-hop-type"
-    nextHopType.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    nextHopType.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    nextHopType.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (swap *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
+    swap.EntityData.YFilter = swap.YFilter
+    swap.EntityData.YangName = "swap"
+    swap.EntityData.BundleName = "cisco_ios_xe"
+    swap.EntityData.ParentYangName = "operations"
+    swap.EntityData.SegmentPath = "swap"
+    swap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    swap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    swap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    nextHopType.EntityData.Children = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs = types.NewOrderedMap()
-    nextHopType.EntityData.Leafs.Append("if-index", types.YLeaf{"IfIndex", nextHopType.IfIndex})
-    nextHopType.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", nextHopType.Ipv6Address})
-    nextHopType.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", nextHopType.Ipv4Address})
-    nextHopType.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", nextHopType.MacAddress})
-    nextHopType.EntityData.Leafs.Append("out-interface-name", types.YLeaf{"OutInterfaceName", nextHopType.OutInterfaceName})
+    swap.EntityData.Children = types.NewOrderedMap()
+    swap.EntityData.Children.Append("stack", types.YChild{"Stack", &swap.Stack})
+    swap.EntityData.Leafs = types.NewOrderedMap()
 
-    nextHopType.EntityData.YListKeys = []string {}
+    swap.EntityData.YListKeys = []string {}
 
-    return &(nextHopType.EntityData)
+    return &(swap.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps
-// The LSPs indexed by in-label
-type MplsStatic_MplsStaticCfg_InLabelLsps struct {
+// MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack
+// The label stack
+type MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Non-ingress MPLS Static LSPs, keyed on the incoming label. The type is
-    // slice of MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp.
-    InLabelLsp []*MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp
+    // First label in the list is the top of the stack. The type is one of the
+    // following types: slice of int with range: 16..1048575, or slice of  
+    // :go:struct:`IetfMplsLabel
+    // <ydk/models/cisco_ios_xe/common_mpls_types/IetfMplsLabel>`.
+    LabelStack []interface{}
 }
 
-func (inLabelLsps *MplsStatic_MplsStaticCfg_InLabelLsps) GetEntityData() *types.CommonEntityData {
-    inLabelLsps.EntityData.YFilter = inLabelLsps.YFilter
-    inLabelLsps.EntityData.YangName = "in-label-lsps"
-    inLabelLsps.EntityData.BundleName = "cisco_ios_xe"
-    inLabelLsps.EntityData.ParentYangName = "mpls-static-cfg"
-    inLabelLsps.EntityData.SegmentPath = "in-label-lsps"
-    inLabelLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    inLabelLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    inLabelLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (stack *MplsStatic_MplsStaticCfg_Ipv4IngressLsps_Ipv4IngressLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+    stack.EntityData.YFilter = stack.YFilter
+    stack.EntityData.YangName = "stack"
+    stack.EntityData.BundleName = "cisco_ios_xe"
+    stack.EntityData.ParentYangName = "swap"
+    stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    inLabelLsps.EntityData.Children = types.NewOrderedMap()
-    inLabelLsps.EntityData.Children.Append("in-label-lsp", types.YChild{"InLabelLsp", nil})
-    for i := range inLabelLsps.InLabelLsp {
-        inLabelLsps.EntityData.Children.Append(types.GetSegmentPath(inLabelLsps.InLabelLsp[i]), types.YChild{"InLabelLsp", inLabelLsps.InLabelLsp[i]})
+    stack.EntityData.Children = types.NewOrderedMap()
+    stack.EntityData.Leafs = types.NewOrderedMap()
+    stack.EntityData.Leafs.Append("label-stack", types.YLeaf{"LabelStack", stack.LabelStack})
+
+    stack.EntityData.YListKeys = []string {}
+
+    return &(stack.EntityData)
+}
+
+// MplsStatic_MplsStaticCfg_NamedLsps
+// The LSPs indexed by name
+type MplsStatic_MplsStaticCfg_NamedLsps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // MPLS Static Label Switched Path Configuration. The LSPs in this list are
+    // referenced by a string name. The LSPs may be ingress/egress/crossconnect,
+    // may have v4/v6 prefixes and may be associated with any VRF. The other
+    // specialized lists above are for implemetations that are keyed on prefixes
+    // or in-labels instead of the LSP name. The type is slice of
+    // MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp.
+    NamedLsp []*MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp
+}
+
+func (namedLsps *MplsStatic_MplsStaticCfg_NamedLsps) GetEntityData() *types.CommonEntityData {
+    namedLsps.EntityData.YFilter = namedLsps.YFilter
+    namedLsps.EntityData.YangName = "named-lsps"
+    namedLsps.EntityData.BundleName = "cisco_ios_xe"
+    namedLsps.EntityData.ParentYangName = "mpls-static-cfg"
+    namedLsps.EntityData.SegmentPath = "named-lsps"
+    namedLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    namedLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    namedLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    namedLsps.EntityData.Children = types.NewOrderedMap()
+    namedLsps.EntityData.Children.Append("named-lsp", types.YChild{"NamedLsp", nil})
+    for i := range namedLsps.NamedLsp {
+        namedLsps.EntityData.Children.Append(types.GetSegmentPath(namedLsps.NamedLsp[i]), types.YChild{"NamedLsp", namedLsps.NamedLsp[i]})
     }
-    inLabelLsps.EntityData.Leafs = types.NewOrderedMap()
+    namedLsps.EntityData.Leafs = types.NewOrderedMap()
 
-    inLabelLsps.EntityData.YListKeys = []string {}
+    namedLsps.EntityData.YListKeys = []string {}
 
-    return &(inLabelLsps.EntityData)
+    return &(namedLsps.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp
-// Non-ingress MPLS Static LSPs,
-// keyed on the incoming label
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp struct {
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp
+// MPLS Static Label Switched Path Configuration.
+// The LSPs in this list are referenced by a string name.
+// The LSPs may be ingress/egress/crossconnect,
+// may have v4/v6 prefixes and may be associated with any
+// VRF. The other specialized lists above are for
+// implemetations that are keyed on prefixes or in-labels
+// instead of the LSP name.
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF. The type is string.
     VrfName interface{}
 
-    // This attribute is a key. Value of the local label. The type is one of the
-    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
+    // This attribute is a key. Name of the LSP. The type is string. This
+    // attribute is mandatory.
+    Name interface{}
+
+    // lsp type. The type is one of the following: LspIPv6LspIPv4LspLspVrf. This
+    // attribute is mandatory.
+    LspType interface{}
+
+    // Value of the local label. The type is one of the following types: int with
+    // range: 16..1048575, or enumeration IetfMplsLabel.
     InLabel interface{}
 
+    // ipv4 prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    Ipv4Prefix interface{}
+
+    // ipv6 prefix. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    Ipv6Prefix interface{}
+
     // Fowarding path.
-    Path MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path
+    Path MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path
 }
 
-func (inLabelLsp *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp) GetEntityData() *types.CommonEntityData {
-    inLabelLsp.EntityData.YFilter = inLabelLsp.YFilter
-    inLabelLsp.EntityData.YangName = "in-label-lsp"
-    inLabelLsp.EntityData.BundleName = "cisco_ios_xe"
-    inLabelLsp.EntityData.ParentYangName = "in-label-lsps"
-    inLabelLsp.EntityData.SegmentPath = "in-label-lsp" + types.AddKeyToken(inLabelLsp.VrfName, "vrf-name") + types.AddKeyToken(inLabelLsp.InLabel, "in-label")
-    inLabelLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    inLabelLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    inLabelLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (namedLsp *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp) GetEntityData() *types.CommonEntityData {
+    namedLsp.EntityData.YFilter = namedLsp.YFilter
+    namedLsp.EntityData.YangName = "named-lsp"
+    namedLsp.EntityData.BundleName = "cisco_ios_xe"
+    namedLsp.EntityData.ParentYangName = "named-lsps"
+    namedLsp.EntityData.SegmentPath = "named-lsp" + types.AddKeyToken(namedLsp.VrfName, "vrf-name") + types.AddKeyToken(namedLsp.Name, "name")
+    namedLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    namedLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    namedLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    inLabelLsp.EntityData.Children = types.NewOrderedMap()
-    inLabelLsp.EntityData.Children.Append("path", types.YChild{"Path", &inLabelLsp.Path})
-    inLabelLsp.EntityData.Leafs = types.NewOrderedMap()
-    inLabelLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", inLabelLsp.VrfName})
-    inLabelLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", inLabelLsp.InLabel})
+    namedLsp.EntityData.Children = types.NewOrderedMap()
+    namedLsp.EntityData.Children.Append("path", types.YChild{"Path", &namedLsp.Path})
+    namedLsp.EntityData.Leafs = types.NewOrderedMap()
+    namedLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", namedLsp.VrfName})
+    namedLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", namedLsp.Name})
+    namedLsp.EntityData.Leafs.Append("lsp-type", types.YLeaf{"LspType", namedLsp.LspType})
+    namedLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", namedLsp.InLabel})
+    namedLsp.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", namedLsp.Ipv4Prefix})
+    namedLsp.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", namedLsp.Ipv6Prefix})
 
-    inLabelLsp.EntityData.YListKeys = []string {"VrfName", "InLabel"}
+    namedLsp.EntityData.YListKeys = []string {"VrfName", "Name"}
 
-    return &(inLabelLsp.EntityData)
+    return &(namedLsp.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path
 // Fowarding path
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -882,18 +911,18 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path struct {
     AutoProtect interface{}
 
     // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations
+    Operations MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations
 
     // next-hops list. The type is slice of
-    // MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop.
-    NextHop []*MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop
+    // MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop.
+    NextHop []*MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop
 }
 
-func (path *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path) GetEntityData() *types.CommonEntityData {
+func (path *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path) GetEntityData() *types.CommonEntityData {
     path.EntityData.YFilter = path.YFilter
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xe"
-    path.EntityData.ParentYangName = "in-label-lsp"
+    path.EntityData.ParentYangName = "named-lsp"
     path.EntityData.SegmentPath = "path"
     path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
@@ -913,9 +942,9 @@ func (path *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path) GetEntityData(
     return &(path.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations
 // The incoming label processing
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -928,13 +957,13 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations struct {
     PopAndForward interface{}
 
     // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap
+    Swap MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap
 
     // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push
+    Push MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push
 }
 
-func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
+func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
     operations.EntityData.YFilter = operations.YFilter
     operations.EntityData.YangName = "operations"
     operations.EntityData.BundleName = "cisco_ios_xe"
@@ -956,17 +985,17 @@ func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operation
     return &(operations.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack
+    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack
 }
 
-func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
+func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
     swap.EntityData.YFilter = swap.YFilter
     swap.EntityData.YangName = "swap"
     swap.EntityData.BundleName = "cisco_ios_xe"
@@ -985,9 +1014,9 @@ func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap
     return &(swap.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -998,7 +1027,7 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack 
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -1017,17 +1046,17 @@ func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swa
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack
+    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack
 }
 
-func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
+func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
     push.EntityData.YFilter = push.YFilter
     push.EntityData.YangName = "push"
     push.EntityData.BundleName = "cisco_ios_xe"
@@ -1046,9 +1075,9 @@ func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push
     return &(push.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1059,7 +1088,7 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack 
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -1078,9 +1107,9 @@ func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Pus
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop
 // next-hops list
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1097,13 +1126,13 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop struct {
     ProtectedBy interface{}
 
     // Next-hop.
-    NextHopType MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType
+    NextHopType MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType
 
     // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations
+    Operations MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
 }
 
-func (nextHop *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
+func (nextHop *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
     nextHop.EntityData.YFilter = nextHop.YFilter
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xe"
@@ -1126,9 +1155,9 @@ func (nextHop *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop) Get
     return &(nextHop.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType
 // Next-hop
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1155,7 +1184,7 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType st
     OutInterfaceName interface{}
 }
 
-func (nextHopType *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
+func (nextHopType *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
     nextHopType.EntityData.YFilter = nextHopType.YFilter
     nextHopType.EntityData.YangName = "next-hop-type"
     nextHopType.EntityData.BundleName = "cisco_ios_xe"
@@ -1178,9 +1207,9 @@ func (nextHopType *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_
     return &(nextHopType.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
 // The incoming label processing
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1193,13 +1222,13 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations str
     PopAndForward interface{}
 
     // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap
+    Swap MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap
 
     // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push
+    Push MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push
 }
 
-func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
+func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
     operations.EntityData.YFilter = operations.YFilter
     operations.EntityData.YangName = "operations"
     operations.EntityData.BundleName = "cisco_ios_xe"
@@ -1221,17 +1250,17 @@ func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_O
     return &(operations.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack
+    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack
 }
 
-func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
+func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
     swap.EntityData.YFilter = swap.YFilter
     swap.EntityData.YangName = "swap"
     swap.EntityData.BundleName = "cisco_ios_xe"
@@ -1250,9 +1279,9 @@ func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operati
     return &(swap.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1263,7 +1292,7 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swa
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -1282,17 +1311,17 @@ func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operat
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack
+    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack
 }
 
-func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
+func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
     push.EntityData.YFilter = push.YFilter
     push.EntityData.YangName = "push"
     push.EntityData.BundleName = "cisco_ios_xe"
@@ -1311,9 +1340,9 @@ func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operati
     return &(push.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack
+// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack struct {
+type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1324,7 +1353,7 @@ type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Pus
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -1897,110 +1926,81 @@ func (stack *MplsStatic_MplsStaticCfg_Ipv6IngressLsps_Ipv6IngressLsp_Path_NextHo
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps
-// The LSPs indexed by name
-type MplsStatic_MplsStaticCfg_NamedLsps struct {
+// MplsStatic_MplsStaticCfg_InLabelLsps
+// The LSPs indexed by in-label
+type MplsStatic_MplsStaticCfg_InLabelLsps struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // MPLS Static Label Switched Path Configuration. The LSPs in this list are
-    // referenced by a string name. The LSPs may be ingress/egress/crossconnect,
-    // may have v4/v6 prefixes and may be associated with any VRF. The other
-    // specialized lists above are for implemetations that are keyed on prefixes
-    // or in-labels instead of the LSP name. The type is slice of
-    // MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp.
-    NamedLsp []*MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp
+    // Non-ingress MPLS Static LSPs, keyed on the incoming label. The type is
+    // slice of MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp.
+    InLabelLsp []*MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp
 }
 
-func (namedLsps *MplsStatic_MplsStaticCfg_NamedLsps) GetEntityData() *types.CommonEntityData {
-    namedLsps.EntityData.YFilter = namedLsps.YFilter
-    namedLsps.EntityData.YangName = "named-lsps"
-    namedLsps.EntityData.BundleName = "cisco_ios_xe"
-    namedLsps.EntityData.ParentYangName = "mpls-static-cfg"
-    namedLsps.EntityData.SegmentPath = "named-lsps"
-    namedLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    namedLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    namedLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (inLabelLsps *MplsStatic_MplsStaticCfg_InLabelLsps) GetEntityData() *types.CommonEntityData {
+    inLabelLsps.EntityData.YFilter = inLabelLsps.YFilter
+    inLabelLsps.EntityData.YangName = "in-label-lsps"
+    inLabelLsps.EntityData.BundleName = "cisco_ios_xe"
+    inLabelLsps.EntityData.ParentYangName = "mpls-static-cfg"
+    inLabelLsps.EntityData.SegmentPath = "in-label-lsps"
+    inLabelLsps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    inLabelLsps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    inLabelLsps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    namedLsps.EntityData.Children = types.NewOrderedMap()
-    namedLsps.EntityData.Children.Append("named-lsp", types.YChild{"NamedLsp", nil})
-    for i := range namedLsps.NamedLsp {
-        namedLsps.EntityData.Children.Append(types.GetSegmentPath(namedLsps.NamedLsp[i]), types.YChild{"NamedLsp", namedLsps.NamedLsp[i]})
+    inLabelLsps.EntityData.Children = types.NewOrderedMap()
+    inLabelLsps.EntityData.Children.Append("in-label-lsp", types.YChild{"InLabelLsp", nil})
+    for i := range inLabelLsps.InLabelLsp {
+        inLabelLsps.EntityData.Children.Append(types.GetSegmentPath(inLabelLsps.InLabelLsp[i]), types.YChild{"InLabelLsp", inLabelLsps.InLabelLsp[i]})
     }
-    namedLsps.EntityData.Leafs = types.NewOrderedMap()
+    inLabelLsps.EntityData.Leafs = types.NewOrderedMap()
 
-    namedLsps.EntityData.YListKeys = []string {}
+    inLabelLsps.EntityData.YListKeys = []string {}
 
-    return &(namedLsps.EntityData)
+    return &(inLabelLsps.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp
-// MPLS Static Label Switched Path Configuration.
-// The LSPs in this list are referenced by a string name.
-// The LSPs may be ingress/egress/crossconnect,
-// may have v4/v6 prefixes and may be associated with any
-// VRF. The other specialized lists above are for
-// implemetations that are keyed on prefixes or in-labels
-// instead of the LSP name.
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp struct {
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp
+// Non-ingress MPLS Static LSPs,
+// keyed on the incoming label
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the VRF. The type is string.
     VrfName interface{}
 
-    // This attribute is a key. Name of the LSP. The type is string. This
-    // attribute is mandatory.
-    Name interface{}
-
-    // lsp type. The type is one of the following: LspIPv6LspIPv4LspLspVrf. This
-    // attribute is mandatory.
-    LspType interface{}
-
-    // Value of the local label. The type is one of the following types: int with
-    // range: 16..1048575, or enumeration IetfMplsLabel.
+    // This attribute is a key. Value of the local label. The type is one of the
+    // following types: int with range: 16..1048575, or enumeration IetfMplsLabel.
     InLabel interface{}
 
-    // ipv4 prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
-    Ipv4Prefix interface{}
-
-    // ipv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
-    Ipv6Prefix interface{}
-
     // Fowarding path.
-    Path MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path
+    Path MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path
 }
 
-func (namedLsp *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp) GetEntityData() *types.CommonEntityData {
-    namedLsp.EntityData.YFilter = namedLsp.YFilter
-    namedLsp.EntityData.YangName = "named-lsp"
-    namedLsp.EntityData.BundleName = "cisco_ios_xe"
-    namedLsp.EntityData.ParentYangName = "named-lsps"
-    namedLsp.EntityData.SegmentPath = "named-lsp" + types.AddKeyToken(namedLsp.VrfName, "vrf-name") + types.AddKeyToken(namedLsp.Name, "name")
-    namedLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
-    namedLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
-    namedLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+func (inLabelLsp *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp) GetEntityData() *types.CommonEntityData {
+    inLabelLsp.EntityData.YFilter = inLabelLsp.YFilter
+    inLabelLsp.EntityData.YangName = "in-label-lsp"
+    inLabelLsp.EntityData.BundleName = "cisco_ios_xe"
+    inLabelLsp.EntityData.ParentYangName = "in-label-lsps"
+    inLabelLsp.EntityData.SegmentPath = "in-label-lsp" + types.AddKeyToken(inLabelLsp.VrfName, "vrf-name") + types.AddKeyToken(inLabelLsp.InLabel, "in-label")
+    inLabelLsp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    inLabelLsp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    inLabelLsp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-    namedLsp.EntityData.Children = types.NewOrderedMap()
-    namedLsp.EntityData.Children.Append("path", types.YChild{"Path", &namedLsp.Path})
-    namedLsp.EntityData.Leafs = types.NewOrderedMap()
-    namedLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", namedLsp.VrfName})
-    namedLsp.EntityData.Leafs.Append("name", types.YLeaf{"Name", namedLsp.Name})
-    namedLsp.EntityData.Leafs.Append("lsp-type", types.YLeaf{"LspType", namedLsp.LspType})
-    namedLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", namedLsp.InLabel})
-    namedLsp.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", namedLsp.Ipv4Prefix})
-    namedLsp.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", namedLsp.Ipv6Prefix})
+    inLabelLsp.EntityData.Children = types.NewOrderedMap()
+    inLabelLsp.EntityData.Children.Append("path", types.YChild{"Path", &inLabelLsp.Path})
+    inLabelLsp.EntityData.Leafs = types.NewOrderedMap()
+    inLabelLsp.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", inLabelLsp.VrfName})
+    inLabelLsp.EntityData.Leafs.Append("in-label", types.YLeaf{"InLabel", inLabelLsp.InLabel})
 
-    namedLsp.EntityData.YListKeys = []string {"VrfName", "Name"}
+    inLabelLsp.EntityData.YListKeys = []string {"VrfName", "InLabel"}
 
-    return &(namedLsp.EntityData)
+    return &(inLabelLsp.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path
 // Fowarding path
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2009,18 +2009,18 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path struct {
     AutoProtect interface{}
 
     // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations
+    Operations MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations
 
     // next-hops list. The type is slice of
-    // MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop.
-    NextHop []*MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop
+    // MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop.
+    NextHop []*MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop
 }
 
-func (path *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path) GetEntityData() *types.CommonEntityData {
+func (path *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path) GetEntityData() *types.CommonEntityData {
     path.EntityData.YFilter = path.YFilter
     path.EntityData.YangName = "path"
     path.EntityData.BundleName = "cisco_ios_xe"
-    path.EntityData.ParentYangName = "named-lsp"
+    path.EntityData.ParentYangName = "in-label-lsp"
     path.EntityData.SegmentPath = "path"
     path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
@@ -2040,9 +2040,9 @@ func (path *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path) GetEntityData() *t
     return &(path.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations
 // The incoming label processing
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2055,13 +2055,13 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations struct {
     PopAndForward interface{}
 
     // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap
+    Swap MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap
 
     // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push
+    Push MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push
 }
 
-func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
+func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations) GetEntityData() *types.CommonEntityData {
     operations.EntityData.YFilter = operations.YFilter
     operations.EntityData.YangName = "operations"
     operations.EntityData.BundleName = "cisco_ios_xe"
@@ -2083,17 +2083,17 @@ func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations) G
     return &(operations.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack
+    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack
 }
 
-func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
+func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap) GetEntityData() *types.CommonEntityData {
     swap.EntityData.YFilter = swap.YFilter
     swap.EntityData.YangName = "swap"
     swap.EntityData.BundleName = "cisco_ios_xe"
@@ -2112,9 +2112,9 @@ func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap) Ge
     return &(swap.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2125,7 +2125,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack stru
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -2144,17 +2144,17 @@ func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Swap_St
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack
+    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack
 }
 
-func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
+func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push) GetEntityData() *types.CommonEntityData {
     push.EntityData.YFilter = push.YFilter
     push.EntityData.YangName = "push"
     push.EntityData.BundleName = "cisco_ios_xe"
@@ -2173,9 +2173,9 @@ func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push) Ge
     return &(push.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2186,7 +2186,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack stru
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -2205,9 +2205,9 @@ func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_Operations_Push_St
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop
 // next-hops list
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2224,13 +2224,13 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop struct {
     ProtectedBy interface{}
 
     // Next-hop.
-    NextHopType MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType
+    NextHopType MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType
 
     // The incoming label processing.
-    Operations MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
+    Operations MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations
 }
 
-func (nextHop *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
+func (nextHop *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop) GetEntityData() *types.CommonEntityData {
     nextHop.EntityData.YFilter = nextHop.YFilter
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xe"
@@ -2253,9 +2253,9 @@ func (nextHop *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop) GetEnti
     return &(nextHop.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType
 // Next-hop
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2282,7 +2282,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType struct
     OutInterfaceName interface{}
 }
 
-func (nextHopType *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
+func (nextHopType *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_NextHopType) GetEntityData() *types.CommonEntityData {
     nextHopType.EntityData.YFilter = nextHopType.YFilter
     nextHopType.EntityData.YangName = "next-hop-type"
     nextHopType.EntityData.BundleName = "cisco_ios_xe"
@@ -2305,9 +2305,9 @@ func (nextHopType *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Next
     return &(nextHopType.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations
 // The incoming label processing
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2320,13 +2320,13 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations struct 
     PopAndForward interface{}
 
     // Push outgoing label stack.
-    Swap MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap
+    Swap MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap
 
     // Push outgoing label stack.
-    Push MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push
+    Push MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push
 }
 
-func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
+func (operations *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations) GetEntityData() *types.CommonEntityData {
     operations.EntityData.YFilter = operations.YFilter
     operations.EntityData.YangName = "operations"
     operations.EntityData.BundleName = "cisco_ios_xe"
@@ -2348,17 +2348,17 @@ func (operations *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Opera
     return &(operations.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack
+    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack
 }
 
-func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
+func (swap *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap) GetEntityData() *types.CommonEntityData {
     swap.EntityData.YFilter = swap.YFilter
     swap.EntityData.YangName = "swap"
     swap.EntityData.BundleName = "cisco_ios_xe"
@@ -2377,9 +2377,9 @@ func (swap *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_
     return &(swap.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2390,7 +2390,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_St
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Swap_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"
@@ -2409,17 +2409,17 @@ func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations
     return &(stack.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push
 // Push outgoing label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The label stack.
-    Stack MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack
+    Stack MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack
 }
 
-func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
+func (push *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push) GetEntityData() *types.CommonEntityData {
     push.EntityData.YFilter = push.YFilter
     push.EntityData.YangName = "push"
     push.EntityData.BundleName = "cisco_ios_xe"
@@ -2438,9 +2438,9 @@ func (push *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_
     return &(push.EntityData)
 }
 
-// MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack
+// MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack
 // The label stack
-type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack struct {
+type MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2451,7 +2451,7 @@ type MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_St
     LabelStack []interface{}
 }
 
-func (stack *MplsStatic_MplsStaticCfg_NamedLsps_NamedLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
+func (stack *MplsStatic_MplsStaticCfg_InLabelLsps_InLabelLsp_Path_NextHop_Operations_Push_Stack) GetEntityData() *types.CommonEntityData {
     stack.EntityData.YFilter = stack.YFilter
     stack.EntityData.YangName = "stack"
     stack.EntityData.BundleName = "cisco_ios_xe"

@@ -14,7 +14,7 @@
 - [Docker](#docker)
 - [How to Install](#how-to-install)
   - [System Requirements](#system-requirements)
-  - [Installing YDK](#installing-ydk)
+  - [gNMI Requirements](#gnmi-requirements)
 - [Documentation and Support](#documentation-and-support)
 - [Release Notes](#release-notes)
 
@@ -198,7 +198,7 @@ As a workaround, the YDK based application runtime environment must include sett
 
 ### YDK Go Source
 
-You can download the latest YDK Go source code, which include core, gNMI and model bundles, from GitHub:
+You can download the latest YDK Go source code, which include core, and model bundles, from GitHub:
 
 ```
 $ go get github.com/CiscoDevNet/ydk-go/ydk
