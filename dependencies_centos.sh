@@ -27,7 +27,7 @@ yum install -y epel-release
 yum install -y git libxslt-devel libssh-devel libstdc++-static python-devel cmake3 python-pip which wget make sudo > /dev/null
 
 print_msg "Installing YDK C++ core library"
-run_cmd yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.0/libydk-0.8.0-1.x86_64.rpm > /dev/null
+run_cmd yum install -y https://devhub.cisco.com/artifactory/rpm-ydk/0.8.1/libydk-0.8.1-1.x86_64.rpm > /dev/null
 
 print_msg "Installing C++ version 5"
 yum install centos-release-scl -y > /dev/null
